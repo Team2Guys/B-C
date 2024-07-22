@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from 'next/font/google'
 import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper'
+import PrelineScript from 'components/PrelineScript'
 
 import "./globals.css";
 
@@ -22,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montserrat.className}><PathnameWrapper> {children} </PathnameWrapper></body>
+      <body className={montserrat.className}><PathnameWrapper> {children} 
+        
+      <PrelineScript />
+      </PathnameWrapper></body>
     </html>
   );
 }
