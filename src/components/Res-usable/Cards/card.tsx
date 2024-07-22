@@ -19,7 +19,7 @@ const Card: FC<CardProps> = ({ data }) => {
           {data.paragraph}
         </p>
       </div>      
-      <div className="">
+      <div className="font-light text-sm">
         <CustomButton>{data.buttonText}</CustomButton>
       </div>
     </div>
