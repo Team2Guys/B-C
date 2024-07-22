@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import { Montserrat } from 'next/font/google'
+import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper'
 
 import "./globals.css";
 
-const montserrat  = Montserrat({ subsets: ["latin"] });
+const montserrat  = Montserrat(
+  { subsets: ["latin"],
+    variable: "--font-montserrat",
+
+  });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body className={montserrat.className}><PathnameWrapper> {children} </PathnameWrapper></body>
     </html>
   );
 }
