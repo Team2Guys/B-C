@@ -1,20 +1,15 @@
-'use client'
-import Image from "next/image";
-
-import { Menuitem } from "data/data";
+"use client";
 import Hero from "components/Hero/Hero";
 
 import HomeCard from "./Card/page";
-
+import Appointment from "components/Appointment/Appointment";
 
 export default function Home() {
   return (
     <>
       <Hero />
-  
-<div className="bg-primary text-heading">handler page</div>
-<HomeCard/>
-</>
-
+      <Appointment />
+      <HomeCard />
+    </>
   );
 }
