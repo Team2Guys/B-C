@@ -8,7 +8,7 @@ import Footer from 'components/Res-usable/Footer/Footer';
 const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const withoutHeaderPages = [
-    "sadlfjakdsfjlkdsa",
+    "/",
 
   ]
 
