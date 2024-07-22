@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { menuItem } from 'data/data'
 import Link from 'next/link'

@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss"
-
 const config = {
   darkMode: ["class"],
   content: [
@@ -19,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage:{
+        hero: "url('/assets/images/bg-hero.png')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
