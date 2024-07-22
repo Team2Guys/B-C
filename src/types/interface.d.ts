@@ -6,3 +6,12 @@ export interface CardTypes {
     buttonText: string;
   }
   
+
+
+// Blinds and Curtains section Types 
+export interface BlindsAndCurtainsTypes {
+  image: string;
+  heading: string;
+  paragraph: string;
+  buttonText: string;
+}

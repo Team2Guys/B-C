@@ -10,7 +10,7 @@ const CustomButton: FC<ButtonProps> = ({ children, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className=" text-black font-light text-sm px-2 rounded"
+      className="font-light px-2 rounded"
     >
       {children}
     </button>
