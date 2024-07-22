@@ -1,7 +1,4 @@
-'use client'
-import Image from "next/image";
-
-// import { Menuitem } from "data/data";
+"use client";
 import Hero from "components/Hero/Hero";
 
 import HomeCard from "./Card/page";
@@ -14,7 +11,7 @@ export default function Home() {
       <Hero />
       <Appointment />
       <HomeCard />
-<BlindsAndCurtainssection/>
+      <BlindsAndCurtainssection />
     </>
   );
 }
