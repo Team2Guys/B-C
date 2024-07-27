@@ -13,8 +13,6 @@ export default function Home() {
     <>
     <div className="w-full bg-primary">
     <Container>
-       {/* <div className="text-white w-7xl font-normal	tracking-[23%] leading-[18px] py-3">We can visit you, take measurements, help select fabrics & install in 1-2 days. Call Dubai 04 252 2025 now or email us on connect@twoguys.ae</div>  */}
-
        <div className="text-white w-[7xl] font-montserrat font-normal tracking-23p leading-18px py-2">
   We can visit you, take measurements, help select fabrics & install in 1-2 days. Call Dubai 04 252 2025 now or email us on connect@twoguys.ae
 </div>
