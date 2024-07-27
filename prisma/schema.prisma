@@ -25,3 +25,30 @@ model Categories {
   products products[] @relation("CategoryToProducts")
   posterImage Json
 }
+
+
+enum ProductType {
+  Blinds
+  Curtains
+  Shutters
+}
+
+enum contact_method {
+Whatsapp
+Email
+Telephone
+}
+model Appointments {
+id Int @default(autoincrement()) @id
+name String
+ phone_number Int
+ area String
+ email String @unique
+ whatsapp_number String?
+ windows String
+ prefered_Date DateTime
+ how_user_find_us String
+ user_query String
+ product_type ProductType
+ prefered_contact_method contact_method
+}

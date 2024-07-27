@@ -1,11 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from '../../prisma/prisma.service';
-import { createCategorydto } from '../dto/category.dto'
 import { CustomErrorHandler } from 'src/utils/helperFunctions';
 import { CreateCategoryHandler } from 'src/utils/DbHandlers';
 import { Prisma } from '@prisma/client';
-import { retry } from 'rxjs';
+
 
 
 
