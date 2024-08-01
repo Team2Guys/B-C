@@ -22,6 +22,7 @@ const config = {
         hero: "url('/assets/images/bg-hero.png')",
       },
       colors: {
+        
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
