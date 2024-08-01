@@ -11,7 +11,7 @@ interface BlindsAndCurtainsTypesProps {
 const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
   return (
     <div className="flex flex-col md:flex-row items-center bg-white rounded-lg overflow-hidden">
-      <Image  className="w-full md:w-1/2 h-[600px] " src={data.image} alt={data.heading} />
+      <Image  className="w-full md:w-1/2 h-[600px] " width={100} height={100} src={data.image} alt={data.heading} />
       <div className="p-6 md:w-1/2">
         <h2 className="text-2xl font-bold mb-4">{data.heading}</h2>
         <p className="text-gray-700 mb-4">{data.paragraph}</p>

@@ -12,10 +12,10 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: #40162C;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: #CDB7AA;
+    --primary-foreground: #E6D4CA;
+    --secondary: #E6D4CA;
+    --secondary-foreground: #BDC9BD;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96.1%;
@@ -32,6 +32,8 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --h1-color:#000000;
+    --light:#F6EFE9;
+    --lightgrey:#E6E4E5;
   }
 
   .dark {
