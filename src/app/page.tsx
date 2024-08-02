@@ -11,11 +11,14 @@ import Container from 'components/Res-usable/Container/Container';
 export default function Home() {
   return (
     <>
+    <div className='bg-lightgrey'>
       <Hero />
       <Appointment />
       <HomeCard />
       <BlindsAndCurtainssection />
+    </div>
       <Footer />
+
     </>
   );
 }
