@@ -107,6 +107,12 @@ const config = {
   },
   plugins: [require("tailwindcss-animate"),
   ],
+
+  variants: {
+    extend: {
+      before: ['content'],
+    },
+  },
 } satisfies Config
 
 export default config
