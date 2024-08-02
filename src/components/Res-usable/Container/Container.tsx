@@ -1,4 +1,3 @@
-// src/components/Container.tsx
 import { FC, ReactNode } from 'react';
 
 interface ContainerProps {
@@ -8,9 +7,7 @@ interface ContainerProps {
 
 const Container: FC<ContainerProps> = ({ children, className }) => {
   return (
-    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
-      {children}
-    </div>
+    <div className={` max-w-[90%] mx-auto px-2 ${className}`}>{children}</div>
   );
 };
 

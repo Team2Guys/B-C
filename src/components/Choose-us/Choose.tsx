@@ -1,4 +1,4 @@
-import { RiVerifiedBadgeFill } from "react-icons/ri";
+import { RiVerifiedBadgeFill } from 'react-icons/ri';
 
 function Choose() {
   return (
@@ -56,9 +56,6 @@ function Choose() {
       </ul>
     </div>
   );
-
-
-  
 }
 
 export default Choose;
