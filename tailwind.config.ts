@@ -22,7 +22,8 @@ const config = {
         hero: "url('/assets/images/bg-hero.png')",
       },
       colors: {
-        
+        lightgrey:"var(--lightgrey)",
+        light:"(var(--light)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -30,12 +31,12 @@ const config = {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "var(--primary)",
-          foreground: "hsl(var(--primary-foreground))",
+          foreground: "var(--primary-foreground)",
         },
         heading:"var(--h1-color)",
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "(var(--secondary)",
+          foreground: "(var(--secondary-foreground)",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
