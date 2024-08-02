@@ -26,7 +26,8 @@ const config = {
         hero: "url('/assets/images/bg-hero.png')",
       },
       colors: {
-        
+        lightgrey:"var(--lightgrey)",
+        light:"(var(--light)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -34,12 +35,12 @@ const config = {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "var(--primary)",
-          foreground: "hsl(var(--primary-foreground))",
+          foreground: "var(--primary-foreground)",
         },
         heading:"var(--h1-color)",
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "(var(--secondary)",
+          foreground: "(var(--secondary-foreground)",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -81,10 +82,30 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontSize: {
+        9: '9px',
+        10: '10px',
+        11: '11px',
+        12: '12px',
+        13: '13px',
+        14: '14px',
+        15: '15px',
+        16: '16px',
+        17: '17px',
+        18: '18px',
+        19: '19px',
+        20: '20px',
+        21: '21px',
+        22: '22px',
+        23: '23px',
+        24: '24px',
+        25: '25px',
+        26: '26px',
+        27: '27px',
+      },
     },
   },
   plugins: [require("tailwindcss-animate"),
-          require('preline/plugin'),
   ],
 } satisfies Config
 
