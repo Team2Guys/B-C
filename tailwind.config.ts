@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        gotham: ['var(--font-gotham)', 'sans-serif'],
+      },
+
       backgroundImage:{
         hero: "url('/assets/images/bg-hero.png')",
       },
