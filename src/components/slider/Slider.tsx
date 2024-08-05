@@ -1,64 +1,75 @@
-import React, { Component } from 'react';
+import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import MenuCard from 'components/ui/menu-card';
 
-function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'red' }}
-      onClick={onClick}
-    />
-  );
+interface CardSliderProps {
+  buttonClass?: string;
+  previousLabel?: any;
+  nextLabel?: any;
+  className?: string;
+  sliderItems: { key: number; src: any; alt: string; title: string }[];
 }
 
-function SamplePrevArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'green' }}
-      onClick={onClick}
-    />
-  );
-}
+const CardSlider: React.FC<CardSliderProps> = ({
+  buttonClass = '',
+  previousLabel = 'Previous',
+  nextLabel = 'Next',
+  className,
+  sliderItems,
+}) => {
+  const sliderRef = useRef<Slider>(null);
 
-function CustomArrows() {
-  const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+  const next = () => {
+    sliderRef.current?.slickNext();
   };
+
+  const previous = () => {
+    sliderRef.current?.slickPrev();
+  };
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 8,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 8,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className="slider-container">
-      this is my slider
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
+    <div className="slider-container space-y-4 px-4">
+      <Slider ref={sliderRef} {...settings}>
+        {sliderItems.map((item) => (
+          <div key={item.key} className="pl-4">
+            <MenuCard src={item.src} alt={item.alt} title={item.title} />
+          </div>
+        ))}
       </Slider>
+      <div className={` ${className} flex justify-end `}>
+        <button
+          className={`flex justify-center items-center ${buttonClass}`}
+          onClick={previous}
+        >
+          {previousLabel}
+        </button>
+        <button
+          className={`flex justify-center items-center ${buttonClass}`}
+          onClick={next}
+        >
+          {nextLabel}
+        </button>
+      </div>
     </div>
   );
-}
+};
 
-export default CustomArrows;
+export default CardSlider;
