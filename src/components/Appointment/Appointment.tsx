@@ -6,7 +6,7 @@ function Appointment() {
   return (
     <>
       <Container>
-        <div className="flex gap-4">
+        <div className="lg:flex gap-4 space-y-3 ">
           <Choose />
           <BookAppointment />
         </div>

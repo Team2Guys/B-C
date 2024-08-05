@@ -1,4 +1,3 @@
-
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -27,7 +26,7 @@ function SamplePrevArrow(props: any) {
   );
 }
 
-function CustomSlider({children}: any) {
+function CustomSlider({ children }: any) {
   const settings = {
     dots: false,
     infinite: true,
@@ -37,12 +36,9 @@ function CustomSlider({children}: any) {
     // prevArrow: <SamplePrevArrow />,
   };
 
-
   return (
     <div className="slider-container ">
-      <Slider {...settings}>
- {children}
-      </Slider>
+      <Slider {...settings}>{children}</Slider>
     </div>
   );
 }

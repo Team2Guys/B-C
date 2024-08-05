@@ -48,17 +48,15 @@ export const menuItem = [
   { id: 8, MenuName: 'Contact Us' },
 ];
 
-
-export const heroSlider=[
+export const heroSlider = [
   {
-  id:1,
-  name: "g2.png",
-  imageUrl: '/assets/images/Hero/g2.png'
-},
-{
-  id:2,
-  name: "g1.png",
-  imageUrl: '/assets/images/Hero/g1.png'
-}
-
-]
+    id: 1,
+    name: 'g2.png',
+    imageUrl: '/assets/images/Hero/g2.png',
+  },
+  {
+    id: 2,
+    name: 'g1.png',
+    imageUrl: '/assets/images/Hero/g1.png',
+  },
+];
