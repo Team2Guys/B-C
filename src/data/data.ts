@@ -1,6 +1,8 @@
 // src/data.ts
 import { CardTypes } from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
+import imag1 from '../../public/assets/images/Container.png';
+import imag12 from '../../public/assets/images/Container2.png';
 
 export const cardData: CardTypes[] = [
   {
@@ -46,4 +48,36 @@ export const menuItem = [
   { id: 7, MenuName: 'Installation' },
   { id: 8, MenuName: 'About Us' },
   { id: 8, MenuName: 'Contact Us' },
+];
+export const blindsSliderItems = [
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+];
+
+export const curtainsSliderItems = [
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
 ];
