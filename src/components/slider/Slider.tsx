@@ -2,7 +2,7 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { ReactNode } from 'react';
+import { ComponentType, ReactNode } from 'react';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -19,27 +19,34 @@ function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
 
   return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'green' }}
-      onClick={onClick}
-    />
+null
   );
 }
 
-function CustomSlider({children}: any) {
+interface SLIDERPROPS {
+  children: ReactNode,
+  PextArrow?: ComponentType<any>
+  PrevArrow?: ComponentType<any>;
+  className?:string
+
+}
+
+function CustomSlider({children,PextArrow,PrevArrow,className}: SLIDERPROPS) {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />,
+    nextArrow: PextArrow ?<PextArrow/>: undefined,
+    prevArrow: PrevArrow ?<PrevArrow/>: undefined,
+    focusOnSelect: true,
+    speed: 500
+
   };
 
 
   return (
-    <div className="slider-container ">
+    <div className={`slider-container ${className}` }>
       <Slider {...settings}>
  {children}
       </Slider>

@@ -32,7 +32,7 @@
     --chart-5: 27 87% 67%;
     --h1-color: #000000;
     --light: #f6efe9;
-    --lightgrey: #e6e4e5;
+    --lightgrey:#e6e4e5;
   }
 
   .dark {
@@ -63,11 +63,28 @@
   }
 }
 
-/* @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
+
+
+.Hero-slider .slick-dots{
+  bottom : 33px !important;
+  text-align:start !important;
+  left: -141px !important
+}
+
+.Hero-slider .slick-dots li button:before {
+  font-size: 19px !important;
+  color:#fff !important;
+}
+.Hero-slider .slick-dots .slick-active :before {
+  font-size: 19px !important
+
+}
+
+.Hero-slider  .slick-dots li.slick-active button:before{
+  color: var(--secondary-foreground) !important
+}
+
+
+.slick-prev, .slick-next{
+  display: none !important
+}
