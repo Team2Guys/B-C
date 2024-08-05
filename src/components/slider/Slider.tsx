@@ -46,7 +46,7 @@ function CustomSlider({children,PextArrow,PrevArrow,className}: SLIDERPROPS) {
 
 
   return (
-    <div className={`slider-container ${className}` }>
+    <div className={`slider-container w-full ${className}` }>
       <Slider {...settings}>
  {children}
       </Slider>
