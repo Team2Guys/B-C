@@ -45,7 +45,7 @@ function CustomSlider({
   };
 
   return (
-    <div className={`slider-container ${className}`}>
+    <div className={`slider-container w-full ${className}`}>
       <Slider {...settings}>{children}</Slider>
     </div>
   );

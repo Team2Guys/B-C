@@ -1,13 +1,13 @@
-import React, { Children, useState } from 'react';
-import { Button, Drawer } from 'antd';
+import React, { ReactNode } from 'react';
+import { Drawer } from 'antd';
 
 interface SheetProps {
-  Children: any;
-  drawerName: string;
-  title: string;
+  children?: ReactNode;
+  drawerName: any;
+  title?: string;
 }
 
-const Sheet: React.FC<SheetProps> = ({ Children, drawerName, title }) => {
+const Sheet: React.FC<SheetProps> = ({ children, drawerName, title }) => {
   const [open, setOpen] = React.useState<boolean>(false);
   const [loading, setLoading] = React.useState<boolean>(true);
 
@@ -33,7 +33,7 @@ const Sheet: React.FC<SheetProps> = ({ Children, drawerName, title }) => {
         loading={loading}
         onClose={() => setOpen(false)}
       >
-        {Children}
+        {children}
       </Drawer>
     </>
   );

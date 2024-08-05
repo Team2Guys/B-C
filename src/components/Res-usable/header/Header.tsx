@@ -4,7 +4,10 @@ import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
 import logo from '../../../../public/assets/images/logomain.png';
 import MegaMenu from './MegaMenu';
-import { blindsSliderItems, curtainsSliderItems, menuItems } from 'data/data';
+import { menuItems, MobilemenuItems } from 'data/data';
+import Sheet from 'components/ui/Drawer';
+import { RiMenuFoldLine } from 'react-icons/ri';
+import MenuCard from 'components/ui/menu-card';
 
 const Header = () => {
   return (
@@ -33,7 +36,7 @@ const Header = () => {
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
           <div className="w-3/12 lg:w-8/12 ">
-            <div className="hidden lg:flex justify-between items-center text-12 xl:text-14  whitespace-nowrap lg:-space-x-8 xl:-space-x-3 ">
+            <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16  whitespace-nowrap lg:-space-x-8 xl:-space-x-3 ">
               {menuItems.map((item, index) => {
                 if (item.sliderData) {
                   return (
@@ -56,13 +59,46 @@ const Header = () => {
               })}
             </div>
           </div>
-
           <Link
             className="py-2 px-2 xl:px-3 rounded-md text-14 xl:text-16 whitespace-nowrap  bg-secondary-foreground text-white"
             href="/free-consultation"
           >
             Free Consultation
           </Link>
+          <div className="flex lg:hidden">
+            <Sheet drawerName={<RiMenuFoldLine size={25} />}>
+              {MobilemenuItems.map((item, index) => (
+                <Sheet
+                  key={index}
+                  drawerName={
+                    <div className="px-3 py-2 rounded-md text-14 font-medium hover:text-black">
+                      {item.label}
+                    </div>
+                  }
+                >
+                  {item.subItems ? (
+                    <div className="grid grid-cols-2 gap-4">
+                      {item.subItems.map((subItem) => (
+                        <MenuCard
+                          key={subItem.key}
+                          src={subItem.src}
+                          alt={subItem.alt}
+                          title={subItem.title}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <Link
+                      className="px-3 py-2 rounded-md text-14 font-medium hover:text-black"
+                      href={item.path}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </Sheet>
+              ))}
+            </Sheet>
+          </div>
         </Container>
       </nav>
     </>
