@@ -12,11 +12,8 @@ function Hero() {
   const [showModel, setshowModel] = useState<string>("")
 
   useEffect(() => {
-    // Define the click handler
     const handleClick = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-
-      // Get the id of the target element
+      const target = event.target as HTMLElement
       const id = target.id;
 
       console.log('Document clicked', id);
@@ -24,11 +21,9 @@ function Hero() {
         return setshowModel('')
       }
     };
-
-    // Attach the click handler to the document
     document.addEventListener('click', handleClick);
 
-    // Clean up the click handler when the component unmounts
+  
     return () => {
       document.removeEventListener('click', handleClick);
     };
