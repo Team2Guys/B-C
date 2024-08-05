@@ -105,3 +105,31 @@ export const menuItems = [
   { label: 'About Us', path: '/about-us' },
   { label: 'Contact Us', path: '/contact-us' },
 ];
+
+export const MobilemenuItems = [
+  { label: 'Home', path: '/' },
+  {
+    label: 'Blinds',
+    subItems: blindsSliderItems.map((item) => ({
+      key: item.key,
+      src: item.src,
+      alt: item.alt,
+      title: item.title,
+    })),
+  },
+  {
+    label: 'Curtains',
+    subItems: curtainsSliderItems.map((item) => ({
+      key: item.key,
+      src: item.src,
+      alt: item.alt,
+      title: item.title,
+    })),
+  },
+  { label: 'Shutters', path: '/shutters' },
+  { label: 'Commercial', path: '/commercial' },
+  { label: 'Estimator', path: '/estimator' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Contact Us', path: '/contact-us' },
+];

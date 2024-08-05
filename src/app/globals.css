@@ -46,9 +46,8 @@
 }
 
 .Hero-slider .slick-dots {
-  bottom: 33px !important;
-  text-align: start !important;
-  left: -141px !important;
+  bottom: 4px !important;
+  left: -35px !important;
 }
 
 .Hero-slider .slick-dots li button:before {
