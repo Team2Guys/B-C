@@ -44,3 +44,56 @@
     @apply bg-lightgrey;
   }
 }
+
+.Hero-slider .slick-dots {
+  bottom: 33px !important;
+  text-align: start !important;
+  left: -141px !important;
+}
+
+.Hero-slider .slick-dots li button:before {
+  font-size: 19px !important;
+  color: #fff !important;
+}
+.Hero-slider .slick-dots .slick-active :before {
+  font-size: 19px !important;
+}
+
+.Hero-slider .slick-dots li.slick-active button:before {
+  color: var(--secondary-foreground) !important;
+}
+
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar ::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent; /* Background color of the scrollbar thumb */ /* Rounded corners for the scrollbar thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: transparent; /* Background color when hovering over the scrollbar thumb */
+}
+
+/* Scrollbar for specific elements */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox */
+}
+
+/* Optional: Hide scrollbar on smaller screens */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

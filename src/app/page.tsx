@@ -6,8 +6,10 @@ import Footer from 'components/Res-usable/Footer/Footer';
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Appointment />
+      <div>
+        <Hero />
+        <Appointment />
+      </div>
       <Footer />
     </>
   );

@@ -81,3 +81,27 @@ export const curtainsSliderItems = [
   { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
   { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
 ];
+
+export const heroSlider = [
+  {
+    id: 1,
+    name: 'g2.png',
+    imageUrl: '/assets/images/Hero/g2.png',
+  },
+  {
+    id: 2,
+    name: 'g1.png',
+    imageUrl: '/assets/images/Hero/g1.png',
+  },
+];
+export const menuItems = [
+  { label: 'Home', path: '/' },
+  { label: 'Blinds', path: '#', sliderData: blindsSliderItems },
+  { label: 'Curtains', path: '#', sliderData: curtainsSliderItems },
+  { label: 'Shutters', path: '#', sliderData: blindsSliderItems },
+  { label: 'Commercial', path: '#', sliderData: curtainsSliderItems },
+  { label: 'Estimator', path: '/estimator' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Contact Us', path: '/contact-us' },
+];
