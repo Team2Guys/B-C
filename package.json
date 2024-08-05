@@ -11,6 +11,7 @@
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\""
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.0",
     "@next/font": "^14.2.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
