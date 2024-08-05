@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        gotham: ['var(--font-gotham)', 'sans-serif'],
+      },
+
       backgroundImage:{
         hero: "url('/assets/images/bg-hero.png')",
       },
@@ -116,7 +120,14 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),
+  ],
+
+  variants: {
+    extend: {
+      before: ['content'],
+    },
+  },
 } satisfies Config
 
 export default config

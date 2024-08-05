@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, MouseEvent } from 'react';
-import CardSlider from 'components/slider/Slider';
 import { blindsSliderItems, curtainsSliderItems } from 'data/data'; // Adjust import based on your actual file structure
 import Link from 'next/link';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import CardSlider from 'components/slider/CardSlider';
 
 interface MegaMenuProps {
   label: string;
@@ -44,7 +44,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ label, sliderData }) => {
     <div className="">
       <button
         ref={buttonRef}
-        className="font-bold py-2 px-4 rounded"
+        className=" py-2 px-4 rounded"
         onClick={handleClick}
       >
         {label}
@@ -52,10 +52,10 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ label, sliderData }) => {
       {isOpen && (
         <div
           ref={menuRef}
-          className="mt-7 rounded-xl absolute bg-white w-full left-1/2 max-w-screen-2xl -translate-x-1/2 p-2 py-8 space-y-4 transition-transform transform"
+          className="mt-7 rounded-xl absolute bg-white  w-full left-1/2 max-w-[90%]  -translate-x-1/2 p-2 py-8 space-y-4 transition-transform transform z-50"
         >
           <div className="flex justify-between px-8">
-            <p className="text-primary text-24 font-medium">{label}</p>
+            <p className="text-primary text-16 font-medium">{label}</p>
             <Link href={'/'}>View All</Link>
           </div>
           <CardSlider

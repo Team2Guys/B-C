@@ -1,75 +1,54 @@
-import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import MenuCard from 'components/ui/menu-card';
+import { ComponentType, ReactNode } from 'react';
 
-interface CardSliderProps {
-  buttonClass?: string;
-  previousLabel?: any;
-  nextLabel?: any;
-  className?: string;
-  sliderItems: { key: number; src: any; alt: string; title: string }[];
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'red' }}
+      onClick={onClick}
+    />
+  );
 }
 
-const CardSlider: React.FC<CardSliderProps> = ({
-  buttonClass = '',
-  previousLabel = 'Previous',
-  nextLabel = 'Next',
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+
+  return null;
+}
+
+interface SLIDERPROPS {
+  children: ReactNode;
+  PextArrow?: ComponentType<any>;
+  PrevArrow?: ComponentType<any>;
+  className?: string;
+}
+
+function CustomSlider({
+  children,
+  PextArrow,
+  PrevArrow,
   className,
-  sliderItems,
-}) => {
-  const sliderRef = useRef<Slider>(null);
-
-  const next = () => {
-    sliderRef.current?.slickNext();
-  };
-
-  const previous = () => {
-    sliderRef.current?.slickPrev();
-  };
-
+}: SLIDERPROPS) {
   const settings = {
+    dots: true,
     infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: PextArrow ? <PextArrow /> : undefined,
+    prevArrow: PrevArrow ? <PrevArrow /> : undefined,
+    focusOnSelect: true,
     speed: 500,
-    slidesToShow: 8,
-    slidesToScroll: 4,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 8,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
 
   return (
-    <div className="slider-container space-y-4 px-4">
-      <Slider ref={sliderRef} {...settings}>
-        {sliderItems.map((item) => (
-          <div key={item.key} className="pl-4">
-            <MenuCard src={item.src} alt={item.alt} title={item.title} />
-          </div>
-        ))}
-      </Slider>
-      <div className={` ${className} flex justify-end `}>
-        <button
-          className={`flex justify-center items-center ${buttonClass}`}
-          onClick={previous}
-        >
-          {previousLabel}
-        </button>
-        <button
-          className={`flex justify-center items-center ${buttonClass}`}
-          onClick={next}
-        >
-          {nextLabel}
-        </button>
-      </div>
+    <div className={`slider-container ${className}`}>
+      <Slider {...settings}>{children}</Slider>
     </div>
   );
-};
+}
 
-export default CardSlider;
+export default CustomSlider;
