@@ -18,7 +18,7 @@ const Sheet: React.FC<SheetProps> = ({ children, drawerName, title }) => {
     // Simple loading mock. You should add cleanup logic in real world.
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   };
 
   return (

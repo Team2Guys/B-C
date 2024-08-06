@@ -32,7 +32,7 @@ function Hero() {
         {heroSlider.map((item: any, index: number) => {
           return (
             <>
-              <div className="w-full flex max-sm:flex-wrap">
+              <div className="w-full flex max-sm:flex-wrap" key={index}>
                 <div className=" min-w-[500px] left-side w-1/2 flex flex-col justify-center gap-3 ">
                   <div className="w-full flex items-center gap-2">
                     <svg
