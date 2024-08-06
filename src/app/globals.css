@@ -80,8 +80,8 @@
   color: var(--secondary-foreground) !important;
 }
 
-.slick-prev,
-.slick-next {
+.Hero-slider .slick-prev,
+.Hero-slider .slick-next {
   display: none !important;
 }
 .clip-custom-shape {
