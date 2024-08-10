@@ -13,7 +13,6 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api');
 
-  app.setGlobalPrefix('docs');
   const config = new DocumentBuilder()
   .setTitle('Blind and curtains')
   .setDescription('Docs for blind and curtains')
@@ -22,6 +21,7 @@ async function bootstrap() {
   .build();
 const document = SwaggerModule.createDocument(app, config);
 
+SwaggerModule.setup('api', app, document);
   await app.listen(3200);
 }
 bootstrap();
