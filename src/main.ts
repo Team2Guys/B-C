@@ -9,7 +9,7 @@ async function bootstrap() {
   const { httpAdapter } = app.get(HttpAdapterHost) 
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter))
 
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('docs');
 
   await app.listen(3200);
 }
