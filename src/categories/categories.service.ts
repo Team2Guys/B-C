@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from '../../prisma/prisma.service';
-import { CustomErrorHandler } from 'src/utils/helperFunctions';
-import { CreateCategoryHandler } from 'src/utils/DbHandlers';
+import { CustomErrorHandler } from '../utils/helperFunctions';
+import { CreateCategoryHandler } from '../utils/DbHandlers';
 import { Prisma } from '@prisma/client';
 
 

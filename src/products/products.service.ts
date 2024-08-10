@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
-import { CustomErrorHandler } from 'src/utils/helperFunctions';
+import { CustomErrorHandler } from '../utils/helperFunctions';
 import { CreateProductDto } from '../dto/product.dto'
 import { getAllproducts } from '../utils/DbHandlers'
 import { Prisma } from '@prisma/client';

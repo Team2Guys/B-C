@@ -1,5 +1,5 @@
 import { PrismaService } from '../../prisma/prisma.service';
-import { CustomErrorHandler } from 'src/utils/helperFunctions';
+import { CustomErrorHandler } from '../utils/helperFunctions';
 import { createCategorydto } from '../dto/category.dto'
 import { Prisma } from '@prisma/client';
 
