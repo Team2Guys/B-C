@@ -8,6 +8,7 @@ import {
 import { BlindsAndCurtainsTypes } from 'types/interface';
 import imag1 from '../../public/assets/images/Container.png';
 import imag12 from '../../public/assets/images/Container2.png';
+import { BannerData } from 'types/interface';
 
 export const cardData: CardTypes[] = [
   {
@@ -54,38 +55,6 @@ export const menuItem = [
   { id: 8, MenuName: 'About Us' },
   { id: 8, MenuName: 'Contact Us' },
 ];
-export const blindsSliderItems = [
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-];
-
-export const curtainsSliderItems = [
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-];
 
 export const heroSlider = [
   {
@@ -99,44 +68,61 @@ export const heroSlider = [
     imageUrl: '/assets/images/Hero/g1.png',
   },
 ];
-export const menuItems = [
-  { label: 'Home', path: '/' },
-  { label: 'Blinds', path: '#', sliderData: blindsSliderItems },
-  { label: 'Curtains', path: '#', sliderData: curtainsSliderItems },
-  { label: 'Shutters', path: '#', sliderData: blindsSliderItems },
-  { label: 'Commercial', path: '#', sliderData: curtainsSliderItems },
-  { label: 'Estimator', path: '/estimator' },
-  { label: 'Gallery', path: '/gallery' },
-  { label: 'About Us', path: '/about-us' },
-  { label: 'Contact Us', path: '/contact-us' },
+export const bannerData: BannerData = {
+  imageUrl: '/assets/images/dd.png',
+  title: 'MADE TO MEASURE SHUTTERS FOR YOU..',
+  buttonText: 'Booking Now',
+};
+
+export const footerLinks = [
+  {
+    title: 'Product',
+    links: [
+      'UI/UX Design',
+      'Web Development',
+      'Mobile Development',
+      'IT Consultancy',
+    ],
+  },
+  {
+    title: 'Support',
+    links: ['Contact Us', 'Knowledge Base', 'Forums'],
+  },
+  {
+    title: 'Legal',
+    links: [
+      'Legal Information',
+      'Privacy Policy',
+      'Report Abuse',
+      'Terms of Sources',
+      'WHOIS Lookup',
+    ],
+  },
+  {
+    title: 'Login',
+    links: ['Web Hosting', 'DreamCompute', 'Website Builder'],
+  },
+  {
+    title: 'Company',
+    links: ['About Us', 'Affiliate', 'Blog', 'Careers', 'Community'],
+  },
 ];
 
-export const MobilemenuItems = [
-  { label: 'Home', path: '/' },
+export const footerInfo = ' ©Blindsand & Curtains  2024 All rights reserved';
+
+export const OurClientImage = [
+  { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
+  { src: '/assets/images/ourclient/logo2.png', alt: 'Logomain' },
   {
-    label: 'Blinds',
-    subItems: blindsSliderItems.map((item) => ({
-      key: item.key,
-      src: item.src,
-      alt: item.alt,
-      title: item.title,
-    })),
+    src: '/assets/images/ourclient/logo3.png',
+    alt: 'Plantation-Shutters-Dubai 1',
   },
+  { src: '/assets/images/ourclient/logo4.png', alt: 'Two-Guys-Logo' },
   {
-    label: 'Curtains',
-    subItems: curtainsSliderItems.map((item) => ({
-      key: item.key,
-      src: item.src,
-      alt: item.alt,
-      title: item.title,
-    })),
+    src: '/assets/images/ourclient/logo5.png',
+    alt: 'Yellow-Zone-Group-Dubai 1',
   },
-  { label: 'Shutters', path: '/shutters' },
-  { label: 'Commercial', path: '/commercial' },
-  { label: 'Estimator', path: '/estimator' },
-  { label: 'Gallery', path: '/gallery' },
-  { label: 'About Us', path: '/about-us' },
-  { label: 'Contact Us', path: '/contact-us' },
+  // { src: '/assets/images/ourclient/yellow-zone-group-dubai-2.png', alt: 'Yellow-Zone-Group-Dubai 2' }
 ];
 
 export const SocialData: SocialDataType[] = [
@@ -220,8 +206,6 @@ export const featureProducts: FeatureProductData[] = [
   },
 ];
 
-import { FaStar } from 'react-icons/fa';
-
 export const supportItems: SupportItem[] = [
   {
     title: 'MOTORS DO THE WORK FOR YOU',
@@ -282,4 +266,77 @@ export const testimonials = [
     `,
     rating: 5,
   },
+];
+
+export const blindsSliderItems = [
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+];
+
+export const curtainsSliderItems = [
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+];
+
+export const menuItems = [
+  { label: 'Home', path: '/' },
+  { label: 'Blinds', path: '#', sliderData: blindsSliderItems },
+  { label: 'Curtains', path: '#', sliderData: curtainsSliderItems },
+  { label: 'Shutters', path: '#', sliderData: blindsSliderItems },
+  { label: 'Commercial', path: '#', sliderData: curtainsSliderItems },
+  { label: 'Estimator', path: '/estimator' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Contact Us', path: '/contact-us' },
+];
+
+export const MobilemenuItems = [
+  { label: 'Home', path: '/' },
+  {
+    label: 'Blinds',
+    subItems: blindsSliderItems.map((item) => ({
+      key: item.key,
+      src: item.src,
+      alt: item.alt,
+      title: item.title,
+    })),
+  },
+  {
+    label: 'Curtains',
+    subItems: curtainsSliderItems.map((item) => ({
+      key: item.key,
+      src: item.src,
+      alt: item.alt,
+      title: item.title,
+    })),
+  },
+  { label: 'Shutters', path: '/shutters' },
+  { label: 'Commercial', path: '/commercial' },
+  { label: 'Estimator', path: '/estimator' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Contact Us', path: '/contact-us' },
 ];

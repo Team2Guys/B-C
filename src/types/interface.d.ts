@@ -31,3 +31,17 @@ export interface SupportItem {
   title: string;
   description: string;
 }
+
+export interface TRSlide {
+  title: string;
+  content: string;
+}
+export type BannerData = {
+  imageUrl: string;
+  title: string;
+  buttonText: string;
+};
+
+export type BannerProps = {
+  data: BannerData;
+};

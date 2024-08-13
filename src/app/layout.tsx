@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper';
 import localFont from 'next/font/local';
 import 'app/globals.css';
+
 const gotham = localFont({
   src: [
     {
@@ -110,7 +111,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={gotham.className}>
+      <body className={`${gotham.className} bg-lightgrey`}>
         <PathnameWrapper> {children}</PathnameWrapper>
       </body>
     </html>

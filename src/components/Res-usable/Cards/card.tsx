@@ -9,22 +9,26 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ data }) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden m-4">
-      <Image
-        className="w-full h-full"
-        width={100}
-        height={100}
-        src={data.image}
-        alt={data.heading}
-      />
-      <div className="px-2 py-4">
-        <div className="font-bold text-xl mb-2">{data.heading}</div>
-        <p className="text-gray-700 text-base">{data.paragraph}</p>
+    <>
+      <div className="max-w-sm rounded  m-4">
+        <div>
+          <Image
+            className="w-full h-full"
+            width={100}
+            height={100}
+            src={data.image}
+            alt={data.heading}
+          />
+        </div>
+        <div className="px-2 py-4">
+          <div className="font-bold text-xl mb-2">{data.heading} </div>
+          <p className="text-gray-700 text-base">{data.paragraph}</p>
+        </div>
+        <div className="font-light text-sm">
+          <CustomButton>{data.buttonText}</CustomButton>
+        </div>
       </div>
-      <div className="font-light text-sm">
-        <CustomButton>{data.buttonText}</CustomButton>
-      </div>
-    </div>
+    </>
   );
 };
 
