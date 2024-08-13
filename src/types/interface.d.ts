@@ -13,3 +13,8 @@ export interface BlindsAndCurtainsTypes {
   paragraph: string;
   buttonText: string;
 }
+
+export interface TRSlide {
+  title: string;
+  content: string;
+}
