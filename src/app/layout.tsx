@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper'
-import localFont from 'next/font/local'
-import 'app/globals.css'
+import type { Metadata } from 'next';
+import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper';
+import localFont from 'next/font/local';
+import 'app/globals.css';
 const gotham = localFont({
   src: [
     {
@@ -98,12 +98,10 @@ const gotham = localFont({
   variable: '--font-gotham',
 });
 
-
 export const metadata: Metadata = {
   title: 'Blinds and Curtains',
   description: 'Welcome To Blinds and Curtains !',
 };
-
 
 export default function RootLayout({
   children,
@@ -112,9 +110,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={gotham.className}><PathnameWrapper> {children}
-
-      </PathnameWrapper></body>
+      <body className={`${gotham.className} bg-lightgrey`}>
+        <PathnameWrapper> {children}</PathnameWrapper>
+      </body>
     </html>
   );
 }

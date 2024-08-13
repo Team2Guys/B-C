@@ -2,8 +2,8 @@ import { RiVerifiedBadgeFill } from 'react-icons/ri';
 
 function Choose() {
   return (
-    <div className="px-9 py-8 bg-white drop-shadow-md rounded-md w-[70%]">
-      <h2 className="text-primary font-semibold text-3xl">
+    <div className="px-9 py-8 bg-white drop-shadow-md rounded-md lg:w-3/5 w-full lg:mt-5">
+      <h2 className="text-secondary font-semibold text-3xl">
         Why Choose Us:
         <br />
         <span className="font-normal">
@@ -19,7 +19,7 @@ function Choose() {
       <ul className="mt-4">
         <li className="font-normal text-sm leading-6 flex items-center gap-2 py-2">
           <span>
-            <RiVerifiedBadgeFill size={24} className="text-primary" />
+            <RiVerifiedBadgeFill size={24} className="text-[#A9B4A4]" />
           </span>
           <span>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -28,7 +28,7 @@ function Choose() {
         </li>
         <li className="font-normal text-sm leading-6 flex items-center gap-2 py-2">
           <span>
-            <RiVerifiedBadgeFill size={24} className="text-primary" />
+            <RiVerifiedBadgeFill size={24} className="text-[#A9B4A4]" />
           </span>
           <span>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -37,7 +37,7 @@ function Choose() {
         </li>
         <li className="font-normal text-sm leading-6 flex items-center gap-2 py-2">
           <span>
-            <RiVerifiedBadgeFill size={24} className="text-primary" />
+            <RiVerifiedBadgeFill size={24} className="text-[#A9B4A4]" />
           </span>
           <span>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -46,7 +46,7 @@ function Choose() {
         </li>
         <li className="font-normal text-sm leading-6 flex items-center gap-2 py-2">
           <span>
-            <RiVerifiedBadgeFill size={24} className="text-primary" />
+            <RiVerifiedBadgeFill size={24} className="text-[#A9B4A4]" />
           </span>
           <span>
             Lorem Ipsum is simply dummy text of the printing and typesetting
