@@ -64,8 +64,8 @@ function Hero() {
                     Lorem Ipsum is simply dummy text of the <br /> and
                     typesetting industry.
                   </p>
-                  <button className="Upper w-fit bg-white text-14 font-semibold text-black rounded-full px-6  py-2">
-                    SEE ALL
+                  <button className="Upper w-fit bg-white text-14 font-semibold text-black rounded-full px-6  py-2 uppercase">
+                    Book Now
                   </button>
                 </div>
 

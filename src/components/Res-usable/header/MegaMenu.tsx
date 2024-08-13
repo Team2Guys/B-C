@@ -3,13 +3,19 @@ import { blindsSliderItems, curtainsSliderItems } from 'data/data'; // Adjust im
 import Link from 'next/link';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import CardSlider from 'components/slider/CardSlider';
+import { cn } from 'lib/utils';
 
 interface MegaMenuProps {
   label: string;
+  className?: string; // Add additional class name for styling if needed
   sliderData: { key: number; src: any; alt: string; title: string }[];
 }
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ label, sliderData }) => {
+const MegaMenu: React.FC<MegaMenuProps> = ({
+  label,
+  sliderData,
+  className,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -41,10 +47,10 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ label, sliderData }) => {
   }, []);
 
   return (
-    <div className="">
+    <div>
       <button
         ref={buttonRef}
-        className=" py-2 px-4 rounded"
+        className={cn('py-2 px-4 rounded', className)}
         onClick={handleClick}
       >
         {label}

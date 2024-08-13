@@ -13,3 +13,21 @@ export interface BlindsAndCurtainsTypes {
   paragraph: string;
   buttonText: string;
 }
+
+export interface SocialDataType {
+  href: string;
+  src: string;
+  alt: string;
+}
+export interface FeatureProductData {
+  id: number;
+  category: string;
+  title: string;
+  image: string; // You can also use StaticImageData if importing images
+  link: string;
+}
+
+export interface SupportItem {
+  title: string;
+  description: string;
+}
