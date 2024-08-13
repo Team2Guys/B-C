@@ -110,7 +110,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={gotham.className}>
+      <body className={`${gotham.className} bg-lightgrey`}>
         <PathnameWrapper> {children}</PathnameWrapper>
       </body>
     </html>

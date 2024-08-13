@@ -1,15 +1,7 @@
+// Banner.tsx
 import Image from 'next/image';
 import React from 'react';
-
-type BannerData = {
-  imageUrl: string;
-  title: string;
-  buttonText: string;
-};
-
-type BannerProps = {
-  data: BannerData;
-};
+import { BannerProps } from 'types/interface';
 
 const Banner: React.FC<BannerProps> = ({ data }) => {
   return (
