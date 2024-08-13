@@ -96,3 +96,7 @@
     display: none;
   }
 }
+
+.slider-container {
+  padding: 0 16px !important; /* Adjust as needed */
+}

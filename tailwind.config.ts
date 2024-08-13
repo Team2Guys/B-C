@@ -24,6 +24,7 @@ const config = {
 
       backgroundImage:{
         hero: "url('/assets/images/bg-hero.png')",
+        men: "url('/assets/images/static/menimage.png')",
       },
       fontSize: {
         "title-xxl": ["44px", "55px"],
@@ -56,6 +57,14 @@ const config = {
         "27" : "27px",
         "28" : "28px",
         "29" : "29px",
+        "30" : "30px",
+        "31" : "31px",
+        "32" : "32px",
+        "33" : "33px",
+        "34" : "34px",
+        "35" : "35px",
+        "36" : "36px",
+        "37" : "37px",
 
       },
       colors: {
