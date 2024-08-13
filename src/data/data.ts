@@ -1,6 +1,7 @@
 // src/data.ts
 import { CardTypes } from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
+import { BannerData } from 'types/interface';
 
 export const cardData: CardTypes[] = [
   {
@@ -59,4 +60,60 @@ export const heroSlider = [
     name: 'g1.png',
     imageUrl: '/assets/images/Hero/g1.png',
   },
+];
+export const bannerData: BannerData = {
+  imageUrl: '/assets/images/dd.png',
+  title: 'MADE TO MEASURE SHUTTERS FOR YOU..',
+  buttonText: 'Booking Now',
+};
+
+export const footerLinks = [
+  {
+    title: 'Product',
+    links: [
+      'UI/UX Design',
+      'Web Development',
+      'Mobile Development',
+      'IT Consultancy',
+    ],
+  },
+  {
+    title: 'Support',
+    links: ['Contact Us', 'Knowledge Base', 'Forums'],
+  },
+  {
+    title: 'Legal',
+    links: [
+      'Legal Information',
+      'Privacy Policy',
+      'Report Abuse',
+      'Terms of Sources',
+      'WHOIS Lookup',
+    ],
+  },
+  {
+    title: 'Login',
+    links: ['Web Hosting', 'DreamCompute', 'Website Builder'],
+  },
+  {
+    title: 'Company',
+    links: ['About Us', 'Affiliate', 'Blog', 'Careers', 'Community'],
+  },
+];
+
+export const footerInfo = ' ©Blindsand & Curtains  2024 All rights reserved';
+
+export const OurClientImage = [
+  { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
+  { src: '/assets/images/ourclient/logo2.png', alt: 'Logomain' },
+  {
+    src: '/assets/images/ourclient/logo3.png',
+    alt: 'Plantation-Shutters-Dubai 1',
+  },
+  { src: '/assets/images/ourclient/logo4.png', alt: 'Two-Guys-Logo' },
+  {
+    src: '/assets/images/ourclient/logo5.png',
+    alt: 'Yellow-Zone-Group-Dubai 1',
+  },
+  // { src: '/assets/images/ourclient/yellow-zone-group-dubai-2.png', alt: 'Yellow-Zone-Group-Dubai 2' }
 ];
