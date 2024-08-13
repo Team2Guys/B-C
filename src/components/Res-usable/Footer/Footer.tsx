@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
     <footer>
       <div className="bg-primary text-white py-10">
         <div className="container mx-auto px-0">
-          <div className="grid grid-cols-1 md:grid-cols-6 justify-items-end py-5 border-b-2">
+          <div className="grid grid-cols-1 md:grid-cols-4 justify-items-end py-5 border-b-2">
             <div className="mb-4 md:col-span-1 ">
               <Link href={'/'}>
                 <Image
