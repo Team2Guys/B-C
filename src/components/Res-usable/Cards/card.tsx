@@ -1,10 +1,7 @@
-// Card.tsx
 import { FC } from 'react';
-// import { CardData } from '../types';
 import { CardTypes } from '../../../types/interface';
 import CustomButton from '../Button/Button';
 import Image from 'next/image';
-// import { Button, Card as ShadeCard } from 'shade-ui';
 
 interface CardProps {
   data: CardTypes;
