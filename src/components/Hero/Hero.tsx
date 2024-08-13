@@ -32,7 +32,7 @@ function Hero() {
         {heroSlider.map((item: any, index: number) => {
           return (
             <>
-              <div className="w-full flex max-sm:flex-wrap" key={index}>
+              <div className="w-full flex max-sm:flex-wrap">
                 <div className=" min-w-[500px] left-side w-1/2 flex flex-col justify-center gap-3 ">
                   <div className="w-full flex items-center gap-2">
                     <svg
@@ -64,8 +64,8 @@ function Hero() {
                     Lorem Ipsum is simply dummy text of the <br /> and
                     typesetting industry.
                   </p>
-                  <button className="Upper w-fit bg-white text-14 font-semibold text-black rounded-full px-6  py-2 uppercase">
-                    Book Now
+                  <button className="Upper w-fit bg-white text-14 font-semibold text-black rounded-full px-6  py-2">
+                    SEE ALL
                   </button>
                 </div>
 

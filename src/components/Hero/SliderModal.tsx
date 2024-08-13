@@ -45,8 +45,8 @@ function SliderModal({ setshowModel, className }: SliderModal) {
         className="w-full h-full mb-4 text-center text-14 leading-9	 "
       >
         Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-        ever since the 1500s, when an unknown printer took a galley of type and
+        industry. Lorem Ipsum has been the industrys standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
         scrambled it to make a type specimen book.
       </div>
 
