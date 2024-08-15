@@ -45,3 +45,10 @@ export type BannerData = {
 export type BannerProps = {
   data: BannerData;
 };
+
+export interface GalleryItems {
+  id: number;
+  imageUrl: string | StaticImageData;
+  title: string;
+  category: string;
+}

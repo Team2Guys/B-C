@@ -2,6 +2,7 @@
 import {
   CardTypes,
   FeatureProductData,
+  GalleryItems,
   SocialDataType,
   SupportItem,
 } from 'types/interface';
@@ -9,6 +10,12 @@ import { BlindsAndCurtainsTypes } from 'types/interface';
 import imag1 from '../../public/assets/images/Container.png';
 import imag12 from '../../public/assets/images/Container2.png';
 import { BannerData } from 'types/interface';
+import galleryimg1 from '../../public/assets/images/Rectangle 8.png';
+import galleryimg2 from '../../public/assets/images/Rectangle 8dd.png';
+import galleryimg3 from '../../public/assets/images/imaged.png';
+import galleryimg4 from '../../public/assets/images/Image4.png';
+import galleryimg5 from '../../public/assets/images/image5.png';
+import galleryimg6 from '../../public/assets/images/image6.png';
 
 export const cardData: CardTypes[] = [
   {
@@ -332,4 +339,105 @@ export const MobilemenuItems = [
   { label: 'Gallery', path: '/gallery' },
   { label: 'About Us', path: '/about-us' },
   { label: 'Contact Us', path: '/contact-us' },
+];
+
+export const galleryBreadcrum = [
+  { label: 'Home', href: '/' },
+  { label: 'Gallery' },
+];
+
+export const galleryItems: GalleryItems[] = [
+  {
+    id: 1,
+    imageUrl: galleryimg1,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'BILNDS',
+  },
+  {
+    id: 2,
+    imageUrl: galleryimg2,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'CURTAINS',
+  },
+  {
+    id: 3,
+    imageUrl: galleryimg3,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'BILNDS',
+  },
+  {
+    id: 4,
+    imageUrl: galleryimg4,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 5,
+    imageUrl: galleryimg5,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'COMMERCIAL',
+  },
+  {
+    id: 6,
+    imageUrl: galleryimg6,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 7,
+    imageUrl: galleryimg2,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'COMMERCIAL',
+  },
+  {
+    id: 8,
+    imageUrl: galleryimg1,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 9,
+    imageUrl: galleryimg3,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'INSTALLATION',
+  },
+  {
+    id: 10,
+    imageUrl: galleryimg4,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'COMMERCIAL',
+  },
+  {
+    id: 11,
+    imageUrl: galleryimg5,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 12,
+    imageUrl: galleryimg6,
+    title: 'The Bel Air Wooden Blinds',
+    category: 'INSTALLATION',
+  },
+];
+
+export const relativeProducts: GalleryItems[] = [
+  {
+    id: 1,
+    imageUrl: galleryimg1,
+    title: 'Vertical Blinds',
+    category: 'BILNDS',
+  },
+  {
+    id: 2,
+    imageUrl: galleryimg2,
+    title: 'Vertical Blinds',
+    category: 'CURTAINS',
+  },
+  {
+    id: 3,
+    imageUrl: galleryimg3,
+    title: 'Vertical Blinds',
+    category: 'BILNDS',
+  },
 ];
