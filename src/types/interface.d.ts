@@ -10,7 +10,7 @@ export interface CardTypes {
 export interface BlindsAndCurtainsTypes {
   image: string;
   heading: string;
-  paragraph: string;
+  paragraph: string[];
   buttonText: string;
 }
 
@@ -44,4 +44,8 @@ export type BannerData = {
 
 export type BannerProps = {
   data: BannerData;
+};
+export type TRatingSlider = {
+  imageUrl: string;
+  StarImage: string;
 };
