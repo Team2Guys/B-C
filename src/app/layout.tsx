@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper';
 import localFont from 'next/font/local';
 import 'app/globals.css';
+
 const gotham = localFont({
   src: [
     {
