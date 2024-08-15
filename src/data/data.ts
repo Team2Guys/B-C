@@ -69,20 +69,11 @@ export const bannerData: BannerData = {
 
 export const footerLinks = [
   {
-    title: 'Product',
-    links: [
-      'UI/UX Design',
-      'Web Development',
-      'Mobile Development',
-      'IT Consultancy',
-    ],
-  },
-  {
-    title: 'Support',
+    title: 'Quick Links',
     links: ['Contact Us', 'Knowledge Base', 'Forums'],
   },
   {
-    title: 'Legal',
+    title: 'Account Inf0',
     links: [
       'Legal Information',
       'Privacy Policy',
@@ -92,12 +83,14 @@ export const footerLinks = [
     ],
   },
   {
-    title: 'Login',
-    links: ['Web Hosting', 'DreamCompute', 'Website Builder'],
-  },
-  {
-    title: 'Company',
-    links: ['About Us', 'Affiliate', 'Blog', 'Careers', 'Community'],
+    title: 'Polices',
+    links: [
+      'Legal Information',
+      'Privacy Policy',
+      'Report Abuse',
+      'Terms of Sources',
+      'WHOIS Lookup',
+    ],
   },
 ];
 
