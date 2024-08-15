@@ -104,7 +104,7 @@ function BookAppointment() {
   ];
 
   return (
-    <div className="bg-white px-3 py-4 text-secondary rounded-md lg:w-2/5 text-left lg:mt-5">
+    <div className="bg-white px-3 py-4 rounded-md lg:w-2/5 text-left lg:mt-5 text-black">
       <h3 className="font-bold text-lg text-center tracking-[5px]">
         BOOK YOUR FREE APPOINTMENT
       </h3>
@@ -169,7 +169,7 @@ function BookAppointment() {
               value={areaOptions.find(
                 (option) => option.value === formData.area,
               )}
-              className="mt-1 w-full text-10"
+              className="mt-1 w-full text-10 "
             />
           </div>
         </div>
