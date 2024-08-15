@@ -13,7 +13,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
       {products.map((product) => (
         <div key={product.id} className="relative group w-full">
           <div className="absolute w-full bottom-0">
-            <div className="bg-white flex justify-between items-center w-full p-2 px-4 opacity-0 group-hover:opacity-100">
+            <div className="bg-white flex justify-between items-center w-full p-2 px-4 opacity-0 group-hover:opacity-100 duration-700">
               <p className="text-12 lg:text-16">{product.title}</p>
               <Link
                 href={product.link}
