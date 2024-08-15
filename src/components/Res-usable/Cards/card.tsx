@@ -10,12 +10,12 @@ interface CardProps {
 const Card: FC<CardProps> = ({ data }) => {
   return (
     <>
-      <div className="max-w-sm rounded  m-4">
+      <div className="max-w-md rounded  m-4 group">
         <div>
           <Image
-            className="w-full h-full"
-            width={100}
-            height={100}
+            className="lg:w-[500px] object-cover md:w-[400px] sm:w-auto lg:h-[485px] md:h-[300px] sm:h-auto rounded-3xl transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+            width={400}
+            height={400}
             src={data.image}
             alt={data.heading}
           />
@@ -24,7 +24,7 @@ const Card: FC<CardProps> = ({ data }) => {
           <div className="font-bold text-xl mb-2">{data.heading} </div>
           <p className="text-gray-700 text-base">{data.paragraph}</p>
         </div>
-        <div className="font-light text-sm">
+        <div className="font-bold w-fit group-hover:bg-white border-b border-b-primary rounded-none group-hover:border-gray-300 group-hover:border-b group-hover:border-secondary group-hover:rounded-full group-hover:text-black transition-colors duration-300 ease-in-out  text-sm">
           <CustomButton>{data.buttonText}</CustomButton>
         </div>
       </div>
