@@ -1,6 +1,13 @@
 // src/data.ts
-import { CardTypes } from 'types/interface';
+import {
+  CardTypes,
+  FeatureProductData,
+  SocialDataType,
+  SupportItem,
+} from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
+import imag1 from '../../public/assets/images/Container.png';
+import imag12 from '../../public/assets/images/Container2.png';
 import { BannerData } from 'types/interface';
 
 export const cardData: CardTypes[] = [
@@ -109,4 +116,220 @@ export const OurClientImage = [
     alt: 'Yellow-Zone-Group-Dubai 1',
   },
   // { src: '/assets/images/ourclient/yellow-zone-group-dubai-2.png', alt: 'Yellow-Zone-Group-Dubai 2' }
+];
+
+export const SocialData: SocialDataType[] = [
+  {
+    href: 'https://facebook.com',
+    src: '/assets/images/icon/face.png',
+    alt: 'Facebook',
+  },
+  {
+    href: 'https://twitter.com',
+    src: '/assets/images/icon/link.png',
+    alt: 'Twitter',
+  },
+  {
+    href: 'https://instagram.com',
+    src: '/assets/images/icon/insta.png',
+    alt: 'Instagram',
+  },
+  {
+    href: 'https://instagram.com',
+    src: '/assets/images/icon/whats.png',
+    alt: 'Instagram',
+  },
+];
+export const featureProducts: FeatureProductData[] = [
+  {
+    id: 1,
+    category: 'Blind',
+    title: 'Vertical Blinds',
+    image: '/assets/images/dynamic/Rectangle 811d.png', // Adjust the path accordingly
+    link: '/products',
+  },
+  {
+    id: 2,
+    category: 'Curtains',
+    title: 'Sheer Curtains',
+    image: '/assets/images/dynamic/Rectangle 811da.png',
+    link: '/products',
+  },
+  {
+    id: 3,
+    category: 'Shutters',
+    title: 'Plantation Shutters',
+    image: '/assets/images/dynamic/Rectangle 811dds.png',
+    link: '/products',
+  },
+  {
+    id: 4,
+    category: 'Blind',
+    title: 'Plantation Shutters',
+    image: '/assets/images/dynamic/Rectangle 811da.png',
+    link: '/products',
+  },
+  {
+    id: 5,
+    category: 'Curtains',
+    title: 'Sheer Curtains',
+    image: '/assets/images/dynamic/Rectangle 811da.png',
+    link: '/products',
+  },
+  {
+    id: 6,
+    category: 'Shutters',
+    title: 'Plantation Shutters',
+    image: '/assets/images/dynamic/Rectangle 811dds.png',
+    link: '/products',
+  },
+  {
+    id: 7,
+    category: 'Curtains',
+    title: 'Sheer Curtains',
+    image: '/assets/images/dynamic/Rectangle 811da.png',
+    link: '/products',
+  },
+  {
+    id: 8,
+    category: 'Shutters',
+    title: 'Plantation Shutters',
+    image: '/assets/images/dynamic/Rectangle 811dds.png',
+    link: '/products',
+  },
+];
+
+export const supportItems: SupportItem[] = [
+  {
+    title: 'MOTORS DO THE WORK FOR YOU',
+    description:
+      'No need to pull on heavy or hard-to-reach blinds and curtains. No more cables to operate or strings that get tangled up! Relax and let the motors do the work for you.',
+  },
+  {
+    title: 'EXPERTS ASSIST',
+    description:
+      'No need to pull on heavy or hard-to-reach blinds and curtains. No more cables to operate or strings that get tangled up! Relax and let the motors do the work for you.',
+  },
+  {
+    title: 'SMART HOME AUTOMATION',
+    description:
+      'No need to pull on heavy or hard-to-reach blinds and curtains. No more cables to operate or strings that get tangled up! Relax and let the motors do the work for you.',
+  },
+];
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Masud Rana',
+    date: 'Jun 22, 2024',
+    image: '/assets/images/static/testiImage.png',
+    text: `
+      This website has been an absolute game-changer for me. I was initially skeptical about using it because I had tried several other platforms in the past and was never fully satisfied. However, after giving this site a try, I realized it was different. The user interface is incredibly intuitive and easy to navigate, which is a huge
+
+    `,
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'Alice Johnson',
+    date: 'Jun 22, 2024',
+    image: '/assets/images/static/testiImage.png',
+    text: `
+      I’ve been using this website for several months now, and I can honestly say that it’s one of the best decisions I’ve made. From the moment I signed up, I was impressed by how seamless the entire process was. The registration was quick and easy, and I was able to start using the platform right away. What I love most about 
+
+    `,
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: 'John Doe',
+    date: 'Jun 22, 2024',
+    image: '/assets/images/static/testiImage.png',
+    text: `
+      This website has been an integral part of my business operations for the past year, and I’m thoroughly impressed with the level of service and functionality it offers. When I first started using it, I was looking for a platform that could help streamline my workflow and improve communication within my team. This site has
+    `,
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: 'Jane Smith',
+    date: 'Jun 22, 2024',
+    image: '/assets/images/static/testiImage.png',
+    text: `
+      I recently started using this website after hearing great things about it from my colleagues, and I have to say, it has lived up to the hype. From the moment I started using it, I could tell that a lot of thought and care had gone into designing every aspect of the platform. The user experience is seamless, and everything 
+    `,
+    rating: 5,
+  },
+];
+
+export const blindsSliderItems = [
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+];
+
+export const curtainsSliderItems = [
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
+  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+];
+
+export const menuItems = [
+  { label: 'Home', path: '/' },
+  { label: 'Blinds', path: '#', sliderData: blindsSliderItems },
+  { label: 'Curtains', path: '#', sliderData: curtainsSliderItems },
+  { label: 'Shutters', path: '#', sliderData: blindsSliderItems },
+  { label: 'Commercial', path: '#', sliderData: curtainsSliderItems },
+  { label: 'Estimator', path: '/estimator' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Contact Us', path: '/contact-us' },
+];
+
+export const MobilemenuItems = [
+  { label: 'Home', path: '/' },
+  {
+    label: 'Blinds',
+    subItems: blindsSliderItems.map((item) => ({
+      key: item.key,
+      src: item.src,
+      alt: item.alt,
+      title: item.title,
+    })),
+  },
+  {
+    label: 'Curtains',
+    subItems: curtainsSliderItems.map((item) => ({
+      key: item.key,
+      src: item.src,
+      alt: item.alt,
+      title: item.title,
+    })),
+  },
+  { label: 'Shutters', path: '/shutters' },
+  { label: 'Commercial', path: '/commercial' },
+  { label: 'Estimator', path: '/estimator' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Contact Us', path: '/contact-us' },
 ];
