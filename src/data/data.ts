@@ -7,33 +7,26 @@ import {
   SupportItem,
 } from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
-import imag1 from '../../public/assets/images/Container.png';
-import imag12 from '../../public/assets/images/Container2.png';
 import { BannerData } from 'types/interface';
-import galleryimg1 from '../../public/assets/images/Rectangle 8.png';
-import galleryimg2 from '../../public/assets/images/Rectangle 8dd.png';
-import galleryimg3 from '../../public/assets/images/imaged.png';
-import galleryimg4 from '../../public/assets/images/Image4.png';
-import galleryimg5 from '../../public/assets/images/image5.png';
-import galleryimg6 from '../../public/assets/images/image6.png';
+import { TRatingSlider } from 'types/interface';
 
 export const cardData: CardTypes[] = [
   {
-    image: '/assets/images/d.png',
+    image: '/assets/images/blindcard/blind.png',
     heading: 'BLINDS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
     buttonText: 'VIEW BLINDS',
   },
   {
-    image: '/assets/images/d.png',
+    image: '/assets/images/blindcard/curtains.png',
     heading: 'CURTAINS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
     buttonText: 'VIEW BLINDS',
   },
   {
-    image: '/assets/images/d.png',
+    image: '/assets/images/blindcard/shutters.png',
     heading: 'SHUTTERS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
@@ -44,10 +37,13 @@ export const cardData: CardTypes[] = [
 // Blinds and Curtains section data
 
 export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
-  image: '/assets/images/Group 2102.png',
-  heading: 'BLINDS & CURTAINS DUBAI',
-  paragraph:
-    'Based in Dubai, specializes in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also functional.  All our professional teams are based in Dubai and speak great English and will easily understand your blinds and curtains requirements and advise as best as they can. We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options). Whether you’re looking for a classy, chic, or modern design, we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
+  image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
+  heading: 'BLINDS & CURTAINS DUBAI',
+  paragraph: [
+    'Based in Dubai, specializes in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also functional.',
+    'All our professional teams are based in Dubai and speak great English and will easily understand your blinds and curtains requirements and advise as best as they can. We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).',
+    'Whether you’re looking for a classy, chic, or modern design, we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
+  ],
   buttonText: 'Read More',
 };
 
@@ -76,7 +72,7 @@ export const heroSlider = [
   },
 ];
 export const bannerData: BannerData = {
-  imageUrl: '/assets/images/dd.png',
+  imageUrl: '/assets/images/measure_shutter/measure_shutter.png',
   title: 'MADE TO MEASURE SHUTTERS FOR YOU..',
   buttonText: 'Booking Now',
 };
@@ -230,75 +226,209 @@ export const testimonials = [
     date: 'Jun 22, 2024',
     image: '/assets/images/static/testiImage.png',
     text: `
-      This website has been an absolute game-changer for me. I was initially skeptical about using it because I had tried several other platforms in the past and was never fully satisfied. However, after giving this site a try, I realized it was different. The user interface is incredibly intuitive and easy to navigate, which is a huge
-
-    `,
+      This is very good website . I highly recomit👍 
+adipiscing elit. Sagittis, sagittis neque egestas
+velit, nec, malesuada tellus. Urna   `,
     rating: 5,
   },
   {
     id: 2,
-    name: 'Alice Johnson',
+    name: 'Masud rana',
     date: 'Jun 22, 2024',
     image: '/assets/images/static/testiImage.png',
-    text: `
-      I’ve been using this website for several months now, and I can honestly say that it’s one of the best decisions I’ve made. From the moment I signed up, I was impressed by how seamless the entire process was. The registration was quick and easy, and I was able to start using the platform right away. What I love most about 
-
-    `,
+    text: `This is very good website . I highly recomit👍 
+adipiscing elit. Sagittis, sagittis neque egestas
+velit, nec, malesuada tellus. Urna  `,
     rating: 5,
   },
   {
     id: 3,
-    name: 'John Doe',
+    name: 'Masud rana',
     date: 'Jun 22, 2024',
     image: '/assets/images/static/testiImage.png',
-    text: `
-      This website has been an integral part of my business operations for the past year, and I’m thoroughly impressed with the level of service and functionality it offers. When I first started using it, I was looking for a platform that could help streamline my workflow and improve communication within my team. This site has
-    `,
+    text: `This is very good website . I highly recomit👍 
+adipiscing elit. Sagittis, sagittis neque egestas
+velit, nec, malesuada tellus. Urna  `,
     rating: 5,
   },
   {
     id: 4,
-    name: 'Jane Smith',
+    name: 'Masud rana',
     date: 'Jun 22, 2024',
     image: '/assets/images/static/testiImage.png',
-    text: `
-      I recently started using this website after hearing great things about it from my colleagues, and I have to say, it has lived up to the hype. From the moment I started using it, I could tell that a lot of thought and care had gone into designing every aspect of the platform. The user experience is seamless, and everything 
-    `,
+    text: `This is very good website . I highly recomit👍 
+adipiscing elit. Sagittis, sagittis neque egestas
+velit, nec, malesuada tellus. Urna `,
     rating: 5,
   },
 ];
 
 export const blindsSliderItems = [
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
 ];
 
 export const curtainsSliderItems = [
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
 ];
 
 export const menuItems = [
@@ -349,73 +479,73 @@ export const galleryBreadcrum = [
 export const galleryItems: GalleryItems[] = [
   {
     id: 1,
-    imageUrl: galleryimg1,
+    imageUrl: '/assets/images/Rectangle8.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'BILNDS',
   },
   {
     id: 2,
-    imageUrl: galleryimg2,
+    imageUrl: '/assets/images/Rectangle8dd.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'CURTAINS',
   },
   {
     id: 3,
-    imageUrl: galleryimg3,
+    imageUrl: '/assets/images/imaged.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'BILNDS',
   },
   {
     id: 4,
-    imageUrl: galleryimg4,
+    imageUrl: '/assets/images/image4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 5,
-    imageUrl: galleryimg5,
+    imageUrl: '/assets/images/image5.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 6,
-    imageUrl: galleryimg6,
+    imageUrl: '/assets/images/image6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 7,
-    imageUrl: galleryimg2,
+    imageUrl: '/assets/images/image6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 8,
-    imageUrl: galleryimg1,
+    imageUrl: '/assets/images/image6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 9,
-    imageUrl: galleryimg3,
+    imageUrl: '/assets/images/image6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'INSTALLATION',
   },
   {
     id: 10,
-    imageUrl: galleryimg4,
+    imageUrl: '/assets/images/image6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 11,
-    imageUrl: galleryimg5,
+    imageUrl: '/assets/images/image5.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 12,
-    imageUrl: galleryimg6,
+    imageUrl: '/assets/images/image6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'INSTALLATION',
   },
@@ -424,20 +554,25 @@ export const galleryItems: GalleryItems[] = [
 export const relativeProducts: GalleryItems[] = [
   {
     id: 1,
-    imageUrl: galleryimg1,
+    imageUrl: '/assets/images/Rectangle8.png',
     title: 'Vertical Blinds',
     category: 'BILNDS',
   },
   {
     id: 2,
-    imageUrl: galleryimg2,
+    imageUrl: '/assets/images/Rectangle8dd.png',
     title: 'Vertical Blinds',
     category: 'CURTAINS',
   },
   {
     id: 3,
-    imageUrl: galleryimg3,
+    imageUrl: '/assets/images/imaged.png',
     title: 'Vertical Blinds',
     category: 'BILNDS',
   },
 ];
+
+export const RatingSlider: TRatingSlider = {
+  imageUrl: '/assets/images/googleReview/qautes.png',
+  StarImage: '/assets/images/googleReview/star.png',
+};

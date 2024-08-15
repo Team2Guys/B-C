@@ -78,3 +78,44 @@
 .custom-breadcrum .ant-breadcrumb ol {
   align-items: center !important;
 }
+.Hero-slider .slick-track:before,
+.Hero-slider .slick-track:after {
+  display: none;
+}
+.css-t3ipsp-control {
+  box-shadow: 0 0 0 1px black !important;
+}
+.css-t3ipsp-control:hover {
+  border-color: black !important;
+}
+.happy_customer .slider-container .slick-dots li button:before {
+  font-size: 19px !important;
+  color: #bdc9bd !important;
+  top: 40px;
+}
+/* .css-1nmdiq5-menu > div {
+} */
+/* .react-tel-input .selected-flag .arrow {
+  position: relative;
+  top: 50%;
+  margin-top: -2px;
+  left: 26px !important;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 4px solid #555;
+}
+.react-tel-input .selected-flag .flag {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px !important;
+}
+.react-tel-input .flag {
+  width: 22px !important;
+  border-radius: 14px;
+  height: 20px !important;
+}
+.react-tel-input .selected-flag {
+  padding: 0 0 0 4px !important;
+} */

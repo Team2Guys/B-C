@@ -10,7 +10,7 @@ export interface CardTypes {
 export interface BlindsAndCurtainsTypes {
   image: string;
   heading: string;
-  paragraph: string;
+  paragraph: string[];
   buttonText: string;
 }
 
@@ -52,3 +52,7 @@ export interface GalleryItems {
   title: string;
   category: string;
 }
+export type TRatingSlider = {
+  imageUrl: string;
+  StarImage: string;
+};

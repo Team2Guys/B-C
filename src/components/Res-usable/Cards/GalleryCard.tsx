@@ -14,6 +14,8 @@ const GalleryCard: React.FC<gallerProps> = ({ card, relativeProducts }) => {
       <Image
         src={card.imageUrl}
         alt={card.title}
+        width={300}
+        height={300}
         className="w-full h-full object-cover rounded-lg"
       />
       <div
