@@ -9,12 +9,16 @@ interface MotorisedInfoProps {
   image: any;
   className?: string;
   imageClass?: string;
+  description2?: string;
+  description3?: string;
 }
 
 const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
   title,
   subtitle,
   description,
+  description2,
+  description3,
   image,
   className,
   imageClass,
@@ -28,7 +32,11 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
             <p className="underline underline-offset-8 text-[#6F747F]">
               {subtitle}
             </p>
-            <p className="text-12 md:text-16">{description}</p>
+            <div className="space-y-3 md:space-y-10">
+              <p className="text-12 md:text-16 leading-8">{description}</p>
+              <p className="text-12 md:text-16 leading-8">{description2}</p>
+              <p className="text-12 md:text-16 leading-8">{description3}</p>
+            </div>
           </div>
         </div>
         <div className="w-full lg:w-4/12 mt-4 lg:mt-0">

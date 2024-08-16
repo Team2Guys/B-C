@@ -3,12 +3,17 @@ import React from 'react';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import MotorisedInfo from 'components/motorised-blinds/motorised-info';
 import moto1 from '../../../public/assets/images/MotorisedBlind/montorised1.png';
+import moto2 from '../../../public/assets/images/MotorisedBlind/mons2.png';
 import Measure from 'components/motorised-blinds/measure';
 import ChooseUs from 'components/motorised-blinds/choose-us';
 import img1 from '../../../public/assets/images/MotorisedBlind/guarantee1.png';
 import img2 from '../../../public/assets/images/MotorisedBlind/businessmen1.png';
 import img3 from '../../../public/assets/images/MotorisedBlind/ready-stock.png';
 import img4 from '../../../public/assets/images/MotorisedBlind/loyalty-program.png';
+import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
+import RelatedProducts from 'components/Related-products/RelatedProducts';
+import { relativeProducts } from 'data/data';
+import Container from 'components/Res-usable/Container/Container';
 const chooseUsItems = [
   {
     image: img1,
@@ -44,7 +49,6 @@ const MotorisedBlind = () => {
     <>
       <TopHero title="Motorised Blinds" image={bgBreadcrum} />
       <MotorisedInfo
-        imageClass="lg:float-end"
         title={'MOTORISED BLINDS'}
         subtitle={'The smartest blinds for your dream home.'}
         description={
@@ -79,14 +83,17 @@ const MotorisedBlind = () => {
       </div>
       <MotorisedInfo
         className="flex-row-reverse"
-        imageClass="lg:float-start"
-        title={'MOTORISED BLINDS'}
-        subtitle={'The smartest blinds for your dream home.'}
         description={
-          'Motorised blinds or electric blinds are typically operated by a remote control. You can even add smartphone control functionality to allow you total control of your blinds, home or away. Providing you with the same function as  but with the added comfort of only having to press a button rather than pull a chain. With a huge selection of fabrics and designs to choose from, our motorised blinds are the ideal choice for a beautiful and functional window dressing. Driven by an integrated motor that is hidden from sight, our motorised roller binds can be powered by rechargeable battery or directly from your mains supply. Our expert team of installation specialists will ensure all safety parameters and electrical regulations are met for your complete peace of mind.'
+          'All our team members are paid a decent living wage and are not trained for the hard sell. Your consultation will be relaxed and pressure free as we don’t believe in the hard sell technique. If you choose to go with us, congratulations. If not, you will receive our quotation by email and a maximum of one follow up call to ensure you’ve received it and that’s it. Then it’s up to you to decide'
         }
-        image={moto1}
+        description2="You can call the sales team for a no obligation quotation on or fill out the online contact form and someone will get back to you as soon as possible."
+        description3="Please remember that none of our sales team are on commission. All are paid a decent living wage which allows them to be as honest with you as possible and put you under ZERO pressure to buy. It is the way we enjoy being sold to, so we pass that method onto you too."
+        image={moto2}
       />
+      <BookNowBanner />
+      <Container className="mt-20">
+        <RelatedProducts products={relativeProducts} />
+      </Container>
     </>
   );
 };
