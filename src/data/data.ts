@@ -3,6 +3,7 @@ import {
   CardTypes,
   FeatureProductData,
   GalleryItems,
+  ProductItems,
   SocialDataType,
   SupportItem,
   THeroImages,
@@ -473,11 +474,6 @@ export const MobilemenuItems = [
   { label: 'Contact Us', path: '/contact-us' },
 ];
 
-export const galleryBreadcrum = [
-  { label: 'Home', href: '/' },
-  { label: 'Gallery' },
-];
-
 export const galleryItems: GalleryItems[] = [
   {
     id: 1,
@@ -493,61 +489,61 @@ export const galleryItems: GalleryItems[] = [
   },
   {
     id: 3,
-    imageUrl: '/assets/images/imaged.png',
+    imageUrl: '/assets/images/image_3.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'BILNDS',
   },
   {
     id: 4,
-    imageUrl: '/assets/images/image4.png',
+    imageUrl: '/assets/images/image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 5,
-    imageUrl: '/assets/images/image5.png',
+    imageUrl: '/assets/images/image_5.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 6,
-    imageUrl: '/assets/images/image6.png',
+    imageUrl: '/assets/images/image_3.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 7,
-    imageUrl: '/assets/images/image6.png',
+    imageUrl: '/assets/images/image_6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 8,
-    imageUrl: '/assets/images/image6.png',
+    imageUrl: '/assets/images/image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 9,
-    imageUrl: '/assets/images/image6.png',
+    imageUrl: '/assets/images/image_6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'INSTALLATION',
   },
   {
     id: 10,
-    imageUrl: '/assets/images/image6.png',
+    imageUrl: '/assets/images/image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 11,
-    imageUrl: '/assets/images/image5.png',
+    imageUrl: '/assets/images/image_5.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 12,
-    imageUrl: '/assets/images/image6.png',
+    imageUrl: '/assets/images/image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'INSTALLATION',
   },
@@ -568,12 +564,110 @@ export const relativeProducts: GalleryItems[] = [
   },
   {
     id: 3,
-    imageUrl: '/assets/images/imaged.png',
+    imageUrl: '/assets/images/image_3.png',
     title: 'Vertical Blinds',
     category: 'BILNDS',
   },
 ];
 
+export const productItems: ProductItems[] = [
+  {
+    id: 1,
+    imageUrl: '/assets/images/Rectangle812h.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 2,
+    imageUrl: '/assets/images/Rectangle812g.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 3,
+    imageUrl: '/assets/images/Rectangle812gs.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 4,
+    imageUrl: '/assets/images/Rectangle812h.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 5,
+    imageUrl: '/assets/images/Rectangle812g.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 6,
+    imageUrl: '/assets/images/Rectangle812gs.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 7,
+    imageUrl: '/assets/images/Rectangle812h.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 8,
+    imageUrl: '/assets/images/Rectangle812g.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 9,
+    imageUrl: '/assets/images/Rectangle812gs.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 10,
+    imageUrl: '/assets/images/Rectangle812h.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 11,
+    imageUrl: '/assets/images/Rectangle812g.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 12,
+    imageUrl: '/assets/images/Rectangle812gs.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+];
 export const RatingSlider: TRatingSlider = {
   imageUrl: '/assets/images/googleReview/qautes.png',
   StarImage: '/assets/images/googleReview/star.png',
