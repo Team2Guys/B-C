@@ -32,7 +32,7 @@ function Hero() {
         {heroSlider.map((item: any, index: number) => {
           return (
             <>
-              <div className=" max-w-[100%] mx-auto w-full flex max-sm:flex-wrap overflow-auto">
+              <div className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap overflow-auto">
                 <div className=" min-w-[500px] left-side w-1/2 flex flex-col justify-center gap-3 ">
                   <div className="w-full flex items-center gap-2">
                     <svg
@@ -55,7 +55,7 @@ function Hero() {
                       Latest Designs
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold text-[53px]">
+                  <h1 className="text-black font-extrabold lg:text-[53px] text-3xl leading-normal">
                     Custom Window <br />
                     Blinds & Curtains
                   </h1>

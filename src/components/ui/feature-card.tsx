@@ -9,7 +9,7 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:px-20">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-screen-2xl mx-auto px-2">
       {products.map((product) => (
         <div key={product.id} className="relative group w-full">
           <div className="absolute w-full bottom-0">
@@ -24,8 +24,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
             </div>
           </div>
           <Image
-            width={600}
-            height={600}
+            width={450}
+            height={450}
             className="md:object-contain w-full h-full"
             src={product.image}
             alt={product.title}
