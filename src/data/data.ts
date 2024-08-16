@@ -5,6 +5,7 @@ import {
   GalleryItems,
   SocialDataType,
   SupportItem,
+  THeroImages,
 } from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
 import { BannerData } from 'types/interface';
@@ -575,4 +576,9 @@ export const relativeProducts: GalleryItems[] = [
 export const RatingSlider: TRatingSlider = {
   imageUrl: '/assets/images/googleReview/qautes.png',
   StarImage: '/assets/images/googleReview/star.png',
+};
+export const HeroImages: THeroImages = {
+  logo: '/assets/images/logomain.png',
+  backImage: '/assets/images/hero/back2.jpeg',
+  defaultBackImage: '/assets/images/hero/BACK.jpeg',
 };

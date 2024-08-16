@@ -36,7 +36,7 @@ const FeatureProduct: React.FC = () => {
       </div>
 
       <div className="mt-10">
-        <div className="flex gap-10 justify-center whitespace-nowrap overflow-x-auto">
+        <div className="flex lg:gap-10 gap-5 justify-center whitespace-nowrap overflow-x-auto">
           {categories.map((category) => (
             <Button
               key={category}

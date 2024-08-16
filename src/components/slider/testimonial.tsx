@@ -64,15 +64,15 @@ function Testimonial() {
   };
 
   return (
-    <Container className="mt-16 py-4 mx-auto happy_customer">
+    <Container className="mt-16 py-4 mx-auto happy_customer max-w-screen-2xl">
       <h1 className="text-center text-30 font-medium">Our Happy Customers</h1>
 
-      <div className="slider-container mt-14 xl:px-16 lg:px-11 px-10">
+      <div className="slider-container mt-14 xl:px-0 lg:px-0 px-10">
         <Slider {...settings}>
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white flex shadow-md rounded-sm p-7 max-w-80  sm:max-w-44 md:max-w-64 lg:max-w-64 xl:max-w-80 2xl:max-w-md mx-4 my-2"
+              className="bg-white flex shadow-md rounded-sm p-7 max-w-80 sm:max-w-44 md:max-w-64 lg:max-w-64 xl:max-w-96 2xl:max-w-md 4 my-2"
             >
               <div className="flex items-center">
                 <Image
@@ -98,7 +98,7 @@ function Testimonial() {
                   <span className="text-gray-500 text-sm mt-4">
                     {testimonial.date}
                   </span>
-                  <p className="text-gray-700 text-12 leading-relaxed pt-3 italic">
+                  <p className="text-gray-700 text-14 leading-relaxed pt-3 italic">
                     {getExcerpt(testimonial.text, 50)}
                   </p>
                 </div>
