@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import React, { SetStateAction } from 'react';
 import { Rate } from 'antd';
-
-interface SliderModal {
+import { HeroImages } from 'data/data';
+// import { HeroImage } from 'src/assets/images/data';
+interface SliderModalProps {
   setshowModel: React.Dispatch<SetStateAction<string>>;
   className?: string;
 }
 
-function SliderModal({ setshowModel, className }: SliderModal) {
+function SliderModal({ setshowModel, className }: SliderModalProps) {
   return (
     <div
       id="modalHandler"
@@ -19,7 +20,7 @@ function SliderModal({ setshowModel, className }: SliderModal) {
       >
         <Image
           id="modalHandler"
-          src="/assets/images/logomain.png"
+          src={HeroImages.logo}
           alt="logo"
           width={100}
           height={71}
@@ -27,22 +28,18 @@ function SliderModal({ setshowModel, className }: SliderModal) {
         <Image
           id="modalHandler"
           onClick={() => setshowModel('')}
-          src={
-            className
-              ? '/assets/images/hero/back2.jpeg'
-              : '/assets/images/hero/BACK.jpeg'
-          }
+          src={className ? HeroImages.backImage : HeroImages.defaultBackImage}
           className="w-8 h-8 cursor-pointer"
-          alt="logo"
+          alt="back"
           width={26}
           height={26}
-          objectFit="cover"
+          style={{ objectFit: 'cover' }} // Updated to use style instead of objectFit prop
         />
       </div>
 
       <div
         id="modalHandler"
-        className="w-full h-full mb-4 text-center text-14 leading-9	 "
+        className="w-full h-full mb-4 text-center text-14 leading-9"
       >
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industrys standard dummy text ever

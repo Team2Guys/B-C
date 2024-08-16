@@ -6,6 +6,8 @@ import {
   ProductItems,
   SocialDataType,
   SupportItem,
+  THeroImages,
+  Tproductdata,
 } from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
 import { BannerData } from 'types/interface';
@@ -669,4 +671,17 @@ export const productItems: ProductItems[] = [
 export const RatingSlider: TRatingSlider = {
   imageUrl: '/assets/images/googleReview/qautes.png',
   StarImage: '/assets/images/googleReview/star.png',
+};
+export const HeroImages: THeroImages = {
+  logo: '/assets/images/logomain.png',
+  backImage: '/assets/images/hero/back2.jpeg',
+  defaultBackImage: '/assets/images/hero/BACK.jpeg',
+};
+export const productData: Tproductdata = {
+  title: 'PRODUCT GUARANTEES',
+  sideImage: '/assets/images/product-guarantees/guarantee1.png',
+  sideImage1: '/assets/images/product-guarantees/guarantee2.png',
+  heading: 'BLINDS, CURTAINS & SHUTTERS PRODUCT GUARANTEES',
+  content:
+    'When you’re choosing Blinds & Curtains window dressings, you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications. you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications.',
 };
