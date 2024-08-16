@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 const OurClient = () => {
   var settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
