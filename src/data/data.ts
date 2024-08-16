@@ -2,12 +2,11 @@
 import {
   CardTypes,
   FeatureProductData,
+  GalleryItems,
   SocialDataType,
   SupportItem,
 } from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
-import imag1 from '../../public/assets/images/Container.png';
-import imag12 from '../../public/assets/images/Container2.png';
 import { BannerData } from 'types/interface';
 import { TRatingSlider } from 'types/interface';
 
@@ -265,36 +264,171 @@ velit, nec, malesuada tellus. Urna `,
 ];
 
 export const blindsSliderItems = [
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
 ];
 
 export const curtainsSliderItems = [
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
-  { key: 2, src: imag12, alt: 'Description 2', title: 'Title 2' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 3, src: imag1, alt: 'Description 3', title: 'Title 3' },
-  { key: 1, src: imag1, alt: 'Description 1', title: 'Title 1' },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
 ];
 
 export const menuItems = [
@@ -335,6 +469,107 @@ export const MobilemenuItems = [
   { label: 'Gallery', path: '/gallery' },
   { label: 'About Us', path: '/about-us' },
   { label: 'Contact Us', path: '/contact-us' },
+];
+
+export const galleryBreadcrum = [
+  { label: 'Home', href: '/' },
+  { label: 'Gallery' },
+];
+
+export const galleryItems: GalleryItems[] = [
+  {
+    id: 1,
+    imageUrl: '/assets/images/Rectangle8.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'BILNDS',
+  },
+  {
+    id: 2,
+    imageUrl: '/assets/images/Rectangle8dd.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'CURTAINS',
+  },
+  {
+    id: 3,
+    imageUrl: '/assets/images/imaged.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'BILNDS',
+  },
+  {
+    id: 4,
+    imageUrl: '/assets/images/image4.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 5,
+    imageUrl: '/assets/images/image5.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'COMMERCIAL',
+  },
+  {
+    id: 6,
+    imageUrl: '/assets/images/image6.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 7,
+    imageUrl: '/assets/images/image6.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'COMMERCIAL',
+  },
+  {
+    id: 8,
+    imageUrl: '/assets/images/image6.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 9,
+    imageUrl: '/assets/images/image6.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'INSTALLATION',
+  },
+  {
+    id: 10,
+    imageUrl: '/assets/images/image6.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'COMMERCIAL',
+  },
+  {
+    id: 11,
+    imageUrl: '/assets/images/image5.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 12,
+    imageUrl: '/assets/images/image6.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'INSTALLATION',
+  },
+];
+
+export const relativeProducts: GalleryItems[] = [
+  {
+    id: 1,
+    imageUrl: '/assets/images/Rectangle8.png',
+    title: 'Vertical Blinds',
+    category: 'BILNDS',
+  },
+  {
+    id: 2,
+    imageUrl: '/assets/images/Rectangle8dd.png',
+    title: 'Vertical Blinds',
+    category: 'CURTAINS',
+  },
+  {
+    id: 3,
+    imageUrl: '/assets/images/imaged.png',
+    title: 'Vertical Blinds',
+    category: 'BILNDS',
+  },
 ];
 
 export const RatingSlider: TRatingSlider = {

@@ -33,6 +33,7 @@
     --h1-color: #000000;
     --light: #f6efe9;
     --lightgrey: #e6e4e5;
+    --btn-clr: #a9b4a4;
   }
 }
 
@@ -68,6 +69,14 @@
 }
 .clip-custom-shape {
   clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 10% 51%, 0% 0%);
+}
+.custom-breadcrum .ant-breadcrumb a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.custom-breadcrum .ant-breadcrumb ol {
+  align-items: center !important;
 }
 .Hero-slider .slick-track:before,
 .Hero-slider .slick-track:after {

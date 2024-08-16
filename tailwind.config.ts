@@ -70,6 +70,7 @@ const config = {
       colors: {
 
         light:"var(--light)",
+        btnclr:"var(--btn-clr)",
         lightgrey:"var(--lightgrey)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -128,6 +129,14 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    screens: {
+      'xs': '480px',
+      'sm': '640px',
+      'md': '895px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    }
   },
   plugins: [require("tailwindcss-animate"),
   ],
