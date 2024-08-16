@@ -19,8 +19,8 @@ const Header = () => {
   return (
     <>
       <div className="w-full bg-secondary">
-        <Container className="flex flex-wrap gap-4 justify-center md:justify-between items-center py-2">
-          <p className="text-white  py-2 text-12 2xl:text-15 font-medium lg:tracking-[0.4px] xl:tracking-[3.4px] leading-relaxed  2xl:leading-loose">
+        <Container className="flex flex-wrap gap-4 justify-center md:justify-between items-center py-2 max-w-screen-2xl max-auto ">
+          <p className="text-white py-2 text-12 2xl:text-12 font-medium lg:tracking-[0.4px] xl:tracking-[3.4px] leading-relaxed  2xl:leading-loose">
             We can visit you, take measurements, help select fabrics & install
             in 1-2 days. Call Dubai
             <Link className="underline font-medium" href={'tel:04 252 2025'}>
@@ -38,7 +38,7 @@ const Header = () => {
         </Container>
       </div>
       <nav className="bg-lightgrey shadow-lg">
-        <Container className="flex w-full items-center justify-between">
+        <Container className="flex w-full items-center justify-between max-w-screen-2xl mx-auto !px-0">
           <Link href={'/'} className="w-3/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
