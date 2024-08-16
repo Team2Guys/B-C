@@ -65,3 +65,15 @@ export type TRatingSlider = {
   imageUrl: string;
   StarImage: string;
 };
+export interface THeroImages {
+  logo: string;
+  backImage: string;
+  defaultBackImage: string;
+}
+export interface Tproductdata {
+  title: string;
+  heading: string;
+  content: string;
+  sideImage1: string;
+  sideImage: string;
+}

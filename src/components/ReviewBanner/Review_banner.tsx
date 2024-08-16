@@ -30,10 +30,10 @@ export default function Review_banner() {
   ];
   return (
     <>
-      <div className=" max-w-[90%] mx-auto px-2 lg:mt-10 relative">
+      <div className=" max-w-[90%] mx-auto px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] p-10 rounded-lg shadow-lg">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
-            <div className="text-4xl font-bold max-w-96 ">
+            <div className="lg:text-4xl text-2xl font-bold max-w-96 ">
               <h3>Trusted Reviews from Our Customer</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-1 items-center ">
@@ -47,10 +47,10 @@ export default function Review_banner() {
                 </div>
               </a>
             </div>
-            <div className="bg-primary">
+            <div className="bg-primary lg:mt-0 mt-10">
               <div className="container h-auto w-full">
                 <Image
-                  className="absolute lg:-top-4 -top-2  lg:right-[15%] right-[10%] translate-x-[9%] sm:right-[10%] sm:translate-x-[9%]  lg:translate-x-[15%] z-10 "
+                  className="absolute lg:-top-4 bottom-60  lg:right-[15%] right-[50%] translate-x-[50%] sm:right-[10%] sm:translate-x-[9%]  lg:translate-x-[15%] z-10 "
                   src={RatingSlider.imageUrl}
                   alt=""
                   width={140}

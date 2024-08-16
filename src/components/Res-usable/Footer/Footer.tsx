@@ -15,8 +15,8 @@ const Footer: React.FC = () => {
   return (
     <footer>
       <div className="bg-primary text-white py-10">
-        <div className="container mx-auto px-0">
-          <div className="grid grid-cols-1 md:grid-cols-4 justify-items-end py-5 border-b-2">
+        <div className="max-w-screen-2xl mx-auto  px-2">
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:justify-items-end py-5 border-b-2">
             <div className="mb-4 md:col-span-1 ">
               <Link href={'/'}>
                 <Image
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             {footerLinks.map((category) => (
-              <div key={category.title} className="md:col-span-1 pl-8">
+              <div key={category.title} className="md:col-span-1 lg:pl-8 ">
                 <h3 className="font-bold mb-2">{category.title}</h3>
                 <ul className="space-y-4 mt-4 text-sm">
                   {category.links.map((link, index) => (
