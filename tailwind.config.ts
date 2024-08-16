@@ -25,6 +25,7 @@ const config = {
       backgroundImage:{
         hero: "url('/assets/images/bg-hero.png')",
         men: "url('/assets/images/static/menimage.png')",
+        appointment: "url('/assets/images/MotorisedBlind/appoint.png')",
       },
       fontSize: {
         "title-xxl": ["44px", "55px"],
