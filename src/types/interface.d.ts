@@ -52,6 +52,15 @@ export interface GalleryItems {
   title: string;
   category: string;
 }
+
+export interface ProductItems {
+  id: number;
+  imageUrl: string | StaticImageData;
+  title: string;
+  discription: string;
+  category: string;
+}
+
 export type TRatingSlider = {
   imageUrl: string;
   StarImage: string;

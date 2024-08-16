@@ -1,11 +1,9 @@
 'use client';
 import React, { useState } from 'react';
 import TopHero from 'components/ui/top-hero';
-import { galleryBreadcrum, galleryItems, relativeProducts } from 'data/data';
+import { galleryItems, relativeProducts } from 'data/data';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
-import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
-import { IoSearch } from 'react-icons/io5';
 import { GoArrowRight, GoArrowLeft } from 'react-icons/go';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import Guarrenty from 'components/Res-usable/guarrenty/guarrenty';
@@ -71,7 +69,7 @@ const GalleryPage = () => {
           </div>
         </div>
       </Container>
-      <div className="w-full border-t-[1px] border-[#BDC9BD]"></div>
+      <div className="w-full border-t-[1px] border-borderclr"></div>
       <Container className="pt-12 pb-16">
         <p className="text-center text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-normal 2xl:leading-normal text-black w-full md:w-4/5 xl:w-3/4 mx-auto">
           A RANGE OF THE VAST CHOICES OF WINDOW COVERINGS AVAILABLE FOR YOUR
