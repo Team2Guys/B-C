@@ -46,7 +46,7 @@ const FeatureProduct: React.FC = () => {
               `}
               onClick={() => {
                 setActiveCategory(category);
-                setVisibleCount(6); // Reset visible count when category changes
+                setVisibleCount(6);
               }}
             >
               {category}

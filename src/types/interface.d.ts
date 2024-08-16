@@ -72,4 +72,8 @@ export interface THeroImages {
 }
 export interface Tproductdata {
   title: string;
+  heading: string;
+  content: string;
+  sideImage1: string;
+  sideImage: string;
 }

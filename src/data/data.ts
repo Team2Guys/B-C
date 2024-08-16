@@ -679,4 +679,9 @@ export const HeroImages: THeroImages = {
 };
 export const productData: Tproductdata = {
   title: 'PRODUCT GUARANTEES',
+  sideImage: '/assets/images/product-guarantees/guarantee1.png',
+  sideImage1: '/assets/images/product-guarantees/guarantee2.png',
+  heading: 'BLINDS, CURTAINS & SHUTTERS PRODUCT GUARANTEES',
+  content:
+    'When you’re choosing Blinds & Curtains window dressings, you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications. you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications.',
 };
