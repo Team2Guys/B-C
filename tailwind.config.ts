@@ -72,8 +72,10 @@ const config = {
 
         light:"var(--light)",
         btnclr:"var(--btn-clr)",
+        lightdark:"var(--light-dark)",
         lightgrey:"var(--lightgrey)",
         border: "hsl(var(--border))",
+        borderclr: "var(--border-clr)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
