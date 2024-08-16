@@ -61,3 +61,6 @@ export interface THeroImages {
   backImage: string;
   defaultBackImage: string;
 }
+export interface Tproductdata {
+  title: string;
+}

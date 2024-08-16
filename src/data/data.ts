@@ -6,6 +6,7 @@ import {
   SocialDataType,
   SupportItem,
   THeroImages,
+  Tproductdata,
 } from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
 import { BannerData } from 'types/interface';
@@ -581,4 +582,7 @@ export const HeroImages: THeroImages = {
   logo: '/assets/images/logomain.png',
   backImage: '/assets/images/hero/back2.jpeg',
   defaultBackImage: '/assets/images/hero/BACK.jpeg',
+};
+export const productData: Tproductdata = {
+  title: 'PRODUCT GUARANTEES',
 };
