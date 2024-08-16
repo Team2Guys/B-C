@@ -1,6 +1,7 @@
 'use client';
 import { Breadcrumb } from 'antd';
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
@@ -28,20 +29,20 @@ const TopHero: React.FC<TopHeroProps> = ({
         backgroundImage: `url(${image.src})`,
         backgroundPosition: 'left center',
         backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
 
       <div className="relative z-20 py-24">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mt-5">
+        <h1 className="text-4xl xs:text-5xl md:text-6xl lg:text-7xl font-black mt-5 uppercase">
           {title}
         </h1>
         <div className="flex justify-center items-center gap-4">
-          <p className="flex items-center gap-2 font-bold">
+          <Link href="/" className="flex items-center gap-2 font-bold">
             <FaHome size={20} />{' '}
             {home ? home.charAt(0).toUpperCase() + home?.slice(1) : 'Home'}
-          </p>
+          </Link>
           <FaAngleRight size={20} />
           <p className="font-bold">
             {pagename
