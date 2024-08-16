@@ -6,7 +6,7 @@ function Choose() {
       <h2 className="text-secondary font-semibold text-3xl">
         Why Choose Us:
         <br />
-        <span className="font-normal">
+        <span className="font-normal lg:text-3xl text-2xl ">
           Experience Unmatched Quality & Service!
         </span>
       </h2>

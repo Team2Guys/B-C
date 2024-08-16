@@ -9,7 +9,7 @@ const HomeCard: NextPage = () => {
   return (
     <Container className="py-12">
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-6 gap-3">
           {cardData.map((data: any, index: any) => (
             <Card key={index} data={data} />
           ))}

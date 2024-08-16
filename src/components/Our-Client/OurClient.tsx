@@ -47,8 +47,8 @@ const OurClient = () => {
     ],
   };
   return (
-    <div>
-      <div className="lg:pt-20 lg:pb-10 pt-16 pb-10">
+    <div className="">
+      <div className="lg:pt-20 lg:pb-10 pt-16 pb-10 max-w-screen-2xl mx-auto">
         <h2 className="text-center font-semibold text-xl uppercase tracking-widest">
           our clients
         </h2>
