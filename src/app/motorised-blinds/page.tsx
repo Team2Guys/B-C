@@ -9,7 +9,6 @@ import img1 from '../../../public/assets/images/MotorisedBlind/guarantee1.png';
 import img2 from '../../../public/assets/images/MotorisedBlind/businessmen1.png';
 import img3 from '../../../public/assets/images/MotorisedBlind/ready-stock.png';
 import img4 from '../../../public/assets/images/MotorisedBlind/loyalty-program.png';
-import Appointment from 'components/motorised-blinds/appointment';
 const chooseUsItems = [
   {
     image: img1,
