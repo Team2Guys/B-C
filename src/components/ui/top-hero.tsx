@@ -1,3 +1,4 @@
+'use client';
 import { Breadcrumb } from 'antd';
 import Image, { StaticImageData } from 'next/image';
 import { usePathname } from 'next/navigation';

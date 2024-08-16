@@ -29,10 +29,6 @@ export default function Home() {
       <FeatureProduct />
       <VideoAutomation />
       <Support />
-      <Guarrenty />
-      <Testimonial />
-
-      <OurClient />
     </>
   );
 }
