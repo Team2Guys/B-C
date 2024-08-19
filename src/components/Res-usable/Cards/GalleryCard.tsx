@@ -33,7 +33,7 @@ const GalleryCard: React.FC<gallerProps> = ({ card, relativeProducts }) => {
           {card.title}
         </span>
         <Link
-          href="/"
+          href={`/product/${card.title}`}
           className={`border-[1px] border-primary px-2 py-1 rounded-sm text-14 font-light ${relativeProducts ? 'block' : 'hidden'}`}
         >
           View More

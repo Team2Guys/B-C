@@ -76,6 +76,7 @@ const config = {
         lightgrey:"var(--lightgrey)",
         border: "hsl(var(--border))",
         borderclr: "var(--border-clr)",
+        hoverborderclr: "var(--hover-border-clr)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",

@@ -16,7 +16,11 @@ interface ContactMethods {
   whatsapp: boolean;
 }
 
-function BookAppointment() {
+interface appointmentProps {
+  singlePage?: boolean;
+}
+
+const BookAppointment: React.FC<appointmentProps> = ({ singlePage }) => {
   const [selectedOptions, setSelectedOptions] = useState<ProductOptions>({
     shutters: false,
     curtains: false,
@@ -105,15 +109,21 @@ function BookAppointment() {
   ];
 
   return (
-    <div className="bg-white px-3 py-4 rounded-md lg:w-2/5 text-left lg:mt-5 text-black">
-      <h3 className="font-bold text-lg text-center tracking-[5px]">
-        BOOK YOUR FREE APPOINTMENT
-      </h3>
+    <div
+      className={`bg-white px-3 py-4 text-left text-black ${singlePage ? 'w-full rounded-lg' : 'lg:w-2/5 rounded-md lg:mt-5'}`}
+    >
+      {!singlePage && (
+        <h3 className="font-bold text-lg text-center tracking-[5px]">
+          BOOK YOUR FREE APPOINTMENT
+        </h3>
+      )}
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto p-4 bg-white rounded-md"
+        className={`p-4 bg-white rounded-md ${singlePage ? 'w-full' : 'max-w-lg mx-auto'}`}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-3">
+        <div
+          className={`grid gap-6 mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3'}`}
+        >
           <div>
             <label
               htmlFor="name"
@@ -173,9 +183,7 @@ function BookAppointment() {
               className="mt-1 w-full text-10 "
             />
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-3">
-          <div className="mb-4">
+          <div>
             <label
               htmlFor="email"
               className="block text-10 font-medium text-gray-700"
@@ -193,7 +201,7 @@ function BookAppointment() {
               required
             />
           </div>
-          <div className="mb-3">
+          <div>
             <label
               htmlFor="whatsappNumber"
               className="block text-10 font-medium mb-1 text-gray-700"
@@ -214,7 +222,7 @@ function BookAppointment() {
               }}
             />
           </div>
-          <div className="mb-3">
+          <div>
             <label
               htmlFor="selectWindows"
               className="block text-10 font-medium text-gray-700"
@@ -232,9 +240,7 @@ function BookAppointment() {
               className="mt-1 w-full text-10  "
             />
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-3">
-          <div className="mb-2 w-full">
+          <div className="w-full custom-datepicker">
             <label
               htmlFor="preferredDate"
               className="block text-10 font-medium text-gray-700"
@@ -244,10 +250,10 @@ function BookAppointment() {
             <DatePicker
               selected={formData.preferredDate}
               onChange={handleDateChange}
-              className="mt-1 w-full text-10 border p-2 rounded"
+              className="h-[38px] mt-1 w-full text-10 border p-2 rounded-md border-[#B3B3B3]"
             />
           </div>
-          <div className="mb-2 w-full">
+          <div className="w-full custom-datepicker">
             <label
               htmlFor="preferredTime"
               className="block text-10 font-medium text-gray-700"
@@ -262,10 +268,10 @@ function BookAppointment() {
               timeIntervals={15}
               timeCaption="Time"
               dateFormat="h:mm aa"
-              className="mt-1 w-full text-10 border p-2 rounded"
+              className="h-[38px] mt-1 w-full text-10 border p-2 rounded-md border-[#B3B3B3]"
             />
           </div>
-          <div className="mb-2 w-full">
+          <div className="w-full">
             <label
               htmlFor="referralSource"
               className="block text-10 font-medium text-gray-700"
@@ -283,103 +289,197 @@ function BookAppointment() {
               className="mt-1 w-full text-10"
             />
           </div>
+          <div className="w-full col-span-3">
+            <label
+              htmlFor="query"
+              className="block text-10 font-medium text-gray-700"
+            >
+              What is your query regarding?
+            </label>
+            <Select
+              options={queryOptions}
+              onChange={(option) =>
+                handleSelectChange('query', option?.value || '')
+              }
+              value={queryOptions.find(
+                (option) => option.value === formData.query,
+              )}
+              className="mt-1 w-full text-10"
+            />
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-3">
-          <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded-md">
-            <h2 className="text-sm mb-4">Tell us what you need:</h2>
+        {!singlePage && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-3">
+            <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded-md">
+              <h2 className="text-sm mb-4">Tell us what you need:</h2>
 
-            <div className="flex flex-row gap-2">
-              <div className="">
-                <label className="flex items-center text-10">
-                  <input
-                    type="checkbox"
-                    checked={selectedOptions.shutters}
-                    onChange={() => handleCheckboxChange('shutters')}
-                    className="mr-2"
-                  />
-                  Shutters
-                </label>
+              <div className="flex flex-row gap-2">
+                <div>
+                  <label className="flex items-center text-11">
+                    <input
+                      type="checkbox"
+                      checked={selectedOptions.shutters}
+                      onChange={() => handleCheckboxChange('shutters')}
+                      className="mr-2"
+                    />
+                    Shutters
+                  </label>
+                </div>
+
+                <div>
+                  <label className="flex items-center text-11">
+                    <input
+                      type="checkbox"
+                      checked={selectedOptions.curtains}
+                      onChange={() => handleCheckboxChange('curtains')}
+                      className="mr-2"
+                    />
+                    Curtains
+                  </label>
+                </div>
+
+                <div>
+                  <label className="flex items-center text-11">
+                    <input
+                      type="checkbox"
+                      checked={selectedOptions.blinds}
+                      onChange={() => handleCheckboxChange('blinds')}
+                      className="mr-2"
+                    />
+                    Blinds
+                  </label>
+                </div>
               </div>
-
-              <div className="">
-                <label className="flex items-center text-10">
+            </div>
+            <div className="p-6  rounded-md max-w-md mx-auto">
+              <h2 className="text-sm mb-4">How shall we contact you?</h2>
+              <div className=" flex flex-row gap-2">
+                <label className="flex items-center text-11">
                   <input
                     type="checkbox"
-                    checked={selectedOptions.curtains}
-                    onChange={() => handleCheckboxChange('curtains')}
+                    name="email"
+                    checked={contactMethods.email}
+                    onChange={handleChangeContact}
                     className="mr-2"
                   />
-                  Curtains
+                  Email
                 </label>
-              </div>
-
-              <div className="">
-                <label className="flex items-center text-10">
+                <label className="flex items-center text-11">
                   <input
                     type="checkbox"
-                    checked={selectedOptions.blinds}
-                    onChange={() => handleCheckboxChange('blinds')}
+                    name="telephone"
+                    checked={contactMethods.telephone}
+                    onChange={handleChangeContact}
                     className="mr-2"
                   />
-                  Blinds
+                  Telephone
+                </label>
+                <label className="flex items-center text-11">
+                  <input
+                    type="checkbox"
+                    name="whatsapp"
+                    checked={contactMethods.whatsapp}
+                    onChange={handleChangeContact}
+                    className="mr-2"
+                  />
+                  WhatsApp
                 </label>
               </div>
             </div>
           </div>
-          <div className="p-6  rounded-md max-w-md mx-auto">
-            <h2 className="text-sm mb-4">How shall we contact you?</h2>
-            <div className=" flex flex-row gap-2">
-              <label className="flex items-center text-10">
-                <input
-                  type="checkbox"
-                  name="email"
-                  checked={contactMethods.email}
-                  onChange={handleChangeContact}
-                  className="mr-2"
-                />
-                Email
-              </label>
-              <label className="flex items-center text-10">
-                <input
-                  type="checkbox"
-                  name="telephone"
-                  checked={contactMethods.telephone}
-                  onChange={handleChangeContact}
-                  className="mr-2"
-                />
-                Telephone
-              </label>
-              <label className="flex items-center text-10">
-                <input
-                  type="checkbox"
-                  name="whatsapp"
-                  checked={contactMethods.whatsapp}
-                  onChange={handleChangeContact}
-                  className="mr-2"
-                />
-                WhatsApp
-              </label>
+        )}
+        {singlePage && (
+          <>
+            <div className="w-full md:w-4/5 mx-auto mt-6">
+              <h2 className="text-10 font-medium text-gray-700">
+                Window Dressing Type
+              </h2>
+              <div className="flex flex-row flex-wrap md:flex-nowrap justify-start md:justify-between gap-5 mt-2">
+                <div>
+                  <label className="flex items-center text-11">
+                    <input
+                      type="checkbox"
+                      checked={selectedOptions.shutters}
+                      onChange={() => handleCheckboxChange('shutters')}
+                      className="mr-2"
+                    />
+                    Roller Blinds
+                  </label>
+                </div>
+
+                <div>
+                  <label className="flex items-center text-11">
+                    <input
+                      type="checkbox"
+                      checked={selectedOptions.curtains}
+                      onChange={() => handleCheckboxChange('curtains')}
+                      className="mr-2"
+                    />
+                    Wooden Blinds
+                  </label>
+                </div>
+
+                <div>
+                  <label className="flex items-center text-11">
+                    <input
+                      type="checkbox"
+                      checked={selectedOptions.blinds}
+                      onChange={() => handleCheckboxChange('blinds')}
+                      className="mr-2"
+                    />
+                    Other Blinds
+                  </label>
+                </div>
+                <div>
+                  <label className="flex items-center text-11">
+                    <input
+                      type="checkbox"
+                      checked={selectedOptions.blinds}
+                      onChange={() => handleCheckboxChange('blinds')}
+                      className="mr-2"
+                    />
+                    Curtains
+                  </label>
+                </div>
+                <div>
+                  <label className="flex items-center text-11">
+                    <input
+                      type="checkbox"
+                      checked={selectedOptions.blinds}
+                      onChange={() => handleCheckboxChange('blinds')}
+                      className="mr-2"
+                    />
+                    Plantation Shutters
+                  </label>
+                </div>
+                <div>
+                  <label className="flex items-center text-11">
+                    <input
+                      type="checkbox"
+                      checked={selectedOptions.blinds}
+                      onChange={() => handleCheckboxChange('blinds')}
+                      className="mr-2"
+                    />
+                    others
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="mb-2 w-full">
-          <label
-            htmlFor="query"
-            className="block text-10 font-medium text-gray-700"
-          >
-            How shall we contact You?
-          </label>
-          <Select
-            options={queryOptions}
-            onChange={(option) =>
-              handleSelectChange('query', option?.value || '')
-            }
-            value={queryOptions.find(
-              (option) => option.value === formData.query,
-            )}
-            className="mt-1 w-full text-10"
-          />
-        </div>
+            <div className="flex flex-col mt-4">
+              <label
+                htmlFor="form-textarea"
+                className="text-10 font-medium text-gray-700"
+              >
+                Other
+              </label>
+              <textarea
+                name="textarea"
+                id="form-textarea"
+                className="border border-[#B3B3B3] h-64 rounded-md mt-1"
+              ></textarea>
+            </div>
+          </>
+        )}
         <div className="text-center mt-4">
           <button
             type="submit"
@@ -391,6 +491,6 @@ function BookAppointment() {
       </form>
     </div>
   );
-}
+};
 
 export default BookAppointment;

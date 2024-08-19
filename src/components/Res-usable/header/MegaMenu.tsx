@@ -62,7 +62,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         >
           <div className="flex justify-between px-8">
             <p className="text-primary text-16 font-medium">{label}</p>
-            <Link href={'/'}>View All</Link>
+            <Link href={'/commercial'}>View All</Link>
           </div>
           <CardSlider
             sliderItems={sliderData}
