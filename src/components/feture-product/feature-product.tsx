@@ -7,7 +7,7 @@ import { featureProducts } from 'data/data';
 
 const FeatureProduct: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [visibleCount, setVisibleCount] = useState<number>(6); // Initial count of visible products
+  const [visibleCount, setVisibleCount] = useState<number>(9); // Initial count of visible products
 
   const categories = ['All', 'Blind', 'Curtains', 'Shutters'];
 
