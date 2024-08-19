@@ -27,7 +27,7 @@ const TopHero: React.FC<TopHeroProps> = ({
       className="relative text-center text-black custom-breadcrum h-72 flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage: `url(${image.src})`,
-        backgroundPosition: 'left center',
+        backgroundPosition: 'bottom center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
