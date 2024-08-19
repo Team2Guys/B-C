@@ -1,6 +1,7 @@
 import { Button } from 'components/ui/button';
 import React from 'react';
 import Container from '../Container/Container';
+import Link from 'next/link';
 
 const Guarrenty = () => {
   return (
@@ -15,9 +16,11 @@ const Guarrenty = () => {
             guaranteed, so you can rest assured you’re investing in quality
             products that are made to the highest specifications.
           </p>
-          <Button className="shadow-slate-400 shadow-md" variant={'white'}>
-            VIew More
-          </Button>
+          <Link href={'./product-guarantees'} className="mt-4 block">
+            <Button className="shadow-slate-400 shadow-md" variant={'white'}>
+              VIew More
+            </Button>
+          </Link>
         </div>
         <div className="lg:bg-men bg-contain bg-no-repeat bg-right"></div>
       </Container>
