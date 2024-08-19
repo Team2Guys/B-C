@@ -28,12 +28,16 @@ function SliderModal({ setshowModel, className }: SliderModalProps) {
         <Image
           id="modalHandler"
           onClick={() => setshowModel('')}
-          src={className ? HeroImages.backImage : HeroImages.defaultBackImage}
-          className="w-8 h-8 cursor-pointer"
+          src={
+            className
+              ? '/assets/images/Hero/back2.jpeg'
+              : '/assets/images/Hero/BACK.jpeg'
+          }
+          className="w-8 h-8 cursor-pointer arrows"
           alt="back"
           width={26}
           height={26}
-          style={{ objectFit: 'cover' }} // Updated to use style instead of objectFit prop
+          style={{ objectFit: 'cover' }}
         />
       </div>
 
