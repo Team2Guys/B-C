@@ -1,7 +1,9 @@
 import { Button } from 'components/ui/button';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const VideoAutomation = () => {
+  const router = useRouter();
   return (
     <div className="relative w-full h-auto md:h-[397px] overflow-hidden mt-10">
       <video
@@ -26,7 +28,11 @@ const VideoAutomation = () => {
             prepare a control solution to fit your needs.
           </p>
           <div className="flex justify-center items-center gap-9 mt-4">
-            <Button variant={'default'} className="py-7">
+            <Button
+              onClick={() => router.push('/motorised-blinds')}
+              variant={'default'}
+              className="py-7"
+            >
               Motorised Blinds
             </Button>
             <Button variant={'outline'} className="py-7">
