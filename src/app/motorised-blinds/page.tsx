@@ -33,15 +33,21 @@ const chooseUsItems = [
   },
 ];
 const motorization = [
-  { text: 'We offer a fully comprehensive 5 year warranty on all our motors' },
   {
-    text: 'Our professional staff are fully trained to install as well as offer expert advice',
+    text: 'Hassle free care. Our motorised tracks are superior quality. They just don’t break down',
   },
   {
-    text: 'Our professional staff are fully trained to install as well as offer expert advice',
+    text: 'Push the buttons on the remote or link up to your smart phone in literally 60 seconds',
   },
-  { text: 'We keep motors in stock, so no long delays waiting for stock' },
-  { text: 'We only use the leading brands such as Somfy, Nice & Motion.' },
+  {
+    text: 'How about Apple Home? YES. What about Alexa? Sure, why not. Ok, and Google',
+  },
+  {
+    text: 'Even if you have your own system, 99% of the time, our installers can liaise with your automation team to give you a full 360 solution.',
+  },
+  {
+    text: 'Set timers, set scenes. Control your motors from the room down the hall or from the other side of the world, it really is that simple once we set it up for you',
+  },
 ];
 
 const MotorisedBlind = () => {
@@ -75,9 +81,9 @@ const MotorisedBlind = () => {
       />
       <div className="bg-white text-center py-10 mt-20">
         <ChooseUs
-          boxClass="bg-secondary"
+          boxClass="bg-secondary flex justify-center items-center"
           title="Why choose us for your motorization?"
-          gridClass="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-5  gap-4"
+          gridClass="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-5  gap-4 "
           items={motorization}
         />
       </div>
