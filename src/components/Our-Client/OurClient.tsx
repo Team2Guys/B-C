@@ -1,3 +1,4 @@
+import { Arrow } from '@radix-ui/react-popover';
 import { OurClientImage } from 'data/data';
 import Image from 'next/image';
 import React from 'react';
@@ -7,6 +8,7 @@ const OurClient = () => {
   var settings = {
     dots: false,
     infinite: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -18,6 +20,7 @@ const OurClient = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
+          arrows: false,
           slidesToScroll: 1,
           infinite: true,
           autoplay: true,
@@ -29,6 +32,7 @@ const OurClient = () => {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
+          arrows: false,
           slidesToScroll: 1,
           initialSlide: 2,
           autoplay: true,
@@ -39,6 +43,7 @@ const OurClient = () => {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
+          arrows: false,
           autoplay: true,
           autoplaySpeed: 2000,
           slidesToScroll: 1,
