@@ -9,6 +9,7 @@ import {
   SupportItem,
   THeroImages,
   Tproductdata,
+  TsizePresets,
 } from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
 import { BannerData } from 'types/interface';
@@ -806,4 +807,17 @@ export const productData: Tproductdata = {
   heading: 'BLINDS, CURTAINS & SHUTTERS PRODUCT GUARANTEES',
   content:
     'When you’re choosing Blinds & Curtains window dressings, you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications. you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications.',
+};
+
+export const sizePresets: TsizePresets[] = [
+  { width: 300, height: 400, size: 100 },
+  { width: 50, height: 500, size: 100 },
+  { width: 400, height: 300, size: 100 },
+  { width: 120, height: 100, size: 100 },
+];
+
+export const initialSize: TsizePresets = {
+  width: 200,
+  height: 200,
+  size: 100,
 };

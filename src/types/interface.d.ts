@@ -86,3 +86,8 @@ export interface Tproductdata {
   sideImage1: string;
   sideImage: string;
 }
+export interface TsizePresets {
+  width: number;
+  height: number;
+  size: any;
+}
