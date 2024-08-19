@@ -47,12 +47,11 @@ function Hero() {
                         x2="34"
                         y2="1"
                         stroke="black"
-                        stroke-width="2"
+                        color="black"
                       />
                     </svg>
 
                     <h5 className="text-black font-gotham text-[25x] font-extralight">
-                      {' '}
                       Latest Designs
                     </h5>
                   </div>
