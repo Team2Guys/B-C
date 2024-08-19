@@ -2,8 +2,10 @@ import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
 import React from 'react';
 import bgBanner from '../../../public/assets/images/commercial-electric-blinds-hero-1_1.png';
-
-const BookNowBanner = ({ className }: any) => {
+interface BookNowBannerProps {
+  className?: string; // className is optional
+}
+const BookNowBanner: React.FC<BookNowBannerProps> = ({ className }) => {
   return (
     <div
       className={`w-full mt-8 flex items-center relative ${className}`}

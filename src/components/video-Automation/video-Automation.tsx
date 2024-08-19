@@ -3,7 +3,10 @@ import { Button } from 'components/ui/button';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-const VideoAutomation = ({ className }: any) => {
+interface VideoAutomationProps {
+  className?: string; // className is optional
+}
+const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
   const router = useRouter();
   return (
     <div
