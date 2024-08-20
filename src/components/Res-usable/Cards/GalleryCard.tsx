@@ -10,7 +10,7 @@ interface gallerProps {
 }
 const GalleryCard: React.FC<gallerProps> = ({ card, relativeProducts }) => {
   return (
-    <div className="gallery-item relative rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+    <div className="gallery-item relative rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group mt-4 md:mt-0">
       <Image
         src={card.imageUrl}
         alt={card.title}
