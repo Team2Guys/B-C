@@ -91,3 +91,9 @@ export interface TsizePresets {
   height: number;
   size: any;
 }
+interface TProductGuarantees {
+  heading: string;
+  text: string;
+  image: string;
+  imageAlign: 'left' | 'right';
+}
