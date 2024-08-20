@@ -1,3 +1,4 @@
+import { Arrow } from '@radix-ui/react-popover';
 import { OurClientImage } from 'data/data';
 import Image from 'next/image';
 import React from 'react';
@@ -6,10 +7,11 @@ import Slider from 'react-slick';
 const OurClient = () => {
   var settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
     initialSlide: 0,
@@ -18,7 +20,8 @@ const OurClient = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          arrows: false,
+          slidesToScroll: 1,
           infinite: true,
           autoplay: true,
           autoplaySpeed: 2000,
@@ -29,7 +32,8 @@ const OurClient = () => {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          arrows: false,
+          slidesToScroll: 1,
           initialSlide: 2,
           autoplay: true,
           autoplaySpeed: 2000,
@@ -39,6 +43,7 @@ const OurClient = () => {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
+          arrows: false,
           autoplay: true,
           autoplaySpeed: 2000,
           slidesToScroll: 1,
@@ -47,8 +52,8 @@ const OurClient = () => {
     ],
   };
   return (
-    <div>
-      <div className="py-8">
+    <div className="">
+      <div className="lg:pt-20 lg:pb-10 pt-16 pb-10 max-w-screen-2xl mx-auto">
         <h2 className="text-center font-semibold text-xl uppercase tracking-widest">
           our clients
         </h2>
@@ -61,10 +66,13 @@ const OurClient = () => {
         <div className="slider-container max-w-screen-2xl mx-auto">
           <Slider {...settings} className="space-x-4">
             {OurClientImage.map((image: any, index: any) => (
-              <div className="py-7" key={index}>
+              <div
+                className="py-7 active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white"
+                key={index}
+              >
                 <Image
                   key={index}
-                  className="w-full px-10 h-16 object-cover"
+                  className="w-full px-10 h-16 object-cover active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent"
                   src={image.src}
                   alt={image.alt}
                   width={250}

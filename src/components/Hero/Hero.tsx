@@ -32,7 +32,10 @@ function Hero() {
         {heroSlider.map((item: any, index: number) => {
           return (
             <>
-              <div className="w-full flex max-sm:flex-wrap">
+              <div
+                className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap overflow-auto"
+                key={index}
+              >
                 <div className=" min-w-[500px] left-side w-1/2 flex flex-col justify-center gap-3 ">
                   <div className="w-full flex items-center gap-2">
                     <svg
@@ -47,16 +50,15 @@ function Hero() {
                         x2="34"
                         y2="1"
                         stroke="black"
-                        stroke-width="2"
+                        color="black"
                       />
                     </svg>
 
                     <h5 className="text-black font-gotham text-[25x] font-extralight">
-                      {' '}
                       Latest Designs
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold text-[53px]">
+                  <h1 className="text-black font-extrabold lg:text-[53px] text-3xl leading-normal">
                     Custom Window <br />
                     Blinds & Curtains
                   </h1>
@@ -69,7 +71,7 @@ function Hero() {
                   </button>
                 </div>
 
-                <div className="rigt-side w-1/2 flex flex-col justify-center">
+                <div className="rigt-side w-1/2 flex flex-col justify-center border">
                   <div key={index} className="relative">
                     {showModel == '1_model' && (
                       <SliderModal setshowModel={setshowModel} />

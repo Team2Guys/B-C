@@ -1,25 +1,48 @@
 // src/data.ts
-import { CardTypes } from 'types/interface';
+import {
+  CardTypes,
+  FeatureProductData,
+  GalleryItems,
+  ProductCardData,
+  ProductItems,
+  SocialDataType,
+  SupportItem,
+  THeroImages,
+  Tproductdata,
+  TProductGuarantees,
+  TsizePresets,
+} from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
 import { BannerData } from 'types/interface';
+import { TRatingSlider } from 'types/interface';
+
+export const generateSlug = (text: string) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-');
+};
 
 export const cardData: CardTypes[] = [
   {
-    image: '/assets/images/d.png',
+    image: '/assets/images/blindcard/blind.png',
     heading: 'BLINDS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
     buttonText: 'VIEW BLINDS',
   },
   {
-    image: '/assets/images/d.png',
+    image: '/assets/images/blindcard/curtains.png',
     heading: 'CURTAINS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
     buttonText: 'VIEW BLINDS',
   },
   {
-    image: '/assets/images/d.png',
+    image: '/assets/images/blindcard/shutters.png',
     heading: 'SHUTTERS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
@@ -30,10 +53,13 @@ export const cardData: CardTypes[] = [
 // Blinds and Curtains section data
 
 export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
-  image: '/assets/images/Group 2102.png',
-  heading: 'BLINDS & CURTAINS DUBAI',
-  paragraph:
-    'Based in Dubai, specializes in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also functional.  All our professional teams are based in Dubai and speak great English and will easily understand your blinds and curtains requirements and advise as best as they can. We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options). Whether you’re looking for a classy, chic, or modern design, we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
+  image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
+  heading: 'BLINDS & CURTAINS DUBAI',
+  paragraph: [
+    'Based in Dubai, specializes in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also functional.',
+    'All our professional teams are based in Dubai and speak great English and will easily understand your blinds and curtains requirements and advise as best as they can. We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).',
+    'Whether you’re looking for a classy, chic, or modern design, we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
+  ],
   buttonText: 'Read More',
 };
 
@@ -62,27 +88,18 @@ export const heroSlider = [
   },
 ];
 export const bannerData: BannerData = {
-  imageUrl: '/assets/images/dd.png',
+  imageUrl: '/assets/images/measure_shutter/measure_shutter.png',
   title: 'MADE TO MEASURE SHUTTERS FOR YOU..',
   buttonText: 'Booking Now',
 };
 
 export const footerLinks = [
   {
-    title: 'Product',
-    links: [
-      'UI/UX Design',
-      'Web Development',
-      'Mobile Development',
-      'IT Consultancy',
-    ],
-  },
-  {
-    title: 'Support',
+    title: 'Quick Links',
     links: ['Contact Us', 'Knowledge Base', 'Forums'],
   },
   {
-    title: 'Legal',
+    title: 'Account Inf0',
     links: [
       'Legal Information',
       'Privacy Policy',
@@ -92,12 +109,14 @@ export const footerLinks = [
     ],
   },
   {
-    title: 'Login',
-    links: ['Web Hosting', 'DreamCompute', 'Website Builder'],
-  },
-  {
-    title: 'Company',
-    links: ['About Us', 'Affiliate', 'Blog', 'Careers', 'Community'],
+    title: 'Polices',
+    links: [
+      'Legal Information',
+      'Privacy Policy',
+      'Report Abuse',
+      'Terms of Sources',
+      'WHOIS Lookup',
+    ],
   },
 ];
 
@@ -116,4 +135,705 @@ export const OurClientImage = [
     alt: 'Yellow-Zone-Group-Dubai 1',
   },
   // { src: '/assets/images/ourclient/yellow-zone-group-dubai-2.png', alt: 'Yellow-Zone-Group-Dubai 2' }
+];
+
+export const SocialData: SocialDataType[] = [
+  {
+    href: 'https://facebook.com',
+    src: '/assets/images/icon/face.png',
+    alt: 'Facebook',
+  },
+  {
+    href: 'https://twitter.com',
+    src: '/assets/images/icon/link.png',
+    alt: 'Twitter',
+  },
+  {
+    href: 'https://instagram.com',
+    src: '/assets/images/icon/insta.png',
+    alt: 'Instagram',
+  },
+  {
+    href: 'https://instagram.com',
+    src: '/assets/images/icon/whats.png',
+    alt: 'Instagram',
+  },
+];
+export const featureProducts: FeatureProductData[] = [
+  {
+    id: 1,
+    category: 'Blind',
+    title: 'Vertical Blinds',
+    image: '/assets/images/dynamic/Rectangle 811d.png', // Adjust the path accordingly
+    link: '/products',
+  },
+  {
+    id: 2,
+    category: 'Blind',
+    title: 'Sheer Curtains',
+    image: '/assets/images/dynamic/Rectangle 811da.png',
+    link: '/products',
+  },
+  {
+    id: 3,
+    category: 'Blind',
+    title: 'Plantation Shutters',
+    image: '/assets/images/dynamic/Rectangle 811dds.png',
+    link: '/products',
+  },
+  {
+    id: 4,
+    category: 'Blind',
+    title: 'Plantation Shutters',
+    image: '/assets/images/dynamic/Rectangle 811da.png',
+    link: '/products',
+  },
+  {
+    id: 5,
+    category: 'Curtains',
+    title: 'Sheer Curtains',
+    image: '/assets/images/dynamic/Rectangle 811da.png',
+    link: '/products',
+  },
+  {
+    id: 6,
+    category: 'Curtains',
+    title: 'Plantation Shutters',
+    image: '/assets/images/dynamic/Rectangle 811dds.png',
+    link: '/products',
+  },
+  {
+    id: 7,
+    category: 'Curtains',
+    title: 'Sheer Curtains',
+    image: '/assets/images/dynamic/Rectangle 811da.png',
+    link: '/products',
+  },
+  {
+    id: 8,
+    category: 'Shutters',
+    title: 'Plantation Shutters',
+    image: '/assets/images/dynamic/Rectangle 811dds.png',
+    link: '/products',
+  },
+];
+
+export const ProductCardINFO: ProductCardData[] = [
+  {
+    id: 1,
+    category: 'BLINDS BY TYPE',
+    title: 'Vertical Blinds',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/6.png',
+    link: '/product',
+  },
+  {
+    id: 2,
+    category: 'BLINDS BY TYPE',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/1.png',
+    link: '/product',
+  },
+  {
+    id: 3,
+    category: 'BLINDS BY TYPE',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/2.png',
+    link: '/product',
+  },
+  {
+    id: 4,
+    category: 'BLINDS BY TYPE',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/3.png',
+    link: '/product',
+  },
+  {
+    id: 5,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/4.png',
+    link: '/product',
+  },
+  {
+    id: 6,
+    category: 'BY ROOM',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/5.png',
+    link: '/product',
+  },
+  {
+    id: 7,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/6.png',
+    link: '/product',
+  },
+  {
+    id: 8,
+    category: 'BY ROOM',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/5.png',
+    link: '/product',
+  },
+  {
+    id: 9,
+    category: 'BLINDS BY TYPE',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/4.png',
+    link: '/product',
+  },
+  {
+    id: 10,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/3.png',
+    link: '/product',
+  },
+  {
+    id: 11,
+    category: 'BY ROOM',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/2.png',
+    link: '/product',
+  },
+  {
+    id: 12,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/1.png',
+    link: '/product',
+  },
+];
+
+export const supportItems: SupportItem[] = [
+  {
+    title: 'MOTORS DO THE WORK FOR YOU',
+    description:
+      'No need to pull on heavy or hard-to-reach blinds and curtains. No more cables to operate or strings that get tangled up! Relax and let the motors do the work for you.',
+  },
+  {
+    title: 'EXPERTS ASSIST',
+    description:
+      'No need to pull on heavy or hard-to-reach blinds and curtains. No more cables to operate or strings that get tangled up! Relax and let the motors do the work for you.',
+  },
+  {
+    title: 'SMART HOME AUTOMATION',
+    description:
+      'No need to pull on heavy or hard-to-reach blinds and curtains. No more cables to operate or strings that get tangled up! Relax and let the motors do the work for you.',
+  },
+];
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Masud Rana',
+    date: 'Jun 22, 2024',
+    image: '/assets/images/static/testiImage.png',
+    text: `
+      This is very good website . I highly recomit👍 
+adipiscing elit. Sagittis, sagittis neque egestas
+velit, nec, malesuada tellus. Urna   `,
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'Masud rana',
+    date: 'Jun 22, 2024',
+    image: '/assets/images/static/testiImage.png',
+    text: `This is very good website . I highly recomit👍 
+adipiscing elit. Sagittis, sagittis neque egestas
+velit, nec, malesuada tellus. Urna  `,
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: 'Masud rana',
+    date: 'Jun 22, 2024',
+    image: '/assets/images/static/testiImage.png',
+    text: `This is very good website . I highly recomit👍 
+adipiscing elit. Sagittis, sagittis neque egestas
+velit, nec, malesuada tellus. Urna  `,
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: 'Masud rana',
+    date: 'Jun 22, 2024',
+    image: '/assets/images/static/testiImage.png',
+    text: `This is very good website . I highly recomit👍 
+adipiscing elit. Sagittis, sagittis neque egestas
+velit, nec, malesuada tellus. Urna `,
+    rating: 5,
+  },
+];
+
+export const blindsSliderItems = [
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+];
+
+export const curtainsSliderItems = [
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+  {
+    key: 2,
+    src: '/assets/images/Container2.png',
+    alt: 'Description 2',
+    title: 'Title 2',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 3,
+    src: '/assets/images/Container.png',
+    alt: 'Description 3',
+    title: 'Title 3',
+  },
+  {
+    key: 1,
+    src: '/assets/images/Container.png',
+    alt: 'Description 1',
+    title: 'Title 1',
+  },
+];
+
+export const menuItems = [
+  { label: 'Home', path: '/' },
+  { label: 'Blinds', path: '#', sliderData: blindsSliderItems },
+  { label: 'Curtains', path: '#', sliderData: curtainsSliderItems },
+  { label: 'Shutters', path: '#', sliderData: blindsSliderItems },
+  { label: 'Commercial', path: '#', sliderData: curtainsSliderItems },
+  { label: 'Estimator', path: '/estimator' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Contact Us', path: '/contact-us' },
+];
+
+export const MobilemenuItems = [
+  { label: 'Home', path: '/' },
+  {
+    label: 'Blinds',
+    subItems: blindsSliderItems.map((item) => ({
+      key: item.key,
+      src: item.src,
+      alt: item.alt,
+      title: item.title,
+    })),
+  },
+  {
+    label: 'Curtains',
+    subItems: curtainsSliderItems.map((item) => ({
+      key: item.key,
+      src: item.src,
+      alt: item.alt,
+      title: item.title,
+    })),
+  },
+  { label: 'Shutters', path: '/shutters' },
+  { label: 'Commercial', path: '/commercial' },
+  { label: 'Estimator', path: '/estimator' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Contact Us', path: '/contact-us' },
+];
+
+export const galleryItems: GalleryItems[] = [
+  {
+    id: 1,
+    imageUrl: '/assets/images/Rectangle8.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'BILNDS',
+  },
+  {
+    id: 2,
+    imageUrl: '/assets/images/Rectangle8dd.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'CURTAINS',
+  },
+  {
+    id: 3,
+    imageUrl: '/assets/images/Image_3.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'BILNDS',
+  },
+  {
+    id: 4,
+    imageUrl: '/assets/images/Image_4.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 5,
+    imageUrl: '/assets/images/Image_5.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'COMMERCIAL',
+  },
+  {
+    id: 6,
+    imageUrl: '/assets/images/Image_3.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 7,
+    imageUrl: '/assets/images/Image_6.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'COMMERCIAL',
+  },
+  {
+    id: 8,
+    imageUrl: '/assets/images/Image_4.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 9,
+    imageUrl: '/assets/images/Image_6.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'INSTALLATION',
+  },
+  {
+    id: 10,
+    imageUrl: '/assets/images/Image_4.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'COMMERCIAL',
+  },
+  {
+    id: 11,
+    imageUrl: '/assets/images/Image_5.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'SHUTTERS',
+  },
+  {
+    id: 12,
+    imageUrl: '/assets/images/Image_4.png',
+    title: 'The Bel Air Wooden Blinds',
+    category: 'INSTALLATION',
+  },
+];
+
+export const relativeProducts: GalleryItems[] = [
+  {
+    id: 1,
+    imageUrl: '/assets/images/Rectangle8.png',
+    title: 'Vertical Blinds',
+    category: 'BILNDS',
+  },
+  {
+    id: 2,
+    imageUrl: '/assets/images/Rectangle8dd.png',
+    title: 'Vertical Blinds',
+    category: 'CURTAINS',
+  },
+  {
+    id: 3,
+    imageUrl: '/assets/images/image_3.png',
+    title: 'Vertical Blinds',
+    category: 'BILNDS',
+  },
+];
+
+export const productItems: ProductItems[] = [
+  {
+    id: 1,
+    imageUrl: '/assets/images/Rectangle812h.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 2,
+    imageUrl: '/assets/images/Rectangle812g.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 3,
+    imageUrl: '/assets/images/Rectangle812gs.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 4,
+    imageUrl: '/assets/images/Rectangle812h.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 5,
+    imageUrl: '/assets/images/Rectangle812g.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 6,
+    imageUrl: '/assets/images/Rectangle812gs.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 7,
+    imageUrl: '/assets/images/Rectangle812h.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 8,
+    imageUrl: '/assets/images/Rectangle812g.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 9,
+    imageUrl: '/assets/images/Rectangle812gs.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 10,
+    imageUrl: '/assets/images/Rectangle812h.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+  {
+    id: 11,
+    imageUrl: '/assets/images/Rectangle812g.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'ROMAN BLINDS',
+    category: 'ROMAN BLINDS',
+  },
+  {
+    id: 12,
+    imageUrl: '/assets/images/Rectangle812gs.png',
+    discription:
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+    title: 'OFFICE',
+    category: 'OFFICE',
+  },
+];
+export const RatingSlider: TRatingSlider = {
+  imageUrl: '/assets/images/googleReview/qautes.png',
+  StarImage: '/assets/images/googleReview/star.png',
+};
+export const HeroImages: THeroImages = {
+  logo: '/assets/images/logomain.png',
+  backImage: '/assets/images/hero/back2.jpeg',
+  defaultBackImage: '/assets/images/hero/BACK.jpeg',
+};
+export const productData: Tproductdata = {
+  title: 'PRODUCT GUARANTEES',
+  sideImage: '/assets/images/product-guarantees/guarantee1.png',
+  sideImage1: '/assets/images/product-guarantees/guarantee2.png',
+  heading: 'BLINDS, CURTAINS & SHUTTERS PRODUCT GUARANTEES',
+  content:
+    'When you’re choosing Blinds & Curtains window dressings, you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications. you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications.',
+};
+
+export const sizePresets: TsizePresets[] = [
+  { width: 300, height: 400, size: 100 },
+  { width: 50, height: 500, size: 100 },
+  { width: 400, height: 300, size: 100 },
+  { width: 120, height: 100, size: 100 },
+];
+
+export const initialSize: TsizePresets = {
+  width: 200,
+  height: 200,
+  size: 100,
+};
+
+export const ProductGuarantees: TProductGuarantees[] = [
+  {
+    heading: 'OUR 3-YEAR GUARANTEE',
+    text: "When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you'll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you. When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you'll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you.",
+    image: '/assets/images/product-guarantees/guarantee2.png',
+    imageAlign: 'left',
+  },
+  {
+    heading: 'OUR LIFETIME WARRANTY',
+    text: "From the day your order is fitted, you will have a fully comprehensive 3-year Guarantee against manufacturing defects. This encompasses all parts, components, and materials used. Once the 3 years have passed, you can relax in the knowledge that we will be there to support you throughout the lifetime of your blinds, curtains or shutters. Where repairs are required, we will provide this service for you at a nominal fee and cost of goods only. Where goods are no longer available, we will offer you the most cost-effective method of resolving any issues. When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you’ll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you. ",
+    image: '/assets/images/product-guarantees/guarantee1.png',
+    imageAlign: 'right',
+  },
 ];
