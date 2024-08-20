@@ -49,7 +49,7 @@ function Hero() {
           return (
             <>
               <div
-                className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap overflow-auto"
+                className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap overflow-auto lg:px-0 px-4"
                 key={index}
               >
                 <div className=" min-w-[500px] left-side w-1/2 flex flex-col justify-center gap-3 ">
