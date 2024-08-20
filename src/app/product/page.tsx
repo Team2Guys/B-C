@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import TopHero from 'components/ui/top-hero';
 import Container from 'components/Res-usable/Container/Container';
@@ -28,6 +28,7 @@ const AricBlind: React.FC = () => {
   const [sizePresets, setSizePresets] =
     useState<TsizePresets[]>(initialSizePresets);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleSizeChange = (width: number, height: number) => {
     setSelectedSize({ width, height });
@@ -36,6 +37,24 @@ const AricBlind: React.FC = () => {
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      setIsPopupOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isPopupOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isPopupOpen]);
 
   return (
     <>
@@ -141,15 +160,15 @@ const AricBlind: React.FC = () => {
               Book a visit to have your custom quotation!
             </p>
 
-            <Button className="bg-secondary text-white text-2xl font-bold py-4 px-4 rounded-lg">
+            <Button className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
               Book Now
             </Button>
           </div>
         </div>
       </Container>
       {isPopupOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50 ">
-          <div className="relative  rounded-lg">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
+          <div ref={modalRef} className="relative rounded-lg">
             <button
               className="absolute top-2 bg-white right-2 shadow-md px-2 rounded-full text-black text-xl"
               onClick={togglePopup}

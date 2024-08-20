@@ -42,14 +42,14 @@ export const cardData: CardTypes[] = [
     heading: 'CURTAINS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
-    buttonText: 'VIEW BLINDS',
+    buttonText: 'VIEW CURTAINS',
   },
   {
     image: '/assets/images/blindcard/shutters.png',
     heading: 'SHUTTERS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
-    buttonText: 'VIEW BLINDS',
+    buttonText: 'VIEW SHUTTERS',
   },
 ];
 
