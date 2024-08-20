@@ -3,15 +3,28 @@ import {
   CardTypes,
   FeatureProductData,
   GalleryItems,
+  ProductCardData,
   ProductItems,
   SocialDataType,
   SupportItem,
   THeroImages,
   Tproductdata,
+  TProductGuarantees,
+  TsizePresets,
 } from 'types/interface';
 import { BlindsAndCurtainsTypes } from 'types/interface';
 import { BannerData } from 'types/interface';
 import { TRatingSlider } from 'types/interface';
+
+export const generateSlug = (text: string) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-');
+};
 
 export const cardData: CardTypes[] = [
   {
@@ -156,14 +169,14 @@ export const featureProducts: FeatureProductData[] = [
   },
   {
     id: 2,
-    category: 'Curtains',
+    category: 'Blind',
     title: 'Sheer Curtains',
     image: '/assets/images/dynamic/Rectangle 811da.png',
     link: '/products',
   },
   {
     id: 3,
-    category: 'Shutters',
+    category: 'Blind',
     title: 'Plantation Shutters',
     image: '/assets/images/dynamic/Rectangle 811dds.png',
     link: '/products',
@@ -184,7 +197,7 @@ export const featureProducts: FeatureProductData[] = [
   },
   {
     id: 6,
-    category: 'Shutters',
+    category: 'Curtains',
     title: 'Plantation Shutters',
     image: '/assets/images/dynamic/Rectangle 811dds.png',
     link: '/products',
@@ -202,6 +215,117 @@ export const featureProducts: FeatureProductData[] = [
     title: 'Plantation Shutters',
     image: '/assets/images/dynamic/Rectangle 811dds.png',
     link: '/products',
+  },
+];
+
+export const ProductCardINFO: ProductCardData[] = [
+  {
+    id: 1,
+    category: 'BLINDS BY TYPE',
+    title: 'Vertical Blinds',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/6.png',
+    link: '/product',
+  },
+  {
+    id: 2,
+    category: 'BLINDS BY TYPE',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/1.png',
+    link: '/product',
+  },
+  {
+    id: 3,
+    category: 'BLINDS BY TYPE',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/2.png',
+    link: '/product',
+  },
+  {
+    id: 4,
+    category: 'BLINDS BY TYPE',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/3.png',
+    link: '/product',
+  },
+  {
+    id: 5,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/4.png',
+    link: '/product',
+  },
+  {
+    id: 6,
+    category: 'BY ROOM',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/5.png',
+    link: '/product',
+  },
+  {
+    id: 7,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/6.png',
+    link: '/product',
+  },
+  {
+    id: 8,
+    category: 'BY ROOM',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/5.png',
+    link: '/product',
+  },
+  {
+    id: 9,
+    category: 'BLINDS BY TYPE',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/4.png',
+    link: '/product',
+  },
+  {
+    id: 10,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/3.png',
+    link: '/product',
+  },
+  {
+    id: 11,
+    category: 'BY ROOM',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/2.png',
+    link: '/product',
+  },
+  {
+    id: 12,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/1.png',
+    link: '/product',
   },
 ];
 
@@ -685,3 +809,31 @@ export const productData: Tproductdata = {
   content:
     'When you’re choosing Blinds & Curtains window dressings, you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications. you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications.',
 };
+
+export const sizePresets: TsizePresets[] = [
+  { width: 300, height: 400, size: 100 },
+  { width: 50, height: 500, size: 100 },
+  { width: 400, height: 300, size: 100 },
+  { width: 120, height: 100, size: 100 },
+];
+
+export const initialSize: TsizePresets = {
+  width: 200,
+  height: 200,
+  size: 100,
+};
+
+export const ProductGuarantees: TProductGuarantees[] = [
+  {
+    heading: 'OUR 3-YEAR GUARANTEE',
+    text: "When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you'll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you. When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you'll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you.",
+    image: '/assets/images/product-guarantees/guarantee2.png',
+    imageAlign: 'left',
+  },
+  {
+    heading: 'OUR LIFETIME WARRANTY',
+    text: "From the day your order is fitted, you will have a fully comprehensive 3-year Guarantee against manufacturing defects. This encompasses all parts, components, and materials used. Once the 3 years have passed, you can relax in the knowledge that we will be there to support you throughout the lifetime of your blinds, curtains or shutters. Where repairs are required, we will provide this service for you at a nominal fee and cost of goods only. Where goods are no longer available, we will offer you the most cost-effective method of resolving any issues. When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you’ll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you. ",
+    image: '/assets/images/product-guarantees/guarantee1.png',
+    imageAlign: 'right',
+  },
+];

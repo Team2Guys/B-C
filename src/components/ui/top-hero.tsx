@@ -37,7 +37,6 @@ const TopHero: React.FC<TopHeroProps> = ({
       }}
     >
       <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
-
       <div className="relative z-20 py-24">
         <h1 className="text-2xl xs:text-5xl md:text-6xl lg:text-7xl font-black mt-5 uppercase">
           {title}
