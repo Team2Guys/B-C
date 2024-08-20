@@ -70,6 +70,20 @@ export interface ProductItems {
   category: string;
 }
 
+export interface AboutStaticData {
+  id: number;
+  subheading: string;
+  heading: string;
+  paragraph: string;
+}
+
+export interface OurHistory {
+  id: number;
+  year: string;
+  heading: string;
+  discription: string;
+}
+
 export type TRatingSlider = {
   imageUrl: string;
   StarImage: string;
