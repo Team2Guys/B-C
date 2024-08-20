@@ -27,6 +27,15 @@ export interface FeatureProductData {
   link: string;
 }
 
+export interface ProductCardData {
+  id: number;
+  category: string;
+  title: string;
+  decription: string;
+  image: any; // You can also use StaticImageData if importing images
+  link: string;
+}
+
 export interface SupportItem {
   title: string;
   description: string;
@@ -76,4 +85,15 @@ export interface Tproductdata {
   content: string;
   sideImage1: string;
   sideImage: string;
+}
+export interface TsizePresets {
+  width: number;
+  height: number;
+  size: any;
+}
+interface TProductGuarantees {
+  heading: string;
+  text: string;
+  image: string;
+  imageAlign: 'left' | 'right';
 }
