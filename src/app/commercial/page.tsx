@@ -10,8 +10,6 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Link from 'next/link';
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import Guarrenty from 'components/Res-usable/guarrenty/guarrenty';
-import OurClient from 'components/Our-Client/OurClient';
 
 const CommercialPage = () => {
   return (
@@ -42,8 +40,8 @@ const CommercialPage = () => {
           </ul>
           <div className="h-fit mt-8">
             <Link
-              href="/"
-              className="px-8 py-4 bg-borderclr rounded-md text-white"
+              href="/appointment"
+              className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
             >
               Book Now
             </Link>
@@ -59,7 +57,9 @@ const CommercialPage = () => {
       </Container>
       <div className="w-full border-t-[1px] border-borderclr"></div>
       <Container className="text-center py-10">
-        <h2 className="text-4xl">OFFICE BLINDS & CURTAINS</h2>
+        <h2 className="text-2xl xs:text-3xl sm:text-4xl">
+          OFFICE BLINDS & CURTAINS
+        </h2>
         <p className="mt-3 text-15 leading-7">
           See our comprehensive Blinds range
           <br />
@@ -74,22 +74,24 @@ const CommercialPage = () => {
       </Container>
       <BookNowBanner />
       <Container className="text-center py-20">
-        <h2 className="text-4xl">COMMERCIAL OFFICE BLINDS STYLES</h2>
+        <h2 className="text-2xl xs:text-3xl sm:text-4xl">
+          COMMERCIAL OFFICE BLINDS STYLES
+        </h2>
         <p className="mt-3 text-15 leading-7">
           See our comprehensive Blinds range
           <br />
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {galleryItems.map((item) => (
             <GalleryCard card={item} key={item.id} relativeProducts={true} />
           ))}
         </div>
         <div className="h-fit mt-20 text-center">
           <Link
-            href="/"
-            className="px-8 py-4 bg-borderclr rounded-md text-white"
+            href="/product"
+            className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
           >
             View More
           </Link>
@@ -98,8 +100,6 @@ const CommercialPage = () => {
       <Container className="py-10">
         <RelatedProducts products={relativeProducts} />
       </Container>
-      <Guarrenty />
-      <OurClient />
     </div>
   );
 };

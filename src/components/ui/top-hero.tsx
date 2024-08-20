@@ -12,6 +12,7 @@ interface TopHeroProps {
   category?: string;
   home?: string;
   pagename?: string;
+  backgroundposition?: string;
 }
 
 const TopHero: React.FC<TopHeroProps> = ({
@@ -20,6 +21,7 @@ const TopHero: React.FC<TopHeroProps> = ({
   category,
   home,
   pagename,
+  backgroundposition,
 }) => {
   const pathname = usePathname().replace('/', '');
   return (
@@ -27,7 +29,9 @@ const TopHero: React.FC<TopHeroProps> = ({
       className="relative text-center text-black custom-breadcrum h-72 flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage: `url(${image.src})`,
-        backgroundPosition: 'bottom center',
+        backgroundPosition: backgroundposition
+          ? backgroundposition
+          : 'left center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}

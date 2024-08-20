@@ -1,8 +1,11 @@
 // src/data.ts
+import exp from 'constants';
 import {
+  AboutStaticData,
   CardTypes,
   FeatureProductData,
   GalleryItems,
+  OurHistory,
   ProductCardData,
   ProductItems,
   SocialDataType,
@@ -39,14 +42,14 @@ export const cardData: CardTypes[] = [
     heading: 'CURTAINS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
-    buttonText: 'VIEW BLINDS',
+    buttonText: 'VIEW CURTAINS',
   },
   {
     image: '/assets/images/blindcard/shutters.png',
     heading: 'SHUTTERS',
     paragraph:
       'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
-    buttonText: 'VIEW BLINDS',
+    buttonText: 'VIEW SHUTTERS',
   },
 ];
 
@@ -613,61 +616,61 @@ export const galleryItems: GalleryItems[] = [
   },
   {
     id: 3,
-    imageUrl: '/assets/images/image_3.png',
+    imageUrl: '/assets/images/Image_3.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'BILNDS',
   },
   {
     id: 4,
-    imageUrl: '/assets/images/image_4.png',
+    imageUrl: '/assets/images/Image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 5,
-    imageUrl: '/assets/images/image_5.png',
+    imageUrl: '/assets/images/Image_5.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 6,
-    imageUrl: '/assets/images/image_3.png',
+    imageUrl: '/assets/images/Image_3.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 7,
-    imageUrl: '/assets/images/image_6.png',
+    imageUrl: '/assets/images/Image_6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 8,
-    imageUrl: '/assets/images/image_4.png',
+    imageUrl: '/assets/images/Image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 9,
-    imageUrl: '/assets/images/image_6.png',
+    imageUrl: '/assets/images/Image_6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'INSTALLATION',
   },
   {
     id: 10,
-    imageUrl: '/assets/images/image_4.png',
+    imageUrl: '/assets/images/Image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 11,
-    imageUrl: '/assets/images/image_5.png',
+    imageUrl: '/assets/images/Image_5.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 12,
-    imageUrl: '/assets/images/image_4.png',
+    imageUrl: '/assets/images/Image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'INSTALLATION',
   },
@@ -835,5 +838,57 @@ export const ProductGuarantees: TProductGuarantees[] = [
     text: "From the day your order is fitted, you will have a fully comprehensive 3-year Guarantee against manufacturing defects. This encompasses all parts, components, and materials used. Once the 3 years have passed, you can relax in the knowledge that we will be there to support you throughout the lifetime of your blinds, curtains or shutters. Where repairs are required, we will provide this service for you at a nominal fee and cost of goods only. Where goods are no longer available, we will offer you the most cost-effective method of resolving any issues. When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you’ll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you. ",
     image: '/assets/images/product-guarantees/guarantee1.png',
     imageAlign: 'right',
+  },
+];
+
+export const AboutUsPara = {
+  id: 1,
+  subheading: 'About Us',
+  heading: ['WELCOME TO', 'BLINDS & CURTAINS DUBAI'],
+  paragraph: [
+    'A growing business based in the heart of Dubai with a showroom in Al Quoz. blindsandcurtains.ae draws on over 20 years of experience in the drapery industry. You can be assured of the highest level of service and knowledge available. All our advisors are fully trained in all aspects of blinds & curtains and will always offer you the best, most impartial, honest advice you could ask for.',
+    'Most of our products are manufactured right here in the U.A.E, ensuring that we can quality control check every single item leaving our factory, and delivering and fitting to your home within a week in most cases. All our blinds are manufactured to British Standard (BBSA) and are custom-made to your specifications. Factories used for our imported products have been quality tested for months before we signed exclusive distribution rights with them.',
+  ],
+};
+export const UsHistoryPara = {
+  id: 1,
+  subheading: 'OUR HISTORY',
+  heading: ['Here is our', 'journey'],
+  paragraph: [
+    'All our materials and fabrics are of the finest quality with over 70% sourced directly from Europe. With a dedicated design team based in London, constantly launching new colours and patterns to give you the latest fashion colours from Europe as well as being a step ahead of the rest.',
+    'Make tomorrow your day and give us a call. We can visit you in the comfort of your home with our catalogues or you can visit us in our showroom in Al Quoz.',
+    'None of our sales advisors are on commission and will not be pushy at all. We wouldn’t like that done to us, and there’s no way we would do any different to you. That’s our ethos and it has worked so far.',
+    'Thanks for visiting our site and we look forward to hearing from you.',
+  ],
+};
+
+export const OurHistoryData: OurHistory[] = [
+  {
+    id: 1,
+    year: '2005',
+    heading: 'Starting from Garage Building',
+    discription:
+      'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has.',
+  },
+  {
+    id: 1,
+    year: '2010',
+    heading: 'Moved to an Office Building',
+    discription:
+      'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has.',
+  },
+  {
+    id: 1,
+    year: '2013',
+    heading: 'Completed 50K a large project',
+    discription:
+      'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has.',
+  },
+  {
+    id: 1,
+    year: 'Now',
+    heading: 'Have 4 branch office in 5 Country',
+    discription:
+      'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has.',
   },
 ];
