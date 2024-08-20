@@ -4,6 +4,9 @@ import Slider from 'react-slick';
 import { FcGoogle } from 'react-icons/fc';
 import { TRSlide } from 'types/interface';
 import { PiQuotesFill } from 'react-icons/pi';
+import { Divider } from 'antd';
+import { RatingSlider } from 'data/data';
+import Image from 'next/image';
 
 export default function Review_banner() {
   const settings = {
@@ -16,23 +19,24 @@ export default function Review_banner() {
   const slides: TRSlide[] = [
     {
       title: 'Victoria Wotton',
-      content: 'Lorem ipsum dolor sit amet, consectetur ',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
     },
     {
       title: 'Victoria Wotton',
-      content: 'Lorem ipsum dolor sit amet, consectetur  ',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
     },
-    // Add more slides as needed
   ];
   return (
     <>
-      <div className="container lg:mt-10">
+      <div className=" max-w-[90%] mx-auto px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] p-10 rounded-lg shadow-lg">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3 items-center">
-            <div className="text-4xl font-bold pr-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
+            <div className="lg:text-4xl text-2xl font-bold max-w-96 ">
               <h3>Trusted Reviews from Our Customer</h3>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-1">
+            <div className="grid grid-cols-1 sm:grid-cols-1 items-center ">
               <a href="" className="">
                 <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit">
                   <span>
@@ -43,13 +47,20 @@ export default function Review_banner() {
                 </div>
               </a>
             </div>
-            <div className="bg-primary">
-              <div className="container  h-auto  w-full">
+            <div className="bg-primary lg:mt-0 mt-10">
+              <div className="container h-auto w-full">
+                <Image
+                  className="absolute lg:-top-4 bottom-60  lg:right-[15%] right-[50%] translate-x-[50%] sm:right-[10%] sm:translate-x-[9%]  lg:translate-x-[15%] z-10 "
+                  src={RatingSlider.imageUrl}
+                  alt=""
+                  width={140}
+                  height={140}
+                />
                 <Slider {...settings}>
                   {slides.map((slide, index: any) => (
                     <div
                       key={index}
-                      className="p-4 bg-primary text-center relative"
+                      className="px-4 pt-12 bg-primary text-center relative lg:px-5 "
                     >
                       {/* <div className=' bg-white w-fit rotate-180 text-8xl absolute -top-10 left-2/4 z-10 -translate-x-2/4 px-10'>
                         <PiQuotesFill className='z-50 ' />
@@ -61,6 +72,15 @@ export default function Review_banner() {
                     </div>
                   ))}
                 </Slider>
+                <div className="bg-white w-fit mx-auto px-7 py-1 mt-4 rounded-b-xl shadow-lg -mb-2   ">
+                  <Image
+                    className=""
+                    src={RatingSlider.StarImage}
+                    alt=""
+                    width={70}
+                    height={70}
+                  />
+                </div>
               </div>
             </div>
           </div>

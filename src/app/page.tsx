@@ -4,9 +4,11 @@ import Hero from 'components/Hero/Hero';
 import HomeCard from '../components/Card/page';
 import BlindsAndCurtainssection from '../components/Blind&Curtains/blinds&curtains';
 import Appointment from 'components/Appointment/Appointment';
-import Header from 'components/Res-usable/header/Header';
-import Footer from 'components/Res-usable/Footer/Footer';
-import Container from 'components/Res-usable/Container/Container';
+import FeatureProduct from 'components/feture-product/feature-product';
+import VideoAutomation from 'components/video-Automation/video-Automation';
+import Support from 'components/Res-usable/support/support';
+import Guarrenty from 'components/Res-usable/guarrenty/guarrenty';
+import Testimonial from 'components/slider/testimonial';
 import Review_banner from 'components/ReviewBanner/Review_banner';
 
 import Banner from 'components/HomeBanner/Home_Banner';
@@ -24,7 +26,9 @@ export default function Home() {
       <div className="mx-auto">
         <Banner data={bannerData} />
       </div>
-      <OurClient />
+      <FeatureProduct />
+      <VideoAutomation />
+      <Support />
     </>
   );
 }

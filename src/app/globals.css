@@ -13,7 +13,7 @@
     --popover-foreground: 222.2 84% 4.9%;
     --primary: #cdb7aa;
     --primary-foreground: #e6d4ca;
-    --secondary: #e6d4ca;
+    --secondary: #9fac9b;
     --secondary-foreground: #bdc9bd;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -33,33 +33,19 @@
     --h1-color: #000000;
     --light: #f6efe9;
     --lightgrey: #e6e4e5;
+    --btn-clr: #a9b4a4;
+    --light-dark: #797d85;
+    --border-clr: #bdc9bd;
+    --hover-border-clr: #aab8aa;
   }
+}
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-lightgrey;
   }
 }
 
@@ -87,3 +73,55 @@
 .clip-custom-shape {
   clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 10% 51%, 0% 0%);
 }
+.custom-breadcrum .ant-breadcrumb a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.custom-breadcrum .ant-breadcrumb ol {
+  align-items: center !important;
+}
+.Hero-slider .slick-track:before,
+.Hero-slider .slick-track:after {
+  display: none;
+}
+.css-t3ipsp-control {
+  box-shadow: 0 0 0 1px black !important;
+}
+.css-t3ipsp-control:hover {
+  border-color: black !important;
+}
+.happy_customer .slider-container .slick-dots li button:before {
+  font-size: 19px !important;
+  color: #bdc9bd !important;
+  top: 40px;
+}
+.custom-datepicker .react-datepicker-wrapper {
+  width: 100%;
+}
+/* .css-1nmdiq5-menu > div {
+} */
+/* .react-tel-input .selected-flag .arrow {
+  position: relative;
+  top: 50%;
+  margin-top: -2px;
+  left: 26px !important;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 4px solid #555;
+}
+.react-tel-input .selected-flag .flag {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px !important;
+}
+.react-tel-input .flag {
+  width: 22px !important;
+  border-radius: 14px;
+  height: 20px !important;
+}
+.react-tel-input .selected-flag {
+  padding: 0 0 0 4px !important;
+} */
