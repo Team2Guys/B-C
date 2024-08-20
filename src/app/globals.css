@@ -36,6 +36,7 @@
     --btn-clr: #a9b4a4;
     --light-dark: #797d85;
     --border-clr: #bdc9bd;
+    --hover-border-clr: #aab8aa;
   }
 }
 
@@ -94,6 +95,9 @@
   font-size: 19px !important;
   color: #bdc9bd !important;
   top: 40px;
+}
+.custom-datepicker .react-datepicker-wrapper {
+  width: 100%;
 }
 /* .css-1nmdiq5-menu > div {
 } */

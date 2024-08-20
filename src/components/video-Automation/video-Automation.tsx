@@ -1,11 +1,17 @@
+'use client';
 import { Button } from 'components/ui/button';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
-const VideoAutomation = () => {
+interface VideoAutomationProps {
+  className?: string; // className is optional
+}
+const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
   const router = useRouter();
   return (
-    <div className="relative w-full h-auto md:h-[397px] overflow-hidden mt-10">
+    <div
+      className={`relative w-full h-auto md:h-[397px] overflow-hidden mt-10 ${className}`}
+    >
       <video
         className="absolute inset-0 object-cover w-full h-full"
         src="/assets/video/Agsons.mp4"

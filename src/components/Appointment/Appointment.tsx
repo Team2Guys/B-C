@@ -10,7 +10,7 @@ function Appointment() {
       <Container>
         <div className="lg:flex gap-4 space-y-3 ">
           <Choose />
-          <BookAppointment />
+          <BookAppointment singlePage={false} />
         </div>
       </Container>
     </>

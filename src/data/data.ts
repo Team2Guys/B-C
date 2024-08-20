@@ -3,6 +3,7 @@ import {
   CardTypes,
   FeatureProductData,
   GalleryItems,
+  ProductCardData,
   ProductItems,
   SocialDataType,
   SupportItem,
@@ -14,6 +15,16 @@ import {
 import { BlindsAndCurtainsTypes } from 'types/interface';
 import { BannerData } from 'types/interface';
 import { TRatingSlider } from 'types/interface';
+
+export const generateSlug = (text: string) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-');
+};
 
 export const cardData: CardTypes[] = [
   {
@@ -158,14 +169,14 @@ export const featureProducts: FeatureProductData[] = [
   },
   {
     id: 2,
-    category: 'Curtains',
+    category: 'Blind',
     title: 'Sheer Curtains',
     image: '/assets/images/dynamic/Rectangle 811da.png',
     link: '/products',
   },
   {
     id: 3,
-    category: 'Shutters',
+    category: 'Blind',
     title: 'Plantation Shutters',
     image: '/assets/images/dynamic/Rectangle 811dds.png',
     link: '/products',
@@ -186,7 +197,7 @@ export const featureProducts: FeatureProductData[] = [
   },
   {
     id: 6,
-    category: 'Shutters',
+    category: 'Curtains',
     title: 'Plantation Shutters',
     image: '/assets/images/dynamic/Rectangle 811dds.png',
     link: '/products',
@@ -204,6 +215,117 @@ export const featureProducts: FeatureProductData[] = [
     title: 'Plantation Shutters',
     image: '/assets/images/dynamic/Rectangle 811dds.png',
     link: '/products',
+  },
+];
+
+export const ProductCardINFO: ProductCardData[] = [
+  {
+    id: 1,
+    category: 'BLINDS BY TYPE',
+    title: 'Vertical Blinds',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/6.png',
+    link: '/product',
+  },
+  {
+    id: 2,
+    category: 'BLINDS BY TYPE',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/1.png',
+    link: '/product',
+  },
+  {
+    id: 3,
+    category: 'BLINDS BY TYPE',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/2.png',
+    link: '/product',
+  },
+  {
+    id: 4,
+    category: 'BLINDS BY TYPE',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/3.png',
+    link: '/product',
+  },
+  {
+    id: 5,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/4.png',
+    link: '/product',
+  },
+  {
+    id: 6,
+    category: 'BY ROOM',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/5.png',
+    link: '/product',
+  },
+  {
+    id: 7,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/6.png',
+    link: '/product',
+  },
+  {
+    id: 8,
+    category: 'BY ROOM',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/5.png',
+    link: '/product',
+  },
+  {
+    id: 9,
+    category: 'BLINDS BY TYPE',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/4.png',
+    link: '/product',
+  },
+  {
+    id: 10,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/3.png',
+    link: '/product',
+  },
+  {
+    id: 11,
+    category: 'BY ROOM',
+    title: 'Plantation Shutters',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/2.png',
+    link: '/product',
+  },
+  {
+    id: 12,
+    category: 'BY ROOM',
+    title: 'Sheer Curtains',
+    decription:
+      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
+    image: '/assets/images/product/1.png',
+    link: '/product',
   },
 ];
 
@@ -491,61 +613,61 @@ export const galleryItems: GalleryItems[] = [
   },
   {
     id: 3,
-    imageUrl: '/assets/images/image_3.png',
+    imageUrl: '/assets/images/Image_3.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'BILNDS',
   },
   {
     id: 4,
-    imageUrl: '/assets/images/image_4.png',
+    imageUrl: '/assets/images/Image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 5,
-    imageUrl: '/assets/images/image_5.png',
+    imageUrl: '/assets/images/Image_5.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 6,
-    imageUrl: '/assets/images/image_3.png',
+    imageUrl: '/assets/images/Image_3.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 7,
-    imageUrl: '/assets/images/image_6.png',
+    imageUrl: '/assets/images/Image_6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 8,
-    imageUrl: '/assets/images/image_4.png',
+    imageUrl: '/assets/images/Image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 9,
-    imageUrl: '/assets/images/image_6.png',
+    imageUrl: '/assets/images/Image_6.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'INSTALLATION',
   },
   {
     id: 10,
-    imageUrl: '/assets/images/image_4.png',
+    imageUrl: '/assets/images/Image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'COMMERCIAL',
   },
   {
     id: 11,
-    imageUrl: '/assets/images/image_5.png',
+    imageUrl: '/assets/images/Image_5.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'SHUTTERS',
   },
   {
     id: 12,
-    imageUrl: '/assets/images/image_4.png',
+    imageUrl: '/assets/images/Image_4.png',
     title: 'The Bel Air Wooden Blinds',
     category: 'INSTALLATION',
   },

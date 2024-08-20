@@ -10,6 +10,7 @@ interface CardSliderProps {
   nextLabel?: any;
   className?: string;
   sliderItems: { key: number; src: any; alt: string; title: string }[];
+  onClick?: any;
 }
 
 const CardSlider: React.FC<CardSliderProps> = ({
@@ -18,6 +19,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
   nextLabel = 'Next',
   className,
   sliderItems,
+  onClick,
 }) => {
   const sliderRef = useRef<Slider>(null);
 
@@ -49,7 +51,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
     <div className="slider-container space-y-4 px-4">
       <Slider ref={sliderRef} {...settings}>
         {sliderItems.map((item) => (
-          <div key={item.key} className="pl-4">
+          <div key={item.key} className="pl-4" onClick={onClick}>
             <MenuCard src={item.src} alt={item.alt} title={item.title} />
           </div>
         ))}
