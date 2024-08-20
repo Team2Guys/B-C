@@ -21,7 +21,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
         playsInline
         controls={false}
       />
-      <div className="relative z-10 w-full py-3 bg-white/80 my-10  max-w-screen-md mx-auto rounded-2xl">
+      <div className="relative z-10 w-full py-3 bg-white/80 my-10  rounded-2xl">
         <div className="py-2 px-4 text-center">
           <p className="text-[48px] font-bold">Automation</p>
           <p className="text-25 font-extralight ">
@@ -33,15 +33,15 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
             you’ve chosen the style of blinds and material that you want, we
             prepare a control solution to fit your needs.
           </p>
-          <div className="flex justify-center items-center gap-9 mt-4">
+          <div className="flex justify-center items-center  gap-2 md:gap-9 mt-4">
             <Button
               onClick={() => router.push('/motorised-blinds')}
               variant={'default'}
-              className="py-7"
+              className="py-4 px-2 md:py-7"
             >
               Motorised Blinds
             </Button>
-            <Button variant={'outline'} className="py-7">
+            <Button variant={'outline'} className="py-4 px-2 md:py-7">
               Motorised Curtains
             </Button>
           </div>

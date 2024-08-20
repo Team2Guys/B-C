@@ -38,7 +38,7 @@ const Header = () => {
         </Container>
       </div>
       <nav className="bg-lightgrey shadow-lg sticky top-0 z-50">
-        <Container className="flex w-full items-center justify-between !px-0">
+        <Container className="flex w-full items-center justify-between px-2 py-2 md:px-0 md:py-2">
           <Link href={'/'} className="w-3/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
@@ -68,45 +68,47 @@ const Header = () => {
               })}
             </div>
           </div>
-          <Link
-            className="py-2 px-2 xl:px-5 rounded-md text-14 xl:text-16 whitespace-nowrap  bg-primary text-black"
-            href="/free-consultation"
-          >
-            Free Consultation
-          </Link>
-          <div className="flex lg:hidden">
-            <Sheet drawerName={<RiMenuFoldLine size={25} />}>
-              {MobilemenuItems.map((item, index) => (
-                <Sheet
-                  key={index}
-                  drawerName={
-                    <div className="px-3 py-2 rounded-md text-14 font-medium hover:text-black">
-                      {item.label}
-                    </div>
-                  }
-                >
-                  {item.subItems ? (
-                    <div className="grid grid-cols-2 gap-4">
-                      {item.subItems.map((subItem) => (
-                        <MenuCard
-                          key={subItem.key}
-                          src={subItem.src}
-                          alt={subItem.alt}
-                          title={subItem.title}
-                        />
-                      ))}
-                    </div>
-                  ) : (
-                    <Link
-                      className="px-3 py-2 rounded-md text-14 font-medium hover:text-black"
-                      href={item.path}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </Sheet>
-              ))}
-            </Sheet>
+          <div className="flex items-center justify-center gap-3 relative">
+            <Link
+              className="py-2 px-2 xl:px-5 rounded-md text-14 xl:text-16 whitespace-nowrap  bg-primary text-black"
+              href="/free-consultation"
+            >
+              Free Consultation
+            </Link>
+            <div className="flex lg:hidden">
+              <Sheet drawerName={<RiMenuFoldLine size={25} />}>
+                {MobilemenuItems.map((item, index) => (
+                  <Sheet
+                    key={index}
+                    drawerName={
+                      <div className="px-3 py-2 rounded-md text-14 font-medium hover:text-black">
+                        {item.label}
+                      </div>
+                    }
+                  >
+                    {item.subItems ? (
+                      <div className="grid grid-cols-2 gap-4">
+                        {item.subItems.map((subItem, index1) => (
+                          <MenuCard
+                            key={index1}
+                            src={subItem.src}
+                            alt={subItem.alt}
+                            title={subItem.title}
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <Link
+                        className="px-3 py-2 rounded-md text-14 font-medium hover:text-black"
+                        href={item.path}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </Sheet>
+                ))}
+              </Sheet>
+            </div>
           </div>
         </Container>
       </nav>
