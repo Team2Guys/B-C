@@ -19,7 +19,7 @@ const BookNowBanner: React.FC<BookNowBannerProps> = ({ className }) => {
     >
       <div className="absolute w-full h-full bg-light opacity-60"></div>
       <Container className="z-0">
-        <p className="lg:text-4xl text-2xl font-medium mx-auto w-fit text-center">
+        <p className="text-2xl md:text-3xl lg:text-4xl font-medium mx-auto w-fit text-center">
           Need some more information or to{' '}
           <span className="font-black">Arrange an Appointment?</span>
           <br />
