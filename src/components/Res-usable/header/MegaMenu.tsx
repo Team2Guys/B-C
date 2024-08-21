@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 interface MegaMenuProps {
   label: string;
-  className?: string; // Add additional class name for styling if needed
+  className?: string;
   sliderData: { key: number; src: any; alt: string; title: string }[];
 }
 

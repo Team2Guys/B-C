@@ -52,12 +52,12 @@ const AllProducts = () => {
       </div>
 
       <div className="mt-10">
-        <div className="flex lg:gap-10 gap-5 justify-center whitespace-nowrap overflow-x-auto">
+        <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap overflow-x-auto ">
           {categories.map((category) => (
             <Button
               key={category}
               className={` 
-                ${activeCategory === category ? 'bg-primary text-white px-8 py-7' : 'text-black bg-transparent px-8 py-7'}
+                ${activeCategory === category ? 'bg-primary text-white xs:px-8 xs:py-7' : 'text-black bg-transparent xs:px-8 xs:py-7'}
               `}
               onClick={() => {
                 setActiveCategory(category);
