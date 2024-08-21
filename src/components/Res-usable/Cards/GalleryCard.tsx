@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { Modal } from 'antd';
 import { GalleryItems } from 'types/interface';
+import { generateSlug } from 'data/data';
 
 interface GalleryProps {
   card: GalleryItems;
@@ -48,7 +49,7 @@ const GalleryCard: React.FC<GalleryProps> = ({ card, relativeProducts }) => {
             {card.title}
           </span>
           <Link
-            href={`/product/${card.title}`}
+            href={`/products/${generateSlug(card.title)}`}
             className={`border-[1px] border-primary px-2 py-1 rounded-sm text-14 font-light ${relativeProducts ? 'block' : 'hidden'}`}
           >
             View More
