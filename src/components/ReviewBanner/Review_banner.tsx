@@ -32,11 +32,11 @@ export default function Review_banner() {
     <>
       <div className=" max-w-[90%] mx-auto px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] p-10 rounded-lg shadow-lg">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
+          <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
             <div className="lg:text-4xl text-2xl font-bold max-w-96 ">
               <h3>Trusted Reviews from Our Customer</h3>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-1 items-center ">
+            <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10 lg:mb-0 mb-20">
               <a href="" className="">
                 <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit">
                   <span>
@@ -50,7 +50,7 @@ export default function Review_banner() {
             <div className="bg-primary lg:mt-0 mt-10">
               <div className="container h-auto w-full">
                 <Image
-                  className="absolute lg:-top-4 bottom-60  lg:right-[15%] right-[50%] translate-x-[50%] sm:right-[10%] sm:translate-x-[9%]  lg:translate-x-[15%] z-10 "
+                  className="absolute lg:-top-4 top-56 lg:bottom-60  lg:right-[15%] lg:translate-x-[15%] right-[50%] translate-x-[50%] sm:right-[50%] sm:translate-x-[50%]  z-10 "
                   src={RatingSlider.imageUrl}
                   alt=""
                   width={140}

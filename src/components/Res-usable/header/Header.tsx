@@ -38,7 +38,7 @@ const Header = () => {
         </Container>
       </div>
       <nav className="bg-lightgrey shadow-lg sticky top-0 z-50">
-        <Container className="flex w-full items-center justify-between !px-0">
+        <Container className="flex w-full items-center justify-between px-2 py-2 md:px-0 md:py-2">
           <Link href={'/'} className="w-3/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
@@ -69,7 +69,7 @@ const Header = () => {
             </div>
           </div>
           <Link
-            className="py-2 px-2 xl:px-5 rounded-md text-14 xl:text-16 whitespace-nowrap  bg-primary text-black"
+            className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap  bg-primary text-black"
             href="/appointment"
           >
             Free Consultation

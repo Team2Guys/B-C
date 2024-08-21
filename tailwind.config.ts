@@ -73,6 +73,7 @@ const config = {
         light:"var(--light)",
         btnclr:"var(--btn-clr)",
         lightdark:"var(--light-dark)",
+        paralight:"var(--para-light)",
         lightgrey:"var(--lightgrey)",
         border: "hsl(var(--border))",
         borderclr: "var(--border-clr)",
