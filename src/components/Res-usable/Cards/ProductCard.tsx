@@ -3,6 +3,7 @@ import whyUsImg from '../../../../public/assets/images/Rectangle811da.png';
 import React from 'react';
 import { ProductItems } from 'types/interface';
 import Link from 'next/link';
+import { generateSlug } from 'data/data';
 
 interface productProps {
   card: ProductItems;
@@ -16,7 +17,7 @@ const ProductCard: React.FC<productProps> = ({ card }) => {
         <h5>{card.title}</h5>
         <p className="max-w-[340px] text-15 mt-4 mb-6">{card.discription}</p>
         <Link
-          href={`/product/${card.title}`}
+          href={`/products/${generateSlug(card.title)}`}
           className="uppercase border border-primary-foreground rounded-md group-hover:border-primary group-hover:bg-primary px-4 py-3 group-hover:text-white"
         >
           View Blinds
