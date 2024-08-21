@@ -18,9 +18,9 @@ const Card: FC<CardProps> = ({ data }) => {
       >
         <div>
           <Image
-            className="lg:w-[500px] object-cover md:w-[400px] sm:w-auto lg:h-[485px] md:h-[300px] sm:h-auto rounded-3xl transition-transform duration-300 ease-in-out transform group-hover:scale-105"
-            width={400}
-            height={400}
+            className="lg:w-[500px] object-cover md:w-[400px] sm:w-full lg:h-[485px] md:h-[300px] sm:h-auto rounded-3xl transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+            width={500}
+            height={500}
             src={data.image}
             alt={data.heading}
           />

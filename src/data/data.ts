@@ -862,6 +862,24 @@ export const UsHistoryPara = {
   ],
 };
 
+export const aboutUsReviewData = [
+  {
+    id: 1,
+    keys: '20 +',
+    title: 'Years Experience',
+  },
+  {
+    id: 2,
+    keys: '375K',
+    title: 'Work Completed',
+  },
+  {
+    id: 2,
+    keys: '19K',
+    title: 'Client Satisfied',
+  },
+];
+
 export const OurHistoryData: OurHistory[] = [
   {
     id: 1,
