@@ -1,29 +1,15 @@
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/large-ss.png';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/d.jpg';
 import Container from 'components/Res-usable/Container/Container';
-import Image from 'next/image';
 import aboutUsImg from '../../../public/assets/images/Group2003.png';
-import { AboutUsPara, OurHistoryData, UsHistoryPara } from 'data/data';
-import { title } from 'process';
+import {
+  AboutUsPara,
+  aboutUsReviewData,
+  OurHistoryData,
+  UsHistoryPara,
+} from 'data/data';
 
 const AboutUsPage = () => {
-  const aboutUsReviewData = [
-    {
-      id: 1,
-      keys: '20 +',
-      title: 'Years Experience',
-    },
-    {
-      id: 2,
-      keys: '375K',
-      title: 'Work Completed',
-    },
-    {
-      id: 2,
-      keys: '19K',
-      title: 'Client Satisfied',
-    },
-  ];
   return (
     <div>
       <TopHero title="About Us" image={bgBreadcrum} />
@@ -62,7 +48,7 @@ const AboutUsPage = () => {
                 <span className="font-bold text-3xl xs:text-4xl sm:text-5xl text-primary">
                   {item.keys}
                 </span>
-                <p className="font-medium mt-2 text-12 xs:text-14 sm:text-base">
+                <p className="font-medium mt-2 text-12 xs:text-14 sm:text-base text-paralight">
                   {item.title}
                 </p>
               </div>

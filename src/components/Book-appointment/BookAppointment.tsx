@@ -119,10 +119,10 @@ const BookAppointment: React.FC<appointmentProps> = ({ singlePage }) => {
       )}
       <form
         onSubmit={handleSubmit}
-        className={`p-4 bg-white rounded-md ${singlePage ? 'w-full' : 'max-w-lg mx-auto'}`}
+        className={`p-4 bg-white rounded-md ${singlePage ? 'w-full ' : 'max-w-lg mx-auto'}`}
       >
         <div
-          className={`grid gap-6 mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3'}`}
+          className={`xs:grid gap-6 mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3'}`}
         >
           <div>
             <label

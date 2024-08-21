@@ -8,8 +8,8 @@ const AppointmentPage = () => {
   return (
     <div>
       <TopHero title="appointment" image={bgBreadcrum} />
-      <Container className="pt-16 pb-10">
-        <h3 className="font-bold text-33 text-white tracking-[5px] bg-primary w-fit px-2 mx-auto rounded-md">
+      <Container className="lg:pt-16 pt-5 lg:pb-10 pb-5">
+        <h3 className="font-bold lg:text-33 text-center lg:p-2 p-3 text-16 text-white tracking-[5px] bg-primary w-fit px-2 mx-auto rounded-md">
           BOOK YOUR FREE APPOINTMENT
         </h3>
         <BookAppointment singlePage={true} />
