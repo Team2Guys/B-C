@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import TopHero from 'components/ui/top-hero';
 import { relativeProducts } from 'data/data';
 import second from '../../../public/assets/images/contact-us/contactUs.webp';
@@ -8,9 +8,58 @@ import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { MdEmail } from 'react-icons/md';
 import { IoCall, IoLocationSharp } from 'react-icons/io5';
 import Link from 'next/link';
-import { Button } from 'components/ui/button';
 
 const ProductUs: React.FC = () => {
+  const [formData, SetFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    SetFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const validate = () => {
+    let isValid = true;
+    const newErrors = {
+      name: '',
+      email: '',
+      message: '',
+    };
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required.';
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required.';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid.';
+      isValid = false;
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required.';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+  const handelSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      console.log('Form Data:', formData);
+    }
+  };
   return (
     <>
       <TopHero title="CONTACT US" image={second} />
@@ -92,7 +141,10 @@ const ProductUs: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:w-1/2 bg-white lg:p-8 p-4 flex flex-col rounded-lg">
+          <form
+            onSubmit={handelSubmit}
+            className="lg:w-1/2 bg-white lg:p-8 p-4 flex flex-col rounded-lg"
+          >
             <div>
               <label
                 htmlFor="name"
@@ -103,10 +155,16 @@ const ProductUs: React.FC = () => {
               <input
                 type="text"
                 name="name"
+                value={formData.name}
+                onChange={handleChange}
+                // required
                 placeholder="Input your full name here"
                 id="name"
                 className="mt-4 p-3 border border-gray-300 rounded-md w-full bg-[#F7F6FE]"
               />
+              {errors.name && (
+                <p className="text-red-500 text-xs">{errors.name}</p>
+              )}
             </div>
             <div className="lg:mt-6 mt-4">
               <label
@@ -118,10 +176,16 @@ const ProductUs: React.FC = () => {
               <input
                 type="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
+                // required
                 placeholder="Input your email address here"
                 id="email"
                 className="mt-4 p-3 border border-gray-300 rounded-md w-full bg-[#F7F6FE]"
               />
+              {errors.email && (
+                <p className="text-red-500 text-xs">{errors.email}</p>
+              )}
             </div>
             <div className="lg:mt-6 mt-4">
               <label
@@ -133,17 +197,25 @@ const ProductUs: React.FC = () => {
               <textarea
                 id="message"
                 name="message"
+                value={formData.message}
+                onChange={handleChange}
+                // required
                 rows={15}
                 placeholder="Input your message here"
                 className="mt-4 block w-full border border-gray-300 rounded-md shadow-sm bg-[#F7F6FE] focus:ring-opacity-50 p-3"
               />
+              {errors.message && (
+                <p className="text-red-500 text-xs">{errors.message}</p>
+              )}
             </div>
             <div className="mt-4 text-end">
-              <Button className="bg-secondary text-white text-sm font-medium py-6 px-8 rounded-lg">
-                Send Message
-              </Button>
+              <input
+                type="submit"
+                className="bg-btnclr hover:bg-secondary text-white text-sm font-medium py-6 px-8 rounded-lg"
+                value="Send Message"
+              />
             </div>
-          </div>
+          </form>
         </section>
       </Container>
       <Container className="py-10">
