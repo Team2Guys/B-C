@@ -64,17 +64,19 @@ function Testimonial() {
   };
 
   return (
-    <Container className="mt-16 py-4 mx-auto happy_customer max-w-screen-2xl">
-      <h1 className="text-center text-30 font-medium">Our Happy Customers</h1>
+    <Container className="lg:mt-16 mt-5 py-4 mx-auto happy_customer max-w-screen-2xl">
+      <h1 className="text-center lg:text-30 text-25 font-medium">
+        Our Happy Customers
+      </h1>
 
-      <div className="slider-container mt-14 xl:px-0 lg:px-0 px-10">
+      <div className="slider-container lg:mt-14 mt xl:px-0 lg:px-0 px-10">
         <Slider {...settings}>
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white flex shadow-md rounded-sm p-7 max-w-80 sm:max-w-44 md:max-w-64 lg:max-w-64 xl:max-w-96 2xl:max-w-md 4 my-2"
+              className="bg-white flex shadow-md rounded-sm p-7 max-w-80 sm:max-w-72 xs:max-w-96 md:max-w-64 lg:max-w-64 xl:max-w-96 2xl:max-w-md 4 my-2"
             >
-              <div className="flex items-center">
+              <div className="xs:flex items-center">
                 <Image
                   src={testimonial.image}
                   alt="testiamge"

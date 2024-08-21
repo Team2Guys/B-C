@@ -2,7 +2,7 @@
 import React from 'react';
 import TopHero from 'components/ui/top-hero';
 import { relativeProducts } from 'data/data';
-import second from '../../../public/assets/images/product-guarantees/large.png';
+import second from '../../../public/assets/images/contact-us/contactUs.webp';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { MdEmail } from 'react-icons/md';
@@ -19,10 +19,17 @@ const ProductUs: React.FC = () => {
           <h5 className="py-12 text-base font-bold">CONTACT US</h5>
           <h2 className="lg:text-5xl text-2xl font-bold">Tell us More</h2>
           <p className="lg:text-xl lg:pt-4 lg:px-12">
-            Get some rough window measurements and call us with how many windows
-            you have and we will be happy to give you an approximate quote over
-            the phone. Alternatively, you can contact us using the contact form
-            below.
+            Get some rough window measurements and call us on{' '}
+            <Link
+              target="_blank"
+              href={'tel:+04042522025'}
+              className="hover:underline"
+            >
+              04 252 2025
+            </Link>{' '}
+            with how many windows you have and we will be happy to give you an
+            approximate quote over the phone. Alternatively, you can contact us
+            using the contact form below.
           </p>
         </section>
 
