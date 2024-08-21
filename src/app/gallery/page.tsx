@@ -70,13 +70,13 @@ const GalleryPage = () => {
         </div>
       </Container>
       <div className="w-full border-t-[1px] border-borderclr"></div>
-      <Container className="pt-12 pb-16">
+      <Container className="lg:pt-12 pt-5 pb-16">
         <p className="text-center text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-normal 2xl:leading-normal text-black w-full md:w-4/5 xl:w-3/4 mx-auto">
           A RANGE OF THE VAST CHOICES OF WINDOW COVERINGS AVAILABLE FOR YOUR
           HOME OR OFFICE...
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 xs:mt-20 mt-5">
           {currentItems.map((item) => (
             <GalleryCard card={item} key={item.id} relativeProducts={false} />
           ))}

@@ -3,6 +3,7 @@
 import React from 'react';
 import { footerLinks, footerInfo } from 'data/data';
 import { TiSocialLinkedinCircular } from 'react-icons/ti';
+import { IoLogoPinterest } from 'react-icons/io5';
 
 import { AiOutlineInstagram } from 'react-icons/ai';
 
@@ -31,14 +32,26 @@ const Footer: React.FC = () => {
                 industry. Lorem Ipsum has been the industrys standard dummy text
                 ever since.
               </p>
-              <div className="flex space-x-4 mt-4">
-                <Link href={''}>
+              <div className="flex items-center space-x-4 mt-4">
+                <Link
+                  target="_blank"
+                  href={'https://www.facebook.com/blindsandcurtainsdubai'}
+                >
                   <CiFacebook className="w-7 h-7" />
                 </Link>
-                <Link href={''}>
-                  <TiSocialLinkedinCircular className="w-7 h-7 rounded-full" />
+                <Link
+                  target="_blank"
+                  href={'https://www.pinterest.com/blindsandcurtainsdubai/'}
+                >
+                  <IoLogoPinterest className="w-7 h-7 rounded-full" />
                 </Link>
                 <Link href={''}>
+                  <TiSocialLinkedinCircular className="w-8 h-8 rounded-full" />
+                </Link>
+                <Link
+                  target="_blank"
+                  href={'https://www.instagram.com/blindsandcurtainsdubai/'}
+                >
                   <AiOutlineInstagram className="w-7 h-7" />
                 </Link>
               </div>
@@ -51,11 +64,7 @@ const Footer: React.FC = () => {
                   <ul className="space-y-4 mt-4 text-sm">
                     {category.links.map((link, index) => (
                       <li key={index}>
-                        <Link
-                          href={`/some-path/${link.replace(/\s+/g, '-').toLowerCase()}`}
-                        >
-                          {link}
-                        </Link>
+                        <Link href={link.href}>{link.text}</Link>
                       </li>
                     ))}
                   </ul>

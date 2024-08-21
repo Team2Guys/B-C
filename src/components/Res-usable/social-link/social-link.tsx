@@ -7,7 +7,7 @@ const SocialLink: React.FC = () => {
   return (
     <div className="flex gap-3 items-center">
       {SocialData.map((social, index) => (
-        <Link href={social.href} key={index}>
+        <Link target="_blank" href={social.href} key={index}>
           <Image width={25} height={25} src={social.src} alt={social.alt} />
         </Link>
       ))}
