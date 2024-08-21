@@ -8,36 +8,52 @@ import React, { useEffect, useState } from 'react';
 
 function Hero() {
   const [showModel, setshowModel] = useState<string>('');
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
+    // Detect screen size for mobile
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768); // Set mobile breakpoint here
+    };
+
+    // Set initial screen size
+    checkScreenSize();
+
+    // Add resize event listener to adjust for screen size changes
+    window.addEventListener('resize', checkScreenSize);
+
+    // Click event listener for modal handling
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       const id = target.id;
 
       console.log('Document clicked', id);
       if (id !== 'modalHandler') {
-        return setshowModel('');
+        setshowModel('');
       }
     };
+
+    // Add click event listener
     document.addEventListener('click', handleClick);
 
     return () => {
       document.removeEventListener('click', handleClick);
+      window.removeEventListener('resize', checkScreenSize);
     };
   }, []);
 
   return (
     <Container>
-      <CustomSlider className="Hero-slider mb-3">
+      <CustomSlider className="Hero-slider lg:mb-3 mb-5">
         {heroSlider.map((item: any, index: number) => {
           return (
             <>
               <div
-                className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap overflow-auto"
+                className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap overflow-auto lg:px-0 px-4"
                 key={index}
               >
                 <div className=" min-w-[500px] left-side w-1/2 flex flex-col justify-center gap-3 ">
-                  <div className="w-full flex items-center gap-2">
+                  <div className="w-full flex items-center gap-2 lg:mt-0 mt-12">
                     <svg
                       width="34"
                       height="2"
@@ -54,7 +70,7 @@ function Hero() {
                       />
                     </svg>
 
-                    <h5 className="text-black font-gotham text-[25x] font-extralight">
+                    <h5 className="text-black font-gotham text-[25x] font-extralight ">
                       Latest Designs
                     </h5>
                   </div>
@@ -66,12 +82,12 @@ function Hero() {
                     Lorem Ipsum is simply dummy text of the <br /> and
                     typesetting industry.
                   </p>
-                  <button className="Upper w-fit bg-white text-14 font-semibold text-black rounded-full px-6  py-2">
+                  <button className="Upper w-fit bg-white text-14 font-semibold text-black rounded-full px-6 py-2 lg:mb-0 mb-12">
                     SEE ALL
                   </button>
                 </div>
 
-                <div className="rigt-side w-1/2 flex flex-col justify-center border">
+                <div className="rigt-side w-1/2 lg:flex flex-col hidden justify-center border">
                   <div key={index} className="relative">
                     {showModel == '1_model' && (
                       <SliderModal setshowModel={setshowModel} />

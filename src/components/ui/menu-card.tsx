@@ -10,7 +10,7 @@ interface MenuCardProps {
 
 const MenuCard: React.FC<MenuCardProps> = ({ src, alt, title }) => {
   return (
-    <Link href="/products" className="space-y-2  hover:text-black ">
+    <Link href="/product" className="space-y-2  hover:text-black ">
       <Image width={600} height={600} src={src} alt={alt} />
       <div>
         <p className="text-15 font-normal text-center">{title}</p>

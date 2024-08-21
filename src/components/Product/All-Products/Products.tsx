@@ -40,7 +40,7 @@ const AllProducts = () => {
 
   return (
     <Container className="mt-10 md:mt-20">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-wrap md:flex-nowrap justify-between items-center">
         <h1 className="text-[#0F172A] text-20 md:text-30 font-medium">
           MADE TO MEASURE BLINDS
         </h1>
@@ -57,7 +57,7 @@ const AllProducts = () => {
             <Button
               key={category}
               className={` 
-                ${activeCategory === category ? 'bg-primary text-white px-8 py-7' : 'text-black bg-transparent px-8 py-7'}
+                ${activeCategory === category ? 'bg-primary text-white px-2 md:px-8 py-2 md:py-7' : 'text-black bg-transparent px-2 md:px-8 py-2 md:py-7'}
               `}
               onClick={() => {
                 setActiveCategory(category);

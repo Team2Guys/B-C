@@ -16,8 +16,8 @@ const Footer: React.FC = () => {
     <footer>
       <div className="bg-primary text-white py-10">
         <div className="max-w-screen-2xl mx-auto  px-2">
-          <div className="grid grid-cols-1 md:grid-cols-4 lg:justify-items-end py-5 border-b-2">
-            <div className="mb-4 md:col-span-1 ">
+          <div className="lg:flex border-b-2">
+            <div className="mb-4 md:col-span-1 lg:w-2/12">
               <Link href={'/'}>
                 <Image
                   src={'/assets/images/whitelogo.png'}
@@ -43,22 +43,25 @@ const Footer: React.FC = () => {
                 </Link>
               </div>
             </div>
-            {footerLinks.map((category) => (
-              <div key={category.title} className="md:col-span-1 lg:pl-8 ">
-                <h3 className="font-bold mb-2">{category.title}</h3>
-                <ul className="space-y-4 mt-4 text-sm">
-                  {category.links.map((link, index) => (
-                    <li key={index}>
-                      <Link
-                        href={`/some-path/${link.replace(/\s+/g, '-').toLowerCase()}`}
-                      >
-                        {link}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:justify-items-end py-5  lg:w-5/6">
+              {footerLinks.map((category) => (
+                <div key={category.title} className="md:col-span-1 lg:pl-8 ">
+                  <h3 className="font-bold mb-2">{category.title}</h3>
+                  <ul className="space-y-4 mt-4 text-sm">
+                    {category.links.map((link, index) => (
+                      <li key={index}>
+                        <Link
+                          href={`/some-path/${link.replace(/\s+/g, '-').toLowerCase()}`}
+                        >
+                          {link}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
