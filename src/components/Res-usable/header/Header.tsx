@@ -38,7 +38,7 @@ const Header = () => {
         </Container>
       </div>
       <nav className="bg-lightgrey shadow-lg sticky top-0 z-50">
-        <Container className="flex w-full items-center justify-between ">
+        <Container className="flex w-full items-center justify-between px-2 py-2 md:px-0 md:py-2">
           <Link href={'/'} className="w-3/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
