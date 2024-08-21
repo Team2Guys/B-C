@@ -9,7 +9,7 @@ interface BlindsAndCurtainsTypesProps {
 
 const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
   return (
-    <div className="lg:container max-w-7xl lg:px-0 px-12">
+    <div className="lg:container max-w-7xl lg:px-0 xs:px-12 px-5">
       <div className="flex flex-col md:flex-row rounded-lg overflow-hidden">
         <Image
           className="w-full md:w-2/5 lg:h-[627px]"

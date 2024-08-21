@@ -41,7 +41,7 @@ const TopHero: React.FC<TopHeroProps> = ({
         <h1 className="text-2xl xs:text-5xl md:text-6xl lg:text-7xl font-black mt-5 uppercase">
           {title}
         </h1>
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex justify-center items-center gap-4 mt-2">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <FaHome size={20} />{' '}
             {home ? home.charAt(0).toUpperCase() + home?.slice(1) : 'Home'}

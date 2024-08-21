@@ -167,8 +167,11 @@ const AricBlind: React.FC = () => {
         </div>
       </Container>
       {isPopupOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div ref={modalRef} className="relative rounded-lg">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50 transition-opacity duration-1000">
+          <div
+            ref={modalRef}
+            className="relative rounded-lg transition-opacity duration-300"
+          >
             <button
               className="absolute top-2 bg-white right-2 shadow-md px-2 rounded-full text-black text-xl"
               onClick={togglePopup}
@@ -180,7 +183,7 @@ const AricBlind: React.FC = () => {
               alt="Popup Image"
               width={1500}
               height={1500}
-              className="object-contain w-full h-full"
+              className="object-contain w-full h-full transition-opacity duration-1000"
             />
           </div>
         </div>
