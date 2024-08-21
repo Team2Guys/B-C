@@ -30,7 +30,7 @@ const FeatureProduct: React.FC = () => {
   return (
     <Container className="mt-20">
       <div className="text-center">
-        <h1 className="text-32 font-bold">Our Featured Products</h1>
+        <h1 className="text-26 md:text-32 font-bold">Our Featured Products</h1>
         <p className="text-16 font-normal text-primary">Expert In Designing</p>
         <hr className="border-2 border-primary w-28 mx-auto" />
       </div>
