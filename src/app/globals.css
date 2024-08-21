@@ -126,3 +126,8 @@
 .react-tel-input .selected-flag {
   padding: 0 0 0 4px !important;
 } */
+@media (max-width: 600px) {
+  .happy_customer .slider-container .slick-dots li button:before {
+    top: 0px;
+  }
+}
