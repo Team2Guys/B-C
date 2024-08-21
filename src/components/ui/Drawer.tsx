@@ -1,40 +1,54 @@
-import React, { ReactNode } from 'react';
-import { Drawer } from 'antd';
+// components/ui/Drawer.tsx
+import React from 'react';
+import { Drawer as AntDrawer } from 'antd';
 
 interface SheetProps {
-  children?: ReactNode;
-  drawerName: any;
+  children?: React.ReactNode;
+  drawerName: React.ReactNode;
   title?: string;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  selectedLabel?: string; // Add this to manage the currently selected label
+  setSelectedLabel?: (label: string | undefined) => void; // Add this to update the selected label
 }
 
-const Sheet: React.FC<SheetProps> = ({ children, drawerName, title }) => {
-  const [open, setOpen] = React.useState<boolean>(false);
-  const [loading, setLoading] = React.useState<boolean>(true);
-
-  const showLoading = () => {
-    setOpen(true);
-    setLoading(true);
-
-    // Simple loading mock. You should add cleanup logic in real world.
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+const Sheet: React.FC<SheetProps> = ({
+  children,
+  drawerName,
+  title,
+  open,
+  setOpen,
+  selectedLabel,
+  setSelectedLabel,
+}) => {
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedLabel?.(undefined);
   };
 
   return (
     <>
-      <div onClick={showLoading}>{drawerName}</div>
-      <Drawer
+      <div onClick={() => setOpen(true)}>{drawerName}</div>
+      <AntDrawer
         closable
         destroyOnClose
         title={title}
         placement="right"
         open={open}
-        loading={loading}
-        onClose={() => setOpen(false)}
+        onClose={handleClose}
       >
-        {children}
-      </Drawer>
+        {selectedLabel ? (
+          <div>{children}</div>
+        ) : (
+          <div>
+            {React.Children.map(children, (child) =>
+              React.isValidElement(child) && child.props.label === selectedLabel
+                ? child
+                : null,
+            )}
+          </div>
+        )}
+      </AntDrawer>
     </>
   );
 };
