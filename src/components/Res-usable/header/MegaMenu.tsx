@@ -17,22 +17,34 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   className,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null); // Track the timeout ID
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const route = useRouter();
+
   const handleMouseEnter = () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId); // Clear the timeout when the user re-enters
+      setTimeoutId(null);
+    }
     setIsOpen(true);
   };
 
   const handleMouseLeave = (event: React.MouseEvent) => {
     const mouseEvent = event as MouseEvent;
+
     if (
       menuRef.current &&
       !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
       buttonRef.current &&
       !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
     ) {
-      setIsOpen(false);
+      // Delay the closing of the menu
+      const newTimeoutId = setTimeout(() => {
+        setIsOpen(false);
+      }, 300); // 100ms delay to allow smoother transition between button and menu
+
+      setTimeoutId(newTimeoutId); // Save the timeout ID
     }
   };
 
@@ -63,15 +75,20 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       });
     };
   }, []);
+
   const handleClick = () => {
     route.push(`/products/${label}`);
     setIsOpen((prev) => !prev);
   };
 
   return (
-    <div className="" onMouseEnter={handleMouseEnter}>
+    <div
+      className=""
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <button
-        onClick={handleClick} // Toggle the menu open/close
+        onClick={handleClick}
         ref={buttonRef}
         className={cn('py-2 px-4 rounded', className)}
       >
@@ -84,7 +101,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         >
           <div className="flex justify-between px-8">
             <p className="text-primary text-16 font-medium">{label}</p>
-            <Link href={'/commercial'}>View All</Link>
+            <Link onClick={() => setIsOpen(false)} href={'/product'}>
+              View All
+            </Link>
           </div>
           <CardSlider
             onClick={() => setIsOpen(false)}
