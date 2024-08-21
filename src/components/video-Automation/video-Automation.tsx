@@ -23,11 +23,11 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
       />
       <div className="relative z-10 w-full py-3 bg-white/80 my-10  rounded-2xl">
         <div className="py-2 px-4 text-center">
-          <p className="text-[48px] font-bold">Automation</p>
-          <p className="text-25 font-extralight ">
+          <p className="lg:text-[48px] text-25 font-bold">Automation</p>
+          <p className="lg:text-25 text-18 font-extralight ">
             Smart home & office automation.
           </p>
-          <p className="mt-4 font-normal ">
+          <p className="mt-4 font-normal lg:text-base text-14 ">
             Controlling the natural mild or even the temperature within a room
             maybe computerized through the usage of blinds and curtains. When
             you’ve chosen the style of blinds and material that you want, we

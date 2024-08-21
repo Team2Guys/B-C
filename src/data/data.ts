@@ -10,6 +10,7 @@ import {
   ProductItems,
   SocialDataType,
   SupportItem,
+  TFooterSection,
   THeroImages,
   Tproductdata,
   TProductGuarantees,
@@ -96,29 +97,32 @@ export const bannerData: BannerData = {
   buttonText: 'Booking Now',
 };
 
-export const footerLinks = [
+export const footerLinks: TFooterSection[] = [
   {
     title: 'Quick Links',
-    links: ['Contact Us', 'Knowledge Base', 'Forums'],
-  },
-  {
-    title: 'Account Inf0',
     links: [
-      'Legal Information',
-      'Privacy Policy',
-      'Report Abuse',
-      'Terms of Sources',
-      'WHOIS Lookup',
+      { text: 'Contact Us', href: '/contact-us' },
+      { text: 'Knowledge Base', href: '/knowledge-base' },
+      { text: 'Forums', href: '/forums' },
+    ],
+  },
+
+  {
+    title: 'Pages',
+    links: [
+      { text: 'Legal Information', href: '/legal-information' },
+      { text: 'Privacy Policy', href: '/privacy-policy' },
+      { text: 'Report Abuse', href: '/report-abuse' },
+      { text: 'Terms of Service', href: '/terms-of-service' },
+      { text: 'WHOIS Lookup', href: '/whois-lookup' },
     ],
   },
   {
-    title: 'Polices',
+    title: 'Policies',
     links: [
-      'Legal Information',
-      'Privacy Policy',
-      'Report Abuse',
-      'Terms of Sources',
-      'WHOIS Lookup',
+      { text: 'Privacy Policy', href: '/privacy-policy' },
+      { text: 'Return Policy', href: '/return-policy' },
+      { text: 'Terms & Condition', href: '/terms-condition' },
     ],
   },
 ];
@@ -142,7 +146,7 @@ export const OurClientImage = [
 
 export const SocialData: SocialDataType[] = [
   {
-    href: 'https://facebook.com',
+    href: 'https://www.facebook.com/blindsandcurtainsdubai',
     src: '/assets/images/icon/face.png',
     alt: 'Facebook',
   },
@@ -152,12 +156,12 @@ export const SocialData: SocialDataType[] = [
     alt: 'Twitter',
   },
   {
-    href: 'https://instagram.com',
+    href: 'https://www.instagram.com/blindsandcurtainsdubai/',
     src: '/assets/images/icon/insta.png',
     alt: 'Instagram',
   },
   {
-    href: 'https://instagram.com',
+    href: 'https://wa.me/971544945339',
     src: '/assets/images/icon/whats.png',
     alt: 'Instagram',
   },
