@@ -40,10 +40,10 @@ export default function Review_banner() {
               <a href="" className="">
                 <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit">
                   <span>
-                    <FcGoogle className="text-3xl" />
+                    <FcGoogle className="lg:text-3xl text-14" />
                   </span>
                   <span className="font-bold">4.8 |</span>
-                  <p>See All Reviews</p>
+                  <p className="lg:text-base text-12">See All Reviews</p>
                 </div>
               </a>
             </div>
@@ -60,7 +60,7 @@ export default function Review_banner() {
                   {slides.map((slide, index: any) => (
                     <div
                       key={index}
-                      className="px-4 pt-12 bg-primary text-center relative lg:px-5 "
+                      className="xm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
                     >
                       {/* <div className=' bg-white w-fit rotate-180 text-8xl absolute -top-10 left-2/4 z-10 -translate-x-2/4 px-10'>
                         <PiQuotesFill className='z-50 ' />

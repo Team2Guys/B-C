@@ -13,7 +13,7 @@ const AboutUsPage = () => {
   return (
     <div>
       <TopHero title="About Us" image={bgBreadcrum} />
-      <Container className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 lg:gap-20 py-20">
+      <Container className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 xs:p-2 px-6 lg:gap-20 xs:py-20">
         <div
           className="w-full h-full"
           style={{
@@ -56,14 +56,14 @@ const AboutUsPage = () => {
           </div>
         </div>
       </Container>
-      <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 py-10">
+      <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 xs:px-2 px-6 py-10">
         <div>
-          <h4 className="font-semibold mb-6 text-paralight">
+          <h4 className="font-semibold xs:mb-6 text-paralight xs:text-base text-12">
             {UsHistoryPara.subheading}
           </h4>
           {UsHistoryPara.heading.map((item, index) => (
             <h2
-              className={`text-28 xs:text-36 lg:text-5xl leading-snug lg:leading-snug font-bold text-wrap`}
+              className={`text-22 xs:text-36 lg:text-5xl leading-snug lg:leading-snug font-bold text-wrap`}
               key={index}
             >
               {item}
