@@ -65,7 +65,7 @@ const ProductUs: React.FC = () => {
       <TopHero title="CONTACT US" image={second} />
       <Container>
         <section className="text-center mb-12">
-          <h5 className="py-12 text-base font-bold">CONTACT US</h5>
+          <h5 className="xs:py-12 py-5 text-base font-bold">CONTACT US</h5>
           <h2 className="lg:text-5xl text-2xl font-bold">Tell us More</h2>
           <p className="lg:text-xl lg:pt-4 lg:px-12">
             Get some rough window measurements and call us on{' '}
