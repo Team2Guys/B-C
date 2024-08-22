@@ -69,7 +69,7 @@ function Testimonial() {
         Our Happy Customers
       </h1>
 
-      <div className="slider-container lg:mt-14 mt xl:px-0 lg:px-0 px-10">
+      <div className="slider-container lg:mt-14 mt-4 mt xl:px-0 lg:px-0 px-10">
         <Slider {...settings}>
           {testimonials.map((testimonial) => (
             <div

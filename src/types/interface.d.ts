@@ -35,6 +35,14 @@ export interface ProductCardData {
   image: any; // You can also use StaticImageData if importing images
   link: string;
 }
+interface FooterLink {
+  text: string;
+  href: string;
+}
+interface TFooterSection {
+  title: string;
+  links: FooterLink[];
+}
 
 export interface SupportItem {
   title: string;

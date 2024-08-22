@@ -160,4 +160,7 @@
   .happy_customer .slider-container .slick-dots li button:before {
     top: 0px;
   }
+  .Hero-slider .slick-dots {
+    display: none !important;
+  }
 }
