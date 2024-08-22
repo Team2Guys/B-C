@@ -138,6 +138,9 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required.';
       isValid = false;
+    } else if (/\d/.test(formData.name)) {
+      newErrors.name = 'Name cannot contain numbers.';
+      isValid = false;
     }
 
     if (!formData.phoneNumber.trim()) {
