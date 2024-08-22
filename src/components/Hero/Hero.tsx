@@ -12,29 +12,23 @@ function Hero() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
-    // Detect screen size for mobile
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768); // Set mobile breakpoint here
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    // Set initial screen size
     checkScreenSize();
 
-    // Add resize event listener to adjust for screen size changes
     window.addEventListener('resize', checkScreenSize);
 
-    // Click event listener for modal handling
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       const id = target.id;
-
       console.log('Document clicked', id);
       if (id !== 'modalHandler') {
         setshowModel('');
       }
     };
 
-    // Add click event listener
     document.addEventListener('click', handleClick);
 
     return () => {
@@ -50,7 +44,7 @@ function Hero() {
           return (
             <>
               <div
-                className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap overflow-auto lg:px-0 px-4"
+                className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap xs:overflow-auto lg:px-0 px-4"
                 key={index}
               >
                 <div className=" min-w-[500px] left-side w-1/2 flex flex-col justify-center gap-3 ">
@@ -90,7 +84,7 @@ function Hero() {
                   </Link>
                 </div>
 
-                <div className="rigt-side w-1/2 lg:flex flex-col hidden justify-center border">
+                <div className="rigt-side w-1/2 sm:flex flex-col hidden justify-center border">
                   <div key={index} className="relative">
                     {showModel == '1_model' && (
                       <SliderModal setshowModel={setshowModel} />
