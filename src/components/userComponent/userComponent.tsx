@@ -44,7 +44,9 @@ export default function UserComponent({
       {SelectComonent ? <SelectComonent /> : null}
       <div className="lg:flex flex-wrap md:flex-nowrap md:gap-4 lg:px-0 px-5 w-full gap-0">
         <div
-          style={{ backgroundImage: "url('/images/login.png')" }}
+          style={{
+            backgroundImage: "url('/assets/images/admin-login/admin.jpg')",
+          }}
           className="lg:w-[60%] bg-cover bg-center h-screen lg:block hidden"
         ></div>
         <div className="lg:w-[40%] ">

@@ -55,7 +55,7 @@ const CreateAdmin = ({ setselecteMenu }: any) => {
   const [formData, setFormData] = useState<formDataTypes>(intitalValues);
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | undefined | null>();
+  const [error, setError] = useState<string | any | null>();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -95,11 +95,11 @@ const CreateAdmin = ({ setselecteMenu }: any) => {
       setFormData(intitalValues);
     } catch (err: any) {
       if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
+        setError(<p className="text-red-500">{err.response.data.message}</p>);
       } else if (err.message) {
-        setError(err.message);
+        setError(<p className="text-red-500">{err.message}</p>);
       } else {
-        setError('An unexpected error occurred.');
+        setError(<p className="text-red-500">An unexpected error occurred.</p>);
       }
     } finally {
       setLoading(false);

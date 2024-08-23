@@ -164,3 +164,14 @@
     display: none !important;
   }
 }
+
+.ant-select-selector {
+  border-color: #000000 !important;
+}
+
+.css-t3ipsp-control {
+  border-color: var(--primary) !important;
+}
+.css-t3ipsp-control:active {
+  border-color: var(--primary) !important;
+}
