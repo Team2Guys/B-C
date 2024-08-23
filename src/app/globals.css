@@ -40,6 +40,20 @@
     --para-light: #666666;
   }
 }
+.light {
+  --table: white;
+  --tabletext: black;
+  --h1-color: white;
+  --hover: #cdb7aa;
+}
+
+/* Dark Theme */
+.dark {
+  --table: #797d85;
+  --tabletext: white;
+  --h1-color: white;
+  --hover: #141414;
+}
 
 @layer base {
   * {
@@ -50,6 +64,22 @@
   }
 }
 
+.ant-table-wrapper table {
+  background-color: var(--table);
+  color: var(--tabletext);
+}
+.ant-table-wrapper .ant-table-tbody .ant-table-row > .ant-table-cell-row-hover {
+  background-color: var(--hover) !important;
+  color: var(--h1-color) !important;
+}
+.ant-table-wrapper .ant-table-thead > tr > th,
+.ant-table-wrapper .ant-table-thead > tr > td {
+  background: var(--table) !important;
+  color: var(--tabletext);
+}
+.ant-table-wrapper .ant-table-filter-trigger {
+  color: var(--tabletext);
+}
 .Hero-slider .slick-dots {
   bottom: 4px !important;
   left: -35px !important;
