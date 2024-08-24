@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper';
 import localFont from 'next/font/local';
 import 'app/globals.css';
+import { Providers } from './Providers';
 
 const gotham = localFont({
   src: [
@@ -110,10 +111,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${gotham.className} bg-lightgrey`}>
-        <PathnameWrapper> {children}</PathnameWrapper>
-      </body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body className={`${gotham.className} bg-lightgrey`}>
+          <PathnameWrapper> {children}</PathnameWrapper>
+        </body>
+      </html>
+    </Providers>
   );
 }
