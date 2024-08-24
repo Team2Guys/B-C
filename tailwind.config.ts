@@ -69,9 +69,10 @@ const config = {
 
       },
       colors: {
-
+        dashboardDark:"#141414",
         light:"var(--light)",
         btnclr:"var(--btn-clr)",
+        table:"var(--table)",
         lightdark:"var(--light-dark)",
         paralight:"var(--para-light)",
         lightgrey:"var(--lightgrey)",
