@@ -8,6 +8,17 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors({
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:3001',
+      /\.vercel\.app$/
+    ],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    preflightContinue: false,
+    credentials: true,  // Add if you want to support cookies or authentication headers
+  })
+
   const { httpAdapter } = app.get(HttpAdapterHost) 
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter))
 
