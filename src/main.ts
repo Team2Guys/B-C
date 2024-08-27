@@ -6,6 +6,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 
 
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
@@ -16,13 +17,14 @@ async function bootstrap() {
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     preflightContinue: false,
-    credentials: true,  // Add if you want to support cookies or authentication headers
+    credentials: true, 
   })
 
   const { httpAdapter } = app.get(HttpAdapterHost) 
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter))
 
   app.setGlobalPrefix('api');
+
 
   const config = new DocumentBuilder()
   .setTitle('Blind and curtains')

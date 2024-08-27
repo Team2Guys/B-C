@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { CustomErrorHandler } from '../utils/helperFunctions';
-import { CreateProductDto } from '../dto/product.dto'
 import { getAllproducts } from '../utils/DbHandlers'
 import { Prisma } from '@prisma/client';
 
@@ -13,30 +12,23 @@ export class ProductsService {
         return 'this is hellow from product';
     }
 
-    AddProductHandler = async (createCategoryDto: CreateProductDto) => {
-        const { title, price, description, imageUrls, posterImage, category } = createCategoryDto;
+    AddProductHandler = async (createCategoryDto: Prisma.productsCreateInput) => {
+        const { title } = createCategoryDto;
 
         let AlreadyExistedProduct = await this.prisma.products.findUnique({ where: { title: title } })
         if (AlreadyExistedProduct) return CustomErrorHandler("Product Already Exist", 'BAD_REQUEST')
 
-        const plainImageUrls = imageUrls.map(url => ({
-            imageUrl: url.imageUrl,
-            public_id: url.imageUrl
-        }));
-        const plainPosterImage = {
-            imageUrl: posterImage.imageUrl,
-            public_id: posterImage.public_id
-        };
-
 
         try {
             let response = await this.prisma.products.create({
-                data: {
-                    title, price, description, imageUrls: plainImageUrls, posterImage: plainPosterImage, category
-                },
+                data: createCategoryDto,
+                include: {
+                    category: true,
+                    subCategory: true
+                }
             });
             console.log(response, "response")
-            return response;
+            return { product: response, message: "Product has been added Successfully" }
         } catch (error: any) {
             console.log(error, "err")
             return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
@@ -52,15 +44,18 @@ export class ProductsService {
         }
     }
 
+
     UpdateProductHandler = async (id: number, updateProduct: Prisma.productsUpdateInput) => {
         try {
             let product = await this.prisma.products.findUnique({ where: { id: id } })
             if (!product) return CustomErrorHandler("product  not found", "NOT_FOUND")
 
-            return this.prisma.products.update({
+            let updated_products = await this.prisma.products.update({
                 where: { id: id },
                 data: updateProduct
             })
+
+            return { updated_products, message: "Product has been updated Successfully" }
 
         } catch (error) {
             return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'INTERNAL_SERVER_ERROR');
@@ -71,9 +66,11 @@ export class ProductsService {
     DeleteProductHanlder = async (id: number) => {
         try {
             let product = await this.prisma.products.findUnique({ where: { id: id } })
-            if (!product) return this.prisma.products.delete({ where: { id: id } })
+            if (!product) return CustomErrorHandler('No Product found', 'NOT_FOUND')
 
-            return CustomErrorHandler('No Product found', 'NOT_FOUND')
+            let delted_products = await this.prisma.products.delete({ where: { id: id } })
+            return { delted_products, message: "Product has been deleted Successfully" }
+
 
         } catch (error) {
             return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'INTERNAL_SERVER_ERROR');

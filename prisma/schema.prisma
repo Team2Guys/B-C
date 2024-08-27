@@ -8,22 +8,37 @@ datasource db {
 }
 
 
-model products {
-  id          Int        @default(autoincrement()) @id
-  title       String     @unique
-  posterImage Json
-  imageUrls   Json[]
-  price       Float
-  CategoryId  Int
-  description String?  
-  category    Categories @relation("CategoryToProducts", fields: [CategoryId], references: [id])
+model Categories {
+  id           Int             @default(autoincrement()) @id
+  title        String          @unique
+  products     products[]      @relation("CategoryToProducts")
+  posterImage  Json
+  subCategories SubCategories[] @relation("CategoryToSubCategories")
 }
 
-model Categories {
-  id       Int        @default(autoincrement()) @id
-  title    String     @unique
-  products products[] @relation("CategoryToProducts")
+model SubCategories {
+  id          Int             @default(autoincrement()) @id
+  title       String          @unique
+  CategoryId  Int
+  category    Categories      @relation("CategoryToSubCategories", fields: [CategoryId], references: [id])
+  products    products[]      @relation("SubCategoryToProducts")
   posterImage Json
+}
+
+
+model products {
+  id           Int            @default(autoincrement()) @id
+  title        String         @unique
+  posterImage  Json
+  imageUrls    Json[]
+  price        Float
+  CategoryId   Int
+  SubCategoryId Int?    
+  description  String?  
+  updatedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  category     Categories     @relation("CategoryToProducts", fields: [CategoryId], references: [id])
+  subCategory  SubCategories? @relation("SubCategoryToProducts", fields: [SubCategoryId], references: [id])
 }
 
 
@@ -52,3 +67,30 @@ name String
  product_type ProductType
  prefered_contact_method contact_method
 }
+
+
+
+model Admins {
+  id                     Int     @id @default(autoincrement())
+  fullname               String
+  email                  String  @unique
+  password               String
+  canAddProduct          Boolean @default(false)
+  canEditProduct         Boolean @default(false)
+  canDeleteProduct       Boolean @default(false)
+  canAddCategory         Boolean @default(false)
+  canDeleteCategory      Boolean @default(false)
+  canEditCategory        Boolean @default(false)
+  canCheckProfit         Boolean @default(false)
+  canCheckRevenue        Boolean @default(false)
+  canCheckVisitors       Boolean @default(false)
+  canViewUsers           Boolean @default(false)
+  canViewSales           Boolean @default(false)
+  canVeiwAdmins          Boolean @default(false)
+  canVeiwTotalproducts   Boolean @default(false)
+  canVeiwTotalCategories Boolean @default(false)
+  posterImageUrl Json?     
+  role                   String  @default("Admin")
+}
+
+

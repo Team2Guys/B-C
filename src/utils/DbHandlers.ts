@@ -48,3 +48,30 @@ export const CreateCategoryHandler = async (createCategoryDto: Prisma.Categories
     }
 }
 
+
+
+export function withAsyncErrorHandling<T>(fn: (...args: any[]) => Promise<T>) {
+    return async (...args: any[]): Promise<[T | null, any | null]> => {
+      try {
+        const result = await fn(...args);
+        return [result, null];
+      } catch (error) {
+        return [null, error];
+      }
+    };
+  }
+
+  
+  export const CreatesubCategoryHandler = async (createCategoryDto: Prisma.SubCategoriesCreateInput) => {
+    const { title} = createCategoryDto;
+  console.log("function is calling",createCategoryDto)
+    let AlreadyExistedProduct = await prisma.subCategories.findUnique({ where: { title: title } });
+  
+    if (AlreadyExistedProduct) return CustomErrorHandler("Category Already Exist", 'BAD_REQUEST');
+  
+    let response = await prisma.subCategories.create({
+      data: createCategoryDto
+    });
+    
+    return response;
+  };

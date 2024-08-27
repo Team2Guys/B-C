@@ -29,6 +29,7 @@ export class CreateProductDto {
   @Type(() => ImageUrlDto)
   readonly imageUrls: ImageUrlDto[];
 
+  
   @ValidateNested()
   @Type(()=>ImageUrlDto)
   readonly posterImage: ImageUrlDto
