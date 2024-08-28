@@ -415,8 +415,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
           </div>
         </div>
         {!singlePage && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-3">
-            <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded-md">
+          <div className="flex flex-wrap justify-between gap-2 mb-3">
+            <div className="max-w-md mx-auto p-2 bg-white shadow-md rounded-md">
               <h2 className="text-sm mb-4">Tell us what you need:</h2>
 
               <div className="flex flex-row gap-2">
@@ -457,7 +457,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                 </div>
               </div>
             </div>
-            <div className="p-6 rounded-md max-w-md mx-auto">
+            <div className="p-2 rounded-md max-w-md mx-auto">
               <label className="text-sm mb-4">How shall we contact you?</label>
               <div className="flex flex-row gap-2 mt-2">
                 <label className="flex items-center text-11">
