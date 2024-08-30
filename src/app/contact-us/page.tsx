@@ -34,7 +34,10 @@ const ProductUs: React.FC = () => {
     };
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required.';
+      newErrors.name = 'Full Name is required.';
+      isValid = false;
+    } else if (/\d/.test(formData.name)) {
+      newErrors.name = 'Full Name cannot contain numbers.';
       isValid = false;
     }
 
