@@ -12,7 +12,9 @@ import { IoIosLock, IoMdMail } from 'react-icons/io';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import NoneAuth from 'hooks/None-AuthHook';
 
+
 import Cookies from 'js-cookie';
+import { Api_handler } from 'utils/helperFunctions';
 
 const DashboardLogin = () => {
   const router = useRouter();
@@ -44,28 +46,11 @@ const DashboardLogin = () => {
     }
     try {
       setloading(true);
-      let url =
-        adminType == 'Admin'
-          ? '/api/admins/adminLogin'
-          : '/api/admins/superAdminLogin';
-      console.log(url, 'url');
-
-      let user: any = await axios.post(
-        process.env.NEXT_PUBLIC_BASE_URL + url,
-        formData,
-      );
-      console.log(user.data, 'user token');
-      const ISSERVER = typeof window === 'undefined';
-      !ISSERVER
-        ? Cookies.set(
-            adminType == 'Admin' ? '2guysAdminToken' : 'superAdminToken',
-            user.data.token,
-            { expires: 1 },
-          )
-        : null;
-      console.log(user.data, 'user');
+      let url = adminType === 'Admin' ? 'admins/admin-login': 'admins/superAdminLogin';
+      console.log(url, 'url')
+      const response = await Api_handler(url,formData,"post",)
       setloading(false);
-      dispatch(loggedInAdminAction(user.data.user));
+      dispatch(loggedInAdminAction(response.user));
       setFormData(intialvalue);
       Toaster('success', 'You have sucessfully login');
       setTimeout(() => {
@@ -73,12 +58,13 @@ const DashboardLogin = () => {
       }, 1000);
     } catch (err: any) {
       console.log(err, 'err');
+
       if (err.response && err.response.data && err.response.data.message) {
-        setError(<p className="text-red-500">{err.response.data.message}</p>);
-      } else if ((<p className="text-red-500">{err.message}</p>)) {
-        setError(<p className="text-red-500">{err.message}</p>);
+        setError(err.response.data.message);
+      } else if (err.message) {
+        setError(err.message);
       } else {
-        setError(<p className="text-red-500">An unexpected error occurred.</p>);
+        setError("An unexpected error occurred");
       }
     } finally {
       setloading(false);
