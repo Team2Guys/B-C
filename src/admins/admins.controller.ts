@@ -14,6 +14,8 @@ export class AdminsController {
     return this.adminsService.create(createAdminDto);
   }
 
+  
+
   @Get("get_all_admin")
   findAll() {
     return this.adminsService.findAll();
