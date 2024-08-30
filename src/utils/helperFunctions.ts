@@ -1,10 +1,18 @@
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
+import axios, { AxiosResponse, AxiosRequestConfig, AxiosStatic } from 'axios';
 import PRODUCTS_TYPES from 'types/interfaces';
 
 type setTotalProducts = React.Dispatch<React.SetStateAction<PRODUCTS_TYPES[]>>;
 type setTotalPage = React.Dispatch<React.SetStateAction<string | undefined>>;
 type setError = React.Dispatch<React.SetStateAction<any>>;
 type setLoading = React.Dispatch<React.SetStateAction<boolean>>;
+import Cookies from 'js-cookie';
+import { headers } from 'next/headers';
+import { json } from 'stream/consumers';
+const token = Cookies.get('2guysAdminToken');
+const superAdmintoken = Cookies.get('superAdminToken');
+const finalToken = token ? token : superAdmintoken;
+
+
 
 export const uploadPhotosToBackend = async (files: File[]): Promise<any[]> => {
   const formData = new FormData();
@@ -110,3 +118,26 @@ export let getPRODUCTS = async (
     setLoading(false);
   }
 };
+
+
+export const Api_handler = async (Endpoint: string, data: any, method: 'get' | 'post' | 'put' | 'delete',) => {
+  try {
+    const config = {headers: {Authorization: `Bearer ${finalToken}`}};
+console.log(process.env.NEXT_PUBLIC_BASE_URL, "process.env.NEXT_PUBLIC_BASE_URL")
+    let response;
+    if (method === 'get' || method === 'delete') {
+      response = await axios[method](`${process.env.NEXT_PUBLIC_BASE_URL}/api/${Endpoint}`, config);
+    } else {
+      response = await axios[method](`${process.env.NEXT_PUBLIC_BASE_URL}/api/${Endpoint}`, data, config);
+    }
+
+    return response.data;
+
+  } catch (error: any) {
+    throw new Error(error.response?.data?.message || error.message || JSON.stringify(error));
+  }
+};
+
+
+
+

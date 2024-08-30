@@ -42,7 +42,7 @@ function Hero() {
       <CustomSlider className="Hero-slider lg:mb-3 mb-5">
         {heroSlider.map((item: any, index: number) => {
           return (
-            <>
+    
               <div
                 className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap xs:overflow-auto lg:px-0 px-4"
                 key={index}
@@ -77,7 +77,7 @@ function Hero() {
                     Lorem Ipsum is simply dummy text of the <br /> and
                     typesetting industry.
                   </p>
-                  <Link href={'./gallery'}>
+                  <Link href={'/gallery'}>
                     <button className="Upper w-fit bg-white text-14 font-semibold text-black rounded-full px-6 py-2 lg:mb-0 mb-12">
                       SEE ALL
                     </button>
@@ -85,7 +85,7 @@ function Hero() {
                 </div>
 
                 <div className="rigt-side w-1/2 sm:flex flex-col hidden justify-center border">
-                  <div key={index} className="relative">
+                  <div className="relative">
                     {showModel == '1_model' && (
                       <SliderModal setshowModel={setshowModel} />
                     )}
@@ -97,7 +97,7 @@ function Hero() {
                       <span id="modalHandler">why us?</span>
                     </div>
                     <Image
-                      key={index}
+                
                       className="w-full h-full object-cover"
                       width={500}
                       height={500}
@@ -121,7 +121,7 @@ function Hero() {
                   </div>
                 </div>
               </div>
-            </>
+
           );
         })}
       </CustomSlider>
