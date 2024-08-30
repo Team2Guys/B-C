@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { MyLoggerService } from './my-logger/my-logger.service';
 import { AllExceptionsFilter } from './all-exceptions.filter';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import cookieParser from 'cookie-parser';
+
 
 
 
@@ -25,6 +27,7 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api');
 
+  app.use(cookieParser());
 
   const config = new DocumentBuilder()
   .setTitle('Blind and curtains')
