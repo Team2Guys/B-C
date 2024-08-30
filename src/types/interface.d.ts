@@ -119,3 +119,33 @@ interface TProductGuarantees {
   image: string;
   imageAlign: 'left' | 'right';
 }
+
+export interface PRODUCTS_TYPES {
+  _id?: any;
+  name: string;
+  posterImageUrl?: Image;
+  hoverImageUrl?: Image;
+  description?: string;
+  salePrice?: number;
+  purchasePrice?: number;
+  category?: string;
+  imageUrl?: IMAGE_INTERFACE[];
+  discountPrice?: any;
+  colors?: Color[];
+  modelDetails?: { name: string; detail: string }[];
+  spacification?: Specification[];
+  createdAt: Date;
+  updatedAt: Date;
+  starRating?: string;
+  reviews?: string;
+  totalStockQuantity?: any;
+  sizes?: sizes[];
+  isFeatured?: any;
+  price?: number;
+  count?: any;
+  length?: any;
+  totalPrice?: any;
+  customOrder?: number;
+  createdAt?: any;
+  updatedAt?: any;
+}
