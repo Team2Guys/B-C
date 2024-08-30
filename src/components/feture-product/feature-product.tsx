@@ -2,71 +2,91 @@ import React, { useEffect, useState } from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import FeatureCard from 'components/ui/feature-card';
-import { featureProducts, generateSlug } from 'data/data';
 import axios from 'axios';
-import PRODUCTS_TYPES from 'types/interfaces';
+import { Allproduct } from 'types/interfaces';
+import { generateSlug } from 'data/data';
+import { useRouter } from 'next/navigation';
+
+interface Category {
+  id: number;
+  title: string;
+  posterImage: {
+    imageUrl: string;
+    public_id: string;
+  };
+  CategoryId: number;
+}
 
 const FeatureProduct: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [visibleCount, setVisibleCount] = useState<number>(9);
+  const [activeCategory, setActiveCategory] = useState<number | null>(null); // Initial category set to null
+  const [visibleCount, setVisibleCount] = useState<number>(9); // Initial count of visible products
+  const [Allproducts, setProducts] = useState<Allproduct[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [productsLoading, setProductsLoading] = useState<boolean>(false);
-  const [products, setProducts] = useState<PRODUCTS_TYPES[]>([]);
-  const [category, setCategories] = useState<any[]>([]);
-  const [productDetail, setProductDetail] = useState<PRODUCTS_TYPES | null>(
+  const [selectedProduct, setSelectedProduct] = useState<Allproduct | null>(
     null,
   );
+  const [productDetail, setProductDetail] = useState<Allproduct | null>(null);
+  const router = useRouter();
 
-  console.log(category, 'categorycategorycategory');
-  console.log(products, 'productsproductsproductsproducts');
+  console.log(Allproducts, 'Allproducts');
+  console.log(categories, 'categories');
 
   const productHandler = async () => {
+    setProductsLoading(true);
     try {
-      setProductsLoading(true);
       const categoryRequest = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}api/categories/get-all-subCategories`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
       );
       const productRequest = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/getAllproducts`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
       );
+
       const [categoryResponse, productResponse] = await Promise.all([
         categoryRequest,
         productRequest,
       ]);
 
-      setProducts(productResponse.data.products);
-      setCategories(categoryResponse.data);
+      setProducts(productResponse.data || []);
+      setCategories(categoryResponse.data || []);
 
-      const parsedProduct = categoryResponse.data._id;
-      if (parsedProduct && productResponse.data.products.length > 0) {
-        const foundProduct = productResponse.data.products.find(
-          (item: any) => generateSlug(item.name) === parsedProduct,
+      // Fetch product detail if needed
+      if (selectedProduct) {
+        const detailRequest = await axios.get(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${selectedProduct.id}`,
         );
-
-        if (foundProduct) {
-          setProductDetail(foundProduct);
-        }
+        setProductDetail(detailRequest.data || null);
       }
+
+      // Set the default active category to "All" or the first category
+      setActiveCategory(null); // You can change this to the id of the first category if needed
     } catch (error) {
       console.log('Error fetching data:', error);
     } finally {
       setProductsLoading(false);
     }
   };
+  const handleProductClick = (product: Allproduct) => {
+    const slug = generateSlug(product.title);
+    router.push(`/product/${slug}`);
+  };
+
   useEffect(() => {
     productHandler();
   }, []);
 
+  // Filter products based on the active category
   const filteredProducts =
-    activeCategory === 'All'
-      ? featureProducts
-      : featureProducts.filter(
-          (product) => product.category === activeCategory,
-        );
+    activeCategory === null
+      ? Allproducts
+      : Allproducts.filter((product) => product.CategoryId === activeCategory);
 
-  const visibleProducts = filteredProducts.slice(0, visibleCount);
+  // Products to display, sliced by visible count
+  const visibleProducts = (filteredProducts || []).slice(0, visibleCount);
 
+  // Handle "View More" button click
   const handleViewMore = () => {
-    setVisibleCount((prevCount) => prevCount + 6);
+    setVisibleCount((prevCount) => prevCount + 6); // Show 6 more products on each click
   };
 
   return (
@@ -79,30 +99,49 @@ const FeatureProduct: React.FC = () => {
 
       <div className="mt-10">
         <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap overflow-x-auto">
-          {category.map((category) => (
+          <Button
+            variant={'feature'}
+            className={` h-[52.03px] ${
+              activeCategory === null ? 'bg-secondary text-white' : 'text-black'
+            }`}
+            onClick={() => {
+              setActiveCategory(null);
+              setVisibleCount(6);
+            }}
+          >
+            All
+          </Button>
+          {categories.map((category) => (
             <Button
-              key={category}
+              key={category.id}
               variant={'feature'}
-              className={`w-[87.62px] h-[52.03px]
-                ${activeCategory === category ? 'bg-secondary text-white' : 'text-black'}
-              `}
+              className={` h-[52.03px] ${
+                activeCategory === category.CategoryId
+                  ? 'bg-secondary text-white'
+                  : 'text-black'
+              }`}
               onClick={() => {
-                setActiveCategory(category);
+                setActiveCategory(category.CategoryId);
                 setVisibleCount(6);
               }}
             >
-              {category}
+              {category.title}
             </Button>
           ))}
         </div>
 
         <div className="mt-5">
-          <FeatureCard products={visibleProducts} />
+          <FeatureCard
+            products={visibleProducts}
+            onProductClick={handleProductClick}
+          />
         </div>
+
+        {/* View More Button */}
         {visibleCount < filteredProducts.length && (
           <div className="flex justify-center mt-10">
             <Button
-              className="w-[163px] h-[55px] "
+              className="w-[163px] h-[55px]"
               onClick={handleViewMore}
               variant={'secondary'}
             >
