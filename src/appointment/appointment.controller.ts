@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
 import { Prisma } from '@prisma/client';
 
-@Controller('appointment')
+@Controller('appointments')
 export class AppointmentController {
     constructor(private readonly AppointmentService: AppointmentService) { }
 

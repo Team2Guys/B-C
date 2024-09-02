@@ -26,7 +26,7 @@ export class AdminsController {
     return this.adminsService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('editAdmin:id')
   update(@Param('id') id: string, @Body() updateAdminDto: Prisma.AdminsUpdateInput) {
     return this.adminsService.update(+id, updateAdminDto);
   }

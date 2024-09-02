@@ -61,7 +61,7 @@ id Int @default(autoincrement()) @id
 name String
  phone_number Int
  area String
- email String @unique
+ email String 
  whatsapp_number String?
  windows String
  prefered_Date DateTime
