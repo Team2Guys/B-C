@@ -284,7 +284,7 @@ const Settings = () => {
                     </label>
                     <input
                       disabled={AdminType}
-                      className="w-full rounded border border-stroke bg-gray px-4 py-3 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                      className="w-full rounded border border-stroke bg-gray px-4 py-3 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-lightdark dark:text-white dark:focus:border-primary"
                       type="text"
                       name="fullname"
                       id="fullname"

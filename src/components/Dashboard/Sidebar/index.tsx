@@ -270,15 +270,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 }}
               </SidebarLinkGroup>
               <SidebarLinkGroup
-                activeCondition={pathname === '/dashboard/orders'}
+                activeCondition={pathname === '/dashboard/appointments'}
               >
                 {(handleClick, open) => {
                   return (
                     <React.Fragment>
                       <Link
-                        href="/dashboard/orders"
+                        href="/dashboard/appointments"
                         className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${
-                          pathname === '/dashboard/orders' &&
+                          pathname === '/dashboard/appointments' &&
                           'bg-primary-foreground dark:bg-lightdark'
                         }`}
                         onClick={(e) => {
@@ -289,7 +289,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         }}
                       >
                         <TfiShoppingCartFull size={20} className="text-white" />
-                        Orders
+                        appointments
                         <MdOutlineKeyboardArrowDown
                           size={30}
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${
@@ -306,12 +306,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         <ul className="mb-3 mt-3 flex flex-col gap-2 pl-6">
                           <li>
                             <Link
-                              href="/dashboard/orders"
+                              href="/dashboard/appointments"
                               className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white ${
-                                pathname === 'dashboard/orders' && 'text-white'
+                                pathname === 'dashboard/appointments' && 'text-white'
                               } `}
                             >
-                              View Orders
+                              View Appointments
                             </Link>
                           </li>
                         </ul>

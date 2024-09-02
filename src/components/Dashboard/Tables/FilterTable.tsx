@@ -8,17 +8,14 @@ import type { FilterDropdownProps } from 'antd/es/table/interface';
 import Highlighter from 'react-highlight-words';
 import { Button } from 'components/ui/button';
 import { Color } from 'antd/es/color-picker';
+import { IAppointments } from 'types/types';
 
-interface DataType {
-  key: string;
-  [key: string]: any;
-}
 
-type DataIndex = keyof DataType;
+type DataIndex = keyof IAppointments;
 
 interface FilterTableProps {
-  data: DataType[];
-  columns: TableColumnsType<DataType>;
+  data: IAppointments[];
+  columns: TableColumnsType<IAppointments>;
 }
 
 const FilterTable: React.FC<FilterTableProps> = ({ data, columns }) => {
@@ -43,7 +40,7 @@ const FilterTable: React.FC<FilterTableProps> = ({ data, columns }) => {
 
   const getColumnSearchProps = (
     dataIndex: DataIndex,
-  ): TableColumnType<DataType> => ({
+  ): TableColumnType<IAppointments> => ({
     filterDropdown: ({
       setSelectedKeys,
       selectedKeys,
