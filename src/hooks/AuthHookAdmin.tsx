@@ -28,7 +28,8 @@ function ProtectedRoute(WrappedComponent: any) {
             },
           },
         );
-        dispatch(loggedInAdminAction(user.data.user));
+
+        dispatch(loggedInAdminAction(user.data));
       } catch (err: any) {
         console.log(err, 'err');
       }
