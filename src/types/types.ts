@@ -22,3 +22,9 @@ export interface PrivacyPolicyItem {
   text?: any;
   listItems?: any[];
 }
+export interface ICategory {
+  id: number;
+  title: string;
+  descrition?: string;
+  posterImage: any;
+}
