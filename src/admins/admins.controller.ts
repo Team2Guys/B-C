@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Res, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Res, Req, Put } from '@nestjs/common';
 import { AdminsService } from './admins.service';
 import { Prisma } from '@prisma/client';
 import { loginAdminDto, Super_admin_dto } from './dto/create-admin.dto';
@@ -21,17 +21,17 @@ export class AdminsController {
     return this.adminsService.findAll();
   }
 
-  @Get('get_admin:id')
-  findOne(@Param('id') id: string) {
+  @Get('get_admin/:id')
+  findOne(@Param('id') id: number) {
     return this.adminsService.findOne(+id);
   }
 
-  @Patch('editAdmin:id')
-  update(@Param('id') id: string, @Body() updateAdminDto: Prisma.AdminsUpdateInput) {
+  @Put('editAdmin/:id')
+  update(@Param('id') id: number, @Body() updateAdminDto: Prisma.AdminsUpdateInput) {
     return this.adminsService.update(+id, updateAdminDto);
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   remove(@Param('id') id: string) {
     return this.adminsService.remove(+id);
   }
