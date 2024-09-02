@@ -46,14 +46,14 @@ const SelectGroupTwo: React.FC<PROPS> = ({
             Select Category
           </option>
 
-          {Categories &&
-            Categories.map((item, index) => {
+          {/* {Categories &&
+            Categories?.map((item, index) => {
               return (
                 <option value={item._id} label={item.name} key={index}>
                   {item.name}
                 </option>
               );
-            })}
+            })} */}
         </select>
       </div>
     </div>
