@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser';
 
 
 
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
@@ -18,8 +19,7 @@ async function bootstrap() {
       /\.vercel\.app$/
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    preflightContinue: false,
-    credentials: true, 
+    credentials: true
   })
 
   const { httpAdapter } = app.get(HttpAdapterHost) 
@@ -28,6 +28,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   app.use(cookieParser());
+
 
   const config = new DocumentBuilder()
   .setTitle('Blind and curtains')

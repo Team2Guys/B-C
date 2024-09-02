@@ -43,7 +43,7 @@ export class AdminsController {
 
     }
 
-    @Post('get-admin-handler')
+    @Get('get-admin-handler')
     get_admin_handler(@Req() req:Request){
     console.log(req, "headers")
       return this.adminsService.getAdminHandler(req)
@@ -59,7 +59,7 @@ export class AdminsController {
     }
 
 
-    @Post('getSuperAdminHandler')
+    @Get('getSuperAdminHandler')
     getSuperAdminHandler(@Req() req:Request){
       return this.adminsService.getSuperAdminHandler(req)
     }

@@ -142,7 +142,8 @@ export class AdminsService {
 
   async getAdminHandler(req: Request | any) {
     try {
-      const { email } = req.user.email
+      const { email } = req.user
+      if(!email) return CustomErrorHandler("Email is required", "NOT_FOUND")
       let admin_user = await this.prisma.admins.findUnique({ where: { email: email } })
       if (!admin_user) CustomErrorHandler("User not found", "FORBIDDEN")
       const { password, ...withoupassword } = admin_user
