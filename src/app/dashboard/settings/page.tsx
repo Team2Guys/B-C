@@ -14,19 +14,27 @@ import { ImageRemoveHandler } from 'utils/helperFunctions';
 import { IMAGE_INTERFACE } from 'types/interfaces';
 import { CiMail } from 'react-icons/ci';
 import { Button } from 'components/ui/button';
+import Loader from 'components/Loader/Loader';
 
 const Settings = () => {
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
   const token = Cookies.get('2guysAdminToken');
   const dispatch = useAppDispatch();
   let AdminType = loggedInUser && loggedInUser.role == 'super-Admin';
+  const [loading, setloading] = useState(false);
+
 
   const initialFormData = {
     fullname: loggedInUser ? `${loggedInUser.fullname}` : '',
   };
+
+
   const initialValue = {
     name: loggedInUser ? `${loggedInUser.email}` : '',
   };
+
+
+
   const [formData, setFormData] = useState(initialFormData);
 
   const [profilePhoto, setProfilePhoto] = useState<IMAGE_INTERFACE[]>([]);
@@ -39,7 +47,7 @@ const Settings = () => {
     if (file) {
       let imageUrl: any = await uploadPhotosToBackend([file]);
 
-      imageUrl ? setProfilePhoto(imageUrl) : null;
+      imageUrl ? setProfilePhoto([imageUrl]) : null;
     }
   };
 
@@ -48,17 +56,17 @@ const Settings = () => {
       let initialFormData = {
         email: loggedInUser.email,
         fullname: formData.fullname,
-        profilePhoto: profilePhoto[0],
+        posterImageUrl: loggedInUser.posterImageUrl
       };
 
       if (loggedInUser) {
-        let { fullname, profilePhoto, ...extractedData } = loggedInUser;
+        let { fullname, posterImageUrl, ...extractedData } = loggedInUser;
         console.log(extractedData, 'extractedData');
 
-        if (profilePhoto.length > 0) {
+        if (profilePhoto && profilePhoto.length > 0) {
           initialFormData = {
             ...initialFormData,
-            profilePhoto: profilePhoto[0],
+            posterImageUrl: profilePhoto[0],
           };
         }
 
@@ -68,12 +76,12 @@ const Settings = () => {
         };
 
         let response: any = await axios.put(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/editAdmin/${loggedInUser._id}`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/editAdmin/${loggedInUser.id}`,
           combinedData,
           {
             headers: {
-              token: token,
-            },
+              Authorization: `Bearer ${token}`
+              },
           },
         );
 
@@ -83,6 +91,10 @@ const Settings = () => {
           console.error('Failed to update admin');
         }
       }
+
+
+
+
     } catch (error) {
       console.error('Error updating admin:', error);
     }
@@ -95,10 +107,13 @@ const Settings = () => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     try {
+      setloading(true)
       await adminUpdateHandler();
       await AddminProfileTriggerHandler();
     } catch (err) {
       console.log(err, 'err');
+    }finally{
+      setloading(false)
     }
   };
 
@@ -108,15 +123,17 @@ const Settings = () => {
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/get-admin-handler`,
         {
           headers: {
-            token: token,
-          },
+            Authorization: `Bearer ${token}`
+            },
         },
       );
-      dispatch(loggedInAdminAction(user.data.user));
+      dispatch(loggedInAdminAction(user.data));
     } catch (err: any) {
       console.log(err, 'err');
     }
   };
+
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -150,10 +167,10 @@ const Settings = () => {
               <div className="px-7 py-5">
                 <div>
                   <div className="mb-4 flex items-center gap-3">
-                    {profilePhoto.map((profilePhoto) => {
+                    {profilePhoto.map((profilePhoto, index: number) => {
                       return (
                         <>
-                          <div className="h-14 w-14 rounded-full overflow-hidden">
+                          <div className="h-14 w-14 rounded-full overflow-hidden" key={index}>
                             <Image
                               src={
                                 profilePhoto && profilePhoto.imageUrl
@@ -324,8 +341,9 @@ const Settings = () => {
                     <Button
                       className="dark:bg-primary dark:text-white"
                       type="submit"
+                      disabled={loading}
                     >
-                      Save
+                     {loading ? <Loader/> :  "Save"}
                     </Button>
                   </div>
                 </form>
