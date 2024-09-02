@@ -34,7 +34,7 @@ const DashboardLogin = () => {
 
   const [formData, setFormData] = useState(intialvalue);
 
-  const [error, setError] = useState<string | any | undefined>();
+  const [error, setError] = useState<string | undefined>();
   const [loading, setloading] = useState<boolean | null | undefined>(false);
   const [adminType, setadminType] = useState<string | undefined>('Admin');
 
@@ -42,7 +42,7 @@ const DashboardLogin = () => {
     e.preventDefault();
     setError('');
     if (!formData.email || !formData.password) {
-      return setError(<p className="text-red-500">All fields are rquired</p>);
+      return setError('All fields are rquired');
     }
     try {
       setloading(true);
@@ -64,7 +64,7 @@ const DashboardLogin = () => {
       } else if (err.message) {
         setError(err.message);
       } else {
-        setError("An unexpected error occurred");
+        setError('An unexpected error occurred.');
       }
     } finally {
       setloading(false);

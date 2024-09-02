@@ -128,14 +128,12 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setselecteMenu('Add All Products');
     } catch (err: any) {
       if (err.response && err.response.data && err.response.data.error) {
-        setError(<p className="text-red-500">{err.response.data.error}</p>);
+        setError(err.response.data.error);
       } else {
         if (err instanceof Error) {
-          setError(<p className="text-red-500">{err.message}</p>);
+          setError(err.message);
         } else {
-          setError(
-            <p className="text-red-500">An unexpected error occurred</p>,
-          );
+          setError('An unexpected error occurred');
         }
       }
     } finally {
