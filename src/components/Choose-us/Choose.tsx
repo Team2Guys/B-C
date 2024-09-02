@@ -2,7 +2,7 @@ import { RiVerifiedBadgeFill } from 'react-icons/ri';
 
 function Choose() {
   return (
-    <div className="px-9 py-8 bg-white drop-shadow-md rounded-md xl :w-3/5 w-full lg:mt-5">
+    <div className="px-9 py-8 bg-white drop-shadow-md rounded-md xl:w-3/5 w-full lg:mt-5">
       <h2 className="text-secondary font-semibold text-3xl">
         Why Choose Us:
         <br />

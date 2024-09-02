@@ -39,17 +39,12 @@ export interface Product {
   category: string;
 }
 
-interface PosterImage {
-  imageUrl: string;
-  public_id: string;
-}
+
+
 
 export interface Category {
-  CategoryId: number;
-  description: string | null;
-  id: number;
-  posterImage: PosterImage;
-  title: string;
+  name?: string;
+  description?: string;
 }
 
 interface CategoriesType {

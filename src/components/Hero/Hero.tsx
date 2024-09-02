@@ -69,7 +69,7 @@ function Hero() {
                       Latest Designs
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold lg:text-[44px] xl:text-[53px] text-3xl leading-normal">
+                  <h1 className="text-black font-extrabold lg:text-[53px] text-3xl leading-normal">
                     Custom Window <br />
                     Blinds & Curtains
                   </h1>

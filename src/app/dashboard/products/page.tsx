@@ -1,15 +1,14 @@
 'use client';
 
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
+import FormElements from 'components/Dashboard/FormElements';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import ViewProduct from 'components/Dashboard/Tables/ViewProduct';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
 import { useEffect, useState } from 'react';
-import FormElements from 'components/Dashboard/FormElements';
-import { product } from 'types/interfaces';
 
 const Products = () => {
-  const [editProduct, setEditProduct] = useState<product | undefined>();
+  const [editProduct, setEditProduct] = useState<any | undefined>();
   const [products, setProducts] = useState<any[]>();
 
   const [productloading, setProductloading] = useState<boolean>(false);
@@ -20,10 +19,12 @@ const Products = () => {
       try {
         setProductloading(true);
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/getAllproducts`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
         );
-        const Allproducts = await response.json();
-        setProducts(Allproducts.products);
+        const allProducts = await response.json();
+        console.log('Products are here');
+        console.log(allProducts);
+        setProducts(allProducts);
         setProductloading(false);
       } catch (err) {
         console.log('error Occured');
@@ -47,8 +48,9 @@ const Products = () => {
     reviews: editProduct && editProduct.starRating,
     code: editProduct && editProduct.code,
     salePrice: editProduct && editProduct.salePrice,
+
     purchasePrice: editProduct && editProduct.purchasePrice,
-    totalStockQuantity: editProduct && editProduct.totalStockQuantity,
+    additionalInformation: editProduct && editProduct.additionalInformation,
   };
 
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;

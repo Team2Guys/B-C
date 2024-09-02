@@ -2,10 +2,10 @@ import { FC } from 'react';
 import CustomButton from '../Button/Button';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Category } from 'types/interfaces';
+import { ICategory } from 'types/types';
 
 interface CardProps {
-  data: Category;
+  data: ICategory;
 }
 
 const Card: React.FC<CardProps> = ({ data }) => {

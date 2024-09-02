@@ -22,3 +22,34 @@ export interface PrivacyPolicyItem {
   text?: any;
   listItems?: any[];
 }
+
+interface PosterImage {
+  imageUrl: string;
+  public_id: string;
+}
+
+export interface ICategory {
+  CategoryId: number;
+  description: string | null;
+  id: number;
+  posterImage: PosterImage;
+  title: string;
+}
+
+interface Image {
+  imageUrl: string;
+  public_id: string;
+}
+
+export interface IProduct {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  posterImage: any;
+  imageUrls: Image[];
+  CategoryId: number;
+  SubCategoryId: number | null;
+  createdAt: string; // Consider using Date if you want to handle this as a Date object
+  updatedAt: string | null;
+}
