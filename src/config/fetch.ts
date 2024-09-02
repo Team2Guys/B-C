@@ -11,13 +11,13 @@ export const fetchProducts = async (): Promise<Allproduct[]> => {
 };
 export const fetchCategories = async (): Promise<ICategory[]> => {
   const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/category/get-all`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
   );
   return response.data;
 };
 export const fetchSubCategories = async (): Promise<ICategory[]> => {
   const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/subcategories/get-all`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
   );
   return response.data;
 };
