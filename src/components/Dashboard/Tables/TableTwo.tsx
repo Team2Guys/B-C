@@ -65,7 +65,7 @@ const TableTwo = ({
       try {
         setLoading(true);
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/getAllcategories`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/`,
         );
         const Categories = await response.json();
         setCategory(Categories);

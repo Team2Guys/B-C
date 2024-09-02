@@ -105,7 +105,7 @@ const Settings = () => {
   const AddminProfileTriggerHandler = async () => {
     try {
       let user: any = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/getAdminHandler`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/get-admin-handler`,
         {
           headers: {
             token: token,

@@ -101,7 +101,7 @@ export default function UserComponent({
                       />
                     ))}
                     {error ? (
-                      <div className="flex justify-center text-red">
+                      <div className="flex justify-center text-red-600">
                         {error}
                       </div>
                     ) : null}
