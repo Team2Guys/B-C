@@ -23,16 +23,13 @@ export const uploadPhotosToBackend = async (files: File[]): Promise<any[]> => {
     }
 
     const response: AxiosResponse<any> = await axios.post(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/file-upload`,
-      formData,
-      {
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/file-upload`,formData,{
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       },
     );
 
-    // Handle the response from the backend
     return response.data;
   } catch (error) {
     console.log('Error:', error);
