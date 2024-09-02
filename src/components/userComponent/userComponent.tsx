@@ -9,8 +9,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Select } from 'antd';
 import { USRPROPS } from 'types/interfaces';
 import Container from 'components/Res-usable/Container/Container';
-import Input from 'components/Res-usable/Input/Input';
 import { Button } from 'components/ui/button';
+import Input from 'components/Common/regularInputs';
 
 const { Option } = Select;
 
