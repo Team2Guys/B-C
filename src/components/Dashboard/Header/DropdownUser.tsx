@@ -76,9 +76,9 @@ setName_role(credentials)
         className="flex items-center py-2 gap-4 text-white dark:text-white"
         href="#"
       >
-        <span className="hidden text-right lg:block">
+        <span className="text-right lg:block">
           <span className="block text-sm font-medium text-white dark:text-white">
-            {name_role.name}
+            {loggedInUser?.fullname}
           </span>
           <span className="block text-xs text-white dark:text-white">
           {name_role.role}
