@@ -19,14 +19,12 @@ function ProtectedRoute(WrappedComponent: any) {
       adminFlag: boolean,
     ) => {
       try {
-        let apiEndpoint = adminFlag
-          ? 'getSuperAdminHandler'
-          : 'getAdminHandler';
+        let apiEndpoint = adminFlag? 'getSuperAdminHandler' : 'get-admin-handler';
         let user: any = await axios.get(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/${apiEndpoint}`,
           {
             headers: {
-              token: token,
+            Authorization: `Bearer ${token}`
             },
           },
         );
