@@ -11,10 +11,10 @@ import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import { generateSlug } from 'data/data';
 import Loader from 'components/Loader/Loader';
-
+import Cookies from 'js-cookie';
 interface Product {
   id: string;
-  name: string;
+  title: string;
   category: string;
   posterImageUrl: { imageUrl: string };
   createdAt: string;
@@ -37,7 +37,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
 }) => {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState<string>('');
-
+  const token = Cookies.get('2guysAdminToken');
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
@@ -78,10 +78,10 @@ const ViewProduct: React.FC<CategoryProps> = ({
     // alert(key);
     try {
       const response = await axios.delete(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/product/delete-product`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/delete_product/${key}`,
         {
           headers: {
-            productId: key,
+            Authorization: `Bearer ${token}`,
           },
         },
       );
@@ -116,8 +116,8 @@ const ViewProduct: React.FC<CategoryProps> = ({
     },
     {
       title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      dataIndex: 'title',
+      key: 'title',
     },
     {
       title: 'Stock Quantity',
@@ -153,7 +153,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
       key: 'Preview',
       render: (text: any, record: Product) => {
         const handleClick = () => {
-          const url = `/product/${generateSlug(record.name)}`;
+          const url = `/product/${generateSlug(record.title)}`;
           window.open(url, '_blank');
         };
         return <FaRegEye className="cursor-pointer" onClick={handleClick} />;

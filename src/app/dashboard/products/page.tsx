@@ -35,7 +35,7 @@ const Products = () => {
   }, [selecteMenu]);
 
   const EditInitialValues: any = {
-    name: editProduct?.name,
+    title: editProduct?.title,
     description: editProduct?.description,
     price: editProduct?.price,
     colors: editProduct?.colors,
