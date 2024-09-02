@@ -1008,50 +1008,50 @@ export const loginInitialValue = {
 };
 
 export const AddProductvalidationSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  description: Yup.string().required('Required'),
-  salePrice: Yup.number()
-    .min(1, 'Minimum sales price must be at least 1')
-    .required('Required'),
-  purchasePrice: Yup.number().min(1, 'Must be at least 1').required('Required'),
-  discountPrice: Yup.number().nullable(),
-  starRating: Yup.number()
-    .min(1, 'Rating must be at least 1')
-    .max(5, 'Star Rating should be a maximum of 5')
-    .nullable(),
-  reviews: Yup.string().nullable(),
-  colors: Yup.array().of(
-    Yup.object().shape({
-      colorName: Yup.string().nullable(),
-    }),
-  ),
-  modelDetails: Yup.array().of(
-    Yup.object().shape({
-      name: Yup.string().nullable(),
-      detail: Yup.string().nullable(),
-    }),
-  ),
-  spacification: Yup.array().of(
-    Yup.object().shape({
-      specsDetails: Yup.string().nullable(),
-    }),
-  ),
-  sizes: Yup.array().of(
-    Yup.object().shape({
-      sizesDetails: Yup.string().nullable(),
-    }),
-  ),
-  category: Yup.string().required('Category is required'),
-  totalStockQuantity: Yup.number().nullable(),
-  variantStockQuantities: Yup.array().of(
-    Yup.object().shape({
-      variant: Yup.string().nullable(),
-      quantity: Yup.number().nullable(),
-    }),
-  ),
+  // name: Yup.string()
+  //   .min(2, 'Too Short!')
+  //   .max(50, 'Too Long!')
+  //   .required('Required'),
+  // description: Yup.string().required('Required'),
+  // salePrice: Yup.number()
+  //   .min(1, 'Minimum sales price must be at least 1')
+  //   .required('Required'),
+  // purchasePrice: Yup.number().min(1, 'Must be at least 1').required('Required'),
+  // discountPrice: Yup.number().nullable(),
+  // starRating: Yup.number()
+  //   .min(1, 'Rating must be at least 1')
+  //   .max(5, 'Star Rating should be a maximum of 5')
+  //   .nullable(),
+  // reviews: Yup.string().nullable(),
+  // colors: Yup.array().of(
+  //   Yup.object().shape({
+  //     colorName: Yup.string().nullable(),
+  //   }),
+  // ),
+  // modelDetails: Yup.array().of(
+  //   Yup.object().shape({
+  //     name: Yup.string().nullable(),
+  //     detail: Yup.string().nullable(),
+  //   }),
+  // ),
+  // spacification: Yup.array().of(
+  //   Yup.object().shape({
+  //     specsDetails: Yup.string().nullable(),
+  //   }),
+  // ),
+  // sizes: Yup.array().of(
+  //   Yup.object().shape({
+  //     sizesDetails: Yup.string().nullable(),
+  //   }),
+  // ),
+  // category: Yup.string().required('Category is required'),
+  // totalStockQuantity: Yup.number().nullable(),
+  // variantStockQuantities: Yup.array().of(
+  //   Yup.object().shape({
+  //     variant: Yup.string().nullable(),
+  //     quantity: Yup.number().nullable(),
+  //   }),
+  // ),
 });
 
 export const AddproductsinitialValues: FormValues = {

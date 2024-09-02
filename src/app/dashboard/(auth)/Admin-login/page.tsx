@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { useRouter } from 'next/navigation';
 import Toaster from 'components/Toaster/Toaster';
 import { useAppDispatch } from 'components/Others/HelperRedux';
@@ -34,6 +34,7 @@ const DashboardLogin = () => {
 
   const [formData, setFormData] = useState(intialvalue);
 
+
   const [error, setError] = useState<string | undefined>();
   const [loading, setloading] = useState<boolean | null | undefined>(false);
   const [adminType, setadminType] = useState<string | undefined>('Admin');
@@ -49,6 +50,8 @@ const DashboardLogin = () => {
       let url = adminType === 'Admin' ? 'admins/admin-login': 'admins/superAdminLogin';
       console.log(url, 'url')
       const response = await Api_handler(url,formData,"post",)
+
+      Cookies.set(adminType == "Admin" ? '2guysAdminToken' : "superAdminToken", response.token, { expires: 1 }) 
       setloading(false);
       dispatch(loggedInAdminAction(response.user));
       setFormData(intialvalue);
