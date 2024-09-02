@@ -10,14 +10,11 @@ import { Button } from 'components/ui/button';
 import { Color } from 'antd/es/color-picker';
 import { IAppointments } from 'types/types';
 
-
 type DataIndex = keyof IAppointments;
-
 interface FilterTableProps {
   data: IAppointments[];
   columns: TableColumnsType<IAppointments>;
 }
-
 const FilterTable: React.FC<FilterTableProps> = ({ data, columns }) => {
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
@@ -141,6 +138,7 @@ const FilterTable: React.FC<FilterTableProps> = ({ data, columns }) => {
   }));
 
   return (
+    
     <Table
       className="overflow-x-auto mt-10 dark:tabledark "
       columns={enhancedColumns}
