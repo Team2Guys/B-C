@@ -217,11 +217,11 @@ export class AdminsService {
       let total_products = await this.prisma.products.count({})
       let total_categories = await this.prisma.categories.count({})
       let total_subCategories = await this.prisma.subCategories.count({})
-      // let total_admins = await this.prisma.admins.count({})
+      let total_admins = await this.prisma.admins.count({})
       let total_appointments = await this.prisma.appointments.count({})
 
       return {
-        // total_admins,
+        total_admins,
         total_appointments,
         total_categories,
         total_products,
