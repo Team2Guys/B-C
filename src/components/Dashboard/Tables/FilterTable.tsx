@@ -12,8 +12,8 @@ import { IAppointments } from 'types/types';
 
 type DataIndex = keyof IAppointments;
 interface FilterTableProps {
-  data: IAppointments[];
-  columns: TableColumnsType<IAppointments>;
+  data?: IAppointments[];
+  columns?: TableColumnsType<IAppointments>;
 }
 const FilterTable: React.FC<FilterTableProps> = ({ data, columns }) => {
   const [searchText, setSearchText] = useState('');
