@@ -102,32 +102,22 @@ interface sizes {
   sizesDetails?: string;
 }
 
-interface PRODUCTS_TYPES {
-  _id?: any;
-  name: string;
-  posterImageUrl?: Image;
-  hoverImageUrl?: Image;
-  description?: string;
-  salePrice?: number;
-  purchasePrice?: number;
-  category?: string;
-  imageUrl?: IMAGE_INTERFACE[];
-  discountPrice?: any;
-  colors?: Color[];
-  modelDetails?: ModelDetail[];
-  spacification?: Specification[];
-  createdAt: Date;
-  updatedAt: Date;
-  starRating?: string;
-  reviews?: string;
-  totalStockQuantity?: any;
-  sizes?: sizes[];
-  isFeatured?: any;
-  price?: number;
-  count?: any;
-  length?: any;
-  totalPrice?: any;
-  customOrder?: number;
+interface Image {
+  imageUrl: string;
+  public_id: string;
+}
+
+interface Product {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  posterImage: Image;
+  imageUrls: Image[];
+  CategoryId: number;
+  SubCategoryId: number | null;
+  createdAt: string; // Consider using Date if you want to handle this as a Date object
+  updatedAt: string | null;
 }
 
 export default PRODUCTS_TYPES;
@@ -151,27 +141,20 @@ export interface Categories_Types {
   __v: any;
 }
 
-export interface product {
-  posterImageUrl: { public_id: string; imageUrl: string };
-  hoverImageUrl: { public_id: string; imageUrl: string };
-  _id: string;
-  name: string;
+interface Image {
+  imageUrl: string;
+  public_id: string;
+}
+
+export interface Allproduct {
+  id: number;
+  title: string;
   description: string;
-  salePrice: number;
-  purchasePrice: number;
-  category: string;
-  imageUrl: Array<{ public_id: string; imageUrl: string; _id: string }>;
-  discountPrice: number;
-  colors: Array<{ colorName: string; _id: string }>;
-  modelDetails: Array<{ name: string; detail: string; _id: string }>;
-  spacification: Array<{ specsDetails: string; _id: string }>;
-  totalStockQuantity: number;
-  createdAt: string;
-  starRating: string;
-  reviews: string;
-  sizes: any;
-  updatedAt: string;
-  price: string;
-  __v: number;
-  code: string;
+  price: number;
+  posterImage: any;
+  imageUrls: Image[];
+  CategoryId: number;
+  SubCategoryId: number | null;
+  createdAt: string; // Consider using Date if you want to handle this as a Date object
+  updatedAt: string | null;
 }

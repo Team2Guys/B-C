@@ -123,7 +123,9 @@ export const Api_handler = async (
   method: 'get' | 'post' | 'put' | 'delete',
 ) => {
   try {
-    const config = { headers: { Authorization: `Bearer ${finalToken}` } };
+    const config = {
+      headers: { Authorization: `Bearer ${finalToken}`, withCredentials: true },
+    };
     console.log(
       process.env.NEXT_PUBLIC_BASE_URL,
       'process.env.NEXT_PUBLIC_BASE_URL',
