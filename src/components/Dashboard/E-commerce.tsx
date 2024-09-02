@@ -113,13 +113,13 @@ const ECommerce: React.FC = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7">
             {!canVeiwAdmins ? null : (
               <CardDataStats
                 title="Admins"
                 total={records?.total_admins ? records?.total_admins : ''}
               >
-                <IoMdEye size={25} className="text-primary dark:text-white" />
+                <IoMdEye size={25} className="text-white dark:text-black" />
               </CardDataStats>
             )}
 
@@ -130,7 +130,7 @@ const ECommerce: React.FC = () => {
               >
                 <FiShoppingCart
                   size={25}
-                  className="text-primary dark:text-white"
+                  className="text-white dark:text-black"
                 />
               </CardDataStats>
             )}
@@ -142,7 +142,7 @@ const ECommerce: React.FC = () => {
               >
                 <IoBagOutline
                   size={25}
-                  className="text-primary dark:text-white"
+                  className="text-white dark:text-black"
                 />
               </CardDataStats>
             )}
@@ -154,7 +154,7 @@ const ECommerce: React.FC = () => {
               >
                 <FiShoppingCart
                   size={25}
-                  className="text-primary dark:text-white"
+                  className="text-white dark:text-black"
                 />
               </CardDataStats>
             )}
@@ -166,7 +166,7 @@ const ECommerce: React.FC = () => {
               >
                 <IoBagOutline
                   size={25}
-                  className="text-primary dark:text-white"
+                  className="text-white dark:text-black"
                 />
               </CardDataStats>
             )}
@@ -178,7 +178,7 @@ const ECommerce: React.FC = () => {
               >
                 <PiUsersThreeFill
                   size={25}
-                  className="text-primary dark:text-white"
+                  className="text-white dark:text-black"
                 />
               </CardDataStats>
             )} */}
@@ -190,7 +190,7 @@ const ECommerce: React.FC = () => {
               >
                 <PiUsersThreeFill
                   size={25}
-                  className="text-primary dark:text-white"
+                  className="text-white dark:text-black"
                 />
               </CardDataStats>
             )} */}

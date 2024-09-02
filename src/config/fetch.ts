@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ICategory, IRECORDS } from 'types/types';
+import { IAppointments, ICategory, IRECORDS } from 'types/types';
 import { Allproduct } from 'types/interfaces';
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
@@ -35,6 +35,23 @@ export const adminRecords = async (token: string): Promise<IRECORDS[]> => {
     return response.data;
   } catch (error) {
     console.error('Error fetching admin records:', error);
+    throw error;
+  }
+};
+
+export const fetchAppointments = async (token: string): Promise<IAppointments[]> => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/getAllappointments`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the headers
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching appointment records:', error);
     throw error;
   }
 };
