@@ -12,8 +12,6 @@ const token = Cookies.get('2guysAdminToken');
 const superAdmintoken = Cookies.get('superAdminToken');
 const finalToken = token ? token : superAdmintoken;
 
-
-
 export const uploadPhotosToBackend = async (files: File[]): Promise<any[]> => {
   const formData = new FormData();
 
@@ -21,11 +19,11 @@ export const uploadPhotosToBackend = async (files: File[]): Promise<any[]> => {
 
   try {
     for (const file of files) {
-      formData.append('image', file);
+      formData.append('file', file);
     }
 
     const response: AxiosResponse<any> = await axios.post(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/addProductImage`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/file-upload`,
       formData,
       {
         headers: {
@@ -35,7 +33,7 @@ export const uploadPhotosToBackend = async (files: File[]): Promise<any[]> => {
     );
 
     // Handle the response from the backend
-    return response.data?.productsImageUrl;
+    return response.data;
   } catch (error) {
     console.log('Error:', error);
     throw error;
@@ -119,25 +117,35 @@ export let getPRODUCTS = async (
   }
 };
 
-
-export const Api_handler = async (Endpoint: string, data: any, method: 'get' | 'post' | 'put' | 'delete',) => {
+export const Api_handler = async (
+  Endpoint: string,
+  data: any,
+  method: 'get' | 'post' | 'put' | 'delete',
+) => {
   try {
-    const config = {headers: {Authorization: `Bearer ${finalToken}`}};
-console.log(process.env.NEXT_PUBLIC_BASE_URL, "process.env.NEXT_PUBLIC_BASE_URL")
+    const config = { headers: { Authorization: `Bearer ${finalToken}` } };
+    console.log(
+      process.env.NEXT_PUBLIC_BASE_URL,
+      'process.env.NEXT_PUBLIC_BASE_URL',
+    );
     let response;
     if (method === 'get' || method === 'delete') {
-      response = await axios[method](`${process.env.NEXT_PUBLIC_BASE_URL}/api/${Endpoint}`, config);
+      response = await axios[method](
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/${Endpoint}`,
+        config,
+      );
     } else {
-      response = await axios[method](`${process.env.NEXT_PUBLIC_BASE_URL}/api/${Endpoint}`, data, config);
+      response = await axios[method](
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/${Endpoint}`,
+        data,
+        config,
+      );
     }
 
     return response.data;
-
   } catch (error: any) {
-    throw new Error(error.response?.data?.message || error.message || JSON.stringify(error));
+    throw new Error(
+      error.response?.data?.message || error.message || JSON.stringify(error),
+    );
   }
 };
-
-
-
-
