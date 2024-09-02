@@ -53,3 +53,14 @@ export interface IProduct {
   createdAt: string; // Consider using Date if you want to handle this as a Date object
   updatedAt: string | null;
 }
+
+
+export interface IRECORDS {
+  totalAdmins: string;
+  totalCategories: string;
+  totalProducts: string;
+  totalUsers: string;
+  totalProfit: string;
+  totalSales: string;
+  totalRevenue: string;
+}
