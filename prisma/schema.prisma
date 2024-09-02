@@ -14,6 +14,7 @@ model Categories {
   products     products[]      @relation("CategoryToProducts")
   posterImage  Json
   subCategories SubCategories[] @relation("CategoryToSubCategories")
+ description String?
 }
 
 model SubCategories {
@@ -23,6 +24,8 @@ model SubCategories {
   category    Categories      @relation("CategoryToSubCategories", fields: [CategoryId], references: [id])
   products    products[]      @relation("SubCategoryToProducts")
   posterImage Json
+ description String?
+
 }
 
 
