@@ -97,7 +97,7 @@ function Hero() {
                       <span id="modalHandler">why us?</span>
                     </div>
                     <Image
-                
+                     key={index}
                       className="w-full h-full object-cover"
                       width={500}
                       height={500}
