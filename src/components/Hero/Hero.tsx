@@ -39,15 +39,15 @@ function Hero() {
 
   return (
     <Container>
-      <CustomSlider className="Hero-slider lg:mb-3 mb-5">
+      <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5">
         {heroSlider.map((item: any, index: number) => {
           return (
             <>
               <div
-                className=" max-w-screen-2xl mx-auto w-full flex max-sm:flex-wrap xs:overflow-auto lg:px-0 px-4"
+                className="  flex flex-wrap md:flex-nowrap  lg:px-0 px-4"
                 key={index}
               >
-                <div className=" min-w-[500px] left-side w-1/2 flex flex-col justify-center gap-3 ">
+                <div className=" left-side w-full md:w-1/2 flex flex-col justify-center gap-3">
                   <div className="w-full flex items-center gap-2 lg:mt-0 mt-12">
                     <svg
                       width="34"
@@ -69,7 +69,7 @@ function Hero() {
                       Latest Designs
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold lg:text-[53px] text-3xl leading-normal">
+                  <h1 className="text-black font-extrabold lg:text-[44px] xl:text-[53px] text-3xl leading-normal">
                     Custom Window <br />
                     Blinds & Curtains
                   </h1>
@@ -84,15 +84,22 @@ function Hero() {
                   </Link>
                 </div>
 
-                <div className="rigt-side w-1/2 sm:flex flex-col hidden justify-center border">
+                <div className="rigt-side w-full md:w-1/2 flex flex-col  justify-center border !z-50">
                   <div key={index} className="relative">
                     {showModel == '1_model' && (
-                      <SliderModal setshowModel={setshowModel} />
+                      <SliderModal
+                        className="-top-28 md:top-12 sm:top-12 xl:top-16"
+                        setshowModel={setshowModel}
+                      />
                     )}
                     <div
                       id="modalHandler"
                       onClick={() => setshowModel('1_model')}
-                      className="cursor-pointer absolute bg-black rounded-full w-9 h-9 text-white p-1 max-xl:top-[53px] max-lg:top-[30px] top-[141px] text-10 text-center"
+                      className="cursor-pointer absolute bg-black rounded-full w-9 h-9 text-white p-1 
+                      top-16
+                      sm:top-28
+                       md:top-16 lg:top-20 xl:top-32
+                       text-10 text-center "
                     >
                       <span id="modalHandler">why us?</span>
                     </div>
@@ -107,15 +114,16 @@ function Hero() {
                     <div
                       id="modalHandler"
                       onClick={() => setshowModel('2_model')}
-                      className="cursor-pointer absolute bg-black rounded-full w-9 h-9 text-white p-1 max-xl:top-[53px] max-lg:top-[30px] bottom-10 right-10 text-10 text-center"
+                      className="cursor-pointer absolute bg-black rounded-full w-9 h-9 text-white p-1  max-xs:right-0 max-xl:top-[53px] max-lg:top-[30px] bottom-10 right-10 text-10 text-center"
                     >
                       <span id="modalHandler">why us?</span>
                     </div>
 
                     {showModel == '2_model' && (
                       <SliderModal
+                        modelType={showModel}
                         setshowModel={setshowModel}
-                        className="top-20 right-0"
+                        className="-top-28 md:top-10 lg:top-16 xl:top-36 2xl:top-44 right-0"
                       />
                     )}
                   </div>
