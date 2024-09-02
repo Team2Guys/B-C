@@ -155,7 +155,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       } else {
         if (err instanceof Error) {
           setError(err.message);
+          setError(err.message);
         } else {
+          setError('An unexpected error occurred');
           setError('An unexpected error occurred');
         }
       }

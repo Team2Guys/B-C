@@ -12,7 +12,7 @@ import { IoMdArrowRoundBack } from 'react-icons/io';
 
 const AddAdmin = ({ setselecteMenu }: any) => {
   const router = useRouter();
-  const [error, setError] = useState<string | any | undefined>();
+  const [error, setError] = useState<string | undefined>();
   const [loading, setLoading] = useState<boolean>(false);
 
   // Initialize state for form data
@@ -46,7 +46,7 @@ const AddAdmin = ({ setselecteMenu }: any) => {
     setLoading(true);
     console.log(formData, 'formData');
     if (!formData.fullname || !formData.email || !formData.password)
-      return setError(<p className="text-red-500">All fields are required</p>);
+      return setError('All fields are required');
     try {
       let user = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/createAdmin`,
@@ -71,9 +71,7 @@ const AddAdmin = ({ setselecteMenu }: any) => {
       }
     } catch (err: any) {
       console.log(err, 'err');
-      setError(
-        <p className="text-red-500">{err.message || JSON.stringify(err)}</p>,
-      );
+      setError(err.message || JSON.stringify(err));
     } finally {
       setLoading(false);
     }
