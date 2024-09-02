@@ -24,8 +24,10 @@ import {
   AddProductvalidationSchema,
 } from 'data/data';
 import { ICategory } from 'types/types';
-import { fetchCategories } from 'config/fetch';
+import { fetchCategories, fetchSubCategories } from 'config/fetch';
 import Loader from 'components/Loader/Loader';
+import { ImageRemoveHandler } from 'utils/helperFunctions';
+import Cookies from 'js-cookie';
 
 const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   EditInitialValues,
@@ -61,7 +63,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const changeTextColor = () => {
     setIsOptionSelected(true);
   };
-
+  const token = Cookies.get('2guysAdminToken');
   // console.log('posterimageUrl', posterimageUrl);
 
   useLayoutEffect(() => {
@@ -87,14 +89,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     CategoryHandler();
   }, []);
   const onSubmit = async (values: any, { resetForm }: any) => {
+    console.log('values' + values);
+    console.log(values);
     values.categories = selectedCategoryIds;
     values.subcategories = selectedSubcategoryIds;
-    // console.log(values, 'values');
+
     console.log('debuge 1');
-    // const selectedCat = Categories.filter(
-    //   (cat) => cat.name === values.category,
-    // );
-    // const selectedCat_Id = selectedCat[0].id;
+
     console.log('debuge 2');
     try {
       setError(null);
@@ -107,13 +108,19 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       }
       console.log(values, 'values');
       console.log('debuge 3');
-      let newValues = {
+      let { name, ...newValues } = {
         ...values,
-        posterImageUrl: posterImageUrl.imageUrl,
-        posterImagePublicId: posterImageUrl.public_id,
-        hoverImageUrl: hoverImageUrl.imageUrl,
-        hoverImagePublicId: hoverImageUrl.public_id,
-        productImages: imagesUrl,
+        title: values.name,
+        posterImage: posterImageUrl,
+        hoverImage: hoverImageUrl,
+        imageUrls: imagesUrl,
+
+        category: {
+          connect: { id: values.categories[0] }, // Wrap category in a connect object
+        },
+        subCategory: {
+          connect: { id: values.subcategories[0] }, // Wrap subCategory in a connect object
+        },
       };
       console.log(newValues, 'updatedValues');
       console.log('debuge 4');
@@ -121,16 +128,38 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
       let updateFlag = EditProductValue && EditInitialValues ? true : false;
       let addProductUrl = updateFlag
-        ? `/api/updateProduct/${EditInitialValues._id} `
+        ? `/api/products/edit_product/${EditInitialValues._id} `
         : null;
       console.log('debuge 5');
       let url = `${process.env.NEXT_PUBLIC_BASE_URL}${
-        updateFlag ? addProductUrl : '/api/product/add-product'
+        updateFlag ? addProductUrl : '/api/products/AddProduct'
       }`;
       console.log('debuge 6');
-
-      console.log(newValues);
-      const response = await axios.post(url, newValues);
+      const {
+        categories,
+        subcategories,
+        colors,
+        code,
+        modelDetails,
+        purchasePrice,
+        reviews,
+        salePrice,
+        sizes,
+        starRating,
+        variantStockQuantities,
+        discountPrice,
+        totalStockQuantity,
+        stock,
+        spacification,
+        hoverImage: newhoverImage,
+        ...finalValues
+      } = newValues;
+      console.log(finalValues);
+      const response = await axios.post(url, finalValues, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log(response, 'response');
       showToast(
         'success',
@@ -155,9 +184,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       } else {
         if (err instanceof Error) {
           setError(err.message);
-          setError(err.message);
         } else {
-          setError('An unexpected error occurred');
           setError('An unexpected error occurred');
         }
       }
@@ -170,7 +197,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     const CategoryHandler = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/category/get-all`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
         );
         const allCategories = await response.json();
         setCategories(allCategories);
@@ -181,6 +208,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
     CategoryHandler();
   }, []);
+
   const {
     data: categoriesList = [],
     error,
@@ -188,6 +216,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   } = useQuery<ICategory[], Error>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
+  });
+  const {
+    data: subCategoriesList = [],
+    error: subError,
+    isLoading: subLoading,
+  } = useQuery<ICategory[], Error>({
+    queryKey: ['subcategories'],
+    queryFn: fetchSubCategories,
   });
 
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
@@ -202,10 +238,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     const selectedCategories = categoriesList.filter((category) =>
       selectedCategoryIds.includes(category.id),
     );
-    const subcategories = selectedCategories.flatMap(
-      (category) => category.subcategories,
+    const filteredSubcategories = subCategoriesList.filter((subcategory) =>
+      selectedCategoryIds.includes(subcategory.CategoryId),
     );
-    setFilteredSubcategories(subcategories);
+    setFilteredSubcategories(filteredSubcategories);
   }, [selectedCategoryIds, categoriesList]);
 
   // Handle subcategory selection
@@ -475,11 +511,11 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                       const checked = e.target.checked;
                                       setSelectedCategoryIds((prev) => {
                                         if (checked) {
-                                          return [...prev, category.id];
+                                          // If a new category is checked, clear previous selections and select the new one
+                                          return [category.id];
                                         } else {
-                                          return prev.filter(
-                                            (id) => id !== category.id,
-                                          );
+                                          // If the current category is unchecked, clear the selection
+                                          return [];
                                         }
                                       });
                                     }}
@@ -489,7 +525,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                     htmlFor={`category-${category.id}`}
                                     className="ml-2 text-black dark:text-white"
                                   >
-                                    {category.name}
+                                    {category.title}
                                   </label>
                                 </div>
                               ))}
@@ -509,19 +545,25 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                   checked={selectedSubcategoryIds.includes(
                                     subcategory.id,
                                   )}
-                                  onChange={(e) =>
-                                    handleSubcategoryChange(
-                                      subcategory.id,
-                                      e.target.checked,
-                                    )
-                                  }
+                                  onChange={(e) => {
+                                    const checked = e.target.checked;
+                                    setSelectedSubcategoryIds((prev) => {
+                                      if (checked) {
+                                        // If a new subcategory is checked, clear previous selections and select the new one
+                                        return [subcategory.id];
+                                      } else {
+                                        // If the current subcategory is unchecked, clear the selection
+                                        return [];
+                                      }
+                                    });
+                                  }}
                                   id={`subcategory-${subcategory.id}`}
                                 />
                                 <label
                                   htmlFor={`subcategory-${subcategory.id}`}
                                   className="ml-2 text-black dark:text-white"
                                 >
-                                  {subcategory.name}
+                                  {subcategory.title}
                                 </label>
                               </div>
                             ))}
@@ -666,7 +708,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                     )} */}
                   </div>
 
-                  <div className="rounded-sm border border-stroke bg-white  dark:bg-black">
+                  {/* <div className="rounded-sm border border-stroke bg-white  dark:bg-black">
                     <div className="border-b border-stroke py-4 px-6 dark:border-strokedark">
                       <h3 className="font-medium text-black dark:text-white">
                         Additional information
@@ -757,7 +799,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         )}
                       </FieldArray>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="rounded-sm border border-stroke bg-white  dark:bg-black ">
                     <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
@@ -820,7 +862,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                       </FieldArray>
                     </div>
                   </div>
-                  <div className="rounded-sm border border-stroke bg-white  dark:bg-black">
+                  {/* <div className="rounded-sm border border-stroke bg-white  dark:bg-black">
                     <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
                       <h3 className="font-medium text-black dark:text-white">
                         Colors
@@ -880,7 +922,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         )}
                       </FieldArray>
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* <div className="rounded-sm border border-stroke bg-white  dark:bg-black">
                     <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
@@ -890,7 +932,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                     </div>
                     <div className="flex flex-col gap-4 p-4">
                       <FieldArray name="sizes">
-                        {({ push, remove }) => (
+                        {({ push, remove2 }) => (
                           <div className="flex flex-col gap-2">
                             {formik.values.sizes.map(
                               (spec: any, index: any) => (
