@@ -118,11 +118,7 @@ export let getPRODUCTS = async (
   }
 };
 
-export const Api_handler = async (
-  Endpoint: string,
-  data: any,
-  method: 'get' | 'post' | 'put' | 'delete',
-) => {
+export const Api_handler = async (Endpoint: string,data: any,method: 'get' | 'post' | 'put' | 'delete',) => {
   try {
     const config = {
       headers: { Authorization: `Bearer ${finalToken}`, withCredentials: true },
