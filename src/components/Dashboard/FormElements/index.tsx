@@ -412,6 +412,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           <div className="text-red text-sm">
                             {
                               formik.errors.description as FormikErrors<
+                                //@ts-expect-error
                                 FormValues['description']
                               >
                             }
@@ -442,6 +443,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                               {' '}
                               {
                                 formik.errors.price as FormikErrors<
+                                  //@ts-expect-error
                                   FormValues['price']
                                 >
                               }
