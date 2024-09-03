@@ -29,11 +29,11 @@ interface PosterImage {
 }
 
 export interface ICategory {
-  CategoryId: number;
-  description: string | null;
-  id: number;
-  posterImage: PosterImage;
-  title: string;
+  title?: string;
+  CategoryId?: number;
+  description?: string | null;
+  id?: number;
+  posterImage?: PosterImage;
 }
 
 interface Image {
@@ -50,19 +50,17 @@ export interface IProduct {
   imageUrls: Image[];
   CategoryId: number;
   SubCategoryId: number | null;
-  createdAt: string; // Consider using Date if you want to handle this as a Date object
+  createdAt: string; 
   updatedAt: string | null;
 }
 
 
 export interface IRECORDS {
-  totalAdmins: string;
-  totalCategories: string;
-  totalProducts: string;
-  totalUsers: string;
-  totalProfit: string;
-  totalSales: string;
-  totalRevenue: string;
+  total_admins: string | null;
+  total_appointments: string | null;
+  total_categories:string | null;
+  total_subCategories:string | null;
+  total_products: string | null
 }
 
 export interface IAppointments {

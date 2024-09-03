@@ -1,50 +1,76 @@
-// components/Header.tsx
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
 import logo from '../../../../public/assets/images/logomain.png';
 import MegaMenu from './MegaMenu';
-import { menuItems, MobilemenuItems } from 'data/data';
 import Sheet from 'components/ui/Drawer';
 import { RiMenuFoldLine } from 'react-icons/ri';
 import MenuCard from 'components/ui/menu-card';
 import SocialLink from '../social-link/social-link';
-import { usePathname } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
+import { ICategory, IProduct } from 'types/types';
+import { fetchCategories, fetchProducts } from 'config/fetch';
+import { Skeleton } from 'components/ui/skeleton';
+import { generateSlug } from 'data/data';
+import { useRouter } from 'next/navigation';
+
+const links = [
+  { href: '/estimator', label: 'Estimator' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/about-us', label: 'About Us' },
+  { href: '/contact-us', label: 'Contact Us' },
+];
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
-  const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
-    undefined,
-  ); // Manage selected label
-  const pathname = usePathname();
-
-  const isActiveLink = (path: string) => pathname === path;
-
+  const [secondDrawerOpen, setSecondDrawerOpen] = useState<boolean>(false);
+  const [selectedLabel, setSelectedLabel] = useState<string | undefined>(undefined);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
+  const route = useRouter()
   const handleLinkClick = () => {
     setDrawerOpen(false);
     setSelectedLabel(undefined);
   };
 
-  const handleLabelClick = (label: string) => {
-    setSelectedLabel((prevLabel) => (prevLabel === label ? undefined : label));
+  const handleCloseDrawer = () => {
+    setDrawerOpen(false);
   };
+
+  const handleCategoryClick = (categoryId: number | null) => {
+    setSelectedCategoryId(categoryId);
+    setSecondDrawerOpen(true);
+  };
+
+  const { data: categories, error: categoriesError, isLoading: isLoadingCategories } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
+
+  const { data: products, error: productsError, isLoading: isLoadingProducts } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+
+  if (categoriesError instanceof Error) return <div>Error: {categoriesError.message}</div>;
+  if (productsError instanceof Error) return <div>Error: {productsError.message}</div>;
+
+  // If no category is selected, show all products
+  const filteredProducts = selectedCategoryId
+    ? products?.filter((product) => product.CategoryId === selectedCategoryId)
+    : products;
 
   return (
     <>
       <div className="w-full bg-secondary">
         <Container className="flex flex-wrap gap-4 justify-center md:justify-between items-center py-2">
           <p className="text-white py-2 text-12 2xl:text-12 font-medium lg:tracking-[0.4px] xl:tracking-[3.4px] leading-relaxed 2xl:leading-loose">
-            We can visit you, take measurements, help select fabrics & install
-            in 1-2 days. Call Dubai
+            We can visit you, take measurements, help select fabrics & install in 1-2 days. Call Dubai
             <Link className="underline font-medium" href={'tel:04 252 2025'}>
               04 252 2025
             </Link>
             now or email us on
-            <Link
-              className="underline font-medium"
-              href={'mailto:connect@twoguys.ae'}
-            >
+            <Link className="underline font-medium" href={'mailto:connect@twoguys.ae'}>
               connect@twoguys.ae
             </Link>
           </p>
@@ -58,29 +84,39 @@ const Header = () => {
           </Link>
           <div className="w-3/12 lg:w-8/12">
             <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3">
-              {menuItems.map((item, index) => {
-                const isActive = isActiveLink(item.path);
-                if (item.sliderData) {
-                  return (
+              <Link className={`px-3 py-2 rounded-md text-12 xl:text-15`} href={'/'}>
+                Home
+              </Link>
+              {
+                isLoadingCategories ? (
+                  <div className='flex gap-4'>
+                    <Skeleton className='w-44 h-8'/>
+                    <Skeleton className='w-44 h-8'/>
+                    <Skeleton className='w-44 h-8'/>
+                  </div> 
+                ) : (
+                  categories?.map((category) => (
                     <MegaMenu
-                      key={index}
-                      label={item.label}
-                      sliderData={item.sliderData}
-                      className={isActive ? 'font-bold' : ''}
+                    onClick={handleCloseDrawer}
+                      key={category.id}
+                      title={category.title || ''}
+                      sliderData={products?.filter((product) => product.CategoryId === category.id) || []}
                     />
-                  );
+                  ))
+                )
+              }
+            {
+                  links.map((link, index) => (
+                    <Link
+                      key={index}
+                      className="px-3 py-2 rounded-md text-12 xl:text-15"
+                      onClick={handleCloseDrawer}
+                      href={link.href}
+                    >
+                      {link.label}
+                    </Link>
+                  ))
                 }
-                return (
-                  <Link
-                    key={index}
-                    className={`px-3 py-2 rounded-md text-12 xl:text-15 ${isActive ? 'font-bold' : ''}`}
-                    href={item.path}
-                    onClick={handleLinkClick}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
             </div>
           </div>
           <Link
@@ -96,45 +132,72 @@ const Header = () => {
               open={drawerOpen}
               setOpen={setDrawerOpen}
               selectedLabel={selectedLabel}
-              setSelectedLabel={setSelectedLabel}
             >
-              {MobilemenuItems.map((item, index) => (
-                <div key={index}>
-                  {!item.subItems ? (
-                    <Link
-                      href={item.path}
-                      className="px-3 py-2 rounded-md text-14 font-medium hover:text-black block"
-                      onClick={() => {
-                        handleLinkClick();
-                      }}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <div
-                      className="px-3 py-2 rounded-md text-14 font-medium hover:text-black block"
-                      onClick={() => handleLabelClick(item.label)}
-                    >
-                      {item.label}
+              <div className="flex flex-col">
+                <Link className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium `} onClick={handleCloseDrawer} href="/">
+                  Home
+                </Link>
+                <Sheet
+                  open={secondDrawerOpen}
+                  setOpen={setSecondDrawerOpen}
+                  drawerName={
+                    <div className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium cursor-pointer `}>
+                      Product
                     </div>
-                  )}
-                  {selectedLabel === item.label && item.subItems && (
-                    <div className="grid grid-cols-2 gap-4">
-                      {item.subItems.map((subItem) => (
-                        <MenuCard
-                          key={subItem.key}
-                          src={subItem.src}
-                          alt={subItem.alt}
-                          title={subItem.title}
+                  }
+                >
+                  <>
+                    <div className="whitespace-nowrap flex flex-row overflow-x-auto">
+                      {/* "All" category option */}
+                      <div
+                        className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === null ? 'bg-primary text-white' : ''}`}
+                        onClick={() => handleCategoryClick(null)}
+                      >
+                        All
+                      </div>
+                      {categories &&
+                        categories.map((category: ICategory, index: number) => (
+                          <div
+                            className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === category.id ? 'bg-primary text-white' : ''}`}
+                            key={index}
+                            onClick={() => handleCategoryClick(category.id!)}
+                          >
+                            {category.title}
+                          </div>
+                        ))}
+                    </div>
+                    <div className="grid grid-cols-2 gap-5 mt-5">
+                      {filteredProducts &&
+                        filteredProducts.map((product: IProduct) => (
+                          <MenuCard
+                          key={product.id}
+                          src={product.posterImage.imageUrl}
+                          alt={product.title}
+                          title={product.title}
                           onClick={() => {
-                            handleLinkClick();
+                            const slug = generateSlug(product.title);
+                            route.push(`/products/${slug}`);
+                            setSecondDrawerOpen(false);
+                            setDrawerOpen(false);
                           }}
                         />
-                      ))}
+                        ))}
                     </div>
-                  )}
-                </div>
-              ))}
+                  </>
+                </Sheet>
+                {
+                  links.map((link, index) => (
+                    <Link
+                      key={index}
+                      className="px-3 py-2 rounded-md text-14 hover:text-black font-medium"
+                      onClick={handleCloseDrawer}
+                      href={link.href}
+                    >
+                      {link.label}
+                    </Link>
+                  ))
+                }
+              </div>
             </Sheet>
           </div>
         </Container>

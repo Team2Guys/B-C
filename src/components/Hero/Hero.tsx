@@ -40,12 +40,12 @@ function Hero() {
   return (
     <Container>
       <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5">
-        {heroSlider.map((item: any, index: number) => {
+        {heroSlider.map((item: any, index) => {
           return (
-            <>
+            <div key={item.id}>
               <div
-                className="  flex flex-wrap md:flex-nowrap  lg:px-0 px-4"
-                key={index}
+                className=" flex flex-wrap md:flex-nowrap  lg:px-0 px-4"
+                
               >
                 <div className=" left-side w-full md:w-1/2 flex flex-col justify-center gap-3">
                   <div className="w-full flex items-center gap-2 lg:mt-0 mt-12">
@@ -128,7 +128,7 @@ function Hero() {
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </CustomSlider>
