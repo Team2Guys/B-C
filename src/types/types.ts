@@ -33,7 +33,7 @@ export interface ICategory {
   CategoryId?: number;
   description?: string | null;
   id?: number;
-  posterImage?: PosterImage;
+  posterImage: PosterImage;
 }
 
 interface Image {
@@ -56,11 +56,12 @@ export interface IProduct {
 
 
 export interface IRECORDS {
-  total_admins: string | null;
-  total_appointments: string | null;
-  total_categories:string | null;
-  total_subCategories:string | null;
-  total_products: string | null
+  total_admins: string;
+  total_categories: string;
+  total_products: string;
+  total_appointments: string;
+  total_categorie: string;
+  total_subCategories: string;
 }
 
 export interface IAppointments {

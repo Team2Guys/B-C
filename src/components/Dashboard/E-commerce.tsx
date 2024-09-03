@@ -19,7 +19,7 @@ const ECommerce: React.FC = () => {
   const token = Cookies.get('2guysAdminToken') || '';
 
   const {
-    data: records,
+    data: records ,
     error,
     isLoading,
   } = useQuery<IRECORDS>({
