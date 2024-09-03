@@ -275,12 +275,12 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   >([]);
 
   useEffect(() => {
-    const selectedCategories = categoriesList.filter((category) =>
-      selectedCategoryIds.includes(category.id),
-    );
+    setSelectedSubcategoryIds([]);
+
     const filteredSubcategories = subCategoriesList.filter((subcategory) =>
       selectedCategoryIds.includes(subcategory.CategoryId),
     );
+
     setFilteredSubcategories(filteredSubcategories);
   }, [selectedCategoryIds, categoriesList]);
 
@@ -551,10 +551,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                       const checked = e.target.checked;
                                       setSelectedCategoryIds((prev) => {
                                         if (checked) {
-                                          // If a new category is checked, clear previous selections and select the new one
                                           return [category.id];
                                         } else {
-                                          // If the current category is unchecked, clear the selection
+                                          setSelectedSubcategoryIds([]);
                                           return [];
                                         }
                                       });
@@ -572,43 +571,44 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             </div>
                           )}
                         </div>
-
-                        <div className="mt-4">
-                          <h2 className="text-lg font-medium">Subcategories</h2>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {filteredSubcategories.map((subcategory) => (
-                              <div
-                                key={subcategory.id}
-                                className="flex items-center space-x-2 p-2 border rounded"
-                              >
-                                <Checkbox
-                                  checked={selectedSubcategoryIds.includes(
-                                    subcategory.id,
-                                  )}
-                                  onChange={(e) => {
-                                    const checked = e.target.checked;
-                                    setSelectedSubcategoryIds((prev) => {
-                                      if (checked) {
-                                        // If a new subcategory is checked, clear previous selections and select the new one
-                                        return [subcategory.id];
-                                      } else {
-                                        // If the current subcategory is unchecked, clear the selection
-                                        return [];
-                                      }
-                                    });
-                                  }}
-                                  id={`subcategory-${subcategory.id}`}
-                                />
-                                <label
-                                  htmlFor={`subcategory-${subcategory.id}`}
-                                  className="ml-2 text-black dark:text-white"
+                        {filteredSubcategories.length > 0 && (
+                          <div className="mt-4">
+                            <h2 className="text-lg font-medium">
+                              Subcategories
+                            </h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                              {filteredSubcategories.map((subcategory) => (
+                                <div
+                                  key={subcategory.id}
+                                  className="flex items-center space-x-2 p-2 border rounded"
                                 >
-                                  {subcategory.title}
-                                </label>
-                              </div>
-                            ))}
+                                  <Checkbox
+                                    checked={selectedSubcategoryIds.includes(
+                                      subcategory.id,
+                                    )}
+                                    onChange={(e) => {
+                                      const checked = e.target.checked;
+                                      setSelectedSubcategoryIds((prev) => {
+                                        if (checked) {
+                                          return [subcategory.id];
+                                        } else {
+                                          return [];
+                                        }
+                                      });
+                                    }}
+                                    id={`subcategory-${subcategory.id}`}
+                                  />
+                                  <label
+                                    htmlFor={`subcategory-${subcategory.id}`}
+                                    className="ml-2 text-black dark:text-white"
+                                  >
+                                    {subcategory.title}
+                                  </label>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        </div>
+                        )}
 
                         {/* <div className="w-2/4">
                           <SelectGroupTwo
