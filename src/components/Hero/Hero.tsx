@@ -85,7 +85,7 @@ function Hero() {
                 </div>
 
                 <div className="rigt-side w-full md:w-1/2 flex flex-col  justify-center border !z-50">
-                  <div key={index} className="relative">
+                  <div  className="relative">
                     {showModel == '1_model' && (
                       <SliderModal
                         className="-top-28 md:top-12 sm:top-12 xl:top-16"
@@ -104,7 +104,6 @@ function Hero() {
                       <span id="modalHandler">why us?</span>
                     </div>
                     <Image
-                      key={index}
                       className="w-full h-full object-cover"
                       width={500}
                       height={500}
