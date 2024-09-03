@@ -201,7 +201,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 
   return (
     <div
-      className={`bg-white px-3 py-4 text-left text-black ${singlePage ? 'w-full rounded-lg' : 'lg:w-2/5 rounded-md lg:mt-5'}`}
+      className={`bg-white px-3 py-4 text-left text-black ${singlePage ? 'w-full rounded-lg' : 'xl:w-2/5 rounded-md lg:mt-5'}`}
     >
       {!singlePage && (
         <h3 className="font-bold text-lg text-center tracking-[5px]">

@@ -1,93 +1,73 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import FeatureCard from 'components/ui/feature-card';
-import axios from 'axios';
-import { Allproduct } from 'types/interfaces';
-import { generateSlug } from 'data/data';
-import { useRouter } from 'next/navigation';
-
-interface Category {
-  id: number;
-  title: string;
-  posterImage: {
-    imageUrl: string;
-    public_id: string;
-  };
-  CategoryId: number;
-}
+import { useQuery } from '@tanstack/react-query';
+import { ICategory, IProduct } from 'types/types';
+import { fetchCategories, fetchProducts } from 'config/fetch';
+import { Skeleton } from 'components/ui/skeleton';
 
 const FeatureProduct: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<number | null>(null); // Initial category set to null
-  const [visibleCount, setVisibleCount] = useState<number>(9); // Initial count of visible products
-  const [Allproducts, setProducts] = useState<Allproduct[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [productsLoading, setProductsLoading] = useState<boolean>(false);
-  const [selectedProduct, setSelectedProduct] = useState<Allproduct | null>(
-    null,
-  );
-  const [productDetail, setProductDetail] = useState<Allproduct | null>(null);
-  const router = useRouter();
+  const {
+    data: categories,
+    error: categoriesError,
+    isLoading: isLoadingCategories,
+  } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
 
-  console.log(Allproducts, 'Allproducts');
-  console.log(categories, 'categories');
+  const {
+    data: products,
+    error: productsError,
+    isLoading: isLoadingProducts,
+  } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
 
-  const productHandler = async () => {
-    setProductsLoading(true);
-    try {
-      const categoryRequest = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
-      );
-      const productRequest = await axios.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
-      );
-
-      const [categoryResponse, productResponse] = await Promise.all([
-        categoryRequest,
-        productRequest,
-      ]);
-
-      setProducts(productResponse.data || []);
-      setCategories(categoryResponse.data || []);
-
-      // Fetch product detail if needed
-      if (selectedProduct) {
-        const detailRequest = await axios.get(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${selectedProduct.id}`,
-        );
-        setProductDetail(detailRequest.data || null);
-      }
-
-      // Set the default active category to "All" or the first category
-      setActiveCategory(null); // You can change this to the id of the first category if needed
-    } catch (error) {
-      console.log('Error fetching data:', error);
-    } finally {
-      setProductsLoading(false);
-    }
-  };
-  const handleProductClick = (product: Allproduct) => {
-    const slug = generateSlug(product.title);
-    router.push(`/product/${slug}`);
-  };
-
-  useEffect(() => {
-    productHandler();
-  }, []);
+  const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(6);
 
   // Filter products based on the active category
-  const filteredProducts =
-    activeCategory === null
-      ? Allproducts
-      : Allproducts.filter((product) => product.CategoryId === activeCategory);
+  const filteredProducts = products?.filter((product: IProduct) =>
+    !activeCategory || product.CategoryId === activeCategory.id
+  );
 
-  // Products to display, sliced by visible count
-  const visibleProducts = (filteredProducts || []).slice(0, visibleCount);
+  // Slice the filtered products to control visibility
+  const visibleProducts = filteredProducts?.slice(0, visibleCount);
 
-  // Handle "View More" button click
   const handleViewMore = () => {
-    setVisibleCount((prevCount) => prevCount + 6); // Show 6 more products on each click
+    setVisibleCount(prevCount => prevCount + 6); // Load more products
   };
+
+  // Reset activeCategory to null to show all products
+  const handleShowAll = () => {
+    setActiveCategory(null);
+    setVisibleCount(6); // Reset visible count if needed
+  };
+
+  if (isLoadingCategories || isLoadingProducts) return (
+    <Container className="py-12">
+      <Skeleton className="mt-4 h-[32px] w-[50]" />
+      <div className="flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-6 gap-3 ">
+          {[...Array(3)].map((_, index) => (
+            <div key={index} className="max-w-md rounded lg:m-4 m-2">
+              <Skeleton className="rounded-3xl mb-4 h-[485px] w-[460px]" />
+              <div className="px-2 py-4">
+                <Skeleton  className="mb-2 h-[24px] w-[200px]" />
+                <Skeleton  className="mb-2 h-[16px] w-[150px]" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  );
+
+  if (categoriesError instanceof Error) return <div>Error: {categoriesError.message}</div>;
+  if (productsError instanceof Error) return <div>Error: {productsError.message}</div>;
 
   return (
     <Container className="mt-20">
@@ -101,44 +81,29 @@ const FeatureProduct: React.FC = () => {
         <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap overflow-x-auto">
           <Button
             variant={'feature'}
-            className={` h-[52.03px] ${
-              activeCategory === null ? 'bg-secondary text-white' : 'text-black'
-            }`}
-            onClick={() => {
-              setActiveCategory(null);
-              setVisibleCount(6);
-            }}
+            className={` ${!activeCategory ? 'bg-secondary text-white' : 'text-black'}`}
+            onClick={handleShowAll}
           >
             All
           </Button>
-          {categories.map((category) => (
-            <Button
-              key={category.id}
-              variant={'feature'}
-              className={` h-[52.03px] ${
-                activeCategory === category.CategoryId
-                  ? 'bg-secondary text-white'
-                  : 'text-black'
-              }`}
-              onClick={() => {
-                setActiveCategory(category.CategoryId);
-                setVisibleCount(6);
-              }}
-            >
-              {category.title}
-            </Button>
-          ))}
+          {categories &&
+            categories.map((category: ICategory) => (
+              <Button
+                key={category.id}
+                variant={'feature'}
+                className={` ${activeCategory?.id === category.id ? 'bg-secondary text-white' : 'text-black'}`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category.title}
+              </Button>
+            ))}
         </div>
 
         <div className="mt-5">
-          <FeatureCard
-            products={visibleProducts}
-            onProductClick={handleProductClick}
-          />
+          <FeatureCard products={visibleProducts || []} />
         </div>
 
-        {/* View More Button */}
-        {visibleCount < filteredProducts.length && (
+        {visibleCount < (filteredProducts?.length || 0) && (
           <div className="flex justify-center mt-10">
             <Button
               className="w-[163px] h-[55px]"
