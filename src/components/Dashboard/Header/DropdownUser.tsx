@@ -18,12 +18,13 @@ const DropdownUser = () => {
     role: ""
   })
 
+
+
   const router = useRouter();
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 
-  // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return;
@@ -39,7 +40,7 @@ const DropdownUser = () => {
     return () => document.removeEventListener('click', clickHandler);
   });
 
-  // close if the esc key is pressed
+
   useEffect(() => {
     const keyHandler = ({ keyCode }: KeyboardEvent) => {
       if (!dropdownOpen || keyCode !== 27) return;
@@ -60,12 +61,6 @@ const DropdownUser = () => {
   };
 
 
-useEffect(() => {
-let credentials = { name  :loggedInUser?.fullname,
- role : loggedInUser?.role
-}
-setName_role(credentials)
-}, [loggedInUser])
 
 
   return (
@@ -89,8 +84,8 @@ setName_role(credentials)
           <div className="h-12 w-12 rounded-full overflow-hidden">
             <Image
               src={
-                loggedInUser && loggedInUser.profilePhoto
-                  ? loggedInUser.profilePhoto.imageUrl
+                loggedInUser && loggedInUser.posterImageUrl
+                  ? loggedInUser.posterImageUrl.imageUrl
                   : '/assets/images/dummy-avatar.jpg'
               }
               width={55}

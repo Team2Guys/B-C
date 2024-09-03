@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import React from 'react';
-import Link from 'next/link';
 import { Allproduct } from 'types/interfaces';
 
 import { useRouter } from 'next/navigation';
 
 interface FeatureCardProps {
   products: Allproduct[];
-  onProductClick: (product: Allproduct) => void;
+  onProductClick?: (product: Allproduct) => void;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -23,7 +22,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             <div className="bg-white flex justify-between items-center w-full p-2 px-4 opacity-0 group-hover:opacity-100 duration-700">
               <p className="text-12 lg:text-16">{product.title}</p>
               <div
-                onClick={() => onProductClick(product)}
+                // onClick={() => onProductClick(product)}
                 className="border border-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14"
               >
                 View More

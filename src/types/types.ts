@@ -22,9 +22,59 @@ export interface PrivacyPolicyItem {
   text?: any;
   listItems?: any[];
 }
+
+interface PosterImage {
+  imageUrl: string;
+  public_id: string;
+}
+
 export interface ICategory {
+  CategoryId: number;
+  description: string | null;
+  id: number;
+  posterImage: PosterImage;
+  title: string;
+}
+
+interface Image {
+  imageUrl: string;
+  public_id: string;
+}
+
+export interface IProduct {
   id: number;
   title: string;
-  descrition?: string;
+  description: string;
+  price: number;
   posterImage: any;
+  imageUrls: Image[];
+  CategoryId: number;
+  SubCategoryId: number | null;
+  createdAt: string; // Consider using Date if you want to handle this as a Date object
+  updatedAt: string | null;
+}
+
+
+export interface IRECORDS {
+  total_admins: string;
+  total_categories: string;
+  total_products: string;
+  total_appointments: string;
+  total_categorie: string;
+  total_subCategories: string;
+}
+
+export interface IAppointments {
+    area: string;
+    email: string;
+    how_user_find_us: string;
+    id: number;
+    name: string;
+    phone_number: number;
+    prefered_Date: string; // Consider using Date type if parsing date is needed
+    prefered_contact_method: string;
+    product_type: string;
+    user_query: string;
+    whatsapp_number: string;
+    windows: string;
 }

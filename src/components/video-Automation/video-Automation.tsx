@@ -21,7 +21,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
         playsInline
         controls={false}
       />
-      <div className="relative z-10 w-full py-3 bg-white/80 my-10  rounded-2xl">
+      <div className="relative z-10 w-full py-3 bg-white/80 my-10 max-w-screen-md mx-auto rounded-2xl">
         <div className="py-2 px-4 text-center">
           <p className="lg:text-[48px] text-25 font-bold">Automation</p>
           <p className="lg:text-25 text-18 font-extralight ">

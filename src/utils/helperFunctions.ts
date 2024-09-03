@@ -24,16 +24,13 @@ export const uploadPhotosToBackend = async (files: File[]): Promise<any[]> => {
     }
 
     const response: AxiosResponse<any> = await axios.post(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/file-upload`,
-      formData,
-      {
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/file-upload`,formData,{
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       },
     );
 
-    console.log(response);
     return response.data;
   } catch (error) {
     console.log('Error:', error);
@@ -148,3 +145,4 @@ export const Api_handler = async (Endpoint: string,data: any,method: 'get' | 'po
     );
   }
 };
+

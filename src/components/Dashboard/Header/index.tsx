@@ -11,10 +11,6 @@ const Header = (props: {
   sidebarOpen: string | boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
 }) => {
-  const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-console.log(loggedInUser, 
-  "loggedInUser"
-)
   return (
     <header className="sticky top-0 z-40 flex w-full bg-primary drop-shadow-1 dark:bg-dashboardDark   border-r-0 border-t-0 border-l-0">
       <div className="flex flex-grow items-center justify-between px-4 py-2 shadow-2 md:px-6 2xl:px-11">
