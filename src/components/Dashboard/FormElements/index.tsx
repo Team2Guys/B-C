@@ -867,11 +867,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                     }
                                     placeholder="Specification Details"
                                     className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                                      //@ts-expect-error
                                       formik.touched.spacification?.[index]
                                         ?.specsDetails &&
                                       (
                                         formik.errors
                                           .spacification as FormikErrors<
+                                          //@ts-expect-error
                                           FormValues['spacification']
                                         >
                                       )?.[index]?.specsDetails
