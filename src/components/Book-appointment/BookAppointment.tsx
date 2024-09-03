@@ -5,11 +5,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-
 import { City }  from 'country-state-city';
-import { PostAppointments } from 'config/fetch';
-import { useQuery } from '@tanstack/react-query';
+
 import axios from 'axios';
+import Loader from 'components/Loader/Loader';
 
 interface ProductOptions {
   shutters?: boolean;
@@ -30,11 +29,12 @@ interface IAppointments {
   whatsapp_number: string;
   windows: string;
   prefered_Date: Date;
-  prefered_contact_method: string;
+  prefered_contact_method: string[];
   how_user_find_us: string;
   user_query: string;
-  productoption: ProductOptions;
+  product_type: string[];
   other: string;
+  prefered_time:string
 }
 
 interface ContactMethods {
@@ -48,6 +48,7 @@ interface AppointmentProps {
 }
 
 const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
+const [loading, setLoading]= useState<boolean>(false)
 
   const PostAppointments = async (appointmentData: IAppointments) => {
     const response = await axios.post(
@@ -88,6 +89,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     }
   };
 
+
   const [selectedOptions, setSelectedOptions] = useState<ProductOptions>(getInitialSelectedOptions());
 
   const [contactMethods, setContactMethods] = useState<ContactMethods>({
@@ -95,8 +97,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     telephone: false,
     whatsapp: false,
   });
-
-  const [formData, setFormData] = useState({
+  const formInitialValues= {
     name: '',
     phone_number: '',
     area: '',
@@ -104,12 +105,15 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     whatsapp_number: '',
     windows: '',
     prefered_Date: new Date(),
-    prefered_contact_method: '',
+    prefered_contact_method: contactMethods,
     how_user_find_us: '',
     user_query: '',
     productoption: selectedOptions,
     other: '',
-  });
+    prefered_time:new Date()
+  }
+
+  const [formData, setFormData] = useState(formInitialValues);
 
   const [errors, setErrors] = useState({
     name: '',
@@ -137,7 +141,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
       [name]: checked,
     };
     setContactMethods(updatedContactMethods);
-    setFormData({ ...formData, prefered_contact_method: name });
+    setFormData({ ...formData, prefered_contact_method: updatedContactMethods });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -148,9 +152,37 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     setFormData({ ...formData, [name]: value });
   };
 
+
+  
+const timeHandler = (date:Date)=>{
+  let time = new Date(date);
+  
+
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
+
+
+  let ampm = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12;
+  hours = hours ? hours : 12; 
+  let minutesStr = minutes < 10 ? "0" + minutes : minutes;
+
+
+  let formattedTime = hours + ":" + minutesStr + " " + ampm;
+return formattedTime
+}
+
   const handleDateChange = (date: Date | null) => {
     if (date) {
+
       setFormData({ ...formData, prefered_Date: date });
+    }
+  };
+
+  const handletimeChange = (date: Date | null) => {
+    if (date) {
+      setFormData({ ...formData, prefered_time: date });
     }
   };
 
@@ -203,11 +235,30 @@ const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   if (validate()) {
     try {
-      console.log('FormData:', formData); // Inspect form data here
-      const response = await PostAppointments(formData); // Pass formData to the function
-      console.log('Response:', response);
+      setLoading(true)
+      const {productoption,prefered_contact_method, prefered_time, ...withoutproductoption} = formData
+
+let productTypeArray :any = Object.keys(formData.productoption).map((item)=>{
+  const key = item as keyof ProductOptions;
+  if(formData.productoption[key]) return item 
+}).filter((item)=>item !==undefined)
+
+
+let prefered_contact_method_list :any = Object.keys(formData.prefered_contact_method).map((item)=>{
+  const key = item as keyof ContactMethods;
+  if(formData.prefered_contact_method[key]) return item 
+}).filter((item)=>item !==undefined)
+
+let newTime = timeHandler(prefered_time)
+console.log(newTime, "prefered_time")
+      const response = await PostAppointments({...withoutproductoption, prefered_time:newTime ,prefered_contact_method: prefered_contact_method_list,product_type : productTypeArray }); 
+      console.log('response:', response);
+      setFormData(formInitialValues)
     } catch (error) {
       console.error('Error submitting appointment:', error);
+    } finally{
+      setLoading(false)
+
     }
   }
 };
@@ -400,8 +451,8 @@ const handleSubmit = async (e: React.FormEvent) => {
               Preferred Time
             </label>
             <DatePicker
-            selected={formData.prefered_Date}
-            onChange={handleDateChange}
+            selected={formData.prefered_time}
+            onChange={handletimeChange}
               showTimeSelect
               showTimeSelectOnly
               timeIntervals={15}
@@ -534,7 +585,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               </label>
               <div className="flex flex-row flex-wrap md:flex-nowrap justify-start md:justify-between gap-5 mt-2">
                 {Object.keys(selectedOptions).map((option) => (
-                  <div key={option} className="flex items-center">
+                  <div key={option} className="flex items-center whitespace-nowrap">
                     <input
                       type="checkbox"
                       id={option}
@@ -573,8 +624,10 @@ const handleSubmit = async (e: React.FormEvent) => {
           <button
             type="submit"
             className="w-fit bg-[#A9B4A4] text-white py-2 px-8 rounded"
+            disabled={loading}
           >
-            Submit Request
+    
+      { loading ? <Loader/> : "Submit Request"}
           </button>
         </div>
       </form>

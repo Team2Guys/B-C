@@ -53,9 +53,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       const mouseEvent = event as any;
       if (
         menuRef.current &&
-        !menuRef.current.contains(mouseEvent.target as Node) &&
+        !menuRef.current.contains(mouseEvent.target as any) &&
         buttonRef.current &&
-        !buttonRef.current.contains(mouseEvent.target as Node)
+        !buttonRef.current.contains(mouseEvent.target as any)
       ) {
         setIsOpen(false);
       }
