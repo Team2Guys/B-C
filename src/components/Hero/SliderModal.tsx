@@ -6,13 +6,15 @@ import { HeroImages } from 'data/data';
 interface SliderModalProps {
   setshowModel: React.Dispatch<SetStateAction<string>>;
   className?: string;
+  modelType?: string;
 }
 
-function SliderModal({ setshowModel, className }: SliderModalProps) {
+function SliderModal({ setshowModel, className, modelType }: SliderModalProps) {
+  console.log(modelType, 'modelType');
   return (
     <div
       id="modalHandler"
-      className={`w-full h-fit absolute bg-white border rounded-[112.5px] max-w-md flex flex-col p-5 z-10 ${className}`}
+      className={`max-xs:w-72 absolute bg-white border rounded-[112.5px] max-w-96 flex flex-col p-5 z-10 ${className}`}
     >
       <div
         id="modalHandler"
@@ -22,28 +24,29 @@ function SliderModal({ setshowModel, className }: SliderModalProps) {
           id="modalHandler"
           src={HeroImages.logo}
           alt="logo"
-          width={100}
-          height={71}
+          width={80}
+          height={51}
         />
         <Image
           id="modalHandler"
           onClick={() => setshowModel('')}
           src={
-            className
+            modelType && modelType == '2_model'
               ? '/assets/images/Hero/back2.jpeg'
               : '/assets/images/Hero/BACK.jpeg'
           }
           className="w-8 h-8 cursor-pointer arrows"
           alt="back"
-          width={26}
-          height={26}
+          width={24}
+          height={24}
           style={{ objectFit: 'cover' }}
         />
       </div>
 
       <div
         id="modalHandler"
-        className="w-full h-full mb-4 text-center text-14 leading-9"
+        className="w-full h-full mb-4 text-center text-12
+         leading-5"
       >
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industrys standard dummy text ever
@@ -52,7 +55,7 @@ function SliderModal({ setshowModel, className }: SliderModalProps) {
       </div>
 
       <div id="modalHandler" className="header-review text-center">
-        <Rate id="modalHandler" disabled defaultValue={5} />
+        <Rate id="modalHandler" disabled defaultValue={5} className="" />
       </div>
     </div>
   );
