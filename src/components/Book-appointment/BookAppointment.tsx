@@ -1,12 +1,17 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
-type ProductOptions = {
+import { City }  from 'country-state-city';
+import { PostAppointments } from 'config/fetch';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+
+interface ProductOptions {
   shutters?: boolean;
   curtains?: boolean;
   blinds?: boolean;
@@ -15,7 +20,22 @@ type ProductOptions = {
   other_blinds?: boolean;
   plantation_bhutters?: boolean;
   others?: boolean;
-};
+}
+
+interface IAppointments {
+  name: string;
+  phone_number: string;
+  area: string;
+  email: string;
+  whatsapp_number: string;
+  windows: string;
+  prefered_Date: Date;
+  prefered_contact_method: string;
+  how_user_find_us: string;
+  user_query: string;
+  productoption: ProductOptions;
+  other: string;
+}
 
 interface ContactMethods {
   email: boolean;
@@ -28,6 +48,26 @@ interface AppointmentProps {
 }
 
 const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
+
+  const PostAppointments = async (appointmentData: IAppointments) => {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
+      appointmentData
+    );
+    return response.data;
+  };
+  const [uaeCities, setUaeCities] = useState<Array<{ value: string; label: string }>>([]);
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      const cities = await City.getCitiesOfCountry('AE');
+      if (cities) {
+        setUaeCities(cities.map((city) => ({ value: city.name, label: city.name })));
+      }
+    };
+    fetchCities();
+  }, []);
+
   const getInitialSelectedOptions = (): ProductOptions => {
     if (singlePage) {
       return {
@@ -48,9 +88,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     }
   };
 
-  const [selectedOptions, setSelectedOptions] = useState<ProductOptions>(
-    getInitialSelectedOptions(),
-  );
+  const [selectedOptions, setSelectedOptions] = useState<ProductOptions>(getInitialSelectedOptions());
 
   const [contactMethods, setContactMethods] = useState<ContactMethods>({
     email: false,
@@ -60,25 +98,24 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 
   const [formData, setFormData] = useState({
     name: '',
-    phoneNumber: '',
+    phone_number: '',
     area: '',
     email: '',
-    whatsappNumber: '',
-    selectWindows: '',
-    preferredDate: new Date(),
-    preferredTime: new Date(),
-    referralSource: '',
-    query: '',
+    whatsapp_number: '',
+    windows: '',
+    prefered_Date: new Date(),
+    prefered_contact_method: '',
+    how_user_find_us: '',
+    user_query: '',
     productoption: selectedOptions,
-    contactMethods: contactMethods,
     other: '',
   });
 
   const [errors, setErrors] = useState({
     name: '',
-    phoneNumber: '',
+    phone_number: '',
     email: '',
-    selectWindows: '',
+    windows: '',
     area: '',
   });
 
@@ -100,12 +137,10 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
       [name]: checked,
     };
     setContactMethods(updatedContactMethods);
-    setFormData({ ...formData, contactMethods: updatedContactMethods });
+    setFormData({ ...formData, prefered_contact_method: name });
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -115,13 +150,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 
   const handleDateChange = (date: Date | null) => {
     if (date) {
-      setFormData({ ...formData, preferredDate: date });
-    }
-  };
-
-  const handleTimeChange = (time: Date | null) => {
-    if (time) {
-      setFormData({ ...formData, preferredTime: time });
+      setFormData({ ...formData, prefered_Date: date });
     }
   };
 
@@ -129,9 +158,9 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     let isValid = true;
     const newErrors = {
       name: '',
-      phoneNumber: '',
+      phone_number: '',
       email: '',
-      selectWindows: '',
+      windows: '',
       area: '',
     };
 
@@ -143,8 +172,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
       isValid = false;
     }
 
-    if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = 'Phone number is required.';
+    if (!formData.phone_number.trim()) {
+      newErrors.phone_number = 'Phone number is required.';
       isValid = false;
     }
 
@@ -156,8 +185,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
       isValid = false;
     }
 
-    if (!formData.selectWindows.trim()) {
-      newErrors.selectWindows = 'Select Windows is required.';
+    if (!formData.windows.trim()) {
+      newErrors.windows = 'Select Windows is required.';
       isValid = false;
     }
 
@@ -170,21 +199,22 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validate()) {
-      console.log('Form Data:', formData);
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (validate()) {
+    try {
+      console.log('FormData:', formData); // Inspect form data here
+      const response = await PostAppointments(formData); // Pass formData to the function
+      console.log('Response:', response);
+    } catch (error) {
+      console.error('Error submitting appointment:', error);
     }
-  };
+  }
+};
 
   const windowOptions = [
     { value: 'window1', label: 'Window 1' },
     { value: 'window2', label: 'Window 2' },
-  ];
-
-  const areaOptions = [
-    { value: 'area1', label: 'Area 1' },
-    { value: 'area2', label: 'Area 2' },
   ];
 
   const referralOptions = [
@@ -194,10 +224,11 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
   ];
 
   const queryOptions = [
-    { value: 'product_inquiry', label: 'Product Inquiry' },
+    { value: 'productinquiry', label: 'Product Inquiry' },
     { value: 'support', label: 'Support' },
     { value: 'feedback', label: 'Feedback' },
   ];
+
 
   return (
     <div
@@ -238,7 +269,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
           </div>
           <div>
             <label
-              htmlFor="phoneNumber"
+              htmlFor="phone_number"
               className="block text-10 font-medium mb-1 text-gray-700"
             >
               Phone Number *
@@ -247,9 +278,9 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               enableSearch={true}
               disableSearchIcon={true}
               country={'ae'}
-              value={formData.phoneNumber}
+              value={formData.phone_number}
               onChange={(phone) =>
-                setFormData({ ...formData, phoneNumber: phone })
+                setFormData({ ...formData, phone_number: phone })
               }
               inputStyle={{
                 width: '100%',
@@ -258,8 +289,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                 borderRadius: '0.375rem',
               }}
             />
-            {errors.phoneNumber && (
-              <p className="text-red-500 text-xs">{errors.phoneNumber}</p>
+            {errors.phone_number && (
+              <p className="text-red-500 text-xs">{errors.phone_number}</p>
             )}
           </div>
           <div>
@@ -269,13 +300,13 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             >
               Area *
             </label>
+            
             <Select
-              // required
-              options={areaOptions}
+              options={uaeCities}
               onChange={(option) =>
                 handleSelectChange('area', option?.value || '')
               }
-              value={areaOptions.find(
+              value={uaeCities.find(
                 (option) => option.value === formData.area,
               )}
               className={`mt-1 w-full text-10 ${errors.area ? 'border-red-500' : ''}`}
@@ -284,6 +315,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <p className="text-red-500 text-xs">{errors.area}</p>
             )}
           </div>
+
           <div>
             <label
               htmlFor="email"
@@ -307,16 +339,16 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
           </div>
           <div>
             <label
-              htmlFor="whatsappNumber"
+              htmlFor="whatsapp_number"
               className="block text-10 font-medium mb-1 text-gray-700"
             >
               WhatsApp No. If Different
             </label>
             <PhoneInput
               country={'ae'}
-              value={formData.whatsappNumber}
+              value={formData.whatsapp_number}
               onChange={(phone) =>
-                setFormData({ ...formData, whatsappNumber: phone })
+                setFormData({ ...formData, whatsapp_number: phone })
               }
               inputStyle={{
                 width: '100%',
@@ -328,23 +360,23 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
           </div>
           <div>
             <label
-              htmlFor="selectWindows"
+              htmlFor="windows "
               className="block text-10 font-medium text-gray-700"
             >
               Select Windows *
             </label>
             <Select
-              options={windowOptions}
-              onChange={(option) =>
-                handleSelectChange('selectWindows', option?.value || '')
-              }
-              value={windowOptions.find(
-                (option) => option.value === formData.selectWindows,
-              )}
-              className={`mt-1 w-full text-10 ${errors.selectWindows ? 'border-red-500' : ''}`}
+             options={windowOptions}
+             onChange={(option) =>
+               handleSelectChange('windows', option?.value || '')
+             }
+             value={windowOptions.find(
+               (option) => option.value === formData.windows,
+             )}
+              className={`mt-1 w-full text-10 ${errors.windows  ? 'border-red-500' : ''}`}
             />
-            {errors.selectWindows && (
-              <p className="text-red-500 text-xs">{errors.selectWindows}</p>
+            {errors.windows  && (
+              <p className="text-red-500 text-xs">{errors.windows }</p>
             )}
           </div>
           <div className="w-full custom-datepicker">
@@ -355,7 +387,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               Preferred Date
             </label>
             <DatePicker
-              selected={formData.preferredDate}
+              selected={formData.prefered_Date}
               onChange={handleDateChange}
               className="h-[38px] mt-1 w-full text-10 border p-2 rounded-md border-[#B3B3B3]"
             />
@@ -368,8 +400,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               Preferred Time
             </label>
             <DatePicker
-              selected={formData.preferredTime}
-              onChange={handleTimeChange}
+            selected={formData.prefered_Date}
+            onChange={handleDateChange}
               showTimeSelect
               showTimeSelectOnly
               timeIntervals={15}
@@ -379,7 +411,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
           </div>
           <div>
             <label
-              htmlFor="referralSource"
+              htmlFor="how_user_find_us"
               className="block text-10 font-medium text-gray-700"
             >
               How Did You Hear About Us?
@@ -387,31 +419,31 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             <Select
               options={referralOptions}
               onChange={(option) =>
-                handleSelectChange('referralSource', option?.value || '')
+                handleSelectChange('how_user_find_us', option?.value || '')
               }
               value={referralOptions.find(
-                (option) => option.value === formData.referralSource,
+                (option) => option.value === formData.how_user_find_us,
               )}
               className="mt-1 w-full text-10"
             />
           </div>
           <div className="w-full col-span-3">
             <label
-              htmlFor="query"
+              htmlFor="user_query"
               className="block text-10 font-medium text-gray-700"
             >
               Your Query
             </label>
             <Select
-              options={queryOptions}
-              onChange={(option) =>
-                handleSelectChange('query', option?.value || '')
-              }
-              value={queryOptions.find(
-                (option) => option.value === formData.query,
-              )}
-              className="mt-1 w-full text-10"
-            />
+                options={queryOptions}
+                onChange={(option) =>
+                  handleSelectChange('user_query', option?.value || '')
+                }
+                value={queryOptions.find(
+                  (option) => option.value === formData.user_query,
+                )}
+                className="mt-1 w-full text-10"
+              />
           </div>
         </div>
         {!singlePage && (
