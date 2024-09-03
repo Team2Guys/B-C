@@ -1,5 +1,5 @@
 'use client';
-import React, { SetStateAction, useState } from 'react';
+import React, { SetStateAction, useLayoutEffect, useState } from 'react';
 import Imageupload from 'components/ImageUpload/Imageupload';
 import { RxCross2 } from 'react-icons/rx';
 import Image from 'next/image';
@@ -14,7 +14,7 @@ import { categoryInitialValues, categoryValidationSchema } from 'data/data';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
 import Loader from 'components/Loader/Loader';
 import { Category } from 'types/interfaces';
-
+import Cookies from 'js-cookie';
 interface editCategoryNameType {
   name: string;
   description: string;
@@ -31,11 +31,12 @@ const FormLayout = ({
   editCategory,
   setMenuType,
 }: editCategoryProps) => {
+  const token = Cookies.get('2guysAdminToken');
   let CategoryName =
-    editCategory && editCategory.name
-      ? { name: editCategory.name, description: editCategory.description }
+    editCategory && editCategory.title
+      ? { name: editCategory.title, description: editCategory.description }
       : null;
-  let CategorImageUrl = editCategory && editCategory.posterImageUrl;
+  let CategorImageUrl = editCategory && editCategory.posterImage;
   const [posterimageUrl, setposterimageUrl] = useState<
     any[] | null | undefined
   >(CategorImageUrl ? [CategorImageUrl] : null);
@@ -49,17 +50,35 @@ const FormLayout = ({
       setloading(true);
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
       if (!posterImageUrl) throw new Error('Please select relevant Images');
-      let newValue = { ...values, posterImageUrl };
+      let { name, ...newValue } = {
+        ...values,
+        title: values.name,
+        posterImage: posterImageUrl,
+      };
 
       let updateFlag = editCategoryName ? true : false;
       let addProductUrl = updateFlag
-        ? `/api/updateCategory/${editCategory._id} `
+        ? `/api/categories/updateCategory/${editCategory.id} `
         : null;
       let url = `${process.env.NEXT_PUBLIC_BASE_URL}${
-        updateFlag ? addProductUrl : '/api/AddCategory'
+        updateFlag ? addProductUrl : '/api/categories/AddCategory'
       }`;
-
-      const response = await axios.post(url, newValue);
+      console.log('newValues');
+      console.log(newValue);
+      let response;
+      if (updateFlag) {
+        response = await axios.put(url, newValue, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      } else {
+        response = await axios.post(url, newValue, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      }
       console.log(response, 'response');
       setloading(false);
       Toaster(
@@ -79,6 +98,39 @@ const FormLayout = ({
     }
   };
 
+  useLayoutEffect(() => {
+    const CategoryHandler = async () => {
+      try {
+        if (!editCategory) return;
+
+        const {
+          posterImage,
+          imageUrls,
+          _id,
+          createdAt,
+          updatedAt,
+          CategoryId,
+          SubCategoryId,
+          __v,
+          ...EditInitialProductValues
+        } = editCategory as any;
+
+        console.log('Reach add product now edit');
+        console.log(editCategory);
+        // imageUrls ? setImagesUrl(imageUrls) : null;
+        // posterImage ? setposterimageUrl([posterImage]) : null;
+
+        // setProductInitialValue({
+        //   ...EditInitialProductValues,
+        //   name: EditInitialProductValues.title,
+        // });
+      } catch (err) {
+        console.log(err, 'err');
+      }
+    };
+
+    CategoryHandler();
+  }, []);
   return (
     <>
       <p
@@ -102,7 +154,7 @@ const FormLayout = ({
             <Form onSubmit={formik.handleSubmit}>
               <div className="flex justify-center ">
                 <div className="flex flex-col gap-9 w-2/5 dark:border-strokedark dark:bg-boxdark">
-                  <div className="rounded-sm border border-stroke bg-white  dark:border-strokedark dark:bg-boxdark">
+                  <div className="rounded-sm border border-stroke bg-white  dark:border-strokedark dark:bg-boxdark p-4">
                     <div className="rounded-sm border border-stroke bg-white  dark:border-strokedark dark:bg-boxdark">
                       <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
                         <h3 className="font-medium text-black dark:text-white">
@@ -198,7 +250,7 @@ const FormLayout = ({
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="mt-4 px-8 py-2 bg-black text-white rounded"
+                  className="mt-4 px-8 py-2 bg-[#cdb7aa] text-white rounded "
                 >
                   {loading ? <Loader color="white" /> : 'Submit'}
                 </button>

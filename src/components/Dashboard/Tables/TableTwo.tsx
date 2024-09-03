@@ -11,7 +11,8 @@ import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
 import { CategoriesType } from 'types/interfaces';
 import { formatDate } from 'config';
-
+import Cookies from 'js-cookie';
+import TableSkeleton from './TableSkelton';
 interface Product {
   _id: string;
   name: string;
@@ -33,6 +34,7 @@ const TableTwo = ({
   seteditCategory,
   editCategory,
 }: CategoryProps) => {
+  const token = Cookies.get('2guysAdminToken');
   const [category, setCategory] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
@@ -93,9 +95,14 @@ const TableTwo = ({
   const handleDelete = async (key: any) => {
     try {
       const response = await axios.delete(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/deleteCategory/${key}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/deleteCategory/${key}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
       );
-      setCategory((prev: any) => prev.filter((item: any) => item._id != key));
+      setCategory((prev: any) => prev.filter((item: any) => item.id != key));
       notification.success({
         message: 'Category Deleted',
         description: 'The category has been successfully deleted.',
@@ -112,8 +119,8 @@ const TableTwo = ({
 
   const handleEdit = (record: any) => {
     if (seteditCategory) {
-      seteditCategory(record); // Ensure the category to edit is being set correctly
-      setMenuType('CategoryForm'); // Switch to the category form
+      seteditCategory(record);
+      setMenuType('CategoryForm');
     }
   };
 
@@ -122,18 +129,19 @@ const TableTwo = ({
       title: 'Image',
       dataIndex: 'posterImageUrl',
       key: 'posterImageUrl',
-      render: (text: any, record: any) => 'image',
-      // <Image
-      //   src={record.posterImageUrl.imageUrl}
-      //   alt={`Image of ${record.name}`}
-      //   width={50}
-      //   height={50}
-      // />
+      render: (text: any, record: any) => (
+        <Image
+          src={record.posterImage?.imageUrl}
+          alt={`Image of ${record.name}`}
+          width={50}
+          height={50}
+        />
+      ),
     },
     {
       title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      dataIndex: 'title',
+      key: 'title',
     },
     {
       title: 'Date',
@@ -179,7 +187,7 @@ const TableTwo = ({
           size={20}
           onClick={() => {
             if (canDeleteCategory) {
-              confirmDelete(record._id);
+              confirmDelete(record.id);
             }
           }}
         />
@@ -190,9 +198,7 @@ const TableTwo = ({
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
       {loading ? (
-        <div className="flex justify-center mt-10">
-          <Loader />
-        </div>
+        <TableSkeleton rows={5} columns={5} />
       ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
@@ -209,7 +215,7 @@ const TableTwo = ({
                   canAddCategory && 'cursor-pointer'
                 } lg:p-2 md:p-2 ${
                   canAddCategory &&
-                  'dark:border-strokedark dark:bg-slate-500 bg-black text-white rounded-md border hover:bg-transparent hover:border-black hover:text-black'
+                  'dark:border-strokedark dark:bg-slate-500 bg-[#cdb7aa] text-white rounded-md border  hover:border-[#b59b8c] hover:text-white '
                 } flex justify-center ${
                   !canAddCategory && 'cursor-not-allowed '
                 }`}
