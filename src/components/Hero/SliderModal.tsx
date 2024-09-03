@@ -10,7 +10,6 @@ interface SliderModalProps {
 }
 
 function SliderModal({ setshowModel, className, modelType }: SliderModalProps) {
-  console.log(modelType, 'modelType');
   return (
     <div
       id="modalHandler"
