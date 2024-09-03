@@ -13,9 +13,14 @@ gethello(){
 }
 
 AddOpointmentHandler (user_data:Prisma.AppointmentsCreateInput){
-return this.prisma.appointments.create({
-    data:user_data
-})
+try {
+    return this.prisma.appointments.create({
+        data:user_data
+    })
+} catch (error) {
+    return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR')
+}
+
 
 }
 

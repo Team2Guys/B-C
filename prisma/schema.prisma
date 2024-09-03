@@ -49,11 +49,6 @@ model products {
 }
 
 
-enum ProductType {
-  Blinds
-  Curtains
-  Shutters
-}
 
 enum contact_method {
 Whatsapp
@@ -63,7 +58,7 @@ Telephone
 model Appointments {
 id Int @default(autoincrement()) @id
 name String
- phone_number Int
+ phone_number String
  area String
  email String 
  whatsapp_number String?
@@ -71,8 +66,10 @@ name String
  prefered_Date DateTime
  how_user_find_us String
  user_query String
- product_type ProductType
- prefered_contact_method contact_method
+ product_type String[]
+ other String?
+ prefered_contact_method String[] @default([])
+ prefered_time String?
 }
 
 
