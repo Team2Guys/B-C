@@ -4,7 +4,7 @@ import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import TableTwo from 'components/Dashboard/Tables/TableTwo';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Addcategory from 'components/AddCategory/Addcategory';
 import { CategoriesType } from 'types/interfaces';
 
@@ -14,6 +14,10 @@ const AddCategory = () => {
     CategoriesType | undefined | null
   >();
 
+  useEffect(() => {
+    console.log('Edit Category triggered');
+    console.log(editCategory);
+  }, [editCategory]);
   return (
     <DefaultLayout>
       <Breadcrumb pageName={menuType} />
