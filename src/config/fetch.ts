@@ -22,7 +22,7 @@ export const fetchSubCategories = async (): Promise<ICategory[]> => {
   return response.data;
 };
 
-export const adminRecords = async (token: string): Promise<IRECORDS[]> => {
+export const adminRecords = async (token: string): Promise<IRECORDS> => {
   try {
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/get_all_records`,

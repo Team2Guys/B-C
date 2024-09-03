@@ -56,13 +56,12 @@ export interface IProduct {
 
 
 export interface IRECORDS {
-  totalAdmins: string;
-  totalCategories: string;
-  totalProducts: string;
-  totalUsers: string;
-  totalProfit: string;
-  totalSales: string;
-  totalRevenue: string;
+  total_admins: string;
+  total_categories: string;
+  total_products: string;
+  total_appointments: string;
+  total_categorie: string;
+  total_subCategories: string;
 }
 
 export interface IAppointments {

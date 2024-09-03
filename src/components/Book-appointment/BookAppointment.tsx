@@ -51,10 +51,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 const [loading, setLoading]= useState<boolean>(false)
 
   const PostAppointments = async (appointmentData: IAppointments) => {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
-      appointmentData
-    );
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,appointmentData);
     return response.data;
   };
   const [uaeCities, setUaeCities] = useState<Array<{ value: string; label: string }>>([]);
