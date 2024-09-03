@@ -1,4 +1,3 @@
-//@ts-nocheck
 'use client';
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import {
@@ -50,10 +49,11 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const [Categories, setCategories] = useState<any[]>();
   const [VariationOption, setVariationOption] =
     useState<string>('withoutVariation');
-  const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
-  const [selectedSubcategories, setSelectedSubcategories] = useState<number[]>(
-    [],
-  );
+  const [productUpdateFlat, setProductUpdateFlat] = useState(false);
+  // const [selectedCategories, setSelectedCategories] = useState<number>(null);
+  // const [selectedSubcategories, setSelectedSubcategories] = useState<number[]>(
+  //   [],
+  // );
 
   const handleOptionChange = (e: any) => {
     console.log(e);
@@ -63,24 +63,46 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const changeTextColor = () => {
     setIsOptionSelected(true);
   };
+
   const token = Cookies.get('2guysAdminToken');
-  // console.log('posterimageUrl', posterimageUrl);
 
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
         if (!EditInitialValues) return;
+        setProductUpdateFlat(true);
         const {
-          posterImageUrl,
-          imageUrl,
+          posterImage,
+          imageUrls,
           _id,
           createdAt,
           updatedAt,
+          CategoryId,
+          SubCategoryId,
           __v,
           ...EditInitialProductValues
         } = EditInitialValues as any;
-        imageUrl ? setImagesUrl(imageUrl) : null;
-        posterImageUrl ? setposterimageUrl([posterImageUrl]) : null;
+
+        console.log('Reach add product now edit');
+        console.log(EditInitialValues);
+        imageUrls ? setImagesUrl(imageUrls) : null;
+        posterImage ? setposterimageUrl([posterImage]) : null;
+
+        if (CategoryId) {
+          const catArr = [];
+          catArr.push(CategoryId);
+          setSelectedCategoryIds(catArr);
+        }
+        if (SubCategoryId) {
+          const subcatArr = [];
+          subcatArr.push(SubCategoryId);
+          setSelectedSubcategoryIds(subcatArr);
+        }
+
+        setProductInitialValue({
+          ...EditInitialProductValues,
+          name: EditInitialProductValues.title,
+        });
       } catch (err) {
         console.log(err, 'err');
       }
@@ -104,10 +126,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       let createdAt = Date.now();
       if (!posterImageUrl || !(imagesUrl.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
-        // throw new Error('Please select relevant Images');
       }
       console.log(values, 'values');
       console.log('debuge 3');
+      //@ts-expect-error
       let { name, ...newValues } = {
         ...values,
         title: values.name,
@@ -116,21 +138,27 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         imageUrls: imagesUrl,
 
         category: {
-          connect: { id: values.categories[0] }, // Wrap category in a connect object
+          connect: { id: values.categories[0] },
         },
         subCategory: {
-          connect: { id: values.subcategories[0] }, // Wrap subCategory in a connect object
+          connect: { id: values.subcategories[0] },
         },
       };
       console.log(newValues, 'updatedValues');
       console.log('debuge 4');
       setloading(true);
 
-      let updateFlag = EditProductValue && EditInitialValues ? true : false;
+      console.log('+++ Debuge pro max +++++++++++++++++');
+      console.log(EditInitialValues);
+      let updateFlag = productUpdateFlat;
       let addProductUrl = updateFlag
-        ? `/api/products/edit_product/${EditInitialValues._id} `
+        ? `/api/products/edit_product/${EditInitialValues.id} `
         : null;
       console.log('debuge 5');
+
+      console.log(EditProductValue);
+      console.log(addProductUrl);
+      console.log(addProductUrl);
       let url = `${process.env.NEXT_PUBLIC_BASE_URL}${
         updateFlag ? addProductUrl : '/api/products/AddProduct'
       }`;
@@ -152,19 +180,31 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         stock,
         spacification,
         hoverImage: newhoverImage,
+        id,
         ...finalValues
       } = newValues;
       console.log(finalValues);
-      const response = await axios.post(url, finalValues, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      let response;
+
+      if (updateFlag) {
+        response = await axios.put(url, finalValues, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      } else {
+        response = await axios.post(url, finalValues, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      }
+
       console.log(response, 'response');
       showToast(
         'success',
         updateFlag
-          ? 'Product has been sucessufully Updated !'
+          ? 'Product has been successfully updated!'
           : response.data.message,
       );
       setProductInitialValue(AddproductsinitialValues);
@@ -173,8 +213,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       sethoverImage(null);
       setposterimageUrl(null);
       setImagesUrl([]);
-      setSelectedCategories([]);
-      // setSelectedSubcategoriesCategories([]);
+      setSelectedCategoryIds([]);
+      setSelectedSubcategoryIds([]);
 
       updateFlag ? setEditProduct && setEditProduct(undefined) : null;
     } catch (err: any) {
@@ -231,16 +271,16 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     number[]
   >([]);
   const [filteredSubcategories, setFilteredSubcategories] = useState<
-    ISubcategory[]
+    ICategory[]
   >([]);
 
   useEffect(() => {
-    const selectedCategories = categoriesList.filter((category) =>
-      selectedCategoryIds.includes(category.id),
-    );
+    setSelectedSubcategoryIds([]);
+
     const filteredSubcategories = subCategoriesList.filter((subcategory) =>
       selectedCategoryIds.includes(subcategory.CategoryId),
     );
+
     setFilteredSubcategories(filteredSubcategories);
   }, [selectedCategoryIds, categoriesList]);
 
@@ -372,6 +412,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           <div className="text-red text-sm">
                             {
                               formik.errors.description as FormikErrors<
+                                //@ts-expect-error
                                 FormValues['description']
                               >
                             }
@@ -402,6 +443,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                               {' '}
                               {
                                 formik.errors.price as FormikErrors<
+                                  //@ts-expect-error
                                   FormValues['price']
                                 >
                               }
@@ -511,10 +553,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                       const checked = e.target.checked;
                                       setSelectedCategoryIds((prev) => {
                                         if (checked) {
-                                          // If a new category is checked, clear previous selections and select the new one
                                           return [category.id];
                                         } else {
-                                          // If the current category is unchecked, clear the selection
+                                          setSelectedSubcategoryIds([]);
                                           return [];
                                         }
                                       });
@@ -532,43 +573,44 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             </div>
                           )}
                         </div>
-
-                        <div className="mt-4">
-                          <h2 className="text-lg font-medium">Subcategories</h2>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {filteredSubcategories.map((subcategory) => (
-                              <div
-                                key={subcategory.id}
-                                className="flex items-center space-x-2 p-2 border rounded"
-                              >
-                                <Checkbox
-                                  checked={selectedSubcategoryIds.includes(
-                                    subcategory.id,
-                                  )}
-                                  onChange={(e) => {
-                                    const checked = e.target.checked;
-                                    setSelectedSubcategoryIds((prev) => {
-                                      if (checked) {
-                                        // If a new subcategory is checked, clear previous selections and select the new one
-                                        return [subcategory.id];
-                                      } else {
-                                        // If the current subcategory is unchecked, clear the selection
-                                        return [];
-                                      }
-                                    });
-                                  }}
-                                  id={`subcategory-${subcategory.id}`}
-                                />
-                                <label
-                                  htmlFor={`subcategory-${subcategory.id}`}
-                                  className="ml-2 text-black dark:text-white"
+                        {filteredSubcategories.length > 0 && (
+                          <div className="mt-4">
+                            <h2 className="text-lg font-medium">
+                              Subcategories
+                            </h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                              {filteredSubcategories.map((subcategory) => (
+                                <div
+                                  key={subcategory.id}
+                                  className="flex items-center space-x-2 p-2 border rounded"
                                 >
-                                  {subcategory.title}
-                                </label>
-                              </div>
-                            ))}
+                                  <Checkbox
+                                    checked={selectedSubcategoryIds.includes(
+                                      subcategory.id,
+                                    )}
+                                    onChange={(e) => {
+                                      const checked = e.target.checked;
+                                      setSelectedSubcategoryIds((prev) => {
+                                        if (checked) {
+                                          return [subcategory.id];
+                                        } else {
+                                          return [];
+                                        }
+                                      });
+                                    }}
+                                    id={`subcategory-${subcategory.id}`}
+                                  />
+                                  <label
+                                    htmlFor={`subcategory-${subcategory.id}`}
+                                    className="ml-2 text-black dark:text-white"
+                                  >
+                                    {subcategory.title}
+                                  </label>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        </div>
+                        )}
 
                         {/* <div className="w-2/4">
                           <SelectGroupTwo
@@ -594,8 +636,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                 </div>
 
                 <div className="flex flex-col gap-5">
-                  <div className="py-4 px-6 rounded-sm border border-stroke">
-                    <div className="mb-4  bg-white  dark:bg-black  text-black dark:text-white">
+                  <div className="rounded-sm border border-stroke bg-white  dark:bg-black ">
+                    <div className="mb-4 p-4 bg-white  dark:bg-black  text-black dark:text-white">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Add Stock Quantity
                       </label>
@@ -811,7 +853,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                       <FieldArray name="spacification">
                         {({ push, remove }) => (
                           <div className="flex flex-col gap-2">
-                            {formik.values.spacification.map(
+                            {formik.values.spacification?.map(
                               (spec: any, index: any) => (
                                 <div key={index} className="flex items-center">
                                   <input
@@ -825,11 +867,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                     }
                                     placeholder="Specification Details"
                                     className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                                      //@ts-expect-error
                                       formik.touched.spacification?.[index]
                                         ?.specsDetails &&
                                       (
                                         formik.errors
                                           .spacification as FormikErrors<
+                                          //@ts-expect-error
                                           FormValues['spacification']
                                         >
                                       )?.[index]?.specsDetails
@@ -853,7 +897,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             <button
                               type="button"
                               onClick={() => push({ specsDetails: '' })}
-                              className="px-4 py-2 bg-black text-white dark:bg-gray-800  rounded-md shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black w-fit"
+                              className="px-4 py-2 bg-[#cdb7aa] text-white rounded-md shadow-md hover:bg-[#cdb7aac6] focus:outline-none focus:ring-2 focus:ring-[#bg-[#cdb7aa]] w-fit"
                             >
                               Add Specification
                             </button>
@@ -1078,7 +1122,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
               <button
                 type="submit"
-                className="px-10 py-2 bg-black text-white rounded-md shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black"
+                className="px-10 py-2 bg-[#cdb7aa] text-white rounded-md shadow-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#cdb7aa]"
               >
                 {loading ? <Loader /> : 'Submit'}
               </button>
