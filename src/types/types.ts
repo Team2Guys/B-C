@@ -29,11 +29,11 @@ interface PosterImage {
 }
 
 export interface ICategory {
-  CategoryId: number;
-  description: string | null;
-  id: number;
+  title?: string;
+  CategoryId?: number;
+  description?: string | null;
+  id?: number;
   posterImage: PosterImage;
-  title: string;
 }
 
 interface Image {
@@ -50,7 +50,7 @@ export interface IProduct {
   imageUrls: Image[];
   CategoryId: number;
   SubCategoryId: number | null;
-  createdAt: string; // Consider using Date if you want to handle this as a Date object
+  createdAt: string; 
   updatedAt: string | null;
 }
 
