@@ -10,6 +10,7 @@ import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
 import { CategoriesType } from 'types/interfaces';
+import { formatDate } from 'config';
 
 interface Product {
   _id: string;
@@ -57,7 +58,7 @@ const TableTwo = ({
   // Filter products based on search term
   const filteredProducts: Product[] =
     category?.filter((product: any) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()),
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
     ) || [];
 
   useLayoutEffect(() => {
@@ -65,7 +66,7 @@ const TableTwo = ({
       try {
         setLoading(true);
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
         );
         const Categories = await response.json();
         setCategory(Categories);
@@ -121,14 +122,13 @@ const TableTwo = ({
       title: 'Image',
       dataIndex: 'posterImageUrl',
       key: 'posterImageUrl',
-      render: (text: any, record: any) => (
-        <Image
-          src={record.posterImageUrl.imageUrl}
-          alt={`Image of ${record.name}`}
-          width={50}
-          height={50}
-        />
-      ),
+      render: (text: any, record: any) => 'image',
+      // <Image
+      //   src={record.posterImageUrl.imageUrl}
+      //   alt={`Image of ${record.name}`}
+      //   width={50}
+      //   height={50}
+      // />
     },
     {
       title: 'Name',
@@ -141,10 +141,8 @@ const TableTwo = ({
       key: 'date',
       render: (text: any, record: any) => {
         const createdAt = new Date(record.createdAt);
-        const formattedDate = `${createdAt.getFullYear()}-${String(createdAt.getMonth() + 1).padStart(2, '0')}-${String(
-          createdAt.getDate(),
-        ).padStart(2, '0')}`;
-        return <span>{formattedDate}</span>;
+
+        return <span>{formatDate(`${createdAt}`)}</span>;
       },
     },
     {

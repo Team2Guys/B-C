@@ -85,6 +85,8 @@ export interface FormValues {
   code: string;
   totalStockQuantity: number;
   variantStockQuantities: { variant: string; quantity: number }[];
+  CategoryId?: number;
+  SubCategoryId?: number;
 }
 
 interface Color {
