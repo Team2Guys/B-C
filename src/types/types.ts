@@ -29,10 +29,10 @@ interface PosterImage {
 }
 
 export interface ICategory {
-  title?: string;
-  CategoryId?: number;
-  description?: string | null;
-  id?: number;
+  title: string;
+  CategoryId: number;
+  description: string | null;
+  id: number;
   posterImage: PosterImage;
 }
 
@@ -50,10 +50,9 @@ export interface IProduct {
   imageUrls: Image[];
   CategoryId: number;
   SubCategoryId: number | null;
-  createdAt: string; 
+  createdAt: string;
   updatedAt: string | null;
 }
-
 
 export interface IRECORDS {
   total_admins: string;
@@ -65,16 +64,16 @@ export interface IRECORDS {
 }
 
 export interface IAppointments {
-    area: string;
-    email: string;
-    how_user_find_us: string;
-    id: number;
-    name: string;
-    phone_number: number;
-    prefered_Date: string; // Consider using Date type if parsing date is needed
-    prefered_contact_method: string;
-    product_type: string;
-    user_query: string;
-    whatsapp_number: string;
-    windows: string;
+  area: string;
+  email: string;
+  how_user_find_us: string;
+  id: number;
+  name: string;
+  phone_number: number;
+  prefered_Date: string; // Consider using Date type if parsing date is needed
+  prefered_contact_method: string;
+  product_type: string;
+  user_query: string;
+  whatsapp_number: string;
+  windows: string;
 }
