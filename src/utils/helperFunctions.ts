@@ -124,10 +124,7 @@ export const Api_handler = async (
     const config = {
       headers: { Authorization: `Bearer ${finalToken}`, withCredentials: true },
     };
-    console.log(
-      process.env.NEXT_PUBLIC_BASE_URL,
-      'process.env.NEXT_PUBLIC_BASE_URL',
-    );
+
     let response;
     if (method === 'get' || method === 'delete') {
       response = await axios[method](
