@@ -29,7 +29,7 @@ const Appointments = () => {
             <Breadcrumb pageName={'View Appointments'} />
           {
             appointments && (
-                <FilterTable  data={appointments} columns={appointmentColumns} />
+                <FilterTable   data={appointments} columns={appointmentColumns} />
             )
           }  
     </DefaultLayout>

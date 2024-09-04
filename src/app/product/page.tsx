@@ -189,9 +189,9 @@ const AricBlind: React.FC = () => {
         </div>
       )}
 
-      <Container className="py-10">
-        <RelatedProducts products={relativeProducts} />
-      </Container>
+      {/* <Container className="py-10">
+        <RelatedProducts products={relativeProducts || []} />
+      </Container> */}
       <BookNowBanner />
       <VideoAutomation />
       <Support />
