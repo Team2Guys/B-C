@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 // Define the props for the component
 interface ChooseUsProps {

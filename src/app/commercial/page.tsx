@@ -3,7 +3,7 @@ import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/large-ss.png';
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import ProductCard from 'components/Res-usable/Cards/ProductCard';
 import { galleryItems, productItems, relativeProducts } from 'data/data';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';

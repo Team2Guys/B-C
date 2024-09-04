@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import React, { SetStateAction } from 'react';
 import { Rate } from 'antd';
 import { HeroImages } from 'data/data';

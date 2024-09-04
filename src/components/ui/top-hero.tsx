@@ -1,5 +1,5 @@
 'use client';
-import Image, { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from "next/legacy/image";
 import Link from 'next/link';
 import React from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';

@@ -2,7 +2,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import CustomSlider from 'components/slider/Slider';
 import { heroSlider } from 'data/data';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import SliderModal from './SliderModal';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';

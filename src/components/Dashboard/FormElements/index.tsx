@@ -10,7 +10,7 @@ import {
 } from 'formik';
 
 import { RxCross2 } from 'react-icons/rx';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import axios from 'axios';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import Imageupload from 'components/ImageUpload/Imageupload';

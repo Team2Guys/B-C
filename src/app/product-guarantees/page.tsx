@@ -5,7 +5,7 @@ import second from '../../../public//assets/images/product-guarantees/large.png'
 import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 const productGuarantees = () => {
   return (

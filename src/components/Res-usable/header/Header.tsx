@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Container from 'components/Res-usable/Container/Container';
 import logo from '../../../../public/assets/images/logomain.png';
 import MegaMenu from './MegaMenu';

@@ -6,7 +6,7 @@ import { TRSlide } from 'types/interfaces';
 import { PiQuotesFill } from 'react-icons/pi';
 import { Divider } from 'antd';
 import { RatingSlider } from 'data/data';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 export default function Review_banner() {
   const settings = {

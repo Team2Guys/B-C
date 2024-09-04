@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import TopHero from 'components/ui/top-hero';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';

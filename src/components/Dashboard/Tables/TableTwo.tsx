@@ -2,7 +2,7 @@
 
 import React, { SetStateAction, useLayoutEffect, useState } from 'react';
 import { Table, notification, Modal } from 'antd';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';

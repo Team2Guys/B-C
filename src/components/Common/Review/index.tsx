@@ -4,7 +4,7 @@ import { HeadingH3, HeadingH6 } from 'components/Common/Heading';
 import { message, Modal, Rate } from 'antd';
 import { IoIosSend } from 'react-icons/io';
 import feedback from '../../../../public/images/review.png';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 import Pagination from '../Pagination';

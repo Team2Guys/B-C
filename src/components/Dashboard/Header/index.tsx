@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import DarkModeSwitcher from './DarkModeSwitcher';
 import DropdownUser from './DropdownUser';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 import { useAppSelector } from 'components/Others/HelperRedux';
 import { RiBarChartHorizontalLine } from 'react-icons/ri';
