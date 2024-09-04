@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import { City }  from 'country-state-city';
+import { City } from 'country-state-city';
 
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
@@ -34,7 +34,7 @@ interface IAppointments {
   user_query: string;
   product_type: string[];
   other: string;
-  prefered_time:string
+  prefered_time: string
 }
 
 interface ContactMethods {
@@ -48,10 +48,10 @@ interface AppointmentProps {
 }
 
 const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
-const [loading, setLoading]= useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
 
   const PostAppointments = async (appointmentData: IAppointments) => {
-    const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,appointmentData);
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`, appointmentData);
     return response.data;
   };
   const [uaeCities, setUaeCities] = useState<Array<{ value: string; label: string }>>([]);
@@ -94,7 +94,9 @@ const [loading, setLoading]= useState<boolean>(false)
     telephone: false,
     whatsapp: false,
   });
-  const formInitialValues= {
+
+
+  const formInitialValues = {
     name: '',
     phone_number: '',
     area: '',
@@ -107,7 +109,7 @@ const [loading, setLoading]= useState<boolean>(false)
     user_query: '',
     productoption: selectedOptions,
     other: '',
-    prefered_time:new Date()
+    prefered_time: new Date()
   }
 
   const [formData, setFormData] = useState(formInitialValues);
@@ -150,25 +152,25 @@ const [loading, setLoading]= useState<boolean>(false)
   };
 
 
-  
-const timeHandler = (date:Date)=>{
-  let time = new Date(date);
-  
 
-  let hours = time.getHours();
-  let minutes = time.getMinutes();
+  const timeHandler = (date: Date) => {
+    let time = new Date(date);
 
 
-  let ampm = hours >= 12 ? "PM" : "AM";
-
-  hours = hours % 12;
-  hours = hours ? hours : 12; 
-  let minutesStr = minutes < 10 ? "0" + minutes : minutes;
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
 
 
-  let formattedTime = hours + ":" + minutesStr + " " + ampm;
-return formattedTime
-}
+    let ampm = hours >= 12 ? "PM" : "AM";
+
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    let minutesStr = minutes < 10 ? "0" + minutes : minutes;
+
+
+    let formattedTime = hours + ":" + minutesStr + " " + ampm;
+    return formattedTime
+  }
 
   const handleDateChange = (date: Date | null) => {
     if (date) {
@@ -228,37 +230,39 @@ return formattedTime
     return isValid;
   };
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (validate()) {
-    try {
-      setLoading(true)
-      const {productoption,prefered_contact_method, prefered_time, ...withoutproductoption} = formData
-
-let productTypeArray :any = Object.keys(formData.productoption).map((item)=>{
-  const key = item as keyof ProductOptions;
-  if(formData.productoption[key]) return item 
-}).filter((item)=>item !==undefined)
 
 
-let prefered_contact_method_list :any = Object.keys(formData.prefered_contact_method).map((item)=>{
-  const key = item as keyof ContactMethods;
-  if(formData.prefered_contact_method[key]) return item 
-}).filter((item)=>item !==undefined)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      try {
+        setLoading(true)
+        const { productoption, prefered_contact_method, prefered_time, ...withoutproductoption } = formData
 
-let newTime = timeHandler(prefered_time)
-console.log(newTime, "prefered_time")
-      const response = await PostAppointments({...withoutproductoption, prefered_time:newTime ,prefered_contact_method: prefered_contact_method_list,product_type : productTypeArray }); 
-      console.log('response:', response);
-      setFormData(formInitialValues)
-    } catch (error) {
-      console.error('Error submitting appointment:', error);
-    } finally{
-      setLoading(false)
+        let productTypeArray: any = Object.keys(formData.productoption).map((item) => {
+          const key = item as keyof ProductOptions;
+          if (formData.productoption[key]) return item
+        }).filter((item) => item !== undefined)
 
+
+        let prefered_contact_method_list: any = Object.keys(formData.prefered_contact_method).map((item) => {
+          const key = item as keyof ContactMethods;
+          if (formData.prefered_contact_method[key]) return item
+        }).filter((item) => item !== undefined)
+
+        let newTime = timeHandler(prefered_time)
+        
+        const response = await PostAppointments({ ...withoutproductoption, prefered_time: newTime, prefered_contact_method: prefered_contact_method_list, product_type: productTypeArray });
+        console.log('response:', response);
+        setFormData(formInitialValues)
+      } catch (error) {
+        console.error('Error submitting appointment:', error);
+      } finally {
+        setLoading(false)
+
+      }
     }
-  }
-};
+  };
 
   const windowOptions = [
     { value: 'window1', label: 'Window 1' },
@@ -309,7 +313,7 @@ console.log(newTime, "prefered_time")
               className={`mt-1 p-2 border border-gray-300 w-full rounded text-10 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.name}
               onChange={handleChange}
-              // required
+            // required
             />
             {errors.name && (
               <p className="text-red-500 text-xs">{errors.name}</p>
@@ -348,7 +352,7 @@ console.log(newTime, "prefered_time")
             >
               Area *
             </label>
-            
+
             <Select
               options={uaeCities}
               onChange={(option) =>
@@ -379,7 +383,7 @@ console.log(newTime, "prefered_time")
               className={`mt-1 p-2 border border-gray-300 w-full rounded text-10 ${errors.email ? 'border-red-500' : ''}`}
               value={formData.email}
               onChange={handleChange}
-              // required
+            // required
             />
             {errors.email && (
               <p className="text-red-500 text-xs">{errors.email}</p>
@@ -414,17 +418,17 @@ console.log(newTime, "prefered_time")
               Select Windows *
             </label>
             <Select
-             options={windowOptions}
-             onChange={(option) =>
-               handleSelectChange('windows', option?.value || '')
-             }
-             value={windowOptions.find(
-               (option) => option.value === formData.windows,
-             )}
-              className={`mt-1 w-full text-10 ${errors.windows  ? 'border-red-500' : ''}`}
+              options={windowOptions}
+              onChange={(option) =>
+                handleSelectChange('windows', option?.value || '')
+              }
+              value={windowOptions.find(
+                (option) => option.value === formData.windows,
+              )}
+              className={`mt-1 w-full text-10 ${errors.windows ? 'border-red-500' : ''}`}
             />
-            {errors.windows  && (
-              <p className="text-red-500 text-xs">{errors.windows }</p>
+            {errors.windows && (
+              <p className="text-red-500 text-xs">{errors.windows}</p>
             )}
           </div>
           <div className="w-full custom-datepicker">
@@ -448,8 +452,8 @@ console.log(newTime, "prefered_time")
               Preferred Time
             </label>
             <DatePicker
-            selected={formData.prefered_time}
-            onChange={handletimeChange}
+              selected={formData.prefered_time}
+              onChange={handletimeChange}
               showTimeSelect
               showTimeSelectOnly
               timeIntervals={15}
@@ -483,15 +487,15 @@ console.log(newTime, "prefered_time")
               Your Query
             </label>
             <Select
-                options={queryOptions}
-                onChange={(option) =>
-                  handleSelectChange('user_query', option?.value || '')
-                }
-                value={queryOptions.find(
-                  (option) => option.value === formData.user_query,
-                )}
-                className="mt-1 w-full text-10"
-              />
+              options={queryOptions}
+              onChange={(option) =>
+                handleSelectChange('user_query', option?.value || '')
+              }
+              value={queryOptions.find(
+                (option) => option.value === formData.user_query,
+              )}
+              className="mt-1 w-full text-10"
+            />
           </div>
         </div>
         {!singlePage && (
@@ -623,8 +627,8 @@ console.log(newTime, "prefered_time")
             className="w-fit bg-[#A9B4A4] text-white py-2 px-8 rounded"
             disabled={loading}
           >
-    
-      { loading ? <Loader/> : "Submit Request"}
+
+            {loading ? <Loader /> : "Submit Request"}
           </button>
         </div>
       </form>
