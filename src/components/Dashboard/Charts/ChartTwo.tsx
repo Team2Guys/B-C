@@ -143,9 +143,9 @@ const ChartTwo: React.FC = () => {
     }
   };
 
-  useLayoutEffect(() => {
-    getWeeklySales();
-  }, []);
+  // useLayoutEffect(() => {
+  //   getWeeklySales();
+  // }, []);
 
   return (
     <div className="col-span-12 rounded-sm  bg-white p-7 shadow-default  dark:bg-lightdark  xl:col-span-4">

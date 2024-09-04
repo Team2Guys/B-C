@@ -76,7 +76,7 @@ const DropdownUser = () => {
             {loggedInUser?.fullname}
           </span>
           <span className="block text-xs text-white dark:text-white">
-          {name_role.role}
+          {loggedInUser.role}
           </span>
         </span>
 
