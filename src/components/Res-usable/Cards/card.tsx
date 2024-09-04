@@ -21,8 +21,8 @@ const Card: React.FC<CardProps> = ({ data }) => {
             className="lg:w-[500px] object-cover md:w-[400px] sm:w-full lg:h-[485px] md:h-[300px] sm:h-auto rounded-3xl transition-transform duration-300 ease-in-out transform group-hover:scale-105"
             width={500}
             height={500}
-            src={data.posterImage.imageUrl}
-            alt={data.title}
+            src={data.posterImage.imageUrl  || "image.pnd"}
+            alt={data.title || "Title Image"}
           />
         </div>
         <div className="px-2 py-4">
