@@ -24,11 +24,11 @@ export default function DefaultLayout({
           {/* <!-- ===== Header End ===== --> */}
 
           {/* <!-- ===== Main Content Start ===== --> */}
-          <main className="dark:border-strokedark dark:bg-dashboardDark dark:h-screen mt-1 md:ml-1">
+          <div className="dark:border-strokedark dark:bg-dashboardDark dark:h-screen mt-1 md:ml-1">
             <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 dark:border-dashboardDark dark:bg-dashboardDark ">
               {children}
             </div>
-          </main>
+          </div>
           {/* <!-- ===== Main Content End ===== --> */}
         </div>
       </div>
