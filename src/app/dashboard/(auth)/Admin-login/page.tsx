@@ -47,9 +47,10 @@ const DashboardLogin = () => {
     }
     try {
       setloading(true);
-      let url = adminType === 'Admin' ? 'admins/admin-login': 'admins/superAdminLogin';
+      let url = adminType === 'Admin' ? 'admins/admin-login': 'admins/super_admin_login-login';
       console.log(url, 'url')
       const response = await Api_handler(url,formData,"post",)
+      console.log(response, "response")
 
       Cookies.set(adminType == "Admin" ? '2guysAdminToken' : "superAdminToken", response.token, { expires: 1 }) 
       setloading(false);
@@ -63,7 +64,7 @@ const DashboardLogin = () => {
       console.log(err, 'err');
 
       if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
+        setError(err.response.data.response);
       } else if (err.message) {
         setError(err.message);
       } else {

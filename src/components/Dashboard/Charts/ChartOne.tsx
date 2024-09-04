@@ -183,9 +183,9 @@ const ChartOne: React.FC = () => {
     }
   };
 
-  useLayoutEffect(() => {
-    getMonthlyRecord();
-  }, []);
+  // useLayoutEffect(() => {
+  //   getMonthlyRecord();
+  // }, []);
 
   return (
     <div className="col-span-12 rounded-sm  bg-white dark:bg-lightdark px-5 pb-5 pt-7   sm:px-7 xl:col-span-8">

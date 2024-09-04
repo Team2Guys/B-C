@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { IAppointments, ICategory, IRECORDS } from 'types/types';
 import { Allproduct } from 'types/interfaces';
+import { error } from 'console';
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
   console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`);
@@ -22,8 +23,9 @@ export const fetchSubCategories = async (): Promise<ICategory[]> => {
   return response.data;
 };
 
-export const adminRecords = async (token: string): Promise<IRECORDS> => {
+export const adminRecords = async (token: string | undefined): Promise<IRECORDS> => {
   try {
+    if(!token) throw new Error('token not found')
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/get_all_records`,
       {
