@@ -7,18 +7,9 @@ import { loginAdminDto, Super_admin_dto } from './dto/create-admin.dto';
 import { JwtService } from '@nestjs/jwt';
 import * as jwt from 'jsonwebtoken';
 import { Response, Request } from 'express';
-
-
-
-
-
-
-
-
 @Injectable()
 export class AdminsService {
   constructor(private prisma: PrismaService) { }
-  private jwtService: JwtService
 
   async create(createAdminDto: Prisma.AdminsCreateInput) {
     console.log(createAdminDto, "admin dto")
@@ -68,12 +59,19 @@ export class AdminsService {
 
   async update(id: number, updateAdminDto: Prisma.AdminsUpdateInput) {
     try {
+      const {password, ...withoutPassword} = updateAdminDto
+      console.log(password, "passowrd")
+      let saltOrRounds = 10
+      let hash:string | undefined 
+   if(password){
+     hash = await bcrypt.hash(password as any, saltOrRounds)
+   }
+
       let existingAdmin = await this.prisma.admins.findUnique({ where: { id: id } })
       if (!existingAdmin) return CustomErrorHandler("No admin found", "INTERNAL_SERVER_ERROR")
 
-      let updated_admin = await this.prisma.admins.update({ where: { id: id }, data: updateAdminDto })
+      let updated_admin = await this.prisma.admins.update({ where: { id: id }, data: {...withoutPassword, password:hash? hash : existingAdmin.password } })
       return updated_admin
-
     } catch (error) {
       return CustomErrorHandler(error.message || JSON.stringify(error), "INTERNAL_SERVER_ERROR")
 
