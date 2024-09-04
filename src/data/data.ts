@@ -917,6 +917,7 @@ export const OurHistoryData: OurHistory[] = [
 
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
+import { ISUBCATEGORY } from 'types/types';
 
 export const validateForm = (formData: {
   fullName: string;
@@ -983,6 +984,10 @@ export const categoryValidationSchema = Yup.object({
   name: Yup.string().required('Required'),
   description: Yup.string().required('required'),
 });
+export const subcategoryValidationSchema = Yup.object({
+  title: Yup.string().required('Required'),
+  CategoryId: Yup.number().required('required'),
+});
 
 export const initialValues: Product = {
   name: '',
@@ -1016,42 +1021,6 @@ export const AddProductvalidationSchema = Yup.object().shape({
   // salePrice: Yup.number()
   //   .min(1, 'Minimum sales price must be at least 1')
   //   .required('Required'),
-  // purchasePrice: Yup.number().min(1, 'Must be at least 1').required('Required'),
-  // discountPrice: Yup.number().nullable(),
-  // starRating: Yup.number()
-  //   .min(1, 'Rating must be at least 1')
-  //   .max(5, 'Star Rating should be a maximum of 5')
-  //   .nullable(),
-  // reviews: Yup.string().nullable(),
-  // colors: Yup.array().of(
-  //   Yup.object().shape({
-  //     colorName: Yup.string().nullable(),
-  //   }),
-  // ),
-  // modelDetails: Yup.array().of(
-  //   Yup.object().shape({
-  //     name: Yup.string().nullable(),
-  //     detail: Yup.string().nullable(),
-  //   }),
-  // ),
-  // spacification: Yup.array().of(
-  //   Yup.object().shape({
-  //     specsDetails: Yup.string().nullable(),
-  //   }),
-  // ),
-  // sizes: Yup.array().of(
-  //   Yup.object().shape({
-  //     sizesDetails: Yup.string().nullable(),
-  //   }),
-  // ),
-  // category: Yup.string().required('Category is required'),
-  // totalStockQuantity: Yup.number().nullable(),
-  // variantStockQuantities: Yup.array().of(
-  //   Yup.object().shape({
-  //     variant: Yup.string().nullable(),
-  //     quantity: Yup.number().nullable(),
-  //   }),
-  // ),
 });
 
 export const AddproductsinitialValues: FormValues = {
@@ -1103,6 +1072,12 @@ export const options = [
   },
 ];
 
+export const subcategoryInitialValues: ISUBCATEGORY = {
+  title: '',
+  description: '',
+  CategoryId: undefined,
+}
+
 
 export const intitalValues = {
   fullname: '',
@@ -1122,4 +1097,5 @@ export const intitalValues = {
   canVeiwAdmins: false,
   canVeiwTotalproducts: false,
   canVeiwTotalCategories: false,
+
 };

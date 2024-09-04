@@ -3,6 +3,7 @@ import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper';
 import localFont from 'next/font/local';
 import 'app/globals.css';
 import { Providers } from './Providers';
+import { ToastContainer } from 'react-toastify';
 
 const gotham = localFont({
   src: [
@@ -114,7 +115,10 @@ export default function RootLayout({
     <Providers>
       <html lang="en">
         <body className={`${gotham.className} bg-lightgrey`}>
-          <PathnameWrapper> {children}</PathnameWrapper>
+          <PathnameWrapper>
+            {children}
+            <ToastContainer />
+          </PathnameWrapper>
         </body>
       </html>
     </Providers>
