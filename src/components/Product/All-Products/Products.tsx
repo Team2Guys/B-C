@@ -5,7 +5,7 @@ import ProductCard from 'components/ui/Product-Card';
 import { ProductCardINFO } from 'data/data';
 import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { ProductCardData } from 'types/interface';
+import { ProductCardData } from 'types/interfaces';
 
 const AllProducts = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');

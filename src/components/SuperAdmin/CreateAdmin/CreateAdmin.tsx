@@ -8,51 +8,15 @@ import axios from 'axios';
 import Toaster from 'components/Toaster/Toaster';
 import Loader from 'components/Loader/Loader';
 import Cookies from 'js-cookie';
-import Input from 'components/Res-usable/Input/Input';
 import { Button } from 'components/ui/button';
+import { createAdmin, formDataTypes } from 'types/interfaces';
+import Input from 'components/Common/regularInputs';
+import { intitalValues } from 'data/data';
 
-type formDataTypes = {
-  fullname: string;
-  email: string;
-  password: string;
-  canAddProduct: boolean;
-  canEditProduct: boolean;
-  canDeleteProduct: boolean;
-  canAddCategory: boolean;
-  canDeleteCategory: boolean;
-  canEditCategory: boolean;
-  canCheckProfit: boolean;
-  canCheckRevenue: boolean;
-  canCheckVisitors: boolean;
-  canViewUsers: boolean;
-  canViewSales: boolean;
-  canVeiwAdmins: boolean;
-  canVeiwTotalproducts: boolean;
-  canVeiwTotalCategories: boolean;
-};
 
-const intitalValues = {
-  fullname: '',
-  email: '',
-  password: '',
-  canAddProduct: false,
-  canEditProduct: false,
-  canDeleteProduct: false,
-  canAddCategory: false,
-  canDeleteCategory: false,
-  canEditCategory: false,
-  canCheckProfit: false,
-  canCheckRevenue: false,
-  canCheckVisitors: false,
-  canViewUsers: false,
-  canViewSales: false,
-  canVeiwAdmins: false,
-  canVeiwTotalproducts: false,
-  canVeiwTotalCategories: false,
-};
+const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmin) => {
+  const [formData, setFormData] = useState<formDataTypes>(edit_admins ? edit_admins : intitalValues);
 
-const CreateAdmin = ({ setselecteMenu }: any) => {
-  const [formData, setFormData] = useState<formDataTypes>(intitalValues);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>();
@@ -76,20 +40,23 @@ const CreateAdmin = ({ setselecteMenu }: any) => {
       let token = Cookies.get('superAdminToken');
       if (!token) return null;
 
-      if (!formData.fullname || !formData.email || !formData.password)
-        throw new Error('Full name is required');
+      let paswordFlag = edit_admins ? false : !formData.password
+
+      if (!formData.fullname || !formData.email || paswordFlag)
+        throw new Error('Fields are required');
 
       setLoading(true);
+      let url = edit_admins ? `/api/admins/editAdmin/${edit_admins.id}` : `/api/admins/add-admin`
+      let method_type: "post" | "put" = edit_admins ? "put" : "post"
 
-      let response: any = await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/createAdmin`,
-        formData,
-        {
-          headers: {
-            token: token,
-          },
+      let response: any = await axios[method_type](`${process.env.NEXT_PUBLIC_BASE_URL}${url}`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
+      },
       );
+
+
       console.log(response, 'response');
       Toaster('success', 'Admin has been sucessfully Created');
       setFormData(intitalValues);
@@ -124,6 +91,8 @@ const CreateAdmin = ({ setselecteMenu }: any) => {
       canVeiwTotalproducts: true,
       canVeiwTotalCategories: true,
     });
+
+
   };
 
   const checkboxData = [
@@ -165,14 +134,16 @@ const CreateAdmin = ({ setselecteMenu }: any) => {
 
   return (
     <>
-      <p
+      <div
         className="text-lg font-black mb-4 flex items-center justify-center gap-2 hover:bg-gray-200 w-fit p-2 cursor-pointer"
         onClick={() => {
           setselecteMenu('AllAdmin');
+          setedit_admins && setedit_admins(undefined)
+
         }}
       >
         <IoMdArrowRoundBack /> Back
-      </p>
+      </div>
 
       <Form
         className="max-w-screen-md mx-auto rounded-md shadow-xl mt-1 mb-5"
