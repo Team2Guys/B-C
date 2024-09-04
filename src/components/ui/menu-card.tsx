@@ -1,5 +1,7 @@
+import { generateSlug } from 'data/data';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 interface MenuCardProps {
@@ -10,17 +12,18 @@ interface MenuCardProps {
 }
 
 const MenuCard: React.FC<MenuCardProps> = ({ src, alt, title, onClick }) => {
+
+
   return (
-    <Link
-      href="/product"
+    <div
       onClick={onClick}
-      className="space-y-2 hover:text-black"
+      className="space-y-2 hover:text-black cursor-pointer"
     >
       <Image width={600} height={600} src={src} alt={alt} />
       <div>
         <p className="text-15 font-normal text-center">{title}</p>
       </div>
-    </Link>
+    </div>
   );
 };
 
