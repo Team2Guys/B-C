@@ -1,13 +1,21 @@
-'use client';
+"use client"
 import TopHero from 'components/ui/top-hero';
-import { productData, ProductGuarantees, relativeProducts } from 'data/data';
+import { productData, PGuarantees,  } from 'data/data';
 import second from '../../../public//assets/images/product-guarantees/large.png';
 import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import Image from 'next/image';
+import { useQuery } from '@tanstack/react-query';
+import { IProduct } from 'types/types';
+import { fetchProducts } from 'config/fetch';
 
-const productGuarantees = () => {
+const ProductGuarantees = () => {
+  const { data: products, error, isLoading } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+  if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
       <TopHero title="PRODUCT GUARANTEES" image={second} />
@@ -21,7 +29,7 @@ const productGuarantees = () => {
           </p>
         </div>
       </Container>
-      {ProductGuarantees.map((data: any, index: any) => (
+      {PGuarantees.map((data: any, index: any) => (
         <Container
           key={index}
           className={`pt-10 max-w-screen-2xl lg:pb-14 flex justify-between lg:gap-10 items-start flex-col md:flex-row ${data.imageAlign === 'right' ? 'lg:flex-row-reverse' : ''}`}
@@ -51,10 +59,10 @@ const productGuarantees = () => {
         </Container>
       ))}
       <Container className="py-10">
-        <RelatedProducts products={relativeProducts} />
+        <RelatedProducts products={products || []} />
       </Container>
     </>
   );
 };
 
-export default productGuarantees;
+export default ProductGuarantees;

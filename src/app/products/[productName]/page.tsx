@@ -11,6 +11,9 @@ import Support from 'components/Res-usable/support/support';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import { useParams } from 'next/navigation';
 import AllProducts from 'components/Product/All-Products/Products';
+import { useQuery } from '@tanstack/react-query';
+import { IProduct } from 'types/types';
+import { fetchProducts } from 'config/fetch';
 
 const Products = () => {
   const { productName } = useParams();
@@ -19,14 +22,18 @@ const Products = () => {
     : productName;
   const displayProductName = productNameString || 'Default Product';
   const slugTitle = generateSlug(displayProductName);
-
+  const { data: products, error, isLoading } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+  if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
       <TopHero title={slugTitle} image={bgBreadcrum} />
       <Info />
       <AllProducts />
       <Container className="mt-20 mb-20">
-        <RelatedProducts products={relativeProducts} />
+        <RelatedProducts products={products || []} />
       </Container>
       <BookNowBanner className="mt-20" />
       <VideoAutomation className=" mt-20" />
