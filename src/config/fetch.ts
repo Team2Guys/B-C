@@ -1,7 +1,15 @@
 import axios from 'axios';
 import { IAppointments, ICategory, IRECORDS } from 'types/types';
 import { Allproduct } from 'types/interfaces';
-import { error } from 'console';
+import Cookies from 'js-cookie';
+
+const superAdmintoken = Cookies.get('superAdminToken');
+const token = Cookies.get('2guysAdminToken');
+let Finaltoken = superAdmintoken ? superAdmintoken : token;
+
+const headers= {
+  Authorization: `Bearer ${Finaltoken}`, 
+}
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
   console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`);
@@ -41,14 +49,14 @@ export const adminRecords = async (token: string | undefined): Promise<IRECORDS>
   }
 };
 
+
+
 export const fetchAppointments = async (token: string): Promise<IAppointments[]> => {
   try {
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/getAllappointments`,
       {
-        headers: {
-          Authorization: `Bearer ${token}`, 
-        },
+        headers: headers
       }
     );
     return response.data;
@@ -64,4 +72,20 @@ export const PostAppointments = async (p0: { name: string; phone_number: string;
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
   );
   return response.data;
+};
+
+
+export const getAllAdmins = async () => {
+  try {
+
+    const token = Cookies.get('superAdminToken');
+    if (!token) {
+      return;
+    }
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/get_all_admin`,{headers:headers});
+    const admins = await response.json();
+   return admins
+  } catch (err) {
+   throw err
+  }
 };

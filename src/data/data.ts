@@ -15,10 +15,10 @@ import {
   Tproductdata,
   TProductGuarantees,
   TsizePresets,
-} from 'types/interface';
-import { BlindsAndCurtainsTypes } from 'types/interface';
-import { BannerData } from 'types/interface';
-import { TRatingSlider } from 'types/interface';
+} from 'types/interfaces';
+import { BlindsAndCurtainsTypes } from 'types/interfaces';
+import { BannerData } from 'types/interfaces';
+import { TRatingSlider } from 'types/interfaces';
 
 export const generateSlug = (text: string) => {
   return text
@@ -1071,8 +1071,31 @@ export const options = [
     label: 'Fujairah',
   },
 ];
+
 export const subcategoryInitialValues: ISUBCATEGORY = {
   title: '',
   description: '',
   CategoryId: undefined,
+}
+
+
+export const intitalValues = {
+  fullname: '',
+  email: '',
+  password: '',
+  canAddProduct: false,
+  canEditProduct: false,
+  canDeleteProduct: false,
+  canAddCategory: false,
+  canDeleteCategory: false,
+  canEditCategory: false,
+  canCheckProfit: false,
+  canCheckRevenue: false,
+  canCheckVisitors: false,
+  canViewUsers: false,
+  canViewSales: false,
+  canVeiwAdmins: false,
+  canVeiwTotalproducts: false,
+  canVeiwTotalCategories: false,
+
 };

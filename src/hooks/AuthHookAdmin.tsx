@@ -6,8 +6,6 @@ import { useAppDispatch } from 'components/Others/HelperRedux';
 import { loggedInAdminAction } from '../redux/slices/AdminsSlice';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useAppSelector } from 'components/Others/HelperRedux';
-
 function ProtectedRoute(WrappedComponent: any) {
   const Wrapper = (props: any) => {
     const router = useRouter();
@@ -25,7 +23,7 @@ function ProtectedRoute(WrappedComponent: any) {
             },
           },
         );
-
+console.log(user, "user")
         dispatch(loggedInAdminAction(user.data));
       } catch (err: any) {
         console.log(err, 'err');
@@ -37,6 +35,7 @@ function ProtectedRoute(WrappedComponent: any) {
       const superAdmintoken = Cookies.get('superAdminToken');
       let Finaltoken = superAdmintoken ? superAdmintoken : token;
       if (!Finaltoken) {
+        console.log('functoin called')
         // eslint-disable-next-line react-hooks/exhaustive-deps
         router.push('/dashboard/Admin-login');
       } else {
