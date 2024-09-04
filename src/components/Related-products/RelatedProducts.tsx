@@ -2,6 +2,7 @@ import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
 import { GalleryItems } from 'types/interfaces';
+import { IProduct } from 'types/types';
 
 interface relativeProps {
   products: IProduct[];
