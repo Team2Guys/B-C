@@ -164,13 +164,16 @@ export class AdminsService {
     try {
       const { email, password } = super_admin_login
       if ((email !== process.env.super_admin_email) || password !== process.env.super_admin_passoword) {
-        return new UnauthorizedException("Invalid Credentials")
+        return CustomErrorHandler("Invalid Credentials", "UNAUTHORIZED")
+
       }
+
+
 
       let super_admin_credentials = {
         fullname: process.env.super_admin_name,
         email: process.env.super_admin_email,
-        role: 'super admin'
+        role: 'super-Admin'
       }
 
       let access_token = jwt.sign(super_admin_credentials, process.env.JWT_SECRET, { expiresIn: '24h' })
@@ -182,7 +185,12 @@ export class AdminsService {
         secure: false,
         maxAge: 24 * 60 * 60 * 1000,
       });
-      return { super_admin_credentials, token: access_token }
+ 
+      return {
+        message: 'Login successfull 🎉',
+        user:  super_admin_credentials,
+        token: access_token
+      };
 
     } catch (error) {
       return CustomErrorHandler(error.message || JSON.stringify(error), "INTERNAL_SERVER_ERROR")
@@ -195,7 +203,7 @@ export class AdminsService {
       let super_admin_credentials = {
         fullname: process.env.super_admin_name,
         email: process.env.super_admin_email,
-        role: 'super admin'
+        role: "super-Admin"
       }
 
       const { email } = req.user

@@ -15,7 +15,7 @@ model Categories {
   posterImage  Json
   subCategories SubCategories[] @relation("CategoryToSubCategories")
  description String?
-  createdAt   DateTime  @default(now())
+ createdAt   DateTime  @default(now())
 
 }
 

@@ -8,7 +8,7 @@ type MyResponseObj = {
     statusCode: number,
     timestamp: string,
     path: string,
-    response: string | object,
+    message: string | object,
 }
 
 @Catch()
@@ -17,34 +17,50 @@ export class AllExceptionsFilter extends BaseExceptionFilter {
 
     catch(exception: unknown, host: ArgumentsHost) {
         const ctx = host.switchToHttp();
-        const response = ctx.getResponse<Response>();
+        const message = ctx.getResponse<Response>();
         const request = ctx.getRequest<Request>();
 
         const myResponseObj: MyResponseObj = {
             statusCode: 500,
             timestamp: new Date().toISOString(),
             path: request.url,
-            response: '',
+            message: '',
         }
 
-        // Add more Prisma Error Types if you want
+
         if (exception instanceof HttpException){
                 myResponseObj.statusCode = exception.getStatus()
-                myResponseObj.response = exception.getResponse()
+                myResponseObj.message = exception.getResponse()
         } else if (exception instanceof PrismaClientValidationError){ 
-                myResponseObj.statusCode = 422
-                myResponseObj.response = exception.message.replaceAll(/\n/g, ' ')
+            myResponseObj.statusCode = HttpStatus.UNPROCESSABLE_ENTITY;
+            myResponseObj.message = this.formatPrismaError(exception);
         } else {
             myResponseObj.statusCode = HttpStatus.INTERNAL_SERVER_ERROR
-            myResponseObj.response = 'Internal Server Error'
+            myResponseObj.message = 'Internal Server Error'
         }
 
-        response 
-            .status(myResponseObj.statusCode) 
-            .json(myResponseObj)
+        myResponseObj.message = this.normalizeMessage(myResponseObj.message);
 
-        this.logger.error(myResponseObj.response, AllExceptionsFilter.name)
+
+        this.logger.error(myResponseObj.message, AllExceptionsFilter.name)
 
         super.catch(exception, host)
+    }
+
+    private normalizeMessage(message: any): string {
+        if (typeof message === 'string') {
+            return message;
+        } else if (typeof message === 'object' && message !== null) {
+            // Extract a relevant message or convert the object to a string
+            return message.message || JSON.stringify(message);
+        }
+        return 'An error occurred';
+    }
+
+    private formatPrismaError(exception: PrismaClientValidationError): string {
+        const errorLines = exception.message.split('\n');
+        const relevantLine = errorLines.find(line => line.includes('Invalid')) || errorLines[0];
+        
+        return relevantLine.replace(/Invalid .*?$/, '').trim() + '.';
     }
 }
