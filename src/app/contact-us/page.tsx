@@ -8,6 +8,9 @@ import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { MdEmail } from 'react-icons/md';
 import { IoCall, IoLocationSharp } from 'react-icons/io5';
 import Link from 'next/link';
+import { useQuery } from '@tanstack/react-query';
+import { IProduct } from 'types/types';
+import { fetchProducts } from 'config/fetch';
 
 const ProductUs: React.FC = () => {
   const [formData, SetFormData] = useState({
@@ -15,11 +18,19 @@ const ProductUs: React.FC = () => {
     email: '',
     message: '',
   });
+
   const [errors, setErrors] = useState({
     name: '',
     email: '',
     message: '',
   });
+
+  const { data: products, error:producterror, isLoading } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -222,7 +233,7 @@ const ProductUs: React.FC = () => {
         </section>
       </Container>
       <Container className="py-10">
-        <RelatedProducts products={relativeProducts} />
+        <RelatedProducts products={products || []} />
       </Container>
     </>
   );

@@ -6,9 +6,10 @@ import { IoSearch } from 'react-icons/io5';
 import { Modal } from 'antd';
 import { GalleryItems } from 'types/interface';
 import { generateSlug } from 'data/data';
+import { IProduct } from 'types/types';
 
 interface GalleryProps {
-  card: GalleryItems;
+  card: IProduct;
   relativeProducts?: boolean;
 }
 
@@ -27,7 +28,7 @@ const GalleryCard: React.FC<GalleryProps> = ({ card, relativeProducts }) => {
     <>
       <div className="gallery-item relative rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
         <Image
-          src={card.imageUrl}
+          src={card?.posterImage?.imageUrl}
           alt={card.title}
           width={300}
           height={300}
@@ -66,7 +67,7 @@ const GalleryCard: React.FC<GalleryProps> = ({ card, relativeProducts }) => {
         width={600}
       >
         <Image
-          src={card.imageUrl}
+          src={card?.posterImage?.imageUrl}
           alt={card.title}
           width={600}
           height={600}
