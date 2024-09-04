@@ -62,6 +62,11 @@ export interface IRECORDS {
   total_categorie: string;
   total_subCategories: string;
 }
+export interface ISUBCATEGORY {
+  title: string;
+  description: string;
+  CategoryId: number | undefined;
+}
 
 export interface IAppointments {
   area: string;
