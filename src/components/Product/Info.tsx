@@ -1,7 +1,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
 import productimf from '../../../public/assets/images/product/product1.png';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { Button } from 'components/ui/button';
 const Info = () => {
   return (

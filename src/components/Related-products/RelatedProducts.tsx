@@ -1,6 +1,6 @@
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import Container from 'components/Res-usable/Container/Container';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import React from 'react';
 import { GalleryItems } from 'types/interfaces';

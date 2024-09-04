@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import CustomButton from '../Button/Button';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useRouter } from 'next/navigation';
 import { ICategory } from 'types/types';
 

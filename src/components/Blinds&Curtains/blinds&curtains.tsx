@@ -1,5 +1,5 @@
 import CustomButton from 'components/Res-usable/Button/Button';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { FC } from 'react';
 import { BlindsAndCurtainsTypes } from 'types/interfaces';
 

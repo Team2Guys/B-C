@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
 import { useAppSelector } from 'components/Others/HelperRedux';

@@ -8,7 +8,7 @@ import { IoLogoPinterest } from 'react-icons/io5';
 import { AiOutlineInstagram } from 'react-icons/ai';
 
 import { CiFacebook } from 'react-icons/ci';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { title } from 'process';
 

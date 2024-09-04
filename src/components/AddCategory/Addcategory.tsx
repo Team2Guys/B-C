@@ -2,7 +2,7 @@
 import React, { SetStateAction, useLayoutEffect, useState } from 'react';
 import Imageupload from 'components/ImageUpload/Imageupload';
 import { RxCross2 } from 'react-icons/rx';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { ImageRemoveHandler } from 'utils/helperFunctions';
 
 import Toaster from 'components/Toaster/Toaster';

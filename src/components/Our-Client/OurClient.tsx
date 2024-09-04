@@ -1,6 +1,6 @@
 import { Arrow } from '@radix-ui/react-popover';
 import { OurClientImage } from 'data/data';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import React from 'react';
 import Slider from 'react-slick';
 

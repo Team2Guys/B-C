@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useAppSelector } from 'components/Others/HelperRedux';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
