@@ -8,7 +8,10 @@ import OurClient from 'components/Our-Client/OurClient';
 
 const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
-  const withoutHeaderPages = [''];
+  const withoutHeaderPages = [
+    '',
+    // '/gallery',
+  ];
 
   return (
     <>
@@ -19,12 +22,12 @@ const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
       {children}
       {withoutHeaderPages.includes(pathname) ||
       pathname.split('/').includes('dashboard') ? null : (
-        <>
+        <div className='w-full'>
           <Guarrenty />
           <Testimonial />
           <OurClient />
           <Footer />
-        </>
+        </div>
       )}
     </>
   );

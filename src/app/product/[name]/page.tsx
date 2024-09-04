@@ -21,6 +21,7 @@ import backbanner from '../../../../public/assets/images/aric-blands/aric-header
 import cardImg from '../../../../public/assets/images/aric-blands/aric-blands.png';
 import { Allproduct } from 'types/interfaces';
 import { fetchProducts } from 'config/fetch';
+import { IProduct } from 'types/types';
 
 interface TsizePresets {
   width: number;
@@ -77,6 +78,11 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
     };
   }, [isPopupOpen]);
 
+  const { data: products, error, isLoading } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+  if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
       <TopHero title="ARIC BLINDS" image={backbanner} />
@@ -210,12 +216,13 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
         </div>
       )}
 
-      <Container className="py-10">
-        <RelatedProducts products={relativeProducts} />
+   <Container className="py-10">
+        <RelatedProducts products={products || []} />
       </Container>
       <BookNowBanner />
       <VideoAutomation />
       <Support />
+   
     </>
   );
 };
