@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { Modal } from 'antd';
-import { GalleryItems } from 'types/interface';
+import { GalleryItems } from 'types/interfaces';
 import { generateSlug } from 'data/data';
 
 interface GalleryProps {

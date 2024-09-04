@@ -3,7 +3,7 @@ import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { GalleryItems } from 'types/interface';
+import { GalleryItems } from 'types/interfaces';
 
 interface relativeProps {
   products: GalleryItems[];

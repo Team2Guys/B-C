@@ -7,7 +7,6 @@ import Cookies from 'js-cookie';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import { IoMdEye } from 'react-icons/io';
 import { FiShoppingCart } from 'react-icons/fi';
-import { PiUsersThreeFill } from 'react-icons/pi';
 import { IoBagOutline } from 'react-icons/io5';
 import { Skeleton } from 'antd';
 import { useQuery } from '@tanstack/react-query';
@@ -24,11 +23,13 @@ const ECommerce: React.FC = () => {
     data: records ,
     error,
     isLoading,
-  } = useQuery<IRECORDS>({
+  } = useQuery<IRECORDS>(
+    {
     queryKey: ['records', Finaltoken],
     queryFn: () => adminRecords(Finaltoken),
     enabled: !!Finaltoken,
-  });
+  }
+);
 
   const { loggedInUser } = useAppSelector((state) => state.usersSlice);
 
@@ -59,60 +60,12 @@ const ECommerce: React.FC = () => {
   const CanCheckRevnue =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.CanCheckRevnue : true);
-  // const canViewUsers =
-  //   loggedInUser &&
-  //   (loggedInUser.role == 'Admin' ? loggedInUser.canViewUsers : true);
-  // const canViewSales =
-  //   loggedInUser &&
-  //   (loggedInUser.role == 'Admin' ? loggedInUser.canViewSales : true);
- 
   const canVeiwTotalproducts =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalproducts : true);
   const canVeiwTotalCategories =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalCategories : true);
-
-
-
-    console.log(loggedInUser, "loggedInUser", canVeiwTotalproducts, "canVeiwTotalproducts")
-
-  // const getAllAdmins = async () => {
-  //   try {
-  //     setloading(true);
-  //     const token = Cookies.get('2guysAdminToken');
-  //     const superAdminToken = Cookies.get('superAdminToken');
-  //     let finalToken = token ? token : superAdminToken;
-
-  //     if (!finalToken) {
-  //       return;
-  //     }
-
-  //     const headers = {
-  //       token: finalToken,
-  //     };
-
-  //     const response = await fetch(
-  //       `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/geRecords`,
-  //       {
-  //         method: 'GET',
-  //         headers: headers,
-  //       },
-  //     );
-
-  //     const record = await response.json();
-  //     setRecords(record);
-
-  //     setloading(false);
-  //   } catch (err) {
-  //     console.log(err, 'err');
-  //     setloading(false);
-  //   }
-  // };
-  // useLayoutEffect(() => {
-  //   getAllAdmins();
-  // }, []);
-
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7">

@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
@@ -7,6 +9,8 @@ interface LoaderProps {
 }
 
 const Loader: React.FC<LoaderProps> = ({ color }) => (
+  
+  <div>
   <Spin
     indicator={
       <LoadingOutlined
@@ -15,6 +19,8 @@ const Loader: React.FC<LoaderProps> = ({ color }) => (
       />
     }
   />
+  </div>
+
 );
 
 export default Loader;

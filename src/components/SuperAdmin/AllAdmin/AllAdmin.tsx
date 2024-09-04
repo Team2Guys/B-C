@@ -1,62 +1,44 @@
-import React, { useEffect, useState } from 'react';
+"use client"
+
+import React, { SetStateAction, useEffect, useState } from 'react';
 import { Table, Button } from 'antd';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 import Cookies from 'js-cookie';
 import { FaEdit } from 'react-icons/fa';
+import { useQuery } from '@tanstack/react-query';
+import { getAllAdmins } from 'config/fetch';
+import { ADMINS_PROPS } from 'types/interfaces';
 
-const superAdmintoken = Cookies.get('superAdminToken');
 
-function Admins({ setselecteMenu }: any) {
+
+
+
+function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   const [admins, setAdmins] = useState([]);
-  const [loading, setloading] = useState<boolean>(false);
   const [delLoading, setDelLoading] = useState<string | null>(null);
-  const [editLoading, setEditLoading] = useState<string | null>(null);
   const superAdmintoken = Cookies.get('superAdminToken');
+  const token = Cookies.get('2guysAdminToken');
+  let Finaltoken = superAdmintoken ? superAdmintoken : token;
+  const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    const getAllAdmins = async () => {
-      try {
-        setloading(true);
-        const token = Cookies.get('superAdminToken');
-        if (!token) {
-          return;
-        }
 
-        const headers = {
-          token: token,
-        };
+  const { data, isLoading, error } = useQuery<any[]>({
+    queryKey: ['admins'],
+    queryFn: getAllAdmins,
+    enabled: !!Finaltoken,
+  });
 
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/getAllAdmins`,
-          {
-            method: 'GET',
-            headers: headers,
-          },
-        );
-
-        const admins = await response.json();
-        console.log(admins, 'admins');
-        setAdmins(admins);
-        setloading(false);
-      } catch (err) {
-        console.log(err, 'err');
-        setloading(false);
-      }
-    };
-
-    getAllAdmins();
-  }, []);
 
   const handleDelete = async (id: string) => {
     try {
       const token = localStorage.getItem('superAdminToken');
       if (!token) {
-        // Handle case where token is not available
+
         return;
       }
-      setDelLoading(id); // Set loading state for the specific admin being deleted
+      setDelLoading(id);
       await axios.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/deletAdmin/${id}`,
         {
@@ -74,6 +56,13 @@ function Admins({ setselecteMenu }: any) {
       setDelLoading(null); // Reset loading state after delete operation completes
     }
   };
+
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+
 
   const columns = [
     {
@@ -136,41 +125,53 @@ function Admins({ setselecteMenu }: any) {
       ),
     },
 
-    // {
-    //   title: "Edit",
-    //   key: "edit",
-    //   render: (text: any, record: any) =>
-    //     editLoading === record._id ? (
-    //       <Loader />
-    //     ) : (
-    //       <FaEdit
-    //         className="cursor-pointer text-red-500"
-    //         size={20}
-    //         onClick={() => handleEdit(record._id)}
-    //       />
-    //     ),
-
-    // },
     {
       title: 'Actions',
       key: 'actions',
       render: (text: any, record: any) =>
-        delLoading === record._id ? ( // Check if loading state matches current admin ID
-          <Loader />
+      (
+
+
+        <>
+
+          <div className='flex gap-3'>
+            <FaEdit
+              className="cursor-pointer text-red-500"
+              size={20}
+              onClick={(e) => {
+                e.stopPropagation();
+                const { password, ...withoutPassowrd } = record
+                setedit_admins(withoutPassowrd); setselecteMenu(" ")
+              }}
+            />
+
+{isClient ? (
+          delLoading === record._id ? <div><Loader /></div> : (
+            <RiDeleteBin6Line
+              className="cursor-pointer text-red-500"
+              size={20}
+              onClick={() => handleDelete(record._id)}
+            />
+          )
         ) : (
-          <RiDeleteBin6Line
-            className="cursor-pointer text-red-500"
-            size={20}
-            onClick={() => handleDelete(record._id)}
-          />
-        ),
+          <div style={{ width: 20, height: 20 }} />
+        )}
+
+          </div>
+        </>
+
+
+      )
+
     },
   ];
 
+
+
   return (
     <div>
-      {/* Admins Table */}
-      {loading ? (
+
+      {isLoading ? (
         <div className="flex justify-center mt-10">
           <Loader />
         </div>
@@ -188,17 +189,17 @@ function Admins({ setselecteMenu }: any) {
               </Button>
             </div>
           </div>
-          {admins && admins.length > 0 ? (
+          {(
             <Table
               className="overflow-auto dark:border-strokedark dark:bg-boxdark"
-              dataSource={admins}
+              dataSource={data}
               columns={columns}
               pagination={false}
               rowKey="_id"
             />
-          ) : (
-            <div className="flex justify-center"> No Admin found</div>
-          )}
+          )
+
+          }
         </>
       )}
     </div>

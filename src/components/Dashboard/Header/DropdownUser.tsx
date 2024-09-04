@@ -13,13 +13,6 @@ import { RiLogoutBoxLine } from 'react-icons/ri';
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-  const [name_role, setName_role] = useState<any>({
-    name:"",
-    role: ""
-  })
-
-
-
   const router = useRouter();
 
   const trigger = useRef<any>(null);
@@ -76,7 +69,7 @@ const DropdownUser = () => {
             {loggedInUser?.fullname}
           </span>
           <span className="block text-xs text-white dark:text-white">
-          {loggedInUser.role}
+          {loggedInUser?.role}
           </span>
         </span>
 
