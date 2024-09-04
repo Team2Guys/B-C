@@ -29,9 +29,9 @@ interface PosterImage {
 }
 
 export interface ICategory {
-  title?: string;
-  CategoryId?: number;
-  description?: string | null;
+  title: string;
+  CategoryId: number;
+  description: string | null;
   id?: number;
   posterImage: PosterImage;
 }

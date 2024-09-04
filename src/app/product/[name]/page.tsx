@@ -209,13 +209,13 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
           </div>
         </div>
       )}
-
-      <Container className="py-10">
+   <Container className="py-10">
         <RelatedProducts products={relativeProducts} />
       </Container>
       <BookNowBanner />
       <VideoAutomation />
       <Support />
+   
     </>
   );
 };
