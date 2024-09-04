@@ -75,6 +75,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     setIsOpen((prev) => !prev);
   };
 
+  const handledetail = () => {
+    const slug = generateSlug(title)
+    route.push(`/product/${slug}`);
+    setIsOpen((prev) => !prev);
+  };
+
   return (
     <div
       className=""
@@ -100,8 +106,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
             </Link>
           </div>
           <CardSlider
-           onClick={handleClick}
-            sliderItems={sliderData} // Pass the products to CardSlider
+           onClick={handledetail}
+            sliderItems={sliderData}
             buttonClass="rounded-full h-6 w-6 ml-2 bg-primary text-center shadow bg-white hover:bg-primary hover:text-white"
           />
         </div>

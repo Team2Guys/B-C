@@ -1,3 +1,4 @@
+"use client"
 import TopHero from 'components/ui/top-hero';
 import React from 'react';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
@@ -14,6 +15,10 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { relativeProducts } from 'data/data';
 import Container from 'components/Res-usable/Container/Container';
+import { useQuery } from '@tanstack/react-query';
+import { IProduct } from 'types/types';
+import { fetchProducts } from 'config/fetch';
+
 const chooseUsItems = [
   {
     image: img1,
@@ -51,6 +56,11 @@ const motorization = [
 ];
 
 const MotorisedBlind = () => {
+  const { data: products, error, isLoading } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+  if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
       <TopHero title="Motorised Blinds" image={bgBreadcrum} />
@@ -98,7 +108,7 @@ const MotorisedBlind = () => {
       />
       <BookNowBanner />
       <Container className="mt-20">
-        <RelatedProducts products={relativeProducts} />
+        <RelatedProducts products={products || []} />
       </Container>
     </>
   );

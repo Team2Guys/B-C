@@ -13,7 +13,7 @@ const HomeCard = () => {
     queryKey: ['categories'],
     queryFn: fetchSubCategories,
   });
-
+  if (error instanceof Error) return <div>Error: {error.message}</div>;
   if (isLoading)
     return (
       <div>
@@ -35,7 +35,6 @@ const HomeCard = () => {
         </Container>
       </div>
     );
-  if (error instanceof Error) return <div>Error: {error.message}</div>;
 
   return (
     <Container className="py-12">
