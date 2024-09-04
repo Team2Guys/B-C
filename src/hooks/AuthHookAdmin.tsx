@@ -14,10 +14,7 @@ function ProtectedRoute(WrappedComponent: any) {
     const [loading, setLoading] = useState<boolean>(true);
     const dispatch = useAppDispatch();
 
-    const AddminProfileTriggerHandler = async (
-      token: string,
-      adminFlag: boolean,
-    ) => {
+    const AddminProfileTriggerHandler = async (token: string,adminFlag: boolean) => {
       try {
         let apiEndpoint = adminFlag? 'getSuperAdminHandler' : 'get-admin-handler';
         let user: any = await axios.get(

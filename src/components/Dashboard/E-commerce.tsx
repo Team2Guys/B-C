@@ -16,16 +16,18 @@ import { IRECORDS } from 'types/types';
 
 
 const ECommerce: React.FC = () => {
-  const token = Cookies.get('2guysAdminToken') || '';
+  const token = Cookies.get('2guysAdminToken');
+  const superAdmintoken = Cookies.get('superAdminToken');
+  let Finaltoken = superAdmintoken ? superAdmintoken : token;
 
   const {
     data: records ,
     error,
     isLoading,
   } = useQuery<IRECORDS>({
-    queryKey: ['records', token],
-    queryFn: () => adminRecords(token),
-    enabled: !!token,
+    queryKey: ['records', Finaltoken],
+    queryFn: () => adminRecords(Finaltoken),
+    enabled: !!Finaltoken,
   });
 
   const { loggedInUser } = useAppSelector((state) => state.usersSlice);
