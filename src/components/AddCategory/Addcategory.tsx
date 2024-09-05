@@ -31,7 +31,11 @@ const FormLayout = ({
   editCategory,
   setMenuType,
 }: editCategoryProps) => {
-  const token = Cookies.get('2guysAdminToken');
+  const admin_token = Cookies.get('2guysAdminToken');
+  const super_admin_token = Cookies.get('superAdminToken');
+
+let token = admin_token ? admin_token: super_admin_token
+
   let CategoryName =
     editCategory && editCategory.title
       ? { name: editCategory.title, description: editCategory.description }

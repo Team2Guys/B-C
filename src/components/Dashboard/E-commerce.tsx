@@ -20,40 +20,40 @@ const ECommerce: React.FC = () => {
   let Finaltoken = superAdmintoken ? superAdmintoken : token;
 
   const {
-    data: records ,
+    data: records,
     error,
     isLoading,
   } = useQuery<IRECORDS>(
     {
-    queryKey: ['records', Finaltoken],
-    queryFn: () => adminRecords(Finaltoken),
-    enabled: !!Finaltoken,
-  }
-);
+      queryKey: ['records', Finaltoken],
+      queryFn: () => adminRecords(Finaltoken),
+      enabled: !!Finaltoken,
+    }
+  );
 
   const { loggedInUser } = useAppSelector((state) => state.usersSlice);
 
   if (isLoading)
     return (
       <div>
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-        <>
-          <Skeleton avatar active />
-          <Skeleton avatar active />
-          <Skeleton avatar active />
-          <Skeleton avatar active />
-          <Skeleton avatar active />
-          <Skeleton avatar active />
-          <Skeleton avatar active />
-        </>
-    </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+          <>
+            <Skeleton avatar active />
+            <Skeleton avatar active />
+            <Skeleton avatar active />
+            <Skeleton avatar active />
+            <Skeleton avatar active />
+            <Skeleton avatar active />
+            <Skeleton avatar active />
+          </>
+        </div>
       </div>
     );
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
   const canVeiwAdmins =
-  loggedInUser &&
-  (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : true);
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : true);
   const canCheckProfit =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canCheckProfit : true);
@@ -69,64 +69,64 @@ const ECommerce: React.FC = () => {
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7">
-            {!canVeiwAdmins ? null : (
-              <CardDataStats
-                title="Admins"
-                total={records?.total_admins ? records?.total_admins : ''}
-              >
-                <IoMdEye size={25} className="text-white dark:text-black" />
-              </CardDataStats>
-            )}
+        {!canVeiwAdmins ? null : (
+          <CardDataStats
+            title="Admins"
+            total={records?.total_admins ? records?.total_admins : ''}
+          >
+            <IoMdEye size={25} className="text-white dark:text-black" />
+          </CardDataStats>
+        )}
 
-            {!canCheckProfit ? null : (
-              <CardDataStats
-                title="Total Profit"
-                total={records?.total_appointments ? records?.total_appointments : ''}
-              >
-                <FiShoppingCart
-                  size={25}
-                  className="text-white dark:text-black"
-                />
-              </CardDataStats>
-            )}
+        {!canCheckProfit ? null : (
+          <CardDataStats
+            title="Total Profit"
+            total={records?.total_appointments ? records?.total_appointments : ''}
+          >
+            <FiShoppingCart
+              size={25}
+              className="text-white dark:text-black"
+            />
+          </CardDataStats>
+        )}
 
-          {!canVeiwTotalCategories ? null : (
-              <CardDataStats
-                title="Total Categories"
-                total={records?.total_categories ? records?.total_categories : ''}
-              >
-                <IoBagOutline
-                  size={25}
-                  className="text-white dark:text-black"
-                />
-              </CardDataStats>
-            )}
+        {!canVeiwTotalCategories ? null : (
+          <CardDataStats
+            title="Total Categories"
+            total={records?.total_categories ? records?.total_categories : ''}
+          >
+            <IoBagOutline
+              size={25}
+              className="text-white dark:text-black"
+            />
+          </CardDataStats>
+        )}
 
-            {!CanCheckRevnue ? null : (
-              <CardDataStats
-                title="Total Revenue"
-                total={records?.total_subCategories ? records?.total_subCategories : ''}
-              >
-                <FiShoppingCart
-                  size={25}
-                  className="text-white dark:text-black"
-                />
-              </CardDataStats>
-            )}
+        {!CanCheckRevnue ? null : (
+          <CardDataStats
+            title="Total Revenue"
+            total={records?.total_subCategories ? records?.total_subCategories : ''}
+          >
+            <FiShoppingCart
+              size={25}
+              className="text-white dark:text-black"
+            />
+          </CardDataStats>
+        )}
 
-          {!canVeiwTotalproducts ? null : (
-              <CardDataStats
-                title="Total Product"
-                total={records?.total_products ? records?.total_products : ''}
-              >
-                <IoBagOutline
-                  size={25}
-                  className="text-white dark:text-black"
-                />
-              </CardDataStats>
-            )}
+        {!canVeiwTotalproducts ? null : (
+          <CardDataStats
+            title="Total Product"
+            total={records?.total_products ? records?.total_products : ''}
+          >
+            <IoBagOutline
+              size={25}
+              className="text-white dark:text-black"
+            />
+          </CardDataStats>
+        )}
 
-            {/* {!canViewSales ? null : (
+        {/* {!canViewSales ? null : (
               <CardDataStats
                 title="Total Sales"
                 total={records?.totalSales ? records?.totalSales : ''}
@@ -138,7 +138,7 @@ const ECommerce: React.FC = () => {
               </CardDataStats>
             )} */}
 
-            {/* {!canViewUsers ? null : (
+        {/* {!canViewUsers ? null : (
               <CardDataStats
                 title="Total Users"
                 total={records?.totalUsers ? records?.totalUsers : ''}

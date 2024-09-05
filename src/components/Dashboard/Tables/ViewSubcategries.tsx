@@ -34,8 +34,11 @@ const ViewSubcategries = ({
   seteditCategory,
   editCategory,
 }: CategoryProps) => {
-  const token = Cookies.get('2guysAdminToken');
+  const admin_token = Cookies.get('2guysAdminToken');
+  const super_admin_token = Cookies.get('superAdminToken')
 
+  let token = admin_token ? admin_token: super_admin_token
+  
   const [category, setCategory] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
