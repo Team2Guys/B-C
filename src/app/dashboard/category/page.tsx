@@ -10,14 +10,9 @@ import { CategoriesType } from 'types/interfaces';
 
 const AddCategory = () => {
   const [menuType, setMenuType] = useState<string>('Categories');
-  const [editCategory, seteditCategory] = useState<
-    CategoriesType | undefined | null
-  >();
+  const [editCategory, seteditCategory] = useState<CategoriesType | undefined | null>();
 
-  useEffect(() => {
-    console.log('Edit Category triggered');
-    console.log(editCategory);
-  }, [editCategory]);
+
   return (
     <DefaultLayout>
       <Breadcrumb pageName={menuType} />

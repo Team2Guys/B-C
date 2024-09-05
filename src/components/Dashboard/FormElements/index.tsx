@@ -64,7 +64,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     setIsOptionSelected(true);
   };
 
-  const token = Cookies.get('2guysAdminToken');
+  const admin_token = Cookies.get('2guysAdminToken');
+  const super_admin_token = Cookies.get('superAdminToken');
+
+let token = admin_token ? admin_token: super_admin_token
 
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
@@ -129,7 +132,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       }
       console.log(values, 'values');
       console.log('debuge 3');
-      //@ts-expect-error
       let { name, ...newValues } = {
         ...values,
         title: values.name,
