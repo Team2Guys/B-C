@@ -1,58 +1,13 @@
-import { Arrow } from '@radix-ui/react-popover';
 import { OurClientImage } from 'data/data';
 import Image from 'next/image';
-import React from 'react';
-import Slider from 'react-slick';
+import React, { useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css/pagination';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 const OurClient = () => {
-  var settings = {
-    dots: false,
-    infinite: true,
-    arrows: false,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          arrows: false,
-          slidesToScroll: 1,
-          infinite: true,
-          autoplay: true,
-          autoplaySpeed: 2000,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          arrows: false,
-          slidesToScroll: 1,
-          initialSlide: 2,
-          autoplay: true,
-          autoplaySpeed: 2000,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          arrows: false,
-          autoplay: true,
-          autoplaySpeed: 2000,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
   return (
-    <div className="">
+    <>
       <div className="lg:pt-20 lg:pb-10 pt-16 pb-10 max-w-screen-2xl mx-auto">
         <h2 className="text-center font-semibold text-xl uppercase tracking-widest">
           our clients
@@ -64,26 +19,53 @@ const OurClient = () => {
       </div>
       <div className="bg-white">
         <div className="slider-container max-w-screen-2xl mx-auto">
-          <Slider {...settings} className="space-x-4">
+          <Swiper
+            slidesPerView={5}
+            loop={true}
+            spaceBetween={30}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+           
+            modules={[Autoplay]}
+            className="mySwiper"
+            breakpoints={{
+              320: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              640: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 30,
+              },
+            }}
+          >
             {OurClientImage.map((image: any, index: any) => (
-              <div
-                className="py-7 active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white"
-                key={index}
-              >
-                <Image
+              <SwiperSlide className="" key={index}>
+                <div
+                  className="py-7 active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white"
                   key={index}
-                  className="w-full px-10 h-16 object-cover active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent"
-                  src={image.src}
-                  alt={image.alt}
-                  width={250}
-                  height={400}
-                />
-              </div>
+                >
+                  <Image
+                    key={index}
+                    className="w-full px-10 h-16 object-cover active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent"
+                    src={image.src}
+                    alt={image.alt}
+                    width={250}
+                    height={400}
+                  />
+                </div>
+              </SwiperSlide>
             ))}
-          </Slider>
+          </Swiper>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
