@@ -1,6 +1,6 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
-import React,{useEffect, useState} from 'react';
+import React,{ useEffect, useState} from 'react';
 import bgBreadcrum from '../../../../public/assets/images/Breadcrum/modern.png';
 import Info from 'components/Product/Info';
 import Container from 'components/Res-usable/Container/Container';
@@ -18,6 +18,9 @@ import { fetchProducts, fetchSubCategories } from 'config/fetch';
 const Products = () => {
   const { productName } = useParams();
 const [fiilteredProducts, setfiilteredProducts] = useState<IProduct[]>([])
+useEffect(() => {
+  filteredProducts()
+}, [productName])
 
    const productNameString = Array.isArray(productName)
     ? productName[0]
@@ -53,12 +56,6 @@ if((products && products.length > 0) && (categories && categories.length > 0)){
 
 }
 }
-
-
-useEffect(() => {
-  filteredProducts()
-}, [productName])
-
 
 
   return (
