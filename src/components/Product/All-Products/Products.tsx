@@ -2,31 +2,29 @@
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import ProductCard from 'components/ui/Product-Card';
-import { ProductCardINFO } from 'data/data';
 import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { ProductCardData } from 'types/interfaces';
+import { IProduct } from 'types/types';
+interface relativeProps {
+  products: IProduct[];
+  categoryType?:string;
+} 
 
-const AllProducts = () => {
+const AllProducts: React.FC<relativeProps> = ({ products,categoryType }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const productsPerPage = 9; // Products per page
-
-  const categories = ['All', 'BLINDS BY TYPE', 'BY ROOM'];
-
-  // Filtered products based on the active category
-  const filteredProducts: ProductCardData[] =
+  const productsPerPage = 9; 
+  const categories = ['All', 'BY TYPE', 'BY ROOM'];
+  const filteredProducts: IProduct[] =
     activeCategory === 'All'
-      ? ProductCardINFO
-      : ProductCardINFO.filter(
-          (product) => product.category === activeCategory,
+      ? products
+      : products.filter(
+          (product) => product.title === activeCategory,
         );
 
-  // Calculate total pages
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Products to display on the current page
-  const startIndex = (currentPage - 1) * productsPerPage;
+  const startIndex = (currentPage - 1) * productsPerPage;                                                                                                                                        
   const visibleProducts = filteredProducts.slice(
     startIndex,
     startIndex + productsPerPage,
@@ -41,8 +39,8 @@ const AllProducts = () => {
   return (
     <Container className="mt-10 md:mt-20">
       <div className="flex flex-wrap md:flex-nowrap justify-between items-center">
-        <h1 className="text-[#0F172A] text-20 md:text-30 font-medium">
-          MADE TO MEASURE BLINDS
+        <h1 className="text-[#0F172A] text-20 md:text-30 font-medium uppercase">
+          MADE TO MEASURE {categoryType ? categoryType :""}
         </h1>
         <span className="text-14 text-[#6F747F]">
           Showing {startIndex + 1}–
@@ -71,7 +69,7 @@ const AllProducts = () => {
         <hr className="h-2 mt-5 md:mt-14 border-black" />
         <div className="mt-10 text-center space-y-3">
           <h1 className="text-[#231F20] text-20 md:text-24 lg:text[36px] font-medium uppercase">
-            Blinds
+            {categoryType ? categoryType : ""}
           </h1>
           <p className="text-14 md:text-15 font-normal md:w-[65%] mx-auto">
             See our comprehensive Blinds range Find the perfect made-to-measure
@@ -81,10 +79,9 @@ const AllProducts = () => {
         </div>
 
         <div className="mt-5">
-          <ProductCard products={visibleProducts} />
+          <ProductCard categoryType={categoryType} products={products} />
         </div>
 
-        {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex justify-center mt-10 space-x-3">
             {/* Previous Button */}

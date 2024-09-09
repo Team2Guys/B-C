@@ -28,23 +28,19 @@ const FeatureProduct: React.FC = () => {
 
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6);
-
-  // Filter products based on the active category
   const filteredProducts = products?.filter((product: IProduct) =>
     !activeCategory || product.CategoryId === activeCategory.id
   );
 
-  // Slice the filtered products to control visibility
   const visibleProducts = filteredProducts?.slice(0, visibleCount);
 
   const handleViewMore = () => {
-    setVisibleCount(prevCount => prevCount + 6); // Load more products
+    setVisibleCount(prevCount => prevCount + 6);
   };
 
-  // Reset activeCategory to null to show all products
   const handleShowAll = () => {
     setActiveCategory(null);
-    setVisibleCount(6); // Reset visible count if needed
+    setVisibleCount(6);
   };
 
   if (isLoadingCategories || isLoadingProducts) return (
