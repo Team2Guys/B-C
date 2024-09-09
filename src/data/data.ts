@@ -141,6 +141,17 @@ export const OurClientImage = [
     src: '/assets/images/ourclient/logo5.png',
     alt: 'Yellow-Zone-Group-Dubai 1',
   },
+  { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
+  { src: '/assets/images/ourclient/logo2.png', alt: 'Logomain' },
+  {
+    src: '/assets/images/ourclient/logo3.png',
+    alt: 'Plantation-Shutters-Dubai 1',
+  },
+  { src: '/assets/images/ourclient/logo4.png', alt: 'Two-Guys-Logo' },
+  {
+    src: '/assets/images/ourclient/logo5.png',
+    alt: 'Yellow-Zone-Group-Dubai 1',
+  },
   // { src: '/assets/images/ourclient/yellow-zone-group-dubai-2.png', alt: 'Yellow-Zone-Group-Dubai 2' }
 ];
 
