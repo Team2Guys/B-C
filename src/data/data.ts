@@ -898,8 +898,8 @@ export const UsHistoryPara = {
 
 export const aboutUsReviewData = [
   { id: 1, keys: 20, suffix: '+', title: 'Years Experience' },
-  { id: 2, keys: 375000, suffix: 'K', title: 'Work Completed' },
-  { id: 3, keys: 19000, suffix: 'K', title: 'Client Satisfied' },
+  { id: 2, keys: 375, suffix: 'K', title: 'Work Completed' },
+  { id: 3, keys: 19, suffix: 'K', title: 'Client Satisfied' },
 ];
 
 
