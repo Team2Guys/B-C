@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { ProductCardData } from 'types/interface';
+import { ProductCardData } from 'types/interfaces';
 import { IProduct } from 'types/types';
 
 interface ProductCardDataProps {
