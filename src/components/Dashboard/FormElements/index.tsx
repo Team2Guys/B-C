@@ -113,58 +113,31 @@ let token = admin_token ? admin_token: super_admin_token
 
     CategoryHandler();
   }, []);
+
+
   const onSubmit = async (values: any, { resetForm }: any) => {
-    console.log('values' + values);
-    console.log(values);
-    values.categories = selectedCategoryIds;
-    values.subcategories = selectedSubcategoryIds;
-
-    console.log('debuge 1');
-
-    console.log('debuge 2');
     try {
       setError(null);
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
       let hoverImageUrl = hoverImage && hoverImage[0];
       let createdAt = Date.now();
+
       if (!posterImageUrl || !(imagesUrl.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
       }
-      console.log(values, 'values');
-      console.log('debuge 3');
-      let { name, ...newValues } = {
-        ...values,
+
+      let { name, ...newValues } = {  ...values,
         title: values.name,
         posterImage: posterImageUrl,
         hoverImage: hoverImageUrl,
         imageUrls: imagesUrl,
-
-        category: {
-          connect: { id: values.categories[0] },
-        },
-        subCategory: {
-          connect: { id: values.subcategories[0] },
-        },
       };
-      console.log(newValues, 'updatedValues');
-      console.log('debuge 4');
-      setloading(true);
 
-      console.log('+++ Debuge pro max +++++++++++++++++');
+      setloading(true);
       console.log(EditInitialValues);
       let updateFlag = productUpdateFlat;
-      let addProductUrl = updateFlag
-        ? `/api/products/edit_product/${EditInitialValues.id} `
-        : null;
-      console.log('debuge 5');
-
-      console.log(EditProductValue);
-      console.log(addProductUrl);
-      console.log(addProductUrl);
-      let url = `${process.env.NEXT_PUBLIC_BASE_URL}${
-        updateFlag ? addProductUrl : '/api/products/AddProduct'
-      }`;
-      console.log('debuge 6');
+      let url = updateFlag? `/api/products/edit_product/${EditInitialValues.id} ` : '/api/products/AddProduct';
+   
       const {
         categories,
         subcategories,
@@ -179,36 +152,39 @@ let token = admin_token ? admin_token: super_admin_token
         variantStockQuantities,
         discountPrice,
         totalStockQuantity,
-        stock,
         spacification,
+        stock,
         hoverImage: newhoverImage,
         id,
         ...finalValues
       } = newValues;
-      console.log(finalValues);
-      let response;
 
-      if (updateFlag) {
-        response = await axios.put(url, finalValues, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-      } else {
-        response = await axios.post(url, finalValues, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-      }
+
+let updatedvalue = {...finalValues, category:{connect: { id: selectedCategoryIds[0] }}}
+console.log(updatedvalue, "updatedvalue")
+
+
+if(selectedSubcategoryIds.length > 0){
+console.log(selectedSubcategoryIds, "updatedvalue")
+  updatedvalue = {...updatedvalue, subCategory: {connect: { id: selectedSubcategoryIds[0] }}}
+
+}
+  
+
+console.log(updatedvalue, "updatedvalue")
+
+      let method:"post"|"put" = updateFlag ? "put" :'post'
+
+      let response = await axios[method](`${process.env.NEXT_PUBLIC_BASE_URL}${url}`, updatedvalue, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+    
 
       console.log(response, 'response');
-      showToast(
-        'success',
-        updateFlag
-          ? 'Product has been successfully updated!'
-          : response.data.message,
-      );
+      showToast('success',`Product has been successfully ${updateFlag? "updated!" : "Addded"}`);
       setProductInitialValue(AddproductsinitialValues);
       resetForm();
       setloading(false);
@@ -220,9 +196,9 @@ let token = admin_token ? admin_token: super_admin_token
 
       updateFlag ? setEditProduct && setEditProduct(undefined) : null;
     } catch (err: any) {
-      if (err.response && err.response.data && err.response.data.error) {
-        setError(err.response.data.error);
-        console.log(err.response.data.error, 'err.response.data.message');
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+        console.log(err.response.data.message, 'err.response.data.message');
       } else {
         if (err instanceof Error) {
           setError(err.message);
@@ -234,6 +210,7 @@ let token = admin_token ? admin_token: super_admin_token
       setloading(false);
     }
   };
+
 
   useEffect(() => {
     const CategoryHandler = async () => {
@@ -269,9 +246,7 @@ let token = admin_token ? admin_token: super_admin_token
   });
 
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
-  const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<
-    number[]
-  >([]);
+  const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<number[]>([]);
   const [filteredSubcategories, setFilteredSubcategories] = useState<
     ICategory[]
   >([]);
@@ -1118,7 +1093,7 @@ let token = admin_token ? admin_token: super_admin_token
 
               {imgError ? (
                 <div className="flex justify-center">
-                  <div className="text-red pt-2 pb-2">{imgError}</div>
+                  <div className="text-red pt-2 pb-2 text-red-500">{imgError}</div>
                 </div>
               ) : null}
 
