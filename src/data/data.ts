@@ -877,23 +877,31 @@ export const UsHistoryPara = {
   ],
 };
 
+// export const aboutUsReviewData = [
+//   {
+//     id: 1,
+//     keys: '20 +',
+//     title: 'Years Experience',
+//   },
+//   {
+//     id: 2,
+//     keys: '375K',
+//     title: 'Work Completed',
+//   },
+//   {
+//     id: 3,
+//     keys: '19K',
+//     title: 'Client Satisfied',
+//   },
+// ];
+
+
 export const aboutUsReviewData = [
-  {
-    id: 1,
-    keys: '20 +',
-    title: 'Years Experience',
-  },
-  {
-    id: 2,
-    keys: '375K',
-    title: 'Work Completed',
-  },
-  {
-    id: 2,
-    keys: '19K',
-    title: 'Client Satisfied',
-  },
+  { id: 1, keys: 20, suffix: '+', title: 'Years Experience' },
+  { id: 2, keys: 375000, suffix: 'K', title: 'Work Completed' },
+  { id: 3, keys: 19000, suffix: 'K', title: 'Client Satisfied' },
 ];
+
 
 export const OurHistoryData: OurHistory[] = [
   {
@@ -904,21 +912,21 @@ export const OurHistoryData: OurHistory[] = [
       'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has.',
   },
   {
-    id: 1,
+    id: 2,
     year: '2010',
     heading: 'Moved to an Office Building',
     discription:
       'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has.',
   },
   {
-    id: 1,
+    id: 3,
     year: '2013',
     heading: 'Completed 50K a large project',
     discription:
       'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has.',
   },
   {
-    id: 1,
+    id: 4,
     year: 'Now',
     heading: 'Have 4 branch office in 5 Country',
     discription:
