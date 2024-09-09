@@ -270,7 +270,7 @@ console.log(newTime, "prefered_time")
     { value: 'friend', label: 'Friend' },
     { value: 'social_media', label: 'Social Media' },
   ];
-
+              
   const queryOptions = [
     { value: 'productinquiry', label: 'Product Inquiry' },
     { value: 'support', label: 'Support' },
@@ -280,7 +280,7 @@ console.log(newTime, "prefered_time")
 
   return (
     <div
-      className={`bg-white  text-left text-black ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-2/5 py-4 rounded-md lg:mt-5'}`}
+      className={`bg-white  text-left text-black ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-2/5 py-4 rounded-md mt-5'}`}
     >
       {!singlePage && (
         <h3 className="font-bold text-lg text-center tracking-[5px]">

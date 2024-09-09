@@ -175,3 +175,17 @@
 .css-t3ipsp-control:active {
   border-color: var(--primary) !important;
 }
+
+
+.mySwiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #d3d3d3; 
+  opacity: 1;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: #a3b4a2; 
+}
