@@ -30,9 +30,9 @@ const GalleryCard: React.FC<GalleryProps> = ({ card, relativeProducts }) => {
         <Image
           src={card?.posterImage?.imageUrl}
           alt={card.title}
-          width={300}
-          height={300}
-          className="w-full h-full object-cover rounded-lg"
+          width={400}
+          height={400}
+          className="md:w-full h-[311px] 2xl:h-[411px] rounded-xl"
         />
         <div
           onClick={showModal}

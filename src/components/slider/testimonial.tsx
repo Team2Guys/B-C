@@ -1,59 +1,15 @@
+"use client"
 import Container from 'components/Res-usable/Container/Container';
 import { testimonials } from 'data/data';
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
 import { FaStar } from 'react-icons/fa';
-import Slider from 'react-slick';
 
 function Testimonial() {
-  const settings = {
-    dots: true,
-    infinite: testimonials.length > 1,
-    slidesToShow: testimonials.length < 3 ? testimonials.length : 3,
-    slidesToScroll: 1,
-    centerMode: false, // Optional
-    nextArrow: <></>,
-    prevArrow: <></>,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: testimonials.length < 3 ? testimonials.length : 3,
-          slidesToScroll: 1,
-          infinite: testimonials.length > 1,
-          dots: true,
-          centerMode: false, // Optional
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: testimonials.length < 2 ? testimonials.length : 2,
-          slidesToScroll: 1,
-          infinite: testimonials.length > 1,
-          dots: true,
-          centerMode: false, // Optional
-        },
-      },
-      {
-        breakpoint: 700,
-        settings: {
-          slidesToShow: testimonials.length < 2 ? testimonials.length : 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-          centerMode: false, // Optional
-        },
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: false, // Optional
-        },
-      },
-    ],
-  };
+
 
   const getExcerpt = (text: string, wordLimit: number) => {
     const words = text.split(' ');
@@ -62,18 +18,39 @@ function Testimonial() {
     }
     return text;
   };
-
+  
   return (
     <Container className="lg:mt-16 mt-5 py-4 mx-auto happy_customer max-w-screen-2xl">
       <h1 className="text-center lg:text-30 text-25 font-medium">
         Our Happy Customers
       </h1>
-
-      <div className="slider-container lg:mt-14 mt-4 mt xl:px-0 lg:px-0 px-10">
-        <Slider {...settings}>
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
+      >
+        {testimonials.map((testimonial) => (
+        <SwiperSlide className='lg:mt-14 mb-14 mt-4' key={testimonial.id}>
+        <div
+              
               className="bg-white flex shadow-md rounded-sm p-7 max-w-80 sm:max-w-72 xs:max-w-96 md:max-w-64 lg:max-w-64 xl:max-w-96 2xl:max-w-md 4 my-2"
             >
               <div className="xs:flex items-center">
@@ -106,9 +83,10 @@ function Testimonial() {
                 </div>
               </div>
             </div>
-          ))}
-        </Slider>
-      </div>
+        </SwiperSlide>
+      ))}
+      </Swiper>
+
     </Container>
   );
 }
