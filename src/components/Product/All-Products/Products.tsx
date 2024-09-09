@@ -8,7 +8,7 @@ import { IProduct } from 'types/types';
 interface relativeProps {
   products: IProduct[];
   categoryType?:string;
-}
+} 
 
 const AllProducts: React.FC<relativeProps> = ({ products,categoryType }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -24,7 +24,7 @@ const AllProducts: React.FC<relativeProps> = ({ products,categoryType }) => {
 
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  const startIndex = (currentPage - 1) * productsPerPage;
+  const startIndex = (currentPage - 1) * productsPerPage;                                                                                                                                        
   const visibleProducts = filteredProducts.slice(
     startIndex,
     startIndex + productsPerPage,
