@@ -126,8 +126,8 @@ let token = admin_token ? admin_token: super_admin_token
         return showToast('warn', 'Please select relevant Images');
       }
 
-      let { name, ...newValues } = {  ...values,
-        title: values.name,
+      let { title, ...newValues } = {  ...values,
+        title: values.title,
         posterImage: posterImageUrl,
         hoverImage: hoverImageUrl,
         imageUrls: imagesUrl,
