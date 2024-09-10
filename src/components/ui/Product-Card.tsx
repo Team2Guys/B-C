@@ -1,3 +1,4 @@
+import { generateSlug } from 'data/data';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -8,12 +9,13 @@ interface ProductCardDataProps {
   products: IProduct[];
   categoryType?: string;
 }
+
 const ProductCard: React.FC<ProductCardDataProps> = ({ products,categoryType }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 p-1 md:p-0">
-      {products.map((product) => (
+      {products && products.map((product) => (
         <Link
-          href={"/product"}
+          href={`/product/${generateSlug(product.title)}`}
           className="border group rounded-xl border-white hover:border-primary p-3 space-y-3 text-center pb-10"
           key={product.id}
         >

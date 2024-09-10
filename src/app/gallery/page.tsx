@@ -45,12 +45,10 @@ const GalleryPage = () => {
   if (productsError instanceof Error)
     return <div>Error: {productsError.message}</div>;
 
-  // If no category is selected, show all products
   const filteredProducts = selectedCategoryId
     ? products?.filter((product) => product.CategoryId === selectedCategoryId)
     : products;
 
-  // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredProducts?.slice(

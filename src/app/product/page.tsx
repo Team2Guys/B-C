@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import TopHero from 'components/ui/top-hero';
 import Container from 'components/Res-usable/Container/Container';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Support from 'components/Res-usable/support/support';
 import VideoAutomation from 'components/video-Automation/video-Automation';
