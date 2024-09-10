@@ -88,6 +88,8 @@ export interface FormValues {
   code: string;
   totalStockQuantity: number;
   variantStockQuantities: { variant: string; quantity: number }[];
+  CategoryId?: number;
+  SubCategoryId?: number;
 }
 
 interface Color {
@@ -160,4 +162,164 @@ export interface Allproduct {
   SubCategoryId: number | null;
   createdAt: string; // Consider using Date if you want to handle this as a Date object
   updatedAt: string | null;
+  name?: any;
 }
+
+
+
+// card data types
+export interface CardTypes {
+  image: string;
+  heading: string;
+  paragraph: string;
+  buttonText: string;
+}
+
+// Blinds and Curtains section Types
+export interface BlindsAndCurtainsTypes {
+  image: string;
+  heading: string;
+  paragraph: string[];
+  buttonText: string;
+}
+
+export interface SocialDataType {
+  href: string;
+  src: string;
+  alt: string;
+}
+export interface FeatureProductData {
+  id: number;
+  category: string;
+  title: string;
+  image: string; // You can also use StaticImageData if importing images
+  link: string;
+}
+
+export interface ProductCardData {
+  id: number;
+  category: string;
+  title: string;
+  decription: string;
+  image: any; // You can also use StaticImageData if importing images
+  link: string;
+}
+export interface FooterLink {
+  text: string;
+  href: string;
+}
+export interface TFooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
+export interface SupportItem {
+  title: string;
+  description: string;
+}
+
+export interface TRSlide {
+  title: string;
+  content: string;
+}
+export type BannerData = {
+  imageUrl: string;
+  title: string;
+  buttonText: string;
+};
+
+export type BannerProps = {
+  data: BannerData;
+};
+
+export interface GalleryItems {
+  id: number;
+  imageUrl: string | StaticImageData;
+  title: string;
+  category: string;
+}
+
+export interface ProductItems {
+  id: number;
+  imageUrl: string | StaticImageData;
+  title: string;
+  discription: string;
+  category: string;
+}
+
+export interface AboutStaticData {
+  id: number;
+  subheading: string;
+  heading: string;
+  paragraph: string;
+}
+
+export interface OurHistory {
+  id: number;
+  year: string;
+  heading: string;
+  discription: string;
+}
+
+export type TRatingSlider = {
+  imageUrl: string;
+  StarImage: string;
+};
+export interface THeroImages {
+  logo: string;
+  backImage: string;
+  defaultBackImage: string;
+}
+export interface Tproductdata {
+  title: string;
+  heading: string;
+  content: string;
+  sideImage1: string;
+  sideImage: string;
+}
+export interface TsizePresets {
+  width: number;
+  height: number;
+  size: any;
+}
+export interface TProductGuarantees {
+  heading: string;
+  text: string;
+  image: string;
+  imageAlign: 'left' | 'right';
+}
+
+
+
+
+export interface formDataTypes  {
+  fullname: string;
+  email: string;
+  password: string;
+  canAddProduct: boolean;
+  canEditProduct: boolean;
+  canDeleteProduct: boolean;
+  canAddCategory: boolean;
+  canDeleteCategory: boolean;
+  canEditCategory: boolean;
+  canCheckProfit: boolean;
+  canCheckRevenue: boolean;
+  canCheckVisitors: boolean;
+  canViewUsers: boolean;
+  canViewSales: boolean;
+  canVeiwAdmins: boolean;
+  canVeiwTotalproducts: boolean;
+  canVeiwTotalCategories: boolean;
+  id?:any
+};
+
+
+export interface ADMINS_PROPS {
+  setselecteMenu:React.Dispatch<SetStateAction<string | null | undefined>>;
+  setedit_admins: React.Dispatch<SetStateAction< formDataTypes | undefined>>;
+ }
+
+ export interface createAdmin extends ADMINS_PROPS{
+  setedit_admins?: React.Dispatch<SetStateAction< formDataTypes | undefined>>;
+  edit_admins:formDataTypes | undefined
+ }

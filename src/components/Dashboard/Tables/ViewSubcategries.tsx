@@ -5,19 +5,19 @@ import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
-import Loader from 'components/Loader/Loader';
 import { LiaEdit } from 'react-icons/lia';
-import { useAppSelector } from 'components/Others/HelperRedux';
-import useColorMode from 'hooks/useColorMode';
 import { CategoriesType } from 'types/interfaces';
-import { formatDate } from 'config';
-import Cookies from 'js-cookie';
+import useColorMode from 'hooks/useColorMode';
+import { useAppSelector } from 'components/Others/HelperRedux';
+import { Skeleton } from 'components/ui/skeleton';
 import TableSkeleton from './TableSkelton';
+import Cookies from 'js-cookie';
+
 interface Product {
-  _id: string;
+  id: string;
   name: string;
   category: string;
-  posterImageUrl: { imageUrl: string };
+  posterImageUrl: string;
   createdAt: string;
 }
 
@@ -29,50 +29,40 @@ interface CategoryProps {
   editCategory?: CategoriesType | undefined | null;
 }
 
-const TableTwo = ({
+const ViewSubcategries = ({
   setMenuType,
   seteditCategory,
   editCategory,
 }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
-  const super_admin_token = Cookies.get('superAdminToken');
+  const super_admin_token = Cookies.get('superAdminToken')
 
-let token = admin_token ? admin_token: super_admin_token
-
+  let token = admin_token ? admin_token: super_admin_token
+  
   const [category, setCategory] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
 
-  const canAddCategory =
-    loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canAddCategory : true);
-  const canDeleteCategory =
-    loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canDeleteCategory : true);
-  const canEditCategory =
-    loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canEditCategory : true);
+  const canDeleteCategory = true;
+  // const canDeleteCategory =
+  //   loggedInUser &&
+  //   (loggedInUser.role == 'Admin' ? loggedInUser.canDeleteCategory : true);
+  // const canAddCategory = loggedInUser && (loggedInUser.role == 'Admin' ? loggedInUser.canAddCategory : true)
+  const canAddCategory = true;
 
-  const [searchTerm, setSearchTerm] = useState<string>('');
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
-
-  // Filter products based on search term
-  const filteredProducts: Product[] =
-    category?.filter((product: any) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
-    ) || [];
+  const canEditCategory = true;
+  // const canEditCategory =
+  //   loggedInUser &&
+  //   (loggedInUser.role == 'Admin' ? loggedInUser.canEditCategory : true);
 
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
         );
         const Categories = await response.json();
         setCategory(Categories);
@@ -88,8 +78,8 @@ let token = admin_token ? admin_token: super_admin_token
 
   const confirmDelete = (key: any) => {
     Modal.confirm({
-      title: 'Are you sure you want to delete this category?',
-      content: 'Once deleted, the category cannot be recovered.',
+      title: 'Are you sure?',
+      content: 'Once deleted, the sub category cannot be recovered.',
       onOk: () => handleDelete(key),
       okText: 'Yes',
       cancelText: 'No',
@@ -99,7 +89,7 @@ let token = admin_token ? admin_token: super_admin_token
   const handleDelete = async (key: any) => {
     try {
       const response = await axios.delete(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/deleteCategory/${key}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/deletesubCategory/${key}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -133,14 +123,17 @@ let token = admin_token ? admin_token: super_admin_token
       title: 'Image',
       dataIndex: 'posterImageUrl',
       key: 'posterImageUrl',
-      render: (text: any, record: any) => (
-        <Image
-          src={record.posterImage?.imageUrl}
-          alt={`Image of ${record.name}`}
-          width={50}
-          height={50}
-        />
-      ),
+      render: (text: any, record: any) =>
+        record.posterImage.imageUrl ? (
+          <Image
+            src={record.posterImage.imageUrl || ''}
+            alt={`Image of ${record.name}`}
+            width={50}
+            height={50}
+          />
+        ) : (
+          <div>No Image Available</div>
+        ),
     },
     {
       title: 'Name',
@@ -153,8 +146,10 @@ let token = admin_token ? admin_token: super_admin_token
       key: 'date',
       render: (text: any, record: any) => {
         const createdAt = new Date(record.createdAt);
-
-        return <span>{formatDate(`${createdAt}`)}</span>;
+        const formattedDate = `${createdAt.getFullYear()}-${String(createdAt.getMonth() + 1).padStart(2, '0')}-${String(
+          createdAt.getDate(),
+        ).padStart(2, '0')}`;
+        return <span>{formattedDate}</span>;
       },
     },
     {
@@ -188,6 +183,7 @@ let token = admin_token ? admin_token: super_admin_token
           className={`cursor-pointer ${canDeleteCategory && 'text-red'} ${
             !canDeleteCategory && 'cursor-not-allowed text-slate-300'
           }`}
+          // className="cursor-pointer text-red-500"
           size={20}
           onClick={() => {
             if (canDeleteCategory) {
@@ -206,20 +202,14 @@ let token = admin_token ? admin_token: super_admin_token
       ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
-            <input
-              className="peer lg:p-3 p-2 block outline-none border rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
-              type="search"
-              placeholder="Search Category"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
+            <p>Sub Categories</p>
             <div>
               <p
                 className={`${
                   canAddCategory && 'cursor-pointer'
                 } lg:p-2 md:p-2 ${
                   canAddCategory &&
-                  'dark:border-strokedark dark:bg-slate-500 bg-[#cdb7aa] text-white rounded-md border  hover:border-[#b59b8c] hover:text-white '
+                  'dark:border-strokedark dark:bg-slate-500 bg-[#cdb7aa] text-white rounded-md border hover:border-[#bda394] '
                 } flex justify-center ${
                   !canAddCategory && 'cursor-not-allowed '
                 }`}
@@ -230,22 +220,21 @@ let token = admin_token ? admin_token: super_admin_token
                   }
                 }}
               >
-                Add Category
+                Add Sub Category
               </p>
             </div>
           </div>
-          {filteredProducts.length > 0 ? (
+
+          {category.length > 0 ? (
             <Table
               className="overflow-x-scroll lg:overflow-auto"
-              dataSource={filteredProducts}
+              dataSource={category}
               columns={columns}
               pagination={false}
-              rowKey="_id"
+              rowKey="id"
             />
           ) : (
-            <p className="text-xl text-black dark:text-white">
-              No Categories found
-            </p>
+            'No Sub Categories found'
           )}
         </>
       )}
@@ -253,4 +242,4 @@ let token = admin_token ? admin_token: super_admin_token
   );
 };
 
-export default TableTwo;
+export default ViewSubcategries;

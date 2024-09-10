@@ -22,8 +22,8 @@ const Products = () => {
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
         );
         const allProducts = await response.json();
-        console.log('Products are here');
-        console.log(allProducts);
+        // console.log('Products are here');
+        // console.log(allProducts);
         setProducts(allProducts);
         setProductloading(false);
       } catch (err) {
@@ -54,7 +54,10 @@ const Products = () => {
   };
 
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
-
+  useEffect(() => {
+    console.log('Edit product triggered from parent');
+    console.log(editProduct);
+  }, [editProduct]);
   return (
     <DefaultLayout>
       <Breadcrumb pageName={productFlag ? 'Products' : 'Add Products'} />

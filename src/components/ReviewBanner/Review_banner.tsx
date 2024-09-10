@@ -2,7 +2,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { FcGoogle } from 'react-icons/fc';
-import { TRSlide } from 'types/interface';
+import { TRSlide } from 'types/interfaces';
 import { PiQuotesFill } from 'react-icons/pi';
 import { Divider } from 'antd';
 import { RatingSlider } from 'data/data';
