@@ -30,7 +30,6 @@ const AllProducts: React.FC<relativeProps> = ({ products,categoryType }) => {
     startIndex + productsPerPage,
   );
 
-  // Handle page change
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
