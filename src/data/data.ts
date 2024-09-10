@@ -14,6 +14,7 @@ import {
   THeroImages,
   Tproductdata,
   TProductGuarantees,
+  TRSlide,
   TsizePresets,
 } from 'types/interfaces';
 import { BlindsAndCurtainsTypes } from 'types/interfaces';
@@ -98,31 +99,15 @@ export const bannerData: BannerData = {
 };
 
 export const footerLinks: TFooterSection[] = [
-  {
-    title: 'Quick Links',
-    links: [
-      { text: 'Contact Us', href: '/contact-us' },
-      { text: 'Knowledge Base', href: '/knowledge-base' },
-      { text: 'Forums', href: '/forums' },
-    ],
-  },
 
   {
     title: 'Pages',
     links: [
-      { text: 'Legal Information', href: '/legal-information' },
-      { text: 'Privacy Policy', href: '/privacy-policy' },
-      { text: 'Report Abuse', href: '/report-abuse' },
-      { text: 'Terms of Service', href: '/terms-of-service' },
-      { text: 'WHOIS Lookup', href: '/whois-lookup' },
-    ],
-  },
-  {
-    title: 'Policies',
-    links: [
-      { text: 'Privacy Policy', href: '/privacy-policy' },
-      { text: 'Return Policy', href: '/return-policy' },
-      { text: 'Terms & Condition', href: '/terms-condition' },
+      { text: 'About Us', href: '/about-us' },
+      { text: 'Contact Us', href: '/contact-us' },
+      { text: 'Request An Appointment', href: '/appointment' },
+      { text: 'Product Guarantees', href: '/product-guarantees' },
+      { text: 'Why Choose Us', href: '/choose-us' },
     ],
   },
 ];
@@ -1110,3 +1095,37 @@ export const intitalValues = {
   canVeiwTotalCategories: false,
 
 };
+
+
+export const items = [
+  {
+    id: 1,
+    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+  },
+  {
+    id: 2,
+    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+  },
+  {
+    id: 3,
+    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+  },
+  {
+    id: 4,
+    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+  },
+  
+];
+
+export const slides: TRSlide[] = [
+  {
+    title: 'Victoria Wotton',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+  },
+  {
+    title: 'Victoria Wotton',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
+  },
+];
