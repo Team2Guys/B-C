@@ -1032,11 +1032,12 @@ export const loginInitialValue = {
 };
 
 export const AddProductvalidationSchema = Yup.object().shape({
-  // name: Yup.string()
-  //   .min(2, 'Too Short!')
-  //   .max(50, 'Too Long!')
-  //   .required('Required'),
-  // description: Yup.string().required('Required'),
+  name: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  description: Yup.string().required('Required'),
+  price:Yup.string().required("Price is required")
   // salePrice: Yup.number()
   //   .min(1, 'Minimum sales price must be at least 1')
   //   .required('Required'),
@@ -1058,6 +1059,7 @@ export const AddproductsinitialValues: FormValues = {
   sizes: [],
   category: '',
   code: '',
+  price:0
 };
 
 export const options = [
