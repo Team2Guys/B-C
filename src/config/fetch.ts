@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IAppointments, ICategory, IRECORDS } from 'types/types';
+import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
 import { Allproduct } from 'types/interfaces';
 import Cookies from 'js-cookie';
 
@@ -89,3 +89,4 @@ export const getAllAdmins = async () => {
    throw err
   }
 };
+
