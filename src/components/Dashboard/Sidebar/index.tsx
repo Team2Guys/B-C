@@ -83,7 +83,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     >
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5 lg:py-2">
-        <Link href="/dashboard">
+        <Link href="/">
           <Image
             width={140}
             height={140}
@@ -147,7 +147,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white ${
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
                                 pathname === '/dashboard' && 'text-white '
                               }`}
                             >
@@ -200,12 +200,23 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/category"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white mt-2 ${
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 mt-2 ${
                                 pathname === '/dashboard/category' &&
                                 'text-white'
                               }`}
                             >
                               View Categories
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/dashboard/subcategory"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in- text-white mt-2.5 hover:scale-105 ${
+                                pathname === '/dashboard/category' &&
+                                'text-slate-200'
+                              }`}
+                            >
+                              View Sub Categories
                             </Link>
                           </li>
                         </ul>
@@ -254,7 +265,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/products"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white ${
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
                                 pathname === 'dashboard/products' &&
                                 'text-white bg-lightdark'
                               } `}
@@ -289,7 +300,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         }}
                       >
                         <TfiShoppingCartFull size={20} className="text-white" />
-                        appointments
+                        Appointments
                         <MdOutlineKeyboardArrowDown
                           size={30}
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${
@@ -307,8 +318,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/appointments"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white ${
-                                pathname === 'dashboard/appointments' && 'text-white'
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
+                                pathname === 'dashboard/appointments' &&
+                                'text-white'
                               } `}
                             >
                               View Appointments
@@ -359,7 +371,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/abundant"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white ${
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
                                 pathname === 'dashboard/abundant' &&
                                 'text-white'
                               } `}

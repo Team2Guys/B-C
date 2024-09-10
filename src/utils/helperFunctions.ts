@@ -115,15 +115,16 @@ export let getPRODUCTS = async (
   }
 };
 
-export const Api_handler = async (Endpoint: string,data: any,method: 'get' | 'post' | 'put' | 'delete',) => {
+export const Api_handler = async (
+  Endpoint: string,
+  data: any,
+  method: 'get' | 'post' | 'put' | 'delete',
+) => {
   try {
     const config = {
       headers: { Authorization: `Bearer ${finalToken}`, withCredentials: true },
     };
-    console.log(
-      process.env.NEXT_PUBLIC_BASE_URL,
-      'process.env.NEXT_PUBLIC_BASE_URL',
-    );
+
     let response;
     if (method === 'get' || method === 'delete') {
       response = await axios[method](

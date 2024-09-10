@@ -47,7 +47,7 @@ function Hero() {
                 className=" flex flex-wrap md:flex-nowrap  lg:px-0 px-4"
                 
               >
-                <div className=" left-side w-full md:w-1/2 flex flex-col justify-center gap-3">
+                <div className=" left-side w-full md:w-1/2 flex flex-col justify-center gap-1">
                   <div className="w-full flex items-center gap-2 lg:mt-0 mt-12">
                     <svg
                       width="34"
@@ -65,22 +65,22 @@ function Hero() {
                       />
                     </svg>
 
-                    <h5 className="text-black font-gotham text-[25x] font-extralight ">
+                    <h5 className="text-black font-gotham text-20 md:text-[30px] font-light ">
                       Latest Designs
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold lg:text-[53px] text-3xl leading-normal">
+                  <h1 className="text-black font-extrabold lg:text-[53px] text-3xl leading-[50px] md:leading-[60px]">
                     Custom Window <br />
                     Blinds & Curtains
                   </h1>
-                  <p className="font-normal text-14">
-                    Lorem Ipsum is simply dummy text of the <br /> and
+                  <p className="font-normal text-14 mt-0 md:mt-5 mb-5">
+                    Lorem Ipsum is simply dummy text of the <br /> and
                     typesetting industry.
                   </p>
                   <Link href={'./gallery'}>
-                    <button className="Upper w-fit bg-white text-14 font-semibold text-black rounded-full px-6 py-2 lg:mb-0 mb-12">
-                      SEE ALL
-                    </button>
+                    <button className="uppercase bg-white text-16 font-semibold text-black rounded-full px-6 py-4 lg:mb-0 mb-12">
+                    Book now 
+                  </button>
                   </Link>
                 </div>
 

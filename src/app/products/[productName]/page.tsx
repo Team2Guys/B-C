@@ -47,7 +47,6 @@ useEffect(() => {
 const filteredProducts = ()=>{
 if((products && products.length > 0) && (categories && categories.length > 0)){
   let category = categories.find((c) => c.title.toLowerCase() ==productNameString.toLowerCase() )
-  console.log(categories, "categories")
   if(category){
    let filteredProducts = products.filter((item)=>item.CategoryId == category?.id)
  
