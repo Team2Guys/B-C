@@ -10,7 +10,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
   const router = useRouter();
   return (
     <div
-      className={`relative w-full h-auto md:h-[397px] overflow-hidden mt-10 ${className}`}
+      className={`relative w-full h-auto md:h-[397px] px-1 overflow-hidden mt-10 ${className}`}
     >
       <video
         className="absolute inset-0 object-cover w-full h-full"

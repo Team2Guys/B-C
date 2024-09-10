@@ -40,10 +40,12 @@ const HomeCard = () => {
     <Container className="py-12">
       <div className="flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-6 gap-3">
-          {categories &&
-            categories.map((data: ICategory, index: number) => (
-              <Card key={index} data={data} />
-            ))}
+           {categories &&
+            categories
+              .filter((data) => data.title !== 'Commercial') // Filter out 'Commercial' category
+              .map((data: ICategory, index: number) => (
+                <Card key={index} data={data} />
+              ))}
         </div>
       </div>
     </Container>
