@@ -1,9 +1,8 @@
-'use client';
-import Image from 'next/image';
+'use client';;
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { IoSearch } from 'react-icons/io5';
-import { Modal } from 'antd';
+import { Image, Modal } from 'antd';
 import { GalleryItems } from 'types/interfaces';
 import { generateSlug } from 'data/data';
 import { IProduct } from 'types/types';
@@ -26,21 +25,21 @@ const GalleryCard: React.FC<GalleryProps> = ({ card, relativeProducts }) => {
 
   return (
     <>
-      <div className="gallery-item relative rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+      <div className=" relative rounded-lg  transition-shadow duration-300 group">
         <Image
           src={card?.posterImage?.imageUrl}
           alt={card.title}
-          width={400}
           height={400}
-          className="md:w-full h-[311px] 2xl:h-[411px] rounded-xl"
+          width={"100%"}
+          className=" rounded-xl"
+          preview={{
+            mask: (
+              <div>
+                <IoSearch style={{ color: 'white', fontSize: '30px' }} />
+              </div>
+            )
+          }}
         />
-        <div
-          onClick={showModal}
-          className={`absolute bottom-0 w-full h-full items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${relativeProducts ? 'hidden' : 'flex'}`}
-        >
-          <IoSearch size={35} className="text-white cursor-pointer" />
-        </div>
-
         <div
           className={`absolute bottom-0 px-2 w-full h-12 flex items-center ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
         >
@@ -50,30 +49,13 @@ const GalleryCard: React.FC<GalleryProps> = ({ card, relativeProducts }) => {
             {card.title}
           </span>
           <Link
-            href={`/products/${generateSlug(card.title)}`}
+            href={`/product/${generateSlug(card.title)}`}
             className={`border-[1px] border-primary px-2 py-1 rounded-sm text-14 font-light ${relativeProducts ? 'block' : 'hidden'}`}
           >
             View More
           </Link>
         </div>
       </div>
-
-      <Modal
-        title={card.title}
-        visible={isModalOpen}
-        onCancel={handleCancel}
-        footer={null}
-        centered={true}
-        width={600}
-      >
-        <Image
-          src={card?.posterImage?.imageUrl}
-          alt={card.title}
-          width={600}
-          height={600}
-          className="w-full h-full object-cover"
-        />
-      </Modal>
     </>
   );
 };

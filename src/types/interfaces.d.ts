@@ -162,6 +162,7 @@ export interface Allproduct {
   SubCategoryId: number | null;
   createdAt: string; // Consider using Date if you want to handle this as a Date object
   updatedAt: string | null;
+  name?: any;
 }
 
 
