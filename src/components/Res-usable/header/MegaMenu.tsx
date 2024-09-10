@@ -8,16 +8,18 @@ import { ICategory, IProduct } from 'types/types';
 import { generateSlug } from 'data/data';
 
 interface MegaMenuProps {
-  title: string; // Category title
-  sliderData: IProduct[]; // List of products for the slider
+  title: string;
+  sliderData: any[];
   className?: string;
   onClick?: (product: IProduct) => void;
+  href?: string;
 }
 
 const MegaMenu: React.FC<MegaMenuProps> = ({
   title,
   sliderData,
   className,
+  href,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
@@ -70,14 +72,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   }, []);
 
   const handleClick = () => {
-    const slug = generateSlug(title)
-    route.push(`/products/${slug}`);
-    setIsOpen((prev) => !prev);
-  };
-
-  const handledetail = () => {
-    const slug = generateSlug(title)
-    route.push(`/product/${slug}`);
+    // const slug = generateSlug(title);
+    const slug = href;
+    route.push(`${process.env.NEXT_PUBLIC_APP_URL}/${slug}`);
     setIsOpen((prev) => !prev);
   };
 
@@ -106,7 +103,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
             </Link>
           </div>
           <CardSlider
-           onClick={handledetail}
+            title={title}
             sliderItems={sliderData}
             buttonClass="rounded-full h-6 w-6 ml-2 bg-primary text-center shadow bg-white hover:bg-primary hover:text-white"
           />
