@@ -67,22 +67,19 @@ const Footer: React.FC = () => {
                   target="_blank"
                   href={'https://www.facebook.com/blindsandcurtainsdubai'}
                 >
-                  <CiFacebook className="w-7 h-7" />
+                  <CiFacebook className="w-10 h-10" />
                 </Link>
                 <Link
                   target="_blank"
                   href={'https://www.pinterest.com/blindsandcurtainsdubai/'}
                 >
-                  <IoLogoPinterest className="w-7 h-7 rounded-full" />
-                </Link>
-                <Link href={''}>
-                  <TiSocialLinkedinCircular className="w-8 h-8 rounded-full" />
+                  <IoLogoPinterest className="w-10 h-10 rounded-full" />
                 </Link>
                 <Link
                   target="_blank"
                   href={'https://www.instagram.com/blindsandcurtainsdubai/'}
                 >
-                  <AiOutlineInstagram className="w-7 h-7" />
+                  <AiOutlineInstagram className="w-10 h-10" />
                 </Link>
               </div>
             </div>
@@ -140,8 +137,8 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="border-t border-gray-300 py-4  text-center bg-white">
-        <p className="text-sm text-muted-foreground">{footerInfo}</p>
+      <div className="border-t border-[#F6EFE9]-300 py-4  text-center bg-[#F6EFE9]">
+        <p className="text-16 font-gotham-400 ">{footerInfo}</p>
       </div>
     </footer>
   );
