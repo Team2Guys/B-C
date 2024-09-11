@@ -189,3 +189,28 @@
 .mySwiper .swiper-pagination-bullet-active {
   background-color: #a3b4a2; 
 }
+
+.ant-image {
+ width: 100%;
+ height: 400px !important;
+}
+ .ant-image-img{
+ width: 100%;
+  height: 400px !important;
+}
+.ant-image .ant-image-mask{
+  border-radius: 16px !important;
+}
+.ant-image .ant-image-mask:hover{
+  border-radius: 16px !important;
+}
+@media only screen and (max-width: 600px) {
+  .ant-image {
+    width: 100%;
+    height: auto !important;
+   }
+   .ant-image .ant-image-img{
+     height: auto !important;
+   }
+   
+}

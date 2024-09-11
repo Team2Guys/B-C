@@ -35,11 +35,9 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
     <>
       <TopHero title={title} image={bgBreadcrum} />
       <DetailInfo
-        title={title}
-        description={
-          'Aric Blinds is a unique system that facilitates opening and closing the sheer of the same position of blinds without rolling up or down as such and it always covers the window and as such offer continuous UV protection and provides a sound barrier as well. Enjoy the facility of Roller Blinds & Vertical Blinds from only one Aric Blinds. Aric Blinds offer customers a unique experience with the simple operations of a Roller Blind and a Vertical Blind simultaneously. They have an exclusive feature that facilitates the opening and closi ng of the sheer part at the same position as the blind without rolling the blind up or down. '
-        }
-        image={moto1}
+        title={title ? title : ""}
+        description={filterProduct?.description || "" }
+        image={filterProduct?.posterImage?.imageUrl}
       />
 
       {isLoading && filterProduct ? (
@@ -47,7 +45,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
       ) : (
         <>
           <DetailProduct
-            title={title}
+            title={title ? title : ""}
             description={filterProduct?.description || ''}
             products={filterProduct}
           />

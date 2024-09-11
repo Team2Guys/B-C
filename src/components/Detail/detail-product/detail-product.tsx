@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import { IProduct } from 'types/types';
+import ThumbImage from '../ThumbImage/ThumbImage';
 
 interface detailprops {
   title: string;
@@ -15,11 +16,7 @@ const DetailProduct: React.FC<detailprops> = ({
   title,
   description,
 }) => {
-  // const [visibleProducts, setVisibleProducts] = useState(6); // State to control the number of visible products
-
-  // const handleShowMore = () => {
-  //   setVisibleProducts((prev) => prev + 6); // Show 6 more products on each click
-  // };
+ 
   console.log(products, 'productsproducts');
   return (
     <Container className="mt-10">
@@ -28,19 +25,10 @@ const DetailProduct: React.FC<detailprops> = ({
         <p className="text-15">{description} </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-6 lg:mt-10 mt-4 lg:mb-10">
-        <GalleryCard card={products} />
+   
+          <ThumbImage card={products}/>
       </div>
-      {/* .slice(0, visibleProducts) */}
-      {/* {visibleProducts < (products?.length || 0) && (
-        <div className="text-center mt-6">
-          <button
-            onClick={handleShowMore}
-            className="px-4 py-4 bg-secondary text-white rounded-lg"
-          >
-            View More
-          </button>
-        </div>
-      )} */}
+   
     </Container>
   );
 };
