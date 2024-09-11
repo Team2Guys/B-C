@@ -88,6 +88,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             width={140}
             height={140}
             src={'/assets/images/whitelogo.png'}
+            className='w-auto h-auto'
             alt="Logo"
             priority
           />
@@ -333,6 +334,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   );
                 }}
               </SidebarLinkGroup>
+{/* 
+
               <SidebarLinkGroup
                 activeCondition={pathname === '/dashboard/abundant'}
               >
@@ -346,7 +349,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           'bg-primary-foreground dark:bg-lightdark'
                         }`}
                         onClick={(e) => {
-                          e.preventDefault(); // Prevent default link behavior
+                          e.preventDefault();
                           sidebarExpanded
                             ? handleClick()
                             : setSidebarExpanded(true);
@@ -361,7 +364,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           }`}
                         />
                       </Link>
-                      {/* <!-- Dropdown Menu Start --> */}
+        
                       <div
                         className={`translate transform overflow-hidden ${
                           !open && 'hidden'
@@ -381,11 +384,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           </li>
                         </ul>
                       </div>
-                      {/* <!-- Dropdown Menu End --> */}
+             
                     </React.Fragment>
                   );
                 }}
               </SidebarLinkGroup>
+
+              
+ */}
+
               {superAdmin ? (
                 <li>
                   <Link

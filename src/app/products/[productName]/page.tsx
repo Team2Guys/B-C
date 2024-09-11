@@ -14,6 +14,7 @@ import AllProducts from 'components/Product/All-Products/Products';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
+import VideoBanner from 'components/video-banner/video-banner';
 
 const Products = () => {
   const { productName } = useParams();
@@ -59,7 +60,7 @@ if((products && products.length > 0) && (categories && categories.length > 0)){
 
   return (
     <>
-      <TopHero title={slugTitle} image={bgBreadcrum} />
+      <VideoBanner title={slugTitle}/>
       <Info />
       <AllProducts products={fiilteredProducts || []} categoryType= {productNameString}/>
       <Container className="mt-20 mb-20">

@@ -20,7 +20,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({ products,categoryType }) 
           key={product.id}
         >
           <Image
-            className="w-full md:h-[364px]"
+            className="w-full md:h-[364px] rounded-xl"
             width={600}
             height={600}
             src={product?.posterImage?.imageUrl}
