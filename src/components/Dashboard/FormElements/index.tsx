@@ -42,9 +42,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   );
   const [hoverImage, sethoverImage] = useState<any[] | null | undefined>();
   const [loading, setloading] = useState<boolean>(false);
-  const [productInitialValue, setProductInitialValue] = useState<
-    any | null | undefined
-  >(EditProductValue);
+  const [productInitialValue, setProductInitialValue] = useState<any | null | undefined>(EditProductValue);
   const [imgError, setError] = useState<string | null | undefined>();
   const [Categories, setCategories] = useState<any[]>();
   const [VariationOption, setVariationOption] =
@@ -136,6 +134,7 @@ let token = admin_token ? admin_token: super_admin_token
       setloading(true);
       console.log(EditInitialValues);
       let updateFlag = productUpdateFlat;
+      
       let url = updateFlag? `/api/products/edit_product/${EditInitialValues.id} ` : '/api/products/AddProduct';
    
       const {
@@ -146,7 +145,6 @@ let token = admin_token ? admin_token: super_admin_token
         modelDetails,
         purchasePrice,
         reviews,
-        salePrice,
         sizes,
         starRating,
         variantStockQuantities,
@@ -154,6 +152,7 @@ let token = admin_token ? admin_token: super_admin_token
         totalStockQuantity,
         spacification,
         stock,
+        salePrice,
         hoverImage: newhoverImage,
         id,
         ...finalValues
@@ -161,17 +160,13 @@ let token = admin_token ? admin_token: super_admin_token
 
 
 let updatedvalue = {...finalValues, category:{connect: { id: selectedCategoryIds[0] }}}
-console.log(updatedvalue, "updatedvalue")
 
 
 if(selectedSubcategoryIds.length > 0){
-console.log(selectedSubcategoryIds, "updatedvalue")
+
   updatedvalue = {...updatedvalue, subCategory: {connect: { id: selectedSubcategoryIds[0] }}}
 
 }
-  
-
-console.log(updatedvalue, "updatedvalue")
 
       let method:"post"|"put" = updateFlag ? "put" :'post'
 
@@ -181,9 +176,7 @@ console.log(updatedvalue, "updatedvalue")
         },
       });
 
-    
 
-      console.log(response, 'response');
       showToast('success',`Product has been successfully ${updateFlag? "updated!" : "Addded"}`);
       setProductInitialValue(AddproductsinitialValues);
       resetForm();
@@ -312,9 +305,9 @@ console.log(updatedvalue, "updatedvalue")
                                 className="relative group rounded-lg overflow-hidden shadow-md bg-white dark:bg-black transform transition-transform duration-300 hover:scale-105"
                                 key={index}
                               >
-                                <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white dark:bg-black rounded-full">
+                                <div className="absolute top-1 right-1 invisible group-hover:visible text-red-600 bg-white dark:bg-black rounded-full">
                                   <RxCross2
-                                    className="cursor-pointer text-red-500 hover:text-red-700"
+                                    className="cursor-pointer text-red-600-500 hover:text-red-600-700"
                                     size={17}
                                     onClick={() => {
                                       ImageRemoveHandler(
@@ -362,7 +355,7 @@ console.log(updatedvalue, "updatedvalue")
                           }`}
                         />
                         {formik.touched.name && formik.errors.name ? (
-                          <div className="text-red text-sm">
+                          <div className="text-red-600-600 text-sm">
                             {formik.errors.name as String}
                           </div>
                         ) : null}
@@ -386,7 +379,7 @@ console.log(updatedvalue, "updatedvalue")
                         />
                         {formik.touched.description &&
                         formik.errors.description ? (
-                          <div className="text-red text-sm">
+                          <div className="text-red-600 text-sm">
                             {
                               formik.errors.description as FormikErrors<
                                 //@ts-expect-error
@@ -416,13 +409,10 @@ console.log(updatedvalue, "updatedvalue")
                             }`}
                           />
                           {formik.touched.price && formik.errors.price ? (
-                            <div className="text-red text-sm">
+                            <div className="text-red-600 text-sm">
                               {' '}
                               {
-                                formik.errors.price as FormikErrors<
-                                  //@ts-expect-error
-                                  FormValues['price']
-                                >
+                                formik.errors.price as FormikErrors<string>
                               }
                             </div>
                           ) : null}
@@ -448,7 +438,7 @@ console.log(updatedvalue, "updatedvalue")
                           />
                           {formik.touched.purchasePrice &&
                           formik.errors.purchasePrice ? (
-                            <div className="text-red text-sm">
+                            <div className="text-red-600 text-sm">
                               {
                                 formik.errors.purchasePrice as FormikErrors<
                                   FormValues['purchasePrice']
@@ -477,7 +467,7 @@ console.log(updatedvalue, "updatedvalue")
                           />
                           {formik.touched.discountPrice &&
                           formik.errors.discountPrice ? (
-                            <div className="text-red text-sm">
+                            <div className="text-red-600 text-sm">
                               {formik.errors.discountPrice as String}
                             </div>
                           ) : null}
@@ -502,7 +492,7 @@ console.log(updatedvalue, "updatedvalue")
                             }`}
                           />
                           {formik.touched.name && formik.errors.code ? (
-                            <div className="text-red text-sm">
+                            <div className="text-red-600 text-sm">
                               {formik.errors.code as String}
                             </div>
                           ) : null}
@@ -604,7 +594,7 @@ console.log(updatedvalue, "updatedvalue")
                           <ErrorMessage
                             name="category"
                             component="div"
-                            className="text-red dark:text-white"
+                            className="text-red-600 dark:text-white"
                           />
                         </div> */}
                       </div>
@@ -632,7 +622,7 @@ console.log(updatedvalue, "updatedvalue")
                         }`}
                       />
                       {formik.touched.stock && formik.errors.stock ? (
-                        <div className="text-red text-sm">
+                        <div className="text-red-600 text-sm">
                           {formik.errors.stock as String}
                         </div>
                       ) : null}
@@ -654,7 +644,7 @@ console.log(updatedvalue, "updatedvalue")
                             <ErrorMessage
                               name={inputField.name}
                               component="div"
-                              className="text-red-500"
+                              className="text-red-600-500"
                             />
                           </div>
                         ))}
@@ -683,7 +673,7 @@ console.log(updatedvalue, "updatedvalue")
                                         <ErrorMessage
                                           name={`variantStockQuantities[${index}].variant`}
                                           component="div"
-                                          className="text-red-500 mt-1"
+                                          className="text-red-600-500 mt-1"
                                         />
                                       </div>
                                       <div className="md:flex-1 md:mr-4 mb-4 md:mb-0">
@@ -696,14 +686,14 @@ console.log(updatedvalue, "updatedvalue")
                                         <ErrorMessage
                                           name={`variantStockQuantities[${index}].quantity`}
                                           component="div"
-                                          className="text-red-500 mt-1"
+                                          className="text-red-600-500 mt-1"
                                         />
                                       </div>
-                                      <div className="md:flex-none text-right text-red dark:text-red ">
+                                      <div className="md:flex-none text-right text-red-600 dark:text-red-600 ">
                                         <button
                                           type="button"
                                           onClick={() => remove(index)}
-                                          className="text-red-500 hover:text-red-700"
+                                          className="text-red-600-500 hover:text-red-600-700"
                                         >
                                           Remove
                                         </button>
@@ -797,10 +787,10 @@ console.log(updatedvalue, "updatedvalue")
                                     <button
                                       type="button"
                                       onClick={() => remove(index)}
-                                      className="ml-2 text-red "
+                                      className="ml-2 text-red-600 "
                                     >
                                       <RxCross2
-                                        className="text-red dark:text-white"
+                                        className="text-red-600 dark:text-white"
                                         size={25}
                                       />
                                     </button>
@@ -861,10 +851,10 @@ console.log(updatedvalue, "updatedvalue")
                                   <button
                                     type="button"
                                     onClick={() => remove(index)}
-                                    className="ml-2 text-red"
+                                    className="ml-2 text-red-600"
                                   >
                                     <RxCross2
-                                      className="text-red dark:text-white"
+                                      className="text-red-600 dark:text-white"
                                       size={25}
                                     />
                                   </button>
@@ -922,10 +912,10 @@ console.log(updatedvalue, "updatedvalue")
                                   <button
                                     type="button"
                                     onClick={() => remove(index)}
-                                    className="ml-2 text-red"
+                                    className="ml-2 text-red-600"
                                   >
                                     <RxCross2
-                                      className="text-red dark:text-white"
+                                      className="text-red-600 dark:text-white"
                                       size={25}
                                     />
                                   </button>
@@ -980,9 +970,9 @@ console.log(updatedvalue, "updatedvalue")
                                   <button
                                     type="button"
                                     onClick={() => remove(index)}
-                                    className="ml-2 text-red"
+                                    className="ml-2 text-red-600"
                                   >
-                                    <RxCross2 className="text-red dark:text-white" size={25} />
+                                    <RxCross2 className="text-red-600 dark:text-white" size={25} />
                                   </button>
                                 </div>
                               ),
@@ -1015,9 +1005,9 @@ console.log(updatedvalue, "updatedvalue")
                               className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
                               key={index}
                             >
-                              <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                              <div className="absolute top-1 right-1 invisible group-hover:visible text-red-600 bg-white rounded-full">
                                 <RxCross2
-                                  className="cursor-pointer text-red-500 hover:text-red-700"
+                                  className="cursor-pointer text-red-600-500 hover:text-red-600-700"
                                   size={17}
                                   onClick={() => {
                                     ImageRemoveHandler(
@@ -1061,9 +1051,9 @@ console.log(updatedvalue, "updatedvalue")
                               className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
                               key={index}
                             >
-                              <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                              <div className="absolute top-1 right-1 invisible group-hover:visible text-red-600 bg-white rounded-full">
                                 <RxCross2
-                                  className="cursor-pointer text-red-500 hover:text-red-700"
+                                  className="cursor-pointer text-red-600-500 hover:text-red-600-700"
                                   size={17}
                                   onClick={() => {
                                     console.log('funciton called');
@@ -1093,7 +1083,7 @@ console.log(updatedvalue, "updatedvalue")
 
               {imgError ? (
                 <div className="flex justify-center">
-                  <div className="text-red pt-2 pb-2 text-red-500">{imgError}</div>
+                  <div className="text-red-600 pt-2 pb-2 text-red-600-500">{imgError}</div>
                 </div>
               ) : null}
 

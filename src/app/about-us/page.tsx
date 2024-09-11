@@ -1,8 +1,10 @@
-
+"use client"
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/d.jpg';
 import Container from 'components/Res-usable/Container/Container';
 import aboutUsImg from '../../../public/assets/images/Group2003.png';
+import CountUp from 'react-countup';
+
 import {
   AboutUsPara,
   aboutUsReviewData,
@@ -47,7 +49,7 @@ const AboutUsPage = () => {
             {aboutUsReviewData.map((item) => (
               <div key={item.id}>
                 <span className="font-bold text-3xl xs:text-4xl sm:text-5xl text-primary">
-                  {item.keys}
+                  <CountUp end={item.keys} duration={2.5} suffix={item.suffix} />
                 </span>
                 <p className="font-medium mt-2 text-12 xs:text-14 sm:text-base text-paralight">
                   {item.title}
@@ -79,7 +81,7 @@ const AboutUsPage = () => {
           </div>
         </div>
         <div className="flex flex-row gap-0 relative items-center w-[85%] mx-auto md:w-full">
-          <div className="me-14 h-3/4 border-dashed border border-btnclr"></div>
+          <div className="me-14 h-5/6 border-dashed border border-btnclr"></div>
           <div className="flex flex-col">
             {OurHistoryData.map((item) => (
               <div className="relative" key={item.id}>
