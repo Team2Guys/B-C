@@ -90,6 +90,7 @@ export interface FormValues {
   variantStockQuantities: { variant: string; quantity: number }[];
   CategoryId?: number;
   SubCategoryId?: number;
+  price:number
 }
 
 interface Color {

@@ -37,8 +37,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     const mouseEvent = event as any;
 
     if (
-      menuRef.current &&
-      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
+      menuRef.current && !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
       buttonRef.current &&
       !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
     ) {
