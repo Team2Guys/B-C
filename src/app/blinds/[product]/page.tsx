@@ -2,6 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
+import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
@@ -53,7 +54,7 @@ const CommercialPage = () => {
           />
         </>
       ) : (
-        <div>Render Product Page: {filteredProduct?.title}</div>
+        <ProductDetailPage title={`${filteredProduct?.title}`} />
       )}
     </>
   );
