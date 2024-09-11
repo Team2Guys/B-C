@@ -88,6 +88,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             width={140}
             height={140}
             src={'/assets/images/whitelogo.png'}
+            className='w-auto h-auto'
             alt="Logo"
             priority
           />

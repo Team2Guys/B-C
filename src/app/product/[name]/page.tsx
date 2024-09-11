@@ -39,8 +39,6 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   const [detail, setdetail] = useState<IProduct[]>([]);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  console.log(params, 'ProductNameProductNameProductName');
-
   const handleSizeChange = (width: number, height: number) => {
     setSelectedSize({ width, height });
   };

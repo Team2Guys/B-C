@@ -18,9 +18,9 @@ const VideoBanner: React.FC<BannerProps> = ({ className,title }) => {
         controls={false}
       />
       <div className="relative z-10 flex items-center h-full">
-        <div className=" bg-black/35 w-[300px] sm:w-[479px] rounded-e-2xl">
-          <div className="py-4 text-start px-2 md:pl-20 text-white drop-shadow-lg">
-            <p className="lg:text-[43px] text-25 font-black drop-shadow-lg">{title}</p>
+        <div className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl">
+          <div className="py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
+            <p className="lg:text-[43px] text-25 font-black drop-shadow-lg capitalize">{title}</p>
             <p className=" text-17 font-bold capitalize tracking-widest">
               made to measure {title}
             </p>
