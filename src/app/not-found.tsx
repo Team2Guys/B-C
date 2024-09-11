@@ -2,9 +2,25 @@
 
 import Link from "next/link";
 import gitImg from "../../public/assets/json/404.json";
-import Lottie from "components/Lottie/error-gif";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+const Lottie = dynamic(() => import('components/Lottie/error-gif'), {
+  ssr: false,
+})
+
 
 export default function NotFound() {
+
+const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div className="flex items-center justify-center h-[90vh]">
       <div className="flex flex-col items-center gap-4 relative">

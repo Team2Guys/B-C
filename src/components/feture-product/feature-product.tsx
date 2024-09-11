@@ -28,6 +28,7 @@ const FeatureProduct: React.FC = () => {
 
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6);
+  
   const filteredProducts = products?.filter((product: IProduct) =>
     !activeCategory || product.CategoryId === activeCategory.id
   );
