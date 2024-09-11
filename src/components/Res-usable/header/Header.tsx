@@ -142,7 +142,7 @@ const Header = () => {
 
                 const combinedSliderData = [
                   ...filteredSubCategories,
-                  ...actualProducts,
+                  ...filteredProducts,
                 ];
 
                 return combinedSliderData.length > 0 ? (
