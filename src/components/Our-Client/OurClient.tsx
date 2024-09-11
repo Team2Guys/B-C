@@ -12,7 +12,7 @@ const OurClient = () => {
         <h2 className="text-center font-semibold text-xl uppercase tracking-widest">
           our clients
         </h2>
-        <p className="text-center text-lg tracking-widest lg:w-2/5 mx-auto px-10 pt-3">
+        <p className="text-center text-sm tracking-widest lg:w-2/5 mx-auto px-10 pt-3">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. 
         </p>
@@ -20,9 +20,7 @@ const OurClient = () => {
       <div className="bg-white">
         <div className="slider-container max-w-screen-2xl mx-auto">
           <Swiper
-            slidesPerView={5}
             loop={true}
-            spaceBetween={30}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
@@ -32,28 +30,32 @@ const OurClient = () => {
             className="mySwiper"
             breakpoints={{
               320: {
+                slidesPerView: 1.5,
+                spaceBetween: 5,
+              },
+              440: {
                 slidesPerView: 2,
-                spaceBetween: 10,
+                spaceBetween: 5,
               },
-              640: {
-                slidesPerView: 3,
-                spaceBetween: 20,
+              600: {
+                slidesPerView: 3.8,
+                spaceBetween: 5,
               },
-              1024: {
+              1000: {
                 slidesPerView: 5,
                 spaceBetween: 30,
               },
             }}
           >
             {OurClientImage.map((image: any, index: any) => (
-              <SwiperSlide className="" key={index}>
+              <SwiperSlide className=" py-4" key={index}>
                 <div
-                  className="py-7 active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white"
+                  className=" active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white"
                   key={index}
                 >
                   <Image
                     key={index}
-                    className="w-full px-10 h-16 object-cover active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent"
+                    className="w-full px-5 h-16 object-contain active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent"
                     src={image.src}
                     alt={image.alt}
                     width={250}
