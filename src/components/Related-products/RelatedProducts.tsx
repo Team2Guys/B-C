@@ -9,7 +9,7 @@ interface relativeProps {
 
 const RelatedProducts: React.FC<relativeProps> = ({ products }) => {
   return (
-    <Container className="max-w-screen-2xl">
+    <div >
       <div className="flex items-center gap-1">
         <h3 className="lg:text-4xl text-2xl text-nowrap">Related Products</h3>
         <div className="w-full border-t-[1px] border-[#BDC9BD] mt-2"></div>
@@ -23,7 +23,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products }) => {
           <GalleryCard card={item} key={item.id} relativeProducts={true} />
         ))}
       </div>
-    </Container>
+    </div>
   );
 };
 
