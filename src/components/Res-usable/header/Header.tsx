@@ -16,7 +16,7 @@ import {
   fetchSubCategories,
 } from 'config/fetch';
 import { Skeleton } from 'components/ui/skeleton';
-import { generateSlug } from 'data/data';
+import { generateSlug, MegaMenuItem } from 'data/data';
 import { useRouter } from 'next/navigation';
 
 const links = [
@@ -132,9 +132,17 @@ const Header = () => {
                   products?.filter(
                     (product) => product.CategoryId === link.id,
                   ) || [];
+
+                const actualProducts = filteredProducts.filter((product) =>
+                  MegaMenuItem.some(
+                    (menuItem) =>
+                      menuItem.productName === generateSlug(product.title),
+                  ),
+                );
+
                 const combinedSliderData = [
                   ...filteredSubCategories,
-                  ...filteredProducts,
+                  ...actualProducts,
                 ];
 
                 return combinedSliderData.length > 0 ? (

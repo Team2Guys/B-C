@@ -895,13 +895,11 @@ export const UsHistoryPara = {
 //   },
 // ];
 
-
 export const aboutUsReviewData = [
   { id: 1, keys: 20, suffix: '+', title: 'Years Experience' },
   { id: 2, keys: 375, suffix: 'K', title: 'Work Completed' },
   { id: 3, keys: 19, suffix: 'K', title: 'Client Satisfied' },
 ];
-
 
 export const OurHistoryData: OurHistory[] = [
   {
@@ -1095,8 +1093,7 @@ export const subcategoryInitialValues: ISUBCATEGORY = {
   title: '',
   description: '',
   CategoryId: undefined,
-}
-
+};
 
 export const intitalValues = {
   fullname: '',
@@ -1116,5 +1113,43 @@ export const intitalValues = {
   canVeiwAdmins: false,
   canVeiwTotalproducts: false,
   canVeiwTotalCategories: false,
-
 };
+
+export const MegaMenuItem = [
+  { productName: 'automated-blinds' },
+  { productName: 'aluminium-venetian-blinds' },
+  { productName: 'blackout-blinds' },
+  { productName: 'colby-honeycomb-blinds' },
+  { productName: '3d-blinds' },
+  { productName: 'duplex-blinds' },
+  { productName: 'skylight-blinds' },
+  { productName: 'sheer-horizon-blinds' },
+  { productName: 'panel-blinds' },
+  { productName: 'roller-blinds' },
+  { productName: 'roman-blinds' },
+  { productName: 'vertical-blinds' },
+  { productName: 'wood-venetian-blinds' },
+  { productName: 'blackout-curtains' },
+  { productName: 'bedroom-curtains' },
+  { productName: 'eyelet-curtains' },
+  { productName: 'home-curtains' },
+  { productName: 'hotel-curtains' },
+  { productName: 'living-room-curtains' },
+  { productName: 'motorised-curtains' },
+  { productName: 'pinch-pleat-curtains' },
+  { productName: 'sheer-curtains' },
+  { productName: 'triple-pinch-pleat-curtains' },
+  { productName: 'chiffon-curtains' },
+  { productName: 'full-height-shutters' },
+  { productName: 'bay-window-shutters' },
+  { productName: 'tracked-system-shutters' },
+  { productName: 'special-shape-shutters' },
+  { productName: 'tier-on-tier-shutters' },
+  { productName: 'solid-panel-shutters' },
+  { productName: 'office-blinds' },
+  { productName: 'school-blinds' },
+  { productName: 'hotels-restaurants' },
+  { productName: 'office-curtains' },
+  { productName: 'printed-blinds' },
+  { productName: 'hospital-curtains' },
+];
