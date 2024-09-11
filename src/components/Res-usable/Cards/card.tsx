@@ -7,7 +7,11 @@ import { ICategory } from 'types/types';
 interface CardProps {
   data: ICategory;
 }
-
+const truncateText = (text: string, wordLimit: number) => {
+  const words = text.split(' ');
+  if (words.length <= wordLimit) return text;
+  return words.slice(0, wordLimit).join(' ') + '...';
+};
 const Card: React.FC<CardProps> = ({ data }) => {
   const route = useRouter();
   return (
@@ -27,12 +31,12 @@ const Card: React.FC<CardProps> = ({ data }) => {
         </div>
         <div className="px-2 py-4">
           <div className="font-bold text-xl mb-2">{data.title} </div>
-          <p className="text-gray-700 text-base">{data.description}</p>
+          <p className="text-gray-700 text-base">{truncateText(data.description || '', 30)}</p>
         </div>
-        <div className="font-bold w-fit group-hover:bg-white border-b border-b-primary rounded-none group-hover:border-gray-300 group-hover:border-b group-hover:border-secondary group-hover:rounded-full group-hover:text-black transition-colors duration-300 ease-in-out  text-sm">
-          <CustomButton onClick={() => route.push('/products')}>
+        <div className=" w-fit border-b-4 border-b-primary   pb-1  text-sm">
+          <button className='font-bold rounded-none group-hover:rounded-full px-3 py-1 group-hover:border-gray-300 group-hover:bg-white' onClick={() => route.push('/products')}>
             View {data.title}
-          </CustomButton>
+          </button>
         </div>
       </div>
     </>

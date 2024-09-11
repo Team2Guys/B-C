@@ -12,10 +12,10 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
         // layout="fill"
         width={800}
         height={340}
-        objectFit="cover"
-        className=""
+        
+        className="object-cover"
       />
-      <div className="absolute lg:w-3/5 md:w-3/5 inset-y-0 right-0 lg:pl-48 md:pl-48 text-left clip-custom-shape lg:p-20 p-20 md:p-20 flex flex-col justify-center items-center">
+      <div className="absolute lg:w-3/5 md:w-3/5 inset-y-0 right-0 lg:pl-48 md:pl-48 text-left clip-custom-shape lg:p-20 p-8 md:p-20 flex flex-col justify-center items-center">
         <h2 className="lg:text-4xl md:text-2xl text-lg mr-auto font-bold text-gray-800 lg:pr-20 lg:w-3/4 w-3/4">
           {data.title}
         </h2>
