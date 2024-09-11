@@ -36,8 +36,8 @@ const AllProducts: React.FC<relativeProps> = ({ products,categoryType }) => {
   };
 
   return (
-    <Container className="mt-10 md:mt-20">
-      <div className="flex flex-wrap md:flex-nowrap justify-between items-center">
+    <Container className="mt-10 md:mt-16">
+      {/* <div className="flex flex-wrap md:flex-nowrap justify-between items-center">
         <h1 className="text-[#0F172A] text-20 md:text-30 font-medium uppercase">
           MADE TO MEASURE {categoryType ? categoryType :""}
         </h1>
@@ -46,14 +46,14 @@ const AllProducts: React.FC<relativeProps> = ({ products,categoryType }) => {
           {Math.min(startIndex + productsPerPage, filteredProducts.length)} of{' '}
           {filteredProducts.length} results
         </span>
-      </div>
+      </div> */}
 
       <div className="mt-10">
         <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap overflow-x-auto ">
           {categories.map((category) => (
             <Button
               key={category}
-              className={` 
+              className={`text-15 font-bold
                 ${activeCategory === category ? 'bg-primary text-white px-2 md:px-8 py-2 md:py-7' : 'text-black bg-transparent px-2 md:px-8 py-2 md:py-7'}
               `}
               onClick={() => {
@@ -65,10 +65,10 @@ const AllProducts: React.FC<relativeProps> = ({ products,categoryType }) => {
             </Button>
           ))}
         </div>
-        <hr className="h-2 mt-5 md:mt-14 border-black" />
+        <hr className="h-2 mt-5 md:mt-8 border-black" />
         <div className="mt-10 text-center space-y-3">
-          <h1 className="text-[#231F20] text-20 md:text-24 lg:text[36px] font-medium uppercase">
-            {categoryType ? categoryType : ""}
+          <h1 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
+            MADE TO MEASURE {categoryType ? categoryType : ""}
           </h1>
           <p className="text-14 md:text-15 font-normal md:w-[65%] mx-auto">
             See our comprehensive Blinds range Find the perfect made-to-measure
