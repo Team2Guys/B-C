@@ -25,8 +25,6 @@ function Testimonial() {
         Our Happy Customers
       </h1>
       <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
         pagination={{
           clickable: true,
         }}
@@ -42,6 +40,14 @@ function Testimonial() {
             spaceBetween: 20,
           },
           1024: {
+            slidesPerView: 2.2,
+            spaceBetween: 10,
+          },
+          1140: {
+            slidesPerView: 2.6,
+            spaceBetween: 10,
+          },
+          1224: {
             slidesPerView: 3,
             spaceBetween: 30,
           },
@@ -51,7 +57,7 @@ function Testimonial() {
         <SwiperSlide className='lg:mt-14 mb-14 mt-4' key={testimonial.id}>
         <div
               
-              className="bg-white flex shadow-md rounded-sm p-7 max-w-80 sm:max-w-72 xs:max-w-96 md:max-w-64 lg:max-w-64 xl:max-w-96 2xl:max-w-md 4 my-2"
+              className="bg-white flex shadow-md rounded-sm p-7  my-2"
             >
               <div className="xs:flex items-center">
                 <Image

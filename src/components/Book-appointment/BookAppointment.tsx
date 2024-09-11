@@ -284,7 +284,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 
   return (
     <div
-      className={`bg-white  text-left text-black ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-2/5 py-4 rounded-md mt-5'}`}
+      className={`bg-white  text-left text-black ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
     >
       {!singlePage && (
         <h3 className="font-bold text-lg text-center tracking-[5px]">
@@ -296,7 +296,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
         className={` bg-white rounded-md ${singlePage ? 'w-full p-4 ' : ' px-6 py-2'}`}
       >
         <div
-          className={`xs:grid  mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-3'}`}
+          className={`xs:grid  mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 space-y-3 xs:space-y-0 gap-3'}`}
         >
           <div>
             <label
