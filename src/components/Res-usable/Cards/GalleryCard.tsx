@@ -1,4 +1,4 @@
-'use client';;
+'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { IoSearch } from 'react-icons/io5';
@@ -10,9 +10,14 @@ import { IProduct } from 'types/types';
 interface GalleryProps {
   card: IProduct;
   relativeProducts?: boolean;
+  parent?: string;
 }
 
-const GalleryCard: React.FC<GalleryProps> = ({ card, relativeProducts }) => {
+const GalleryCard: React.FC<GalleryProps> = ({
+  card,
+  relativeProducts,
+  parent,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -30,14 +35,14 @@ const GalleryCard: React.FC<GalleryProps> = ({ card, relativeProducts }) => {
           src={card?.posterImage?.imageUrl}
           alt={card.title}
           height={400}
-          width={"100%"}
+          width={'100%'}
           className=" rounded-xl"
           preview={{
             mask: (
               <div>
                 <IoSearch style={{ color: 'white', fontSize: '30px' }} />
               </div>
-            )
+            ),
           }}
         />
         <div
@@ -49,7 +54,7 @@ const GalleryCard: React.FC<GalleryProps> = ({ card, relativeProducts }) => {
             {card.title}
           </span>
           <Link
-            href={`/product/${generateSlug(card.title)}`}
+            href={`/${parent}/${generateSlug(card.title)}`}
             className={`border-[1px] border-primary px-2 py-1 rounded-sm text-14 font-light ${relativeProducts ? 'block' : 'hidden'}`}
           >
             View More
