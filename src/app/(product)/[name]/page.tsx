@@ -31,7 +31,6 @@ interface TsizePresets {
 
 const Detailpage = ({ params }: { params: Allproduct }) => {
   const ProductName = getCategoryFromUrl(params.name);
-  console.log(params, 'ProductNameProductNameProductName');
 
   const [selectedSize, setSelectedSize] = useState<TsizePresets>(initialSize);
   const [sizePresets, setSizePresets] =

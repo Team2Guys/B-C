@@ -21,11 +21,12 @@ interface ICategoryPage {
   title: string;
   relatedProducts: IProduct[];
 }
-
+const itemsPerPage = 9;
 const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   console.log('=====+ + + +  relatedProducts + + + + +===========');
   console.log(relatedProducts);
   const [activeFilter, setActiveFilter] = useState('All');
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Filter products based on the selected filter
   const filteredProducts = relatedProducts.filter((product) => {
@@ -42,6 +43,13 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     queryFn: fetchProducts,
   });
   if (error instanceof Error) return <div>Error: {error.message}</div>;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredProducts?.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
+  const totalPages = Math.ceil((filteredProducts?.length || 0) / itemsPerPage);
 
   return (
     <div>
@@ -100,7 +108,11 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         {/* Page Title */}
         <Container className="py-10 flex justify-between">
           <h1 className="text-4xl font-bold">{title}</h1>
-          <h1 className="text-md">Showing 1-12 of 25 results</h1>
+          <span className="text-gray-400 text-11 xs:text-14">
+            Showing {indexOfFirstItem + 1}–
+            {Math.min(indexOfLastItem, filteredProducts?.length || 0)} of{' '}
+            {filteredProducts?.length || 0} results
+          </span>
         </Container>
 
         {/* Filter Section */}
