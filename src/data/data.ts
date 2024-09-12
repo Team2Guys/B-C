@@ -1180,4 +1180,36 @@ export const optionDetail =[
   { value: '180 x 180', label: '180 x 180' },
   { value: '200 x 180', label: '200 x 180' },
   { value: '220 x 180', label: '220 x 180' },
+  
 ]
+
+export const estimateSldie ={
+  320: {
+    slidesPerView: 1.4,
+    spaceBetween: 10,
+  },
+  420: {
+    slidesPerView: 2.3,
+    spaceBetween: 10,
+  },
+  640: {
+    slidesPerView: 3,
+    spaceBetween: 10,
+  },
+  768: {
+    slidesPerView: 4,
+    spaceBetween: 15,
+  },
+  890: {
+    slidesPerView: 3,
+    spaceBetween: 15,
+  },
+  1330: {
+    slidesPerView: 3.5,
+    spaceBetween: 15,
+  },
+  1440: {
+    slidesPerView: 4,
+    spaceBetween: 15,
+  },
+}

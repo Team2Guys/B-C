@@ -1,7 +1,4 @@
-import { generateSlug } from 'data/data';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React from 'react';
 
 interface MenuCardProps {
@@ -9,19 +6,28 @@ interface MenuCardProps {
   alt: string;
   title: string;
   onClick?: () => void;
+  isActive?: boolean; // New prop for active state
 }
 
-const MenuCard: React.FC<MenuCardProps> = ({ src, alt, title, onClick }) => {
-
-
+const MenuCard: React.FC<MenuCardProps> = ({ src, alt, title, onClick, isActive }) => {
   return (
     <div
       onClick={onClick}
-      className="space-y-2 hover:text-black cursor-pointer  w-full h-auto  whitespace-normal">
-      <Image className='w-full h-[120px] rounded-lg' width={600} height={600} src={src} alt={alt} />
+      className={`space-y-2 hover:text-black cursor-pointer w-full h-auto whitespace-normal `} // Conditional class application
+    >
+      <Image
+        className={`w-full h-[120px] rounded-lg ${
+        isActive ? 'border-4 border-primary' : ''
+      }`}
+        width={600}
+        height={600}
+        src={src}
+        alt={alt}
+      />
       <div>
-        <p className="text-15 text-center ">{title}</p>
+        <p className={`text-15 text-center ${isActive ? 'font-bold' : ''}`}>{title}</p> {/* Apply active class */}
       </div>
+      <hr className={`${ isActive ? 'border-b-2 border-primary w-16 mx-auto' : 'border-0'}`}/>
     </div>
   );
 };
