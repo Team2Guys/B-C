@@ -15,6 +15,7 @@ import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { Button } from 'components/ui/button';
 import { estimateSldie, optionDetail } from 'data/data';
+import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
 
 const Estimator: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // Open first accordion by default
@@ -88,11 +89,15 @@ const Estimator: React.FC = () => {
 
   return (
     <>
-      <div className="mt-10 lg:max-w-[95%] 2xl:max-w-[90%]">
+    {
+      isLoadingProducts ? (
+        <EstimatorSkeleton/>
+      ):(
+        <div className="mt-10 lg:max-w-[95%] 2xl:max-w-[90%]">
         <div className="flex flex-wrap md:flex-nowrap gap-10">
           <div className="w-full md:w-7/12">
             <Image
-              src={selectedProduct?.posterImage?.imageUrl || cardImg} // Updated
+              src={selectedProduct?.posterImage?.imageUrl } // Updated
               width={1000}
               height={1000}
               alt={selectedProduct?.title || 'Blinds'} // Updated
@@ -149,6 +154,9 @@ const Estimator: React.FC = () => {
         </div>
       </div>
 
+      )
+    }
+     
       <Container className="py-10">
         <RelatedProducts products={products || []} />
       </Container>
