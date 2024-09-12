@@ -105,6 +105,24 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
             title={title}
             sliderItems={sliderData}
             buttonClass="rounded-full h-6 w-6 ml-2 bg-primary text-center shadow bg-white hover:bg-primary hover:text-white"
+
+            breakpoints={{
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              // when window width is >= 768px
+              768: {
+                slidesPerView: 6,
+                spaceBetween: 30,
+              },
+              // when window width is >= 1024px
+              1024: {
+                slidesPerView: 8,
+                spaceBetween: 30,
+              },
+            }}
           />
         </div>
       )}

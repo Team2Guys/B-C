@@ -25,6 +25,7 @@ const links = [
   { href: '/made-to-measure-curtains', label: 'Curtains', id: 5 },
   { href: '/commercial', label: 'Commercial', id: 12 },
   { href: '/gallery', label: 'Gallery' },
+  { href: '/estimator', label: 'Estimator' },
   { href: '/about-us', label: 'About Us' },
   { href: '/contact-us', label: 'Contact Us' },
 ];

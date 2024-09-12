@@ -1171,3 +1171,13 @@ export const slides: TRSlide[] = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
   },
 ];
+
+
+export const optionDetail =[
+  { value: 'Select Sizes', label: 'Select Sizes', disabled: true},
+  { value: '140 x 180', label: '140 x 180' },
+  { value: '160 x 180', label: '160 x 180' },
+  { value: '180 x 180', label: '180 x 180' },
+  { value: '200 x 180', label: '200 x 180' },
+  { value: '220 x 180', label: '220 x 180' },
+]
