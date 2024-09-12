@@ -31,12 +31,19 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
     return product.title === title;
   });
 
+  console.log('_+_+_**** filterProduct ');
+  console.log(filterProduct);
+
+  const relatedProducts = products?.filter((product) => {
+    return product.CategoryId === filterProduct?.CategoryId;
+  });
+
   return (
     <>
       <TopHero title={title} image={bgBreadcrum} />
       <DetailInfo
-        title={title ? title : ""}
-        description={filterProduct?.description || "" }
+        title={title ? title : ''}
+        description={filterProduct?.description || ''}
         image={filterProduct?.posterImage?.imageUrl}
       />
 
@@ -45,7 +52,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
       ) : (
         <>
           <DetailProduct
-            title={title ? title : ""}
+            title={title ? title : ''}
             description={filterProduct?.description || ''}
             products={filterProduct}
           />
@@ -57,7 +64,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
       ) : (
         <>
           <Container className="mt-10 md:mt-20">
-            <RelatedProducts products={products || []} />
+            <RelatedProducts products={relatedProducts || []} />
           </Container>
         </>
       )}

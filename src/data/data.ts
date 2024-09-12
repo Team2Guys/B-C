@@ -1171,3 +1171,24 @@ export const slides: TRSlide[] = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
   },
 ];
+
+export const isActiveTabs: { name: string }[] = [
+  {
+    name: 'blinds',
+  },
+  {
+    name: 'shutters',
+  },
+  {
+    name: 'curtains',
+  },
+  {
+    name: 'commercial',
+  },
+  {
+    name: 'gallery',
+  },
+  {
+    name: 'contact-us',
+  },
+];
