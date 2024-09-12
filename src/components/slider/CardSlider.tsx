@@ -21,6 +21,7 @@ interface CardSliderProps {
   sliderItems: IProduct[];
   onClick?: any;
   title?: string;
+  breakpoints?: any;
 }
 
 const CardSlider: React.FC<CardSliderProps> = ({
@@ -29,6 +30,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
   sliderItems,
   onClick,
   title,
+  breakpoints
 }) => {
   const route = useRouter();
 
@@ -44,29 +46,13 @@ const CardSlider: React.FC<CardSliderProps> = ({
         }}
         modules={[Navigation]}
         className="mySwiper"
-        breakpoints={{
-          // when window width is >= 640px
-          640: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          // when window width is >= 768px
-          768: {
-            slidesPerView: 6,
-            spaceBetween: 30,
-          },
-          // when window width is >= 1024px
-          1024: {
-            slidesPerView: 8,
-            spaceBetween: 30,
-          },
-        }}
+        breakpoints={breakpoints}
       >
         {sliderItems &&
           sliderItems.map((item) => (
             <SwiperSlide
               key={item.id}
-              className="pl-4"
+              className=""
               onClick={() => {
                 route.push(
                   `/${generateSlug(`${title}`)}/${generateSlug(item.title)}`,
