@@ -14,8 +14,8 @@ import {
   sizePresets as initialSizePresets,
   relativeProducts,
 } from 'data/data';
-import backbanner from '../../../public/assets/images/aric-blands/aric-header.png';
-import cardImg from '../../../public/assets/images/aric-blands/aric-blands.png';
+import backbanner from '../../../../public/assets/images/aric-blands/aric-header.png';
+import cardImg from '../../../../public/assets/images/aric-blands/aric-blands.png';
 
 interface TsizePresets {
   width: number;
