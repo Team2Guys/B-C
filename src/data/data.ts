@@ -99,7 +99,6 @@ export const bannerData: BannerData = {
 };
 
 export const footerLinks: TFooterSection[] = [
-
   {
     title: 'Pages',
     links: [
@@ -112,7 +111,7 @@ export const footerLinks: TFooterSection[] = [
   },
 ];
 
-export const footerInfo = ' ©Blindsand & Curtains  2024 All rights reserved';
+export const footerInfo = '  ©Blindsand & Curtains  2024 All rights reserved';
 
 export const OurClientImage = [
   { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
@@ -880,13 +879,11 @@ export const UsHistoryPara = {
 //   },
 // ];
 
-
 export const aboutUsReviewData = [
   { id: 1, keys: 20, suffix: '+', title: 'Years Experience' },
   { id: 2, keys: 375, suffix: 'K', title: 'Work Completed' },
   { id: 3, keys: 19, suffix: 'K', title: 'Client Satisfied' },
 ];
-
 
 export const OurHistoryData: OurHistory[] = [
   {
@@ -1022,7 +1019,7 @@ export const AddProductvalidationSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   description: Yup.string().required('Required'),
-  price:Yup.string().required("Price is required")
+  price: Yup.string().required('Price is required'),
   // salePrice: Yup.number()
   //   .min(1, 'Minimum sales price must be at least 1')
   //   .required('Required'),
@@ -1044,7 +1041,7 @@ export const AddproductsinitialValues: FormValues = {
   sizes: [],
   category: '',
   code: '',
-  price:0
+  price: 0,
 };
 
 export const options = [
@@ -1082,8 +1079,7 @@ export const subcategoryInitialValues: ISUBCATEGORY = {
   title: '',
   description: '',
   CategoryId: undefined,
-}
-
+};
 
 export const intitalValues = {
   fullname: '',
@@ -1103,9 +1099,46 @@ export const intitalValues = {
   canVeiwAdmins: false,
   canVeiwTotalproducts: false,
   canVeiwTotalCategories: false,
-
 };
 
+export const MegaMenuItem = [
+  { productName: 'automated-blinds' },
+  { productName: 'aluminium-venetian-blinds' },
+  { productName: 'blackout-blinds' },
+  { productName: 'colby-honeycomb-blinds' },
+  { productName: '3d-blinds' },
+  { productName: 'duplex-blinds' },
+  { productName: 'skylight-blinds' },
+  { productName: 'sheer-horizon-blinds' },
+  { productName: 'panel-blinds' },
+  { productName: 'roller-blinds' },
+  { productName: 'roman-blinds' },
+  { productName: 'vertical-blinds' },
+  { productName: 'wood-venetian-blinds' },
+  { productName: 'blackout-curtains' },
+  { productName: 'bedroom-curtains' },
+  { productName: 'eyelet-curtains' },
+  { productName: 'home-curtains' },
+  { productName: 'hotel-curtains' },
+  { productName: 'living-room-curtains' },
+  { productName: 'motorised-curtains' },
+  { productName: 'pinch-pleat-curtains' },
+  { productName: 'sheer-curtains' },
+  { productName: 'triple-pinch-pleat-curtains' },
+  { productName: 'chiffon-curtains' },
+  { productName: 'full-height-shutters' },
+  { productName: 'bay-window-shutters' },
+  { productName: 'tracked-system-shutters' },
+  { productName: 'special-shape-shutters' },
+  { productName: 'tier-on-tier-shutters' },
+  { productName: 'solid-panel-shutters' },
+  { productName: 'office-blinds' },
+  { productName: 'school-blinds' },
+  { productName: 'hotels-restaurants' },
+  { productName: 'office-curtains' },
+  { productName: 'printed-blinds' },
+  { productName: 'hospital-curtains' },
+];
 
 export const items = [
   {
@@ -1124,7 +1157,6 @@ export const items = [
     id: 4,
     text: 'Lorem is simply dummy text of the printing and typesetting industry.',
   },
-  
 ];
 
 export const slides: TRSlide[] = [
