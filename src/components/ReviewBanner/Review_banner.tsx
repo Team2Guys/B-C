@@ -9,6 +9,7 @@ import { RatingSlider, slides } from 'data/data';
 import Image from 'next/image';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Container from 'components/Res-usable/Container/Container';
+import Link from 'next/link';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -53,7 +54,7 @@ export default function Review_banner() {
               <h3>Trusted Reviews from Our Customer</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10 lg:mb-0 mb-20">
-              <a href="" className="">
+              <Link href="/" className="w-fit">
                 <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit">
                   <span>
                     <FcGoogle className="lg:text-3xl text-14" />
@@ -61,12 +62,12 @@ export default function Review_banner() {
                   <span className="font-bold">4.8 |</span>
                   <p className="lg:text-base text-12">See All Reviews</p>
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="bg-primary lg:mt-0 mt-10">
               <div className="container h-auto w-full">
                 <Image
-                  className="absolute lg:-top-4 top-[43%]  xs:top-[41%] sm:top-[43%] lg:bottom-60  lg:right-[13%] lg:translate-x-[15%] right-[50%] translate-x-[50%] sm:right-[50%] sm:translate-x-[50%]  z-10 "
+                  className="absolute lg:-top-4 top-[43%]  xs:top-[41%] sm:top-[43%] lg:bottom-60  lg:right-[13%] lg:translate-x-[15%] 2xl:right-[14%] right-[50%] translate-x-[50%] sm:right-[50%] sm:translate-x-[50%]  z-10 "
                   src={RatingSlider.imageUrl}
                   alt=""
                   width={140}

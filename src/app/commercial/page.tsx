@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/large-ss.png';
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
@@ -15,13 +15,16 @@ import { IProduct } from 'types/types';
 import { fetchProducts } from 'config/fetch';
 
 const CommercialPage = () => {
-
-  const { data: products, error, isLoading } = useQuery<IProduct[]>({
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
   if (error instanceof Error) return <div>Error: {error.message}</div>;
-  
+
   return (
     <div>
       <TopHero title="commercial" image={bgBreadcrum} />
@@ -94,17 +97,18 @@ const CommercialPage = () => {
           There are many shades and stunning patterns to select from
         </p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {products && products.map((product: IProduct) => (
+          {products &&
+            products.map((product: IProduct) => (
               <GalleryCard
                 card={product}
                 key={product.id}
                 relativeProducts={false}
               />
-          ))}
+            ))}
         </div>
         <div className="h-fit mt-20 text-center">
           <Link
-            href="/product"
+            href="/products"
             className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
           >
             View More
@@ -112,7 +116,7 @@ const CommercialPage = () => {
         </div>
       </Container>
       <Container className="py-10">
-      <RelatedProducts products={products || []} />
+        <RelatedProducts products={products || []} />
       </Container>
     </div>
   );

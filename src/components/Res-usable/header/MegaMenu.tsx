@@ -3,22 +3,26 @@ import Link from 'next/link';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import CardSlider from 'components/slider/CardSlider';
 import { cn } from 'lib/utils';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { ICategory, IProduct } from 'types/types';
 import { generateSlug } from 'data/data';
 
 interface MegaMenuProps {
-  title: string; // Category title
-  sliderData: IProduct[]; // List of products for the slider
+  title: string;
+  sliderData: any[];
   className?: string;
   onClick?: (product: IProduct) => void;
+  href?: string;
 }
 
 const MegaMenu: React.FC<MegaMenuProps> = ({
   title,
   sliderData,
   className,
+  href,
+  onClick,
 }) => {
+  const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -37,7 +41,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     const mouseEvent = event as any;
 
     if (
-      menuRef.current && !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
+      menuRef.current &&
+      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
       buttonRef.current &&
       !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
     ) {
@@ -69,14 +74,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   }, []);
 
   const handleClick = () => {
-    const slug = generateSlug(title)
-    route.push(`/products/${slug}`);
-    setIsOpen((prev) => !prev);
-  };
-
-  const handledetail = () => {
-    const slug = generateSlug(title)
-    route.push(`/product/${slug}`);
+    // const slug = generateSlug(title);
+    const slug = href;
+    route.push(`${process.env.NEXT_PUBLIC_APP_URL}/${slug}`);
     setIsOpen((prev) => !prev);
   };
 
@@ -105,9 +105,27 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
             </Link>
           </div>
           <CardSlider
-           onClick={handledetail}
+            title={title}
             sliderItems={sliderData}
             buttonClass="rounded-full h-6 w-6 ml-2 bg-primary text-center shadow bg-white hover:bg-primary hover:text-white"
+
+            breakpoints={{
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              // when window width is >= 768px
+              768: {
+                slidesPerView: 6,
+                spaceBetween: 30,
+              },
+              // when window width is >= 1024px
+              1024: {
+                slidesPerView: 8,
+                spaceBetween: 30,
+              },
+            }}
           />
         </div>
       )}
