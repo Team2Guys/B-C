@@ -189,3 +189,48 @@
 .mySwiper .swiper-pagination-bullet-active {
   background-color: #a3b4a2; 
 }
+
+.ant-image {
+  position: relative;
+ width: 100%;
+ height: 400px !important;
+}
+ .ant-image-img{
+ width: 100%;
+  height: 400px !important;
+}
+.ant-image .ant-image-mask{
+  border-radius: 16px !important;
+}
+.ant-image .ant-image-mask:hover{
+  border-radius: 16px !important;
+}
+@media only screen and (max-width: 600px) {
+  .ant-image {
+    width: 100%;
+    height: 240px !important;
+   }
+   .ant-image .ant-image-img{
+     height: 240px !important;
+   }
+   
+}
+
+.detail-otion .ant-select-selector{
+  border: none !important;
+  box-shadow:none !important;
+}
+.ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+  background-color: var(--primary);
+  color: white !important;
+}
+.ant-select-single.ant-select-open .ant-select-selection-item{
+  font-size: larger !important;
+}
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder{
+  font-size: large !important;
+  font-weight: 600;
+}
+:where(.css-dev-only-do-not-override-1c0na6j).ant-select-dropdown{
+  z-index: 20!important;
+}

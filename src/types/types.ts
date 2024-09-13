@@ -52,6 +52,7 @@ export interface IProduct {
   SubCategoryId: number | null;
   createdAt: string;
   updatedAt: string | null;
+  length?: any;
 }
 
 export interface IRECORDS {
