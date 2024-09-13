@@ -1173,6 +1173,28 @@ export const slides: TRSlide[] = [
 ];
 
 
+export const isActiveTabs: { name: string }[] = [
+  {
+    name: 'blinds',
+  },
+  {
+    name: 'shutters',
+  },
+  {
+    name: 'curtains',
+  },
+  {
+    name: 'commercial',
+  },
+  {
+    name: 'gallery',
+  },
+  {
+    name: 'contact-us',
+  },
+];
+
+
 export const optionDetail =[
   { value: 'Select Sizes', label: 'Select Sizes', disabled: true},
   { value: '140 x 180', label: '140 x 180' },
@@ -1213,3 +1235,4 @@ export const estimateSldie ={
     spaceBetween: 15,
   },
 }
+
