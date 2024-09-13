@@ -6,6 +6,7 @@ import { Image, Modal } from 'antd';
 import { GalleryItems } from 'types/interfaces';
 import { generateSlug } from 'data/data';
 import { IProduct } from 'types/types';
+import { useRouter } from 'next/navigation';
 
 interface GalleryProps {
   card: IProduct;
@@ -18,6 +19,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
   relativeProducts,
   parent,
 }) => {
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -53,12 +55,15 @@ const GalleryCard: React.FC<GalleryProps> = ({
           >
             {card.title}
           </span>
-          <Link
-            href={`/${parent}/${generateSlug(card.title)}`}
-            className={`border-[1px] border-primary px-2 py-1 rounded-sm text-14 font-light ${relativeProducts ? 'block' : 'hidden'}`}
+          <div
+            // href={`/blind/${parent}/${generateSlug(card.title)}`}
+            onClick={() => {
+              router.push(`/${parent}/${generateSlug(card.title)}`);
+            }}
+            className={`border-[1px] border-primary px-2 py-1 rounded-sm text-14 font-light cursor-pointer ${relativeProducts ? 'block' : 'hidden'}`}
           >
             View More
-          </Link>
+          </div>
         </div>
       </div>
     </>
