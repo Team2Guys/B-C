@@ -32,15 +32,15 @@ const Footer: React.FC = () => {
   });
 
   if (categoriesError || subcategoriesError) {
-    return <div>Error: {categoriesError?.message || subcategoriesError?.message}</div>;
+    return (
+      <div>
+        Error: {categoriesError?.message || subcategoriesError?.message}
+      </div>
+    );
   }
 
   if (isLoadingCategories || isLoadingSubcategories) {
-    return (
-      <div>
-        {/* Loading state content */}
-      </div>
-    );
+    return <div>{/* Loading state content */}</div>;
   }
 
   return (
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
               <Link href={'/'}>
                 <Image
                   src={'/assets/images/whitelogo.png'}
-                  className='w-auto h-auto'
+                  className="w-auto h-auto"
                   alt=""
                   width={150}
                   height={150}
@@ -86,45 +86,69 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="grid  grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-end py-5  lg:w-5/6">
-            {categories
-            ?.filter((category) => category.title !== 'Commercial') 
-            .map((category) => (
-              <div key={category.id}>
-                <h3 className="font-bold text-16 mb-2">{category.title}</h3>
-                <ul className="space-y-3 mt-4 text-sm">
-                  {subcategories
-                    ?.filter(
-                      (subcategory) =>
-                        subcategory.CategoryId === category.id &&
-                        category.title !== 'Commercial'
-                    )
-                    .map((subcategory) => (
-                      <li key={subcategory.id}>
-                        <Link className="text-16 font-medium" href={`/product/${generateSlug(subcategory.title)}`}>
-                          {subcategory.title}
-                        </Link>
-                      </li>
-                    ))}
-                </ul>
-              </div>
-            ))}
-              {footerLinks.map((category,index) => (
-                <div key={index} className="md:col-span-1 lg:pl-8 mt-5 lg:mt-0 ">
-                  <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">{category.title}</h3>
+              {categories
+                ?.filter((category) => category.title !== 'Commercial')
+                .map((category) => (
+                  <div key={category.id}>
+                    <h3 className="font-bold text-16 mb-2">{category.title}</h3>
+                    <ul className="space-y-3 mt-4 text-sm">
+                      {subcategories
+                        ?.filter(
+                          (subcategory) =>
+                            subcategory.CategoryId === category.id &&
+                            category.title !== 'Commercial',
+                        )
+                        .map((subcategory) => {
+                          const filtered = categories?.find((cat) => {
+                            return cat.id === subcategory.CategoryId;
+                          });
+                          return (
+                            <li key={subcategory.id}>
+                              <Link
+                                className="text-16 font-medium"
+                                href={`/${filtered?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
+                              >
+                                {subcategory.title}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </div>
+                ))}
+              {footerLinks.map((category, index) => (
+                <div
+                  key={index}
+                  className="md:col-span-1 lg:pl-8 mt-5 lg:mt-0 "
+                >
+                  <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">
+                    {category.title}
+                  </h3>
                   <ul className="space-y-3 mt-4 text-sm">
                     {category.links.map((link, index) => (
                       <li key={index}>
-                        <Link className='text-16 font-medium' href={link.href}>{link.text}</Link>
+                        <Link className="text-16 font-medium" href={link.href}>
+                          {link.text}
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
               ))}
-                <div className="md:col-span-1 lg:pl-8  mt-5 lg:mt-0">
-                  <h3 className="font-bold mb-2 border-b-4 lg:border-0 w-fit">Blinds & Curtains Dubai</h3>
-                  <ul className="space-y-4 mt-4 text-sm">
+              <div className="md:col-span-1 lg:pl-8  mt-5 lg:mt-0">
+                <h3 className="font-bold mb-2 border-b-4 lg:border-0 w-fit">
+                  Blinds & Curtains Dubai
+                </h3>
+                <ul className="space-y-4 mt-4 text-sm">
                   <li>
-                    <Link className='text-16 font-normal -tracking-widest' href={"https://www.google.com/maps?ll=25.110758,55.204302&z=15&t=m&hl=en&gl=US&mapclient=embed&cid=2995480907046932023"}>Unit 43 22nd St – Al Quoz Industrial Area 4 – Dubai  UAE</Link>
+                    <Link
+                      className="text-16 font-normal -tracking-widest"
+                      href={
+                        'https://www.google.com/maps?ll=25.110758,55.204302&z=15&t=m&hl=en&gl=US&mapclient=embed&cid=2995480907046932023'
+                      }
+                    >
+                      Unit 43 22nd St – Al Quoz Industrial Area 4 – Dubai UAE
+                    </Link>
                   </li>
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.7371250646106!2d55.2043024!3d25.110758399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b431460c8a5%3A0x29921603a3ff4e37!2sCustom%20Blinds%20And%20Curtains%20Dubai!5e0!3m2!1sen!2s!4v1724146508721!5m2!1sen!2s"
@@ -132,10 +156,9 @@ const Footer: React.FC = () => {
                     height="200"
                     loading="lazy"
                     style={{ border: 0 }}
-                    />
-                  </ul>
-                </div>
-          
+                  />
+                </ul>
+              </div>
             </div>
           </div>
         </div>

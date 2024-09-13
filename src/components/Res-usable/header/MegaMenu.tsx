@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import CardSlider from 'components/slider/CardSlider';
 import { cn } from 'lib/utils';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { ICategory, IProduct } from 'types/types';
 import { generateSlug } from 'data/data';
 
@@ -20,7 +20,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   sliderData,
   className,
   href,
+  onClick,
 }) => {
+  const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -39,7 +41,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     const mouseEvent = event as any;
 
     if (
-      menuRef.current && !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
+      menuRef.current &&
+      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
       buttonRef.current &&
       !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
     ) {

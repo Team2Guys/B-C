@@ -6,7 +6,6 @@ import logo from '../../../../public/assets/images/logomain.png';
 import MegaMenu from './MegaMenu';
 import Sheet from 'components/ui/Drawer';
 import { RiMenuFoldLine } from 'react-icons/ri';
-import MenuCard from 'components/ui/menu-card';
 import SocialLink from '../social-link/social-link';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
@@ -16,14 +15,15 @@ import {
   fetchSubCategories,
 } from 'config/fetch';
 import { Skeleton } from 'components/ui/skeleton';
-import { generateSlug, MegaMenuItem } from 'data/data';
-import { useRouter } from 'next/navigation';
+import { generateSlug, isActiveTabs, MegaMenuItem } from 'data/data';
+import { usePathname } from 'next/navigation';
 
 const links = [
   { href: '/made-to-measure-blinds', label: 'Blinds', id: 2 },
   { href: '/shutters-range', label: 'Shutter', id: 9 },
   { href: '/made-to-measure-curtains', label: 'Curtains', id: 5 },
-  { href: '/commercial', label: 'Commercial', id: 12 },
+  // { href: '/commercial', label: 'Commercial', id: 12 },
+  { href: '/commercial', label: 'Commercial' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/estimator', label: 'Estimator' },
   { href: '/about-us', label: 'About Us' },
@@ -32,14 +32,14 @@ const links = [
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
-  const [secondDrawerOpen, setSecondDrawerOpen] = useState<boolean>(false);
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
     undefined,
   );
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
     null,
   );
-  const route = useRouter();
+  const path = usePathname();
+  console.log(path + '------------path----------');
   const handleLinkClick = () => {
     setDrawerOpen(false);
     setSelectedLabel(undefined);
@@ -51,7 +51,6 @@ const Header = () => {
 
   const handleCategoryClick = (categoryId: number | null) => {
     setSelectedCategoryId(categoryId);
-    setSecondDrawerOpen(true);
   };
 
   const {
@@ -120,7 +119,9 @@ const Header = () => {
           <div className="w-3/12 lg:w-8/12">
             <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3">
               <Link
-                className={`px-3 py-2 rounded-md text-12 xl:text-15`}
+                className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
+                  path === '/' ? 'font-bold text-black-500' : ''
+                }`}
                 href={'/'}
               >
                 Home
@@ -144,8 +145,11 @@ const Header = () => {
 
                 const combinedSliderData = [
                   ...filteredSubCategories,
-                  ...filteredProducts,
+                  ...actualProducts,
                 ];
+
+                const isActive =
+                  link.href && path?.includes(generateSlug(link.label));
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
@@ -154,11 +158,14 @@ const Header = () => {
                     title={link.label || ''}
                     sliderData={combinedSliderData}
                     href={link.href}
+                    className={isActive ? 'font-bold text-black-500' : ''}
                   />
                 ) : (
                   <Link
                     key={index}
-                    className="px-3 py-2 rounded-md text-12 xl:text-15"
+                    className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
+                      isActive ? 'font-bold text-black-500' : ''
+                    }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
                   >
@@ -184,66 +191,22 @@ const Header = () => {
             >
               <div className="flex flex-col">
                 <Link
-                  className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium `}
+                  className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
+                    path === '/' ? 'font-bold text-black-500' : ''
+                  }`}
                   onClick={handleCloseDrawer}
                   href="/"
                 >
                   Home
                 </Link>
-                <Sheet
-                  open={secondDrawerOpen}
-                  setOpen={setSecondDrawerOpen}
-                  drawerName={
-                    <div
-                      className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium cursor-pointer `}
-                    >
-                      Product
-                    </div>
-                  }
-                >
-                  <>
-                    <div className="whitespace-nowrap flex flex-row overflow-x-auto">
-                      {/* "All" category option */}
-                      <div
-                        className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === null ? 'bg-primary text-white' : ''}`}
-                        onClick={() => handleCategoryClick(null)}
-                      >
-                        All
-                      </div>
-                      {categories &&
-                        categories.map((category: ICategory, index: number) => (
-                          <div
-                            className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === category.id ? 'bg-primary text-white' : ''}`}
-                            key={index}
-                            onClick={() => handleCategoryClick(category.id!)}
-                          >
-                            {category.title}
-                          </div>
-                        ))}
-                    </div>
-                    <div className="grid grid-cols-2 gap-5 mt-5">
-                      {filteredProducts &&
-                        filteredProducts.map((product: IProduct) => (
-                          <MenuCard
-                            key={product.id}
-                            src={product.posterImage.imageUrl}
-                            alt={product.title}
-                            title={product.title}
-                            onClick={() => {
-                              const slug = generateSlug(product.title);
-                              route.push(`/products/${slug}`);
-                              setSecondDrawerOpen(false);
-                              setDrawerOpen(false);
-                            }}
-                          />
-                        ))}
-                    </div>
-                  </>
-                </Sheet>
                 {links.map((link, index) => (
                   <Link
                     key={index}
-                    className="px-3 py-2 rounded-md text-14 hover:text-black font-medium"
+                    className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
+                      link.href && path?.includes(generateSlug(link.label))
+                        ? 'font-bold text-black-500'
+                        : ''
+                    }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
                   >
