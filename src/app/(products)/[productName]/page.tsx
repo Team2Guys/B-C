@@ -73,8 +73,15 @@ const Products = () => {
     productName?.includes(link.href.replace(/^\//, '')),
   );
 
-  const title = matchingLink ? matchingLink.label : 'sff';
-  productName = title;
+  productName = matchingLink ? matchingLink.label : 'sff';
+
+  const filterProduct = products?.find((product) => {
+    return product.title === productName;
+  });
+  let relatedProduct = products?.filter((product) => {
+    return product.CategoryId === filterProduct?.CategoryId;
+  });
+
   return (
     <>
       <VideoBanner title={productName} />
@@ -84,7 +91,7 @@ const Products = () => {
         categoryType={productNameString}
       />
       <Container className="mt-20 mb-20">
-        <RelatedProducts products={products || []} />
+        <RelatedProducts products={relatedProduct || []} />
       </Container>
       <BookNowBanner className="mt-20" />
       <VideoAutomation className=" mt-20" />
