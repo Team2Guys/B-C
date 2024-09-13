@@ -1,39 +1,30 @@
 import React from 'react';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
-// Import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import { IProduct } from 'types/types';
 import MenuCard from 'components/ui/menu-card';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { useRouter } from 'next/navigation';
-import { generateSlug } from 'data/data';
 
-interface CardSliderProps {
+interface EstimatorSliderProps {
   buttonClass?: string;
   className?: string;
   sliderItems: IProduct[];
-  onClick?: any;
-  title?: string;
+  onProductSelect: (product: IProduct) => void;
   breakpoints?: any;
+  selectedProductId?: number; // New prop to track selected product
 }
 
-const CardSlider: React.FC<CardSliderProps> = ({
+const EstimatorSlider: React.FC<EstimatorSliderProps> = ({
   buttonClass = '',
   className,
   sliderItems,
-  onClick,
-  title,
-  breakpoints
+  onProductSelect,
+  breakpoints,
+  selectedProductId, // New prop
 }) => {
-  const route = useRouter();
-
   return (
     <div className="px-4">
       <Swiper
@@ -50,26 +41,20 @@ const CardSlider: React.FC<CardSliderProps> = ({
       >
         {sliderItems &&
           sliderItems.map((item) => (
-            <SwiperSlide
-              key={item.id}
-              className=""
-              onClick={() => {
-                route.push(
-                  `/${generateSlug(`${title}`)}/${generateSlug(item.title)}`,
-                );
-              }}
-            >
+            <SwiperSlide key={item.id}>
               <MenuCard
                 src={item.posterImage.imageUrl || ''}
                 alt={item.title}
                 title={item.title}
+                onClick={() => onProductSelect(item)}
+                isActive={item.id === selectedProductId} // Check if the product is selected
               />
             </SwiperSlide>
           ))}
       </Swiper>
       <div className={`flex justify-end ${className} `}>
         <button
-          className={`flex justify-center items-center  custom-prev ${buttonClass}`}
+          className={`flex justify-center items-center custom-prev ${buttonClass}`}
         >
           <IoIosArrowBack />
         </button>
@@ -83,4 +68,4 @@ const CardSlider: React.FC<CardSliderProps> = ({
   );
 };
 
-export default CardSlider;
+export default EstimatorSlider;
