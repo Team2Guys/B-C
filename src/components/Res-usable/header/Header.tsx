@@ -25,6 +25,7 @@ const links = [
   // { href: '/commercial', label: 'Commercial', id: 12 },
   { href: '/commercial', label: 'Commercial' },
   { href: '/gallery', label: 'Gallery' },
+  { href: '/estimator', label: 'Estimator' },
   { href: '/about-us', label: 'About Us' },
   { href: '/contact-us', label: 'Contact Us' },
 ];
