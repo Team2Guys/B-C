@@ -5,7 +5,12 @@ import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 import ProductCard from 'components/Res-usable/Cards/ProductCard';
-import { galleryItems, productItems, relativeProducts } from 'data/data';
+import {
+  galleryItems,
+  generateSlug,
+  productItems,
+  relativeProducts,
+} from 'data/data';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Link from 'next/link';
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
@@ -16,6 +21,7 @@ import { fetchProducts } from 'config/fetch';
 import FeatureProduct from 'components/feture-product/feature-product';
 import { useState } from 'react';
 import { Button } from 'components/ui/button';
+import { usePathname } from 'next/navigation';
 
 interface ICategoryPage {
   title: string;
@@ -23,12 +29,10 @@ interface ICategoryPage {
 }
 const itemsPerPage = 9;
 const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
-  console.log('=====+ + + +  relatedProducts + + + + +===========');
-  console.log(relatedProducts);
+  const pathname = usePathname();
   const [activeFilter, setActiveFilter] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Filter products based on the selected filter
   const filteredProducts = relatedProducts.filter((product) => {
     if (activeFilter === 'All') return true;
     return product.title === activeFilter;
@@ -42,6 +46,21 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
+
+  const filterProduct = products?.find((product) => {
+    return product.title === title;
+  });
+
+  let relatedProduct = products?.filter((product) => {
+    return product.CategoryId === filterProduct?.CategoryId;
+  });
+
+  if (relatedProduct?.length === 0) {
+    relatedProduct = products?.filter((product) => {
+      return product.SubCategoryId === filterProduct?.SubCategoryId;
+    });
+  }
+
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -55,7 +74,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     <div>
       <TopHero title={`${title}`} image={bgBreadcrum} />
 
-      {/* Alternating Related Products Section */}
       <Container className="pt-20 pb-14 flex flex-col gap-10 items-center">
         {relatedProducts?.map((product, index) => (
           <div
@@ -67,7 +85,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               height={500}
               width={500}
               alt={product.title}
-              // Ensure image takes full width and height is auto adjusted
             />
 
             <div className="w-full md:w-1/2 flex flex-col justify-center">
@@ -88,7 +105,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
               <div className="h-fit mt-8">
                 <Link
-                  href="/appointment"
+                  href={`${pathname}/${generateSlug(product.title)}`}
                   className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
                 >
                   Book Now
@@ -99,13 +116,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         ))}
       </Container>
 
-      {/* Product Gallery Section */}
-
-      {/* Book Now Banner Section */}
-
-      {/* Featured Products Section */}
       <div>
-        {/* Page Title */}
         <Container className="py-10 flex justify-between">
           <h1 className="text-4xl font-bold">{title}</h1>
           <span className="text-gray-400 text-11 xs:text-14">
@@ -115,7 +126,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
           </span>
         </Container>
 
-        {/* Filter Section */}
         <Container className="text-center py-6">
           <div className="flex justify-center space-x-4">
             <Button
@@ -139,7 +149,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
           </div>
         </Container>
 
-        {/* Product Gallery */}
         <Container className="text-center py-20">
           <h2 className="text-2xl xs:text-3xl sm:text-4xl">
             {activeFilter.toUpperCase()}
@@ -170,9 +179,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
       <BookNowBanner />
 
-      {/* Related Products Section */}
       <Container className="py-10">
-        <RelatedProducts products={products || []} />
+        <RelatedProducts products={relatedProduct || []} />
       </Container>
     </div>
   );
