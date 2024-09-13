@@ -18,7 +18,7 @@ import { Skeleton } from 'components/ui/skeleton';
 import { generateSlug, isActiveTabs, MegaMenuItem } from 'data/data';
 import { usePathname } from 'next/navigation';
 
-const links = [
+export const links = [
   { href: '/made-to-measure-blinds', label: 'Blinds', id: 2 },
   { href: '/shutters-range', label: 'Shutter', id: 9 },
   { href: '/made-to-measure-curtains', label: 'Curtains', id: 5 },

@@ -1,6 +1,6 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/large-ss.png';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_subcategory.png';
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
@@ -27,9 +27,11 @@ interface ICategoryPage {
   title: string;
   relatedProducts: IProduct[];
 }
+
 const itemsPerPage = 9;
 const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const pathname = usePathname();
+  console.log('path name+++++' + pathname);
   const [activeFilter, setActiveFilter] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -88,14 +90,12 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
             />
 
             <div className="w-full md:w-1/2 flex flex-col justify-center">
-              <h3 className="font-bold text-xl xs:text-2xl tracking-wider">
-                {index === 0 && (
-                  <div className="tracking-[.7rem]">
-                    CHECK OUR OTHER RANGE OF ROLLER BLINDS
-                  </div>
-                )}
-                <span className="font-medium tracking-widest">
-                  {' '}
+              <h3 className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
+                <div className="tracking-[.6rem] mb-2">
+                  CHECK OUR OTHER RANGE OF {product.title}?
+                </div>
+
+                <span className="font-light tracking-[.2rem] ">
                   {product.title}
                 </span>
               </h3>
@@ -105,7 +105,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
               <div className="h-fit mt-8">
                 <Link
-                  href={`${pathname}/${generateSlug(product.title)}`}
+                  // href={`${pathname}/${generateSlug(product.title)}`}
+                  href={`/appointment`}
                   className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
                 >
                   Book Now
@@ -117,14 +118,14 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
       </Container>
 
       <div>
-        <Container className="py-10 flex justify-between">
+        {/* <Container className="py-10 flex justify-between">
           <h1 className="text-4xl font-bold">{title}</h1>
           <span className="text-gray-400 text-11 xs:text-14">
             Showing {indexOfFirstItem + 1}–
             {Math.min(indexOfLastItem, filteredProducts?.length || 0)} of{' '}
             {filteredProducts?.length || 0} results
           </span>
-        </Container>
+        </Container> */}
 
         <Container className="text-center py-6">
           <div className="flex justify-center space-x-4">
@@ -165,7 +166,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                 <GalleryCard
                   card={product}
                   key={product.id}
-                  relativeProducts={false}
+                  relativeProducts={true}
+                  parent={pathname}
                 />
               ))}
           </div>
