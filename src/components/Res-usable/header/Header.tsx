@@ -136,12 +136,21 @@ const Header = () => {
                     (product) => product.CategoryId === link.id,
                   ) || [];
 
+                console.log(
+                  '====================== FilteredProduct =====================',
+                );
+                console.log(filteredProducts);
+
                 const actualProducts = filteredProducts.filter((product) =>
                   MegaMenuItem.some(
                     (menuItem) =>
                       menuItem.productName === generateSlug(product.title),
                   ),
                 );
+                console.log(
+                  '====================== actualProducts =====================',
+                );
+                console.log(actualProducts);
 
                 const combinedSliderData = [
                   ...filteredSubCategories,
