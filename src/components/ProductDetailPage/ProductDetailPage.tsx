@@ -31,9 +31,6 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
     return product.title === title;
   });
 
-  console.log('_+_+_**** filterProduct ');
-  console.log(filterProduct);
-
   const relatedProducts = products?.filter((product) => {
     return product.CategoryId === filterProduct?.CategoryId;
   });
