@@ -16,12 +16,13 @@ import Support from 'components/Res-usable/support/support';
 import { Button } from 'components/ui/button';
 import { estimateSldie, optionDetail } from 'data/data';
 import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
+import { useRouter } from 'next/navigation';
 
 const Estimator: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // Open first accordion by default
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
-
+  const route = useRouter();
   const handleToggleDescription = () => {
     setIsDescriptionExpanded(!isDescriptionExpanded);
   };
@@ -108,8 +109,8 @@ const Estimator: React.FC = () => {
         <EstimatorSkeleton />
       ) : (
         <div className="mt-10 lg:max-w-[95%] 2xl:max-w-[90%]">
-          <div className="flex flex-wrap md:flex-nowrap gap-10">
-            <div className="w-full md:w-7/12">
+          <div className="grid grid-cols-12 gap-10">
+            <div className=" col-span-12 md:col-span-5 lg:col-span-7">
               <Image
                 src={selectedProduct?.posterImage?.imageUrl}
                 width={1000}
@@ -119,7 +120,7 @@ const Estimator: React.FC = () => {
               />
             </div>
 
-            <div className="flex flex-col space-y-5 w-full md:w-5/12 px-2 md:px-0">
+            <div className="flex flex-col space-y-5 col-span-12 md:col-span-7 lg:col-span-5 px-2 md:px-0">
               <h2 className="lg:text-[39px] lg:font-black text-2xl font-bold capitalize">
                 Get Estimate
               </h2>
@@ -150,7 +151,7 @@ const Estimator: React.FC = () => {
                             buttonClass="rounded-full h-6 w-6 ml-2 bg-primary text-center shadow bg-white hover:bg-primary hover:text-white"
                             breakpoints={estimateSldie}
                             onProductSelect={handleProductSelect}
-                            selectedProductId={selectedProduct?.id} // Pass selected product ID
+                            selectedProductId={selectedProduct?.id} 
                           />
                         </Accordion>
                       ))}
@@ -175,7 +176,7 @@ const Estimator: React.FC = () => {
                 )}
               </p>
 
-              <Button className="bg-secondary text-white text-2xl font-bold py-7 px-4 rounded-lg">
+              <Button onClick={()=>{route.push("/appointment")}} className="bg-secondary text-white text-2xl font-bold py-7 px-4 rounded-lg">
                 Book Now
               </Button>
             </div>
