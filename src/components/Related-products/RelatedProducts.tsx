@@ -10,8 +10,6 @@ interface relativeProps {
 }
 
 const RelatedProducts: React.FC<relativeProps> = ({ products }) => {
-  console.log('_______Related products______');
-  console.log(products);
   const {
     data: categoriesList = [],
     error,
@@ -20,10 +18,6 @@ const RelatedProducts: React.FC<relativeProps> = ({ products }) => {
     queryKey: ['category'],
     queryFn: fetchCategories,
   });
-  console.log(categoriesList);
-
-  console.log('Category ___ NAME ');
-  // console.log(filteredCategory?.title);
   return (
     <div>
       <div className="flex items-center gap-1">

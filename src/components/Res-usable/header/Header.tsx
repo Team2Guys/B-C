@@ -18,7 +18,7 @@ import {
 import { generateSlug, MegaMenuItem } from 'data/data';
 import { usePathname } from 'next/navigation';
 
-const links = [
+export const links = [
   { href: '/made-to-measure-blinds', label: 'Blinds', id: 2 },
   { href: '/shutters-range', label: 'Shutter', id: 9 },
   { href: '/made-to-measure-curtains', label: 'Curtains', id: 5 },
@@ -40,7 +40,6 @@ const Header = () => {
     null,
   );
   const path = usePathname();
-  console.log(path + '------------path----------');
   const handleLinkClick = () => {
     setDrawerOpen(false);
     setSelectedLabel(undefined);
