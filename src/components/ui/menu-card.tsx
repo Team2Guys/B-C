@@ -13,10 +13,10 @@ const MenuCard: React.FC<MenuCardProps> = ({ src, alt, title, onClick, isActive 
   return (
     <div
       onClick={onClick}
-      className={`space-y-2 hover:text-black cursor-pointer w-full h-auto whitespace-normal `} // Conditional class application
+      className={`space-y-2 hover:text-black cursor-pointer w-full flex flex-col justify-center  whitespace-pre-wrap `} // Conditional class application
     >
       <Image
-        className={`w-full h-[120px] rounded-lg ${
+        className={`w-[full] h-[120px] rounded-lg ${
         isActive ? 'border-4 border-primary' : ''
       }`}
         width={600}

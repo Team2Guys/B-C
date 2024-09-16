@@ -25,7 +25,10 @@ const Accordion: React.FC<AccordionProps> = ({ title, children, isOpen, onClick 
           <FiArrowDownCircle size={25} />
         </span>
       </button>
-      {isOpen && <div className="py-3 bg-white mt-1">{children}</div>}
+      <div className="">
+
+      {isOpen && <div className="py-3  bg-white W mt-1">{children}</div>}
+      </div>
     </div>
   );
 };

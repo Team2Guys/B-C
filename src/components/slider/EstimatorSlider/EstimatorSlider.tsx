@@ -26,10 +26,10 @@ const EstimatorSlider: React.FC<EstimatorSliderProps> = ({
   selectedProductId, // New prop
 }) => {
   return (
-    <div className="px-4">
+    <div className="px-8">
       <Swiper
-        slidesPerView={8}
-        spaceBetween={20}
+        slidesPerView={4}
+        spaceBetween={10}
         loop={true}
         navigation={{
           nextEl: '.custom-next',
