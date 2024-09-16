@@ -13,9 +13,7 @@ import Link from 'next/link';
 const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 6;
-
   const latestArticles = blogData.slice(0, 4);
-
   const totalPages = Math.ceil(blogData.length / blogsPerPage);
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
@@ -28,9 +26,8 @@ const Blog = () => {
     <>
       <Header />
       <TopHero title="Blogs" image={bgBreadcrum} />
-      <OurBlog title="Latest Articles" Blogdata={latestArticles} isFirstItemLarge />
-      <OurBlog id={"#top"} title="Popular Post" Blogdata={currentBlogs} />
-
+      <OurBlog title="Latest Articles" Blogdata={latestArticles} isFirstItemLarge buttonView />
+      <OurBlog id={"#top"} title="Popular Post" Blogdata={currentBlogs} buttonView />
       <div className="flex justify-center mt-8 space-x-2">
         {Array.from({ length: totalPages }, (_, index) => (
           <Link href={"#top"}

@@ -26,7 +26,7 @@ export const links = [
   { href: '/commercial', label: 'Commercial' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/estimator', label: 'Estimator' },
-  { href: '/blog', label: 'Blogs' },
+  { href: '/blog', label: 'Blog' },
   { href: '/about-us', label: 'About Us' },
   { href: '/contact-us', label: 'Contact Us' },
 ];

@@ -334,8 +334,9 @@ export interface ADMINS_PROPS {
 
 export interface BlogProps {
   className?: string;
-  title?: string;
+  title?: string | undefined;
   id?: string;
   Blogdata: BlogInfo[];
   isFirstItemLarge?: boolean; 
+  buttonView?:boolean;
 }
