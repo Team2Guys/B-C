@@ -48,8 +48,6 @@ const HomeCard = () => {
             categories
               .filter((data) => data.title !== 'Commercial') // Filter out 'Commercial' category
               .map((data: ICategory, index: number) => {
-                console.log('************ * * * ****************** * * *');
-                console.log(data);
                 const filtered = links.filter(
                   (item) => item.label === data.title,
                 );
