@@ -15,8 +15,6 @@ const truncateText = (text: string, wordLimit: number) => {
   return words.slice(0, wordLimit).join(' ') + '...';
 };
 const Card: React.FC<CardProps> = ({ data, href }) => {
-  console.log(' _ _ ________ CARD DATA ____ _ _ _ _ ');
-  console.log(data);
   const route = useRouter();
   return (
     <>

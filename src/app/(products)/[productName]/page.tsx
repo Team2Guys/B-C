@@ -5,7 +5,7 @@ import bgBreadcrum from '../../../../public/assets/images/Breadcrum/modern.png';
 import Info from 'components/Product/Info';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { generateSlug, relativeProducts } from 'data/data';
+import { generateSlug } from 'data/data';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
@@ -18,17 +18,20 @@ import VideoBanner from 'components/video-banner/video-banner';
 import { links } from 'components/Res-usable/header/Header';
 
 const Products = () => {
-  let { productName } = useParams();
-  const [fiilteredProducts, setfiilteredProducts] = useState<IProduct[]>([]);
-  useEffect(() => {
-    filteredProducts();
-  }, [productName]);
+  const { productName } = useParams();
+  const matchingLink = links.find((link) =>
+    productName?.includes(link.href.replace(/^\//, '')),
+  );
+  const title = matchingLink ? matchingLink.label : productName;
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
 
   const productNameString = Array.isArray(productName)
     ? productName[0]
     : productName;
   const displayProductName = productNameString || 'Default Product';
   const slugTitle = generateSlug(displayProductName);
+
+  // Fetch products and categories using react-query
   const {
     data: products,
     error: productError,
@@ -37,61 +40,52 @@ const Products = () => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
+
   const {
     data: categories,
     error: categoryError,
-    isLoading,
+    isLoading: categoryLoading,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchSubCategories,
   });
+
+  useEffect(() => {
+    if (products && categories && productNameString) {
+      // Find the matching link from the header links
+      const matchingLink = links.find((link) =>
+        productNameString.includes(link.href.replace(/^\//, '')),
+      );
+
+      const selectedProductName = matchingLink ? matchingLink.label : 'sff';
+
+      // Find the relevant category
+      const filterCat = categories?.find(
+        (cat) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
+      );
+
+      // Filter products by the found category
+      if (filterCat) {
+        const filtered = products.filter(
+          (product) => product.CategoryId === filterCat.id,
+        );
+        setFilteredProducts(filtered);
+      }
+    }
+  }, [products, categories, productNameString]);
+
   if (productError instanceof Error)
     return <div>Error: {productError.message}</div>;
   if (categoryError instanceof Error)
     return <div>Error: {categoryError.message}</div>;
 
-  const filteredProducts = () => {
-    if (
-      products &&
-      products.length > 0 &&
-      categories &&
-      categories.length > 0
-    ) {
-      let category = categories.find(
-        (c) => c.title.toLowerCase() == productNameString.toLowerCase(),
-      );
-      if (category) {
-        let filteredProducts = products.filter(
-          (item) => item.CategoryId == category?.id,
-        );
-
-        setfiilteredProducts(filteredProducts);
-      }
-    }
-  };
-  const matchingLink = links.find((link) =>
-    productName?.includes(link.href.replace(/^\//, '')),
-  );
-
-  productName = matchingLink ? matchingLink.label : 'sff';
-
-  const filterProduct = products?.find((product) => {
-    return product.title === productName;
-  });
-  let relatedProduct = products?.filter((product) => {
-    return product.CategoryId === filterProduct?.CategoryId;
-  });
-
   return (
     <>
-      <VideoBanner title={productName} />
+      <VideoBanner title={`${title}`} />
       <Info />
-      <AllProducts
-        products={fiilteredProducts || []}
-        categoryType={productNameString}
-      />
+      <AllProducts products={filteredProducts} categoryType={`${title}`} />
       <Container className="mt-20 mb-20">
-        <RelatedProducts products={relatedProduct || []} />
+        <RelatedProducts products={filteredProducts || []} />
       </Container>
       <BookNowBanner className="mt-20" />
       <VideoAutomation className=" mt-20" />

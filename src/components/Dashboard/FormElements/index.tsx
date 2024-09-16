@@ -74,8 +74,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       try {
         if (!EditInitialValues) return;
 
-        console.log('******************************* ');
-        console.log(EditProductValue);
         setProductUpdateFlat(true);
         const {
           posterImage,
