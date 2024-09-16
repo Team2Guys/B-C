@@ -5,7 +5,7 @@ import React from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
 
 interface TopHeroProps {
-  title: string;
+  title: string | any ;
   image: StaticImageData;
   category?: string;
   home?: string;
