@@ -23,6 +23,7 @@ import { Image } from 'antd';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import { IoSearch } from 'react-icons/io5';
 import { getCategoryFromUrl } from 'config';
+import { useRouter } from 'next/navigation';
 
 interface TsizePresets {
   width: number;
@@ -38,6 +39,8 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [detail, setdetail] = useState<IProduct[]>([]);
   const modalRef = useRef<HTMLDivElement>(null);
+
+const route = useRouter();
 
   const handleSizeChange = (width: number, height: number) => {
     setSelectedSize({ width, height });
@@ -205,7 +208,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
                     {array.description}
                   </p>
 
-                  <Button className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
+                  <Button onClick={()=>{route.push("/appointment")}} className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
                     Book Now
                   </Button>
                 </div>
