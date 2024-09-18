@@ -9,7 +9,7 @@ import OurClient from 'components/Our-Client/OurClient';
 const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const withoutHeaderPages = [
-    '',
+    '/blog',
     // '/gallery',
   ];
 

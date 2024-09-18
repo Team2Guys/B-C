@@ -324,3 +324,19 @@ export interface ADMINS_PROPS {
   setedit_admins?: React.Dispatch<SetStateAction< formDataTypes | undefined>>;
   edit_admins:formDataTypes | undefined
  }
+
+ export interface BlogInfo {
+  image: string;
+  category: string;
+  title: string;
+  description: string;
+}
+
+export interface BlogProps {
+  className?: string;
+  title?: string | undefined;
+  id?: string;
+  Blogdata: BlogInfo[];
+  isFirstItemLarge?: boolean; 
+  buttonView?:boolean;
+}
