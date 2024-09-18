@@ -51,10 +51,6 @@ const HomeCard = () => {
                 const filtered = links.filter(
                   (item) => item.label === data.title,
                 );
-
-                console.log('Filtered');
-                console.log(filtered);
-
                 return (
                   <Card key={index} data={data} href={filtered[0]?.href} />
                 );
