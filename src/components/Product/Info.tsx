@@ -3,7 +3,9 @@ import React from 'react';
 import productimf from '../../../public/assets/images/product/product1.png';
 import Image from 'next/image';
 import { Button } from 'components/ui/button';
+import { useRouter } from 'next/navigation';
 const Info = () => {
+  const route = useRouter();
   return (
     <Container className="mt-10 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2">
@@ -27,7 +29,7 @@ const Info = () => {
             as well as Ashley Wilde.
           </p>
           <div className=" pt-5 md:pt-10">
-            <Button variant={'secondary'} className="w-[186px] h-[59px] ">
+            <Button onClick={()=>{route.push("/appointment")}} variant={'secondary'} className="w-[186px] h-[59px] ">
               Book Now
             </Button>
           </div>

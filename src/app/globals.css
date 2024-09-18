@@ -64,6 +64,10 @@
   }
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 .ant-table-wrapper table {
   background-color: var(--table);
   color: var(--tabletext);
@@ -233,4 +237,35 @@
 }
 :where(.css-dev-only-do-not-override-1c0na6j).ant-select-dropdown{
   z-index: 20!important;
+}
+
+.custom-scrollbar {
+  overflow-y: scroll;
+  /* Optional: Adding padding, margin, and other styles */
+}
+
+/* Custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  /* Width of the entire scrollbar */
+  height: 0px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: white;
+  /* Color of the scrollbar track */
+  border-radius: 0px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: white;
+  /* Color of the scrollbar thumb */
+  border-radius: 0px;
+  border: 0px solid white;
+  /* Padding around the thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #FF914E;
+  /* Color when hovering over the scrollbar thumb */
 }
