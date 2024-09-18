@@ -22,6 +22,7 @@ const Products = () => {
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
         );
         const allProducts = await response.json();
+        setProducts(allProducts);
         setProductloading(false);
       } catch (err) {
         console.log('error Occured');
