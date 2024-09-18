@@ -27,7 +27,7 @@ const CommercialPage = () => {
 
   return (
     <div>
-      <TopHero title="commercial" image={bgBreadcrum} />
+      <TopHero title="Commercial Office Blinds" image={bgBreadcrum} />
       <Container className="pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row">
         <div className="w-full md:w-1/2">
           <h3 className="font-bold text-xl xs:text-2xl tracking-wider">
