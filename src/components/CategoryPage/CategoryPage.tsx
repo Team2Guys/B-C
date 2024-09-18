@@ -99,7 +99,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
   return (
     <div>
-      hello
       <TopHero title={title} image={bgBreadcrum} />
       <Container className="pt-20 pb-14 flex flex-col gap-10 items-center">
         {filteredProducts?.map((product, index) => (
