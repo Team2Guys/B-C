@@ -24,7 +24,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products }) => {
         <h3 className="lg:text-4xl text-2xl text-nowrap">Related Products</h3>
         <div className="w-full border-t-[1px] border-[#BDC9BD] mt-2"></div>
       </div>
-      <p className="font-thin text-18 mt-2">
+      <p className="font-normal text-18 mt-2">
         Lectus pulvinar tincidunt accumsan ullamcorper dolor acsed facilisis
         molestie aliquam.
       </p>

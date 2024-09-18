@@ -4,7 +4,7 @@ import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import TableTwo from 'components/Dashboard/Tables/TableTwo';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Addcategory from 'components/AddCategory/Addcategory';
 import { CategoriesType } from 'types/interfaces';
 

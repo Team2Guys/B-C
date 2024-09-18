@@ -2,6 +2,8 @@
 import exp from 'constants';
 import {
   AboutStaticData,
+  BlogInfo,
+  BlogProps,
   CardTypes,
   FeatureProductData,
   GalleryItems,
@@ -701,7 +703,7 @@ export const productItems: ProductItems[] = [
     id: 1,
     imageUrl: '/assets/images/Rectangle812h.png',
     discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
     title: 'OFFICE',
     category: 'OFFICE',
   },
@@ -1232,7 +1234,87 @@ export const estimateSldie ={
   },
   1440: {
     slidesPerView: 4,
-    spaceBetween: 15,
+    spaceBetween: 30,
   },
 }
 
+export const blogData:BlogInfo[] = [
+  {
+    image: '/assets/images/product/1.png',
+    category: 'Technology',
+    title: 'The Rise of AI in Modern Technology',
+    description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology',
+  },
+  {
+    image: '/assets/images/product/2.png',
+    category: 'Health',
+    title: 'Top 10 Health Tips for a Better Life',
+    description: 'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+  },
+  {
+    image: '/assets/images/product/3.png',
+    category: 'Travel',
+    title: 'Best Travel Destinations for 2024',
+    description: 'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+  },
+  {
+    image: '/assets/images/product/1.png',
+    category: 'Technology',
+    title: 'The Rise of AI in Modern Technology',
+    description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
+  },
+  {
+    image: '/assets/images/product/2.png',
+    category: 'Health',
+    title: 'Top 10 Health Tips for a Better Life',
+    description: 'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+  },
+  {
+    image: '/assets/images/product/3.png',
+    category: 'Travel',
+    title: 'Best Travel Destinations for 2024',
+    description: 'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+  },
+  {
+    image: '/assets/images/product/2.png',
+    category: 'Health',
+    title: 'Top 10 Health Tips for a Better Life',
+    description: 'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+  },
+  {
+    image: '/assets/images/product/3.png',
+    category: 'Travel',
+    title: 'Best Travel Destinations for 2024',
+    description: 'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+  },
+  {
+    image: '/assets/images/product/1.png',
+    category: 'Technology',
+    title: 'The Rise of AI in Modern Technology',
+    description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
+  },
+  {
+    image: '/assets/images/product/2.png',
+    category: 'Health',
+    title: 'Top 10 Health Tips for a Better Life',
+    description: 'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+  },
+  {
+    image: '/assets/images/product/3.png',
+    category: 'Travel',
+    title: 'Best Travel Destinations for 2024',
+    description: 'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+  },
+];
+
+export const blogPara=[
+  {
+    para:"Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+  },
+  {
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of"
+  },
+  {
+    para:" It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of"
+  }
+]
