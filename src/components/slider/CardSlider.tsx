@@ -60,8 +60,11 @@ const CardSlider: React.FC<CardSliderProps> = ({
                 className=""
                 onClick={() => {
                   route.push(
-                    `/${parent === 'shutter' ? `${parent}s-range` : parent}/${generateSlug(item.title)}`,
+                    item.href
+                      ? `${process.env.NEXT_PUBLIC_APP_URL}/${item.href}`
+                      : `/${parent === 'shutter' ? `${parent}s-range` : parent}/${generateSlug(item.title)}`,
                   );
+
                   setIsOpen(false);
                 }}
               >
