@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/d.jpg';
+import bgBreadcrum from '../../../public/assets/images/Blog/blogbackground.png';
 import OurBlog from 'components/Blogs/our-blog';
 import { blogData } from 'data/data';
 import Header from 'components/Res-usable/header/Header';
@@ -25,18 +25,18 @@ const Blog = () => {
   return (
     <>
       <Header />
-      <TopHero title="Blogs" image={bgBreadcrum} />
-      <OurBlog title="Latest Articles" Blogdata={latestArticles} isFirstItemLarge buttonView />
-      <OurBlog id={"#top"} title="Popular Post" Blogdata={currentBlogs} buttonView />
+      <TopHero title="Blogs" image={bgBreadcrum}  />
+      <OurBlog title="Our Recent Post" Blogdata={latestArticles} isFirstItemLarge buttonView />
+      <OurBlog  title="Popular Post" Blogdata={currentBlogs} buttonView />
       <div className="flex justify-center mt-8 space-x-2">
         {Array.from({ length: totalPages }, (_, index) => (
-          <Link href={"#top"}
+          <div 
             key={index}
-            className={`px-6 py-4 rounded-md ${currentPage === index + 1 ? 'bg-secondary text-white' : 'bg-transparent'}`}
+            className={`px-6 py-4 rounded-md cursor-pointer ${currentPage === index + 1 ? 'bg-secondary text-white' : 'bg-transparent'}`}
             onClick={() => paginate(index + 1)}
           >
             {index + 1}
-          </Link>
+          </div>
         ))}
 
         <button

@@ -2,11 +2,10 @@
 "use client"
 import TopHero from 'components/ui/top-hero';
 import React, { useState } from 'react';
-import bgBreadcrum from '../../../../public/assets/images/Breadcrum/blog.jpg';
+import bgBreadcrum from '../../../../public/assets/images/Blog/blogbackground.png';
 import { useParams } from 'next/navigation';
 import { blogData } from 'data/data';
 import OurBlog from 'components/Blogs/our-blog';
-import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 const BlogbyCategory = () => {
@@ -25,17 +24,16 @@ const BlogbyCategory = () => {
   return (
     <>
     <TopHero title={name} image={bgBreadcrum} />
-    <OurBlog id={'#top'} Blogdata={currentBlogs} />
+    <OurBlog  Blogdata={currentBlogs} />
       <div className="flex justify-center mt-8 space-x-2">
         {Array.from({ length: totalPages }, (_, index) => (
-          <Link
-            href={'#top'}
+          <div
             key={index}
-            className={`px-6 py-4 rounded-md ${currentPage === index + 1 ? 'bg-secondary text-white' : 'bg-transparent'}`}
+            className={`px-6 py-4 rounded-md cursor-pointer ${currentPage === index + 1 ? 'bg-secondary text-white' : 'bg-transparent'}`}
             onClick={() => paginate(index + 1)}
           >
             {index + 1}
-          </Link>
+          </div>
         ))}
 
         <button

@@ -6,14 +6,14 @@ interface MenuCardProps {
   alt: string;
   title: string;
   onClick?: () => void;
-  isActive?: boolean; // New prop for active state
+  isActive?: boolean;
 }
 
 const MenuCard: React.FC<MenuCardProps> = ({ src, alt, title, onClick, isActive }) => {
   return (
     <div
       onClick={onClick}
-      className={`space-y-2 hover:text-black cursor-pointer w-full flex flex-col justify-center  whitespace-pre-wrap `} // Conditional class application
+      className={`space-y-2 hover:text-black cursor-pointer w-full flex flex-col justify-center  `}
     >
       <Image
         className={`w-[full] h-[120px] rounded-lg ${
@@ -25,7 +25,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ src, alt, title, onClick, isActive 
         alt={alt}
       />
       <div>
-        <p className={`text-15 text-center ${isActive ? 'font-bold' : ''}`}>{title}</p> {/* Apply active class */}
+        <p className={`text-15 text-center ${isActive ? 'font-bold' : ''}`}>{title}</p> 
       </div>
       <hr className={`${ isActive ? 'border-b-2 border-primary w-16 mx-auto' : 'border-0'}`}/>
     </div>

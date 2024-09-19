@@ -1242,8 +1242,8 @@ export const blogData:BlogInfo[] = [
   {
     image: '/assets/images/product/1.png',
     category: 'Technology',
-    title: 'The Rise of AI in Modern Technology',
-    description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology',
+    title: 'Lorem Ipsum is simply dummy text of the printing the? ',
+    description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology',
   },
   {
     image: '/assets/images/product/2.png',
