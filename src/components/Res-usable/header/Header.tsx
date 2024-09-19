@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -15,7 +15,7 @@ import {
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
-import { generateSlug, MegaMenuItem } from 'data/data';
+import { CommercialProducts, generateSlug, MegaMenuItem } from 'data/data';
 import { usePathname } from 'next/navigation';
 
 export const links = [
@@ -23,7 +23,6 @@ export const links = [
   { href: '/shutters-range', label: 'Shutter', id: 9 },
   { href: '/made-to-measure-curtains', label: 'Curtains', id: 5 },
   { href: '/commercial', label: 'Commercial', id: 12 },
-  // { href: '/commercial', label: 'Commercial' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/estimator', label: 'Estimator' },
   { href: '/blog', label: 'Blog' },
@@ -96,13 +95,17 @@ const Header = () => {
           <p className="text-white py-2 text-12 2xl:text-15 font-medium lg:tracking-[0.4px] xl:tracking-[1.8px] 2xl:tracking-[2px] leading-relaxed 2xl:leading-loose">
             We can visit you, take measurements, help select fabrics & install
             in 1-2 days. Call Dubai{' '}
-            <Link className="underline font-medium" target='_blank' href={'tel:04 252 2025'}>
+            <Link
+              className="underline font-medium"
+              target="_blank"
+              href={'tel:04 252 2025'}
+            >
               04 252 2025
             </Link>{' '}
             now or email us on{' '}
             <Link
               className="underline font-medium"
-              target='_blank'
+              target="_blank"
               href={'mailto:connect@twoguys.ae'}
             >
               connect@twoguys.ae
@@ -128,14 +131,33 @@ const Header = () => {
                 Home
               </Link>
               {links.map((link, index) => {
-                const filteredSubCategories =
+                let filteredSubCategories =
                   subCategories?.filter(
                     (subcategory) => subcategory.CategoryId === link.id,
                   ) || [];
-                const filteredProducts =
+
+                let filteredProducts =
                   products?.filter(
                     (product) => product.CategoryId === link.id,
                   ) || [];
+
+                if (link.id === 12) {
+                  const commercialProducts =
+                    products?.filter((product) => {
+                      const productSlug = generateSlug(product.title);
+                      const isMatch = CommercialProducts.some(
+                        (commercialProduct) =>
+                          commercialProduct.productName === productSlug,
+                      );
+
+                      return isMatch;
+                    }) || [];
+
+                  filteredProducts = [
+                    ...filteredProducts,
+                    ...commercialProducts,
+                  ];
+                }
 
                 const actualProducts = filteredProducts.filter((product) =>
                   MegaMenuItem.some(

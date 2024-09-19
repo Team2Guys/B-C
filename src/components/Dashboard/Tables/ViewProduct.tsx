@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
@@ -159,8 +158,10 @@ let token = admin_token ? admin_token: super_admin_token
       key: 'Preview',
       render: (text: any, record: Product) => {
         const handleClick = () => {
-          const url = `/product/${generateSlug(record.title)}`;
-          window.open(url, '_blank');
+          if (typeof window !== 'undefined' && record.title) {
+            const url = `/product/${generateSlug(record.title)}`;
+            window.open(url, '_blank');
+          }
         };
         return <FaRegEye className="cursor-pointer" onClick={handleClick} />;
       },
