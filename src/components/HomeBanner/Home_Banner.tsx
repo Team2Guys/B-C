@@ -1,15 +1,15 @@
-// Banner.tsx
+
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { BannerProps } from 'types/interfaces';
-
 const Banner: React.FC<BannerProps> = ({ data }) => {
+  const route =useRouter();
   return (
     <div className="relative flex items-center justify-start w-full h-56 overflow-hidden  md:h-96 lg:mt-7 bg-[#F6EFE9]">
       <Image
         src={data.imageUrl}
         alt="Shutters"
-        // layout="fill"
         width={800}
         height={340}
         
@@ -19,7 +19,7 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
         <h2 className="lg:text-4xl md:text-2xl text-lg mr-auto font-bold text-gray-800 lg:pr-20 lg:w-3/4 w-3/4">
           {data.title}
         </h2>
-        <button className="mt-4 px-6 py-2 text-dark mr-auto bg-white rounded-lg w-fit ">
+        <button onClick={()=>route.push('/appointment')} className="mt-4 px-6 py-2 text-dark mr-auto bg-white rounded-lg w-fit ">
           {data.buttonText}
         </button>
       </div>
