@@ -1,14 +1,25 @@
-import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb'
-import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout'
-import React from 'react'
+"use client";
+import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
+import ShowBlog from 'components/Dashboard/Blogs/show-blog';
+import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
+import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
+const AddBlogs = dynamic( () => import( 'components/Dashboard/Blogs/add-blog' ), { ssr: false } );
 
-const Blog = () => {
+
+const Blogging = () => {
+  const [menuType, setMenuType] = useState('Blog');
+
   return (
     <DefaultLayout>
-    <Breadcrumb pageName={'Blogs'} />
-    
-  </DefaultLayout>
-  )
-}
+      <Breadcrumb pageName={menuType} />
+      {menuType === 'Blog' ? (
+        <ShowBlog setMenuType={setMenuType} />
+      ) : (
+        <AddBlogs setMenuType={setMenuType} />
+      )}
+    </DefaultLayout>
+  );
+};
 
-export default Blog
+export default Blogging;
