@@ -326,7 +326,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                 'text-white bg-lightdark'
                               } `}
                             >
-                              View Blogs
+                              View Blog
                             </Link>
                           </li>
                         </ul>
