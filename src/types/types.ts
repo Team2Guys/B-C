@@ -83,3 +83,22 @@ export interface IAppointments {
   whatsapp_number: string;
   windows: string;
 }
+//Landingpage
+export interface FeatureType{
+  icon?: string;
+  title?: string;
+  para1: string;
+  para2: string;
+  para3: string;
+  para4: string;
+}
+export interface InstaType{
+  video: string;
+}
+export interface ProductType{
+  image:string;
+}
+export interface TabDataType{
+  icon: string;
+  title: string;
+}

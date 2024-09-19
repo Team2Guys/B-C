@@ -324,3 +324,15 @@ export interface ADMINS_PROPS {
   setedit_admins?: React.Dispatch<SetStateAction< formDataTypes | undefined>>;
   edit_admins:formDataTypes | undefined
  }
+ 
+ 
+ //LandingPage
+ export interface NavType{
+  image?:any;
+  title?: string;
+  description?: string;
+}
+export interface KeyType {
+  image?:any;
+  para?: string;
+}

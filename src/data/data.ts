@@ -1,10 +1,12 @@
 // src/data.ts
 import exp from 'constants';
+import { KeyType } from 'types/interfaces';
 import {
   AboutStaticData,
   CardTypes,
   FeatureProductData,
   GalleryItems,
+  NavType,
   OurHistory,
   ProductCardData,
   ProductItems,
@@ -918,7 +920,8 @@ export const OurHistoryData: OurHistory[] = [
 
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
-import { ISUBCATEGORY } from 'types/types';
+import { ISUBCATEGORY, TabDataType } from 'types/types';
+import { icons } from 'lucide-react';
 
 export const validateForm = (formData: {
   fullName: string;
@@ -1170,4 +1173,103 @@ export const slides: TRSlide[] = [
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
   },
+];
+//Landingpage
+export const NavData : NavType[]=[
+  {
+    image: '/assets/images/Landing/vector.png',
+   title:'We Can Visit you',
+   description:'Take Measurements',
+  },
+  { image: '/assets/images/Landing/Vector1.png',
+    title:'Help Select Fabrics',
+    description:'install in 1-2 days ',
+   },
+   {image: '/assets/images/Landing/Group.png',
+    title:'GUARANTEE',
+    description:'3-YEAR',
+  },
+];
+export const KeyData: KeyType[]=[
+  {
+    image:"/assets/images/Landing/guarantee.png",
+    para:"we offer a fully comprehensive 5-year warrenty on all our motors",  
+  },
+  {
+    image: "/assets/images/Landing/businessmen.png",
+    para:"Our professional staff are fully trained to install as well as offer expert advice",  
+  },
+  {
+    image:"/assets/images/Landing/ready.png",
+    para:"we keep motors in stock, so no long delays waiting for stock",  
+  },
+  {
+    image:"/assets/images/Landing/loyalty.png",
+    para:"We only use the leading brands such as Somfy, nice and Motion",  
+  },
+];
+
+export const FeatureData=[
+  {
+    icon:"/assets/images/Landing/icon-automation1.png",
+    title: "Lorem Ibsum Blinds:",
+    para1: "<strong>Automated Scheduling</strong> Set timers to automatically open or close your blinds at specific times for added convenience.",
+    para2: "<strong>Enhanced Convenience</strong> Enjoy the ease of controlling your blinds with a remote or smartphone app, eliminating the need for manual adjustments.",
+    para3: "<strong>Automated Scheduling</strong> Set timers to automatically open or close your blinds at specific times for added convenience.",
+    para4: "<strong>Enhanced Convenience</strong> Enjoy the ease of controlling your blinds with a remote or smartphone app, eliminating the need for manual adjustments.",
+},
+{
+  icon:"/assets/images/Landing/icon-automation1.png",
+  title: "Lorem Ibsum Blinds:",
+  para1: "<strong>Automated Scheduling</strong> Set timers to automatically open or close your blinds at specific times for added convenience.",
+  para2: "<strong>Enhanced Convenience</strong> Enjoy the ease of controlling your blinds with a remote or smartphone app, eliminating the need for manual adjustments.",
+  para3: "<strong>Automated Scheduling</strong> Set timers to automatically open or close your blinds at specific times for added convenience.",
+  para4: "<strong>Enhanced Convenience</strong> Enjoy the ease of controlling your blinds with a remote or smartphone app, eliminating the need for manual adjustments.",
+},
+];
+
+export const InstaData=[
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+];
+
+export const ProductData=[
+  {
+    image: "/assets/images/Landing/image.png"
+  },
+  {
+    image: "/assets/images/Landing/image2.png"
+  },
+];
+export const TabData=[
+{
+  icon: "/assets/images/Landing/iconremote1.png",
+  title: "Remote Control",
+},
+{
+  icon: "/assets/images/Landing/iconremote1.png",
+  title: "Remote Control",
+},
+{
+  icon: "/assets/images/Landing/iconremote1.png",
+  title: "Remote Control",
+},
+{
+  icon: "/assets/images/Landing/iconremote1.png",
+  title: "Remote Control",
+},
+{
+  icon: "/assets/images/Landing/iconremote2.png",
+  title: "Remote Control",
+},
 ];
