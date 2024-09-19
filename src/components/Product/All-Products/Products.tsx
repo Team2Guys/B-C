@@ -7,24 +7,22 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { IProduct } from 'types/types';
 interface relativeProps {
   products: IProduct[];
-  categoryType?:string;
-} 
+  categoryType?: string;
+}
 
-const AllProducts: React.FC<relativeProps> = ({ products,categoryType }) => {
+const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const productsPerPage = 9; 
+  const productsPerPage = 9;
   const categories = ['All', 'BY TYPE', 'BY ROOM'];
   const filteredProducts: IProduct[] =
     activeCategory === 'All'
       ? products
-      : products.filter(
-          (product) => product.title === activeCategory,
-        );
+      : products.filter((product) => product.title === activeCategory);
 
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  const startIndex = (currentPage - 1) * productsPerPage;                                                                                                                                        
+  const startIndex = (currentPage - 1) * productsPerPage;
   const visibleProducts = filteredProducts.slice(
     startIndex,
     startIndex + productsPerPage,
@@ -70,7 +68,7 @@ const AllProducts: React.FC<relativeProps> = ({ products,categoryType }) => {
         <hr className="h-2 mt-5 md:mt-8 border-black" />
         <div className="mt-10 text-center space-y-3">
           <h1 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
-            MADE TO MEASURE {categoryType ? categoryType : ""}
+            MADE TO MEASURE {categoryType ? categoryType : ''}
           </h1>
           <p className="text-14 md:text-15 font-normal md:w-[65%] mx-auto">
             See our comprehensive Blinds range Find the perfect made-to-measure
