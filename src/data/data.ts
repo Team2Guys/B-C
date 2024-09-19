@@ -1102,26 +1102,32 @@ export const intitalValues = {
   canVeiwTotalproducts: false,
   canVeiwTotalCategories: false,
 };
-
+export const CommercialProducts = [
+  { productName: 'school-blinds' },
+  { productName: 'hospital-curtains' },
+  { productName: 'office-window-curtains' },
+];
+export const removeTitleWords = ['dubai', 'Made to measure', 'thesis'];
 export const MegaMenuItem = [
   { productName: 'automated-blinds' },
-  { productName: 'aluminium-venetian-blinds' },
+  { productName: 'aluminium-venetian-blinds-dubai' },
   { productName: 'blackout-blinds' },
   { productName: 'colby-honeycomb-blinds' },
   { productName: '3d-blinds' },
   { productName: 'duplex-blinds' },
-  { productName: 'skylight-blinds' },
+  { productName: 'skylight-blinds-dubai' },
   { productName: 'sheer-horizon-blinds' },
   { productName: 'panel-blinds' },
   { productName: 'roller-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'vertical-blinds' },
   { productName: 'wood-venetian-blinds' },
-  { productName: 'blackout-curtains' },
+  { productName: 'made-to-measure-chiffon-curtains' },
+  { productName: 'blackout-curtains-dubai' },
   { productName: 'bedroom-curtains' },
   { productName: 'eyelet-curtains' },
   { productName: 'home-curtains' },
-  { productName: 'hotel-curtains' },
+  { productName: 'hotel-curtains-dubai' },
   { productName: 'living-room-curtains' },
   { productName: 'motorised-curtains' },
   { productName: 'pinch-pleat-curtains' },
@@ -1174,7 +1180,6 @@ export const slides: TRSlide[] = [
   },
 ];
 
-
 export const isActiveTabs: { name: string }[] = [
   {
     name: 'blinds',
@@ -1196,18 +1201,16 @@ export const isActiveTabs: { name: string }[] = [
   },
 ];
 
-
-export const optionDetail =[
-  { value: 'Select Sizes', label: 'Select Sizes', disabled: true},
+export const optionDetail = [
+  { value: 'Select Sizes', label: 'Select Sizes', disabled: true },
   { value: '140 x 180', label: '140 x 180' },
   { value: '160 x 180', label: '160 x 180' },
   { value: '180 x 180', label: '180 x 180' },
   { value: '200 x 180', label: '200 x 180' },
   { value: '220 x 180', label: '220 x 180' },
-  
-]
+];
 
-export const estimateSldie ={
+export const estimateSldie = {
   320: {
     slidesPerView: 1.4,
     spaceBetween: 10,
@@ -1236,85 +1239,96 @@ export const estimateSldie ={
     slidesPerView: 4,
     spaceBetween: 30,
   },
-}
+};
 
-export const blogData:BlogInfo[] = [
+export const blogData: BlogInfo[] = [
   {
     image: '/assets/images/product/1.png',
     category: 'Technology',
     title: 'The Rise of AI in Modern Technology',
-    description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology',
+    description:
+      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology',
   },
   {
     image: '/assets/images/product/2.png',
     category: 'Health',
     title: 'Top 10 Health Tips for a Better Life',
-    description: 'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+    description:
+      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
   },
   {
     image: '/assets/images/product/3.png',
     category: 'Travel',
     title: 'Best Travel Destinations for 2024',
-    description: 'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-  {
-    image: '/assets/images/product/1.png',
-    category: 'Technology',
-    title: 'The Rise of AI in Modern Technology',
-    description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
-  },
-  {
-    image: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    description: 'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    image: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    description: 'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-  {
-    image: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    description: 'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    image: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    description: 'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+    description:
+      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
   },
   {
     image: '/assets/images/product/1.png',
     category: 'Technology',
     title: 'The Rise of AI in Modern Technology',
-    description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
+    description:
+      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
   },
   {
     image: '/assets/images/product/2.png',
     category: 'Health',
     title: 'Top 10 Health Tips for a Better Life',
-    description: 'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+    description:
+      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
   },
   {
     image: '/assets/images/product/3.png',
     category: 'Travel',
     title: 'Best Travel Destinations for 2024',
-    description: 'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+    description:
+      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+  },
+  {
+    image: '/assets/images/product/2.png',
+    category: 'Health',
+    title: 'Top 10 Health Tips for a Better Life',
+    description:
+      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+  },
+  {
+    image: '/assets/images/product/3.png',
+    category: 'Travel',
+    title: 'Best Travel Destinations for 2024',
+    description:
+      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+  },
+  {
+    image: '/assets/images/product/1.png',
+    category: 'Technology',
+    title: 'The Rise of AI in Modern Technology',
+    description:
+      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
+  },
+  {
+    image: '/assets/images/product/2.png',
+    category: 'Health',
+    title: 'Top 10 Health Tips for a Better Life',
+    description:
+      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+  },
+  {
+    image: '/assets/images/product/3.png',
+    category: 'Travel',
+    title: 'Best Travel Destinations for 2024',
+    description:
+      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
   },
 ];
 
-export const blogPara=[
+export const blogPara = [
   {
-    para:"Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+    para: "Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
   },
   {
-    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of"
+    para: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of",
   },
   {
-    para:" It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of"
-  }
-]
+    para: ' It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of',
+  },
+];

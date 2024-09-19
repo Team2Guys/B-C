@@ -22,6 +22,7 @@ interface CardSliderProps {
   onClick?: any;
   title?: string;
   breakpoints?: any;
+  setIsOpen?: any;
 }
 
 const CardSlider: React.FC<CardSliderProps> = ({
@@ -30,7 +31,8 @@ const CardSlider: React.FC<CardSliderProps> = ({
   sliderItems,
   onClick,
   title,
-  breakpoints
+  setIsOpen,
+  breakpoints,
 }) => {
   const route = useRouter();
 
@@ -49,23 +51,28 @@ const CardSlider: React.FC<CardSliderProps> = ({
         breakpoints={breakpoints}
       >
         {sliderItems &&
-          sliderItems.map((item) => (
-            <SwiperSlide
-              key={item.id}
-              className=""
-              onClick={() => {
-                route.push(
-                  `/${generateSlug(`${title}`)}/${generateSlug(item.title)}`,
-                );
-              }}
-            >
-              <MenuCard
-                src={item.posterImage.imageUrl || ''}
-                alt={item.title}
-                title={item.title}
-              />
-            </SwiperSlide>
-          ))}
+          sliderItems.map((item) => {
+            //@ts-expect-error
+            const parent = generateSlug(title);
+            return (
+              <SwiperSlide
+                key={item.id}
+                className=""
+                onClick={() => {
+                  route.push(
+                    `/${parent === 'shutter' ? `${parent}s-range` : parent}/${generateSlug(item.title)}`,
+                  );
+                  setIsOpen(false);
+                }}
+              >
+                <MenuCard
+                  src={item.posterImage.imageUrl || ''}
+                  alt={item.title}
+                  title={item.title}
+                />
+              </SwiperSlide>
+            );
+          })}
       </Swiper>
       <div className={`flex justify-end ${className} `}>
         <button
