@@ -36,7 +36,7 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
 
           <div className="mt-10 2xl:mt-20">
             <Link
-              href={'/appointment'}
+              href={'/about-us'}
               className="bg-primary  text-white px-4 py-4 hover:text-black hover:bg-white transition-all  hover:text-dark  "
             >
               Read More
