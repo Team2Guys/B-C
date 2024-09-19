@@ -22,6 +22,9 @@ import {
 import { BlindsAndCurtainsTypes } from 'types/interfaces';
 import { BannerData } from 'types/interfaces';
 import { TRatingSlider } from 'types/interfaces';
+import * as Yup from 'yup';
+import { Product, Category, FormValues } from 'types/interfaces';
+import { IProduct, ISUBCATEGORY } from 'types/types';
 
 export const generateSlug = (text: string) => {
   return text
@@ -918,10 +921,6 @@ export const OurHistoryData: OurHistory[] = [
   },
 ];
 
-import * as Yup from 'yup';
-import { Product, Category, FormValues } from 'types/interfaces';
-import { ISUBCATEGORY } from 'types/types';
-
 export const validateForm = (formData: {
   fullName: string;
   email: string;
@@ -1102,14 +1101,9 @@ export const intitalValues = {
   canVeiwTotalproducts: false,
   canVeiwTotalCategories: false,
 };
-export const CommercialProducts = [
-  { productName: 'school-blinds' },
-  { productName: 'hospital-curtains' },
-  { productName: 'office-window-curtains' },
-];
-export const removeTitleWords = ['dubai', 'Made to measure', 'thesis'];
-export const MegaMenuItem = [
-  { productName: 'automated-blinds' },
+
+export const blindMegaMenuItems = [
+  { productName: 'motorised-blinds' },
   { productName: 'aluminium-venetian-blinds-dubai' },
   { productName: 'blackout-blinds' },
   { productName: 'colby-honeycomb-blinds' },
@@ -1122,32 +1116,93 @@ export const MegaMenuItem = [
   { productName: 'roman-blinds' },
   { productName: 'vertical-blinds' },
   { productName: 'wood-venetian-blinds' },
-  { productName: 'made-to-measure-chiffon-curtains' },
+];
+
+export const curtainMegaMenuItems = [
+  { productName: 'made-to-measure-bed-room-curtains' },
   { productName: 'blackout-curtains-dubai' },
-  { productName: 'bedroom-curtains' },
+  { productName: 'eyelet-curtains' },
   { productName: 'eyelet-curtains' },
   { productName: 'home-curtains' },
   { productName: 'hotel-curtains-dubai' },
-  { productName: 'living-room-curtains' },
+  { productName: 'made-to-measure-living-room-curtains' },
   { productName: 'motorised-curtains' },
   { productName: 'pinch-pleat-curtains' },
-  { productName: 'sheer-curtains' },
+  { productName: 'made-to-measure-sheer-curtains' },
+  { productName: 'pinch-pleat-curtains' },
+  { productName: 'goblet-pleat-curtains' },
+  { productName: 'made-to-measure-linen-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
-  { productName: 'chiffon-curtains' },
+  { productName: 'stage-and-theatre-curtains' },
+  { productName: 'made-to-measure-chiffon-curtains' },
+];
+export const shutterMegaMenuItems = [
   { productName: 'full-height-shutters' },
   { productName: 'bay-window-shutters' },
-  { productName: 'tracked-system-shutters' },
-  { productName: 'special-shape-shutters' },
-  { productName: 'tier-on-tier-shutters' },
-  { productName: 'solid-panel-shutters' },
-  { productName: 'office-blinds' },
+  { productName: 'tracked-window-shutters' },
+  { productName: 'special-shape-shutters-wooden-shutters' },
+  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+];
+
+export const commercialMegaMenuItems = [
   { productName: 'school-blinds' },
-  { productName: 'hotels-restaurants' },
-  { productName: 'office-curtains' },
+  { productName: 'hotels-restaurants-blinds-curtains' },
+  { productName: 'office-window-curtains' },
+  { productName: 'printed-blinds' },
   { productName: 'printed-blinds' },
   { productName: 'hospital-curtains' },
 ];
-
+export const staticCommercialMegaMenuItems: IProduct[] = [
+  {
+    id: 35,
+    title: 'Hotels & Restaurants',
+    posterImage: {
+      imageUrl:
+        'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645877/sruin6vc0ujvgxffpgne.png',
+      public_id: 'sruin6vc0ujvgxffpgne',
+    },
+    imageUrls: [
+      {
+        imageUrl:
+          'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645880/p1mgmoe4gndfyndvlown.png',
+        public_id: 'p1mgmoe4gndfyndvlown',
+      },
+    ],
+    price: 1000,
+    href: 'google.com',
+    CategoryId: 9,
+    SubCategoryId: null,
+    description:
+      'Our custom-printed roller blinds range is the perfect solution to tick all boxes. Increase your brand exposure, raise your profile, and give your premises a professional fit-out feel while at the same time, keeping your staff and customers comfortable.\n\nProvide us with a high-quality image and leave the rest to us. Your blinds will be custom-made to size, and custom printed as required. A truly unique blind that will set your company apart from the rest.',
+    updatedAt: null,
+    createdAt: '2024-09-18T07:51:23.509Z',
+  },
+  {
+    id: 36,
+    title: 'Office Blinds',
+    posterImage: {
+      imageUrl:
+        'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645877/sruin6vc0ujvgxffpgne.png',
+      public_id: 'sruin6vc0ujvgxffpgne',
+    },
+    imageUrls: [
+      {
+        imageUrl:
+          'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645880/p1mgmoe4gndfyndvlown.png',
+        public_id: 'p1mgmoe4gndfyndvlown',
+      },
+    ],
+    price: 1000,
+    href: 'commercial',
+    CategoryId: 9,
+    SubCategoryId: null,
+    description:
+      'Our custom-printed roller blinds range is the perfect solution to tick all boxes. Increase your brand exposure, raise your profile, and give your premises a professional fit-out feel while at the same time, keeping your staff and customers comfortable.\n\nProvide us with a high-quality image and leave the rest to us. Your blinds will be custom-made to size, and custom printed as required. A truly unique blind that will set your company apart from the rest.',
+    updatedAt: null,
+    createdAt: '2024-09-18T07:51:23.509Z',
+  },
+];
 export const items = [
   {
     id: 1,

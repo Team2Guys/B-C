@@ -15,7 +15,14 @@ import {
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
-import { CommercialProducts, generateSlug, MegaMenuItem } from 'data/data';
+import {
+  blindMegaMenuItems,
+  commercialMegaMenuItems,
+  curtainMegaMenuItems,
+  generateSlug,
+  shutterMegaMenuItems,
+  staticCommercialMegaMenuItems,
+} from 'data/data';
 import { usePathname } from 'next/navigation';
 
 export const links = [
@@ -141,36 +148,63 @@ const Header = () => {
                     (product) => product.CategoryId === link.id,
                   ) || [];
 
-                if (link.id === 12) {
-                  const commercialProducts =
-                    products?.filter((product) => {
-                      const productSlug = generateSlug(product.title);
-                      const isMatch = CommercialProducts.some(
-                        (commercialProduct) =>
-                          commercialProduct.productName === productSlug,
-                      );
+                let combinedSliderData: any[] = [];
 
-                      return isMatch;
-                    }) || [];
+                if (link.id === 2) {
+                  const actualProducts = filteredProducts.filter((product) =>
+                    blindMegaMenuItems.some(
+                      (menuItem) =>
+                        menuItem.productName === generateSlug(product.title),
+                    ),
+                  );
 
-                  filteredProducts = [
-                    ...filteredProducts,
-                    ...commercialProducts,
+                  console.log(actualProducts);
+                  combinedSliderData = [
+                    ...filteredSubCategories,
+                    ...actualProducts,
                   ];
                 }
+                if (link.id === 9) {
+                  const actualProducts = filteredProducts.filter((product) =>
+                    shutterMegaMenuItems.some(
+                      (menuItem) =>
+                        menuItem.productName === generateSlug(product.title),
+                    ),
+                  );
 
-                const actualProducts = filteredProducts.filter((product) =>
-                  MegaMenuItem.some(
-                    (menuItem) =>
-                      menuItem.productName === generateSlug(product.title),
-                  ),
-                );
+                  combinedSliderData = [
+                    ...filteredSubCategories,
+                    ...actualProducts,
+                  ];
+                }
+                if (link.id === 5) {
+                  const actualProducts = filteredProducts.filter((product) =>
+                    curtainMegaMenuItems.some(
+                      (menuItem) =>
+                        menuItem.productName === generateSlug(product.title),
+                    ),
+                  );
 
-                const combinedSliderData = [
-                  ...filteredSubCategories,
-                  ...actualProducts,
-                ];
+                  combinedSliderData = [
+                    ...filteredSubCategories,
+                    ...actualProducts,
+                  ];
+                }
+                if (link.id === 12) {
+                  const actualProducts =
+                    products?.filter((product) =>
+                      commercialMegaMenuItems.some(
+                        (menuItem) =>
+                          menuItem.productName === generateSlug(product.title),
+                      ),
+                    ) || [];
 
+                  combinedSliderData = [
+                    ...staticCommercialMegaMenuItems,
+                    ...filteredSubCategories,
+                    ...actualProducts,
+                  ];
+                }
                 const isActive =
                   link.href && path?.includes(generateSlug(link.label));
 
