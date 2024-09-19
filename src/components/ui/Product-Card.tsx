@@ -21,14 +21,13 @@ const ProductCard: React.FC<ProductCardDataProps> = ({ products,categoryType }) 
         >
           <Image
             className="w-full md:h-[364px] rounded-xl"
-            width={600}
-            height={600}
+            width={360} height={356}
             src={product?.posterImage?.imageUrl}
             alt="img"
           />
           <div className="text-center space-y-3">
             <h1 className="text-16 font-normal">{product.title}</h1>
-            <p className="text-15 font-light md:w-[80%] mx-auto">
+            <p className="text-15 font-light md:w-[80%] mx-auto max-h-16 overflow-y-auto custom-scrollbar">
               {product.description}
             </p>
           </div>
