@@ -1152,7 +1152,9 @@ export const commercialMegaMenuItems = [
   { productName: 'printed-blinds' },
   { productName: 'printed-blinds' },
   { productName: 'hospital-curtains' },
+  { productName: 'aluminium-venetian-blinds-dubai' },
 ];
+
 export const staticCommercialMegaMenuItems: IProduct[] = [
   {
     id: 35,
@@ -1203,6 +1205,19 @@ export const staticCommercialMegaMenuItems: IProduct[] = [
     createdAt: '2024-09-18T07:51:23.509Z',
   },
 ];
+
+export const commercialPagesItems = [
+  { productName: 'school-blinds' },
+  { productName: 'hotels-restaurants-blinds-curtains' },
+  { productName: 'blackout-blinds' },
+  { productName: 'printed-blinds' },
+  { productName: 'vertical-blinds' },
+  { productName: 'panel-blinds' },
+  { productName: 'special-shape-shutters-wooden-shutters' },
+  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'motorised-blinds' },
+];
+
 export const items = [
   {
     id: 1,
