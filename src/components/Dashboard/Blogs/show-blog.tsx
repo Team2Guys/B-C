@@ -13,7 +13,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType }) => {
     <div className='text-end'>
      <button onClick={() => {
           setMenuType('Add Blog');
-        }} className='border rounded-md bg-primary px-4 py-2 font-semibold text-white'>Add Blog</button>
+        }} className='border rounded-md bg-primary px-4 py-2 font-semibold text-white dark:bg-lightdark'>Add Blog</button>
 
     </div>
       <FilterTable data={dataSource} columns={columns} />

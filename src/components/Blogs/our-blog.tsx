@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import { generateSlug } from 'data/data';
@@ -16,26 +16,30 @@ const OurBlog: React.FC<BlogProps> = ({
   isFirstItemLarge = false, // Default to false
   buttonView = false, // Default to false
 }) => {
-
   const route = useRouter();
   return (
     <Container className="mt-10">
-        {buttonView ? (
-      <div className="flex justify-between items-center">
-        <p className="text-20 sm:text-[48px] font-bold capitalize">{title}</p>
-          <Button onClick={()=>route.push(`/blog/${generateSlug(title ? title : "")}`)} className="sm:py-6 sm:px-10" variant={'secondary'}>
+      {buttonView ? (
+        <div className="flex justify-between items-center">
+          <p className="text-20 sm:text-[48px] font-bold capitalize">{title}</p>
+          <Button
+            onClick={() =>
+              route.push(`/blog/${generateSlug(title ? title : '')}`)
+            }
+            className="sm:py-6 sm:px-10"
+            variant={'secondary'}
+          >
             View All
           </Button>
-        
-      </div>
-        ) : null}
+        </div>
+      ) : null}
 
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-5"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-5 "
         id={id}
       >
         {Blogdata.map((blog, index) => (
-          <Link href={`/blog/blog-detail/${generateSlug(blog.title)}`}
+          <div
             className={`rounded-lg space-y-4 mt-5 ${className} ${
               isFirstItemLarge && index === 0
                 ? 'md:col-span-3 flex flex-col md:flex-row gap-5'
@@ -44,7 +48,7 @@ const OurBlog: React.FC<BlogProps> = ({
             key={index}
           >
             <div
-              className={`${
+              className={` ${
                 isFirstItemLarge && index === 0 ? 'w-full lg:w-6/12' : ''
               }`}
             >
@@ -73,23 +77,41 @@ const OurBlog: React.FC<BlogProps> = ({
                   12 September 2024
                 </span>
               </div>
-              <h3 className="text-24 font-bold">{blog.title}</h3>
-              <p>
-                {blog.description.length > 160
-                  ? `${blog.description.slice(0, 160)}...`
-                  : blog.description}
-              </p>
-              <button
-                className={`text-primary text-18   ${
-                  isFirstItemLarge && index === 0
-                    ? 'border border-primary rounded-md bg-white px-3 py-1'
-                    : 'underline font-bold'
+              <h3
+                className={` font-bold ${
+                  isFirstItemLarge && index === 0 ? 'text-[32px]' : 'text-24'
                 }`}
               >
-                Read More
-              </button>
+                {blog.title}
+              </h3>
+              {isFirstItemLarge ? (
+                <p>
+                  {blog.description.length > 600
+                    ? `${blog.description.slice(0, 600)}...`
+                    : blog.description}
+                </p>
+              ) : (
+                <p>
+                  {blog.description.length > 160
+                    ? `${blog.description.slice(0, 160)}...`
+                    : blog.description}
+                </p>
+              )}
+
+              <div className="pt-5">
+                <Link
+                  href={`/blog/blog-detail/${generateSlug(blog.title)}`}
+                  className={`text-primary text-18  py-3  ${
+                    isFirstItemLarge && index === 0
+                      ? 'border border-primary rounded-md bg-white px-3 py-1'
+                      : 'underline font-bold'
+                  }`}
+                >
+                  Read More
+                </Link>
+              </div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </Container>

@@ -78,7 +78,7 @@ const AddBlogs: React.FC<BlogProps> = ({ setMenuType }) => {
         }}
       >
         {({ setFieldValue }) => (
-          <Form className="mt-10 border bg-white rounded-md p-2 space-y-5">
+          <Form className="mt-10 border bg-white dark:bg-black rounded-md p-2 space-y-5">
             <div>
               <label className="mb-3 block text-16 font-medium text-black dark:text-white">
                 Title
@@ -100,7 +100,7 @@ const AddBlogs: React.FC<BlogProps> = ({ setMenuType }) => {
                 <Spin />
               ) : (
                 <Select
-                  className="w-full h-[48px] detail-otion font-bold border rounded-md"
+                  className="w-full h-[48px] detail-otion font-bold border rounded-md dark:bg-black"
                   placeholder="Select Category"
                   onChange={(value) => {
                     setFieldValue('category', value);
