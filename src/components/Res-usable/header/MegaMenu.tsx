@@ -4,8 +4,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import CardSlider from 'components/slider/CardSlider';
 import { cn } from 'lib/utils';
 import { usePathname, useRouter } from 'next/navigation';
-import { ICategory, IProduct } from 'types/types';
-import { generateSlug, removeTitleWords } from 'data/data';
+import { IProduct } from 'types/types';
 
 interface MegaMenuProps {
   title: string;
@@ -99,7 +98,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         >
           <div className="flex justify-between px-8">
             <p className="text-primary text-16 font-medium">{title}</p>
-            <Link onClick={() => setIsOpen(false)} href={`/products/${title}`}>
+            <Link onClick={() => setIsOpen(false)} href={`${href}`}>
               View All
             </Link>
           </div>

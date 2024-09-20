@@ -7,9 +7,10 @@ import { ICategory, IProduct } from 'types/types';
 
 interface relativeProps {
   products: IProduct[];
+  limit?: number;
 }
 
-const RelatedProducts: React.FC<relativeProps> = ({ products }) => {
+const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
   const {
     data: categoriesList = [],
     error,
@@ -18,6 +19,8 @@ const RelatedProducts: React.FC<relativeProps> = ({ products }) => {
     queryKey: ['category'],
     queryFn: fetchCategories,
   });
+  const displayedProducts = limit ? products.slice(0, limit) : products;
+
   return (
     <div>
       <div className="flex items-center gap-1">
@@ -29,7 +32,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products }) => {
         molestie aliquam.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-6 lg:mt-20 mt-4 lg:mb-10">
-        {products.map((item) => {
+        {displayedProducts.map((item) => {
           const filteredCategory = categoriesList.find(
             (cat) => cat.id === item?.CategoryId,
           );
