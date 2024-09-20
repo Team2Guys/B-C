@@ -59,12 +59,17 @@ const CardSlider: React.FC<CardSliderProps> = ({
                 key={item.id}
                 className=""
                 onClick={() => {
-                  route.push(
-                    item.href
-                      ? `${process.env.NEXT_PUBLIC_APP_URL}/${item.href}`
-                      : `/${parent === 'shutter' ? `${parent}s-range` : parent}/${generateSlug(item.title)}`,
-                  );
+                  const slug = generateSlug(item.title);
+                  const basePath = item.href
+                    ? `${process.env.NEXT_PUBLIC_APP_URL}/${item.href}`
+                    : `/${slug}`;
 
+                  const path =
+                    slug === 'hotels-restaurants-blinds-curtains'
+                      ? basePath
+                      : `/${parent === 'shutter' ? `${parent}s-range` : parent}/${slug}`;
+
+                  route.push(path);
                   setIsOpen(false);
                 }}
               >

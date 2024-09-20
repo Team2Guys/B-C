@@ -1,3 +1,4 @@
+import { generateSlug } from 'data/data';
 import Image from 'next/image';
 import React from 'react';
 
@@ -16,6 +17,19 @@ export const UpdateShutterTitle = (title: string): string => {
     .trim();
   return updatedTitle;
 };
+export function updateProductTitle(title: string): string {
+  let updatedTitle = title
+    .replace(/dubai/i, '')
+    .replace(/made to measure/i, '')
+    .trim();
+  if (/motorised blinds/i.test(updatedTitle)) {
+    updatedTitle = updatedTitle.replace(
+      /motorised blinds/i,
+      'Automated Blinds',
+    );
+  }
+  return UpdateShutterTitle(updatedTitle);
+}
 
 const MenuCard: React.FC<MenuCardProps> = ({
   src,
@@ -24,19 +38,6 @@ const MenuCard: React.FC<MenuCardProps> = ({
   onClick,
   isActive,
 }) => {
-  function updateProductTitle(title: string): string {
-    let updatedTitle = title
-      .replace(/dubai/i, '')
-      .replace(/made to measure/i, '')
-      .trim();
-    if (/motorised blinds/i.test(updatedTitle)) {
-      updatedTitle = updatedTitle.replace(
-        /motorised blinds/i,
-        'Automated Blinds',
-      );
-    }
-    return UpdateShutterTitle(updatedTitle);
-  }
   return (
     <div
       onClick={onClick}
@@ -55,7 +56,9 @@ const MenuCard: React.FC<MenuCardProps> = ({
         <p
           className={`text-15 text-center capitalize ${isActive ? 'font-bold' : ''}`}
         >
-          {updateProductTitle(title)}
+          {generateSlug(title) === 'hotels-restaurants-blinds-curtains'
+            ? 'Hostel & Restaurant'
+            : updateProductTitle(title)}
         </p>
       </div>
       <hr
