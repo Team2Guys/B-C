@@ -22,6 +22,7 @@ const Products = () => {
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
+
   const title = matchingLink ? matchingLink.label : productName;
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
 
@@ -31,7 +32,6 @@ const Products = () => {
   const displayProductName = productNameString || 'Default Product';
   const slugTitle = generateSlug(displayProductName);
 
-  // Fetch products and categories using react-query
   const {
     data: products,
     error: productError,
@@ -52,19 +52,16 @@ const Products = () => {
 
   useEffect(() => {
     if (products && categories && productNameString) {
-      // Find the matching link from the header links
       const matchingLink = links.find((link) =>
         productNameString.includes(link.href.replace(/^\//, '')),
       );
 
-      const selectedProductName = matchingLink ? matchingLink.label : 'sff';
+      const selectedProductName = matchingLink ? matchingLink.label : '';
 
-      // Find the relevant category
       const filterCat = categories?.find(
         (cat) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
       );
 
-      // Filter products by the found category
       if (filterCat) {
         const filtered = products.filter(
           (product) => product.CategoryId === filterCat.id,
