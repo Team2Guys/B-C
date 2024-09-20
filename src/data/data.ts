@@ -1245,14 +1245,8 @@ export const blogData: BlogInfo[] = [
   {
     image: '/assets/images/product/1.png',
     category: 'Technology',
-<<<<<<< HEAD
     title: 'Lorem Ipsum is simply dummy text of the printing the? ',
     description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology',
-=======
-    title: 'The Rise of AI in Modern Technology',
-    description:
-      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology',
->>>>>>> 6fe38ca3d7c84f8c0f30092a3fb14a7d10123ac9
   },
   {
     image: '/assets/images/product/2.png',
