@@ -98,3 +98,12 @@ model Admins {
 }
 
 
+
+model blogs {
+id Int @id @default(autoincrement())
+title    String  @unique
+content   String
+category String
+updatedAt   DateTime?
+createdAt   DateTime  @default(now())
+}
