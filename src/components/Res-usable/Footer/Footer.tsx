@@ -1,32 +1,45 @@
 'use client';
 
 import React from 'react';
-import { footerLinks, footerInfo, generateSlug } from 'data/data';
+import {
+  footerLinks,
+  footerInfo,
+  generateSlug,
+  blindMegaMenuItems,
+  shutterMegaMenuItems,
+  curtainMegaMenuItems,
+  commercialMegaMenuItems,
+} from 'data/data';
 import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { IoLogoPinterest } from 'react-icons/io5';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { CiFacebook } from 'react-icons/ci';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ICategory } from 'types/types';
+import { ICategory, IProduct } from 'types/types';
 import { useQuery } from '@tanstack/react-query';
-import { fetchCategories, fetchSubCategories } from 'config/fetch';
+import {
+  fetchCategories,
+  fetchProducts,
+  fetchSubCategories,
+} from 'config/fetch';
+import FooterItem from 'components/FooterItem';
+import { updateProductTitle } from 'components/ui/menu-card';
 
 const Footer: React.FC = () => {
-  const {
-    data: categories,
-    error: categoriesError,
-    isLoading: isLoadingCategories,
-  } = useQuery<ICategory[]>({
+  const { data: products } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+
+  const { data: categories, error: categoriesError } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
 
-  const {
-    data: subcategories,
-    error: subcategoriesError,
-    isLoading: isLoadingSubcategories,
-  } = useQuery<ICategory[]>({
+  const { data: subcategories, error: subcategoriesError } = useQuery<
+    ICategory[]
+  >({
     queryKey: ['subcategories'],
     queryFn: fetchSubCategories,
   });
@@ -39,29 +52,24 @@ const Footer: React.FC = () => {
     );
   }
 
-  if (isLoadingCategories || isLoadingSubcategories) {
-    return <div>{/* Loading state content */}</div>;
-  }
-
   return (
     <footer>
       <div className="bg-primary text-white py-10">
-        <div className="max-w-screen-2xl mx-auto  px-2">
+        <div className="max-w-screen-2xl mx-auto px-2">
           <div className="lg:flex border-b-2">
             <div className="mb-4 md:col-span-1 lg:w-2/12">
               <Link href={'/'}>
                 <Image
                   src={'/assets/images/whitelogo.png'}
                   className="w-auto h-auto"
-                  alt=""
+                  alt="Logo"
                   width={150}
                   height={150}
                 />
               </Link>
               <p className="text-sm text-white">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy text
-                ever since.
+                industry.
               </p>
               <div className="flex items-center space-x-4 mt-4">
                 <Link
@@ -85,7 +93,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid  grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-end py-5  lg:w-5/6">
+            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-end py-5 lg:w-5/6">
               {categories
                 ?.filter((category) => category.title !== 'Commercial')
                 .map((category) => (
@@ -95,20 +103,41 @@ const Footer: React.FC = () => {
                       {subcategories
                         ?.filter(
                           (subcategory) =>
-                            subcategory.CategoryId === category.id &&
-                            category.title !== 'Commercial',
+                            subcategory.CategoryId === category.id,
                         )
                         .map((subcategory) => {
-                          const filtered = categories?.find((cat) => {
-                            return cat.id === subcategory.CategoryId;
-                          });
+                          const filteredCategory = categories?.find(
+                            (cat) => cat.id === subcategory.CategoryId,
+                          );
                           return (
                             <li key={subcategory.id}>
                               <Link
                                 className="text-16 font-medium"
-                                href={`/${filtered?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
+                                href={`/${filteredCategory?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
                               >
                                 {subcategory.title}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      {products
+                        ?.filter(
+                          (product) => product.CategoryId === category.id,
+                        )
+                        .slice(0, category.id === 2 ? 3 : 4)
+                        .map((product) => {
+                          const filteredCategory = categories?.find(
+                            (cat) => cat.id === product.CategoryId,
+                          );
+                          //@ts-expect-error
+                          const parent = generateSlug(filteredCategory?.title);
+                          return (
+                            <li key={product.id}>
+                              <Link
+                                className="text-16 font-medium"
+                                href={`/${parent === 'shutter' ? `${parent}s-range` : parent}/${generateSlug(product.title)}`}
+                              >
+                                {updateProductTitle(product.title)}
                               </Link>
                             </li>
                           );
@@ -116,11 +145,9 @@ const Footer: React.FC = () => {
                     </ul>
                   </div>
                 ))}
+
               {footerLinks.map((category, index) => (
-                <div
-                  key={index}
-                  className="md:col-span-1 lg:pl-8 mt-5 lg:mt-0 "
-                >
+                <div key={index} className="md:col-span-1 lg:pl-8 mt-5 lg:mt-0">
                   <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">
                     {category.title}
                   </h3>
@@ -135,7 +162,8 @@ const Footer: React.FC = () => {
                   </ul>
                 </div>
               ))}
-              <div className="md:col-span-1 lg:pl-8  mt-5 lg:mt-0">
+
+              <div className="md:col-span-1 lg:pl-8 mt-5 lg:mt-0">
                 <h3 className="font-bold mb-2 border-b-4 lg:border-0 w-fit">
                   Blinds & Curtains Dubai
                 </h3>
@@ -164,8 +192,8 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="border-t border-[#F6EFE9]-300 py-4  text-center bg-[#F6EFE9]">
-        <p className="text-16 font-gotham-400 ">{footerInfo}</p>
+      <div className="border-t border-[#F6EFE9]-300 py-4 text-center bg-[#F6EFE9]">
+        <p className="text-16 font-gotham-400">{footerInfo}</p>
       </div>
     </footer>
   );
