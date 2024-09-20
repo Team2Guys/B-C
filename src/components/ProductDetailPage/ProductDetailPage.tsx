@@ -25,6 +25,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
+
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
   const filterProduct = products?.find((product) => {
@@ -61,7 +62,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
       ) : (
         <>
           <Container className="mt-10 md:mt-20">
-            <RelatedProducts products={relatedProducts || []} />
+            <RelatedProducts products={relatedProducts || []} limit={3} />
           </Container>
         </>
       )}
