@@ -1,7 +1,7 @@
 'use client';
 
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_subcategory.png';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_subcategory.jpeg';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 import Link from 'next/link';
