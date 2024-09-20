@@ -2,7 +2,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import ProductCard from 'components/ui/Product-Card';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { IProduct } from 'types/types';
 
@@ -16,6 +16,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const productsPerPage = 6; // Changed to 6
   const categories = ['All', 'BY TYPE', 'BY ROOM'];
+  const productContainerRef = useRef<HTMLDivElement | null>(null); // Create a ref
 
   const filteredProducts: IProduct[] =
     activeCategory === 'All'
@@ -31,6 +32,18 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+    if (productContainerRef.current) {
+      productContainerRef.current.scrollIntoView({ behavior: 'smooth' });
+
+      // Calculate the position to scroll to (subtracting 100 pixels)
+      const offset = 200; // Adjust this value as needed
+      const top =
+        productContainerRef.current.getBoundingClientRect().top +
+        window.scrollY -
+        offset;
+
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -44,7 +57,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
                 ${activeCategory === category ? 'bg-primary text-white px-2 md:px-8 py-2 md:py-7' : 'text-black bg-transparent px-2 md:px-8 py-2 md:py-7'}`}
               onClick={() => {
                 setActiveCategory(category);
-                setCurrentPage(1); // Reset to the first page on category change
+                setCurrentPage(1);
               }}
             >
               {category}
@@ -63,7 +76,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
           </p>
         </div>
 
-        <div className="mt-5">
+        <div ref={productContainerRef} className="mt-5" id="productContainer">
           <ProductCard categoryType={categoryType} products={visibleProducts} />
         </div>
 
