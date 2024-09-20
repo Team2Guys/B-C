@@ -1,3 +1,4 @@
+import { generateSlug } from 'data/data';
 import Image from 'next/image';
 import React from 'react';
 
@@ -55,7 +56,9 @@ const MenuCard: React.FC<MenuCardProps> = ({
         <p
           className={`text-15 text-center capitalize ${isActive ? 'font-bold' : ''}`}
         >
-          {updateProductTitle(title)}
+          {generateSlug(title) === 'hotels-restaurants-blinds-curtains'
+            ? 'Hostel & Restaurant'
+            : updateProductTitle(title)}
         </p>
       </div>
       <hr
