@@ -1156,30 +1156,30 @@ export const commercialMegaMenuItems = [
 ];
 
 export const staticCommercialMegaMenuItems: IProduct[] = [
-  {
-    id: 35,
-    title: 'Hotels & Restaurants',
-    posterImage: {
-      imageUrl:
-        'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645877/sruin6vc0ujvgxffpgne.png',
-      public_id: 'sruin6vc0ujvgxffpgne',
-    },
-    imageUrls: [
-      {
-        imageUrl:
-          'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645880/p1mgmoe4gndfyndvlown.png',
-        public_id: 'p1mgmoe4gndfyndvlown',
-      },
-    ],
-    price: 1000,
-    href: 'google.com',
-    CategoryId: 9,
-    SubCategoryId: null,
-    description:
-      'Our custom-printed roller blinds range is the perfect solution to tick all boxes. Increase your brand exposure, raise your profile, and give your premises a professional fit-out feel while at the same time, keeping your staff and customers comfortable.\n\nProvide us with a high-quality image and leave the rest to us. Your blinds will be custom-made to size, and custom printed as required. A truly unique blind that will set your company apart from the rest.',
-    updatedAt: null,
-    createdAt: '2024-09-18T07:51:23.509Z',
-  },
+  // {
+  //   id: 35,
+  //   title: 'Hotels & Restaurants',
+  //   posterImage: {
+  //     imageUrl:
+  //       'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645877/sruin6vc0ujvgxffpgne.png',
+  //     public_id: 'sruin6vc0ujvgxffpgne',
+  //   },
+  //   imageUrls: [
+  //     {
+  //       imageUrl:
+  //         'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645880/p1mgmoe4gndfyndvlown.png',
+  //       public_id: 'p1mgmoe4gndfyndvlown',
+  //     },
+  //   ],
+  //   price: 1000,
+  //   href: 'google.com',
+  //   CategoryId: 9,
+  //   SubCategoryId: null,
+  //   description:
+  //     'Our custom-printed roller blinds range is the perfect solution to tick all boxes. Increase your brand exposure, raise your profile, and give your premises a professional fit-out feel while at the same time, keeping your staff and customers comfortable.\n\nProvide us with a high-quality image and leave the rest to us. Your blinds will be custom-made to size, and custom printed as required. A truly unique blind that will set your company apart from the rest.',
+  //   updatedAt: null,
+  //   createdAt: '2024-09-18T07:51:23.509Z',
+  // },
   {
     id: 36,
     title: 'Office Blinds',
