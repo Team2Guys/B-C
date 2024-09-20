@@ -180,14 +180,14 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                 card={product}
                 key={product.id}
                 relativeProducts={true}
-                parent={pathname}
+                parent={`${pathname}`}
               />
             ))}
         </div>
       </Container>
       <BookNowBanner />
       <Container className="py-10">
-        <RelatedProducts products={filteredProducts || []} />
+        <RelatedProducts products={filteredProducts || []} limit={4} />
       </Container>
     </div>
   );
