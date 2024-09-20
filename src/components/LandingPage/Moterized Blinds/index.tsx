@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const MoterizedBlinds = () => {
   return (
-    <div className="w-full flex flex-col sm:flex-row items-center justify-between bg-[#A9B4A4] px-6 mt-24 my-8">
+    <div className="w-full flex flex-col sm:flex-row items-center justify-between bg-[#A9B4A4] px-6 mt-2 my-8">
   <div className="sm:w-1/2">
         <Image
           src="/assets/images/Landing/Rectangle8.png" 

@@ -11,7 +11,7 @@ const Button = () => {
     <button className='text-black bg-white p-2 rounded-sm font-medium' onClick={() => alert('Button clicked!')}>
       CALL NOW
     </button>
-    <button className='text-white flex gap-2 bg-green-500 p-2 rounded-sm font-medium' onClick={() => alert('Button clicked!')}>
+    <button className='text-white flex bg-green-500 p-2 rounded-sm font-medium' onClick={() => alert('Button clicked!')}>
     <FaWhatsapp className='h-6 w-6' /> WATSAPP 
     </button>
     </div>

@@ -19,7 +19,7 @@ const VideoSection = () => {
   };
 
   return (
-    <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden mb-10`} onClick={handlePlayPause}>
+    <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden`} onClick={handlePlayPause}>
       {/* Video Element */}
       <video
       onClick={handlePlayPause}
@@ -38,7 +38,7 @@ const VideoSection = () => {
         onClick={handlePlayPause}
         className="absolute z-20 left-[50%] top-[50%] transform -translate-x-1/2 -translate-y-1/2 transition"
       >
-        {isPlaying ? ""  :<div className='bg-white/60 rounded-full h-16 w-16 flex justify-center items-center'>
+        {isPlaying ? ""  :<div className='border border-white text-white rounded-full h-16 w-16 flex justify-center items-center'>
           <FaPlay size={25} />
         </div>}
       </button>
@@ -47,21 +47,19 @@ const VideoSection = () => {
       <div className="relative z-10 flex items-center h-full">
         <div className="bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-lg">
           <div className="py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
-            <p className="lg:text-[43px] text-25 font-black drop-shadow-lg capitalize">
-              Long Established
+            <p className="lg:text-[43px] text-25 font-black drop-shadow-lg capitalize font-serif">
+              Motorized Blinds
             </p>
-            <p className="text-17 font-bold capitalize tracking-widest">
-              Made to measure long established
+            <p className="text-17 font-bold capitalize tracking-widest font-serif">
+              Made to Measure Motorized Blinds
             </p>
-            <p className="mt-4 font-normal lg:text-16 text-14 w-[96%] uppercase">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal.
+            <p className="mt-4 font-normal lg:text-14 text-14 w-[96%] text-justify">
+              Motorized Blinds Or Electric Blinds Are Typically Operated By A Remote Control.You Can Even Add Smartphone Control Funcctionality To Allow You Total Control Functionality To Allow You Total Control Of Your Blinds, Home or Away.
             </p>
           </div>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 

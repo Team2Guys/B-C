@@ -22,8 +22,8 @@ const CustomPage = () => {
        </div>
     </div>
 </div>
-    <div className="">
-      <Image  className="object-cover w-full " src="/assets/images/Landing/Rectangle.png" alt="Rectangle" width={800} height={500} />
+    <div className="w-full">
+      <Image  className="object-cover w-full" src="/assets/images/Landing/Rectangle.png" alt="Rectangle" width={800} height={500} />
     </div>
   </div>
 </div>

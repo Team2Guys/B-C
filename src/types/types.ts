@@ -101,4 +101,6 @@ export interface ProductType{
 export interface TabDataType{
   icon: string;
   title: string;
+  video: string;
+  description: string;
 }

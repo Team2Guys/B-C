@@ -1207,6 +1207,22 @@ export const KeyData: KeyType[]=[
     image:"/assets/images/Landing/loyalty.png",
     para:"We only use the leading brands such as Somfy, nice and Motion",  
   },
+  {
+    image:"/assets/images/Landing/guarantee.png",
+    para:"we offer a fully comprehensive 5-year warrenty on all our motors",  
+  },
+  {
+    image: "/assets/images/Landing/businessmen.png",
+    para:"Our professional staff are fully trained to install as well as offer expert advice",  
+  },
+  {
+    image:"/assets/images/Landing/ready.png",
+    para:"we keep motors in stock, so no long delays waiting for stock",  
+  },
+  {
+    image:"/assets/images/Landing/loyalty.png",
+    para:"We only use the leading brands such as Somfy, nice and Motion",  
+  },
 ];
 
 export const FeatureData=[
@@ -1254,22 +1270,32 @@ export const ProductData=[
 export const TabData=[
 {
   icon: "/assets/images/Landing/iconremote1.png",
-  title: "Remote Control",
+  title: "With a Control Your Motors",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
 },
 {
   icon: "/assets/images/Landing/iconremote1.png",
-  title: "Remote Control",
+  title: "With a Control Your Motors2",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
 },
 {
   icon: "/assets/images/Landing/iconremote1.png",
-  title: "Remote Control",
+  title: "With a Control Your Motors3",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
 },
 {
   icon: "/assets/images/Landing/iconremote1.png",
-  title: "Remote Control",
+  title: "With a Control Your Motors4",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
 },
 {
-  icon: "/assets/images/Landing/iconremote2.png",
-  title: "Remote Control",
+  icon: "/assets/images/Landing/iconremote1.png",
+  title: "With a Control Your Motors5",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
 },
 ];
