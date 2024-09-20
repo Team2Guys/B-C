@@ -170,7 +170,7 @@ const GalleryPage = () => {
       </Container>
 
       <Container className="py-10">
-        <RelatedProducts products={products || []} />
+        <RelatedProducts products={products || []} limit={6} />
       </Container>
       <VideoAutomation />
       <Support />
