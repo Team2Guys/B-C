@@ -29,9 +29,9 @@ const Contant: React.FC<ContantProps> = ({ TabData }) => {
   };
   return (
     <>
-      <div className={'flex flex-col lg:flex-row gap-5 lg:gap-8 justify-center items-center mx-auto lg:max-w-screen-lg px-4 border border-t-black'} onClick={handlePlayPause}>
+      <div className={' flex flex-col lg:flex-row gap-5 lg:gap-8 justify-center items-center mx-auto lg:max-w-screen-lg  border border-t-black'} onClick={handlePlayPause}>
         {/* First Flex Item - Video */}
-        <div className='relative w-full lg:w-1/2 h-full'>
+        <div className=' w-full lg:w-1/2 h-full relative top-10'>
   <video
     onClick={handlePlayPause}
     ref={videoRef}
@@ -41,7 +41,7 @@ const Contant: React.FC<ContantProps> = ({ TabData }) => {
     muted
     playsInline
     controls={false}
-    className='w-full h-full object-cover'
+    className='w-full h-[323px] object-cover  '
   />
   
   {/* Play/Pause Button */}

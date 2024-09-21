@@ -9,12 +9,11 @@ const MoterizedService: React.FC = () => {
 
   return (
     <>
-      <div className='relative z-20 flex flex-col justify-center items-center space-y-4 mx-auto bg-light mb-5 md:pb-4 sm:px-6 lg:px-8 pt-3'>
+      <div className='relative  flex flex-col justify-center items-center space-y-4 mx-auto bg-light mb-5 md:pb-4 sm:px-6 lg:px-8 pt-3'>
         <h2 className='font-serif text-black text-center text-lg sm:text-2xl lg:text-4xl'>
           So, What do <span className='font-extrabold'>Moterization systems</span> Do For You
         </h2>
 
-        {/* Tab buttons */}
         <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-center items-center'>
           {TabData.map((arr, index) => (
             <div key={index} className='flex flex-col justify-center items-center space-y-2 sm:space-y-3 lg:space-y-4'>

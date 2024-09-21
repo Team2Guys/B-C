@@ -8,8 +8,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 const KeyFeature = () => {
-  const prevRef = useRef<HTMLDivElement | null>(null);
-  const nextRef = useRef<HTMLDivElement | null>(null);
+  const prevRef = useRef<HTMLDivElement | any>(null);
+  const nextRef = useRef<HTMLDivElement | any>(null);
 
   return (
     <div className='w-full h-full text-center pt-4 bg-keyimage bg-cover'>
@@ -38,7 +38,7 @@ const KeyFeature = () => {
               prevEl: prevRef.current,
               nextEl: nextRef.current,
             }}
-            onBeforeInit={(swiper) => {
+            onBeforeInit={(swiper:any) => {
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
             }}

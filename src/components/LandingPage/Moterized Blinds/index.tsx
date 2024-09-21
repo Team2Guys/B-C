@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const MoterizedBlinds = () => {
   return (
-    <div className='mb-4 mx-0 px-0'>
+    <div className='mt-4 mb-8 mx-0 px-0'>
       <div className="w-full flex flex-col sm:flex-row items-center justify-between">
         {/* Left side */}
         <div className="sm:w-1/2 flex items-center">
