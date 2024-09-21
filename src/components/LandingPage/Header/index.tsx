@@ -28,7 +28,7 @@ const Header = () => {
 
       {/* Contact Info Section */}
       <div className='flex-col justify-center items-center space-y-3 bg-black col-span-4 md:col-span-3 lg:col-span-2 border pt-6'>
-        <div className='flex gap-2 justify-center items-center'>
+        <div className='flex gap-2 justify-center'>
           <LuPhone className='text-14 text-center xl:text-16' />
           <Link href="tel:+042522025" className='text-14 text-center xl:text-16'>
             04 252 2025

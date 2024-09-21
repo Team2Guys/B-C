@@ -12,7 +12,7 @@ const KeyFeature = () => {
   const nextRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div className='w-full h-full text-center py-4 bg-keyimage bg-cover'>
+    <div className='w-full h-full text-center pt-4 bg-keyimage bg-cover'>
       <div>
         <h2 className='font-serif font-extrabold text-1xl sm:text-2xl lg:text-4xl text-black'>
           Key Features

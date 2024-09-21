@@ -1,4 +1,6 @@
 'use client'
+InstavideoSection:
+'use client'
 import React, { useState, useRef } from 'react';
 import { InstaData, ProductData } from 'data/data';
 import Image from 'next/image';
@@ -72,12 +74,12 @@ const InstaVideoSection = () => {
           </div>
         ))}
       </div>
-      <div className='lg:max-w-[90%] max-w-screen-2xl 2xl:max-w-screen-2xl mx-auto justify-start items-start p-5 space-y-1 sm:space-y-3 lg:space-y-4'>
+      <div className='lg:max-w-[90%] max-w-screen-2xl 2xl:max-w-screen-2xl mx-auto justify-start items-start px-5 pt-7 space-y-1 sm:space-y-3 lg:space-y-4'>
         <h2 className='font-serif font-extrabold text-1xl sm:text-2xl lg:text-4xl '>Related Products</h2>
         <p className='font-normal text-xs sm:text-base md:text-lg text-justify 2xl:text-xl'>
           Lectus pulvinar tincidunt accumsun ullamcorper dolor acsed facilisis molestile aliquam.
         </p>
-        <div className='grid grid-cols-3 justify-between items-center border pt-3 gap-4'>
+        <div className='grid grid-cols-3 justify-between items-center gap-4'>
           <div className='relative'>
             <Image
               src={"/assets/images/Landing/Rectangle 8.png"}

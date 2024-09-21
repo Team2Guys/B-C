@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import Image from 'next/image';
 import { TabData } from 'data/data';
 import React, { useState } from 'react';
@@ -9,7 +9,7 @@ const MoterizedService: React.FC = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-center items-center space-y-4 mx-auto bg-light mb-4 px-4 sm:px-6 lg:px-8 pt-3'>
+      <div className='relative z-20 flex flex-col justify-center items-center space-y-4 mx-auto bg-light mb-5 md:pb-4 sm:px-6 lg:px-8 pt-3'>
         <h2 className='font-serif text-black text-center text-lg sm:text-2xl lg:text-4xl'>
           So, What do <span className='font-extrabold'>Moterization systems</span> Do For You
         </h2>
