@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import { generateSlug } from 'data/data';
@@ -13,29 +13,34 @@ const OurBlog: React.FC<BlogProps> = ({
   title,
   Blogdata,
   id,
-  isFirstItemLarge = false, // Default to false
-  buttonView = false, // Default to false
+  isFirstItemLarge = false,
+  buttonView = false,
 }) => {
-
   const route = useRouter();
   return (
     <Container className="mt-10">
-        {buttonView ? (
-      <div className="flex justify-between items-center">
-        <p className="text-20 sm:text-[48px] font-bold capitalize">{title}</p>
-          <Button onClick={()=>route.push(`/blog/${generateSlug(title ? title : "")}`)} className="sm:py-6 sm:px-10" variant={'secondary'}>
+      {buttonView ? (
+        <div className="flex justify-between items-center">
+          <p className="text-20 sm:text-[48px] font-bold capitalize">{title}</p>
+          <Button
+            onClick={() =>
+              route.push(`/blog/${generateSlug(title ? title : '')}`)
+            }
+            className="sm:py-6 sm:px-10"
+            variant={'secondary'}
+          >
             View All
           </Button>
-        
-      </div>
-        ) : null}
+        </div>
+      ) : null}
 
       <div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-5"
         id={id}
       >
         {Blogdata.map((blog, index) => (
-          <Link href={`/blog/blog-detail/${generateSlug(blog.title)}`}
+          <Link
+            href={`/blog/blog-detail/${generateSlug(blog.title)}`}
             className={`rounded-lg space-y-4 mt-5 ${className} ${
               isFirstItemLarge && index === 0
                 ? 'md:col-span-3 flex flex-col md:flex-row gap-5'
