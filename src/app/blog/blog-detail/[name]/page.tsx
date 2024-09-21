@@ -27,10 +27,10 @@ const BlogDetail = () => {
     return <PageSkelton />;
   }
 
-  const blog = blogs?.find((blog) => generateSlug(blog.title) === name); // Use find to get a single blog
+  const blog = blogs?.find((blog) => generateSlug(blog.title) === name);
 
   if (!blog) {
-    return <p>Blog not found.</p>; // Handle case when blog is not found
+    return <p>Blog not found.</p>;
   }
 
   return (
