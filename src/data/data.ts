@@ -1147,6 +1147,7 @@ export const shutterMegaMenuItems = [
 
 export const commercialMegaMenuItems = [
   { productName: 'school-blinds' },
+  { productName: 'office-blinds' },
   { productName: 'hotels-restaurants-blinds-curtains' },
   { productName: 'office-window-curtains' },
   { productName: 'printed-blinds' },
@@ -1184,6 +1185,7 @@ export const staticCommercialMegaMenuItems: IProduct[] = [
 
 export const commercialPagesItems = [
   { productName: 'school-blinds' },
+
   { productName: 'hotels-restaurants-blinds-curtains' },
   { productName: 'blackout-blinds' },
   { productName: 'printed-blinds' },
@@ -1287,85 +1289,85 @@ export const estimateSldie = {
   },
 };
 
-export const blogData: BlogInfo[] = [
-  {
-    image: '/assets/images/product/1.png',
-    category: 'Technology',
-    title: 'The Rise of AI in Modern Technology',
-    description:
-      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology',
-  },
-  {
-    image: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    description:
-      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    image: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    description:
-      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-  {
-    image: '/assets/images/product/1.png',
-    category: 'Technology',
-    title: 'The Rise of AI in Modern Technology',
-    description:
-      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
-  },
-  {
-    image: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    description:
-      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    image: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    description:
-      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-  {
-    image: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    description:
-      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    image: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    description:
-      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-  {
-    image: '/assets/images/product/1.png',
-    category: 'Technology',
-    title: 'The Rise of AI in Modern Technology',
-    description:
-      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
-  },
-  {
-    image: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    description:
-      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    image: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    description:
-      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-];
+// export const blogData: BlogInfo[] = [
+//   {
+//     image: '/assets/images/product/1.png',
+//     category: 'Technology',
+//     title: 'The Rise of AI in Modern Technology',
+//     description:
+//       'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology',
+//   },
+//   {
+//     image: '/assets/images/product/2.png',
+//     category: 'Health',
+//     title: 'Top 10 Health Tips for a Better Life',
+//     description:
+//       'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+//   },
+//   {
+//     image: '/assets/images/product/3.png',
+//     category: 'Travel',
+//     title: 'Best Travel Destinations for 2024',
+//     description:
+//       'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+//   },
+//   {
+//     image: '/assets/images/product/1.png',
+//     category: 'Technology',
+//     title: 'The Rise of AI in Modern Technology',
+//     description:
+//       'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
+//   },
+//   {
+//     image: '/assets/images/product/2.png',
+//     category: 'Health',
+//     title: 'Top 10 Health Tips for a Better Life',
+//     description:
+//       'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+//   },
+//   {
+//     image: '/assets/images/product/3.png',
+//     category: 'Travel',
+//     title: 'Best Travel Destinations for 2024',
+//     description:
+//       'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+//   },
+//   {
+//     image: '/assets/images/product/2.png',
+//     category: 'Health',
+//     title: 'Top 10 Health Tips for a Better Life',
+//     description:
+//       'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+//   },
+//   {
+//     image: '/assets/images/product/3.png',
+//     category: 'Travel',
+//     title: 'Best Travel Destinations for 2024',
+//     description:
+//       'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+//   },
+//   {
+//     image: '/assets/images/product/1.png',
+//     category: 'Technology',
+//     title: 'The Rise of AI in Modern Technology',
+//     description:
+//       'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
+//   },
+//   {
+//     image: '/assets/images/product/2.png',
+//     category: 'Health',
+//     title: 'Top 10 Health Tips for a Better Life',
+//     description:
+//       'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+//   },
+//   {
+//     image: '/assets/images/product/3.png',
+//     category: 'Travel',
+//     title: 'Best Travel Destinations for 2024',
+//     description:
+//       'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+//   },
+// ];
 
 export const blogPara = [
   {
