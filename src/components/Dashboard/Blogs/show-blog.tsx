@@ -5,6 +5,7 @@ import { columns, dataSource } from 'data/table';
 import { useQuery } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
 import TableSkeleton from '../Tables/TableSkelton';
+import { BlogInfo } from 'types/interfaces';
 interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
 }
@@ -14,18 +15,13 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType }) => {
     data: blogs,
     isLoading,
     error,
-  } = useQuery<BlogProps[]>({
+  } = useQuery<BlogInfo[]>({
     queryKey: ['blogs'],
-    //@ts-expect-error
     queryFn: fetchBlogs,
   });
   if (isLoading) {
     return <TableSkeleton rows={8} columns={5} />;
   }
-  console.log(' __ _ _ _ _ _ _ BLOGS  _ _ __ _ ');
-  console.log(blogs);
-  console.log(' __ _ _ _ _ _ _ dataSource  _ _ __ _ ');
-  console.log(dataSource);
   return (
     <div className="mt-10">
       <div className="text-end">

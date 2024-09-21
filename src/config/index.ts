@@ -35,3 +35,20 @@ export function formatDateTime(isoDate: Date): string {
 
   return `${formattedDate}, ${formattedTime}`;
 }
+
+export const formatDateMonth = (dateString: string) => {
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  };
+  return date.toLocaleDateString(undefined, options);
+};
+
+export const removeImagesFromContent = (content: any) => {
+  let updatedContent = content.replace(/<figure[^>]*>.*?<\/figure>/g, '');
+  updatedContent = updatedContent.replace(/\s*(<p>|<\/p>)\s*/g, '');
+
+  return updatedContent;
+};
