@@ -1,6 +1,6 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/large-ss.png';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_commercial.jpeg';
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
