@@ -64,10 +64,15 @@ const CardSlider: React.FC<CardSliderProps> = ({
                     ? `${process.env.NEXT_PUBLIC_APP_URL}/${item.href}`
                     : `/${slug}`;
 
-                  const path =
-                    slug === 'hotels-restaurants-blinds-curtains'
-                      ? basePath
-                      : `/${parent === 'shutter' ? `${parent}s-range` : parent}/${slug}`;
+                  let path;
+
+                  if (slug === 'office-blinds') {
+                    path = '/commercial';
+                  } else if (slug === 'hotels-restaurants-blinds-curtains') {
+                    path = basePath;
+                  } else {
+                    path = `/${parent === 'shutter' ? `${parent}s-range` : parent}/${slug}`;
+                  }
 
                   route.push(path);
                   setIsOpen(false);
