@@ -200,7 +200,7 @@ const Header = () => {
                     ) || [];
 
                   combinedSliderData = [
-                    ...staticCommercialMegaMenuItems,
+                    // ...staticCommercialMegaMenuItems,
                     ...filteredSubCategories,
                     ...actualProducts,
                   ];

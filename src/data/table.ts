@@ -1,3 +1,5 @@
+import { formatDate, formatDateTime } from 'config';
+
 export const ordercolumns = [
   {
     title: 'OrderId',
@@ -31,8 +33,6 @@ export const ordercolumns = [
   },
 ];
 
-
-
 export const appointmentColumns = [
   {
     title: 'ID',
@@ -40,7 +40,7 @@ export const appointmentColumns = [
   },
   {
     title: 'Name',
-    dataIndex: 'name', 
+    dataIndex: 'name',
   },
   {
     title: 'Area',
@@ -53,7 +53,6 @@ export const appointmentColumns = [
   {
     title: 'Phone Number',
     dataIndex: 'phone_number',
-    
   },
   {
     title: 'WhatsApp Number',
@@ -104,17 +103,22 @@ export const dataSource = [
 export const columns = [
   {
     title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
+    dataIndex: 'title',
+    key: 'title',
+  },
+
+  {
+    title: 'Created At',
+    dataIndex: 'createdAt',
+    key: 'createdAt',
+    render: (text: any, record: any) => {
+      const createdAt = new Date(record.createdAt);
+      return formatDateTime(createdAt);
+    },
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
+    title: 'Category',
+    dataIndex: 'category',
+    key: 'category',
   },
 ];
