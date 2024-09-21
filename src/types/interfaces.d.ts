@@ -39,9 +39,6 @@ export interface Product {
   category: string;
 }
 
-
-
-
 export interface Category {
   name?: string;
   description?: string;
@@ -90,7 +87,7 @@ export interface FormValues {
   variantStockQuantities: { variant: string; quantity: number }[];
   CategoryId?: number;
   SubCategoryId?: number;
-  price:number
+  price: number;
 }
 
 interface Color {
@@ -165,8 +162,6 @@ export interface Allproduct {
   updatedAt: string | null;
   name?: any;
 }
-
-
 
 // card data types
 export interface CardTypes {
@@ -290,10 +285,7 @@ export interface TProductGuarantees {
   imageAlign: 'left' | 'right';
 }
 
-
-
-
-export interface formDataTypes  {
+export interface formDataTypes {
   fullname: string;
   email: string;
   password: string;
@@ -311,21 +303,20 @@ export interface formDataTypes  {
   canVeiwAdmins: boolean;
   canVeiwTotalproducts: boolean;
   canVeiwTotalCategories: boolean;
-  id?:any
-};
-
+  id?: any;
+}
 
 export interface ADMINS_PROPS {
-  setselecteMenu:React.Dispatch<SetStateAction<string | null | undefined>>;
-  setedit_admins: React.Dispatch<SetStateAction< formDataTypes | undefined>>;
- }
+  setselecteMenu: React.Dispatch<SetStateAction<string | null | undefined>>;
+  setedit_admins: React.Dispatch<SetStateAction<formDataTypes | undefined>>;
+}
 
- export interface createAdmin extends ADMINS_PROPS{
-  setedit_admins?: React.Dispatch<SetStateAction< formDataTypes | undefined>>;
-  edit_admins:formDataTypes | undefined
- }
+export interface createAdmin extends ADMINS_PROPS {
+  setedit_admins?: React.Dispatch<SetStateAction<formDataTypes | undefined>>;
+  edit_admins: formDataTypes | undefined;
+}
 
- export interface BlogInfo {
+export interface BlogInfo {
   image: string;
   category: string;
   title: string;
@@ -337,6 +328,6 @@ export interface BlogProps {
   title?: string | undefined;
   id?: string;
   Blogdata: BlogInfo[];
-  isFirstItemLarge?: boolean; 
-  buttonView?:boolean;
+  isFirstItemLarge?: boolean;
+  buttonView?: boolean;
 }
