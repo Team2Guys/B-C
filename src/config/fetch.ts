@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
-import { Allproduct, BlogProps } from 'types/interfaces';
+import { Allproduct, BlogInfo, BlogProps } from 'types/interfaces';
 import Cookies from 'js-cookie';
 
 const superAdmintoken = Cookies.get('superAdminToken');
@@ -19,7 +19,7 @@ export const fetchProducts = async (): Promise<Allproduct[]> => {
   return response.data;
 };
 
-export const fetchBlogs = async (): Promise<BlogProps[]> => {
+export const fetchBlogs = async (): Promise<BlogInfo[]> => {
   console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`);
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,

@@ -320,7 +320,8 @@ export interface BlogInfo {
   image: string;
   category: string;
   title: string;
-  description: string;
+  content: string;
+  createdAt?: date;
 }
 
 export interface BlogProps {
