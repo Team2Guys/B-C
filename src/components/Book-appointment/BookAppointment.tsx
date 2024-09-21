@@ -230,8 +230,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     return isValid;
   };
 
-
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
@@ -310,7 +308,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               name="name"
               placeholder="Enter Your Full Name"
               id="name"
-              className={`mt-1 p-2 border border-gray-300 w-full rounded text-10 ${errors.name ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.name}
               onChange={handleChange}
             // required
@@ -380,7 +378,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               placeholder="Enter Your E-Mail"
               name="email"
               id="email"
-              className={`mt-1 p-2 border border-gray-300 w-full rounded text-10 ${errors.email ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 ${errors.email ? 'border-red-500' : ''}`}
               value={formData.email}
               onChange={handleChange}
             // required
@@ -500,7 +498,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
         </div>
         {!singlePage && (
           <div className="flex flex-wrap justify-between gap-2 mb-3">
-            <div className="max-w-md mx-auto p-2 bg-white shadow-md rounded-md">
+            <div className=" p-2 bg-white shadow-md rounded-md">
               <h2 className="text-sm mb-4">Tell us what you need:</h2>
 
               <div className="flex flex-row gap-2">
@@ -541,7 +539,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                 </div>
               </div>
             </div>
-            <div className="p-2 rounded-md max-w-md mx-auto">
+            <div className="p-2 rounded-md ">
               <label className="text-sm mb-4">How shall we contact you?</label>
               <div className="flex flex-row gap-2 mt-2">
                 <label className="flex items-center text-11">
@@ -580,7 +578,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
         )}
         {singlePage && (
           <>
-            <div className="w-full md:w-4/5 mx-auto mt-6">
+            <div className="w-full  mx-auto mt-6">
               <label className="block text-10 font-medium text-gray-700">
                 Window Dressing Type
               </label>
@@ -624,7 +622,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
         <div className="text-center mt-4">
           <button
             type="submit"
-            className="w-fit bg-[#A9B4A4] text-white py-2 px-8 rounded"
+            className="w-fit bg-[#A9B4A4] text-white py-2 px-14 rounded"
             disabled={loading}
           >
 
