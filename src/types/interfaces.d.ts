@@ -321,7 +321,9 @@ export interface BlogInfo {
   category: string;
   title: string;
   content: string;
+
   createdAt?: date;
+  updatedAt?: date;
 }
 
 export interface UpdateBlog extends BlogInfo {
