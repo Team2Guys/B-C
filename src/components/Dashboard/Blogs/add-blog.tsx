@@ -1,14 +1,18 @@
-"use client";
+'use client';
 import { Form, Formik } from 'formik';
 import React, { useEffect, useState, SetStateAction } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
-import dynamic from 'next/dynamic'; // Import dynamic from Next.js
+import dynamic from 'next/dynamic';
 import { Select, Spin } from 'antd';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { ICategory } from 'types/types';
 import { fetchCategories } from 'config/fetch';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import axios from 'axios';
+import showToast from 'components/Toaster/Toaster';
+import Loader from 'components/Loader/Loader';
+import { Button } from 'components/ui/button';
 
 class MyUploadAdapter {
   private loader: any;
@@ -44,6 +48,12 @@ interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
 }
 
+const blogInitialValues = {
+  title: '',
+  category: '',
+  content: '',
+};
+
 const AddBlogs: React.FC<BlogProps> = ({ setMenuType }) => {
   const {
     data: categories,
@@ -54,9 +64,23 @@ const AddBlogs: React.FC<BlogProps> = ({ setMenuType }) => {
     queryFn: fetchCategories,
   });
 
-  const handleChange = (value: string) => {
-    console.log(`Selected category: ${value}`);
-  };
+  const addBlogMutation = useMutation({
+    mutationFn: (formData: typeof blogInitialValues) => {
+      return axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/create_blog`,
+        formData,
+        { withCredentials: true },
+      );
+    },
+    onSuccess: () => {
+      setMenuType('viewBlogs');
+      showToast('success', 'Blog added successfully🎉');
+    },
+    onError: (error: any) => {
+      showToast('error', error.data.message + '☹');
+      console.error('Error adding blog:', error);
+    },
+  });
 
   return (
     <>
@@ -68,13 +92,21 @@ const AddBlogs: React.FC<BlogProps> = ({ setMenuType }) => {
       </p>
 
       <Formik
-        initialValues={{
-          title: '',
-          category: '',
-          content: '',
-        }}
-        onSubmit={(values) => {
+        initialValues={blogInitialValues}
+        onSubmit={(values, { resetForm }) => {
           console.log('Submitted Values:', values);
+          if (
+            values.content === '' ||
+            values.category == '' ||
+            values.title == ''
+          ) {
+            return showToast('warn', 'Ensure all fields are filled out😴');
+          }
+          addBlogMutation.mutate(values, {
+            onSuccess: () => {
+              resetForm();
+            },
+          });
         }}
       >
         {({ setFieldValue }) => (
@@ -102,19 +134,18 @@ const AddBlogs: React.FC<BlogProps> = ({ setMenuType }) => {
                 <Select
                   className="w-full h-[48px] detail-otion font-bold border rounded-md"
                   placeholder="Select Category"
-                  onChange={(value) => {
-                    setFieldValue('category', value);
-                    handleChange(value);
-                  }}
+                  onChange={(value) => setFieldValue('category', value)}
                   notFoundContent={
                     categoryError
                       ? 'Error loading categories'
                       : 'No categories found'
                   }
-                  options={categories?.map((category) => ({
-                    value: category.title,
-                    label: category.title,
-                  })) || []}
+                  options={
+                    categories?.map((category) => ({
+                      value: category.title,
+                      label: category.title,
+                    })) || []
+                  }
                 />
               )}
               {categoryError && (
@@ -163,12 +194,13 @@ const AddBlogs: React.FC<BlogProps> = ({ setMenuType }) => {
               }}
             />
 
-            <button
+            <Button
+              disabled={addBlogMutation.isPending ? true : false}
               type="submit"
               className="text-white bg-primary px-4 py-2 font-semibold rounded-md"
             >
-              Submit
-            </button>
+              {addBlogMutation.isPending ? <Loader color="white" /> : 'Submit'}
+            </Button>
           </Form>
         )}
       </Formik>
