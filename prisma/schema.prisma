@@ -106,4 +106,5 @@ content   String
 category String
 updatedAt   DateTime?
 createdAt   DateTime  @default(now())
+posterImage  Json @default("{}")
 }
