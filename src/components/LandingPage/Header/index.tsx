@@ -5,11 +5,9 @@ import { LuPhone } from "react-icons/lu";
 import Link from 'next/link';
 import { IoMailOpenOutline } from "react-icons/io5";
 import SocialLink from 'components/Res-usable/social-link/social-link';
-import Container from 'components/Res-usable/Container/Container';
 
 const Header = () => {
   return (
-    <Container className='lg:max-w-full px-0'>
     <div className='grid grid-cols-12 lg:grid-cols-10 gap-1 bg-white text-white'>
       {NavData.map((arr, index) => (
         <div className='col-span-4 md:col-span-3 lg:col-span-2 bg-black w-full space-y-1' key={index}>
@@ -49,7 +47,6 @@ const Header = () => {
         <SocialLink />
       </div>
     </div>
-    </Container>
   );
 };
 
