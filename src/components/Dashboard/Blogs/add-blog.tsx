@@ -13,6 +13,7 @@ import axios from 'axios';
 import showToast from 'components/Toaster/Toaster';
 import Loader from 'components/Loader/Loader';
 import { Button } from 'components/ui/button';
+import { BlogInfo as IBlog, UpdateBlog as IUpdateBlog } from 'types/interfaces';
 
 class MyUploadAdapter {
   private loader: any;
@@ -44,17 +45,17 @@ function MyCustomUploadAdapterPlugin(editor: any) {
   };
 }
 
-interface BlogProps {
-  setMenuType: React.Dispatch<SetStateAction<string>>;
-}
-
 const blogInitialValues = {
   title: '',
   category: '',
   content: '',
 };
+interface IAddBlogs {
+  setMenuType: React.Dispatch<SetStateAction<string>>;
+  EditInitialValues?: IUpdateBlog;
+}
 
-const AddBlogs: React.FC<BlogProps> = ({ setMenuType }) => {
+const AddBlogs = ({ setMenuType }: IAddBlogs) => {
   const {
     data: categories,
     error: categoryError,
