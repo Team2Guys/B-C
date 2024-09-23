@@ -25,6 +25,7 @@ const Blogging = () => {
       ) : (
         <AddBlogs
           setMenuType={setMenuType}
+          setEditBlog={setEditBlog}
           EditInitialValues={
             editBlog &&
             (editBlog.title !== undefined || editBlog.category !== undefined)

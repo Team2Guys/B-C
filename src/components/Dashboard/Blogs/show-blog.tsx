@@ -4,7 +4,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
 import TableSkeleton from '../Tables/TableSkelton';
 import { BlogInfo, UpdateBlog } from 'types/interfaces';
-import { formatDateTime } from 'config';
+import { formatDateMonth, formatDateTime } from 'config';
 import { LiaEdit } from 'react-icons/lia';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { Modal } from 'antd';
@@ -15,7 +15,7 @@ import showToast from 'components/Toaster/Toaster';
 
 interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
-  setEditBlog: React.Dispatch<SetStateAction<BlogInfo | null>>;
+  setEditBlog: React.Dispatch<SetStateAction<UpdateBlog | null>>;
 }
 
 const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
@@ -69,7 +69,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       dataIndex: 'createdAt',
       key: 'createdAt',
       render: (text: string, record: BlogInfo) =>
-        formatDateTime(new Date(record.createdAt)),
+        formatDateMonth(record.createdAt),
     },
     {
       title: 'Category',
@@ -79,7 +79,8 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
     {
       title: 'Edit',
       key: 'edit',
-      render: (_, record: BlogInfo) => (
+      //@ts-expect-error
+      render: (_, record: UpdateBlog) => (
         <LiaEdit
           className="cursor-pointer"
           size={20}
