@@ -7,7 +7,7 @@ import Image from 'next/image';
   return (
     <>
      <div className='relative bg-white text-black p-4 md:p-8 lg:p-16'>
-     <div className='grid grid-cols-2 gap-5 px-4 md:px-8 lg:px-16'>
+     <div className='grid grid-cols-1 md:grid-cols-2 gap-5 px-4 md:px-8 lg:px-16'>
         {
             FeatureData.map((arr,index)=>
                 <div className='space-y-4 md:px-8 pt-4' key={index}>
@@ -23,7 +23,7 @@ import Image from 'next/image';
             )
         }
      </div>
-        <div className='absolute inset-y-10 left-1/2 w-1 bg-[#A9B4A4]'></div>
+        <div className='absolute inset-x-10 top-1/2 h-1 md:inset-y-10 md:left-1/2 md:top-0 md:h-full md:w-1 bg-[#A9B4A4]'></div>
       </div>
       </>
   );

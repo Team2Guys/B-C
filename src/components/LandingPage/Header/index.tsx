@@ -5,9 +5,11 @@ import { LuPhone } from "react-icons/lu";
 import Link from 'next/link';
 import { IoMailOpenOutline } from "react-icons/io5";
 import SocialLink from 'components/Res-usable/social-link/social-link';
+import Container from 'components/Res-usable/Container/Container';
 
 const Header = () => {
   return (
+    <Container className='lg:max-w-full px-0'>
     <div className='grid grid-cols-12 lg:grid-cols-10 gap-1 bg-white text-white'>
       {NavData.map((arr, index) => (
         <div className='col-span-4 md:col-span-3 lg:col-span-2 bg-black w-full space-y-1' key={index}>
@@ -27,7 +29,7 @@ const Header = () => {
       ))}
 
       {/* Contact Info Section */}
-      <div className='flex-col justify-center items-center space-y-3 bg-black col-span-4 md:col-span-3 lg:col-span-2 border pt-6'>
+      <div className='flex-col justify-center items-center space-y-3 bg-black col-span-4 md:col-span-3 lg:col-span-2 pt-6'>
         <div className='flex gap-2 justify-center'>
           <LuPhone className='text-14 text-center xl:text-16' />
           <Link href="tel:+042522025" className='text-14 text-center xl:text-16'>
@@ -47,6 +49,7 @@ const Header = () => {
         <SocialLink />
       </div>
     </div>
+    </Container>
   );
 };
 

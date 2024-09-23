@@ -41,7 +41,7 @@ const Contant: React.FC<ContantProps> = ({ TabData }) => {
     muted
     playsInline
     controls={false}
-    className='w-full h-[323px] object-cover  '
+    className='w-full h-[340px] object-cover  '
   />
   
   {/* Play/Pause Button */}
@@ -58,15 +58,15 @@ const Contant: React.FC<ContantProps> = ({ TabData }) => {
 </div>
 
         {/* Second Flex Item - Content */}
-        <div className='flex flex-col justify-normal space-y-4 py-6 w-full lg:w-1/2'>
-          <h2 className='font-serif font-extrabold text-sm sm:text-2xl lg:text-3xl'>
+        <div className='flex flex-col justify-normal space-y-4 w-full lg:w-1/2'>
+          <h2 className='font-serif font-extrabold text-sm sm:text-2xl lg:text-3xl pt-10'>
             {TabData.title} {/* Dynamic Title */}
           </h2>
           <p className='font-normal text-sm sm:text-base lg:text-lg text-black justify-normal'>
             {TabData.description} {/* Dynamic description */}
           </p>
 
-          <div className='flex flex-col sm:flex-row gap-2 sm:gap-4 uppercase'>
+          <div className='flex flex-col pb-4 lg:pb-0 sm:flex-row gap-2 sm:gap-4 uppercase'>
             <Button variant={"black"}>Book An Appointment</Button>
             <Button variant={"Gray"}>Call Now</Button>
             <Button className='flex items-center justify-center' variant={"Green"}>

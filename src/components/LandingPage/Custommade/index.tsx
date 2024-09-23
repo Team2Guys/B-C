@@ -8,7 +8,7 @@ const CustomPage = () => {
     <div className='w-full h-auto mx-auto'>
   <div className='w-full flex flex-col sm:flex-row items-center justify-between'>
     {/*Left side*/}
-<div className='flex flex-col justify-center items-center space-y-3 bg-white lg:p-6  my-2 xl:my-5 p-5'>
+<div className='flex flex-col w-full sm:w-1/2 justify-center h-72 lg:h-96 xl:h-72 space-y-3 bg-white lg:p-6  my-2 p-5'>
     <div>
     <h2 className="text-black text-1xl sm:text-2xl  lg:text-4xl font-normal font-serif text-nowrap">Custom Made<br />
     <span className="text-black text-1xl sm:text-2xl lg:text-4xl font-serif font-extrabold">Motorized Blinds</span></h2>
@@ -30,9 +30,9 @@ const CustomPage = () => {
             alt="Motorized Blinds"
             width={800}
             height={500}
-            className="w-full object-cover max-h-96"
+            className="sm:w-[315px] md:w-[373px] sm:h-[323px] lg:w-[500px] xl:w-full object-cover lg:h-[420px] xl:max-h-96"
           />
-      <div className='bg-white h-80 lg:h-96 xl:h-96 xl:py-5 w-5'></div>
+      <div className='bg-white h-72 lg:h-96 xl:h-72 w-3'></div>
     </div>
   </div>
 </div>

@@ -3,22 +3,22 @@ import Image from 'next/image';
 
 const MoterizedBlinds = () => {
   return (
-    <div className='mt-4 mb-8 mx-0 px-0'>
+    <div className='mb-5 mx-0 px-0'>
       <div className="w-full flex flex-col sm:flex-row items-center justify-between">
         {/* Left side */}
         <div className="sm:w-1/2 flex items-center">
-          <div className='bg-secondary h-72 lg:h-96 xl:h-72 w-5'></div>
+          <div className='bg-secondary h-72 md:h-[350px] lg:h-96 xl:max-h-72 w-5'></div>
           <Image
             src="/assets/images/Landing/Rectangle8.png"
             alt="Motorized Blinds"
             width={800}
             height={500}
-            className="w-full object-cover max-h-96"
+            className="sm:w-[310px] sm:h-[320px] md:h-[380px] md:w-[365px] lg:h-[420px] lg:w-[500px] xl:w-full xl:max-h-96 object-cover"
           />
         </div>
 
         {/* Right side */}
-        <div className="pt-2 sm:w-1/2 h-72 md:h-80 lg:h-96 xl:h-72 mt-2 lg:pt-7 md:pt-4 px-4 space-y-3 text-white w-full bg-secondary">
+        <div className="pt-2 sm:w-1/2  md:h-[350px] lg:h-96 xl:h-72 mt-2 lg:pt-7 md:pt-4 px-4 space-y-3 text-white w-full bg-secondary">
           <h2 className="text-1xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl font-normal font-serif text-nowrap">
             Benefits Of <br /> 
             <span className='text-1xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl font-serif font-extrabold'>
