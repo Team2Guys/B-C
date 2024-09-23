@@ -317,13 +317,18 @@ export interface createAdmin extends ADMINS_PROPS {
 }
 
 export interface BlogInfo {
-  image: string;
+  posterImage: string;
   category: string;
   title: string;
   content: string;
+
   createdAt?: date;
+  updatedAt?: date;
 }
 
+export interface UpdateBlog extends BlogInfo {
+  id: string;
+}
 export interface BlogProps {
   className?: string;
   title?: string | undefined;
