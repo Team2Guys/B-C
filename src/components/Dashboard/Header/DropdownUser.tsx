@@ -73,7 +73,7 @@ const DropdownUser = () => {
           </span>
         </span>
 
-        <div className=" flex items-center gap-3">
+        <div className=" hidden sm:flex items-center gap-3">
           <div className="h-12 w-12 rounded-full overflow-hidden">
             <Image
               src={

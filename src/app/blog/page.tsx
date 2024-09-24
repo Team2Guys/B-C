@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useRef } from 'react';
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/d.jpg';
+import bgBreadcrum from '../../../public/assets/images/Blog/blogbackground.png';
 import OurBlog from 'components/Blogs/our-blog';
 import Header from 'components/Res-usable/header/Header';
 import Footer from 'components/Res-usable/Footer/Footer';

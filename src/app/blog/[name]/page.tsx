@@ -6,7 +6,6 @@ import bgBreadcrum from '../../../../public/assets/images/Breadcrum/blog.jpg';
 import { useParams } from 'next/navigation';
 import { blogData, generateSlug } from 'data/data';
 import OurBlog from 'components/Blogs/our-blog';
-import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { useQuery } from '@tanstack/react-query';
 import { BlogInfo } from 'types/interfaces';

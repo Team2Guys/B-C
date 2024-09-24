@@ -3,16 +3,15 @@ import { RiVerifiedBadgeFill } from 'react-icons/ri';
 
 function Choose() {
   return (
-    <div className="px-2 md:px-9 py-8 bg-white drop-shadow-md rounded-xl xl:w-7/12 w-full lg:mt-5">
+    <div className="px-2 md:px-9 py-8 bg-white drop-shadow-md rounded-xl xl:w-7/12 w-full lg:mt-5 space-y-2">
       <h2 className="text-black font-semibold text-20 md:text-3xl">
         Why Choose Us:
-        <br />
-        <span className="font-normal lg:text-3xl text-18 md:text-2xl ">
-          Experience Unmatched Quality & Service!
-        </span>
       </h2>
+        <p className="font-normal lg:text-3xl text-18 md:text-2xl ">
+          Experience Unmatched Quality & Service!
+        </p>
       <p className="mt-2 text-12 sm:text-14 2xl:text-16 text-black md:leading-9">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
+        Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industrys standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
         scrambled it to make a type specimen book.
