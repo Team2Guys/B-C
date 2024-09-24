@@ -237,6 +237,7 @@ const Header = () => {
               })}
             </div>
           </div>
+          <div className="flex items-center gap-2 ">
           <Link
             className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap bg-primary text-black"
             href="/appointment"
@@ -244,14 +245,13 @@ const Header = () => {
           >
             Free Consultation
           </Link>
-          <div className="flex lg:hidden">
-            <Sheet
-              drawerName={<RiMenuFoldLine size={25} />}
+            <Sheet 
+              drawerName={<RiMenuFoldLine size={25} className='block lg:hidden' />}
               open={drawerOpen}
               setOpen={setDrawerOpen}
               selectedLabel={selectedLabel}
             >
-              <div className="flex flex-col">
+              <div className="flex flex-col ">
                 <Link
                   className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
                     path === '/' ? 'font-bold text-black-500' : ''
