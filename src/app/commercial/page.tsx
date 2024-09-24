@@ -44,9 +44,7 @@ const CommercialPage = () => {
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
-  if (isLoading || categoryLoading) {
-    return <div>loading...</div>;
-  }
+
   useEffect(() => {
     if (products) {
       const matchingProductNames = commercialPagesItems.map((item) =>
@@ -60,7 +58,9 @@ const CommercialPage = () => {
       setFilteredProducts(filtered);
     }
   }, [products]);
-
+  if (isLoading || categoryLoading) {
+    return <div>loading...</div>;
+  }
   return (
     <div>
       <TopHero title="Commercial Office Blinds" image={bgBreadcrum} />
