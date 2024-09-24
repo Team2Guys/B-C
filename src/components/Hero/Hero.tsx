@@ -41,7 +41,7 @@ function Hero() {
 
   return (
     <Container>
-      <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5">
+      <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5 pt-10 pb-5">
         {heroSlider.map((item: any, index) => {
           return (
             <div key={item.id}>

@@ -40,7 +40,7 @@ const TopHero: React.FC<TopHeroProps> = ({
         <h1 className="text-2xl xs:text-5xl md:text-6xl lg:text-7xl font-black mt-5 uppercase">
           {UpdateShutterTitle(pathname)}
         </h1>
-        <div className="flex justify-center items-center gap-4 mt-2">
+        <div className="flex justify-center items-center gap-4 mt-2 text-14 sm:text-base">
           <Link
             href="/"
             className="flex items-center gap-2 font-bold capitalize"

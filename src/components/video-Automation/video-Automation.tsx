@@ -41,7 +41,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
             >
               Motorised Blinds
             </Button>
-            <Button variant={'outline'} className="py-4 px-2 md:py-7">
+            <Button onClick={() => router.push('/curtains/motorised-curtains')} variant={'outline'} className="py-4 px-2 md:py-7">
               Motorised Curtains
             </Button>
           </div>

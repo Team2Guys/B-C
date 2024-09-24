@@ -26,7 +26,7 @@ const ChooseUs: React.FC<ChooseUsProps> = ({
         {items.map((item, index) => (
           <div
             key={index}
-            className={`rounded-lg p-3 text-center py-6 space-y-4 ${boxClass}`}
+            className={`rounded-lg p-1 sm:p-3 text-center py-2 sm:py-6 space-y-4 ${boxClass}`}
           >
             {item.image && (
               <Image
@@ -37,7 +37,7 @@ const ChooseUs: React.FC<ChooseUsProps> = ({
                 alt="card"
               />
             )}
-            <p className="text-14">{item.text}</p>
+            <p className="text-12 sm:text-14">{item.text}</p>
           </div>
         ))}
       </div>
