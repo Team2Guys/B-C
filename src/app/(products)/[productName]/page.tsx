@@ -1,7 +1,5 @@
 'use client';
-import TopHero from 'components/ui/top-hero';
 import React, { useEffect, useState } from 'react';
-import bgBreadcrum from '../../../../public/assets/images/Breadcrum/modern.png';
 import Info from 'components/Product/Info';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
@@ -82,7 +80,7 @@ const Products = () => {
       <Info />
       <AllProducts products={filteredProducts} categoryType={`${title}`} />
       <Container className="mt-20 mb-20">
-        <RelatedProducts products={filteredProducts || []} />
+        <RelatedProducts products={filteredProducts || []} limit={3} />
       </Container>
       <BookNowBanner className="mt-20" />
       <VideoAutomation className=" mt-20" />

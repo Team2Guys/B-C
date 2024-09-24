@@ -1,4 +1,6 @@
-import React from 'react';
+"use client"
+import React, { useRef, useState } from 'react';
+import { FaPlay } from 'react-icons/fa';
 
 interface BannerProps {
   className?: string;
@@ -6,9 +8,30 @@ interface BannerProps {
 }
 
 const VideoBanner: React.FC<BannerProps> = ({ className,title }) => {
+  const [isPlaying, setIsPlaying] = useState(true);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  // Function to prevent video control when clicking on the text section
+  const handleTextClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
+
   return (
-    <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden ${className}`}>
+    <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden ${className}`}  onClick={handleVideoClick}>
       <video
+       
+        ref={videoRef}
         className="absolute inset-0 object-cover w-full h-full"
         src="/assets/video/Agsons.mp4"
         autoPlay
@@ -16,9 +39,15 @@ const VideoBanner: React.FC<BannerProps> = ({ className,title }) => {
         muted
         playsInline
         controls={false}
+       
       />
-      <div className="relative z-10 flex items-center h-full">
-        <div className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl">
+      {!isPlaying && (
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <FaPlay className="text-white text-4xl" />
+        </div>
+      )}
+      <div className="relative  flex items-center h-full z-10" >
+        <div className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl" onClick={handleTextClick}>
           <div className="py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
             <p className="lg:text-[43px] text-25 font-black drop-shadow-lg capitalize">{title}</p>
             <p className=" text-17 font-bold capitalize tracking-widest">

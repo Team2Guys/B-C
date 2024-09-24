@@ -39,7 +39,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
             className="relative group w-full"
           >
             <div className="absolute w-full bottom-0">
-              <div className="bg-white flex justify-between items-center w-full p-2 px-4 opacity-0 group-hover:opacity-100 duration-700">
+              <div className="bg-white flex justify-between items-center w-full p-2 px-4 md:opacity-0 group-hover:opacity-100 duration-700">
                 <p className="text-12 lg:text-16">{product.title}</p>
                 <div className="border border-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14">
                   View More
