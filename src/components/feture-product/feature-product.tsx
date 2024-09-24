@@ -83,7 +83,7 @@ const FeatureProduct: React.FC = () => {
         <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap overflow-x-auto">
           <Button
             variant={'feature'}
-            className={` ${!activeCategory ? 'bg-secondary text-white' : 'text-black'}`}
+            className={` ${!activeCategory ? 'bg-secondary text-white' : 'text-black'} px-6 py-6`}
             onClick={handleShowAll}
           >
             All
@@ -93,7 +93,7 @@ const FeatureProduct: React.FC = () => {
               <Button
                 key={category.id}
                 variant={'feature'}
-                className={` ${activeCategory?.id === category.id ? 'bg-secondary text-white' : 'text-black'}`}
+                className={` ${activeCategory?.id === category.id ? 'bg-secondary text-white px-4 py-6' : 'text-black px-4 py-6'} px-4 py-6 `}
                 onClick={() => setActiveCategory(category)}
               >
                 {category.title}
@@ -108,7 +108,7 @@ const FeatureProduct: React.FC = () => {
         {visibleCount < (filteredProducts?.length || 0) && (
           <div className="flex justify-center mt-10">
             <Button
-              className="w-[163px] h-[55px]"
+              className="w-[163px] h-[55px] text-15 leading-6 tracking-wider font-bold text-white"
               onClick={handleViewMore}
               variant={'secondary'}
             >

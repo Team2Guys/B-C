@@ -221,7 +221,7 @@ const AddBlogs = ({
                 <Spin />
               ) : (
                 <Select
-                  className="w-full h-[48px] detail-otion font-bold border rounded-md"
+                  className="w-full h-[48px] detail-otion font-bold border rounded-md dark:bg-black"
                   placeholder="Select Category"
                   value={values.category} // Added value prop
                   onChange={(value) => setFieldValue('category', value)}

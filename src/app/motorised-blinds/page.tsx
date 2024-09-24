@@ -108,7 +108,7 @@ const MotorisedBlind = () => {
       />
       <BookNowBanner />
       <Container className="mt-20">
-        <RelatedProducts products={products || []} />
+        <RelatedProducts products={products || []} limit={3} />
       </Container>
     </>
   );
