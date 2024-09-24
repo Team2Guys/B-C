@@ -11,7 +11,7 @@ const Guarrenty = () => {
           <h2 className="text-20 2xl:text-[43px] font-bold">
             OUR LIFETIME GUARANTEE
           </h2>
-          <p className=" text-14 xl:text-16 text-justify">
+          <p className=" text-14 xl:text-16 leading-4 text-start ">
             All our made-to-measure blinds, curtains and shutters come fully
             guaranteed, so you can rest assured you’re investing in quality
             products that are made to the highest specifications.

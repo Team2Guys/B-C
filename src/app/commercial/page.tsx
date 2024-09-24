@@ -1,6 +1,6 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_commercial.jpeg';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_commercial.png';
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
@@ -10,7 +10,11 @@ import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
-import { fetchProducts, fetchSubCategories } from 'config/fetch';
+import {
+  fetchCategories,
+  fetchProducts,
+  fetchSubCategories,
+} from 'config/fetch';
 import AllProducts from 'components/Product/All-Products/Products';
 import { useEffect, useState } from 'react';
 import ProductCard from 'components/ui/Product-Card';
@@ -38,7 +42,7 @@ const CommercialPage = () => {
     isLoading: categoryLoading,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
-    queryFn: fetchSubCategories,
+    queryFn: fetchCategories,
   });
 
   useEffect(() => {
@@ -54,7 +58,9 @@ const CommercialPage = () => {
       setFilteredProducts(filtered);
     }
   }, [products]);
-
+  if (isLoading || categoryLoading) {
+    return <div>loading...</div>;
+  }
   return (
     <div>
       <TopHero title="Commercial Office Blinds" image={bgBreadcrum} />
@@ -125,11 +131,11 @@ const CommercialPage = () => {
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredProducts &&
             filteredProducts.map((product: IProduct) => {
-              const cat = categories?.find(
+              const category = categories?.find(
                 (cat) => cat.id === product.CategoryId,
               );
-              //@ts-expect-error
-              const parent = generateSlug(cat?.title);
+              if (!category) return null;
+              const parent = generateSlug(category?.title);
               return (
                 <GalleryCard
                   card={product}
