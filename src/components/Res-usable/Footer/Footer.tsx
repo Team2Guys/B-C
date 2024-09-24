@@ -93,12 +93,12 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-end py-5 lg:w-5/6">
+            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-end py-5 lg:w-5/6 space-y-2 sm:space-y-0">
               {categories
                 ?.filter((category) => category.title !== 'Commercial')
                 .map((category) => (
                   <div key={category.id}>
-                    <h3 className="font-bold text-16 mb-2">{category.title}</h3>
+                    <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">{category.title}</h3>
                     <ul className="space-y-3 mt-4 text-sm">
                       {subcategories
                         ?.filter(

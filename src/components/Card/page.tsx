@@ -20,7 +20,7 @@ const HomeCard = () => {
       <div>
         <Container className="py-12">
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-6 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
               {[...Array(3)].map((_, index) => (
                 <div
                   key={index}
@@ -43,7 +43,7 @@ const HomeCard = () => {
   return (
     <Container className="py-12">
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-6 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
           {categories &&
             categories
               .filter((data) => data.title !== 'Commercial') // Filter out 'Commercial' category

@@ -26,7 +26,11 @@ import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
 
-export const generateSlug = (text: string) => {
+export const generateSlug = (text: string | undefined | null) => {
+  if (!text) {
+    throw new Error("Invalid");
+  }
+  
   return text
     .toString()
     .toLowerCase()
@@ -35,7 +39,6 @@ export const generateSlug = (text: string) => {
     .replace(/[^\w\-]+/g, '')
     .replace(/\-\-+/g, '-');
 };
-
 export const cardData: CardTypes[] = [
   {
     image: '/assets/images/blindcard/blind.png',
@@ -66,9 +69,9 @@ export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
   heading: 'BLINDS & CURTAINS DUBAI',
   paragraph: [
-    'Based in Dubai, specializes in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also functional.',
-    'All our professional teams are based in Dubai and speak great English and will easily understand your blinds and curtains requirements and advise as best as they can. We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).',
-    'Whether you’re looking for a classy, chic, or modern design, we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
+    'Based in Dubai, specializes in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also functional.  All our professional teams are based in Dubai and speak great English and will easily understand your blinds and curtains requirements and advise as best as they can.',
+    'We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options). Whether you’re looking for a classy, chic, or modern design, we house the selection to fit your needs.',
+    'Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice. ',
   ],
   buttonText: 'Read More',
 };
@@ -1147,6 +1150,7 @@ export const shutterMegaMenuItems = [
 
 export const commercialMegaMenuItems = [
   { productName: 'school-blinds' },
+  { productName: 'office-blinds' },
   { productName: 'hotels-restaurants-blinds-curtains' },
   { productName: 'office-window-curtains' },
   { productName: 'printed-blinds' },
@@ -1184,6 +1188,7 @@ export const staticCommercialMegaMenuItems: IProduct[] = [
 
 export const commercialPagesItems = [
   { productName: 'school-blinds' },
+
   { productName: 'hotels-restaurants-blinds-curtains' },
   { productName: 'blackout-blinds' },
   { productName: 'printed-blinds' },
@@ -1292,76 +1297,55 @@ export const blogData: BlogInfo[] = [
     image: '/assets/images/product/1.png',
     category: 'Technology',
     title: 'Lorem Ipsum is simply dummy text of the printing the? ',
-    description: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology',
+    content: 'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology is revolutionizing industries and what the future holds for this incredible technology',
   },
   {
     image: '/assets/images/product/2.png',
     category: 'Health',
     title: 'Top 10 Health Tips for a Better Life',
-    description:
+    content:
       'Discover essential health tips that can help you live a healthier and more fulfilling life.',
   },
   {
     image: '/assets/images/product/3.png',
     category: 'Travel',
     title: 'Best Travel Destinations for 2024',
-    description:
+    content:
       'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
   },
   {
     image: '/assets/images/product/1.png',
     category: 'Technology',
     title: 'The Rise of AI in Modern Technology',
-    description:
+    content:
       'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
   },
   {
     image: '/assets/images/product/2.png',
     category: 'Health',
     title: 'Top 10 Health Tips for a Better Life',
-    description:
+    content:
       'Discover essential health tips that can help you live a healthier and more fulfilling life.',
   },
   {
     image: '/assets/images/product/3.png',
     category: 'Travel',
     title: 'Best Travel Destinations for 2024',
-    description:
+    content:
       'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
   },
   {
     image: '/assets/images/product/2.png',
     category: 'Health',
     title: 'Top 10 Health Tips for a Better Life',
-    description:
+    content:
       'Discover essential health tips that can help you live a healthier and more fulfilling life.',
   },
   {
     image: '/assets/images/product/3.png',
     category: 'Travel',
     title: 'Best Travel Destinations for 2024',
-    description:
-      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-  {
-    image: '/assets/images/product/1.png',
-    category: 'Technology',
-    title: 'The Rise of AI in Modern Technology',
-    description:
-      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
-  },
-  {
-    image: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    description:
-      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    image: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    description:
+    content:
       'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
   },
 ];

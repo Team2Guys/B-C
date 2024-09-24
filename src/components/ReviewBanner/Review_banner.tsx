@@ -48,7 +48,7 @@ export default function Review_banner() {
   return (
     <>
       <Container className=" px-2 lg:mt-10 mt-10 relative">
-        <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-lg shadow-lg">
+        <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md">
           <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
             <div className="lg:text-4xl text-2xl font-bold ">
               <h3>Trusted Reviews <br/> from Our Customer</h3>
