@@ -10,13 +10,14 @@ import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
-import { fetchProducts, fetchSubCategories } from 'config/fetch';
+import { fetchCategories, fetchProducts, fetchSubCategories } from 'config/fetch';
+import AllProducts from 'components/Product/All-Products/Products';
 import { useEffect, useState } from 'react';
 import ProductCard from 'components/ui/Product-Card';
 import {
   commercialPagesItems,
   generateSlug,
-  
+  staticCommercialMegaMenuItems,
 } from 'data/data';
 
 const CommercialPage = () => {
@@ -37,9 +38,12 @@ const CommercialPage = () => {
     isLoading: categoryLoading,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
-    queryFn: fetchSubCategories,
+    queryFn: fetchCategories,
   });
-
+  if(isLoading || categoryLoading)
+  {
+    return <div>loading...</div>
+  }
   useEffect(() => {
     if (products) {
       const matchingProductNames = commercialPagesItems.map((item) =>
@@ -124,9 +128,19 @@ const CommercialPage = () => {
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredProducts &&
             filteredProducts.map((product: IProduct) => {
-              const cat = categories?.find(
+
+              console.log("______ FILTERED PRODUCT  ________")
+              console.log(filteredProducts)
+              console.log("______ product  ________")
+              console.log(product)
+              console.log("______ categories  ________")
+              console.log(categories)
+              const category = categories?.find(
                 (cat) => cat.id === product.CategoryId,
               );
+              console.log("______ cat  ________")
+              console.log(category)
+              //@ts-expect-error
               const parent = generateSlug(cat?.title);
               return (
                 <GalleryCard

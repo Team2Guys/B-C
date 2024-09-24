@@ -138,7 +138,6 @@ const FilterTable: React.FC<FilterTableProps> = ({ data, columns }) => {
   }));
 
   return (
-    
     <Table
       className="overflow-x-auto mt-10 dark:tabledark whitespace-nowrap"
       columns={enhancedColumns}

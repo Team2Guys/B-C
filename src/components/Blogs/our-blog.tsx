@@ -47,8 +47,7 @@ const OurBlog = ({
         {Blogdata.map((blog, index) => {
           const filteredContent = removeImagesFromContent(blog.content);
           return (
-            <Link
-              href={`/blog/blog-detail/${generateSlug(blog.title)}`}
+            <div
               className={`rounded-lg space-y-4 mt-5 ${className} ${
                 isFirstItemLarge && index === 0
                   ? 'md:col-span-3 flex flex-col md:flex-row gap-5'
@@ -67,51 +66,64 @@ const OurBlog = ({
                       ? 'md:h-[448.28px] w-full'
                       : ''
                   }`}
-                  src={`/assets/images/product/1.png`}
                   width={500}
                   height={500}
-                  // src={blog.image}
+                  //@ts-expect-error
+                  src={blog.posterImage?.imageUrl}
                   alt="blog"
                 />
               </div>
               <div
-                className={`pt-1 space-y-2 ${
+                className={`pt-1${
                   isFirstItemLarge && index === 0 ? 'w-full lg:w-6/12' : ''
                 }`}
               >
-                <div className="flex items-center gap-4">
-                  <span className="text-14 font-bold text-[#333333]">
+                <div className="flex items-center gap-4 ">
+                  <Link
+                    className="text-14 font-bold text-[#333333]"
+                    href={`/blog/${generateSlug(blog.category)}`}
+                  >
                     {blog.category}
-                  </span>
+                  </Link>
                   <span className="text-12 font-medium text-[#999999]">
                     {formatDateMonth(blog.createdAt)}
                   </span>
                 </div>
                 <h3 className="text-24 font-bold">{blog.title}</h3>
-                <p>
+                <p className="mb-3">
                   {filteredContent.length > 160 ? (
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: `${filteredContent.slice(0, 160)}...`,
-                      }}
-                    />
+                    isFirstItemLarge && index === 0 ? (
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: `${filteredContent.slice(0, 800)}...`,
+                        }}
+                      />
+                    ) : (
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: `${filteredContent.slice(0, 160)}...`,
+                        }}
+                      />
+                    )
                   ) : (
                     <span
                       dangerouslySetInnerHTML={{ __html: filteredContent }}
                     />
                   )}
                 </p>
-                <button
+
+                <Link
+                  href={`/blog/blog-detail/${generateSlug(blog.title)}`}
                   className={`text-primary text-18   ${
                     isFirstItemLarge && index === 0
-                      ? 'border border-primary rounded-md bg-white px-3 py-1'
+                      ? 'border border-primary rounded-md bg-white px-3 py-2 '
                       : 'underline font-bold'
                   }`}
                 >
                   Read More
-                </button>
+                </Link>
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>
