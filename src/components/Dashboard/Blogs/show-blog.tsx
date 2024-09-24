@@ -12,6 +12,9 @@ import { ColumnsType } from 'antd/es/table';
 import { Table } from 'antd';
 import axios from 'axios';
 import showToast from 'components/Toaster/Toaster';
+import Image from 'next/image';
+import { FaRegEye } from 'react-icons/fa';
+import { generateSlug } from 'data/data';
 
 interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -57,8 +60,26 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       console.error('Error while deleting blog:', error);
     }
   };
+  const sortedBlogs = blogs?.sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+  );
 
   const columns: ColumnsType<BlogInfo> = [
+    {
+      title: 'Image',
+      dataIndex: 'posterImageUrl',
+      key: 'posterImageUrl',
+      render: (text: any, record: BlogInfo) => (
+        <Image
+          //@ts-expect-error
+          src={record.posterImage?.imageUrl}
+          alt={`Image of ${record.title}`}
+          className="rounded-md h-[50px]"
+          width={50}
+          height={50}
+        />
+      ),
+    },
     {
       title: 'Name',
       dataIndex: 'title',
@@ -75,6 +96,19 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       title: 'Category',
       dataIndex: 'category',
       key: 'category',
+    },
+    {
+      title: 'Preview',
+      key: 'Preview',
+      render: (text: any, record: BlogInfo) => (
+        <FaRegEye
+          className="cursor-pointer"
+          onClick={() => {
+            const url = `/blog/blog-detail/${generateSlug(record.title)}`;
+            window.open(url, '_blank');
+          }}
+        />
+      ),
     },
     {
       title: 'Edit',
@@ -117,9 +151,9 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       </div>
       {error ? (
         <p>Error fetching blogs😢</p>
-      ) : blogs && blogs.length > 0 ? (
+      ) : sortedBlogs && sortedBlogs.length > 0 ? (
         <Table
-          dataSource={blogs}
+          dataSource={sortedBlogs}
           columns={columns}
           rowKey="id"
           pagination={false}

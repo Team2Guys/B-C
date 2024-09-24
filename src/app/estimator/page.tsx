@@ -129,7 +129,7 @@ const Estimator: React.FC = () => {
                 <Select
                   defaultValue="Select Sizes"
                   onChange={handleChange}
-                  className="w-[256px] h-[52px] detail-otion font-bold"
+                  className="w-[256px] h-[52px] detail-otion font-bold bg-white rounded-md"
                   options={optionDetail}
                 />
               </div>
@@ -185,7 +185,7 @@ const Estimator: React.FC = () => {
       )}
 
       <Container className="py-10">
-        <RelatedProducts products={products || []} />
+        <RelatedProducts products={products || []} limit={3} />
       </Container>
       <BookNowBanner />
       <VideoAutomation />

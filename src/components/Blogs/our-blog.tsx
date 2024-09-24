@@ -41,7 +41,7 @@ const OurBlog = ({
       ) : null}
 
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-5"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-5 "
         id={id}
       >
         {Blogdata.map((blog, index) => {
