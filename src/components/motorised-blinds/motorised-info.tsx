@@ -24,7 +24,7 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
   imageClass,
 }) => {
   return (
-    <Container className="mt-20">
+    <Container className="mt-5 md:mt-20">
       <div className={`flex flex-wrap lg:flex-nowrap lg:gap-4 ${className}`}>
         <div className="w-full lg:w-8/12">
           <div className="space-y-4">
@@ -33,9 +33,9 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
               {subtitle}
             </p>
             <div className="space-y-3 md:space-y-10">
-              <p className="text-12 md:text-16 leading-8">{description}</p>
-              <p className="text-12 md:text-16 leading-8">{description2}</p>
-              <p className="text-12 md:text-16 leading-8">{description3}</p>
+              <p className="text-12 md:text-16 md:leading-8">{description}</p>
+              <p className="text-12 md:text-16 md:leading-8">{description2}</p>
+              <p className="text-12 md:text-16 md:leading-8">{description3}</p>
             </div>
           </div>
         </div>
