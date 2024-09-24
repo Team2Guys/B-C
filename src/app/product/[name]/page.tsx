@@ -218,7 +218,7 @@ const route = useRouter();
         ))}
 
       <Container className="py-10">
-        <RelatedProducts products={products || []} />
+        <RelatedProducts products={products || []} limit={3} />
       </Container>
       <BookNowBanner />
       <VideoAutomation />

@@ -1,6 +1,6 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_commercial.jpeg';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_commercial.png';
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
@@ -11,13 +11,12 @@ import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
-import AllProducts from 'components/Product/All-Products/Products';
 import { useEffect, useState } from 'react';
 import ProductCard from 'components/ui/Product-Card';
 import {
   commercialPagesItems,
   generateSlug,
-  staticCommercialMegaMenuItems,
+  
 } from 'data/data';
 
 const CommercialPage = () => {
@@ -128,7 +127,6 @@ const CommercialPage = () => {
               const cat = categories?.find(
                 (cat) => cat.id === product.CategoryId,
               );
-              //@ts-expect-error
               const parent = generateSlug(cat?.title);
               return (
                 <GalleryCard

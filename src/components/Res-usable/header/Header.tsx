@@ -23,7 +23,7 @@ import {
   shutterMegaMenuItems,
   staticCommercialMegaMenuItems,
 } from 'data/data';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 export const links = [
   { href: '/made-to-measure-blinds', label: 'Blinds', id: 2 },
@@ -45,7 +45,8 @@ const Header = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
     null,
   );
-  const path = usePathname();
+  const path = usePathname(); // Current path
+  const searchParams = useSearchParams(); // Search para
   const handleLinkClick = () => {
     setDrawerOpen(false);
     setSelectedLabel(undefined);
@@ -95,6 +96,11 @@ const Header = () => {
     ? products?.filter((product) => product.CategoryId === selectedCategoryId)
     : products;
 
+    const isLinkActive = (href: string): boolean => {
+      // Check if the path matches or the search params contain the link
+      return path.includes(href) || searchParams?.toString().includes(href);
+    };
+
   return (
     <>
       <div className="w-full bg-secondary">
@@ -123,15 +129,15 @@ const Header = () => {
       </div>
 
       <nav className="bg-lightgrey shadow-lg sticky top-0 z-50">
-        <Container className="flex w-full items-center justify-between px-2 py-2 md:px-0 md:py-2">
+        <Container className="flex w-full items-center justify-between px-2 ">
           <Link href={'/'} className="w-3/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
           <div className="w-3/12 lg:w-8/12">
-            <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3">
+            <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3 px-3 py-2">
               <Link
                 className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
-                  path === '/' ? 'font-bold text-black-500' : ''
+                  path === '/' ? 'font-bold text-black-500 link-active' : 'link-underline'
                 }`}
                 href={'/'}
               >
@@ -200,13 +206,12 @@ const Header = () => {
                     ) || [];
 
                   combinedSliderData = [
-                    ...staticCommercialMegaMenuItems,
+                    // ...staticCommercialMegaMenuItems,
                     ...filteredSubCategories,
                     ...actualProducts,
                   ];
                 }
-                const isActive =
-                  link.href && path?.includes(generateSlug(link.label));
+                const isActive = isLinkActive(link.href);
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
@@ -215,13 +220,13 @@ const Header = () => {
                     title={link.label || ''}
                     sliderData={combinedSliderData}
                     href={link.href}
-                    className={isActive ? 'font-bold text-black-500' : ''}
+                    className={isActive ? 'font-bold text-black-500 link-active' : 'link-underline '}
                   />
                 ) : (
                   <Link
                     key={index}
                     className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
-                      isActive ? 'font-bold text-black-500' : ''
+                      isActive ? 'font-bold text-black-500 link-active' : 'link-underline'
                     }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
@@ -260,7 +265,7 @@ const Header = () => {
                   <Link
                     key={index}
                     className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
-                      link.href && path?.includes(generateSlug(link.label))
+                      isLinkActive(link.href)
                         ? 'font-bold text-black-500'
                         : ''
                     }`}

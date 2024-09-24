@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
       >
         <div>
           <Image
-            className="lg:w-[500px] object-cover md:w-[400px] sm:w-full lg:h-[485px] md:h-[300px] sm:h-auto rounded-3xl transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+            className="lg:w-[500px] object-cover sm:w-[400px]  lg:h-[485px] sm:h-[300px]  rounded-3xl transition-transform duration-300 ease-in-out transform group-hover:scale-105"
             width={500}
             height={500}
             src={data.posterImage.imageUrl || 'image.pnd'}
@@ -32,18 +32,19 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
           />
         </div>
         <div className="px-2 py-4">
-          <div className="font-bold text-xl mb-2">{data.title} </div>
-          <p className="text-gray-700 text-base">
+          <div className="font-bold text-[24px] mb-2">{data.title} </div>
+          <p className="text-[#333333] text-16 font-light leading-8 text-justify">
             {truncateText(data.description || '', 30)}
           </p>
         </div>
-        <div className=" w-fit border-b-4 border-b-primary   pb-1  text-sm">
+        <div className=" w-fit flex flex-col justify-center items-center text-sm">
           <button
             className="font-bold rounded-none group-hover:rounded-full px-3 py-1 group-hover:border-gray-300 group-hover:bg-white"
             onClick={() => route.push('/products')}
           >
             View {data.title}
           </button>
+          <hr className='border-b-4 border-b-primary w-24 mt-1' />
         </div>
       </div>
     </>

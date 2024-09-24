@@ -1,30 +1,55 @@
-
-"use client"
+'use client';
 import TopHero from 'components/ui/top-hero';
 import React, { useState } from 'react';
 import bgBreadcrum from '../../../../public/assets/images/Blog/blogbackground.png';
 import { useParams } from 'next/navigation';
-import { blogData } from 'data/data';
+import { blogData, generateSlug } from 'data/data';
 import OurBlog from 'components/Blogs/our-blog';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import { useQuery } from '@tanstack/react-query';
+import { BlogInfo } from 'types/interfaces';
+import { fetchBlogs } from 'config/fetch';
+import PageSkelton from 'components/Skeleton/PageSkelton';
 
 const BlogbyCategory = () => {
-    const params = useParams()
-    const {name}=params;
-    const [currentPage, setCurrentPage] = useState(1);
-    const blogsPerPage = 9;
-    const totalPages = Math.ceil(blogData.length / blogsPerPage);
-    const indexOfLastBlog = currentPage * blogsPerPage;
-    const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-    const currentBlogs = blogData.slice(indexOfFirstBlog, indexOfLastBlog);
-  
-    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-    const nextPage = () =>
-      currentPage < totalPages && setCurrentPage(currentPage + 1);
+  const { name } = useParams();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const {
+    data: blogs = [],
+    isLoading,
+    error,
+  } = useQuery<BlogInfo[]>({
+    queryKey: ['blogs'],
+    queryFn: fetchBlogs,
+  });
+  if (error) {
+    return <PageSkelton />;
+  }
+  if (isLoading) {
+    return <PageSkelton />;
+  }
+
+  const filteredBlogs = blogs.filter(
+    (blog) => generateSlug(blog.category) === name,
+  );
+
+  const blogsPerPage = 9;
+  const totalBlogs = filteredBlogs.length;
+  const totalPages = Math.ceil(totalBlogs / blogsPerPage);
+  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+  const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  const nextPage = () =>
+    currentPage < totalPages && setCurrentPage(currentPage + 1);
+  const prevPage = () => currentPage > 1 && setCurrentPage(currentPage - 1);
+
   return (
     <>
-    <TopHero title={name} image={bgBreadcrum} />
-    <OurBlog  Blogdata={currentBlogs} />
+      <TopHero title={name} image={bgBreadcrum} />
+      <OurBlog id={'#top'} Blogdata={currentBlogs} />
       <div className="flex justify-center mt-8 space-x-2">
         {Array.from({ length: totalPages }, (_, index) => (
           <div
