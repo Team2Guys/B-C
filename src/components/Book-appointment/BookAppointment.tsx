@@ -464,7 +464,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               className="mt-1 w-full text-11"
             />
           </div>
-          <div className='w-full col-span-3'>
+          <div className={`w-full   ${singlePage ?  "col-span-4" : "col-span-3"}`}>
             <label
               htmlFor="Address "
               className="block text-11 font-light "
@@ -486,7 +486,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <p className="text-red-500 text-xs">{errors.area}</p>
             )}
           </div>
-          <div className="w-full col-span-3">
+          <div className={`w-full   ${singlePage ?  "col-span-4" : "col-span-3"}`}>
             <label
               htmlFor="user_query"
               className="block text-11 font-light "
