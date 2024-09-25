@@ -134,13 +134,14 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                   href={`/appointment`}
                   className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
                 >
-                  Book Now
+                  Book An Appointment Now
                 </Link>
               </div>
             </div>
           </div>
         ))}
       </Container>
+
       <Container className="text-center py-6">
         <div className="flex justify-center space-x-4">
           <Button
@@ -164,7 +165,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
             ))}
         </div>
       </Container>
-      <Container className="text-center py-20">
+      
+      <Container className="text-center ">
         <h2 className="text-2xl xs:text-3xl sm:text-4xl">
           {activeFilter.toUpperCase()}
         </h2>
