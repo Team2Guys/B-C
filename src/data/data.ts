@@ -922,6 +922,8 @@ import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { ISUBCATEGORY, TabDataType } from 'types/types';
 import { icons } from 'lucide-react';
+import { list } from 'postcss';
+import { title } from 'process';
 
 export const validateForm = (formData: {
   fullName: string;
@@ -1225,23 +1227,24 @@ export const KeyData: KeyType[]=[
   },
 ];
 
-export const FeatureData=[
-  {
+export const FeatureData=[{
     icon:"/assets/images/Landing/icon-automation1.png",
     title: "Lorem Ibsum Blinds:",
-    para1: "<strong>Automated Scheduling</strong> Set timers to automatically open or close your blinds at specific times for added convenience.",
-    para2: "<strong>Enhanced Convenience</strong> Enjoy the ease of controlling your blinds with a remote or smartphone app, eliminating the need for manual adjustments.",
-    para3: "<strong>Automated Scheduling</strong> Set timers to automatically open or close your blinds at specific times for added convenience.",
-    para4: "<strong>Enhanced Convenience</strong> Enjoy the ease of controlling your blinds with a remote or smartphone app, eliminating the need for manual adjustments.",
-},
+    list:[
+      {heading:"Automated Scheduling" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+      {heading:"Enhanced Convenience" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+      {heading:"Automated Scheduling" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+      {heading:"Enhanced Convenience" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+    ],},
 {
   icon:"/assets/images/Landing/icon-automation1.png",
   title: "Lorem Ibsum Blinds:",
-  para1: "<strong>Automated Scheduling</strong> Set timers to automatically open or close your blinds at specific times for added convenience.",
-  para2: "<strong>Enhanced Convenience</strong> Enjoy the ease of controlling your blinds with a remote or smartphone app, eliminating the need for manual adjustments.",
-  para3: "<strong>Automated Scheduling</strong> Set timers to automatically open or close your blinds at specific times for added convenience.",
-  para4: "<strong>Enhanced Convenience</strong> Enjoy the ease of controlling your blinds with a remote or smartphone app, eliminating the need for manual adjustments.",
-},
+  list:[
+    {heading:"Automated Scheduling" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+    {heading:"Enhanced Convenience" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+    {heading:"Automated Scheduling" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+    {heading:"Enhanced Convenience" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+  ],},
 ];
 
 export const InstaData=[
@@ -1269,31 +1272,31 @@ export const ProductData=[
 ];
 export const TabData=[
 {
-  icon: "/assets/images/Landing/iconremote1.png",
+  icon: "/assets/images/Landing/iconremote1.svg",
   title: "With a Control Your Motors",
   video: "/assets/video/Agsons.mp4",
   description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
 },
 {
-  icon: "/assets/images/Landing/iconremote1.png",
+  icon: "/assets/images/Landing/iconremote1.svg",
   title: "With a Control Your Motors2",
   video: "/assets/video/Agsons.mp4",
   description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
 },
 {
-  icon: "/assets/images/Landing/iconremote1.png",
+  icon: "/assets/images/Landing/iconremote1.svg",
   title: "With a Control Your Motors3",
   video: "/assets/video/Agsons.mp4",
   description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
 },
 {
-  icon: "/assets/images/Landing/iconremote1.png",
+  icon: "/assets/images/Landing/iconremote1.svg",
   title: "With a Control Your Motors4",
   video: "/assets/video/Agsons.mp4",
   description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
 },
 {
-  icon: "/assets/images/Landing/iconremote1.png",
+  icon: "/assets/images/Landing/iconremote1.svg",
   title: "With a Control Your Motors5",
   video: "/assets/video/Agsons.mp4",
   description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"

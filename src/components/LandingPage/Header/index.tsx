@@ -5,12 +5,13 @@ import { LuPhone } from "react-icons/lu";
 import Link from 'next/link';
 import { IoMailOpenOutline } from "react-icons/io5";
 import SocialLink from 'components/Res-usable/social-link/social-link';
+import Container from 'components/Res-usable/Container/Container';
 
 const Header = () => {
   return (
-    <div className='grid grid-cols-12 lg:grid-cols-10 gap-1 bg-white text-white'>
+    <div className='grid grid-cols-12 lg:grid-cols-10 gap-1 bg-white text-white max-w-screen-2xl mx-auto'>
       {NavData.map((arr, index) => (
-        <div className='col-span-4 md:col-span-3 lg:col-span-2 bg-black w-full space-y-1' key={index}>
+        <div className='col-span-4 md:col-span-4 lg:col-span-2 bg-black w-full space-y-1' key={index}>
           <div className='flex flex-col justify-center items-center py-3'>
             <Image 
               className='text-center h-[30px] w-[36px]'
@@ -27,7 +28,7 @@ const Header = () => {
       ))}
 
       {/* Contact Info Section */}
-      <div className='flex-col justify-center items-center space-y-3 bg-black col-span-4 md:col-span-3 lg:col-span-2 pt-6'>
+      <div className='flex-col justify-center items-center space-y-3 bg-black col-span-6 md:col-span-6 lg:col-span-2 pt-6'>
         <div className='flex gap-2 justify-center'>
           <LuPhone className='text-14 text-center xl:text-16' />
           <Link href="tel:+042522025" className='text-14 text-center xl:text-16'>
@@ -43,7 +44,7 @@ const Header = () => {
       </div>
 
       {/* Social Links */}
-      <div className='bg-black col-span-8 md:col-span-3 lg:col-span-2 flex justify-center items-center'>
+      <div className='bg-black col-span-6 md:col-span-6 lg:col-span-2 flex justify-center items-center'>
         <SocialLink />
       </div>
     </div>

@@ -29,9 +29,9 @@ const Contant: React.FC<ContantProps> = ({ TabData }) => {
   };
   return (
     <>
-      <div className={' flex flex-col lg:flex-row gap-5 lg:gap-8 justify-center items-center mx-auto lg:max-w-screen-lg  border border-t-black'} onClick={handlePlayPause}>
+      <div className={' flex flex-col lg:flex-row gap-5 lg:gap-8 justify-center items-center mx-auto lg:max-w-screen-lg'}>
         {/* First Flex Item - Video */}
-        <div className=' w-full lg:w-1/2 h-full relative top-10'>
+        <div className=' w-full lg:w-1/2 h-full relative top-10' onClick={handlePlayPause}>
   <video
     onClick={handlePlayPause}
     ref={videoRef}
@@ -59,14 +59,14 @@ const Contant: React.FC<ContantProps> = ({ TabData }) => {
 
         {/* Second Flex Item - Content */}
         <div className='flex flex-col justify-normal space-y-4 w-full lg:w-1/2'>
-          <h2 className='font-serif font-extrabold text-sm sm:text-2xl lg:text-3xl pt-10'>
+          <h2 className='pl-6 lg:pl-0 font-serif font-extrabold text-base sm:text-2xl lg:text-3xl pt-10'>
             {TabData.title} {/* Dynamic Title */}
           </h2>
-          <p className='font-normal text-sm sm:text-base lg:text-lg text-black justify-normal'>
+          <p className='pl-6 lg:pl-0 font-normal text-sm sm:text-base lg:text-lg text-black justify-normal leading-2'>
             {TabData.description} {/* Dynamic description */}
           </p>
 
-          <div className='flex flex-col pb-4 lg:pb-0 sm:flex-row gap-2 sm:gap-4 uppercase'>
+          <div className='sm:pl-6 flex flex-col pb-4 lg:pb-0 sm:flex-row gap-2 sm:gap-4 uppercase'>
             <Button variant={"black"}>Book An Appointment</Button>
             <Button variant={"Gray"}>Call Now</Button>
             <Button className='flex items-center justify-center' variant={"Green"}>

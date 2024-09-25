@@ -6,15 +6,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import Container from 'components/Res-usable/Container/Container';
 
 const KeyFeature = () => {
   const prevRef = useRef<HTMLDivElement | any>(null);
   const nextRef = useRef<HTMLDivElement | any>(null);
 
   return (
-    <div className='w-full h-full text-center pt-4 bg-keyimage bg-cover'>
+    <div className='w-full h-full text-center pt-4 bg-keyimage bg-cover max-w-screen-2xl mx-auto'>
+      <Container>
       <div>
-        <h2 className='font-serif font-extrabold text-1xl sm:text-2xl lg:text-4xl text-black'>
+        <h2 className='font-serif font-extrabold text-1xl sm:text-2xl md:text-3xl lg:text-4xl text-black'>
           Key Features
         </h2>
 
@@ -23,7 +25,7 @@ const KeyFeature = () => {
           {/* Custom Prev Button */}
           <div
             ref={prevRef}
-            className="custom-prev absolute top-1/2 left-7 transform -translate-y-1/2 z-10 cursor-pointer"
+            className="custom-prev absolute top-1/2 left-0 transform -translate-y-1/2 z-10 cursor-pointer"
           >
             <div className="w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[15px] border-black"></div>
           </div>
@@ -45,7 +47,8 @@ const KeyFeature = () => {
             breakpoints={{
               640: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
-              1024: { slidesPerView: 4 }, // 4 columns for larger screens
+              1024: { slidesPerView: 3 },
+              1440: { slidesPerView: 4 }, // 4 columns for larger screens
             }}
             className="w-full" // Ensures the Swiper is responsive
           >
@@ -69,12 +72,13 @@ const KeyFeature = () => {
           
           <div
             ref={nextRef}
-            className="custom-next absolute top-1/2 right-7 transform -translate-y-1/2 z-10 cursor-pointer"
+            className="custom-next absolute top-1/2 right-0 transform -translate-y-1/2 z-10 cursor-pointer"
           >
             <div className="w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-l-[15px] border-black"></div>
           </div>
         </div>
       </div>
+      </Container>
     </div>
   );
 };

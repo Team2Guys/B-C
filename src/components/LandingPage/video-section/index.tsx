@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useRef } from 'react';
 import { FaPlay, FaPause } from 'react-icons/fa'; // Importing play and pause icons
+import Container from 'components/Res-usable/Container/Container';
 
 const VideoSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null); // Ref to the video element
@@ -19,6 +20,7 @@ const VideoSection = () => {
   };
 
   return (
+    <div className='max-w-screen-2xl mx-auto'>
     <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden`} onClick={handlePlayPause}>
       {/* Video Element */}
       <video
@@ -58,6 +60,7 @@ const VideoSection = () => {
             </p>
           </div>
         </div>
+      </div>
       </div>
       </div>
   );
