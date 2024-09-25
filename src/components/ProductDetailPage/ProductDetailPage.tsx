@@ -25,18 +25,23 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
+
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
   const filterProduct = products?.find((product) => {
     return product.title === title;
   });
 
+  const relatedProducts = products?.filter((product) => {
+    return product.CategoryId === filterProduct?.CategoryId;
+  });
+
   return (
     <>
       <TopHero title={title} image={bgBreadcrum} />
       <DetailInfo
-        title={title ? title : ""}
-        description={filterProduct?.description || "" }
+        title={title ? title : ''}
+        description={filterProduct?.description || ''}
         image={filterProduct?.posterImage?.imageUrl}
       />
 
@@ -45,7 +50,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
       ) : (
         <>
           <DetailProduct
-            title={title ? title : ""}
+            title={title ? title : ''}
             description={filterProduct?.description || ''}
             products={filterProduct}
           />
@@ -57,7 +62,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
       ) : (
         <>
           <Container className="mt-10 md:mt-20">
-            <RelatedProducts products={products || []} />
+            <RelatedProducts products={relatedProducts || []} limit={3} />
           </Container>
         </>
       )}

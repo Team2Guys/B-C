@@ -12,7 +12,7 @@ import { IAppointments } from 'types/types';
 
 type DataIndex = keyof IAppointments;
 interface FilterTableProps {
-  data?: IAppointments[];
+  data?: any;
   columns?: TableColumnsType<IAppointments>;
 }
 const FilterTable: React.FC<FilterTableProps> = ({ data, columns }) => {
@@ -138,7 +138,6 @@ const FilterTable: React.FC<FilterTableProps> = ({ data, columns }) => {
   }));
 
   return (
-    
     <Table
       className="overflow-x-auto mt-10 dark:tabledark whitespace-nowrap"
       columns={enhancedColumns}

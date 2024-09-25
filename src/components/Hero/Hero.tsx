@@ -13,7 +13,9 @@ function Hero() {
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth <= 768);
+      }
     };
 
     checkScreenSize();
@@ -39,7 +41,7 @@ function Hero() {
 
   return (
     <Container>
-      <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5">
+      <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5 pt-10 pb-5">
         {heroSlider.map((item: any, index) => {
           return (
             <div key={item.id}>
@@ -66,7 +68,7 @@ function Hero() {
                     </svg>
 
                     <h5 className="text-black font-gotham text-20 md:text-[30px] font-light ">
-                      Latest Designs
+                    Blinds & Curtains Dubai
                     </h5>
                   </div>
                   <h1 className="text-black font-extrabold lg:text-[53px] text-3xl leading-[50px] md:leading-[60px]">
@@ -77,9 +79,9 @@ function Hero() {
                     Lorem Ipsum is simply dummy text of the <br /> and
                     typesetting industry.
                   </p>
-                  <Link href={'./appointment'}>
+                  <Link href={'/appointment'}>
                     <button className="uppercase bg-white text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-12">
-                    Book now 
+                    Book A Free Home Design
                   </button>
                   </Link>
                 </div>

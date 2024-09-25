@@ -142,7 +142,9 @@ const GalleryPage = () => {
                       ? 'bg-btnclr text-white'
                       : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
                   }`}
-                  onClick={() => setCurrentPage(page + 1)}
+                  onClick={(e) => {
+                    setCurrentPage(page + 1);
+                  }}
                 >
                   {page + 1}
                 </button>
@@ -167,9 +169,7 @@ const GalleryPage = () => {
         </div>
       </Container>
 
-      <Container className="py-10">
-        <RelatedProducts products={products || []} />
-      </Container>
+
       <VideoAutomation />
       <Support />
     </>

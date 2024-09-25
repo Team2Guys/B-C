@@ -7,12 +7,11 @@ import PageSkelton from 'components/Skeleton/PageSkelton';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
 
 const CommercialPage = () => {
-  const { product } = useParams();
-
+  const path = usePathname();
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
@@ -24,18 +23,23 @@ const CommercialPage = () => {
   });
 
   const filteredSubCategory = subCategories?.find(
-    (sub) => generateSlug(sub.title) === product,
+    (sub) => generateSlug(sub.title) === path,
   );
 
   const relatedProducts = products?.filter(
     (prod) => prod.SubCategoryId === filteredSubCategory?.id,
   );
-  console.log('-___-___-______-- ____ ');
-  console.log(relatedProducts);
 
   const filteredProduct = products?.find(
-    (prod) => generateSlug(prod.title) === product,
+    (prod) => generateSlug(prod.title) === generateSlug(path),
   );
+
+  console.log(
+    '++ __________________ _ _ _ ++ NEW PAGE IS UNDERPROCESSING +++++++',
+  );
+
+  console.log(generateSlug('Hotels & Restaurants , blinds & curtains'));
+  console.log(generateSlug(path));
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;

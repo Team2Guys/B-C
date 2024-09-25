@@ -44,6 +44,7 @@
   --tabletext: black;
   --h1-color: white;
   --hover: #cdb7aa;
+  --input-color: black;
 }
 
 /* Dark Theme */
@@ -52,6 +53,8 @@
   --tabletext: white;
   --h1-color: white;
   --hover: #141414;
+  --input-color: white;
+
 }
 
 @layer base {
@@ -59,6 +62,100 @@
   body {
     @apply bg-lightgrey;
   }
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+.link-active {
+  position: relative;
+  display: inline-block;
+}
+
+.link-active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -26px;
+  left: 0;
+  background-color: var(--primary);
+
+}
+
+.link-underline,
+.link-footer {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after,
+.link-footer:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -26px;
+  left: 0;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.link-footer:after {
+  background-color: var(--primary) !important;
+}
+
+.link-underline:hover::after,
+.link-footer:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+@media only screen and (max-width: 1560px) {
+  .link-active::after {
+    bottom: -20px;
+  }
+  .link-underline::after,
+.link-footer:after {
+  bottom: -20px;
+}
+}
+@media only screen and (max-width: 1400px) {
+  .link-active::after {
+    bottom: -17px;
+  }
+  .link-underline::after,
+  .link-footer:after {
+    bottom: -17px;
+  }
+}
+@media only screen and (max-width: 1215px) {
+  .link-active::after {
+    bottom: -15px;
+  
+  }
+  .link-underline::after,
+  .link-footer:after {
+    bottom: -15px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .link-active::after {
+    bottom: -10px;
+  
+  }
+  .link-underline::after,
+  .link-footer:after {
+    bottom: -10px;
+  }
+}
+
+
+.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector{
+  background-color: var(--input)!important;
+  color:var(--input-color)!important; ;
 }
 
 .ant-table-wrapper table {
@@ -188,12 +285,13 @@
 }
 
 .ant-image {
+  position: relative;
  width: 100%;
- height: 400px !important;
+ height: 350px !important;
 }
  .ant-image-img{
  width: 100%;
-  height: 400px !important;
+  height: 350px !important;
 }
 .ant-image .ant-image-mask{
   border-radius: 16px !important;
@@ -204,10 +302,60 @@
 @media only screen and (max-width: 600px) {
   .ant-image {
     width: 100%;
-    height: auto !important;
+    height: 300px !important;
    }
    .ant-image .ant-image-img{
-     height: auto !important;
+     height: 300px !important;
    }
    
+}
+
+.detail-otion .ant-select-selector{
+  border: none !important;
+  box-shadow:none !important;
+}
+.ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+  background-color: var(--primary);
+  color: white !important;
+}
+.ant-select-single.ant-select-open .ant-select-selection-item{
+  font-size: larger !important;
+}
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder{
+  font-size: large !important;
+  font-weight: 600;
+}
+:where(.css-dev-only-do-not-override-1c0na6j).ant-select-dropdown{
+  z-index: 20!important;
+}
+
+.custom-scrollbar {
+  overflow-y: scroll;
+  /* Optional: Adding padding, margin, and other styles */
+}
+
+/* Custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  /* Width of the entire scrollbar */
+  height: 0px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: white;
+  /* Color of the scrollbar track */
+  border-radius: 0px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: white;
+  /* Color of the scrollbar thumb */
+  border-radius: 0px;
+  border: 0px solid white;
+  /* Padding around the thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #FF914E;
+  /* Color when hovering over the scrollbar thumb */
 }

@@ -1,6 +1,7 @@
 import Container from 'components/Res-usable/Container/Container'
 import { Button } from 'components/ui/button';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 interface detailprops {
@@ -22,6 +23,8 @@ const DetailInfo: React.FC<detailprops> = ({
     className,
     imageClass,
   }) => {
+
+    const route = useRouter();
   return (
     <Container className="mt-20 border-b-2 pb-20 border-[#6F747F]">
     <div className={`flex flex-wrap lg:flex-nowrap lg:gap-20 ${className}`}>
@@ -34,8 +37,8 @@ const DetailInfo: React.FC<detailprops> = ({
           <div className="space-y-3 md:space-y-10">
             <p className="text-12 md:text-16 leading-8">{description}</p>
           </div>
-          <Button className='py-6 px-10' variant={"secondary"}>
-            Book Now
+          <Button onClick={()=>{route.push("/appointment")}} className='py-6 px-10' variant={"secondary"}>
+          Book An Appointment Now
           </Button>
         </div>
       </div>

@@ -53,6 +53,7 @@ export interface IProduct {
   createdAt: string;
   updatedAt: string | null;
   length?: any;
+  href?: string;
 }
 
 export interface IRECORDS {

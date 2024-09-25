@@ -21,6 +21,8 @@ interface CardSliderProps {
   sliderItems: IProduct[];
   onClick?: any;
   title?: string;
+  breakpoints?: any;
+  setIsOpen?: any;
 }
 
 const CardSlider: React.FC<CardSliderProps> = ({
@@ -29,6 +31,8 @@ const CardSlider: React.FC<CardSliderProps> = ({
   sliderItems,
   onClick,
   title,
+  setIsOpen,
+  breakpoints,
 }) => {
   const route = useRouter();
 
@@ -44,42 +48,44 @@ const CardSlider: React.FC<CardSliderProps> = ({
         }}
         modules={[Navigation]}
         className="mySwiper"
-        breakpoints={{
-          // when window width is >= 640px
-          640: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          // when window width is >= 768px
-          768: {
-            slidesPerView: 6,
-            spaceBetween: 30,
-          },
-          // when window width is >= 1024px
-          1024: {
-            slidesPerView: 8,
-            spaceBetween: 30,
-          },
-        }}
+        breakpoints={breakpoints}
       >
         {sliderItems &&
-          sliderItems.map((item) => (
-            <SwiperSlide
-              key={item.id}
-              className="pl-4"
-              onClick={() => {
-                route.push(
-                  `/${generateSlug(`${title}`)}/${generateSlug(item.title)}`,
-                );
-              }}
-            >
-              <MenuCard
-                src={item.posterImage.imageUrl || ''}
-                alt={item.title}
-                title={item.title}
-              />
-            </SwiperSlide>
-          ))}
+          sliderItems.map((item) => {
+            //@ts-expect-error
+            const parent = generateSlug(title);
+            return (
+              <SwiperSlide
+                key={item.id}
+                className=""
+                onClick={() => {
+                  const slug = generateSlug(item.title);
+                  const basePath = item.href
+                    ? `${process.env.NEXT_PUBLIC_APP_URL}/${item.href}`
+                    : `/${slug}`;
+
+                  let path;
+
+                  if (slug === 'office-blinds') {
+                    path = '/commercial';
+                  } else if (slug === 'hotels-restaurants-blinds-curtains') {
+                    path = basePath;
+                  } else {
+                    path = `/${parent === 'shutter' ? `${parent}s-range` : parent}/${slug}`;
+                  }
+
+                  route.push(path);
+                  setIsOpen(false);
+                }}
+              >
+                <MenuCard
+                  src={item.posterImage.imageUrl || ''}
+                  alt={item.title}
+                  title={item.title}
+                />
+              </SwiperSlide>
+            );
+          })}
       </Swiper>
       <div className={`flex justify-end ${className} `}>
         <button
