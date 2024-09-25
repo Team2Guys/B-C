@@ -22,12 +22,12 @@ import {
   generateSlug,
   shutterMegaMenuItems,
 } from 'data/data';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 export const links = [
   { href: '/made-to-measure-blinds', label: 'Blinds', id: 2 },
   { href: '/made-to-measure-curtains', label: 'Curtains', id: 5 },
-  { href: '/shutters-range', label: 'Shutters', id: 9 },
+  { href: '/shutters-range', label: 'Shutter', id: 9 },
   { href: '/commercial', label: 'Commercial', id: 12 },
   { href: '/gallery', label: 'Gallery' },
   { href: '/estimator', label: 'Estimator' },
@@ -44,8 +44,7 @@ const Header = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
     null,
   );
-  const path = usePathname(); // Current path
-  const searchParams = useSearchParams(); // Search para
+  const path = usePathname();
   const handleLinkClick = () => {
     setDrawerOpen(false);
     setSelectedLabel(undefined);
@@ -95,11 +94,6 @@ const Header = () => {
     ? products?.filter((product) => product.CategoryId === selectedCategoryId)
     : products;
 
-    const isLinkActive = (href: string): boolean => {
-      // Check if the path matches or the search params contain the link
-      return path.includes(href) || searchParams?.toString().includes(href);
-    };
-
   return (
     <>
       <div className="w-full bg-secondary">
@@ -133,10 +127,12 @@ const Header = () => {
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
           <div className="w-3/12 lg:w-8/12">
-            <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3 px-3 ">
+            <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3">
               <Link
                 className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
-                  path === '/' ? 'font-bold text-black-500 link-active' : 'link-underline'
+                  path === '/'
+                    ? 'font-bold text-black-500 link-active'
+                    : 'link-underline'
                 }`}
                 href={'/'}
               >
@@ -210,7 +206,8 @@ const Header = () => {
                     ...actualProducts,
                   ];
                 }
-                const isActive = isLinkActive(link.href);
+                const isActive =
+                  link.href && path?.includes(generateSlug(link.label));
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
@@ -219,13 +216,19 @@ const Header = () => {
                     title={link.label || ''}
                     sliderData={combinedSliderData}
                     href={link.href}
-                    className={isActive ? 'font-bold text-black-500 link-active' : 'link-underline '}
+                    className={
+                      isActive
+                        ? 'font-bold text-black-500 link-active'
+                        : 'link-underline'
+                    }
                   />
                 ) : (
                   <Link
                     key={index}
                     className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
-                      isActive ? 'font-bold text-black-500 link-active' : 'link-underline'
+                      isActive
+                        ? 'font-bold text-black-500 link-active'
+                        : 'link-underline'
                     }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
@@ -236,7 +239,6 @@ const Header = () => {
               })}
             </div>
           </div>
-          <div className="flex items-center gap-2 ">
           <Link
             className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap bg-primary text-black"
             href="/appointment"
@@ -244,13 +246,14 @@ const Header = () => {
           >
             Book Free Appointment
           </Link>
-            <Sheet 
-              drawerName={<RiMenuFoldLine size={25} className='block lg:hidden' />}
+          <div className="flex lg:hidden">
+            <Sheet
+              drawerName={<RiMenuFoldLine size={25} />}
               open={drawerOpen}
               setOpen={setDrawerOpen}
               selectedLabel={selectedLabel}
             >
-              <div className="flex flex-col ">
+              <div className="flex flex-col">
                 <Link
                   className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
                     path === '/' ? 'font-bold text-black-500' : ''
@@ -264,7 +267,7 @@ const Header = () => {
                   <Link
                     key={index}
                     className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
-                      isLinkActive(link.href)
+                      link.href && path?.includes(generateSlug(link.label))
                         ? 'font-bold text-black-500'
                         : ''
                     }`}

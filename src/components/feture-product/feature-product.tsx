@@ -9,6 +9,7 @@ import { fetchCategories, fetchProducts } from 'config/fetch';
 import { Skeleton } from 'components/ui/skeleton';
 
 const FeatureProduct: React.FC = () => {
+  // Fetch categories
   const {
     data: categories,
     error: categoriesError,
@@ -18,6 +19,7 @@ const FeatureProduct: React.FC = () => {
     queryFn: fetchCategories,
   });
 
+  // Fetch products
   const {
     data: products,
     error: productsError,
@@ -29,10 +31,14 @@ const FeatureProduct: React.FC = () => {
 
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6);
+  const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutter','Commercial']; 
+  const categoryMap = categories?.reduce((acc, category) => {
+    acc[category?.title] = category;
+    return acc;
+  }, {} as Record<string, ICategory>);
 
-  const filteredProducts = products?.filter(
-    (product: IProduct) =>
-      !activeCategory || product.CategoryId === activeCategory.id,
+  const filteredProducts = products?.filter((product: IProduct) =>
+    !activeCategory || product.CategoryId === activeCategory.id
   );
 
   const visibleProducts = filteredProducts?.slice(0, visibleCount);
@@ -46,12 +52,13 @@ const FeatureProduct: React.FC = () => {
     setVisibleCount(6);
   };
 
+  // Loading state
   if (isLoadingCategories || isLoadingProducts)
     return (
       <Container className="py-12">
         <Skeleton className="mt-4 h-[32px] w-[50]" />
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-6 gap-3 ">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-6 gap-3">
             {[...Array(3)].map((_, index) => (
               <div key={index} className="max-w-md rounded lg:m-4 m-2">
                 <Skeleton className="rounded-3xl mb-4 h-[485px] w-[460px]" />
@@ -66,10 +73,9 @@ const FeatureProduct: React.FC = () => {
       </Container>
     );
 
-  if (categoriesError instanceof Error)
-    return <div>Error: {categoriesError.message}</div>;
-  if (productsError instanceof Error)
-    return <div>Error: {productsError.message}</div>;
+  // Error handling
+  if (categoriesError instanceof Error) return <div>Error: {categoriesError.message}</div>;
+  if (productsError instanceof Error) return <div>Error: {productsError.message}</div>;
 
   return (
     <Container className="mt-20">
@@ -81,24 +87,25 @@ const FeatureProduct: React.FC = () => {
 
       <div className="mt-10">
         <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap overflow-x-auto">
-          <Button
-            variant={'feature'}
-            className={` ${!activeCategory ? 'bg-secondary text-white' : 'text-black'} px-6 py-6`}
-            onClick={handleShowAll}
-          >
-            All
-          </Button>
-          {categories &&
-            categories.map((category: ICategory) => (
+          {categoryOrder.map((categoryTitle) => {
+            const category = categoryMap?.[categoryTitle];
+            return (
               <Button
-                key={category.id}
+                key={categoryTitle}
                 variant={'feature'}
-                className={` ${activeCategory?.id === category.id ? 'bg-secondary text-white px-4 py-6' : 'text-black px-4 py-6'} px-4 py-6 `}
-                onClick={() => setActiveCategory(category)}
+                className={` ${activeCategory?.id === category?.id ? 'bg-secondary text-white' : 'text-black'} px-4 py-6`}
+                onClick={() => {
+                  if (categoryTitle === 'All') {
+                    handleShowAll();
+                  } else {
+                    setActiveCategory(category ?? null);
+                  }
+                }}
               >
-                {category.title}
+                {categoryTitle}
               </Button>
-            ))}
+            );
+          })}
         </div>
 
         <div className="mt-5">
