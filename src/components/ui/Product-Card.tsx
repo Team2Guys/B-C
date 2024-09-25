@@ -2,10 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import { ProductCardData } from 'types/interfaces';
 import { ICategory, IProduct } from 'types/types';
 
 interface ProductCardDataProps {
@@ -27,7 +25,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
     queryFn: fetchSubCategories,
   });
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 p-1 md:p-0">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 p-1 md:p-0 mt-5">
       {products &&
         products.map((product) => {
           const category = categories?.find(
@@ -41,7 +39,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               key={product.id}
             >
               <Image
-                className="w-full md:h-[364px] rounded-xl"
+                className="w-full lg:h-[364px] rounded-xl"
                 width={600}
                 height={600}
                 src={product?.posterImage?.imageUrl}

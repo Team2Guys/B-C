@@ -170,18 +170,19 @@ const Footer: React.FC = () => {
                 <ul className="space-y-4 mt-4 text-sm">
                   <li>
                     <Link
+                    target='_blank'
                       className="text-16 font-normal -tracking-widest"
                       href={
-                        'https://www.google.com/maps?ll=25.110758,55.204302&z=15&t=m&hl=en&gl=US&mapclient=embed&cid=2995480907046932023'
+                        'https://www.google.com/maps/place/Two+Guys+-+Blinds+%26+Curtains+Dubai/@25.1177196,55.2331055,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?entry=tts&g_ep=EgoyMDI0MDkxOC4xKgBIAVAD'
                       }
                     >
                       Unit 43 22nd St – Al Quoz Industrial Area 4 – Dubai UAE
                     </Link>
                   </li>
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.7371250646106!2d55.2043024!3d25.110758399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b431460c8a5%3A0x29921603a3ff4e37!2sCustom%20Blinds%20And%20Curtains%20Dubai!5e0!3m2!1sen!2s!4v1724146508721!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.5315287151398!2d55.2356858!3d25.117714799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sTwo%20Guys%20-%20Blinds%20%26%20Curtains%20Dubai!5e0!3m2!1sen!2s!4v1727182528270!5m2!1sen!2s"
                     width="100%"
-                    height="200"
+                    height="150"
                     loading="lazy"
                     style={{ border: 0 }}
                   />
