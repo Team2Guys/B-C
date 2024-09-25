@@ -36,7 +36,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
         <Image
           src={card?.posterImage?.imageUrl}
           alt={card.title}
-          height={400}
+          height={300}
           width={'100%'}
           className=" rounded-xl"
           preview={{

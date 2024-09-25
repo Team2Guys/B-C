@@ -160,7 +160,7 @@ const AricBlind: React.FC = () => {
             </p>
 
             <Button className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
-              Book Now
+            Book An Appointment Now
             </Button>
           </div>
         </div>
