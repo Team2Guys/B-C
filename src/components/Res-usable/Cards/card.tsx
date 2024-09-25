@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
       >
         <div>
           <Image
-            className="lg:w-[500px] object-cover sm:w-[400px]  lg:h-[485px] sm:h-[300px]  rounded-3xl transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+            className="lg:w-[500px] object-cover sm:w-[400px]  lg:h-[400px] sm:h-[300px]  rounded-3xl transition-transform duration-300 ease-in-out transform group-hover:scale-105"
             width={500}
             height={500}
             src={data.posterImage.imageUrl || 'image.pnd'}
