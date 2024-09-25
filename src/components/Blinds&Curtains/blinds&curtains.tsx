@@ -14,7 +14,7 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
       <div className="grid grid-cols-12 gap-6 2xl:gap-10">
         <div className='col-span-12 md:col-span-7 lg:col-span-5 2xl:col-span-6'>
         <Image
-          className="lg:h-[627px] w-full"
+          className="lg:h-[600px] w-full"
           width={800}
           height={800}
           src={data.image}
@@ -25,7 +25,7 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
         <h2 className="lg:text-[39px] md:text-3xl text-2xl font-bold mb-4  ">
             {data.heading}
           </h2>
-          <div className=" ">
+          <div>
             {data.paragraph.map((para, index) => (
               <p
                 key={index}
@@ -36,12 +36,12 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
             ))}
           </div>
 
-          <div className="mt-10 2xl:mt-20">
+          <div className="mt-4">
             <Link
-              href={'/about-us'}
+              href={'/appointment'}
               className="bg-primary  text-white px-4 py-4 hover:text-black hover:bg-white transition-all  hover:text-dark  "
             >
-              Read More
+              Book A Free Home Visit
             </Link>
           </div>
         </div>

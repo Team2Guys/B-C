@@ -19,8 +19,8 @@ const Banner: React.FC<BannerProps> = ({ data }) => {
       <div className="col-span-12 sm:col-span-6 md:col-span-5 2xl:col-span-4 space-y-4">
         <p className=' text-24 md:text-[34px] xl:text-[41px] font-bold'>MADE TO MEASURE 
         SHUTTERS FOR YOU..</p>
-        <button onClick={() => route.push('/appointment')} className="text-[18px] leading-4  text-black bg-white p-2 md:px-12 md:py-4 rounded-md capitalize">
-          Booking Now
+        <button onClick={() => route.push('/appointment')} className="text-[18px] leading-4  text-black bg-white p-2 md:px-6 md:py-4 rounded-md capitalize">
+        Book A Free Home Design Visit
         </button>
       </div>
       <div className="col-span-1"/>

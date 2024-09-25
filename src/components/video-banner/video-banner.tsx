@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 
@@ -28,7 +29,7 @@ const VideoBanner: React.FC<BannerProps> = ({ className,title }) => {
   };
 
   return (
-    <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden ${className}`}  onClick={handleVideoClick}>
+    <div className={`relative w-full h-[300px] md:h-[450px] 2xl:h-[681px] overflow-hidden ${className}`}  onClick={handleVideoClick}>
       <video
        
         ref={videoRef}
@@ -47,7 +48,7 @@ const VideoBanner: React.FC<BannerProps> = ({ className,title }) => {
         </div>
       )}
       <div className="relative  flex items-center h-full z-10" >
-        <div className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl" onClick={handleTextClick}>
+        <div className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl py-5" onClick={handleTextClick}>
           <div className="py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
             <p className="lg:text-[43px] text-25 font-black drop-shadow-lg capitalize">{title}</p>
             <p className=" text-17 font-bold capitalize tracking-widest">
@@ -58,6 +59,11 @@ const VideoBanner: React.FC<BannerProps> = ({ className,title }) => {
               the readable content of a page when looking at its layout. The
               point of using Lorem Ipsum is that it has a more-or-less normal
             </p>
+            <div className='mt-5'>
+            <Link className='uppercase bg-white text-16 font-medium shadow-md text-black rounded-full px-4 py-3' href={'/appointment'} >
+                Book A Free Home Design
+            </Link>
+            </div>
           </div>
         </div>
       </div>

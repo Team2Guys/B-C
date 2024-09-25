@@ -12,6 +12,9 @@ import { generateSlug } from 'data/data';
 import Loader from 'components/Loader/Loader';
 import Cookies from 'js-cookie';
 import TableSkeleton from './TableSkelton';
+import { useQuery } from '@tanstack/react-query';
+import { ICategory, IProduct } from 'types/types';
+import { fetchCategories } from 'config/fetch';
 
 interface Product {
   id: string;
@@ -95,6 +98,14 @@ const ViewProduct: React.FC<CategoryProps> = ({
       });
     }
   };
+  const {
+    data: categories,
+    error: categoriesError,
+    isLoading: isLoadingCategories,
+  } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
 
   const columns = [
     {
@@ -136,15 +147,20 @@ const ViewProduct: React.FC<CategoryProps> = ({
     {
       title: 'Preview',
       key: 'Preview',
-      render: (text: any, record: Product) => (
-        <FaRegEye
-          className="cursor-pointer"
-          onClick={() => {
-            const url = `/product/${generateSlug(record.title)}`;
-            window.open(url, '_blank');
-          }}
-        />
-      ),
+      render: (text: any, record: Product) => {
+        //@ts-expect-error
+        const category = categories?.find((i) => i.id === record.CategoryId);
+        if (category === undefined) return null;
+        return (
+          <FaRegEye
+            className="cursor-pointer"
+            onClick={() => {
+              const url = `/${generateSlug(category.title)}/${generateSlug(record.title)}`;
+              window.open(url, '_blank');
+            }}
+          />
+        );
+      },
     },
     {
       title: 'Edit',
@@ -181,7 +197,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
 
   return (
     <div>
-      {loading ? (
+      {loading || isLoadingCategories ? (
         <TableSkeleton rows={8} columns={5} />
       ) : (
         <>
