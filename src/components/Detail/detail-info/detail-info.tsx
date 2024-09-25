@@ -38,7 +38,7 @@ const DetailInfo: React.FC<detailprops> = ({
             <p className="text-12 md:text-16 leading-8">{description}</p>
           </div>
           <Button onClick={()=>{route.push("/appointment")}} className='py-6 px-10' variant={"secondary"}>
-            Book Now
+          Book An Appointment Now
           </Button>
         </div>
       </div>
