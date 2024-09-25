@@ -177,16 +177,13 @@ const Estimator: React.FC = () => {
               </p>
 
               <Button onClick={()=>{route.push("/appointment")}} className="bg-secondary text-white text-2xl font-bold py-7 px-4 rounded-lg">
-                Book Now
+              Book An Appointment Now
               </Button>
             </div>
           </div>
         </div>
       )}
 
-      <Container className="py-10">
-        <RelatedProducts products={products || []} limit={3} />
-      </Container>
       <BookNowBanner />
       <VideoAutomation />
       <Support />

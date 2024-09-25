@@ -16,7 +16,7 @@ const AboutUsPage = () => {
   return (
     <div>
       <TopHero title="About Us" image={bgBreadcrum} />
-      <Container className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 xs:p-2 px-6 lg:gap-20 xs:py-20">
+      <Container className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 xs:p-2 px-6 2xl:gap-20 xs:py-20 md:px-10">
         <div
           className="w-full h-full"
           style={{
@@ -27,7 +27,8 @@ const AboutUsPage = () => {
             width: '100%',
             borderRadius: '10px',
           }}
-        ></div>
+        >
+        </div>
         <div>
           <h4 className="font-semibold mb-6 text-paralight">
             {AboutUsPara.subheading}
@@ -59,7 +60,7 @@ const AboutUsPage = () => {
           </div>
         </div>
       </Container>
-      <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 xs:px-2 px-6 py-10">
+      <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 xs:px-2 px-6 py-10 md:px-10">
         <div>
           <h4 className="font-semibold xs:mb-6 text-paralight xs:text-base text-12">
             {UsHistoryPara.subheading}

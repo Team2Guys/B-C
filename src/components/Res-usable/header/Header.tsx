@@ -21,14 +21,13 @@ import {
   curtainMegaMenuItems,
   generateSlug,
   shutterMegaMenuItems,
-  staticCommercialMegaMenuItems,
 } from 'data/data';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 export const links = [
   { href: '/made-to-measure-blinds', label: 'Blinds', id: 2 },
-  { href: '/shutters-range', label: 'Shutter', id: 9 },
   { href: '/made-to-measure-curtains', label: 'Curtains', id: 5 },
+  { href: '/shutters-range', label: 'Shutters', id: 9 },
   { href: '/commercial', label: 'Commercial', id: 12 },
   { href: '/gallery', label: 'Gallery' },
   { href: '/estimator', label: 'Estimator' },
@@ -104,7 +103,7 @@ const Header = () => {
   return (
     <>
       <div className="w-full bg-secondary">
-        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center py-2">
+        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center ">
           <p className="text-white py-2 text-12 2xl:text-15 font-medium lg:tracking-[0.4px] xl:tracking-[1.8px] 2xl:tracking-[2px] leading-relaxed 2xl:leading-loose">
             We can visit you, take measurements, help select fabrics & install
             in 1-2 days. Call Dubai{' '}
@@ -128,13 +127,13 @@ const Header = () => {
         </Container>
       </div>
 
-      <nav className="bg-lightgrey shadow-lg sticky top-0 z-50">
+      <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50">
         <Container className="flex w-full items-center justify-between px-2 ">
           <Link href={'/'} className="w-3/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
           <div className="w-3/12 lg:w-8/12">
-            <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3 px-3 py-2">
+            <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3 px-3 ">
               <Link
                 className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
                   path === '/' ? 'font-bold text-black-500 link-active' : 'link-underline'
@@ -243,7 +242,7 @@ const Header = () => {
             href="/appointment"
             onClick={handleLinkClick}
           >
-            Free Consultation
+            Book Free Appointment
           </Link>
             <Sheet 
               drawerName={<RiMenuFoldLine size={25} className='block lg:hidden' />}

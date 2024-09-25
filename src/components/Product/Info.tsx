@@ -28,17 +28,17 @@ const Info = () => {
             made-to-measure blinds from designers such as Orla Kiely, Miss Print
             as well as Ashley Wilde.
           </p>
-          <div className=" pt-5 md:pt-10">
-            <Button onClick={()=>{route.push("/appointment")}} variant={'secondary'} className="w-[186px] h-[59px] ">
-              Book Now
-            </Button>
+          <div className=" pt-5">
+            <button onClick={()=>{route.push("/appointment")}} className="px-4 py-3 rounded-md bg-secondary text-white font-medium">
+              Book An Appointment
+            </button>
           </div>
         </div>
         <div className="flex justify-end mt-5 md:mt-0">
           <Image
-            className=""
+            className="w-auto h-auto"
             width={602}
-            height={489}
+            height={400}
             src={productimf}
             alt="product"
           />
