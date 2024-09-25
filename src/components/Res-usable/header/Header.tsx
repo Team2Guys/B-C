@@ -131,7 +131,9 @@ const Header = () => {
             <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3">
               <Link
                 className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
-                  path === '/' ? 'font-bold text-black-500' : ''
+                  path === '/'
+                    ? 'font-bold text-black-500 link-active'
+                    : 'link-underline'
                 }`}
                 href={'/'}
               >
@@ -215,13 +217,19 @@ const Header = () => {
                     title={link.label || ''}
                     sliderData={combinedSliderData}
                     href={link.href}
-                    className={isActive ? 'font-bold text-black-500' : ''}
+                    className={
+                      isActive
+                        ? 'font-bold text-black-500 link-active'
+                        : 'link-underline'
+                    }
                   />
                 ) : (
                   <Link
                     key={index}
                     className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
-                      isActive ? 'font-bold text-black-500' : ''
+                      isActive
+                        ? 'font-bold text-black-500 link-active'
+                        : 'link-underline'
                     }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
