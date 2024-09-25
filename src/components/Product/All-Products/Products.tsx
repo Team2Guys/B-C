@@ -14,9 +14,9 @@ interface relativeProps {
 const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const productsPerPage = 6; // Changed to 6
-  const categories = ['All', 'BY TYPE', 'BY ROOM'];
-  const productContainerRef = useRef<HTMLDivElement | null>(null); // Create a ref
+  const productsPerPage = 6;
+  const categories = ['All', 'By Type', 'By Room'];
+  const productContainerRef = useRef<HTMLDivElement | null>(null);
 
   const filteredProducts: IProduct[] =
     activeCategory === 'All'

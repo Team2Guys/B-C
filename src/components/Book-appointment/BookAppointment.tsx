@@ -317,7 +317,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-11 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.name}
               onChange={handleChange}
-            // required
             />
             {errors.name && (
               <p className="text-red-500 text-xs">{errors.name}</p>
@@ -332,6 +331,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             </label>
             <PhoneInput
               enableSearch={true}
+              countryCodeEditable={false}
               disableSearchIcon={true}
               country={'ae'}
               value={formData.phone_number}
@@ -366,7 +366,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-11 ${errors.email ? 'border-red-500' : ''}`}
               value={formData.email}
               onChange={handleChange}
-            // required
             />
             {errors.email && (
               <p className="text-red-500 text-xs">{errors.email}</p>
@@ -381,6 +380,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             </label>
             <PhoneInput
               country={'ae'}
+              countryCodeEditable={false}
               value={formData.whatsapp_number}
               onChange={(phone) =>
                 setFormData({ ...formData, whatsapp_number: phone })

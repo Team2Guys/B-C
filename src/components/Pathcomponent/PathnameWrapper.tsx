@@ -5,7 +5,6 @@ import Footer from 'components/Res-usable/Footer/Footer';
 import Guarrenty from 'components/Res-usable/guarrenty/guarrenty';
 import Testimonial from 'components/slider/testimonial';
 import OurClient from 'components/Our-Client/OurClient';
-import { Suspense } from 'react';
 
 const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
@@ -18,9 +17,7 @@ const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
     <>
       {withoutHeaderPages.includes(pathname) ||
       pathname.split('/').includes('dashboard') ? null : (
-        <Suspense >
-          <Header />
-        </Suspense>
+        <Header />
       )}
       {children}
       {withoutHeaderPages.includes(pathname) ||
