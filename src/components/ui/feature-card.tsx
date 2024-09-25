@@ -49,7 +49,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
             <Image
               width={450}
               height={450}
-              className=" md:w-full h-[311px] 2xl:h-[411px] rounded-xl"
+              className=" md:w-full h-[300px] 2xl:h-[350px] rounded-xl"
               src={product.posterImage.imageUrl}
               alt={product.title}
             />

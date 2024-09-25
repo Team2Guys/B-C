@@ -27,6 +27,7 @@ import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
 
 export const generateSlug = (text: string) => {
+  if(!text) return '';
   return text
     .toString()
     .toLowerCase()
@@ -100,7 +101,7 @@ export const heroSlider = [
 export const bannerData: BannerData = {
   imageUrl: '/assets/images/measure_shutter/measure_shutter.png',
   title: 'MADE TO MEASURE SHUTTERS FOR YOU..',
-  buttonText: 'Booking Now',
+  buttonText: 'Book A Free Home Design Visit',
 };
 
 export const footerLinks: TFooterSection[] = [

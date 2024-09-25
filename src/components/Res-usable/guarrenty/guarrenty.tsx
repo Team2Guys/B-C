@@ -18,7 +18,7 @@ const Guarrenty = () => {
           </p>
           <Link href={'./product-guarantees'} className="mt-4 block">
             <Button className="shadow-slate-400 shadow-md w-32" variant={'white'}>
-              VIew More
+            Read More
             </Button>
           </Link>
         </div>
