@@ -8,12 +8,16 @@ import { useQuery } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
 import { fetchAppointments } from 'config/fetch';
 import { IAppointments } from 'types/types';
+import ProtectedRoute from 'hooks/AuthHookAdmin';
 
 const Appointments = () => {
-  const token = Cookies.get('2guysAdminToken') || '';
+  const admin = Cookies.get('2guysAdminToken') || '';
+  const super_admin = Cookies.get('superAdminToken') || '';
+  let token = admin ? admin : super_admin
+
   const {
     data: appointments,
-    error:appointmentsError,
+    error: appointmentsError,
     isLoading,
   } = useQuery<IAppointments[]>({
     queryKey: ['appointments', token],
@@ -23,19 +27,20 @@ const Appointments = () => {
 
   if (appointmentsError instanceof Error) return <div>Error: {appointmentsError.message}</div>;
 
+  console.log(appointments, "appointments")
   return (
     <>
-    <DefaultLayout>
-            <Breadcrumb pageName={'View Appointments'} />
-          {
-            appointments && (
-                <FilterTable   data={appointments} columns={appointmentColumns} />
-            )
-          }  
-    </DefaultLayout>
+      <DefaultLayout>
+        <Breadcrumb pageName={'View Appointments'} />
+        {
+          appointments && (
+            <FilterTable data={appointments} columns={appointmentColumns} />
+          )
+        }
+      </DefaultLayout>
     </>
 
   );
 };
 
-export default Appointments;
+export default ProtectedRoute(Appointments)
