@@ -10,7 +10,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
   const router = useRouter();
   return (
     <div
-      className={`relative w-full h-auto md:h-[397px] overflow-hidden mt-10 ${className}`}
+      className={`relative w-full h-auto md:h-[397px] px-1 overflow-hidden mt-10 ${className}`}
     >
       <video
         className="absolute inset-0 object-cover w-full h-full"
@@ -21,7 +21,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
         playsInline
         controls={false}
       />
-      <div className="relative z-10 w-full py-3 bg-white/80 my-10 max-w-screen-md mx-auto rounded-2xl">
+      <div className="relative z-10 w-full py-3 bg-white/80 my-10 max-w-screen-md mx-auto rounded-3xl">
         <div className="py-2 px-4 text-center">
           <p className="lg:text-[48px] text-25 font-bold">Automation</p>
           <p className="lg:text-25 text-18 font-extralight ">
@@ -41,7 +41,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
             >
               Motorised Blinds
             </Button>
-            <Button variant={'outline'} className="py-4 px-2 md:py-7">
+            <Button onClick={() => router.push('/curtains/motorised-curtains')} variant={'outline'} className="py-4 px-2 md:py-7">
               Motorised Curtains
             </Button>
           </div>

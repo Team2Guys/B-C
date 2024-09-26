@@ -22,6 +22,8 @@ import { IProduct } from 'types/types';
 import { Image } from 'antd';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import { IoSearch } from 'react-icons/io5';
+import { getCategoryFromUrl } from 'config';
+import { useRouter } from 'next/navigation';
 
 interface TsizePresets {
   width: number;
@@ -29,8 +31,7 @@ interface TsizePresets {
 }
 
 const Detailpage = ({ params }: { params: Allproduct }) => {
-
-  const ProductName = params.name;
+  const ProductName = getCategoryFromUrl(params.name);
 
   const [selectedSize, setSelectedSize] = useState<TsizePresets>(initialSize);
   const [sizePresets, setSizePresets] =
@@ -39,7 +40,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   const [detail, setdetail] = useState<IProduct[]>([]);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  console.log(params, 'ProductNameProductNameProductName');
+const route = useRouter();
 
   const handleSizeChange = (width: number, height: number) => {
     setSelectedSize({ width, height });
@@ -77,14 +78,22 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
 
   useEffect(() => {
     if (products && products.length > 0) {
-      const product = products.find((p) => generateSlug(p.title).toLowerCase() === ProductName.toLowerCase(),);
+      const product = products.find(
+        (p) =>
+          generateSlug(p.title).toLowerCase() === ProductName.toLowerCase(),
+      );
       if (product) {
         setdetail([product]);
       }
     }
   }, [products, ProductName]);
 
-  if (isLoading) return <Container><ProductSkeleton/></Container>;
+  if (isLoading)
+    return (
+      <Container>
+        <ProductSkeleton />
+      </Container>
+    );
 
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
@@ -99,19 +108,20 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
                   <div className="flex items-center justify-center rounded-3xl overflow-hidden ">
                     <Image
                       src={array.posterImage.imageUrl}
-                      width={"100%"}
+                      width={'100%'}
                       height={562}
                       alt="Blinds"
                       className="object-cover  rounded-3xl"
                       preview={{
                         mask: (
                           <div>
-                            <IoSearch style={{ color: 'white', fontSize: '30px' }} />
+                            <IoSearch
+                              style={{ color: 'white', fontSize: '30px' }}
+                            />
                           </div>
-                        )
+                        ),
                       }}
                     />
-                
                   </div>
                 </div>
 
@@ -167,7 +177,6 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
                       <div className="grid grid-cols-2 gap-2 mt-1">
                         {sizePresets.map(
                           (preset: TsizePresets, index: number) => (
-
                             <button
                               key={index}
                               onClick={() =>
@@ -199,7 +208,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
                     {array.description}
                   </p>
 
-                  <Button className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
+                  <Button onClick={()=>{route.push("/appointment")}} className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
                     Book Now
                   </Button>
                 </div>
@@ -209,7 +218,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
         ))}
 
       <Container className="py-10">
-        <RelatedProducts products={products || []} />
+        <RelatedProducts products={products || []} limit={3} />
       </Container>
       <BookNowBanner />
       <VideoAutomation />

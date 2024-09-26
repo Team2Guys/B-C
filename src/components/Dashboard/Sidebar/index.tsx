@@ -88,6 +88,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             width={140}
             height={140}
             src={'/assets/images/whitelogo.png'}
+            className='w-auto h-auto'
             alt="Logo"
             priority
           />
@@ -234,7 +235,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   return (
                     <React.Fragment>
                       <Link
-                        href="/dashboard"
+                        href="/dashboard/Products"
                         className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${
                           pathname === '/dashboard/products' &&
                           'bg-primary-foreground dark:bg-lightdark'
@@ -280,6 +281,63 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   );
                 }}
               </SidebarLinkGroup>
+
+
+
+              <SidebarLinkGroup
+                activeCondition={pathname === '/dashboard/blog'}
+              >
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <Link
+                        href="/dashboard/blog"
+                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${
+                          pathname === '/dashboard/blog' &&
+                          'bg-primary-foreground dark:bg-lightdark'
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault(); // Prevent default link behavior
+                          sidebarExpanded
+                            ? handleClick()
+                            : setSidebarExpanded(true);
+                        }}
+                      >
+                        <GrCodeSandbox size={20} className="text-white" />
+                        Blog
+                        <MdOutlineKeyboardArrowDown
+                          size={30}
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${
+                            open && 'rotate-180'
+                          }`}
+                        />
+                      </Link>
+                      <div
+                        className={`translate transform overflow-hidden ${
+                          !open && 'hidden'
+                        }`}
+                      >
+                        <ul className="mb-3 mt-3 flex flex-col gap-2 pl-6">
+                          <li>
+                            <Link
+                              href="/dashboard/blog"
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
+                                pathname === 'dashboard/blog' &&
+                                'text-white bg-lightdark'
+                              } `}
+                            >
+                              View Blog
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      {/* <!-- Dropdown Menu End --> */}
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
+
+
               <SidebarLinkGroup
                 activeCondition={pathname === '/dashboard/appointments'}
               >

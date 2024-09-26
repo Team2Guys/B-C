@@ -14,8 +14,8 @@ import {
   sizePresets as initialSizePresets,
   relativeProducts,
 } from 'data/data';
-import backbanner from '../../../public/assets/images/aric-blands/aric-header.png';
-import cardImg from '../../../public/assets/images/aric-blands/aric-blands.png';
+import backbanner from '../../../../public/assets/images/aric-blands/aric-header.png';
+import cardImg from '../../../../public/assets/images/aric-blands/aric-blands.png';
 
 interface TsizePresets {
   width: number;
@@ -160,7 +160,7 @@ const AricBlind: React.FC = () => {
             </p>
 
             <Button className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
-              Book Now
+            Book An Appointment Now
             </Button>
           </div>
         </div>

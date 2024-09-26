@@ -2,6 +2,8 @@
 import exp from 'constants';
 import {
   AboutStaticData,
+  BlogInfo,
+  BlogProps,
   CardTypes,
   FeatureProductData,
   GalleryItems,
@@ -14,13 +16,18 @@ import {
   THeroImages,
   Tproductdata,
   TProductGuarantees,
+  TRSlide,
   TsizePresets,
 } from 'types/interfaces';
 import { BlindsAndCurtainsTypes } from 'types/interfaces';
 import { BannerData } from 'types/interfaces';
 import { TRatingSlider } from 'types/interfaces';
+import * as Yup from 'yup';
+import { Product, Category, FormValues } from 'types/interfaces';
+import { IProduct, ISUBCATEGORY } from 'types/types';
 
 export const generateSlug = (text: string) => {
+  if(!text) return '';
   return text
     .toString()
     .toLowerCase()
@@ -94,40 +101,23 @@ export const heroSlider = [
 export const bannerData: BannerData = {
   imageUrl: '/assets/images/measure_shutter/measure_shutter.png',
   title: 'MADE TO MEASURE SHUTTERS FOR YOU..',
-  buttonText: 'Booking Now',
+  buttonText: 'Book A Free Home Design Visit',
 };
 
 export const footerLinks: TFooterSection[] = [
   {
-    title: 'Quick Links',
-    links: [
-      { text: 'Contact Us', href: '/contact-us' },
-      { text: 'Knowledge Base', href: '/knowledge-base' },
-      { text: 'Forums', href: '/forums' },
-    ],
-  },
-
-  {
     title: 'Pages',
     links: [
-      { text: 'Legal Information', href: '/legal-information' },
-      { text: 'Privacy Policy', href: '/privacy-policy' },
-      { text: 'Report Abuse', href: '/report-abuse' },
-      { text: 'Terms of Service', href: '/terms-of-service' },
-      { text: 'WHOIS Lookup', href: '/whois-lookup' },
-    ],
-  },
-  {
-    title: 'Policies',
-    links: [
-      { text: 'Privacy Policy', href: '/privacy-policy' },
-      { text: 'Return Policy', href: '/return-policy' },
-      { text: 'Terms & Condition', href: '/terms-condition' },
+      { text: 'About Us', href: '/about-us' },
+      { text: 'Contact Us', href: '/contact-us' },
+      { text: 'Request An Appointment', href: '/appointment' },
+      { text: 'Product Guarantees', href: '/product-guarantees' },
+      { text: 'Why Choose Us', href: '/choose-us' },
     ],
   },
 ];
 
-export const footerInfo = ' ©Blindsand & Curtains  2024 All rights reserved';
+export const footerInfo = '  ©Blindsand & Curtains  2024 All rights reserved';
 
 export const OurClientImage = [
   { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
@@ -717,7 +707,7 @@ export const productItems: ProductItems[] = [
     id: 1,
     imageUrl: '/assets/images/Rectangle812h.png',
     discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
+      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
     title: 'OFFICE',
     category: 'OFFICE',
   },
@@ -895,13 +885,11 @@ export const UsHistoryPara = {
 //   },
 // ];
 
-
 export const aboutUsReviewData = [
   { id: 1, keys: 20, suffix: '+', title: 'Years Experience' },
   { id: 2, keys: 375, suffix: 'K', title: 'Work Completed' },
   { id: 3, keys: 19, suffix: 'K', title: 'Client Satisfied' },
 ];
-
 
 export const OurHistoryData: OurHistory[] = [
   {
@@ -933,10 +921,6 @@ export const OurHistoryData: OurHistory[] = [
       'Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has.',
   },
 ];
-
-import * as Yup from 'yup';
-import { Product, Category, FormValues } from 'types/interfaces';
-import { ISUBCATEGORY } from 'types/types';
 
 export const validateForm = (formData: {
   fullName: string;
@@ -1037,7 +1021,7 @@ export const AddProductvalidationSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   description: Yup.string().required('Required'),
-  price:Yup.string().required("Price is required")
+  price: Yup.string().required('Price is required'),
   // salePrice: Yup.number()
   //   .min(1, 'Minimum sales price must be at least 1')
   //   .required('Required'),
@@ -1059,7 +1043,7 @@ export const AddproductsinitialValues: FormValues = {
   sizes: [],
   category: '',
   code: '',
-  price:0
+  price: 0,
 };
 
 export const options = [
@@ -1097,8 +1081,7 @@ export const subcategoryInitialValues: ISUBCATEGORY = {
   title: '',
   description: '',
   CategoryId: undefined,
-}
-
+};
 
 export const intitalValues = {
   fullname: '',
@@ -1118,5 +1101,262 @@ export const intitalValues = {
   canVeiwAdmins: false,
   canVeiwTotalproducts: false,
   canVeiwTotalCategories: false,
-
 };
+
+export const blindMegaMenuItems = [
+  { productName: 'motorised-blinds' },
+  { productName: 'aluminium-venetian-blinds-dubai' },
+  { productName: 'blackout-blinds' },
+  { productName: 'colby-honeycomb-blinds' },
+  { productName: '3d-blinds' },
+  { productName: 'duplex-blinds' },
+  { productName: 'skylight-blinds-dubai' },
+  { productName: 'sheer-horizon-blinds' },
+  { productName: 'panel-blinds' },
+  { productName: 'roller-blinds' },
+  { productName: 'roman-blinds' },
+  { productName: 'vertical-blinds' },
+  { productName: 'wood-venetian-blinds' },
+];
+
+export const curtainMegaMenuItems = [
+  { productName: 'made-to-measure-bed-room-curtains' },
+  { productName: 'blackout-curtains-dubai' },
+  { productName: 'eyelet-curtains' },
+  { productName: 'eyelet-curtains' },
+  { productName: 'home-curtains' },
+  { productName: 'hotel-curtains-dubai' },
+  { productName: 'made-to-measure-living-room-curtains' },
+  { productName: 'motorised-curtains' },
+  { productName: 'pinch-pleat-curtains' },
+  { productName: 'made-to-measure-sheer-curtains' },
+  { productName: 'pinch-pleat-curtains' },
+  { productName: 'goblet-pleat-curtains' },
+  { productName: 'made-to-measure-linen-curtains' },
+  { productName: 'triple-pinch-pleat-curtains' },
+  { productName: 'stage-and-theatre-curtains' },
+  { productName: 'made-to-measure-chiffon-curtains' },
+];
+export const shutterMegaMenuItems = [
+  { productName: 'full-height-shutters' },
+  { productName: 'bay-window-shutters' },
+  { productName: 'tracked-window-shutters' },
+  { productName: 'special-shape-shutters-wooden-shutters' },
+  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+];
+
+export const commercialMegaMenuItems = [
+  { productName: 'school-blinds' },
+  { productName: 'office-blinds' },
+  { productName: 'hotels-restaurants-blinds-curtains' },
+  { productName: 'office-window-curtains' },
+  { productName: 'printed-blinds' },
+  { productName: 'printed-blinds' },
+  { productName: 'hospital-curtains' },
+  { productName: 'aluminium-venetian-blinds-dubai' },
+];
+
+export const staticCommercialMegaMenuItems: IProduct[] = [
+  {
+    id: 36,
+    title: 'Office Blinds',
+    posterImage: {
+      imageUrl:
+        'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645877/sruin6vc0ujvgxffpgne.png',
+      public_id: 'sruin6vc0ujvgxffpgne',
+    },
+    imageUrls: [
+      {
+        imageUrl:
+          'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645880/p1mgmoe4gndfyndvlown.png',
+        public_id: 'p1mgmoe4gndfyndvlown',
+      },
+    ],
+    price: 1000,
+    href: 'commercial',
+    CategoryId: 9,
+    SubCategoryId: null,
+    description:
+      'Our custom-printed roller blinds range is the perfect solution to tick all boxes. Increase your brand exposure, raise your profile, and give your premises a professional fit-out feel while at the same time, keeping your staff and customers comfortable.\n\nProvide us with a high-quality image and leave the rest to us. Your blinds will be custom-made to size, and custom printed as required. A truly unique blind that will set your company apart from the rest.',
+    updatedAt: null,
+    createdAt: '2024-09-18T07:51:23.509Z',
+  },
+];
+
+export const commercialPagesItems = [
+  { productName: 'school-blinds' },
+
+  { productName: 'hotels-restaurants-blinds-curtains' },
+  { productName: 'blackout-blinds' },
+  { productName: 'printed-blinds' },
+  { productName: 'vertical-blinds' },
+  { productName: 'panel-blinds' },
+  { productName: 'special-shape-shutters-wooden-shutters' },
+  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'motorised-blinds' },
+];
+
+export const items = [
+  {
+    id: 1,
+    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+  },
+  {
+    id: 2,
+    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+  },
+  {
+    id: 3,
+    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+  },
+  {
+    id: 4,
+    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+  },
+];
+
+export const slides: TRSlide[] = [
+  {
+    title: 'Victoria Wotton',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+  },
+  {
+    title: 'Victoria Wotton',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
+  },
+];
+
+export const isActiveTabs: { name: string }[] = [
+  {
+    name: 'blinds',
+  },
+  {
+    name: 'shutters',
+  },
+  {
+    name: 'curtains',
+  },
+  {
+    name: 'commercial',
+  },
+  {
+    name: 'gallery',
+  },
+  {
+    name: 'contact-us',
+  },
+];
+
+export const optionDetail = [
+  { value: 'Select Sizes', label: 'Select Sizes', disabled: true },
+  { value: '140 x 180', label: '140 x 180' },
+  { value: '160 x 180', label: '160 x 180' },
+  { value: '180 x 180', label: '180 x 180' },
+  { value: '200 x 180', label: '200 x 180' },
+  { value: '220 x 180', label: '220 x 180' },
+];
+
+export const estimateSldie = {
+  320: {
+    slidesPerView: 1.4,
+    spaceBetween: 10,
+  },
+  420: {
+    slidesPerView: 2.3,
+    spaceBetween: 10,
+  },
+  640: {
+    slidesPerView: 3,
+    spaceBetween: 10,
+  },
+  768: {
+    slidesPerView: 4,
+    spaceBetween: 15,
+  },
+  890: {
+    slidesPerView: 3,
+    spaceBetween: 15,
+  },
+  1330: {
+    slidesPerView: 3.5,
+    spaceBetween: 15,
+  },
+  1440: {
+    slidesPerView: 4,
+    spaceBetween: 30,
+  },
+};
+
+export const blogData: BlogInfo[] = [
+  {
+    posterImage: '/assets/images/product/1.png',
+    category: 'Technology',
+    title: 'The Rise of AI in Modern Technology',
+    content:
+      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology',
+  },
+  {
+    posterImage: '/assets/images/product/2.png',
+    category: 'Health',
+    title: 'Top 10 Health Tips for a Better Life',
+    content:
+      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+  },
+  {
+    posterImage: '/assets/images/product/3.png',
+    category: 'Travel',
+    title: 'Best Travel Destinations for 2024',
+    content:
+      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+  },
+  {
+    posterImage: '/assets/images/product/1.png',
+    category: 'Technology',
+    title: 'The Rise of AI in Modern Technology',
+    content:
+      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
+  },
+  {
+    posterImage: '/assets/images/product/2.png',
+    category: 'Health',
+    title: 'Top 10 Health Tips for a Better Life',
+    content:
+      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+  },
+  {
+    posterImage: '/assets/images/product/3.png',
+    category: 'Travel',
+    title: 'Best Travel Destinations for 2024',
+    content:
+      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+  },
+  {
+    posterImage: '/assets/images/product/2.png',
+    category: 'Health',
+    title: 'Top 10 Health Tips for a Better Life',
+    content:
+      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
+  },
+  {
+    posterImage: '/assets/images/product/3.png',
+    category: 'Travel',
+    title: 'Best Travel Destinations for 2024',
+    content:
+      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
+  },
+];
+
+export const blogPara = [
+  {
+    para: "Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  },
+  {
+    para: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of",
+  },
+  {
+    para: ' It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of',
+  },
+];

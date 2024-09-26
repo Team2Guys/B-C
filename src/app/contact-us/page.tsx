@@ -78,15 +78,15 @@ const ProductUs: React.FC = () => {
     <>
       <TopHero title="CONTACT US" image={second} />
       <Container>
-        <section className="text-center mb-12">
-          <h5 className="xs:py-12 py-5 text-base font-bold">CONTACT US</h5>
-          <h2 className="lg:text-5xl text-2xl font-bold">Tell us More</h2>
-          <p className="lg:text-xl lg:pt-4 lg:px-12">
+        <section className="text-center mb-12 max-w-screen-xl mx-auto">
+          <h5 className="xs:py-12 py-5 text-[#666666] text-base font-bold">CONTACT US</h5>
+          <h2 className="lg:text-5xl text-2xl font-bold text-[#333333]">Tell us More</h2>
+          <p className="lg:text-16 lg:pt-4 lg:px-12 text-[#666666]">
             Get some rough window measurements and call us on{' '}
             <Link
               target="_blank"
               href={'tel:+04042522025'}
-              className="hover:underline"
+              className="underline"
             >
               04 252 2025
             </Link>{' '}
@@ -225,15 +225,12 @@ const ProductUs: React.FC = () => {
             <div className="mt-4 text-end">
               <input
                 type="submit"
-                className="bg-btnclr hover:bg-secondary text-white text-sm font-medium py-6 px-8 rounded-lg"
+                className="bg-secondary hover:bg-btnclr text-white text-16 font-medium py-4 px-16 rounded-lg cursor-pointer"
                 value="Send Message"
               />
             </div>
           </form>
         </section>
-      </Container>
-      <Container className="py-10">
-        <RelatedProducts products={products || []} />
       </Container>
     </>
   );

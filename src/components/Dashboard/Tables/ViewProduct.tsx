@@ -1,6 +1,5 @@
 'use client';
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -13,6 +12,10 @@ import { generateSlug } from 'data/data';
 import Loader from 'components/Loader/Loader';
 import Cookies from 'js-cookie';
 import TableSkeleton from './TableSkelton';
+import { useQuery } from '@tanstack/react-query';
+import { ICategory, IProduct } from 'types/types';
+import { fetchCategories } from 'config/fetch';
+
 interface Product {
   id: string;
   title: string;
@@ -38,36 +41,30 @@ const ViewProduct: React.FC<CategoryProps> = ({
 }) => {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
-let token = admin_token ? admin_token: super_admin_token
+  const token = admin_token || super_admin_token;
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-
-  // const canAddProduct=loggedInUser && (loggedInUser.role =='Admin' ?   loggedInUser.canAddProduct : true )
   const canAddProduct = true;
-  // const canDeleteProduct =
-  //   loggedInUser &&
-  //   (loggedInUser.role == 'Admin' ? loggedInUser.canDeleteProduct : true);
   const canDeleteProduct = true;
-  // const canEditproduct =
-  //   loggedInUser &&
-  //   (loggedInUser.role == 'Admin' ? loggedInUser.canEditproduct : true);
   const canEditproduct = true;
 
-  console.log(canDeleteProduct, 'canAddProduct');
-
-  // const filteredProducts: Product[] =
-  //   Categories?.filter((product: any) =>
-  //     product.name.toLowerCase().includes(searchTerm.toLowerCase()),
-  //   ) || [];
-
-  const filteredProducts = Categories;
+  useEffect(() => {
+    const lowercasedSearchTerm = searchTerm.toLowerCase();
+    if (Categories) {
+      const filtered = Categories.filter((product: Product) =>
+        product.title.toLowerCase().includes(lowercasedSearchTerm),
+      );
+      setFilteredProducts(filtered);
+    }
+  }, [searchTerm, Categories]);
 
   const confirmDelete = (key: any) => {
     Modal.confirm({
@@ -80,17 +77,13 @@ let token = admin_token ? admin_token: super_admin_token
   };
 
   const handleDelete = async (key: string) => {
-    // alert(key);
     try {
-      const response = await axios.delete(
+      await axios.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/delete_product/${key}`,
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         },
       );
-      console.log(response);
       setCategory((prev: Product[]) => prev.filter((item) => item.id !== key));
       notification.success({
         message: 'Product Deleted',
@@ -105,6 +98,14 @@ let token = admin_token ? admin_token: super_admin_token
       });
     }
   };
+  const {
+    data: categories,
+    error: categoriesError,
+    isLoading: isLoadingCategories,
+  } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
 
   const columns = [
     {
@@ -113,7 +114,7 @@ let token = admin_token ? admin_token: super_admin_token
       key: 'posterImageUrl',
       render: (text: any, record: Product) => (
         <Image
-          src={`${record?.posterImage?.imageUrl}`}
+          src={record.posterImage?.imageUrl}
           alt={`Image of ${record.title}`}
           width={50}
           height={50}
@@ -125,21 +126,13 @@ let token = admin_token ? admin_token: super_admin_token
       dataIndex: 'title',
       key: 'title',
     },
-    // {
-    //   title: 'Stock Quantity',
-    //   dataIndex: 'stock',
-    //   key: 'stock',
-    // },
     {
       title: 'Date',
       dataIndex: 'createdAt',
       key: 'date',
       render: (text: any, record: Product) => {
         const createdAt = new Date(record.createdAt);
-        const formattedDate = `${createdAt.getFullYear()}-${String(
-          createdAt.getMonth() + 1,
-        ).padStart(2, '0')}-${String(createdAt.getDate()).padStart(2, '0')}`;
-        return <span>{formattedDate}</span>;
+        return <span>{createdAt.toLocaleDateString()}</span>;
       },
     },
     {
@@ -148,21 +141,25 @@ let token = admin_token ? admin_token: super_admin_token
       key: 'time',
       render: (text: any, record: Product) => {
         const createdAt = new Date(record.createdAt);
-        const formattedTime = `${String(createdAt.getHours()).padStart(2, '0')}:${String(
-          createdAt.getMinutes(),
-        ).padStart(2, '0')}`;
-        return <span>{formattedTime}</span>;
+        return <span>{createdAt.toLocaleTimeString()}</span>;
       },
     },
     {
       title: 'Preview',
       key: 'Preview',
       render: (text: any, record: Product) => {
-        const handleClick = () => {
-          const url = `/product/${generateSlug(record.title)}`;
-          window.open(url, '_blank');
-        };
-        return <FaRegEye className="cursor-pointer" onClick={handleClick} />;
+        //@ts-expect-error
+        const category = categories?.find((i) => i.id === record.CategoryId);
+        if (category === undefined) return null;
+        return (
+          <FaRegEye
+            className="cursor-pointer"
+            onClick={() => {
+              const url = `/${generateSlug(category.title)}/${generateSlug(record.title)}`;
+              window.open(url, '_blank');
+            }}
+          />
+        );
       },
     },
     {
@@ -170,9 +167,7 @@ let token = admin_token ? admin_token: super_admin_token
       key: 'Edit',
       render: (text: any, record: Product) => (
         <LiaEdit
-          className={`${canEditproduct ? 'cursor-pointer' : ''} ${
-            !canEditproduct ? 'cursor-not-allowed text-slate-200' : ''
-          }`}
+          className={`${canEditproduct ? 'cursor-pointer' : 'cursor-not-allowed text-slate-200'}`}
           size={20}
           onClick={() => {
             if (canEditproduct) {
@@ -188,12 +183,9 @@ let token = admin_token ? admin_token: super_admin_token
       key: 'action',
       render: (text: any, record: Product) => (
         <RiDeleteBin6Line
-          className={`${canDeleteProduct ? 'text-red cursor-pointer' : ''} ${
-            !canDeleteProduct ? 'cursor-not-allowed text-slate-200' : ''
-          }`}
+          className={`${canDeleteProduct ? 'text-red cursor-pointer' : 'cursor-not-allowed text-slate-200'}`}
           size={20}
           onClick={() => {
-            console.log(record);
             if (canDeleteProduct) {
               confirmDelete(record.id);
             }
@@ -205,7 +197,7 @@ let token = admin_token ? admin_token: super_admin_token
 
   return (
     <div>
-      {loading ? (
+      {loading || isLoadingCategories ? (
         <TableSkeleton rows={8} columns={5} />
       ) : (
         <>
@@ -219,14 +211,7 @@ let token = admin_token ? admin_token: super_admin_token
             />
             <div>
               <p
-                className={`${
-                  canAddProduct && 'cursor-pointer rounded-md'
-                } p-2 ${
-                  canAddProduct && 'bg-primary text-white rounded-md border'
-                } dark:border-strokedark  flex justify-center dark:bg-black ${
-                  !canAddProduct &&
-                  'cursor-not-allowed bg-gray-500 text-white rounded-md'
-                }`}
+                className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed bg-gray-500 text-white rounded-md'} p-2 ${canAddProduct ? 'bg-primary text-white' : ''} dark:border-strokedark flex justify-center dark:bg-black`}
                 onClick={() => {
                   if (canAddProduct) {
                     setselecteMenu('Add Products');

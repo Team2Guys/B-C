@@ -1,58 +1,34 @@
+import { items } from 'data/data';
 import { RiVerifiedBadgeFill } from 'react-icons/ri';
 
 function Choose() {
   return (
-    <div className="px-9 py-8 bg-white drop-shadow-md rounded-md xl:w-3/5 w-full lg:mt-5">
-      <h2 className="text-secondary font-semibold text-3xl">
+    <div className="px-2 md:px-9 py-8 bg-white drop-shadow-md rounded-xl xl:w-7/12 w-full lg:mt-5 space-y-2">
+      <h2 className="text-black font-semibold text-20 md:text-3xl">
         Why Choose Us:
-        <br />
-        <span className="font-normal lg:text-3xl text-2xl ">
-          Experience Unmatched Quality & Service!
-        </span>
       </h2>
-      <p className="mt-2 font-normal text-sm text-black leading-9">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
+        <p className="font-normal lg:text-3xl text-18 md:text-2xl ">
+          Experience Unmatched Quality & Service!
+        </p>
+      <p className="mt-2 text-12 sm:text-14 2xl:text-16 text-black md:leading-9">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industrys standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
         scrambled it to make a type specimen book.
       </p>
-      <ul className="mt-4">
-        <li className="font-normal text-sm leading-6 flex items-center gap-2 py-2">
+      <ul className="mt-8 space-y-2">
+      {items.map((item) => (
+        <li
+          key={item.id}
+          className="text-black text-14 2xl:text-16 leading-6 flex items-center gap-2 py-1"
+        >
           <span>
-            <RiVerifiedBadgeFill size={24} className="text-[#A9B4A4]" />
+            <RiVerifiedBadgeFill  className="text-secondary text-[30px]" />
           </span>
-          <span>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </span>
+          <span>{item.text}</span>
         </li>
-        <li className="font-normal text-sm leading-6 flex items-center gap-2 py-2">
-          <span>
-            <RiVerifiedBadgeFill size={24} className="text-[#A9B4A4]" />
-          </span>
-          <span>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </span>
-        </li>
-        <li className="font-normal text-sm leading-6 flex items-center gap-2 py-2">
-          <span>
-            <RiVerifiedBadgeFill size={24} className="text-[#A9B4A4]" />
-          </span>
-          <span>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </span>
-        </li>
-        <li className="font-normal text-sm leading-6 flex items-center gap-2 py-2">
-          <span>
-            <RiVerifiedBadgeFill size={24} className="text-[#A9B4A4]" />
-          </span>
-          <span>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </span>
-        </li>
+      ))}
+
       </ul>
     </div>
   );

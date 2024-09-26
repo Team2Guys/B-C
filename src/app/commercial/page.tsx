@@ -1,30 +1,70 @@
-"use client"
+'use client';
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/large-ss.png';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_commercial.png';
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
-import ProductCard from 'components/Res-usable/Cards/ProductCard';
-import { galleryItems, productItems, relativeProducts } from 'data/data';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Link from 'next/link';
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { useQuery } from '@tanstack/react-query';
-import { IProduct } from 'types/types';
-import { fetchProducts } from 'config/fetch';
+import { ICategory, IProduct } from 'types/types';
+import {
+  fetchCategories,
+  fetchProducts,
+  fetchSubCategories,
+} from 'config/fetch';
+import AllProducts from 'components/Product/All-Products/Products';
+import { useEffect, useState } from 'react';
+import ProductCard from 'components/ui/Product-Card';
+import {
+  commercialPagesItems,
+  generateSlug,
+  staticCommercialMegaMenuItems,
+} from 'data/data';
+
 
 const CommercialPage = () => {
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
 
-  const { data: products, error, isLoading } = useQuery<IProduct[]>({
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-  if (error instanceof Error) return <div>Error: {error.message}</div>;
-  
+
+  const {
+    data: categories,
+    error: categoryError,
+    isLoading: categoryLoading,
+  } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
+
+  useEffect(() => {
+    if (products) {
+      const matchingProductNames = commercialPagesItems.map((item) =>
+        generateSlug(item.productName),
+      );
+
+      const filtered = products.filter((product) =>
+        matchingProductNames.includes(generateSlug(product.title)),
+      );
+
+      setFilteredProducts(filtered);
+    }
+  }, [products]);
+  if (isLoading || categoryLoading) {
+    return <div></div>;
+  }
   return (
     <div>
-      <TopHero title="commercial" image={bgBreadcrum} />
+      <TopHero title="Commercial Office Blinds" image={bgBreadcrum} />
       <Container className="pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row">
         <div className="w-full md:w-1/2">
           <h3 className="font-bold text-xl xs:text-2xl tracking-wider">
@@ -76,11 +116,7 @@ const CommercialPage = () => {
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-          {productItems.map((item) => (
-            <ProductCard card={item} key={item.id} />
-          ))}
-        </div>
+        <ProductCard products={filteredProducts || []}  />
       </Container>
       <BookNowBanner />
       <Container className="text-center py-20">
@@ -94,17 +130,27 @@ const CommercialPage = () => {
           There are many shades and stunning patterns to select from
         </p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {products && products.map((product: IProduct) => (
-              <GalleryCard
-                card={product}
-                key={product.id}
-                relativeProducts={false}
-              />
-          ))}
+          {filteredProducts &&
+            filteredProducts.map((product: IProduct) => {
+              const category = categories?.find(
+                (cat) => cat.id === product.CategoryId,
+              );
+              console.log(category,"categor") ;
+              if (!category) return null;
+              const parent = generateSlug(category.title);
+              return (
+                <GalleryCard
+                  card={product}
+                  key={product.id}
+                  relativeProducts={true}
+                  parent={parent}
+                />
+              );
+            })}
         </div>
         <div className="h-fit mt-20 text-center">
           <Link
-            href="/product"
+            href="/products"
             className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
           >
             View More
@@ -112,7 +158,7 @@ const CommercialPage = () => {
         </div>
       </Container>
       <Container className="py-10">
-      <RelatedProducts products={products || []} />
+        <RelatedProducts products={filteredProducts || []} limit={3} />
       </Container>
     </div>
   );
