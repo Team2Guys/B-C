@@ -31,14 +31,18 @@ const FeatureProduct: React.FC = () => {
 
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6);
-  const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutter','Commercial']; 
-  const categoryMap = categories?.reduce((acc, category) => {
-    acc[category?.title] = category;
-    return acc;
-  }, {} as Record<string, ICategory>);
+  const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutters', 'Commercial'];
+  const categoryMap = categories?.reduce(
+    (acc, category) => {
+      acc[category?.title] = category;
+      return acc;
+    },
+    {} as Record<string, ICategory>,
+  );
 
-  const filteredProducts = products?.filter((product: IProduct) =>
-    !activeCategory || product.CategoryId === activeCategory.id
+  const filteredProducts = products?.filter(
+    (product: IProduct) =>
+      !activeCategory || product.CategoryId === activeCategory.id,
   );
 
   const visibleProducts = filteredProducts?.slice(0, visibleCount);
@@ -74,8 +78,10 @@ const FeatureProduct: React.FC = () => {
     );
 
   // Error handling
-  if (categoriesError instanceof Error) return <div>Error: {categoriesError.message}</div>;
-  if (productsError instanceof Error) return <div>Error: {productsError.message}</div>;
+  if (categoriesError instanceof Error)
+    return <div>Error: {categoriesError.message}</div>;
+  if (productsError instanceof Error)
+    return <div>Error: {productsError.message}</div>;
 
   return (
     <Container className="mt-20">
