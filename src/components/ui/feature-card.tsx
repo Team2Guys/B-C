@@ -34,7 +34,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
         const parent = filtered?.title.toLowerCase();
         return (
           <Link
-            href={`/${parent === 'shutter' ? `${parent}s-range` : parent}/${generateSlug(product.title)}`}
+            href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(product.title)}`}
             key={product.id}
             className="relative group w-full"
           >

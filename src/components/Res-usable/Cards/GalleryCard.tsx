@@ -58,7 +58,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
           <div
             onClick={() => {
               router.push(
-                `/${parent === 'shutter' ? `${parent}s-range` : parent}/${generateSlug(card.title)}`,
+                `/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(card.title)}`,
               );
             }}
             className={`border-[1px] border-primary px-2 py-1 rounded-sm text-14 font-light cursor-pointer ${relativeProducts ? 'block' : 'hidden'}`}
