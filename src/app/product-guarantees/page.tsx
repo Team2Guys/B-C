@@ -1,6 +1,6 @@
-"use client"
+'use client';
 import TopHero from 'components/ui/top-hero';
-import { productData, PGuarantees,  } from 'data/data';
+import { productData, PGuarantees } from 'data/data';
 import second from '../../../public//assets/images/product-guarantees/large.png';
 import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
@@ -11,7 +11,11 @@ import { IProduct } from 'types/types';
 import { fetchProducts } from 'config/fetch';
 
 const ProductGuarantees = () => {
-  const { data: products, error, isLoading } = useQuery<IProduct[]>({
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
@@ -59,7 +63,7 @@ const ProductGuarantees = () => {
         </Container>
       ))}
       <Container className="py-10">
-        <RelatedProducts products={products || []} limit={3} />
+        <RelatedProducts products={products || []} limit={4} />
       </Container>
     </>
   );
