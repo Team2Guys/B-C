@@ -48,23 +48,19 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
       {isLoading && filterProduct ? (
         <CardSkeleton />
       ) : (
-        <>
-          <DetailProduct
-            title={title ? title : ''}
-            description={filterProduct?.description || ''}
-            products={filterProduct}
-          />
-        </>
+        <DetailProduct
+          title={title ? title : ''}
+          description={filterProduct?.description || ''}
+          products={filterProduct}
+        />
       )}
 
       {isLoading ? (
         <CardSkeleton />
       ) : (
-        <>
-          <Container className="mt-10 md:mt-20">
-            <RelatedProducts products={relatedProducts || []} limit={3} />
-          </Container>
-        </>
+        <Container className="mt-10 md:mt-20">
+          <RelatedProducts products={relatedProducts || []} limit={4} />
+        </Container>
       )}
       <BookNowBanner className="mt-20" />
     </>
