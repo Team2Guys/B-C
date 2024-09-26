@@ -480,7 +480,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           <Field name="color" as="select"  
           className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary`}                  
                           >
-{Type.map((item)=> <option value={item.name}>{item.name}</option>)}
+{Type.map((item, index)=> <option key={index} value={item.name}>{item.name}</option>)}
 
  </Field>
                           {formik.touched.discountPrice &&
