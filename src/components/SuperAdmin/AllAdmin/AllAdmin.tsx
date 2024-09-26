@@ -153,9 +153,8 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
               onClick={() => handleDelete(record._id)}
             />
           )
-        ) : (
-          <div style={{ width: 20, height: 20 }} />
-        )}
+        ) : null
+        }
 
           </div>
         </>
@@ -171,11 +170,9 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   return (
     <div>
 
-      {isLoading ? (
-        <div className="flex justify-center mt-10">
-          <Loader />
-        </div>
-      ) : (
+      {
+
+      (
         <>
           <div className="flex justify-between mb-4 items-center text-black dark:text-white ">
             <p>Admins</p>
@@ -195,13 +192,14 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
               dataSource={data}
               columns={columns}
               pagination={false}
-              rowKey="_id"
+              rowKey="id"
             />
           )
 
           }
         </>
       )}
+
     </div>
   );
 }
