@@ -71,7 +71,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
                   } else if (slug === 'hotels-restaurants-blinds-curtains') {
                     path = basePath;
                   } else {
-                    path = `/${parent === 'shutter' ? `${parent}s-range` : parent}/${slug}`;
+                    path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
                   }
 
                   route.push(path);
