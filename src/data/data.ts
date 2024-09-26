@@ -27,7 +27,7 @@ import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
 
 export const generateSlug = (text: string) => {
-  if(!text) return '';
+  if (!text) return '';
   return text
     .toString()
     .toLowerCase()
@@ -106,7 +106,7 @@ export const bannerData: BannerData = {
 
 export const footerLinks: TFooterSection[] = [
   {
-    title: 'Pages',
+    title: 'Quick Links',
     links: [
       { text: 'About Us', href: '/about-us' },
       { text: 'Contact Us', href: '/contact-us' },
