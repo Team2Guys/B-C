@@ -27,6 +27,7 @@ import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
+import { title } from 'process';
 
 export const generateSlug = (text: string) => {
   if(!text) return '';
@@ -1487,4 +1488,20 @@ export const blogPara = [
   {
     para: ' It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of',
   },
+];
+export const RollerBlindData = [
+  {
+    videoSrc: "/assets/video/Agsons.mp4",
+    icon: "/assets/images/Rollerblind/roller.png",
+    heading: "Blackout Roller Blinds",
+    description: "What is Blackout Roller Blind Ibsum?",
+    icon1: "/assets/images/Rollerblind/DualRoller.png",
+    heading1: "Sunscreen Roller Blinds",
+    description1: "What is Sunscreen Roller Blind Ibsum?",
+    list: [
+      { title: "Automated Scheduling", para: "Set timers to automatically open or close your blinds at specific times for added convenience." },
+      { title: "Enhanced Convenience", para: "Set timers to automatically open or close your blinds at specific times for added convenience." },
+      { title: "Automated Scheduling", para: "Set timers to automatically open or close your blinds at specific times for added convenience." }
+    ]
+  }
 ];

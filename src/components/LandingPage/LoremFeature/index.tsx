@@ -1,9 +1,6 @@
 import { FeatureData } from 'data/data';
-import { FeatureType } from 'types/types';
 import React from 'react';
-import { GiConcentricCrescents } from "react-icons/gi";
 import Image from 'next/image';
-import Container from 'components/Res-usable/Container/Container';
 
 const LoremFeatures = () => {
   return (

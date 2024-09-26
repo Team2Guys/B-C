@@ -88,10 +88,6 @@ export interface IAppointments {
 export interface FeatureType{
   icon?: string;
   title?: string;
-  para1: string;
-  para2: string;
-  para3: string;
-  para4: string;
 }
 export interface InstaType{
   video: string;
@@ -104,4 +100,19 @@ export interface TabDataType{
   title: string;
   video: string;
   description: string;
+}
+export interface RollerBlindsType{
+  videoSrc:string;
+  icon:string;
+  heading:string;
+  description:string;
+  icon1:string;
+  heading1:string;
+  description1:string;
+  list:[
+    {
+      title:string;
+      para:string;
+    }
+  ]
 }
