@@ -4,7 +4,6 @@ const useColorMode = () => {
   const [colorMode, setColorMode] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
-    // Read color mode from localStorage
     const savedColorMode = localStorage.getItem('colorMode');
     if (savedColorMode) {
       setColorMode(savedColorMode as 'light' | 'dark');

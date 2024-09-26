@@ -1,5 +1,6 @@
 import CustomButton from 'components/Res-usable/Button/Button';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FC } from 'react';
 import { BlindsAndCurtainsTypes } from 'types/interfaces';
 
@@ -9,31 +10,40 @@ interface BlindsAndCurtainsTypesProps {
 
 const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
   return (
-    <div className="lg:container max-w-7xl lg:px-0 xs:px-12 px-5">
-      <div className="flex flex-col md:flex-row rounded-lg overflow-hidden">
+    <div className=" lg:max-w-[1032.86px] 2xl:max-w-screen-xl mx-auto">
+      <div className="grid grid-cols-12 gap-6 2xl:gap-10">
+        <div className='col-span-12 md:col-span-7 lg:col-span-5 2xl:col-span-6'>
         <Image
-          className="w-full md:w-2/5 lg:h-[627px]"
-          width={400}
-          height={500}
+          className="lg:h-[600px] w-full"
+          width={800}
+          height={800}
           src={data.image}
           alt={data.heading}
         />
-        <div className="lg:px-8 md:w-3/5 lg:mt-0 mt-4">
-          <h2 className="lg:text-[40px] md:text-3xl text-2xl font-bold mb-4">
+        </div>
+        <div className='col-span-12 md:col-span-5 lg:col-span-7 2xl:col-span-6 flex flex-col justify-between'>
+        <h2 className="lg:text-[39px] md:text-3xl text-2xl font-bold ">
             {data.heading}
           </h2>
-          {data.paragraph.map((para, index) => (
-            <p
-              key={index}
-              className={`text-gray-700 lg:text-lg text-base text-justify ${index < data.paragraph.length - 1 ? 'mb-5' : ''}`}
-            >
-              {para}
-            </p>
-          ))}
-          <div className="bg-primary w-fit text-white px-3 py-2 mt-8 text-lg hover:text-black hover:bg-white transition-all">
-            <CustomButton>{data.buttonText}</CustomButton>
+          <div>
+            {data.paragraph.map((para, index) => (
+              <p
+                key={index}
+                className={`text-black lg:text-16 font-normal text-base text-justify md:leading-9 md:tracking-wide `}
+              >
+                {para}
+              </p>
+            ))}
           </div>
+
+            <Link
+              href={'/appointment'}
+              className="bg-primary  text-white px-4 py-4 hover:text-black hover:bg-white transition-all  hover:text-dark  w-fit "
+            >
+              Book A Free Home Visit
+            </Link>
         </div>
+  
       </div>
     </div>
   );

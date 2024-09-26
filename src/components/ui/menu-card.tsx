@@ -1,7 +1,5 @@
 import { generateSlug } from 'data/data';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React from 'react';
 
 interface MenuCardProps {
@@ -9,20 +7,63 @@ interface MenuCardProps {
   alt: string;
   title: string;
   onClick?: () => void;
+  isActive?: boolean;
 }
 
-const MenuCard: React.FC<MenuCardProps> = ({ src, alt, title, onClick }) => {
+export const UpdateShutterTitle = (title: string): string => {
+  let updatedTitle = title
+    .replace(/Wooden Shutters/i, '')
+    .replace(/plantation shutters/i, '')
+    .trim();
+  return updatedTitle;
+};
+export function updateProductTitle(title: string): string {
+  let updatedTitle = title
+    .replace(/dubai/i, '')
+    .replace(/made to measure/i, '')
+    .trim();
+  if (/motorised blinds/i.test(updatedTitle)) {
+    updatedTitle = updatedTitle.replace(
+      /motorised blinds/i,
+      'Automated Blinds',
+    );
+  }
+  return UpdateShutterTitle(updatedTitle);
+}
 
-
+const MenuCard: React.FC<MenuCardProps> = ({
+  src,
+  alt,
+  title,
+  onClick,
+  isActive,
+}) => {
   return (
     <div
       onClick={onClick}
-      className="space-y-2 hover:text-black cursor-pointer flex flex-col items-center"
+      className={`space-y-2 hover:text-black cursor-pointer w-full flex flex-col justify-center  whitespace-pre-wrap `}
     >
-      <Image className='w-[120px] h-[120px] rounded-lg' width={600} height={600} src={src} alt={alt} />
+      <Image
+        className={`w-[full] h-[120px] rounded-lg ${
+          isActive ? 'border-4 border-primary' : ''
+        }`}
+        width={600}
+        height={600}
+        src={src}
+        alt={alt}
+      />
       <div>
-        <p className="text-15 font-normal ">{title}</p>
+        <p
+          className={`text-15 text-center capitalize ${isActive ? 'font-bold' : ''}`}
+        >
+          {generateSlug(title) === 'hotels-restaurants-blinds-curtains'
+            ? 'Hostel & Restaurant'
+            : updateProductTitle(title)}
+        </p>
       </div>
+      <hr
+        className={`${isActive ? 'border-b-2 border-primary w-16 mx-auto' : 'border-0'}`}
+      />
     </div>
   );
 };

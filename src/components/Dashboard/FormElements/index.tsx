@@ -44,7 +44,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   );
   const [hoverImage, sethoverImage] = useState<any[] | null | undefined>();
   const [loading, setloading] = useState<boolean>(false);
-  const [productInitialValue, setProductInitialValue] = useState<any | null | undefined>(EditProductValue);
+  const [productInitialValue, setProductInitialValue] = useState<
+    any | null | undefined
+  >(EditProductValue);
   const [imgError, setError] = useState<string | null | undefined>();
   const [Categories, setCategories] = useState<any[]>();
   const [VariationOption, setVariationOption] =
@@ -67,12 +69,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
-let token = admin_token ? admin_token: super_admin_token
+  let token = admin_token ? admin_token : super_admin_token;
 
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
         if (!EditInitialValues) return;
+
         setProductUpdateFlat(true);
         const {
           posterImage,
@@ -86,8 +89,6 @@ let token = admin_token ? admin_token: super_admin_token
           ...EditInitialProductValues
         } = EditInitialValues as any;
 
-        console.log('Reach add product now edit');
-        console.log(EditInitialValues);
         imageUrls ? setImagesUrl(imageUrls) : null;
         posterImage ? setposterimageUrl([posterImage]) : null;
 
@@ -114,7 +115,6 @@ let token = admin_token ? admin_token: super_admin_token
     CategoryHandler();
   }, []);
 
-
   const onSubmit = async (values: any, { resetForm }: any) => {
     try {
       setError(null);
@@ -126,8 +126,9 @@ let token = admin_token ? admin_token: super_admin_token
         return showToast('warn', 'Please select relevant Images');
       }
 
-      let { title, ...newValues } = {  ...values,
-        title: values.title,
+      let newValues = {
+        ...values,
+        title: values.name,
         posterImage: posterImageUrl,
         hoverImage: hoverImageUrl,
         imageUrls: imagesUrl,
@@ -136,9 +137,11 @@ let token = admin_token ? admin_token: super_admin_token
       setloading(true);
       console.log(EditInitialValues);
       let updateFlag = productUpdateFlat;
-      
-      let url = updateFlag? `/api/products/edit_product/${EditInitialValues.id} ` : '/api/products/AddProduct';
-   
+
+      let url = updateFlag
+        ? `/api/products/edit_product/${EditInitialValues.id} `
+        : '/api/products/AddProduct';
+
       const {
         categories,
         subcategories,
@@ -157,29 +160,38 @@ let token = admin_token ? admin_token: super_admin_token
         salePrice,
         hoverImage: newhoverImage,
         id,
+        name,
         ...finalValues
       } = newValues;
 
+      let updatedvalue = {
+        ...finalValues,
+        category: { connect: { id: selectedCategoryIds[0] } },
+      };
 
-let updatedvalue = {...finalValues, category:{connect: { id: selectedCategoryIds[0] }}}
+      if (selectedSubcategoryIds.length > 0) {
+        updatedvalue = {
+          ...updatedvalue,
+          subCategory: { connect: { id: selectedSubcategoryIds[0] } },
+        };
+      }
 
+      let method: 'post' | 'put' = updateFlag ? 'put' : 'post';
 
-if(selectedSubcategoryIds.length > 0){
-
-  updatedvalue = {...updatedvalue, subCategory: {connect: { id: selectedSubcategoryIds[0] }}}
-
-}
-
-      let method:"post"|"put" = updateFlag ? "put" :'post'
-
-      let response = await axios[method](`${process.env.NEXT_PUBLIC_BASE_URL}${url}`, updatedvalue, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      let response = await axios[method](
+        `${process.env.NEXT_PUBLIC_BASE_URL}${url}`,
+        updatedvalue,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
-
-      showToast('success',`Product has been successfully ${updateFlag? "updated!" : "Addded"}`);
+      showToast(
+        'success',
+        `Product has been successfully ${updateFlag ? 'updated!' : 'Addded'}`,
+      );
       setProductInitialValue(AddproductsinitialValues);
       resetForm();
       setloading(false);
@@ -205,7 +217,6 @@ if(selectedSubcategoryIds.length > 0){
       setloading(false);
     }
   };
-
 
   useEffect(() => {
     const CategoryHandler = async () => {
@@ -241,7 +252,9 @@ if(selectedSubcategoryIds.length > 0){
   });
 
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
-  const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<number[]>([]);
+  const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<
+    number[]
+  >([]);
   const [filteredSubcategories, setFilteredSubcategories] = useState<
     ICategory[]
   >([]);
@@ -428,9 +441,7 @@ if(selectedSubcategoryIds.length > 0){
                           {formik.touched.price && formik.errors.price ? (
                             <div className="text-red-600 text-sm">
                               {' '}
-                              {
-                                formik.errors.price as FormikErrors<string>
-                              }
+                              {formik.errors.price as FormikErrors<string>}
                             </div>
                           ) : null}
                         </div>
@@ -1083,7 +1094,9 @@ if(selectedSubcategoryIds.length > 0){
 
               {imgError ? (
                 <div className="flex justify-center">
-                  <div className="text-red-600 pt-2 pb-2 text-red-600-500">{imgError}</div>
+                  <div className="text-red-600 pt-2 pb-2 text-red-600-500">
+                    {imgError}
+                  </div>
                 </div>
               ) : null}
 

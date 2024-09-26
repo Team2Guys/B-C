@@ -59,7 +59,7 @@ const GalleryPage = () => {
 
   const handleCategoryClick = (categoryId: number | null) => {
     setSelectedCategoryId(categoryId);
-    setCurrentPage(1); // Reset to the first page on category change
+    setCurrentPage(1);
   };
 
   return (
@@ -71,8 +71,9 @@ const GalleryPage = () => {
             GALLERY
           </h1>
           <span className="text-gray-400 text-11 xs:text-14">
-            Showing {indexOfFirstItem + 1}– 
-            {Math.min(indexOfLastItem, filteredProducts?.length || 0)} of {filteredProducts?.length || 0} results
+            Showing {indexOfFirstItem + 1}–
+            {Math.min(indexOfLastItem, filteredProducts?.length || 0)} of{' '}
+            {filteredProducts?.length || 0} results
           </span>
         </div>
 
@@ -141,7 +142,9 @@ const GalleryPage = () => {
                       ? 'bg-btnclr text-white'
                       : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
                   }`}
-                  onClick={() => setCurrentPage(page + 1)}
+                  onClick={(e) => {
+                    setCurrentPage(page + 1);
+                  }}
                 >
                   {page + 1}
                 </button>
@@ -166,9 +169,7 @@ const GalleryPage = () => {
         </div>
       </Container>
 
-      <Container className="py-10">
-      <RelatedProducts products={products || []} />
-      </Container>
+
       <VideoAutomation />
       <Support />
     </>
