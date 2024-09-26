@@ -19,7 +19,10 @@ const EstimatorTabs: React.FC<EstimatorTabsProps> = ({
 
   const filteredCategories = categories
     .filter((category) => category.title !== 'Commercial')
-    .reverse();
+    .sort((a, b) => {
+      const order = ['Blinds', 'Shutters', 'Curtains'];
+      return order.indexOf(a.title) - order.indexOf(b.title);
+    });
 
   const handleCategorySelect = (index: number) => {
     setSelectedCategoryIndex(index);
