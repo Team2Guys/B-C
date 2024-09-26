@@ -55,7 +55,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
                 <button
                   onClick={() => {
                     route.push(
-                      `/${parent === 'shutter' ? `${parent}s-range` : parent}/${generateSlug(product.title)}`,
+                      `/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(product.title)}`,
                     );
                   }}
                   className="bg-transparent border border-white group-hover:bg-primary group-hover:border-primary text-black group-hover:text-white py-3 px-5 rounded-md"
