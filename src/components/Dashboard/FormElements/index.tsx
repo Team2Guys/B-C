@@ -27,6 +27,8 @@ import { fetchCategories, fetchSubCategories } from 'config/fetch';
 import Loader from 'components/Loader/Loader';
 import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Cookies from 'js-cookie';
+import { Select } from 'antd';
+
 
 const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   EditInitialValues,
@@ -265,6 +267,20 @@ if(selectedSubcategoryIds.length > 0){
     });
   };
 
+
+  const Type= [
+    {
+    name: "By Type"
+  },
+  {
+    name: "By Room"
+  },
+
+
+]
+
+  
+
   return (
     <>
       <p
@@ -395,6 +411,7 @@ if(selectedSubcategoryIds.length > 0){
                           <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Price
                           </label>
+
                           <input
                             type="number"
                             name="price"
@@ -418,35 +435,6 @@ if(selectedSubcategoryIds.length > 0){
                           ) : null}
                         </div>
 
-                        {/* <div className="w-[33%]">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                            Purchase Price
-                          </label>
-                          <input
-                            type="number"
-                            name="purchasePrice"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.purchasePrice}
-                            placeholder="Purchase Price"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                              formik.touched.purchasePrice &&
-                              formik.errors.purchasePrice
-                                ? 'border-red-500'
-                                : ''
-                            }`}
-                          />
-                          {formik.touched.purchasePrice &&
-                          formik.errors.purchasePrice ? (
-                            <div className="text-red-600 text-sm">
-                              {
-                                formik.errors.purchasePrice as FormikErrors<
-                                  FormValues['purchasePrice']
-                                >
-                              }
-                            </div>
-                          ) : null}
-                        </div> */}
                         <div className="w-[33%]">
                           <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Discount Price
@@ -472,6 +460,26 @@ if(selectedSubcategoryIds.length > 0){
                             </div>
                           ) : null}
                         </div>
+
+
+                        <div className="w-[33%]">
+                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                           Select Type
+                          </label>
+                          <Field name="color" as="select"  
+          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary`}                  
+                          >
+{Type.map((item)=> <option value={item.name}>{item.name}</option>)}
+
+ </Field>
+                          {formik.touched.discountPrice &&
+                          formik.errors.discountPrice ? (
+                            <div className="text-red-600 text-sm">
+                              {formik.errors.discountPrice as String}
+                            </div>
+                          ) : null}
+                        </div>
+
                       </div>
 
                       <div className="flex gap-4 flex-col">
@@ -540,6 +548,7 @@ if(selectedSubcategoryIds.length > 0){
                             </div>
                           )}
                         </div>
+                        
                         {filteredSubcategories.length > 0 && (
                           <div className="mt-4">
                             <h2 className="text-lg font-medium">
@@ -579,25 +588,16 @@ if(selectedSubcategoryIds.length > 0){
                           </div>
                         )}
 
-                        {/* <div className="w-2/4">
-                          <SelectGroupTwo
-                            name="category"
-                            changeHandler={formik.handleChange}
-                            value={formik.values.category}
-                            Categories={Categories}
-                            selectedOption={selectedOption}
-                            setSelectedOption={setSelectedOption}
-                            changeTextColor={changeTextColor}
-                            isOptionSelected={isOptionSelected}
-                          />
 
-                          <ErrorMessage
-                            name="category"
-                            component="div"
-                            className="text-red-600 dark:text-white"
-                          />
-                        </div> */}
+
+
+
                       </div>
+
+
+
+
+
                     </div>
                   </div>
                 </div>
