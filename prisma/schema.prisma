@@ -33,6 +33,8 @@ model SubCategories {
 }
 
 
+
+
 model products {
   id           Int            @default(autoincrement()) @id
   title        String         @unique
@@ -46,6 +48,7 @@ model products {
   createdAt   DateTime  @default(now())
   category     Categories     @relation("CategoryToProducts", fields: [CategoryId], references: [id])
   subCategory  SubCategories? @relation("SubCategoryToProducts", fields: [SubCategoryId], references: [id])
+  product_type String @default("By Type")
 }
 
 
@@ -96,8 +99,6 @@ model Admins {
   posterImageUrl Json?     
   role                   String  @default("Admin")
 }
-
-
 
 model blogs {
 id Int @id @default(autoincrement())
