@@ -49,6 +49,7 @@ const Products = () => {
 
     purchasePrice: editProduct && editProduct.purchasePrice,
     additionalInformation: editProduct && editProduct.additionalInformation,
+    product_type: editProduct && editProduct.product_type,
   };
 
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
