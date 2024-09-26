@@ -15,7 +15,7 @@ const HomeCard = () => {
     queryFn: fetchSubCategories,
   });
 
-  const customOrder = ['Blinds', 'Curtains', 'Shutter'];
+  const customOrder = ['Blinds', 'Shutters', 'Curtains'];
 
   const sortedCategories = categories?.sort((a, b) => {
     const indexA = customOrder.indexOf(a.title);
@@ -25,8 +25,6 @@ const HomeCard = () => {
 
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   if (isLoading)
-
-
     return (
       <div>
         <Container className="py-12">
