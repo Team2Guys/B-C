@@ -113,7 +113,7 @@ const Estimator: React.FC = () => {
       let price = 0;
       if (!item) return null;
       if (generateSlug(item?.title) === 'curtains') {
-        const step1 = Math.round((width * 2.3) / 280);
+        const step1 = Math.ceil((width * 2.3) / 280);
         let step2 = height + 25;
         step2 = step2 / 100;
         const step3 = step1 * step2;
@@ -238,7 +238,10 @@ const Estimator: React.FC = () => {
               </p>
               {activeProduct && (
                 <p className="lg:text-[35px] text-2xl font-bold text-center">
-                  AED {calculatedPrice ? calculatedPrice.toFixed(2) : '0.00'}{' '}
+                  AED{' '}
+                  {calculatedPrice
+                    ? calculatedPrice.toFixed(2)
+                    : activeProduct.price}
                 </p>
               )}
 
