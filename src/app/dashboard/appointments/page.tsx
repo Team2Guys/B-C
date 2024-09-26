@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import React from 'react';
@@ -25,7 +25,7 @@ const Appointments = () => {
     enabled: !!token,
   });
 
-  if (appointmentsError instanceof Error) return <div>Error: {appointmentsError.message}</div>;
+  // if (appointmentsError instanceof Error) return <div>Error: {appointmentsError.message}</div>;
 
   console.log(appointments, "appointments")
   return (
@@ -39,7 +39,6 @@ const Appointments = () => {
         }
       </DefaultLayout>
     </>
-
   );
 };
 
