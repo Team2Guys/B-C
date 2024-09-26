@@ -31,7 +31,7 @@ const FeatureProduct: React.FC = () => {
 
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6);
-  const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutters', 'Commercial'];
+  const categoryOrder = ['All', 'Blinds', 'Shutters', 'Curtains', 'Commercial'];
   const categoryMap = categories?.reduce(
     (acc, category) => {
       acc[category?.title] = category;
