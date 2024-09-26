@@ -96,9 +96,13 @@ const Footer: React.FC = () => {
             <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-end py-5 lg:w-5/6 space-y-2 sm:space-y-0">
               {categories
                 ?.filter((category) => category.title !== 'Commercial')
+                .sort((a, b) => {
+                  const order = ['Blinds', 'Shutters', 'Curtains'];
+                  return order.indexOf(a.title) - order.indexOf(b.title);
+                })
                 .map((category) => (
                   <div key={category.id}>
-                    <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">
+                    <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit ">
                       {category.title}
                     </h3>
                     <ul className="space-y-3 mt-4 text-sm">
@@ -114,7 +118,7 @@ const Footer: React.FC = () => {
                           return (
                             <li key={subcategory.id}>
                               <Link
-                                className="text-16 font-medium"
+                                className="text-16 font-medium "
                                 href={`/${filteredCategory?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
                               >
                                 {subcategory.title}
@@ -126,7 +130,7 @@ const Footer: React.FC = () => {
                         ?.filter(
                           (product) => product.CategoryId === category.id,
                         )
-                        .slice(0, category.id === 2 ? 3 : 4)
+                        .slice(0, category.id === 2 ? 5 : 6)
                         .map((product) => {
                           const filteredCategory = categories?.find(
                             (cat) => cat.id === product.CategoryId,
@@ -165,7 +169,7 @@ const Footer: React.FC = () => {
                 </div>
               ))}
 
-              <div className="md:col-span-1 lg:pl-8 mt-5 lg:mt-0">
+              <div className="md:col-span-1 lg:pl-8 mt-6 lg:ml-4 lg:mt-0">
                 <h3 className="font-bold mb-2 border-b-4 lg:border-0 w-fit">
                   Blinds & Curtains Dubai
                 </h3>
@@ -181,13 +185,21 @@ const Footer: React.FC = () => {
                       Unit 43 22nd St – Al Quoz Industrial Area 4 – Dubai UAE
                     </Link>
                   </li>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.5315287151398!2d55.2356858!3d25.117714799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sTwo%20Guys%20-%20Blinds%20%26%20Curtains%20Dubai!5e0!3m2!1sen!2s!4v1727182528270!5m2!1sen!2s"
-                    width="100%"
-                    height="150"
-                    loading="lazy"
-                    style={{ border: 0 }}
-                  />
+                  <div
+                    style={{
+                      overflow: 'hidden',
+                      width: '250px',
+                      height: '150px',
+                    }}
+                  >
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14450.034204416814!2d55.2256!3d25.1275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sTwo%20Guys%20-%20Blinds%20%26%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1727335871755!5m2!1sen!2sus"
+                      width="280"
+                      height="130"
+                      style={{ position: 'relative', left: '-52px' }}
+                      loading="lazy"
+                    ></iframe>
+                  </div>
                 </ul>
               </div>
             </div>

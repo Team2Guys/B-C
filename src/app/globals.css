@@ -373,3 +373,7 @@ html {
 
   border-radius: 0px;
 }
+
+.ant-modal-mask {
+  background-color: rgba(0, 0, 0, 0.842) !important;
+}
