@@ -3,6 +3,7 @@ import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import AllAdmin from 'components/SuperAdmin/AllAdmin/AllAdmin';
 import CreateAdmin from 'components/SuperAdmin/CreateAdmin/CreateAdmin';
+import ProtectedRoute from 'hooks/AuthHookAdmin';
 import React, { useState } from 'react';
 import { formDataTypes } from 'types/interfaces';
 
@@ -26,4 +27,4 @@ const SuperAdmin = () => {
   );
 };
 
-export default SuperAdmin;
+export default ProtectedRoute(SuperAdmin);

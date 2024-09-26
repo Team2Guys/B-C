@@ -49,9 +49,11 @@ const Products = () => {
 
     purchasePrice: editProduct && editProduct.purchasePrice,
     additionalInformation: editProduct && editProduct.additionalInformation,
+    product_type: editProduct && editProduct.product_type,
   };
 
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
+  
   useEffect(() => {
     console.log('Edit product triggered from parent');
     console.log(editProduct);
