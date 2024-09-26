@@ -255,42 +255,42 @@ const Estimator: React.FC = () => {
               </Button>
             </div>
           </div>
-          <Modal
-            open={modalVisible}
-            onCancel={handleCloseModal}
-            footer={null}
-            width="65rem"
-            style={{
-              top: '10vh',
-            }}
-            bodyStyle={{
-              padding: 0,
+          <div className="estimator1">
+            <Modal
+              className="estimator"
+              open={modalVisible}
+              onCancel={handleCloseModal}
+              footer={null}
+              width="65rem"
+              bodyStyle={{
+                padding: 0,
 
-              margin: 0,
-              height: '35rem',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: '5px',
-            }}
-            centered
-          >
-            <div
-              style={{
-                position: 'relative',
-                padding: 24,
+                margin: 0,
+                height: '35rem',
                 display: 'flex',
-                flexDirection: 'column',
+                justifyContent: 'center',
                 alignItems: 'center',
+                borderRadius: '5px',
               }}
-            ></div>
-            <Image
-              src={estimateIMG}
-              alt="Detailed measuring guide for blinds"
-              layout="fill"
-              // objectFit="contain"
-            />
-          </Modal>
+              centered
+            >
+              <div
+                style={{
+                  position: 'relative',
+                  padding: 24,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+              ></div>
+              <Image
+                src={estimateIMG}
+                alt="Detailed measuring guide for blinds"
+                layout="fill"
+                // objectFit="contain"
+              />
+            </Modal>
+          </div>
           <Container className="py-10">
             <RelatedProducts products={products || []} />
           </Container>
