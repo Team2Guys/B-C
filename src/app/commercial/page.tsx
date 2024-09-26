@@ -24,7 +24,6 @@ import {
   staticCommercialMegaMenuItems,
 } from 'data/data';
 
-
 const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
 
@@ -116,7 +115,7 @@ const CommercialPage = () => {
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <ProductCard products={filteredProducts || []}  />
+        <ProductCard products={filteredProducts || []} />
       </Container>
       <BookNowBanner />
       <Container className="text-center py-20">
@@ -135,7 +134,7 @@ const CommercialPage = () => {
               const category = categories?.find(
                 (cat) => cat.id === product.CategoryId,
               );
-              console.log(category,"categor") ;
+              console.log(category, 'categor');
               if (!category) return null;
               const parent = generateSlug(category.title);
               return (
@@ -158,7 +157,7 @@ const CommercialPage = () => {
         </div>
       </Container>
       <Container className="py-10">
-        <RelatedProducts products={filteredProducts || []} limit={3} />
+        <RelatedProducts products={filteredProducts || []} limit={4} />
       </Container>
     </div>
   );

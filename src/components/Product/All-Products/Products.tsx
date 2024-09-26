@@ -21,7 +21,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const filteredProducts: IProduct[] =
     activeCategory === 'All'
       ? products
-      : products.filter((product) => product.title === activeCategory);
+      : products.filter((product) => product.product_type === activeCategory);
 
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
@@ -29,6 +29,9 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     startIndex,
     startIndex + productsPerPage,
   );
+
+  console.log('============== + + products + + ==================');
+  console.log(products);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
