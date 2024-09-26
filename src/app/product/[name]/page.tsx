@@ -40,7 +40,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   const [detail, setdetail] = useState<IProduct[]>([]);
   const modalRef = useRef<HTMLDivElement>(null);
 
-const route = useRouter();
+  const route = useRouter();
 
   const handleSizeChange = (width: number, height: number) => {
     setSelectedSize({ width, height });
@@ -208,7 +208,12 @@ const route = useRouter();
                     {array.description}
                   </p>
 
-                  <Button onClick={()=>{route.push("/appointment")}} className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
+                  <Button
+                    onClick={() => {
+                      route.push('/appointment');
+                    }}
+                    className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg"
+                  >
                     Book Now
                   </Button>
                 </div>
@@ -218,7 +223,7 @@ const route = useRouter();
         ))}
 
       <Container className="py-10">
-        <RelatedProducts products={products || []} limit={3} />
+        <RelatedProducts products={products || []} limit={4} />
       </Container>
       <BookNowBanner />
       <VideoAutomation />

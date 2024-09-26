@@ -80,7 +80,7 @@ const Products = () => {
       <Info />
       <AllProducts products={filteredProducts} categoryType={`${title}`} />
       <Container className="mt-20 mb-20">
-        <RelatedProducts products={filteredProducts || []} limit={3} />
+        <RelatedProducts products={filteredProducts || []} limit={4} />
       </Container>
       <BookNowBanner className="mt-20" />
       <VideoAutomation className=" mt-20" />
