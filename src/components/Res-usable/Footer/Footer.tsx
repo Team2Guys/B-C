@@ -98,7 +98,9 @@ const Footer: React.FC = () => {
                 ?.filter((category) => category.title !== 'Commercial')
                 .map((category) => (
                   <div key={category.id}>
-                    <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">{category.title}</h3>
+                    <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">
+                      {category.title}
+                    </h3>
                     <ul className="space-y-3 mt-4 text-sm">
                       {subcategories
                         ?.filter(
@@ -135,7 +137,7 @@ const Footer: React.FC = () => {
                             <li key={product.id}>
                               <Link
                                 className="text-16 font-medium"
-                                href={`/${parent === 'shutter' ? `${parent}s-range` : parent}/${generateSlug(product.title)}`}
+                                href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(product.title)}`}
                               >
                                 {updateProductTitle(product.title)}
                               </Link>
@@ -170,7 +172,7 @@ const Footer: React.FC = () => {
                 <ul className="space-y-4 mt-4 text-sm">
                   <li>
                     <Link
-                    target='_blank'
+                      target="_blank"
                       className="text-16 font-normal -tracking-widest"
                       href={
                         'https://www.google.com/maps/place/Two+Guys+-+Blinds+%26+Curtains+Dubai/@25.1177196,55.2331055,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?entry=tts&g_ep=EgoyMDI0MDkxOC4xKgBIAVAD'

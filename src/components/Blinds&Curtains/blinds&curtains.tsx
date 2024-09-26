@@ -21,8 +21,8 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
           alt={data.heading}
         />
         </div>
-        <div className='col-span-12 md:col-span-5 lg:col-span-7 2xl:col-span-6'>
-        <h2 className="lg:text-[39px] md:text-3xl text-2xl font-bold mb-4  ">
+        <div className='col-span-12 md:col-span-5 lg:col-span-7 2xl:col-span-6 flex flex-col justify-between'>
+        <h2 className="lg:text-[39px] md:text-3xl text-2xl font-bold ">
             {data.heading}
           </h2>
           <div>
@@ -36,14 +36,12 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
             ))}
           </div>
 
-          <div className="mt-4">
             <Link
               href={'/appointment'}
-              className="bg-primary  text-white px-4 py-4 hover:text-black hover:bg-white transition-all  hover:text-dark  "
+              className="bg-primary  text-white px-4 py-4 hover:text-black hover:bg-white transition-all  hover:text-dark  w-fit "
             >
               Book A Free Home Visit
             </Link>
-          </div>
         </div>
   
       </div>
