@@ -90,8 +90,8 @@ const GalleryPage = () => {
                 .sort((a, b) => {
                   const order = [
                     'Blinds',
-                    'Shutters',
                     'Curtains',
+                    'Shutters',
                     'Commercial',
                   ];
                   return order.indexOf(a.title) - order.indexOf(b.title);
