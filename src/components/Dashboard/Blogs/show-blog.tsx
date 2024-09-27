@@ -104,7 +104,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
         <FaRegEye
           className="cursor-pointer"
           onClick={() => {
-            const url = `/blog/blog-detail/${generateSlug(record.title)}`;
+            const url = `/blog/${generateSlug(record.title)}`;
             window.open(url, '_blank');
           }}
         />
