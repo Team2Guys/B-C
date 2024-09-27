@@ -101,6 +101,7 @@ export interface TabDataType{
   video: string;
   description: string;
 }
+//RollerMainPage
 export interface RollerBlindsType{
   videoSrc:string;
   icon:string;
@@ -115,4 +116,9 @@ export interface RollerBlindsType{
       para:string;
     }
   ]
+}
+export interface KeyFeaturesType{
+  icon: string;
+  heading: string;
+  para: string;
 }

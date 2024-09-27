@@ -19,18 +19,13 @@ const KeyFeature = () => {
         <h2 className='font-serif font-extrabold text-1xl sm:text-2xl md:text-3xl lg:text-4xl text-black'>
           Key Features
         </h2>
-
-        {/* Custom Navigation Buttons */}
         <div className="relative mt-8">
-          {/* Custom Prev Button */}
           <div
             ref={prevRef}
             className="custom-prev absolute top-1/2 left-0 transform -translate-y-1/2 z-10 cursor-pointer"
           >
             <div className="w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-r-[15px] border-black"></div>
           </div>
-
-          {/* Swiper Container */}
           <Swiper
             spaceBetween={30}
             slidesPerView={1}
@@ -67,9 +62,6 @@ const KeyFeature = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-
-          {/* Custom Next Button */}
-          
           <div
             ref={nextRef}
             className="custom-next absolute top-1/2 right-0 transform -translate-y-1/2 z-10 cursor-pointer"

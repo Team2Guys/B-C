@@ -1489,6 +1489,7 @@ export const blogPara = [
     para: ' It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of',
   },
 ];
+//RollerMainPage
 export const RollerBlindData = [
   {
     videoSrc: "/assets/video/Agsons.mp4",
@@ -1505,3 +1506,25 @@ export const RollerBlindData = [
     ]
   }
 ];
+export const KeyFeaturesData=[
+  {
+    icon:"/assets/images/Rollerblind/design1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+  },
+  {
+    icon:"/assets/images/Rollerblind/design1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+  },
+  {
+    icon:"/assets/images/Rollerblind/order1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+  },
+  {
+    icon:"/assets/images/Rollerblind/design1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+  },
+]
