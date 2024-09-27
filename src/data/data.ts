@@ -1044,7 +1044,7 @@ export const AddproductsinitialValues: FormValues = {
   category: '',
   code: '',
   price: 0,
-  product_type:"By Type"
+  product_type: 'By Type',
 };
 
 export const options = [
