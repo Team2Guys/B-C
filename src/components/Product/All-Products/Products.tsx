@@ -2,6 +2,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import ProductCard from 'components/ui/Product-Card';
+import { byRoomItems, byTypeItems, generateSlug } from 'data/data';
 import React, { useState, useRef } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { IProduct } from 'types/types';
@@ -17,12 +18,22 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const productsPerPage = 6;
   const categories = ['All', 'By Type', 'By Room'];
   const productContainerRef = useRef<HTMLDivElement | null>(null);
-
+  const ByRoomItems = products.filter((product) =>
+    byRoomItems.some(
+      (item) => item.productName === generateSlug(product.title),
+    ),
+  );
+  const ByTypeItems = products.filter((product) =>
+    byTypeItems.some(
+      (item) => item.productName === generateSlug(product.title),
+    ),
+  );
   const filteredProducts: IProduct[] =
     activeCategory === 'All'
       ? products
-      : products.filter((product) => product.product_type === activeCategory);
-
+      : activeCategory === 'By Room'
+        ? ByRoomItems
+        : ByTypeItems;
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
   const visibleProducts = filteredProducts.slice(
@@ -30,8 +41,9 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     startIndex + productsPerPage,
   );
 
-  console.log('============== + + products + + ==================');
-  console.log(products);
+  console.log('============== + + products + + =============');
+  console.log(filteredProducts);
+  console.log(ByRoomItems);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);

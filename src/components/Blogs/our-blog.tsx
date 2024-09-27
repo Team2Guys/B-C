@@ -79,12 +79,6 @@ const OurBlog = ({
                 }`}
               >
                 <div className="flex items-center gap-4 ">
-                  <Link
-                    className="text-14 font-bold text-[#333333]"
-                    href={`/blog/${generateSlug(blog.category)}`}
-                  >
-                    {blog.category}
-                  </Link>
                   <span className="text-12 font-medium text-[#999999]">
                     {formatDateMonth(blog.createdAt)}
                   </span>
@@ -113,7 +107,7 @@ const OurBlog = ({
                 </p>
 
                 <Link
-                  href={`/blog/blog-detail/${generateSlug(blog.title)}`}
+                  href={`/blog/${generateSlug(blog.title)}`}
                   className={`text-primary text-18   ${
                     isFirstItemLarge && index === 0
                       ? 'border border-primary rounded-md bg-white px-3 py-2 '
