@@ -20,7 +20,7 @@ const EstimatorTabs: React.FC<EstimatorTabsProps> = ({
   const filteredCategories = categories
     .filter((category) => category.title !== 'Commercial')
     .sort((a, b) => {
-      const order = ['Blinds', 'Shutters', 'Curtains'];
+      const order = ['Blinds', 'Curtains', 'Shutters'];
       return order.indexOf(a.title) - order.indexOf(b.title);
     });
 

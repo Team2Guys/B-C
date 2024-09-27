@@ -120,7 +120,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
   };
 
   const [formData, setFormData] = useState(formInitialValues);
-
+  const [wordCount, setWordCount] = useState(0);
   const [errors, setErrors] = useState({
     name: '',
     phone_number: '',
@@ -263,12 +263,10 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             if (formData.prefered_contact_method[key]) return item;
           })
           .filter((item) => item !== undefined);
-        //@ts-expect-error
-        let newTime = timeHandler(prefered_time);
 
         const response = await PostAppointments({
           ...withoutproductoption,
-          prefered_time: newTime,
+          prefered_time,
           prefered_contact_method: prefered_contact_method_list,
           product_type: productTypeArray,
         });
@@ -285,6 +283,10 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
   const windowOptions = [
     { value: 'window1', label: 'Window 1' },
     { value: 'window2', label: 'Window 2' },
+  ];
+  const preferTimeOptions = [
+    { value: 'am', label: 'AM' },
+    { value: 'pm', label: 'PM' },
   ];
 
   const referralOptions = [
@@ -304,6 +306,14 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     { value: 'feedback', label: 'Feedback' },
   ];
 
+  const handleInputChange = (e: any) => {
+    const value = e.target.value;
+    const words = value.trim().split(/\s+/);
+    if (words.length <= 300) {
+      handleSelectChange('user_query', value);
+      setWordCount(words.length);
+    }
+  };
   return (
     <div
       className={`bg-white  text-left text-black ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
@@ -453,7 +463,20 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             >
               Preferred Time
             </label>
-            <DatePicker
+            <Select
+              options={preferTimeOptions}
+              defaultValue={preferTimeOptions.find(
+                (option) => option.value === 'pm',
+              )}
+              onChange={(option) =>
+                handleSelectChange('prefered_time', option?.value || '')
+              }
+              value={preferTimeOptions.find(
+                (option) => option.value === formData.prefered_time,
+              )}
+              className="mt-1 w-full text-11"
+            />
+            {/* <DatePicker
               selected={
                 formData.prefered_time ? new Date(formData.prefered_time) : null
               }
@@ -463,7 +486,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               showTimeSelectOnly
               dateFormat="h:mm aa"
               className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
-            />
+            /> */}
           </div>
           <div>
             <label
@@ -510,7 +533,19 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             <label htmlFor="user_query" className="block text-11 font-light ">
               Your Query
             </label>
-            <Select
+            <textarea
+              id="user_query"
+              name="user_query"
+              value={formData.user_query}
+              onChange={handleInputChange}
+              className="mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
+              placeholder="Enter your query (max 300 words)"
+              rows={2}
+            />
+            <div className="text-sm text-gray-400 mt-1">
+              {wordCount}/300 words
+            </div>
+            {/* <Select
               options={queryOptions}
               onChange={(option) =>
                 handleSelectChange('user_query', option?.value || '')
@@ -519,7 +554,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                 (option) => option.value === formData.user_query,
               )}
               className="mt-1 w-full text-11"
-            />
+            /> */}
           </div>
         </div>
         {!singlePage && (
