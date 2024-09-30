@@ -77,7 +77,7 @@ const Blog: React.FC = () => {
         <OurBlog Blogdata={currentBlogs || []} />
       </div>
       {totalBlogs > blogsPerPage ? (
-        <div className="flex justify-center mt-8 space-x-2">
+        <div className="flex justify-center mt-8 space-x-2 ">
           <button
             className={`px-3 py-2 rounded-full ${currentPage === 1 ? 'text-gray-400' : 'text-black'}`}
             onClick={prevPage}
@@ -105,8 +105,7 @@ const Blog: React.FC = () => {
           </button>
         </div>
       ) : null}
-
-      <OurClient />
+      <div className="mt-28" />
       <Footer />
     </>
   );
