@@ -97,6 +97,11 @@ export const heroSlider = [
     name: 'g1.png',
     imageUrl: '/assets/images/Hero/g1.png',
   },
+  {
+    id: 3,
+    name: 'g1.png',
+    imageUrl: '/assets/images/Hero/g1.png',
+  },
 ];
 export const bannerData: BannerData = {
   imageUrl: '/assets/images/measure_shutter/measure_shutter.png',
@@ -1044,7 +1049,7 @@ export const AddproductsinitialValues: FormValues = {
   category: '',
   code: '',
   price: 0,
-  product_type:"By Type"
+  product_type: 'By Type',
 };
 
 export const options = [
@@ -1360,4 +1365,61 @@ export const blogPara = [
   {
     para: ' It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of',
   },
+];
+
+export const byRoomItems = [
+  { productName: 'bathroom-blinds-dubai' },
+  { productName: 'kitchen-blinds' },
+  { productName: 'bedroom-blinds' },
+  { productName: 'living-room-blinds' },
+  { productName: 'made-to-measure-bed-room-curtains' },
+  { productName: 'kids-room-curtains' },
+  { productName: 'hotel-curtains-dubai' },
+  { productName: 'bathroom-shutters' },
+  { productName: 'kitchen-shutters' },
+  { productName: 'hotel-curtains-dubai' },
+  { productName: 'made-to-measure-living-room-curtains' },
+];
+export const byTypeItems = [
+  { productName: 'motorised-blinds' },
+  { productName: 'blackout-roller-blinds' },
+  { productName: 'duplex-blinds' },
+  { productName: 'panel-blinds' },
+  { productName: 'printed-blinds' },
+  { productName: 'skylight-blinds-dubai' },
+  { productName: 'aric-blinds' },
+  { productName: 'roman-blinds' },
+  { productName: 'roller-blinds' },
+  { productName: 'aluminium-venetian-blinds-dubai' },
+  { productName: 'blackout-blinds' },
+  { productName: 'eton-blinds' },
+  { productName: 'colby-honeycomb-blinds' },
+  { productName: '3d-blinds' },
+  { productName: 'sheer-horizon-blinds' },
+  { productName: 'vertical-blinds' },
+  { productName: 'sierra-blinds' },
+  { productName: 'sunscreen-roller-blinds' },
+  { productName: 'wood-venetian-blinds' },
+  { productName: 'blackout-curtains-dubai' },
+  { productName: 'motorised-curtains' },
+  { productName: 'eyelet-curtains' },
+  { productName: 'made-to-measure-sheer-curtains' },
+  { productName: 'pinch-pleat-curtains' },
+  { productName: 'made-to-measure-linen-curtains' },
+  { productName: 'goblet-pleat-curtains' },
+  { productName: 'pelmet-curtains' },
+  { productName: 'wave-curtains' },
+  { productName: 'velvet-curtains' },
+  { productName: 'stage-and-theatre-curtains' },
+  { productName: 'made-to-measure-chiffon-curtains' },
+  { productName: 'office-window-curtains' },
+  { productName: 'double-pleat-curtains' },
+  { productName: 'triple-pinch-pleat-curtains' },
+  { productName: 'made-to-measure-curtains' },
+  { productName: 'full-height-shutters' },
+  { productName: 'bay-window-shutters' },
+  { productName: 'tracked-window-shutters' },
+  { productName: 'special-shape-shutters-wooden-shutters' },
+  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
 ];

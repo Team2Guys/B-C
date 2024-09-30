@@ -86,15 +86,25 @@ const GalleryPage = () => {
               All
             </div>
             {categories &&
-              categories.map((category: ICategory, index: number) => (
-                <div
-                  className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === category.id ? 'bg-primary text-white' : ''}`}
-                  key={index}
-                  onClick={() => handleCategoryClick(category.id!)}
-                >
-                  {category.title}
-                </div>
-              ))}
+              categories
+                .sort((a, b) => {
+                  const order = [
+                    'Blinds',
+                    'Curtains',
+                    'Shutters',
+                    'Commercial',
+                  ];
+                  return order.indexOf(a.title) - order.indexOf(b.title);
+                })
+                .map((category: ICategory, index: number) => (
+                  <div
+                    className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === category.id ? 'bg-primary text-white' : ''}`}
+                    key={index}
+                    onClick={() => handleCategoryClick(category.id!)}
+                  >
+                    {category.title}
+                  </div>
+                ))}
           </div>
         </div>
       </Container>
@@ -168,7 +178,6 @@ const GalleryPage = () => {
           )}
         </div>
       </Container>
-
 
       <VideoAutomation />
       <Support />

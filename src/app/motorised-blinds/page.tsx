@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import TopHero from 'components/ui/top-hero';
 import React from 'react';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
@@ -56,7 +56,11 @@ const motorization = [
 ];
 
 const MotorisedBlind = () => {
-  const { data: products, error, isLoading } = useQuery<IProduct[]>({
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
@@ -108,7 +112,7 @@ const MotorisedBlind = () => {
       />
       <BookNowBanner />
       <Container className="mt-20">
-        <RelatedProducts products={products || []} limit={3} />
+        <RelatedProducts products={products || []} limit={4} />
       </Container>
     </>
   );
