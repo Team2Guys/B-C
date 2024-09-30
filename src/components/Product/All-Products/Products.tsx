@@ -41,10 +41,6 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     startIndex + productsPerPage,
   );
 
-  console.log('============== + + products + + =============');
-  console.log(filteredProducts);
-  console.log(ByRoomItems);
-
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     if (productContainerRef.current) {
