@@ -416,7 +416,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
           </div>
           <div>
             <label htmlFor="windows " className="block text-11 font-light ">
-              Select Windows *
+              How many windows *
             </label>
             <input
               type="number"
@@ -531,7 +531,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}
           >
             <label htmlFor="user_query" className="block text-11 font-light ">
-              Your Query
+              Any Other Requirements
             </label>
             <textarea
               id="user_query"
