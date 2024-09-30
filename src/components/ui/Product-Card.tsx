@@ -9,11 +9,13 @@ import { ICategory, IProduct } from 'types/types';
 interface ProductCardDataProps {
   products: IProduct[];
   categoryType?: string;
+  isSizeSmall?: boolean;
 }
 
 const ProductCard: React.FC<ProductCardDataProps> = ({
   products,
   categoryType,
+  isSizeSmall,
 }) => {
   const route = useRouter();
   const {
@@ -25,13 +27,15 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
     queryFn: fetchSubCategories,
   });
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 p-1 md:p-0 mt-5">
+    <div
+      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${isSizeSmall && 'lg:grid-cols-4'} gap-5 p-1 md:p-0 mt-5`}
+    >
       {products &&
         products.map((product) => {
           const category = categories?.find(
             (cat) => cat.id === product.CategoryId,
           );
-          //@ts-expect-error
+          if (!category) return null;
           const parent = generateSlug(category?.title);
           return (
             <div
@@ -39,7 +43,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               key={product.id}
             >
               <Image
-                className="w-full lg:h-[364px] rounded-xl"
+                className={`w-full ${isSizeSmall ? 'lg:h-[264px]' : 'lg:h-[364px]'} rounded-xl`}
                 width={600}
                 height={600}
                 src={product?.posterImage?.imageUrl}
