@@ -39,12 +39,12 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
         </div>
         <div className=" w-fit flex flex-col justify-center items-center text-sm">
           <button
-            className="font-bold rounded-none group-hover:rounded-full px-3 py-1 group-hover:border-gray-300 group-hover:bg-white"
+            className="font-bold font-sans rounded-none group-hover:rounded-full px-3 py-1 group-hover:border-gray-300 group-hover:bg-white"
             onClick={() => route.push('/products')}
           >
             View {data.title}
           </button>
-          <hr className='border-b-4 border-b-primary w-24 mt-1' />
+          <hr className="border-b-4 border-b-primary w-24 mt-1" />
         </div>
       </div>
     </>
