@@ -23,6 +23,7 @@ import {
   generateSlug,
   staticCommercialMegaMenuItems,
 } from 'data/data';
+import VideoBanner from 'components/video-banner/video-banner';
 
 const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
@@ -63,7 +64,8 @@ const CommercialPage = () => {
   }
   return (
     <div>
-      <TopHero title="Commercial Office Blinds" image={bgBreadcrum} />
+      {/* <TopHero title="" image={bgBreadcrum} /> */}
+      <VideoBanner title={`Commercial`} />
       <Container className="pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row">
         <div className="w-full md:w-1/2">
           <h3 className="font-bold text-xl xs:text-2xl tracking-wider">

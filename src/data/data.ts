@@ -97,6 +97,11 @@ export const heroSlider = [
     name: 'g1.png',
     imageUrl: '/assets/images/Hero/g1.png',
   },
+  {
+    id: 3,
+    name: 'g1.png',
+    imageUrl: '/assets/images/Hero/g1.png',
+  },
 ];
 export const bannerData: BannerData = {
   imageUrl: '/assets/images/measure_shutter/measure_shutter.png',
