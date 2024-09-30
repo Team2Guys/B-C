@@ -33,7 +33,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
       ? products
       : activeCategory === 'By Room'
         ? ByRoomItems
-        : ByTypeItems;
+        : ByTypeItems.reverse();
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
   const visibleProducts = filteredProducts.slice(
@@ -86,9 +86,13 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
             stunning patterns to select from
           </p>
         </div>
-
-        <div ref={productContainerRef} className="mt-5" id="productContainer">
-          <ProductCard categoryType={categoryType} products={visibleProducts} />
+        <div ref={productContainerRef} className="my-2" />
+        <div className="" id="productContainer">
+          <ProductCard
+            categoryType={categoryType}
+            products={visibleProducts}
+            isSizeSmall={true}
+          />
         </div>
 
         {totalPages > 1 && (

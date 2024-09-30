@@ -308,10 +308,9 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 
   const handleInputChange = (e: any) => {
     const value = e.target.value;
-    const words = value.trim().split(/\s+/);
-    if (words.length <= 300) {
+    if (value.length <= 350) {
       handleSelectChange('user_query', value);
-      setWordCount(words.length);
+      setWordCount(value.length);
     }
   };
   return (
@@ -416,7 +415,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
           </div>
           <div>
             <label htmlFor="windows " className="block text-11 font-light ">
-              How many windows *
+              How Many Windows *
             </label>
             <input
               type="number"
@@ -567,11 +566,11 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                   <label className="flex items-center text-11">
                     <input
                       type="checkbox"
-                      checked={selectedOptions.shutters}
-                      onChange={() => handleCheckboxChange('shutters')}
+                      checked={selectedOptions.blinds}
+                      onChange={() => handleCheckboxChange('blinds')}
                       className="mr-2"
                     />
-                    Shutters
+                    Blinds
                   </label>
                 </div>
 
@@ -586,16 +585,15 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                     Curtains
                   </label>
                 </div>
-
                 <div>
                   <label className="flex items-center text-11">
                     <input
                       type="checkbox"
-                      checked={selectedOptions.blinds}
-                      onChange={() => handleCheckboxChange('blinds')}
+                      checked={selectedOptions.shutters}
+                      onChange={() => handleCheckboxChange('shutters')}
                       className="mr-2"
                     />
-                    Blinds
+                    Shutters
                   </label>
                 </div>
               </div>
@@ -606,13 +604,14 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                 <label className="flex items-center text-11">
                   <input
                     type="checkbox"
-                    name="email"
-                    checked={contactMethods.email}
+                    name="whatsapp"
+                    checked={contactMethods.whatsapp}
                     onChange={handleChangeContact}
                     className="mr-2"
                   />
-                  Email
+                  WhatsApp
                 </label>
+
                 <label className="flex items-center text-11">
                   <input
                     type="checkbox"
@@ -626,12 +625,12 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                 <label className="flex items-center text-11">
                   <input
                     type="checkbox"
-                    name="whatsapp"
-                    checked={contactMethods.whatsapp}
+                    name="email"
+                    checked={contactMethods.email}
                     onChange={handleChangeContact}
                     className="mr-2"
                   />
-                  WhatsApp
+                  Email
                 </label>
               </div>
             </div>
