@@ -165,7 +165,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
             ))}
         </div>
       </Container>
-      
+
       <Container className="text-center ">
         <h2 className="text-2xl xs:text-3xl sm:text-4xl">
           {activeFilter.toUpperCase()}

@@ -45,10 +45,7 @@ function Hero() {
         {heroSlider.map((item: any, index) => {
           return (
             <div key={item.id}>
-              <div
-                className=" flex flex-wrap md:flex-nowrap  lg:px-0 px-4"
-                
-              >
+              <div className=" flex flex-wrap md:flex-nowrap  lg:px-0 px-4">
                 <div className=" left-side w-full md:w-1/2 flex flex-col justify-center gap-1">
                   <div className="w-full flex items-center gap-2 lg:mt-0 mt-12">
                     <svg
@@ -68,7 +65,7 @@ function Hero() {
                     </svg>
 
                     <h5 className="text-black font-gotham text-20 md:text-[30px] font-light ">
-                    Blinds & Curtains Dubai
+                      Blinds & Curtains Dubai
                     </h5>
                   </div>
                   <h1 className="text-black font-extrabold lg:text-[53px] text-3xl leading-[50px] md:leading-[60px]">
@@ -81,13 +78,13 @@ function Hero() {
                   </p>
                   <Link href={'/appointment'}>
                     <button className="uppercase bg-white text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-12">
-                    Book A Free Home Design
-                  </button>
+                      Book A Free Home Design Visit
+                    </button>
                   </Link>
                 </div>
 
                 <div className="rigt-side w-full md:w-1/2 flex flex-col  justify-center border !z-50">
-                  <div  className="relative">
+                  <div className="relative">
                     {showModel == '1_model' && (
                       <SliderModal
                         className="-top-28 md:top-12 sm:top-12 xl:top-16"

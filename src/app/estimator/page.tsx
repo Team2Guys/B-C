@@ -254,7 +254,7 @@ const Estimator: React.FC = () => {
                 }}
                 className="bg-secondary text-white text-2xl font-bold py-7 px-4 rounded-lg"
               >
-                Book Now
+                Book A Free Appointment
               </Button>
             </div>
           </div>
@@ -295,7 +295,7 @@ const Estimator: React.FC = () => {
             </Modal>
           </div>
           <Container className="py-10">
-            <RelatedProducts products={products || []} />
+            <RelatedProducts products={products || []} limit={4} />
           </Container>
           <BookNowBanner />
           <VideoAutomation />

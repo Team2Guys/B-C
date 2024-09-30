@@ -15,7 +15,7 @@ const HomeCard = () => {
     queryFn: fetchSubCategories,
   });
 
-  const customOrder = ['Blinds', 'Shutters', 'Curtains'];
+  const customOrder = ['Blinds', 'Curtains', 'Shutters'];
 
   const sortedCategories = categories?.sort((a, b) => {
     const indexA = customOrder.indexOf(a.title);

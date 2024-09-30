@@ -54,6 +54,7 @@ export interface IProduct {
   updatedAt: string | null;
   length?: any;
   href?: string;
+  product_type?: string;
 }
 
 export interface IRECORDS {
