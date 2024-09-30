@@ -74,8 +74,11 @@ const Estimator: React.FC = () => {
     }
   }, [categories, products]);
 
+
   useEffect(() => {
     calculatePrice(width, height);
+    setSelectedProduct(activeProduct)
+    console.log(activeProduct, "imageUrl")
   }, [activeProduct]);
 
   if (categoriesError instanceof Error) return <EstimatorSkeleton />;
