@@ -1370,6 +1370,7 @@ export const blogPara = [
 export const byRoomItems = [
   { productName: 'bathroom-blinds-dubai' },
   { productName: 'kitchen-blinds' },
+  { productName: 'bedroom-blinds' },
   { productName: 'living-room-blinds' },
   { productName: 'made-to-measure-bed-room-curtains' },
   { productName: 'kids-room-curtains' },
