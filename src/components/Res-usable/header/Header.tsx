@@ -54,6 +54,19 @@ const Header = () => {
     setDrawerOpen(false);
   };
 
+  const handleCategoryClick = (categoryId: number | null) => {
+    setSelectedCategoryId(categoryId);
+  };
+
+  const {
+    data: categories,
+    error: categoriesError,
+    isLoading: isLoadingCategories,
+  } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
+
   const {
     data: products,
     error: productsError,
@@ -71,6 +84,11 @@ const Header = () => {
     queryKey: ['fetchSubCategories'],
     queryFn: fetchSubCategories,
   });
+
+  if (categoriesError instanceof Error)
+    return <div>Error: {categoriesError.message}</div>;
+  if (productsError instanceof Error)
+    return <div>Error: {productsError.message}</div>;
 
   const filteredProducts = selectedCategoryId
     ? products?.filter((product) => product.CategoryId === selectedCategoryId)
@@ -188,6 +206,8 @@ const Header = () => {
                     ...actualProducts,
                   ];
                 }
+                // const isActive =
+                //   link.href && path?.includes(generateSlug(link.label));
                 const isBlogPath = path.startsWith('/blog');
 
                 const isBlogActive = link.href === '/blog' && isBlogPath;
