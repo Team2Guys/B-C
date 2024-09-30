@@ -206,8 +206,14 @@ const Header = () => {
                     ...actualProducts,
                   ];
                 }
+                // const isActive =
+                //   link.href && path?.includes(generateSlug(link.label));
+                const isBlogPath = path.startsWith('/blog');
+
+                const isBlogActive = link.href === '/blog' && isBlogPath;
+
                 const isActive =
-                  link.href && path?.includes(generateSlug(link.label));
+                  !isBlogPath && path?.includes(generateSlug(link.label));
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
@@ -217,7 +223,7 @@ const Header = () => {
                     sliderData={combinedSliderData}
                     href={link.href}
                     className={
-                      isActive
+                      isBlogActive || isActive
                         ? 'font-bold text-black-500 link-active'
                         : 'link-underline'
                     }
@@ -226,7 +232,7 @@ const Header = () => {
                   <Link
                     key={index}
                     className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
-                      isActive
+                      isBlogActive || isActive
                         ? 'font-bold text-black-500 link-active'
                         : 'link-underline'
                     }`}
