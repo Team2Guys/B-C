@@ -538,11 +538,11 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               value={formData.user_query}
               onChange={handleInputChange}
               className="mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
-              placeholder="Enter your query (max 300 words)"
+              placeholder="Enter your query (max 350 words)"
               rows={2}
             />
             <div className="text-sm text-gray-400 mt-1">
-              {wordCount}/300 words
+              {wordCount}/350 words
             </div>
             {/* <Select
               options={queryOptions}

@@ -26,7 +26,7 @@ const BookNowBanner: React.FC<BookNowBannerProps> = ({ className }) => {
           Send us an email or call us on: 04 252 2025
         </p>
         <div className="mt-6 text-center">
-          <Link href="/appointment" className="px-4 py-3 bg-white rounded-md">
+          <Link href="/request-appointment" className="px-4 py-3 bg-white rounded-md">
           Book A Free Home Design Visit
           </Link>
         </div>

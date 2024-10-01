@@ -29,7 +29,7 @@ const Info = () => {
             as well as Ashley Wilde.
           </p>
           <div className=" pt-5">
-            <button onClick={()=>{route.push("/appointment")}} className="px-4 py-3 rounded-md bg-secondary text-white font-medium">
+            <button onClick={()=>{route.push("/request-appointment")}} className="px-4 py-3 rounded-md bg-secondary text-white font-medium">
               Book An Appointment
             </button>
           </div>

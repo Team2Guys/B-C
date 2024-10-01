@@ -68,7 +68,7 @@ const VideoBanner: React.FC<BannerProps> = ({ className, title }) => {
             <div className="mt-5">
               <Link
                 className="uppercase bg-white text-16 font-medium shadow-md text-black rounded-full px-4 py-3"
-                href={'/appointment'}
+                href={'/request-appointment'}
               >
                 Book A Free Home Design Visit
               </Link>
