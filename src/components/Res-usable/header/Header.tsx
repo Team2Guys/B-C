@@ -123,17 +123,21 @@ const Header = () => {
       </div>
 
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50">
-        <Container className="flex w-full items-center justify-between px-2 ">
+        <Container className="flex w-full justify-between px-2 ">
           <Link href={'/'} className="w-3/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
-          <div className="w-3/12 lg:w-8/12">
-            <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3">
+
+          <div className="w-3/12 lg:w-8/12 mt-auto">
+            <div className="hidden lg:flex justify-evenly 
+            
+            
+            text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3">
               <Link
-                className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
+                className={`px-3 pb-6 text-12 xl:text-15 ${
                   path === '/'
-                    ? 'font-bold text-black-500 link-active'
-                    : 'link-underline'
+                    ? 'font-bold text-black-500 bg-secondary text-white '
+                    : 'hover:bg-secondary hover:text-white'
                 }`}
                 href={'/'}
               >
@@ -217,18 +221,20 @@ const Header = () => {
                     sliderData={combinedSliderData}
                     href={link.href}
                     className={
+                      
                       isBlogActive || isActive
-                        ? 'font-bold text-black-500 link-active'
-                        : 'link-underline'
+                        ? 'font-bold text-black-500 bg-secondary text-white'
+                        : 'hover:bg-secondary hover:text-white'
+                      
                     }
                   />
                 ) : (
                   <Link
                     key={index}
-                    className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
+                    className={`px-3 pb-6 text-12 xl:text-15 ${
                       isBlogActive || isActive
-                        ? 'font-bold text-black-500 link-active'
-                        : 'link-underline'
+                        ? 'font-bold text-black-500 text-white bg-secondary'
+                        : 'hover:bg-secondary hover:text-white'
                     }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
@@ -239,6 +245,7 @@ const Header = () => {
               })}
             </div>
           </div>
+        <div className='flex items-center'>
           <Link
             className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap bg-primary text-black"
             href="/request-appointment"
@@ -246,6 +253,10 @@ const Header = () => {
           >
             Book Free Appointment
           </Link>
+
+        </div>
+
+
           <div className="flex lg:hidden">
             <Sheet
               drawerName={<RiMenuFoldLine size={25} />}
@@ -263,6 +274,7 @@ const Header = () => {
                 >
                   Home
                 </Link>
+
                 {links.map((link, index) => (
                   <Link
                     key={index}
@@ -280,6 +292,8 @@ const Header = () => {
               </div>
             </Sheet>
           </div>
+
+
         </Container>
       </nav>
     </>

@@ -121,7 +121,7 @@ console.log(sliderData.length, "result")
       <button
         onClick={handleClick}
         ref={buttonRef}
-        className={cn('py-2 px-4 rounded', className)}
+        className={cn('pb-2 px-4 h-full flex items-start ', className)}
       >
         {title}
       </button>
@@ -130,7 +130,7 @@ console.log(sliderData.length, "result")
       {isOpen && (
         <div
           ref={menuRef}
-          className="mt-5 border-t-8 border-secondary absolute bg-white w-full left-1/2 max-w-[98%] -translate-x-1/2  py-4 space-y-4 transition-transform transform z-50"
+          className="border-t-8 border-secondary absolute bg-white w-full left-1/2 max-w-[98%] -translate-x-1/2  py-4 space-y-4 transition-transform transform z-50"
         >
 <Container >
 
