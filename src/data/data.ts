@@ -115,7 +115,7 @@ export const footerLinks: TFooterSection[] = [
     links: [
       { text: 'About Us', href: '/about-us' },
       { text: 'Contact Us', href: '/contact-us' },
-      { text: 'Request An Appointment', href: '/appointment' },
+      { text: 'Request An Appointment', href: '/request-appointment' },
       { text: 'Product Guarantees', href: '/product-guarantees' },
       { text: 'Why Choose Us', href: '/choose-us' },
     ],

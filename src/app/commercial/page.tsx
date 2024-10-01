@@ -91,7 +91,7 @@ const CommercialPage = () => {
           </ul>
           <div className="h-fit mt-8">
             <Link
-              href="/appointment"
+              href="/request-appointment"
               className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
             >
               Book Now

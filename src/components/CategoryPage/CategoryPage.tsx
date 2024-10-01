@@ -131,7 +131,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
               <div className="">
                 <Link
-                  href={`/appointment`}
+                  href={`/request-appointment`}
                   className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
                 >
                   Book An Appointment Now
