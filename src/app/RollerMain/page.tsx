@@ -5,6 +5,7 @@ import Roller2 from 'components/Rollerblind/Roller2';
 import BlackOut from 'components/Rollerblind/Blackout';
 import KeyFeatures from 'components/Rollerblind/KeyFeatures';
 import Reviews from 'components/Rollerblind/Reviews';
+import BlackoutRoller from 'components/Rollerblind/BlackoutImages';
 
 
 const RollerMain= () => {
@@ -16,7 +17,7 @@ const RollerMain= () => {
     <BlackOut/>
     <KeyFeatures/>
     <Reviews/>
-   
+    <BlackoutRoller/>
     </>
   );
 };

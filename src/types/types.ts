@@ -122,3 +122,19 @@ export interface KeyFeaturesType{
   heading: string;
   para: string;
 }
+export interface ReviewsType{
+  id: number;
+  name:string;
+  date: string;
+  image?:string;
+  text: string;
+}
+export interface BlackoutRollerType{
+  heading: string;
+  Text: string;
+  list:[{
+    imageurl:string;
+    text: string;
+    icon?: string}
+  ]
+}

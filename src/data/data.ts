@@ -1527,4 +1527,83 @@ export const KeyFeaturesData=[
     heading:"Lorem Ipsum",
     para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
   },
+];
+export const ReviewsData=[
+  {
+  id: 1,
+  name:"Masuad Rana",
+  date:"jun 22, 2024",
+  text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+},
+{
+  id: 1,
+  name:"Masuad Rana",
+  date:"jun 22, 2024",
+  text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+},
+{
+  id: 1,
+  name:"Masuad Rana",
+  date:"jun 22, 2024",
+  text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+},
+{
+  id: 1,
+  name:"Masuad Rana",
+  date:"jun 22, 2024",
+  text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+},
+];
+export const BlackoutRollerData=[
+  {
+    heading:"BLACKOUT ROLLER BLINDS",
+    text:"See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from",
+    list:[
+      {
+        imageurl:"/assets/images/Rollerblind/Rectangle 907.png",
+        text:"Thermal Blackout Black Roller Blind",
+        icon:"/assets/images/Rollerblind/Groupwww.png",
+      },
+      {
+        imageurl:"/assets/images/Rollerblind/Rectangle 906.png",
+        text:"Thermal Blackout Black Roller Blind",
+        icon:"/assets/images/Rollerblind/Groupwww.png",
+      },
+      {
+        imageurl:"/assets/images/Rollerblind/Rectangle 901.png",
+        text:"Thermal Blackout Black Roller Blind",
+        icon:"/assets/images/Rollerblind/Groupwww.png",
+      },
+      {
+        imageurl:"/assets/images/Rollerblind/Rectangle 902.png",
+        text:"Thermal Blackout Black Roller Blind",
+        icon:"/assets/images/Rollerblind/Groupwww.png",
+      },
+      {
+        imageurl:"/assets/images/Rollerblind/Rectangle 908.png",
+        text:"Thermal Blackout Black Roller Blind",
+        icon:"/assets/images/Rollerblind/Groupwww.png",
+      },
+      {
+        imageurl:"/assets/images/Rollerblind/Rectangle 900.png",
+        text:"Thermal Blackout Black Roller Blind",
+        icon:"/assets/images/Rollerblind/Groupwww.png",
+      },
+      {
+        imageurl:"/assets/images/Rollerblind/Rectangle 905.png",
+        text:"Thermal Blackout Black Roller Blind",
+        icon:"/assets/images/Rollerblind/Groupwww.png",
+      },
+      {
+        imageurl:"/assets/images/Rollerblind/Rectangle 903.png",
+        text:"Thermal Blackout Black Roller Blind",
+        icon:"/assets/images/Rollerblind/Groupwww.png",
+      },
+      {
+        imageurl:"/assets/images/Rollerblind/Rectangle 904.png",
+        text:"Thermal Blackout Black Roller Blind",
+        icon:"/assets/images/Rollerblind/Groupwww.png",
+      },
+    ]
+  }
 ]
