@@ -150,9 +150,9 @@ console.log(sliderData.length, "result")
             {MegaMenu_Headings.map((item, index) => {
               console.log(distributedProducts, "distributedProducts")
               return (
-                <div className='flex flex-col gap-5 w-full'><p className='font-bold text-lg  '>{title+" "+item.name}</p>
-                  {distributedProducts[index]?.map((item: any) => 
-                  <p onClick={() => setactiveProduct(item)} 
+                <div key={index} className='flex flex-col gap-5 w-full'><p className='font-bold text-lg  '>{title+" "+item.name}</p>
+                  {distributedProducts[index]?.map((item: any, index:number) => 
+                  <p key={index} onClick={() => setactiveProduct(item)} 
                   className={` font-gotham text-15 cursor-pointer whitespace-break-spaces ${activeProduct?.title == item.title ? "font-medium border-b-2 border-secondary w-fit" : " font-normal"}`}>
                     
                     {item.title}</p>
