@@ -20,12 +20,31 @@ const TabData = () => {
 
       <div className="grid grid-cols-4 gap-4">
         <div
-          className="w-full h-[6187px] bg-no-repeat bg-contain "
+          className="w-full h-[400px] bg-cover bg-no-repeat flex flex-col justify-between rounded-md "
           style={{
-            backgroundImage:"url('/assets/images/Rollerblind/Rectangle 900.png')"}}>
-            
-
-        </div>
+            backgroundImage:"url('/assets/images/Rollerblind/imgee.jpg')"}}>
+            <div/>
+            <div className='bg-white p-2 mx-4'>
+            Blinds range Find the perfect made-to-measure
+            ds within our exclusive 
+            </div>
+            <div className='text-end'>
+                button
+            </div>
+            </div>
+            <div
+          className="w-full h-[200px] bg-cover bg-no-repeat flex flex-col justify-between rounded-md "
+          style={{
+            backgroundImage:"url('/assets/images/Rollerblind/imgee.jpg')"}}>
+            <div/>
+            <div className='bg-white p-2 mx-4'>
+            Blinds range Find the perfect made-to-measure
+            ds within our exclusive 
+            </div>
+            <div className='text-end'>
+                button
+            </div>
+            </div>
       </div>
     </div>
   );
