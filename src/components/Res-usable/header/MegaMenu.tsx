@@ -5,6 +5,8 @@ import CardSlider from 'components/slider/CardSlider';
 import { cn } from 'lib/utils';
 import { usePathname, useRouter } from 'next/navigation';
 import { IProduct } from 'types/types';
+import Image from 'next/image';
+import Container from '../Container/Container';
 
 interface MegaMenuProps {
   title: string;
@@ -23,6 +25,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 }) => {
   const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [activeProduct, setactiveProduct] = useState<IProduct | undefined>();
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -39,12 +42,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const handleMouseLeave = (event: React.MouseEvent) => {
     const mouseEvent = event as any;
 
-    if (
-      menuRef.current &&
-      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
-      buttonRef.current &&
-      !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
-    ) {
+    if (  menuRef.current &&!menuRef.current.contains(mouseEvent.relatedTarget as Node) && buttonRef.current && !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
+) {
       const newTimeoutId = setTimeout(() => {
         setIsOpen(false);
       }, 300);
@@ -55,11 +54,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+    const mouseEvent = event as any;
+
       if (
         menuRef.current &&
-        !menuRef.current.contains(event.target as Node) &&
+        !menuRef.current.contains(mouseEvent.target as Node) &&
         buttonRef.current &&
-        !buttonRef.current.contains(event.target as Node)
+        !buttonRef.current.contains(mouseEvent.target as Node)
       ) {
         setIsOpen(false);
       }
@@ -67,6 +68,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
     document.addEventListener('mousedown', handleClickOutside);
 
+    setactiveProduct(sliderData[0])
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -78,12 +80,44 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     setIsOpen((prev) => !prev);
   };
 
+  const MegaMenu_Headings = [
+    {
+      name: "By Type"
+    },
+    {
+      name: "By Room"
+    },
+    {
+      name: "By Design"
+    },
+  ]
+
+
+  const distributeProducts = (arr: any[], columns: number) => {
+    const result: any = Array.from({ length: columns }, () => []);
+    console.log(result, "result")
+    arr.forEach((item: any, index) => {
+      result[index % columns].push(item);
+    });
+    return result;
+  };
+
+  const numberOfColumns = 3;
+
+  
+  const distributedProducts = distributeProducts(sliderData, MegaMenu_Headings.length);
+  console.log(distributedProducts, "result, distri")
+
+console.log(sliderData.length, "result")
   return (
+
+
     <div
       className=""
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+
       <button
         onClick={handleClick}
         ref={buttonRef}
@@ -91,18 +125,66 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       >
         {title}
       </button>
+
+
       {isOpen && (
         <div
           ref={menuRef}
-          className="mt-7 rounded-xl absolute bg-white w-full left-1/2 max-w-[90%] -translate-x-1/2 p-2 py-8 space-y-4 transition-transform transform z-50"
+          className="mt-5 border-t-8 border-secondary absolute bg-white w-full left-1/2 max-w-[98%] -translate-x-1/2  py-4 space-y-4 transition-transform transform z-50"
         >
-          <div className="flex justify-between px-8">
+<Container >
+
+
+          {/* <div className="flex justify-between px-8">
             <p className="text-primary text-16 font-medium">{title}</p>
             <Link onClick={() => setIsOpen(false)} href={`${href}`}>
               View All
             </Link>
+          </div> */}
+
+
+
+
+          <div className='grid grid-cols-4 h-full gap-5 w-full'>
+
+            {MegaMenu_Headings.map((item, index) => {
+              console.log(distributedProducts, "distributedProducts")
+              return (
+                <div className='flex flex-col gap-5 w-full'><p className='font-bold text-lg  '>{title+" "+item.name}</p>
+                  {distributedProducts[index]?.map((item: any) => 
+                  <p onClick={() => setactiveProduct(item)} 
+                  className={` font-gotham text-15 cursor-pointer whitespace-break-spaces ${activeProduct?.title == item.title ? "font-medium border-b-2 border-secondary w-fit" : " font-normal"}`}>
+                    
+                    {item.title}</p>
+                  
+                  )}
+                </div>)
+            })}
+
+
+
+
+            <div className='relative'>
+
+            <Image src={activeProduct?.posterImage.imageUrl}
+                  alt={activeProduct?.title || "posterImage"}
+                  width={500}
+                  height={500}
+                  className='bg-contain'
+
+
+                />
+            <p className='absolute bottom-0 z-999 w-full bg-white opacity-80 font-bold text-xl whitespace-normal text-center py-3'>{activeProduct?.title}</p>
+
+
+
+
+            </div>
           </div>
-          <CardSlider
+          </Container>
+
+
+          {/* <CardSlider
             title={title}
             sliderItems={sliderData}
             setIsOpen={setIsOpen}
@@ -121,10 +203,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                 spaceBetween: 30,
               },
             }}
-          />
+          /> */}
         </div>
       )}
+
+
+
     </div>
+
+
   );
 };
 

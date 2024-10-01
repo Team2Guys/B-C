@@ -44,6 +44,7 @@ const Header = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
     null,
   );
+
   const path = usePathname();
   const handleLinkClick = () => {
     setDrawerOpen(false);
@@ -139,23 +140,15 @@ const Header = () => {
                 Home
               </Link>
               {links.map((link, index) => {
-                let filteredSubCategories =
-                  subCategories?.filter(
-                    (subcategory) => subcategory.CategoryId === link.id,
-                  ) || [];
+                let filteredSubCategories = subCategories?.filter((subcategory) => subcategory.CategoryId === link.id) || [];
 
-                let filteredProducts =
-                  products?.filter(
-                    (product) => product.CategoryId === link.id,
-                  ) || [];
+       let filteredProducts =products?.filter((product) => product.CategoryId === link.id,) || [];
 
                 let combinedSliderData: any[] = [];
 
                 if (link.id === 2) {
                   const actualProducts = filteredProducts.filter((product) =>
-                    blindMegaMenuItems.some(
-                      (menuItem) =>
-                        menuItem.productName === generateSlug(product.title),
+                    blindMegaMenuItems.some( (menuItem) =>menuItem.productName === generateSlug(product.title),
                     ),
                   );
 
@@ -206,14 +199,15 @@ const Header = () => {
                     ...actualProducts,
                   ];
                 }
+
+                
                 // const isActive =
                 //   link.href && path?.includes(generateSlug(link.label));
                 const isBlogPath = path.startsWith('/blog');
 
                 const isBlogActive = link.href === '/blog' && isBlogPath;
 
-                const isActive =
-                  !isBlogPath && path?.includes(generateSlug(link.label));
+                const isActive =!isBlogPath && path?.includes(generateSlug(link.label));
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
