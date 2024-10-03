@@ -154,27 +154,25 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                 return (
                   <div key={index} className='flex flex-col gap-5 w-full'><p className='font-bold text-lg  '>{title + " " + item.name}</p>
                     {distributedProducts[index]?.map((item: any, index: number) =>
-                      <p key={index} 
-                      onMouseEnter={() => setactiveProduct(item)}
-                      onClick={() => {
-                        const slug = generateSlug(item.title);
-                        const basePath = item.href
-                          ? `${window.origin}/${item.href}`
-                          : `/${slug}`;
-      
-                        let path;
-      
-                        if (slug === 'office-blinds') {
-                          path = '/commercial';
-                        } else if (slug === 'hotels-restaurants-blinds-curtains') {
-                          path = basePath;
-                        } else {
-                          path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
-                        }
-      
-                        route.push(path);
-                        setIsOpen(false);
-                      }}
+                      <p key={index}
+                        onMouseEnter={() => setactiveProduct(item)}
+                        onClick={() => {
+                          const slug = generateSlug(item.title);
+                          const basePath = item.href? `${window.origin}/${item.href}`: `/${slug}`;
+
+                          let path;
+
+                          if (slug === 'office-blinds') {
+                            path = '/commercial';
+                          } else if (slug === 'hotels-restaurants-blinds-curtains') {
+                            path = basePath;
+                          } else {
+                            path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
+                          }
+
+                          route.push(path);
+                          setIsOpen(false);
+                        }}
                         className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit  ${activeProduct?.title == item.title ? "font-medium border-b-2 border-secondary" : " font-normal"}`}>
 
                         {item.title}</p>
