@@ -1,23 +1,28 @@
 import Header from 'components/LandingPage/Header';
-import Rollerpage from 'components/Rollerblind/Roller1';
 import React from 'react'
-import Roller2 from 'components/Rollerblind/Roller2';
-import BlackOut from 'components/Rollerblind/Blackout';
 import KeyFeatures from 'components/Rollerblind/KeyFeatures';
 import Reviews from 'components/Rollerblind/Reviews';
-import BlackoutRoller from 'components/Rollerblind/BlackoutImages';
+import Button from 'components/LandingPage/ButtonSection';
+import InstaVideoSection from 'components/LandingPage/InstaVideoSection';
+import RollerBlinds from 'components/Rollerblind/Roller1';
+import RollerTabContant from 'components/Rollerblind/Roller2';
+import BlackOutRollerBlinds from 'components/Rollerblind/Blackout';
+import BlackoutRollerGallary from 'components/Rollerblind/BlackoutImages';
+
 
 
 const RollerMain= () => {
   return (
     <>
     <Header/>
-    <Rollerpage/>
-    <Roller2/>
-    <BlackOut/>
+    <RollerBlinds/>
+    <RollerTabContant/>
+    <BlackOutRollerBlinds/>
     <KeyFeatures/>
     <Reviews/>
-    <BlackoutRoller/>
+    <BlackoutRollerGallary/>
+    <Button/>
+    <InstaVideoSection/>
     </>
   );
 };

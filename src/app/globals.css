@@ -359,3 +359,10 @@ html{
   background: #FF914E;
   /* Color when hovering over the scrollbar thumb */
 }
+
+
+.testimonial-back{
+  background: rgb(230,228,229);
+  background: linear-gradient(0deg, rgba(230,228,229,9) 5%, rgba(246,239,233,9) 5%, rgba(246,239,233,9) 95%, rgba(230,228,229,9) 95%);
+}
+

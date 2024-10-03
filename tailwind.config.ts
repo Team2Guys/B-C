@@ -65,7 +65,6 @@ const config = {
       },
       colors: {
         marcury:"#00000059",
-
         dashboardDark:"#141414",
         light:"var(--light)",
         btnclr:"var(--btn-clr)",

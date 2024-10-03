@@ -20,7 +20,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs,className }) => {
         {tabs.map((tab) => (
           <button
             key={tab.label}
-            className={`py-2 px-4 ${activeTab === tab.label ? 'bg-primary text-white' : ' text-black'}`}
+            className={`py-2 px-4 ${activeTab === tab.label ? 'bg-primary text-white font-bold rounded-sm' : ' text-black'}`}
             onClick={() => setActiveTab(tab.label)}
           >
             {tab.label}

@@ -102,21 +102,6 @@ export interface TabDataType{
   description: string;
 }
 //RollerMainPage
-export interface RollerBlindsType{
-  videoSrc:string;
-  icon:string;
-  heading:string;
-  description:string;
-  icon1:string;
-  heading1:string;
-  description1:string;
-  list:[
-    {
-      title:string;
-      para:string;
-    }
-  ]
-}
 export interface KeyFeaturesType{
   icon: string;
   heading: string;
@@ -131,10 +116,20 @@ export interface ReviewsType{
 }
 export interface BlackoutRollerType{
   heading: string;
-  Text: string;
-  list:[{
+  Text: string;}
+export interface ListData{
     imageurl:string;
     text: string;
-    icon?: string}
-  ]
-}
+  }
+
+
+  interface ListItemInfo {
+    className: string;   // Optional, you can make this `className?: string` if it's not always present
+    imageurl: string;
+    text: string;
+  }
+  
+  export interface ListItem {
+    info: ListItemInfo[];
+  }
+ 
