@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { IProduct } from 'types/types';
 import Image from 'next/image';
 import Container from '../Container/Container';
+import { generateSlug } from 'data/data';
 
 interface MegaMenuProps {
   title: string;
@@ -42,8 +43,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const handleMouseLeave = (event: React.MouseEvent) => {
     const mouseEvent = event as any;
 
-    if (  menuRef.current &&!menuRef.current.contains(mouseEvent.relatedTarget as Node) && buttonRef.current && !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
-) {
+    if (menuRef.current && !menuRef.current.contains(mouseEvent.relatedTarget as Node) && buttonRef.current && !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
+    ) {
       const newTimeoutId = setTimeout(() => {
         setIsOpen(false);
       }, 300);
@@ -54,7 +55,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-    const mouseEvent = event as any;
+      const mouseEvent = event as any;
 
       if (
         menuRef.current &&
@@ -76,7 +77,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   const handleClick = () => {
     const slug = href;
-    route.push(`${process.env.NEXT_PUBLIC_APP_URL}/${slug}`);
+    route.push(`${window.origin}/${slug}`);
     setIsOpen((prev) => !prev);
   };
 
@@ -102,13 +103,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     return result;
   };
 
-  const numberOfColumns = 3;
 
-  
+
   const distributedProducts = distributeProducts(sliderData, MegaMenu_Headings.length);
-  console.log(distributedProducts, "result, distri")
+  let currentLocation = window.location;
 
-console.log(sliderData.length, "result")
+  console.log(window.origin, "currentLocation")
+
   return (
 
 
@@ -132,10 +133,10 @@ console.log(sliderData.length, "result")
           ref={menuRef}
           className="border-t-8 border-secondary absolute bg-white w-full left-1/2 max-w-[98%] -translate-x-1/2  py-4 space-y-4 transition-transform transform z-50"
         >
-<Container >
+          <Container >
 
 
-          {/* <div className="flex justify-between px-8">
+            {/* <div className="flex justify-between px-8">
             <p className="text-primary text-16 font-medium">{title}</p>
             <Link onClick={() => setIsOpen(false)} href={`${href}`}>
               View All
@@ -145,28 +146,49 @@ console.log(sliderData.length, "result")
 
 
 
-          <div className='grid grid-cols-4 h-full gap-5 w-full'>
+            <div className='grid grid-cols-4 h-full gap-5 w-full'>
 
-            {MegaMenu_Headings.map((item, index) => {
-              console.log(distributedProducts, "distributedProducts")
-              return (
-                <div key={index} className='flex flex-col gap-5 w-full'><p className='font-bold text-lg  '>{title+" "+item.name}</p>
-                  {distributedProducts[index]?.map((item: any, index:number) => 
-                  <p key={index} onClick={() => setactiveProduct(item)} 
-                  className={` font-gotham text-15 cursor-pointer whitespace-break-spaces ${activeProduct?.title == item.title ? "font-medium border-b-2 border-secondary w-fit" : " font-normal"}`}>
-                    
-                    {item.title}</p>
-                  
-                  )}
-                </div>)
-            })}
+              {MegaMenu_Headings.map((item, index) => {
+                console.log(distributedProducts, "distributedProducts")
+                const parent = generateSlug(title);
+                return (
+                  <div key={index} className='flex flex-col gap-5 w-full'><p className='font-bold text-lg  '>{title + " " + item.name}</p>
+                    {distributedProducts[index]?.map((item: any, index: number) =>
+                      <p key={index} 
+                      onMouseEnter={() => setactiveProduct(item)}
+                      onClick={() => {
+                        const slug = generateSlug(item.title);
+                        const basePath = item.href
+                          ? `${window.origin}/${item.href}`
+                          : `/${slug}`;
+      
+                        let path;
+      
+                        if (slug === 'office-blinds') {
+                          path = '/commercial';
+                        } else if (slug === 'hotels-restaurants-blinds-curtains') {
+                          path = basePath;
+                        } else {
+                          path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
+                        }
+      
+                        route.push(path);
+                        setIsOpen(false);
+                      }}
+                        className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit  ${activeProduct?.title == item.title ? "font-medium border-b-2 border-secondary" : " font-normal"}`}>
+
+                        {item.title}</p>
+
+                    )}
+                  </div>)
+              })}
 
 
 
 
-            <div className='relative'>
+              <div className='relative'>
 
-            <Image src={activeProduct?.posterImage.imageUrl}
+                <Image src={activeProduct?.posterImage.imageUrl}
                   alt={activeProduct?.title || "posterImage"}
                   width={500}
                   height={500}
@@ -174,13 +196,13 @@ console.log(sliderData.length, "result")
 
 
                 />
-            <p className='absolute bottom-0 z-999 w-full bg-white opacity-80 font-bold text-xl whitespace-normal text-center py-3'>{activeProduct?.title}</p>
+                <p className='absolute bottom-0 z-999 w-full bg-white opacity-80 font-bold text-xl whitespace-normal text-center py-3'>{activeProduct?.title}</p>
 
 
 
 
+              </div>
             </div>
-          </div>
           </Container>
 
 
