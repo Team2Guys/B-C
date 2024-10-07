@@ -1,7 +1,5 @@
 "use client";
-import { BlackoutRollerData } from 'data/data';
 import React, { useState } from 'react';
-import { FaCirclePlus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 
 interface ListItemInfo {
@@ -11,7 +9,7 @@ interface ListItemInfo {
 }
 
 interface TabDataProps {
-  label:string;
+  label:React.ReactNode;
   Text: string;
   ListData: {
     info: ListItemInfo[];

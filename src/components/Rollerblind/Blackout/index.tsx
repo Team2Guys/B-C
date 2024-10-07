@@ -6,8 +6,8 @@ import Image from 'next/image';
 
 const images = [
   "/assets/images/Rollerblind/Rectangle895.png",
-  "/assets/images/Static/commercial-electric-blinds-hero-1_1.png",
-  "/assets/images/Rollerblind/Rectangle895.png"
+  "/assets/images/large-ff.png",
+  "/assets/images/largedd.png",
 ];
 
 const BlackOutRollerBlinds = () => {

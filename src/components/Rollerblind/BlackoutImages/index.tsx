@@ -1,9 +1,6 @@
 import { Button } from 'antd';
 import React from 'react';
-import Container from 'components/Res-usable/Container/Container';
 import { BlackoutRollerData, ListData } from 'data/data';
-import Image from 'next/image';
-import { CiCirclePlus } from 'react-icons/ci';
 import Tabs from 'components/ui/Tabs';
 import TabData from './tabdata/tabdata';
 
@@ -18,11 +15,12 @@ const BlackoutRollerGallary = () => {
    },
     { 
       label: 'BLACKOUT ROLLER BLINDS', 
-      content: <TabData ListData={ListData} label="BLACKOUT ROLLER BLINDS" Text='2See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from' /> 
+      content: <TabData ListData={ListData} label={(<><strong>BLACKOUT</strong> ROLLER BLINDS</>)} 
+      Text='2See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from' /> 
     },
     { 
       label: 'SUNSCREEN ROLLER BLINDS', 
-      content: <TabData ListData={ListData} label="SUNSCREEN ROLLER BLINDS" Text='3See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from' />
+      content: <TabData ListData={ListData} label={(<><strong>SUNSCREEN</strong>ROLLER BLINDS</>)} Text='3See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from' />
     },
   ]}
 />
