@@ -1,10 +1,8 @@
 'use client';
 import Container from 'components/Res-usable/Container/Container';
-import { RollerBlindData } from 'data/data';
 import { Button } from 'components/ui/button';
 import { FaWhatsapp } from 'react-icons/fa';
 import React, { useState, useRef } from 'react';
-import { FaPlay, FaPause } from 'react-icons/fa';
 import Image from 'next/image';
 
 const RollerTabContant = () => {

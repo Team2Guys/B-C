@@ -33,7 +33,7 @@ const Blog: React.FC = () => {
     return <PageSkelton />;
   }
 
-  const blogsPerPage = 6;
+  const blogsPerPage = 9;
   const totalBlogs = blogs.length;
   const totalPages = Math.ceil(totalBlogs / blogsPerPage);
   const indexOfLastBlog = currentPage * blogsPerPage;
@@ -73,21 +73,11 @@ const Blog: React.FC = () => {
     <>
       <Header />
       <TopHero title="Blogs" image={bgBreadcrum} />
-      <OurBlog
-        title="Latest Articles"
-        Blogdata={latestBlogs || []}
-        isFirstItemLarge
-        buttonView
-      />
       <div ref={popularPostRef}>
-        <OurBlog
-          title="Popular Post"
-          Blogdata={currentBlogs || []}
-          buttonView
-        />
+        <OurBlog Blogdata={currentBlogs || []} />
       </div>
       {totalBlogs > blogsPerPage ? (
-        <div className="flex justify-center mt-8 space-x-2">
+        <div className="flex justify-center mt-8 space-x-2 ">
           <button
             className={`px-3 py-2 rounded-full ${currentPage === 1 ? 'text-gray-400' : 'text-black'}`}
             onClick={prevPage}
@@ -115,8 +105,7 @@ const Blog: React.FC = () => {
           </button>
         </div>
       ) : null}
-
-      <OurClient />
+      <div className="mt-28" />
       <Footer />
     </>
   );

@@ -31,7 +31,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
         Lectus pulvinar tincidunt accumsan ullamcorper dolor acsed facilisis
         molestie aliquam.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-6 lg:mt-20 mt-4 lg:mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-6 lg:mt-20 mt-4 lg:mb-10">
         {displayedProducts.map((item) => {
           const filteredCategory = categoriesList.find(
             (cat) => cat.id === item?.CategoryId,

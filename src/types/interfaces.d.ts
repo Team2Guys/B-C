@@ -88,6 +88,7 @@ export interface FormValues {
   CategoryId?: number;
   SubCategoryId?: number;
   price: number;
+  product_type: string
 }
 
 interface Color {

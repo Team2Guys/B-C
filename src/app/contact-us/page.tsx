@@ -25,11 +25,14 @@ const ProductUs: React.FC = () => {
     message: '',
   });
 
-  const { data: products, error:producterror, isLoading } = useQuery<IProduct[]>({
+  const {
+    data: products,
+    error: producterror,
+    isLoading,
+  } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -79,8 +82,12 @@ const ProductUs: React.FC = () => {
       <TopHero title="CONTACT US" image={second} />
       <Container>
         <section className="text-center mb-12 max-w-screen-xl mx-auto">
-          <h5 className="xs:py-12 py-5 text-[#666666] text-base font-bold">CONTACT US</h5>
-          <h2 className="lg:text-5xl text-2xl font-bold text-[#333333]">Tell us More</h2>
+          <h5 className="xs:py-12 py-5 text-[#666666] text-base font-bold">
+            CONTACT US
+          </h5>
+          <h2 className="lg:text-5xl text-2xl font-bold text-[#333333]">
+            Tell us More
+          </h2>
           <p className="lg:text-16 lg:pt-4 lg:px-12 text-[#666666]">
             Get some rough window measurements and call us on{' '}
             <Link
@@ -172,7 +179,7 @@ const ProductUs: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 // required
-                placeholder="Input your full name here"
+                placeholder="Enter Name here"
                 id="name"
                 className="mt-4 p-3 border border-gray-300 rounded-md w-full bg-[#F7F6FE]"
               />
@@ -193,7 +200,7 @@ const ProductUs: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 // required
-                placeholder="Input your email address here"
+                placeholder="Enter Email here"
                 id="email"
                 className="mt-4 p-3 border border-gray-300 rounded-md w-full bg-[#F7F6FE]"
               />
@@ -215,7 +222,7 @@ const ProductUs: React.FC = () => {
                 onChange={handleChange}
                 // required
                 rows={15}
-                placeholder="Input your message here"
+                placeholder="Write your message here..."
                 className="mt-4 block w-full border border-gray-300 rounded-md shadow-sm bg-[#F7F6FE] focus:ring-opacity-50 p-3"
               />
               {errors.message && (
@@ -225,7 +232,7 @@ const ProductUs: React.FC = () => {
             <div className="mt-4 text-end">
               <input
                 type="submit"
-                className="bg-btnclr hover:bg-secondary text-white text-sm font-medium py-4 px-8 rounded-lg"
+                className="bg-secondary hover:bg-btnclr text-white text-16 font-medium py-4 px-16 rounded-lg cursor-pointer"
                 value="Send Message"
               />
             </div>

@@ -14,31 +14,25 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { Button } from 'components/ui/button';
-import { estimateSldie, optionDetail } from 'data/data';
+import { estimateSldie, generateSlug, optionDetail } from 'data/data';
 import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
 import { useRouter } from 'next/navigation';
 import Input from 'components/Common/regularInputs';
+import EstimatorTabs from 'components/estimator-tab';
 
 const Estimator: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // Open first accordion by default
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
-  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false); // For the modal visibility
+  const [activeProduct, setActiveProduct] = useState<IProduct | null>(null);
+
+  const [modalVisible, setModalVisible] = useState(false);
   const [width, setWidth] = useState<number | ''>('');
   const [height, setHeight] = useState<number | ''>('');
+
   const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
   const route = useRouter();
 
-  const handleToggleDescription = () => {
-    setIsDescriptionExpanded(!isDescriptionExpanded);
-  };
-
-  const getShortDescription = (description: string) => {
-    return description.split(' ').slice(0, 38).join(' ') + '...';
-  };
-
   const description = selectedProduct?.description || '';
-  const isLongDescription = description.split(' ').length > 38;
 
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
@@ -64,7 +58,6 @@ const Estimator: React.FC = () => {
 
   useEffect(() => {
     if (categories && products) {
-      // Find the first category (blinds or similar)
       const firstCategory = categories.find((category) =>
         category.title.toLowerCase().includes('blinds'),
       );
@@ -74,13 +67,16 @@ const Estimator: React.FC = () => {
           (product) => product.CategoryId === firstCategory.id,
         );
 
-        // Set the first product of the category as selected
         if (productsInFirstCategory.length > 0) {
           setSelectedProduct(productsInFirstCategory[0]);
         }
       }
     }
   }, [categories, products]);
+
+  useEffect(() => {
+    calculatePrice(width, height);
+  }, [activeProduct]);
 
   if (categoriesError instanceof Error) return <EstimatorSkeleton />;
   if (productsError instanceof Error) return <EstimatorSkeleton />;
@@ -99,14 +95,6 @@ const Estimator: React.FC = () => {
     {} as Record<number, IProduct[]>,
   );
 
-  const handleAccordionClick = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const handleProductSelect = (product: IProduct) => {
-    setSelectedProduct(product);
-  };
-
   const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
     setWidth(isNaN(value) ? '' : value);
@@ -121,20 +109,32 @@ const Estimator: React.FC = () => {
 
   const calculatePrice = (width: number | '', height: number | '') => {
     if (width && height) {
-      const area = width * height;
-      // Assuming some pricing logic based on area
-      setCalculatedPrice(Math.max(2, area)); // example logic
+      const item = categories?.find((p) => p.id === activeProduct?.CategoryId);
+      let price = 0;
+      if (!item) return null;
+      if (generateSlug(item?.title) === 'curtains') {
+        const step1 = Math.ceil((width * 2.3) / 280);
+        let step2 = height + 25;
+        step2 = step2 / 100;
+        const step3 = step1 * step2;
+        const fabricPrice = step3 * (activeProduct?.price || 0);
+        const productionPrice = width * 3;
+
+        price = productionPrice + fabricPrice;
+      } else {
+        const formula = width * height;
+        price = (formula / 10000) * (activeProduct?.price || 0);
+      }
+      setCalculatedPrice(price);
     } else {
       setCalculatedPrice(null);
     }
   };
 
-  // Function to open the modal
   const showModal = () => {
     setModalVisible(true);
   };
 
-  // Function to close the modal
   const handleCloseModal = () => {
     setModalVisible(false);
   };
@@ -225,81 +225,74 @@ const Estimator: React.FC = () => {
                 </div>
               </div>
 
-              <div className="">
-                {categories && (
-                  <div>
-                    {categories
-                      ?.filter((category) => category.title !== 'Commercial')
-                      .map((category, index) => (
-                        <Accordion
-                          key={index}
-                          title={category.title}
-                          isOpen={openIndex === index}
-                          onClick={() => handleAccordionClick(index)}
-                        >
-                          <div className="grid grid-cols-2 gap-4 p-4">
-                            {productsByCategory[category.id]?.map(
-                              (product: IProduct, productIndex: number) => (
-                                <div
-                                  key={productIndex}
-                                  onClick={() => handleProductSelect(product)}
-                                  className={`${
-                                    selectedProduct?.id === product.id
-                                      ? 'border-b border-yellow-600 font-semibold '
-                                      : ' border-gray-300'
-                                  } cursor-pointer text-sm `}
-                                >
-                                  <p>{product.title}</p>
-                                </div>
-                              ),
-                            )}
-                          </div>
-                        </Accordion>
-                      ))}
-                  </div>
-                )}
-              </div>
+              <EstimatorTabs
+                categories={categories || []}
+                productsByCategory={productsByCategory}
+                activeProduct={activeProduct}
+                setActiveProduct={setActiveProduct}
+              />
+
+              <p className="lg:text-[15px] text-md">
+                *The displayed price is for the base offer; for upgraded options
+                prices may vary visit to have your custom quotation!
+              </p>
+              {activeProduct && (
+                <p className="lg:text-[35px] text-2xl font-bold text-center">
+                  AED{' '}
+                  {calculatedPrice
+                    ? calculatedPrice.toFixed(2)
+                    : activeProduct.price}
+                </p>
+              )}
+
+              <Button
+                onClick={() => {
+                  route.push('/appointment');
+                }}
+                className="bg-secondary text-white text-2xl font-bold py-7 px-4 rounded-lg"
+              >
+                Book A Free Appointment
+              </Button>
             </div>
           </div>
+          <div className="estimator1">
+            <Modal
+              className="estimator"
+              open={modalVisible}
+              onCancel={handleCloseModal}
+              footer={null}
+              width="65rem"
+              bodyStyle={{
+                padding: 0,
 
-          <Modal
-            open={modalVisible}
-            onCancel={handleCloseModal}
-            footer={null}
-            width="65rem"
-            style={{
-              top: '10vh',
-            }}
-            bodyStyle={{
-              padding: 0,
-              margin: 0,
-              height: '35rem',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: '5px',
-            }}
-            centered
-          >
-            <div
-              style={{
-                position: 'relative',
-                padding: 24,
+                margin: 0,
+                height: '35rem',
                 display: 'flex',
-                flexDirection: 'column',
+                justifyContent: 'center',
                 alignItems: 'center',
+                borderRadius: '5px',
               }}
-            ></div>
-            <Image
-              src={estimateIMG}
-              alt="Detailed measuring guide for blinds"
-              layout="fill"
-              // objectFit="contain"
-            />
-          </Modal>
-
+              centered
+            >
+              <div
+                style={{
+                  position: 'relative',
+                  padding: 24,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+              ></div>
+              <Image
+                src={estimateIMG}
+                alt="Detailed measuring guide for blinds"
+                layout="fill"
+                // objectFit="contain"
+              />
+            </Modal>
+          </div>
           <Container className="py-10">
-            <RelatedProducts products={products || []} />
+            <RelatedProducts products={products || []} limit={4} />
           </Container>
           <BookNowBanner />
           <VideoAutomation />

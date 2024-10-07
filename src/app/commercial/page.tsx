@@ -23,7 +23,7 @@ import {
   generateSlug,
   staticCommercialMegaMenuItems,
 } from 'data/data';
-
+import VideoBanner from 'components/video-banner/video-banner';
 
 const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
@@ -64,7 +64,8 @@ const CommercialPage = () => {
   }
   return (
     <div>
-      <TopHero title="Commercial Office Blinds" image={bgBreadcrum} />
+      {/* <TopHero title="" image={bgBreadcrum} /> */}
+      <VideoBanner title={`Commercial`} />
       <Container className="pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row">
         <div className="w-full md:w-1/2">
           <h3 className="font-bold text-xl xs:text-2xl tracking-wider">
@@ -116,7 +117,7 @@ const CommercialPage = () => {
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <ProductCard products={filteredProducts || []}  />
+        <ProductCard products={filteredProducts || []} />
       </Container>
       <BookNowBanner />
       <Container className="text-center py-20">
@@ -135,7 +136,7 @@ const CommercialPage = () => {
               const category = categories?.find(
                 (cat) => cat.id === product.CategoryId,
               );
-              console.log(category,"categor") ;
+              console.log(category, 'categor');
               if (!category) return null;
               const parent = generateSlug(category.title);
               return (
@@ -158,7 +159,7 @@ const CommercialPage = () => {
         </div>
       </Container>
       <Container className="py-10">
-        <RelatedProducts products={filteredProducts || []} limit={3} />
+        <RelatedProducts products={filteredProducts || []} limit={4} />
       </Container>
     </div>
   );
