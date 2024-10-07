@@ -338,3 +338,16 @@ export interface BlogProps {
   isFirstItemLarge?: boolean;
   buttonView?: boolean;
 }
+
+ 
+ 
+ //LandingPage
+ export interface NavType{
+  image?:any;
+  title?: string;
+  description?: string;
+}
+export interface KeyType {
+  image?:any;
+  para?: string;
+}

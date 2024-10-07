@@ -245,6 +245,9 @@ const Header = () => {
               })}
             </div>
           </div>
+
+
+
           <Link
             className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap bg-primary text-black"
             href="/appointment"
