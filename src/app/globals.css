@@ -38,6 +38,8 @@
     --border-clr: #bdc9bd;
     --hover-border-clr: #aab8aa;
     --para-light: #666666;
+    --bdr-grey: #9D9D9D;
+    --dark-grey: #555555;
   }
 }
 .light {
