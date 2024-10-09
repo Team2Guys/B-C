@@ -5,6 +5,7 @@ import {
   BlogInfo,
   BlogProps,
   CardTypes,
+  CommentDataType,
   FeatureProductData,
   GalleryItems,
   OurHistory,
@@ -25,6 +26,7 @@ import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
+import { TiSocialFacebook } from "react-icons/ti";
 
 export const generateSlug = (text: string) => {
   if (!text) return '';
@@ -172,6 +174,54 @@ export const SocialData: SocialDataType[] = [
     alt: 'Instagram',
   },
 ];
+export const CommentData: CommentDataType[] = [
+  {
+    id: 1,
+    userName: 'Laura Hipster',
+    comment: 'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
+    createdAt: 'October 03, 2022',
+  },
+  {
+    id: 2,
+    userName: 'Laura Hipster',
+    comment: 'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
+    createdAt: 'October 03, 2022',
+  },
+  {
+    id: 3,
+    userName: 'Laura Hipster',
+    comment: 'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
+    createdAt: 'October 03, 2022',
+  },
+  {
+    id: 4,
+    userName: 'Laura Hipster',
+    comment: 'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
+    createdAt: 'October 03, 2022',
+  },
+  {
+    id: 5,
+    userName: 'Laura Hipster',
+    comment: 'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
+    createdAt: 'October 03, 2022',
+  },
+]
+export const NestedCommentData: CommentDataType[] = [
+  {
+    id: 1,
+    replyId: 1,
+    userName: 'Laura Hipster',
+    comment: 'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
+    createdAt: 'October 03, 2022',
+  },
+  {
+    id: 2,
+    replyId: 5,
+    userName: 'Laura Hipster',
+    comment: 'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
+    createdAt: 'October 03, 2022',
+  }
+]
 export const featureProducts: FeatureProductData[] = [
   {
     id: 1,

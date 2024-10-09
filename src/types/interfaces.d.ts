@@ -338,3 +338,10 @@ export interface BlogProps {
   isFirstItemLarge?: boolean;
   buttonView?: boolean;
 }
+export interface CommentDataType {
+  id: number;
+  userName: string;
+  comment: string;
+  createdAt: data;
+  replyId?: number;
+}
