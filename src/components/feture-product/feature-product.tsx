@@ -92,7 +92,8 @@ const FeatureProduct: React.FC = () => {
       </div>
 
       <div className="mt-10">
-        <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap overflow-x-auto">
+        <div className="overflow-x-auto">
+        <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap min-w-[470px]">
           {categoryOrder.map((categoryTitle) => {
             const category = categoryMap?.[categoryTitle];
             return (
@@ -113,7 +114,7 @@ const FeatureProduct: React.FC = () => {
             );
           })}
         </div>
-
+        </div>
         <div className="mt-5">
           <FeatureCard products={visibleProducts || []} />
         </div>
