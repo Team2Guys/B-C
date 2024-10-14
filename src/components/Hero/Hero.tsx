@@ -41,13 +41,13 @@ function Hero() {
 
   return (
     <Container>
-      <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5 pt-10 pb-5">
+      <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5 md:pt-10 md:pb-5">
         {heroSlider.map((item: any, index) => {
           return (
             <div key={item.id}>
               <div className=" flex flex-wrap md:flex-nowrap  lg:px-0 px-4">
                 <div className=" left-side w-full md:w-1/2 flex flex-col justify-center gap-1">
-                  <div className="w-full flex items-center gap-2 lg:mt-0 mt-12">
+                  <div className="w-full flex items-center gap-2 lg:mt-0 mt-5">
                     <svg
                       width="34"
                       height="2"
@@ -68,16 +68,16 @@ function Hero() {
                       Blinds & Curtains Dubai
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold lg:text-[53px] text-3xl leading-[50px] md:leading-[60px]">
+                  <h1 className="text-black font-extrabold text-25 lg:text-[53px] sm:text-3xl leading-[30px] md:leading-[60px]">
                     Custom Window <br />
                     Blinds & Curtains
                   </h1>
                   <p className="font-normal text-14 mt-0 md:mt-5 mb-5">
-                    Lorem Ipsum is simply dummy text of the <br /> and
+                    Lorem Ipsum is simply dummy text of the <br className='hidden md:block' /> and
                     typesetting industry.
                   </p>
                   <Link href={'/request-appointment'}>
-                    <button className="uppercase bg-white text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-12">
+                    <button className="uppercase bg-white text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-12">
                       Book A Free Home Design Visit
                     </button>
                   </Link>
