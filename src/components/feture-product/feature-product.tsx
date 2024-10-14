@@ -92,7 +92,7 @@ const FeatureProduct: React.FC = () => {
       </div>
 
       <div className="mt-10">
-        <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap overflow-x-auto">
+        <div className="flex lg:gap-10 gap-3 md:justify-center whitespace-nowrap overflow-x-auto">
           {categoryOrder.map((categoryTitle) => {
             const category = categoryMap?.[categoryTitle];
             return (
