@@ -20,10 +20,10 @@ function Choose() {
       {items.map((item) => (
         <li
           key={item.id}
-          className="text-black text-14 2xl:text-16 leading-6 flex items-center gap-2 py-1"
+          className="text-black text-12 sm:text-14 2xl:text-16 leading-6 flex items-center gap-2 py-1"
         >
           <span>
-            <RiVerifiedBadgeFill  className="text-secondary text-[30px]" />
+            <RiVerifiedBadgeFill  className="text-secondary text-20 md:text-[30px]" />
           </span>
           <span>{item.text}</span>
         </li>

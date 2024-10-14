@@ -27,7 +27,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
           <p className="lg:text-25 text-18 font-extralight ">
             Smart home & office automation.
           </p>
-          <p className="mt-4 font-normal lg:text-base text-14 ">
+          <p className="md:mt-4 font-normal lg:text-base text-14 ">
             Controlling the natural mild or even the temperature within a room
             maybe computerized through the usage of blinds and curtains. When
             you’ve chosen the style of blinds and material that you want, we
@@ -37,7 +37,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
             <Button
               onClick={() => router.push('/motorised-blinds')}
               variant={'default'}
-              className="py-4 px-2 md:py-7"
+              className="py-4 px-2 md:py-7 text-12 text-white"
             >
               Motorised Blinds
             </Button>

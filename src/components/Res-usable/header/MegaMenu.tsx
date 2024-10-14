@@ -122,7 +122,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       <button
         onClick={handleClick}
         ref={buttonRef}
-        className={cn('pb-10 px-4 h-full flex items-start ', className)}
+        className={cn('pb-8 px-4 h-full flex items-start ', className)}
       >
         {title}
       </button>
