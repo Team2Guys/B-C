@@ -64,7 +64,7 @@ function Hero() {
                       />
                     </svg>
 
-                    <h5 className="text-black font-gotham text-20 md:text-[30px] font-light ">
+                    <h5 className="text-black font-gotham text-16 sm:text-20 md:text-[30px] font-light ">
                       Blinds & Curtains Dubai
                     </h5>
                   </div>
