@@ -232,7 +232,7 @@ const ProductUs: React.FC = () => {
             <div className="mt-4 text-end">
               <input
                 type="submit"
-                className="bg-secondary hover:bg-btnclr text-white text-16 font-medium py-4 px-16 rounded-lg cursor-pointer"
+                className="bg-secondary hover:bg-btnclr text-white text-16 font-medium py-4 px-14 sm:px-16 rounded-lg cursor-pointer"
                 value="Send Message"
               />
             </div>

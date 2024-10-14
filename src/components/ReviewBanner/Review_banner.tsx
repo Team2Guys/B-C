@@ -50,11 +50,11 @@ export default function Review_banner() {
       <Container className=" px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md">
           <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
-            <div className="lg:text-4xl text-2xl font-bold ">
+            <div className="lg:text-4xl text-2xl font-bold text-center">
               <h3>Trusted Reviews <br/> from Our Customer</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10 lg:mb-0 mb-20">
-              <Link href="/" className="w-fit">
+              <Link href="/" className="w-fit mx-auto">
                 <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit">
                   <span>
                     <FcGoogle className="lg:text-3xl text-14" />

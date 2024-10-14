@@ -98,7 +98,7 @@ const Header = () => {
   return (
     <>
       <div className="w-full bg-secondary">
-        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center ">
+        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center pb-3 md:pb-0">
           <p className="text-white py-2 text-12 2xl:text-15 font-medium lg:tracking-[0.4px] xl:tracking-[1.8px] 2xl:tracking-[2px] leading-relaxed 2xl:leading-loose">
             We can visit you, take measurements, help select fabrics & install
             in 1-2 days. Call Dubai{' '}
@@ -255,7 +255,7 @@ const Header = () => {
           </div>
 
 
-          <div className="flex lg:hidden">
+          <div className="ms-2 xs:ms-0 flex items-center lg:hidden">
             <Sheet
               drawerName={<RiMenuFoldLine size={25} />}
               open={drawerOpen}
