@@ -76,7 +76,7 @@ function Hero() {
                     Lorem Ipsum is simply dummy text of the <br /> and
                     typesetting industry.
                   </p>
-                  <Link href={'/request-appointment'}>
+                  <Link href={'/request-appointment'} className='w-fit'>
                     <button className="uppercase bg-white text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-12">
                       Book A Free Home Design Visit
                     </button>
