@@ -43,7 +43,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const handleMouseLeave = (event: React.MouseEvent) => {
     const mouseEvent = event as any;
 
-    if (menuRef.current && !menuRef.current.contains(mouseEvent.relatedTarget as Node) && buttonRef.current && !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
     ) {
       const newTimeoutId = setTimeout(() => {
         setIsOpen(false);
@@ -69,7 +73,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
     document.addEventListener('mousedown', handleClickOutside);
 
-    setactiveProduct(sliderData[0])
+    setactiveProduct(sliderData[0]);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -83,42 +87,39 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   const MegaMenu_Headings = [
     {
-      name: "By Type"
+      name: 'By Style',
     },
     {
-      name: "By Room"
+      name: 'By Room',
     },
     {
-      name: "By Design"
+      name: 'dynamic',
     },
-  ]
-
+  ];
 
   const distributeProducts = (arr: any[], columns: number) => {
     const result: any = Array.from({ length: columns }, () => []);
-    console.log(result, "result")
+    console.log(result, 'result');
     arr.forEach((item: any, index) => {
       result[index % columns].push(item);
     });
     return result;
   };
 
-
-
-  const distributedProducts = distributeProducts(sliderData, MegaMenu_Headings.length);
+  const distributedProducts = distributeProducts(
+    sliderData,
+    MegaMenu_Headings.length,
+  );
   let currentLocation = window.location;
 
-  console.log(window.origin, "currentLocation")
+  console.log(window.origin, 'currentLocation');
 
   return (
-
-
     <div
       className=""
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-
       <button
         onClick={handleClick}
         ref={buttonRef}
@@ -127,15 +128,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         {title}
       </button>
 
-
       {isOpen && (
         <div
           ref={menuRef}
           className="border-t-8 border-secondary absolute bg-white w-full left-1/2 max-w-[98%] -translate-x-1/2  py-4 space-y-4 transition-transform transform z-50"
         >
-          <Container >
-
-
+          <Container>
             {/* <div className="flex justify-between px-8">
             <p className="text-primary text-16 font-medium">{title}</p>
             <Link onClick={() => setIsOpen(false)} href={`${href}`}>
@@ -143,66 +141,86 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
             </Link>
           </div> */}
 
-
-
-
-            <div className='grid grid-cols-4 h-full gap-5 w-full'>
-
+            <div className="grid grid-cols-4 h-full gap-5 w-full">
               {MegaMenu_Headings.map((item, index) => {
-                console.log(distributedProducts, "distributedProducts")
+                console.log(distributedProducts, 'distributedProducts');
                 const parent = generateSlug(title);
+                const itemName = generateSlug(item.name);
+                let dynamicHead = itemName;
+                if (itemName === 'blinds') {
+                  dynamicHead = 'By Function';
+                } else if (itemName === 'curtains') {
+                  dynamicHead = 'By Fabrics';
+                } else if (itemName === 'shutters') {
+                  dynamicHead = 'By Colour';
+                } else {
+                }
                 return (
-                  <div key={index} className='flex flex-col gap-5 w-full'><p className='font-bold text-lg  '>{title + " " + item.name}</p>
-                    {distributedProducts[index]?.map((item: any, index: number) =>
-                      <p key={index}
-                        onMouseEnter={() => setactiveProduct(item)}
-                        onClick={() => {
-                          const slug = generateSlug(item.title);
-                          const basePath = item.href? `${window.origin}/${item.href}`: `/${slug}`;
+                  <div key={index} className="flex flex-col gap-5 w-full">
+                    <p className="font-bold text-lg  ">
+                      {/* {title + ' ' + item.name} */}
+                      <div />
+                      {title}{' '}
+                      {item.name === 'dynamic'
+                        ? parent === 'blinds'
+                          ? 'By Function'
+                          : parent === 'curtains'
+                            ? 'By Fabrics'
+                            : parent === 'shutters'
+                              ? 'By Colour'
+                              : 'By Design'
+                        : item.name}
+                    </p>
+                    {distributedProducts[index]?.map(
+                      (item: any, index: number) => (
+                        <p
+                          key={index}
+                          onMouseEnter={() => setactiveProduct(item)}
+                          onClick={() => {
+                            const slug = generateSlug(item.title);
+                            const basePath = item.href
+                              ? `${window.origin}/${item.href}`
+                              : `/${slug}`;
 
-                          let path;
+                            let path;
 
-                          if (slug === 'office-blinds') {
-                            path = '/commercial';
-                          } else if (slug === 'hotels-restaurants-blinds-curtains') {
-                            path = basePath;
-                          } else {
-                            path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
-                          }
+                            if (slug === 'office-blinds') {
+                              path = '/commercial';
+                            } else if (
+                              slug === 'hotels-restaurants-blinds-curtains'
+                            ) {
+                              path = basePath;
+                            } else {
+                              path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
+                            }
 
-                          route.push(path);
-                          setIsOpen(false);
-                        }}
-                        className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit  ${activeProduct?.title == item.title ? "font-medium drop-shadow-sm " : " font-normal"}`}>
-
-                        {item.title}</p>
-
+                            route.push(path);
+                            setIsOpen(false);
+                          }}
+                          className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit  ${activeProduct?.title == item.title ? 'font-medium drop-shadow-sm ' : ' font-normal'}`}
+                        >
+                          {item.title}
+                        </p>
+                      ),
                     )}
-                  </div>)
+                  </div>
+                );
               })}
 
-
-
-
-              <div className='relative'>
-
-                <Image src={activeProduct?.posterImage.imageUrl}
-                  alt={activeProduct?.title || "posterImage"}
+              <div className="relative">
+                <Image
+                  src={activeProduct?.posterImage.imageUrl}
+                  alt={activeProduct?.title || 'posterImage'}
                   width={500}
                   height={500}
-                  className='bg-contain'
-
-
+                  className="bg-contain"
                 />
-                <p className='absolute bottom-0 z-999 w-full bg-white opacity-80 font-bold text-xl whitespace-normal text-center py-3'>{activeProduct?.title}</p>
-
-
-
-
+                <p className="absolute bottom-0 z-999 w-full bg-white opacity-80 font-bold text-xl whitespace-normal text-center py-3">
+                  {activeProduct?.title}
+                </p>
               </div>
             </div>
           </Container>
-
 
           {/* <CardSlider
             title={title}
@@ -226,12 +244,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           /> */}
         </div>
       )}
-
-
-
     </div>
-
-
   );
 };
 
