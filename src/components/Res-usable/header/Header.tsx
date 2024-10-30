@@ -101,7 +101,7 @@ const Header = () => {
         <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center pb-3 md:pb-0">
           <p className="text-white py-2 text-12 2xl:text-15 font-medium lg:tracking-[0.4px] xl:tracking-[1.8px] 2xl:tracking-[2px] leading-relaxed 2xl:leading-loose">
             We can visit you, take measurements, help select fabrics & install
-            in 1-2 days. Call Dubai{' '}
+            in 2-3 days. Call Dubai{' '}
             <Link
               className="underline font-medium"
               target="_blank"
@@ -128,13 +128,13 @@ const Header = () => {
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
 
-          <div className="w-3/12 lg:w-8/12 mt-auto">
+          <div className="w-3/12 lg:w-8/12 mt-[22px]">
             <div className="hidden lg:flex justify-evenly 
             
             
             text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3">
               <Link
-                className={`px-3 pb-6 text-12 xl:text-15 ${path === '/'
+                className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${path === '/'
                     ? 'font-bold text-black-500 bg-secondary text-white '
                     : 'hover:bg-secondary hover:text-white'
                   }`}
@@ -230,7 +230,7 @@ const Header = () => {
                 ) : (
                   <Link
                     key={index}
-                    className={`px-3 pb-6 text-12 xl:text-15 ${isBlogActive || isActive
+                    className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${isBlogActive || isActive
                         ? 'font-bold text-black-500 text-white bg-secondary'
                         : 'hover:bg-secondary hover:text-white'
                       }`}
@@ -249,7 +249,7 @@ const Header = () => {
               href="/request-appointment"
               onClick={handleLinkClick}
             >
-              Book Free Appointment
+              Book A Free Appointment
             </Link>
 
           </div>

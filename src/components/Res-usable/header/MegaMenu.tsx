@@ -123,7 +123,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       <button
         onClick={handleClick}
         ref={buttonRef}
-        className={cn('pb-10 px-4 h-full flex items-start ', className)}
+        className={cn('pb-10 pt-1 px-4 h-full flex items-start ', className)}
       >
         {title}
       </button>
@@ -197,7 +197,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                             route.push(path);
                             setIsOpen(false);
                           }}
-                          className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit  ${activeProduct?.title == item.title ? 'font-medium border-b-2 border-secondary' : ' font-normal'}`}
+                          className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit  ${activeProduct?.title == item.title ? 'font-medium drop-shadow-sm ' : ' font-normal'}`}
                         >
                           {item.title}
                         </p>
