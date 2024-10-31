@@ -519,23 +519,23 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               className={`mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.area}
               onChange={handleChange}
-              // required
+            // required
             />
 
             {errors.area && (
               <p className="text-red-500 text-xs">{errors.area}</p>
             )}
           </div>
-      
+
         </div>
         {!singlePage && (
           <div className="flex flex-wrap justify-between gap-2 mb-3">
             <div className=" p-2 bg-white shadow-md rounded-md">
-              <h2 className="text-sm mb-4">Tell us what you need:</h2>
+              <h2 className="text-11 font-light mb-3">Tell us what you need:</h2>
 
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-4">
                 <div>
-                  <label className="flex items-center text-11">
+                  <label className="flex items-center text-11 text-[#898989]">
                     <input
                       type="checkbox"
                       checked={selectedOptions.blinds}
@@ -547,7 +547,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                 </div>
 
                 <div>
-                  <label className="flex items-center text-11">
+                  <label className="flex items-center text-11 text-[#898989]">
                     <input
                       type="checkbox"
                       checked={selectedOptions.curtains}
@@ -558,7 +558,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                   </label>
                 </div>
                 <div>
-                  <label className="flex items-center text-11">
+                  <label className="flex items-center text-11 text-[#898989]">
                     <input
                       type="checkbox"
                       checked={selectedOptions.shutters}
@@ -570,10 +570,10 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                 </div>
               </div>
             </div>
-            <div className="p-2 rounded-md ">
-              <label className="text-sm mb-4">How shall we contact you?</label>
+            <div className="p-2 rounded-md">
+              <h2 className="text-11 font-light mb-3">How shall we contact you?</h2>
               <div className="flex flex-row gap-2 mt-2">
-                <label className="flex items-center text-11">
+                <label className="flex items-center text-11 text-[#898989]">
                   <input
                     type="checkbox"
                     name="whatsapp"
@@ -584,7 +584,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                   WhatsApp
                 </label>
 
-                <label className="flex items-center text-11">
+                <label className="flex items-center text-11 text-[#898989]">
                   <input
                     type="checkbox"
                     name="telephone"
@@ -594,7 +594,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                   />
                   Telephone
                 </label>
-                <label className="flex items-center text-11">
+                <label className="flex items-center text-11 text-[#898989]">
                   <input
                     type="checkbox"
                     name="email"
@@ -651,30 +651,30 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
           </>
         )}
 
-<div
-            className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}
-          >
-            <label htmlFor="user_query" className="block text-11 font-light ">
-              Any Other Requirements
-            </label>
-            <textarea
-              id="user_query"
-              name="user_query"
-              value={formData.user_query}
-              onChange={handleInputChange}
-              className="mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
-              placeholder="Enter your query (max 350 characters)"
-              rows={2}
-            />
-            {wordCount > 0 && 
+        <div
+          className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}
+        >
+          <label htmlFor="user_query" className="block text-11 font-light ">
+            Any Other Requirements
+          </label>
+          <textarea
+            id="user_query"
+            name="user_query"
+            value={formData.user_query}
+            onChange={handleInputChange}
+            className="mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
+            placeholder="Enter your query (max 350 characters)"
+            rows={2}
+          />
+          {wordCount > 0 &&
             <div className="text-sm text-gray-400 mt-1">
               {wordCount}
               {/* /350 words */}
             </div>
-            }
+          }
 
 
-            {/* <Select
+          {/* <Select
               options={queryOptions}
               onChange={(option) =>
                 handleSelectChange('user_query', option?.value || '')
@@ -684,7 +684,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               )}
               className="mt-1 w-full text-11"
             /> */}
-          </div>
+        </div>
 
         <div className="text-center mt-4">
           <button
