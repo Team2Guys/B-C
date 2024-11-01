@@ -33,21 +33,27 @@ const Products = () => {
   }, [selecteMenu]);
 
   const EditInitialValues: any = {
-    title: editProduct?.title,
+    // id: editProduct?.id,
+    name: editProduct?.title,
     description: editProduct?.description,
-    price: editProduct?.price,
-    colors: editProduct?.colors,
-    modelDetails: editProduct?.modelDetails,
-    spacification: editProduct?.spacification,
+    salePrice: editProduct?.price ? editProduct?.price : editProduct?.salePrice,
     discountPrice: editProduct?.discountPrice,
-    category: editProduct && editProduct?.category,
+    code: editProduct && editProduct.code,
+    category: editProduct && editProduct?.CategoryId,
+    Meta_Title: editProduct && editProduct?.Meta_Title,
+    Canonical_Tag: editProduct && editProduct?.Canonical_Tag,
+    Meta_Description: editProduct && editProduct?.Meta_Description,
+    Images_Alt_Text: editProduct && editProduct?.Images_Alt_Text,
+
+    modelDetails: editProduct && editProduct?.modelDetails,
+    colors: editProduct?.colors,
+    spacification: editProduct?.spacification,
     sizes: editProduct && editProduct?.sizes,
     starRating: editProduct && editProduct.starRating,
     reviews: editProduct && editProduct.starRating,
-    code: editProduct && editProduct.code,
-    salePrice: editProduct && editProduct.salePrice,
-
-    purchasePrice: editProduct && editProduct.purchasePrice,
+    
+    posterImage: editProduct && editProduct.posterImage,
+    imageUrls: editProduct && editProduct.imageUrls,
     additionalInformation: editProduct && editProduct.additionalInformation,
     product_type: editProduct && editProduct.product_type,
   };
@@ -72,15 +78,15 @@ const Products = () => {
       ) : (
         <FormElements
           setselecteMenu={setselecteMenu}
-          EditInitialValues={editProduct}
+          EditInitialValues={EditInitialValues}
           setEditProduct={setEditProduct}
-          EditProductValue={
-            EditInitialValues &&
-            (EditInitialValues.name !== undefined ||
-              EditInitialValues.category !== undefined)
-              ? EditInitialValues
-              : undefined
-          }
+          // EditProductValue={
+          //   EditInitialValues &&
+          //   (EditInitialValues.name !== undefined ||
+          //     EditInitialValues.category !== undefined)
+          //     ? EditInitialValues
+          //     : undefined
+          // }
         />
       )}
     </DefaultLayout>
