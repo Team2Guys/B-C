@@ -18,7 +18,7 @@ export default function DefaultLayout({
         {/* <!-- ===== Sidebar End ===== --> */}
 
         {/* <!-- ===== Content Area Start ===== --> */}
-        <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden h-[100vh] dark:border-strokedark dark:bg-boxdark">
+        <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden h-[100vh] dark:border-strokedark dark:bg-dashboardDark">
           {/* <!-- ===== Header Start ===== --> */}
           <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
           {/* <!-- ===== Header End ===== --> */}
