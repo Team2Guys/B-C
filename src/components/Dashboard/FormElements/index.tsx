@@ -36,7 +36,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
   const [imagesUrl, setImagesUrl] = useState<any[]>([]);
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>((EditInitialValues && EditInitialValues.posterImage) && [EditInitialValues.posterImage]);
-  const [hoverImage, sethoverImage] = useState<any[] | null | undefined>((EditInitialValues && EditInitialValues.imageUrls) && [EditInitialValues.imageUrls]);
+  const [hoverImage, sethoverImage] = useState<any[] | null | undefined>((EditInitialValues && EditInitialValues.hoverImage) && [EditInitialValues.hoverImage]);
   const [loading, setloading] = useState<boolean>(false);
   const [productInitialValue, setProductInitialValue] = useState<any | null | undefined>(EditInitialValues);
   const [imgError, setError] = useState<string | null | undefined>();
@@ -59,32 +59,32 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
     setIsOptionSelected(true);
   };
 
-  // useLayoutEffect(() => {
-  //   const CategoryHandler = async () => {
-  //     try {
-  //       if (!EditInitialValues) return;
-  //       const {
-  //         posterImageUrl,
-  //         imageUrl,
-  //         _id,
-  //         createdAt,
-  //         updatedAt,
-  //         __v,
-  //         hoverImage,
-  //         ...EditInitialProductValues
-  //       } = EditInitialValues as any;
-  //       imageUrl ? setImagesUrl(imageUrl) : null;
-  //       posterImageUrl ? setposterimageUrl([posterImageUrl]) : null;
-  //       console.log(hoverImage, "EditInitialValues.hoverImageUrl")
-  //       hoverImage ? sethoverImage([hoverImage]) : null
-  //       console.log(productInitialValue, "productInitialValue")
-  //     } catch (err) {
-  //       console.log(err, "err");
-  //     }
-  //   };
+  useLayoutEffect(() => {
+    const CategoryHandler = async () => {
+      try {
+        if (!EditInitialValues) return;
+        const {
+          posterImageUrl,
+          imageUrls,
+          _id,
+          createdAt,
+          updatedAt,
+          __v,
+          hoverImage,
+          ...EditInitialProductValues
+        } = EditInitialValues as any;
+        imageUrls ? setImagesUrl(imageUrls) : null;
+        posterImageUrl ? setposterimageUrl([posterImageUrl]) : null;
+        console.log(hoverImage, "EditInitialValues.hoverImageUrl")
+        hoverImage ? sethoverImage([hoverImage]) : null
+        console.log(productInitialValue, "productInitialValue")
+      } catch (err) {
+        console.log(err, "err");
+      }
+    };
 
-  //   CategoryHandler();
-  // }, []);
+    CategoryHandler();
+  }, []);
 
   const onSubmit = async (values: any, { resetForm }: any) => {
 
@@ -108,23 +108,23 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
 
       let updateFlag = EditProductValue && EditInitialValues ? true : false;
 
-      // let addProductUrl = updateFlag
-      //   ? `/api/products/updateProduct/${EditInitialValues._id} `
-      //   : null;
-      // let url = `${process.env.NEXT_PUBLIC_BASE_URL}${updateFlag ? addProductUrl : "/api/products/addProduct"
-      //   }`;
+      let addProductUrl = updateFlag
+        ? `/api/products/updateProduct/${EditInitialValues._id} `
+        : null;
+      let url = `${process.env.NEXT_PUBLIC_BASE_URL}${updateFlag ? addProductUrl : "/api/products/addProduct"
+        }`;
         console.log(newValue, "newValuenewValue");
-      // const response = await axios.post(url, newValue,{headers:headers});
-      // console.log(response, "response");
+      const response = await axios.post(url, newValue,{headers:headers});
+      console.log(response, "response");
       Toaster("success", updateFlag ? "Product has been sucessufully Updated !" : "Product has been sucessufully Created !");
-      // setProductInitialValue(AddproductsinitialValues);
-      // resetForm();
-      // setloading(false);
-      // sethoverImage(null);
-      // setposterimageUrl(null);
-      // setImagesUrl([]);
-      // updateFlag ? setEditProduct && setEditProduct(undefined) : null;
-      // setselecteMenu("Add All Products");
+      setProductInitialValue(AddproductsinitialValues);
+      resetForm();
+      setloading(false);
+      sethoverImage(null);
+      setposterimageUrl(null);
+      setImagesUrl([]);
+      updateFlag ? setEditProduct && setEditProduct(undefined) : null;
+      setselecteMenu("Add All Products");
     } catch (err: any) {
       if (err.response && err.response.data && err.response.data.error) {
         setError(err.response.data.error);
@@ -137,7 +137,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
         }
       }
     } finally {
-      // setloading(false);
+      setloading(false);
     }
   };
 

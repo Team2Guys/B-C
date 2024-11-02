@@ -33,7 +33,7 @@ const Products = () => {
   }, [selecteMenu]);
 
   const EditInitialValues: any = {
-    // id: editProduct?.id,
+    id: editProduct?.id,
     name: editProduct?.title,
     description: editProduct?.description,
     salePrice: editProduct?.price ? editProduct?.price : editProduct?.salePrice,
@@ -44,20 +44,19 @@ const Products = () => {
     Canonical_Tag: editProduct && editProduct?.Canonical_Tag,
     Meta_Description: editProduct && editProduct?.Meta_Description,
     Images_Alt_Text: editProduct && editProduct?.Images_Alt_Text,
-
     modelDetails: editProduct && editProduct?.modelDetails,
     colors: editProduct?.colors,
     spacification: editProduct?.spacification,
     sizes: editProduct && editProduct?.sizes,
     starRating: editProduct && editProduct.starRating,
     reviews: editProduct && editProduct.starRating,
-    
     posterImage: editProduct && editProduct.posterImage,
+    hoverImage: editProduct && editProduct.hoverImage,
     imageUrls: editProduct && editProduct.imageUrls,
     additionalInformation: editProduct && editProduct.additionalInformation,
     product_type: editProduct && editProduct.product_type,
   };
-
+console.log(EditInitialValues,"EditInitialValuesEditInitialValues")
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
   
   useEffect(() => {
@@ -80,13 +79,13 @@ const Products = () => {
           setselecteMenu={setselecteMenu}
           EditInitialValues={EditInitialValues}
           setEditProduct={setEditProduct}
-          // EditProductValue={
-          //   EditInitialValues &&
-          //   (EditInitialValues.name !== undefined ||
-          //     EditInitialValues.category !== undefined)
-          //     ? EditInitialValues
-          //     : undefined
-          // }
+          EditProductValue={
+            EditInitialValues &&
+            (EditInitialValues.name !== undefined ||
+              EditInitialValues.category !== undefined)
+              ? EditInitialValues
+              : undefined
+          }
         />
       )}
     </DefaultLayout>
