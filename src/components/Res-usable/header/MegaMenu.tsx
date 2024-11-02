@@ -7,7 +7,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import { IProduct } from 'types/types';
 import Image from 'next/image';
 import Container from '../Container/Container';
-import { generateSlug } from 'data/data';
+import {
+  generateSlug,
+  megaMenubyRoom,
+  megaMenubyStyle,
+  megaMenuDynamic,
+} from 'data/data';
 
 interface MegaMenuProps {
   title: string;
@@ -24,6 +29,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   href,
   onClick,
 }) => {
+  console.log(sliderData, 'sliderData');
+
   const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeProduct, setactiveProduct] = useState<IProduct | undefined>();
@@ -98,11 +105,30 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   ];
 
   const distributeProducts = (arr: any[], columns: number) => {
-    const result: any = Array.from({ length: columns }, () => []);
-    console.log(result, 'result');
-    arr.forEach((item: any, index) => {
-      result[index % columns].push(item);
+    const styles = megaMenubyStyle.map((item) =>
+      generateSlug(item.productName),
+    );
+    const rooms = megaMenubyRoom.map((item) => generateSlug(item.productName));
+    const dynamics = megaMenuDynamic.map((item) =>
+      generateSlug(item.productName),
+    );
+    const result = [[], [], []];
+
+    sliderData.forEach((product) => {
+      const slug = generateSlug(product.title);
+
+      if (styles.includes(slug)) {
+        //@ts-expect-error
+        result[0].push(product);
+      } else if (rooms.includes(slug)) {
+        //@ts-expect-error
+        result[1].push(product);
+      } else if (dynamics.includes(slug)) {
+        //@ts-expect-error
+        result[2].push(product);
+      }
     });
+    console.log(result, 'result');
     return result;
   };
 
@@ -110,16 +136,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     sliderData,
     MegaMenu_Headings.length,
   );
+
   let currentLocation = window.location;
 
-  console.log(window.origin, 'currentLocation');
-
   return (
-    <div
-      className=""
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <button
         onClick={handleClick}
         ref={buttonRef}
@@ -143,7 +164,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
             <div className="grid grid-cols-4 h-full gap-5 w-full">
               {MegaMenu_Headings.map((item, index) => {
-                console.log(distributedProducts, 'distributedProducts');
                 const parent = generateSlug(title);
                 const itemName = generateSlug(item.name);
                 let dynamicHead = itemName;
@@ -158,9 +178,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                 return (
                   <div key={index} className="flex flex-col gap-5 w-full">
                     <p className="font-bold text-lg  ">
-                      {/* {title + ' ' + item.name} */}
-                      <div />
-                      {title}{' '}
+                      {title}
                       {item.name === 'dynamic'
                         ? parent === 'blinds'
                           ? 'By Function'
