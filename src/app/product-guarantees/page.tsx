@@ -39,12 +39,12 @@ const ProductGuarantees = () => {
           className={`pt-10  lg:pb-14 flex justify-between lg:gap-10 items-start flex-col md:flex-row ${data.imageAlign === 'right' ? 'lg:flex-row-reverse' : ''}`}
         >
           <div
-            className={`w-full md:w-1/2 ${data.imageAlign === 'right' ? 'lg:pl-20' : 'lg:pr-32'} px-5`}
+            className={`w-full md:w-1/2 ${data.imageAlign === 'right' ? 'lg:pl-2' : 'lg:pr-2'} px-5`}
           >
             <h3 className="font-bold text-lg xs:text-2xl tracking-wider">
               {data.heading}
             </h3>
-            <p className="text-12 sm:text-18 leading-5 sm:leading-8 mt-4 text-lightdark">
+            <p className="text-12 sm:text-14 2xl:text-16 leading-5 sm:leading-8 mt-4 text-lightdark">
               {data.text}
             </p>
             <div className="h-fit mt-8"></div>
