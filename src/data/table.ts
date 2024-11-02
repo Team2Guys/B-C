@@ -37,51 +37,63 @@ export const appointmentColumns = [
   {
     title: 'ID',
     dataIndex: 'id',
+    width: 60,
   },
   {
     title: 'Name',
     dataIndex: 'name',
+    width: 100,
   },
   {
     title: 'Area',
     dataIndex: 'area',
+    width: 100,
   },
   {
     title: 'Email',
     dataIndex: 'email',
+    width: 150,
   },
   {
     title: 'Phone Number',
     dataIndex: 'phone_number',
+    width: 150,
   },
   {
     title: 'WhatsApp Number',
     dataIndex: 'whatsapp_number',
+    width: 120,
   },
   {
     title: 'Preferred Contact Method',
     dataIndex: 'prefered_contact_method',
+    width: 100,
   },
   {
     title: 'Windows',
     dataIndex: 'windows',
+    width: 100,
   },
   {
     title: 'Product Type',
     dataIndex: 'product_type',
+    width: 150,
   },
   {
     title: 'How User Found Us',
     dataIndex: 'how_user_find_us',
+    width: 100,
   },
   {
     title: 'User Query',
     dataIndex: 'user_query',
+    width: 100,
   },
 
   {
     title: 'Preferred Date',
     dataIndex: 'prefered_Date',
+    width: 100,
   },
 ];
 

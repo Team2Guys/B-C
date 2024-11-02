@@ -128,7 +128,7 @@ const Header = () => {
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
 
-          <div className="w-3/12 lg:w-8/12 mt-[22px]">
+          <div className="w-3/12 lg:w-8/12 mt-[30px]">
             <div className="hidden lg:flex justify-evenly 
             
             
