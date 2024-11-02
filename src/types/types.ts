@@ -77,10 +77,10 @@ export interface IAppointments {
   how_user_find_us: string;
   id: number;
   name: string;
-  phone_number: number;
+  phone_number: string;
   prefered_Date: string; // Consider using Date type if parsing date is needed
-  prefered_contact_method: string;
-  product_type: string;
+  prefered_contact_method?: string;
+  product_type?: string;
   user_query: string;
   whatsapp_number: string;
   windows: string;
