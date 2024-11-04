@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 
 import React from 'react';
 import {
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
     <footer>
       <div className="bg-primary text-white py-10">
         <div className="max-w-screen-2xl mx-auto px-2">
-          <div className="lg:flex border-b-2">
+          <div className="lg:flex border-b-2 px-2">
             <div className="mb-4 md:col-span-1 lg:w-2/12">
               <Link href={'/'}>
                 <Image
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-end py-5 lg:w-5/6 space-y-2 sm:space-y-0">
+            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-center py-5 lg:w-5/6 space-y-2 sm:space-y-0">
               {categories
                 ?.filter((category) => category.title !== 'Commercial')
                 .sort((a, b) => {
@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
                           return (
                             <li key={subcategory.id}>
                               <Link
-                                className="text-16 font-medium "
+                                className="text-14 font-medium "
                                 href={`/${filteredCategory?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
                               >
                                 {subcategory.title}
@@ -140,7 +140,7 @@ const Footer: React.FC = () => {
                           return (
                             <li key={product.id}>
                               <Link
-                                className="text-16 font-medium"
+                                className="text-14 font-medium"
                                 href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(product.title)}`}
                               >
                                 {updateProductTitle(product.title)}

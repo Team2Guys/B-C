@@ -50,7 +50,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
                 alt="img"
               />
               <div className="text-center space-y-3">
-                <h1 className="text-16 font-normal">{product.title}</h1>
+                <h1 className="text-17 font-semibold">{product.title}</h1>
                 <p className="text-15 font-light md:w-[80%] mx-auto auto max-h-16 overflow-y-auto custom-scrollbar">
                   {product.description}
                 </p>

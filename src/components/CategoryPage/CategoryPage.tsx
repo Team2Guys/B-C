@@ -30,7 +30,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const pathname = usePathname();
   const [activeFilter, setActiveFilter] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
-  const [relatedProduct, setRelatedProduct] = useState(null);
   const {
     data: products,
     error,
@@ -100,20 +99,23 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   return (
     <div>
       <TopHero title={title} image={bgBreadcrum} />
-      <Container className="pt-20 pb-14 flex flex-col gap-10 items-center">
+      <Container className="pt-10 md:pt-20 pb-14 flex flex-col gap-10 items-center">
         {filteredProducts?.map((product, index) => (
           <div
             key={index}
-            className={`flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
+            className={`flex flex-col gap-4 justify-between mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
           >
-            <Image
+           <div className='w-full md:w-1/2'>
+           <Image
+           className='w-full h-full md:h-[600px]'
               src={product.posterImage.imageUrl}
               height={500}
               width={500}
               alt={product.title}
             />
 
-            <div className="w-full md:w-1/2 flex flex-col justify-between">
+           </div>
+            <div className="w-full md:w-1/2 flex flex-col justify-between ">
               <div>
                 <h3 className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
                   <div className="tracking-[.6rem] mb-2">
@@ -129,7 +131,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                 </p>
               </div>
 
-              <div className="">
+              <div className="mt-5">
                 <Link
                   href={`/request-appointment`}
                   className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
@@ -143,7 +145,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
       </Container>
 
       <Container className="text-center py-6">
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-4 whitespace-nowrap overflow-auto">
           <Button
             variant={'feature'}
             className={` ${activeFilter === 'All' ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}

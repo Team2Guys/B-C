@@ -51,7 +51,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
           className={`absolute bottom-0 px-2 w-full h-12 flex items-center ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
         >
           <span
-            className={`text-black ${relativeProducts ? 'text-16 font-light' : 'text-sm font-medium'}`}
+            className={`text-black text-start ${relativeProducts ? 'text-14 font-light' : 'text-sm font-medium'}`}
           >
             {card.title}
           </span>
@@ -61,7 +61,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
                 `/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(card.title)}`,
               );
             }}
-            className={`border-[1px] border-primary px-2 py-1 rounded-sm text-14 font-light cursor-pointer ${relativeProducts ? 'block' : 'hidden'}`}
+            className={`border-[1px] border-primary px-2 py-1 whitespace-nowrap rounded-sm text-14 font-light cursor-pointer ${relativeProducts ? 'block' : 'hidden'}`}
           >
             View More
           </div>
