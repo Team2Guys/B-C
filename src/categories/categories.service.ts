@@ -75,7 +75,6 @@ export class CategoriesService {
   }
 
 
-  // Sub Categoies
   async AddsubCategoryHandler(createCategoryDto: Prisma.SubCategoriesCreateInput) {
     const CreatesubCategoryHandlerWithErrorHandling  = withAsyncErrorHandling(CreatesubCategoryHandler)
       const [response, error]: any = await CreatesubCategoryHandlerWithErrorHandling(createCategoryDto);
