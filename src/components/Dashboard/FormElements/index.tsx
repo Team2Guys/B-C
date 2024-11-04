@@ -29,6 +29,7 @@ import {
   AddProductvalidationSchema,
   AddproductsinitialValues,
 } from "data/data";
+import { Checkbox } from "antd";
 
 const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditProductValue, setselecteMenu, setEditProduct,
 }) => {
@@ -42,10 +43,11 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
   const [imgError, setError] = useState<string | null | undefined>();
   const [Categories, setCategories] = useState<any[]>();
   const [VariationOption, setVariationOption] = useState<string>("withoutVariation");
-  const handleOptionChange = (e: any) => {
-    console.log(e);
-    setVariationOption(e.target.value);
-  };
+  const [Subcategory, setSubcategory] = useState(null);
+
+  console.log(Subcategory,"addedSubcategoryaddedSubcategoryaddedSubcategory")
+
+ 
   const token = Cookies.get("2guysAdminToken");
   const superAdminToken = Cookies.get("superAdminToken");
   let finalToken = token ? token : superAdminToken;
@@ -140,7 +142,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
       setloading(false);
     }
   };
-
+  const handleOptionChange = (e: any) => {
+    console.log(e);
+    setVariationOption(e.target.value);
+  };
   useEffect(() => {
     const CategoryHandler = async () => {
       try {
@@ -149,13 +154,24 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
         );
         const Categories = await response.json();
         setCategories(Categories);
-        // console.log(Categories, "Categories");
       } catch (err) {
         console.log(err, "err");
       }
     };
+    const SubCategoryHandler = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`
+        );
+        setSubcategory(response.data);
+      } catch (err) {
+        console.error("Error fetching subcategories:", err);
+      }
+    };
 
+    SubCategoryHandler();
     CategoryHandler();
+    
   }, []);
 
 
@@ -445,8 +461,11 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
                             className="text-red"
                           />
                         </div>
+                    
                       </div>
-
+                      {/* <div className="w-4/4">
+                        <Checkbox onChange={handleOptionChange}>Checkbox</Checkbox>
+                        </div> */}
 
 
                       <div className="flex gap-4">

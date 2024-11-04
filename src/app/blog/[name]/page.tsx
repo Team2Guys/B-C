@@ -57,7 +57,7 @@ const BlogDetail = () => {
       <span dangerouslySetInnerHTML={{ __html: blog.content }} />
 
       {/* <OurBlog id={"#top"} title="Popular Post" Blogdata={latestArticles} buttonView /> */}
-      <Comments />
+      <Comments data={blog?.posterImage} />
     </Container>
   );
 };

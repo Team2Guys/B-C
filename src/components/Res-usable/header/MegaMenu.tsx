@@ -24,7 +24,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   href,
   onClick,
 }) => {
-  const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeProduct, setactiveProduct] = useState<IProduct | undefined>();
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
@@ -42,17 +41,18 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   const handleMouseLeave = (event: React.MouseEvent) => {
     const mouseEvent = event as any;
-
+  
     if (
       menuRef.current &&
-      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
       buttonRef.current &&
+      mouseEvent.relatedTarget &&
+      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
       !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
     ) {
       const newTimeoutId = setTimeout(() => {
         setIsOpen(false);
       }, 300);
-
+  
       setTimeoutId(newTimeoutId);
     }
   };
