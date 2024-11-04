@@ -165,29 +165,30 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
             <div className="grid grid-cols-4 h-full gap-5 w-full">
               {MegaMenu_Headings.map((item, index) => {
                 const parent = generateSlug(title);
+
                 const itemName = generateSlug(item.name);
-                let dynamicHead = itemName;
-                if (itemName === 'blinds') {
-                  dynamicHead = 'By Function';
-                } else if (itemName === 'curtains') {
-                  dynamicHead = 'By Fabrics';
-                } else if (itemName === 'shutters') {
-                  dynamicHead = 'By Colour';
-                } else {
-                }
+                console.log('itemName', itemName);
+                console.log('parent', parent);
+
                 return (
                   <div key={index} className="flex flex-col gap-5 w-full">
                     <p className="font-bold text-lg  ">
-                      {title}
-                      {item.name === 'dynamic'
-                        ? parent === 'blinds'
-                          ? 'By Function'
-                          : parent === 'curtains'
-                            ? 'By Fabrics'
-                            : parent === 'shutters'
-                              ? 'By Colour'
-                              : 'By Design'
-                        : item.name}
+                      {title}{' '}
+                      {parent === 'commercial'
+                        ? item.name === 'By Style'
+                          ? 'By Places'
+                          : item.name === 'By Room'
+                            ? 'By Location'
+                            : 'By Specification'
+                        : item.name === 'dynamic'
+                          ? parent === 'blinds'
+                            ? 'By Function'
+                            : parent === 'curtains'
+                              ? 'By Fabrics'
+                              : parent === 'shutters'
+                                ? 'By Colour'
+                                : 'By Specification'
+                          : item.name}
                     </p>
                     {distributedProducts[index]?.map(
                       (item: any, index: number) => (
