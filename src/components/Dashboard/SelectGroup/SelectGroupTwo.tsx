@@ -29,7 +29,7 @@ const SelectGroupTwo: React.FC<PROPS> = ({
         Select Category
       </label>
 
-      <div className="relative z-20 bg-white dark:bg-form-input">
+      <div className="relative z-20 border border-stroke bg-white dark:border-strokedark dark:bg-dashboardDark">
         <span className="absolute left-4 top-1/2 z-30 -translate-y-1/2 text-black dark:text-white">
           <MdOutlineCategory size={20} />
         </span>
@@ -46,14 +46,14 @@ const SelectGroupTwo: React.FC<PROPS> = ({
             Select Category
           </option>
 
-          {/* {Categories &&
+          {Categories &&
             Categories?.map((item, index) => {
               return (
-                <option value={item._id} label={item.name} key={index}>
-                  {item.name}
+                <option className='text-black dark:text-white' value={item.id} label={item.title} key={index}>
+                  {item.title}
                 </option>
               );
-            })} */}
+            })}
         </select>
       </div>
     </div>

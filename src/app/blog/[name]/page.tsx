@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import OurBlog from 'components/Blogs/our-blog';
 import Container from 'components/Res-usable/Container/Container';
 import PageSkelton from 'components/Skeleton/PageSkelton';
+import Comments from 'components/comments/Comments';
 import { formatDateMonth } from 'config';
 import { fetchBlogs } from 'config/fetch';
 import { blogData, generateSlug } from 'data/data';
@@ -56,6 +57,7 @@ const BlogDetail = () => {
       <span dangerouslySetInnerHTML={{ __html: blog.content }} />
 
       {/* <OurBlog id={"#top"} title="Popular Post" Blogdata={latestArticles} buttonView /> */}
+      <Comments data={blog?.posterImage} />
     </Container>
   );
 };

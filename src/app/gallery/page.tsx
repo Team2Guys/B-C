@@ -65,7 +65,7 @@ const GalleryPage = () => {
   return (
     <>
       <TopHero title="GALLERY" image={bgBreadcrum} />
-      <Container className="pt-16 pb-12">
+      <Container className="pt-16 pb-12 px-4 md:px-0">
         <div className="flex justify-between items-center pb-4 mb-6 overflow-hidden">
           <h1 className="text-2xl xs:text-3xl font-medium text-gray-800">
             GALLERY
@@ -108,9 +108,9 @@ const GalleryPage = () => {
           </div>
         </div>
       </Container>
-      <div className="w-full border-t-[1px] border-borderclr"></div>
-      <Container className="lg:pt-12 pt-5 pb-16">
-        <p className="text-center text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-normal 2xl:leading-normal text-black w-full md:w-4/5 xl:w-3/4 mx-auto">
+      <div className="w-full border-t-[1px] border-borderclr "></div>
+      <Container className="lg:pt-12 pt-5 pb-16 px-4 md:px-0">
+        <p className="text-center text-14 font-semibold md:font-normal lg:text-2xl xl:text-3xl 2xl:text-4xl leading-normal 2xl:leading-normal text-black w-full md:w-4/5 xl:w-3/4 mx-auto">
           A RANGE OF THE VAST CHOICES OF WINDOW COVERINGS AVAILABLE FOR YOUR
           HOME OR OFFICE...
         </p>

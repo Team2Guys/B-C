@@ -74,8 +74,11 @@ const Estimator: React.FC = () => {
     }
   }, [categories, products]);
 
+
   useEffect(() => {
     calculatePrice(width, height);
+    setSelectedProduct(activeProduct)
+    console.log(activeProduct, "imageUrl")
   }, [activeProduct]);
 
   if (categoriesError instanceof Error) return <EstimatorSkeleton />;
@@ -144,8 +147,8 @@ const Estimator: React.FC = () => {
       {isLoadingProducts ? (
         <EstimatorSkeleton />
       ) : (
-        <div className="mt-10 lg:max-w-[95%] 2xl:max-w-[90%]">
-          <div className="grid grid-cols-12 gap-10">
+        <div className="md:mt-10 lg:max-w-[95%] 2xl:max-w-[90%]">
+          <div className="grid grid-cols-12 md:gap-10 space-y-5 md:space-y-0">
             <div className=" col-span-12 md:col-span-5 lg:col-span-7">
               <Image
                 src={selectedProduct?.posterImage?.imageUrl}
@@ -161,12 +164,12 @@ const Estimator: React.FC = () => {
                 Get Estimate
               </h2>
 
-              <div className=" bg-gray-100 pb-6  rounded-lg shadow-md">
+              <div className=" bg-gray-100 pb-6  rounded-lg shadow-md w-full">
                 <p className="text-lg font-normal mb-2 p-3 rounded-t-md bg-[#f6efe9]">
                   Enter your Measurements
                 </p>
 
-                <div className="grid grid-cols-2 gap-4 mb-4 px-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 px-5">
                   <div>
                     <label
                       htmlFor="width"
@@ -232,12 +235,12 @@ const Estimator: React.FC = () => {
                 setActiveProduct={setActiveProduct}
               />
 
-              <p className="lg:text-[15px] text-md">
+              <p className="lg:text-[15px] px-4 md:px-0">
                 *The displayed price is for the base offer; for upgraded options
                 prices may vary visit to have your custom quotation!
               </p>
               {activeProduct && (
-                <p className="lg:text-[35px] text-2xl font-bold text-center">
+                <p className="lg:text-[35px] text-2xl font-bold text-center px-4 md:px-0">
                   AED{' '}
                   {calculatedPrice
                     ? calculatedPrice.toFixed(2)
@@ -247,9 +250,9 @@ const Estimator: React.FC = () => {
 
               <Button
                 onClick={() => {
-                  route.push('/appointment');
+                  route.push('/request-appointment');
                 }}
-                className="bg-secondary text-white text-2xl font-bold py-7 px-4 rounded-lg"
+                className="bg-secondary text-white text-lg md:text-2xl font-bold py-7 px-4 rounded-lg w-full"
               >
                 Book A Free Appointment
               </Button>

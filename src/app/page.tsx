@@ -1,4 +1,5 @@
 'use client';
+import React from 'react'
 import Hero from 'components/Hero/Hero';
 import HomeCard from '../components/Card/page';
 import BlindsAndCurtainssection from '../components/Blind&Curtains/blinds&curtains';

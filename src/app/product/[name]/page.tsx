@@ -210,7 +210,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
 
                   <Button
                     onClick={() => {
-                      route.push('/appointment');
+                      route.push('/request-appointment');
                     }}
                     className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg"
                   >

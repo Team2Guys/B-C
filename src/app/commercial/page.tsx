@@ -66,20 +66,20 @@ const CommercialPage = () => {
     <div>
       {/* <TopHero title="" image={bgBreadcrum} /> */}
       <VideoBanner title={`Commercial`} />
-      <Container className="pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row">
+      <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4 md:px-0">
         <div className="w-full md:w-1/2">
           <h3 className="font-bold text-xl xs:text-2xl tracking-wider">
             Office Blinds & Curtains:
             <br />
             <span className="font-medium">Why Us in Dubai, UAE?</span>
           </h3>
-          <p className="text-16 xs:text-18 leading-8 mt-4 text-lightdark">
-            Without any doubt, Blinds & Curtains Dubai believe in delivering
+          <p className="text-14 xs:text-18 md:leading-8 mt-4 text-lightdark">
+            Without any doubt, Blinds & Curtains Dubai believe in delivering
             above your expectations. With clients stretching from royalty to
             some of the top schools and companies in Dubai, you can be
             confident.
           </p>
-          <ul className="text-16 xs:text-18 leading-8 text-lightdark list-disc list-inside ps-2">
+          <ul className="text-14 xs:text-18 md:leading-8 text-lightdark list-disc list-inside ps-2">
             <li>Office Blinds</li>
             <li>Office Curtains</li>
             <li>Office Roller Blinds</li>
@@ -89,10 +89,10 @@ const CommercialPage = () => {
             <li>Custom Made-to-Measure Blinds</li>
             <li>Commercial Office Blinds</li>
           </ul>
-          <div className="h-fit mt-8">
+          <div className="h-fit flex justify-center md:justify-start mt-8">
             <Link
-              href="/appointment"
-              className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
+              href="/request-appointment"
+              className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr "
             >
               Book Now
             </Link>
@@ -108,10 +108,10 @@ const CommercialPage = () => {
       </Container>
       <div className="w-full border-t-[1px] border-borderclr"></div>
       <Container className="text-center py-10">
-        <h2 className="text-2xl xs:text-3xl sm:text-4xl">
+        <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal">
           OFFICE BLINDS & CURTAINS
         </h2>
-        <p className="mt-3 text-15 leading-7">
+        <p className="mt-3 text-14 md:leading-7">
           See our comprehensive Blinds range
           <br />
           Find the perfect made-to-measure blinds within our exclusive range.
@@ -120,17 +120,17 @@ const CommercialPage = () => {
         <ProductCard products={filteredProducts || []} />
       </Container>
       <BookNowBanner />
-      <Container className="text-center py-20">
-        <h2 className="text-2xl xs:text-3xl sm:text-4xl">
+      <Container className="text-center py-10">
+        <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal">
           COMMERCIAL OFFICE BLINDS STYLES
         </h2>
-        <p className="mt-3 text-15 leading-7">
+        <p className="mt-3 text-14 md:leading-7">
           See our comprehensive Blinds range
           <br />
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 md:px-0">
           {filteredProducts &&
             filteredProducts.map((product: IProduct) => {
               const category = categories?.find(
@@ -149,7 +149,7 @@ const CommercialPage = () => {
               );
             })}
         </div>
-        <div className="h-fit mt-20 text-center">
+        <div className="h-fit mt-10 md:mt-20 text-center">
           <Link
             href="/products"
             className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
@@ -158,7 +158,7 @@ const CommercialPage = () => {
           </Link>
         </div>
       </Container>
-      <Container className="py-10">
+      <Container >
         <RelatedProducts products={filteredProducts || []} limit={4} />
       </Container>
     </div>

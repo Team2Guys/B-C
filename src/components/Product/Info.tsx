@@ -9,7 +9,7 @@ const Info = () => {
   return (
     <Container className="mt-10 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="space-y-4 md:w-[80%] text-start mx-0 flex flex-col justify-between">
+        <div className="space-y-4 md:w-[80%] text-start mx-0 flex flex-col justify-between px-4 md:px-0">
           <h1 className="text-18 leading-8 tracking-[3px]  md:tracking-[10px]  md:text-26 font-semibold">
             Choose the{' '}
             <span className="font-normal">perfect place for your needs!</span>
@@ -28,13 +28,13 @@ const Info = () => {
             made-to-measure blinds from designers such as Orla Kiely, Miss Print
             as well as Ashley Wilde.
           </p>
-          <div className=" pt-5">
-            <button onClick={()=>{route.push("/appointment")}} className="px-4 py-3 rounded-md bg-secondary text-white font-medium">
+          <div className=" pt-5 text-center md:text-start">
+            <button onClick={()=>{route.push("/request-appointment")}} className="px-4 py-3 rounded-md bg-secondary text-white font-medium">
               Book An Appointment
             </button>
           </div>
         </div>
-        <div className="flex justify-end mt-5 md:mt-0">
+        <div className="flex justify-center md:justify-end mt-5 md:mt-0">
           <Image
             className="w-auto h-auto"
             width={602}

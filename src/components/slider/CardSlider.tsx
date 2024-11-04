@@ -61,7 +61,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
                 onClick={() => {
                   const slug = generateSlug(item.title);
                   const basePath = item.href
-                    ? `${process.env.NEXT_PUBLIC_APP_URL}/${item.href}`
+                    ? `${window.origin}/${item.href}`
                     : `/${slug}`;
 
                   let path;
