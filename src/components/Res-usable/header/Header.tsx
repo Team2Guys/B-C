@@ -44,6 +44,7 @@ const Header = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
     null,
   );
+
   const path = usePathname();
   const handleLinkClick = () => {
     setDrawerOpen(false);
@@ -97,10 +98,10 @@ const Header = () => {
   return (
     <>
       <div className="w-full bg-secondary">
-        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center ">
+        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center pb-3 md:pb-0">
           <p className="text-white py-2 text-12 2xl:text-15 font-medium lg:tracking-[0.4px] xl:tracking-[1.8px] 2xl:tracking-[2px] leading-relaxed 2xl:leading-loose">
             We can visit you, take measurements, help select fabrics & install
-            in 1-2 days. Call Dubai{' '}
+            in 2-3 days. Call Dubai{' '}
             <Link
               className="underline font-medium"
               target="_blank"
@@ -122,40 +123,35 @@ const Header = () => {
       </div>
 
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50">
-        <Container className="flex w-full items-center justify-between px-2 ">
+        <Container className="flex w-full justify-between px-2 items-center gap-1 md:gap-0 ">
           <Link href={'/'} className="w-3/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
-          <div className="w-3/12 lg:w-8/12">
-            <div className="hidden lg:flex justify-evenly items-center text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3">
+
+          <div className="w-3/12 lg:w-8/12 mt-[30px]">
+            <div className="hidden lg:flex justify-evenly 
+            
+            
+            text-12 xl:text-16 whitespace-nowrap  -space-x-8 xl:-space-x-3">
               <Link
-                className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
-                  path === '/'
-                    ? 'font-bold text-black-500 link-active'
-                    : 'link-underline'
-                }`}
+                className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${path === '/'
+                    ? 'font-bold text-black-500 bg-secondary text-white '
+                    : 'hover:bg-secondary hover:text-white'
+                  }`}
                 href={'/'}
               >
                 Home
               </Link>
               {links.map((link, index) => {
-                let filteredSubCategories =
-                  subCategories?.filter(
-                    (subcategory) => subcategory.CategoryId === link.id,
-                  ) || [];
+                let filteredSubCategories = subCategories?.filter((subcategory) => subcategory.CategoryId === link.id) || [];
 
-                let filteredProducts =
-                  products?.filter(
-                    (product) => product.CategoryId === link.id,
-                  ) || [];
+                let filteredProducts = products?.filter((product) => product.CategoryId === link.id,) || [];
 
                 let combinedSliderData: any[] = [];
 
                 if (link.id === 2) {
                   const actualProducts = filteredProducts.filter((product) =>
-                    blindMegaMenuItems.some(
-                      (menuItem) =>
-                        menuItem.productName === generateSlug(product.title),
+                    blindMegaMenuItems.some((menuItem) => menuItem.productName === generateSlug(product.title),
                     ),
                   );
 
@@ -206,14 +202,15 @@ const Header = () => {
                     ...actualProducts,
                   ];
                 }
+
+
                 // const isActive =
                 //   link.href && path?.includes(generateSlug(link.label));
                 const isBlogPath = path.startsWith('/blog');
 
                 const isBlogActive = link.href === '/blog' && isBlogPath;
 
-                const isActive =
-                  !isBlogPath && path?.includes(generateSlug(link.label));
+                const isActive = !isBlogPath && path?.includes(generateSlug(link.label));
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
@@ -223,19 +220,20 @@ const Header = () => {
                     sliderData={combinedSliderData}
                     href={link.href}
                     className={
+
                       isBlogActive || isActive
-                        ? 'font-bold text-black-500 link-active'
-                        : 'link-underline'
+                        ? 'font-bold text-black-500 bg-secondary text-white'
+                        : 'hover:bg-secondary hover:text-white'
+
                     }
                   />
                 ) : (
                   <Link
                     key={index}
-                    className={`px-3 py-2 rounded-md text-12 xl:text-15 ${
-                      isBlogActive || isActive
-                        ? 'font-bold text-black-500 link-active'
-                        : 'link-underline'
-                    }`}
+                    className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${isBlogActive || isActive
+                        ? 'font-bold text-black-500 text-white bg-secondary'
+                        : 'hover:bg-secondary hover:text-white'
+                      }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
                   >
@@ -245,14 +243,19 @@ const Header = () => {
               })}
             </div>
           </div>
-          <Link
-            className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap bg-primary text-black"
-            href="/appointment"
-            onClick={handleLinkClick}
-          >
-            Book Free Appointment
-          </Link>
-          <div className="flex lg:hidden">
+          <div className='flex items-center'>
+            <Link
+              className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap bg-primary text-black"
+              href="/request-appointment"
+              onClick={handleLinkClick}
+            >
+              Book A Free Appointment
+            </Link>
+
+          </div>
+
+
+          <div className="ms-2 xs:ms-0 flex items-center lg:hidden">
             <Sheet
               drawerName={<RiMenuFoldLine size={25} />}
               open={drawerOpen}
@@ -261,22 +264,21 @@ const Header = () => {
             >
               <div className="flex flex-col">
                 <Link
-                  className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
-                    path === '/' ? 'font-bold text-black-500' : ''
-                  }`}
+                  className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${path === '/' ? 'font-bold text-black-500' : ''
+                    }`}
                   onClick={handleCloseDrawer}
                   href="/"
                 >
                   Home
                 </Link>
+
                 {links.map((link, index) => (
                   <Link
                     key={index}
-                    className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
-                      link.href && path?.includes(generateSlug(link.label))
+                    className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${link.href && path?.includes(generateSlug(link.label))
                         ? 'font-bold text-black-500'
                         : ''
-                    }`}
+                      }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
                   >
@@ -286,6 +288,8 @@ const Header = () => {
               </div>
             </Sheet>
           </div>
+
+
         </Container>
       </nav>
     </>

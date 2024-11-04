@@ -14,8 +14,8 @@ const OurClient = () => {
           our clients
         </h2>
         <p className="text-center text-sm tracking-widest lg:w-2/5 mx-auto px-10 pt-3">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. 
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
         </p>
       </div>
       <div className="bg-white">
@@ -30,16 +30,16 @@ const OurClient = () => {
             modules={[Autoplay]}
             className="mySwiper"
             breakpoints={{
-              320: {
-                slidesPerView: 1.5,
-                spaceBetween: 5,
-              },
+              // 320: {
+              //   slidesPerView: 1,
+              //   spaceBetween: 5,
+              // },
               440: {
-                slidesPerView: 2,
-                spaceBetween: 5,
+                slidesPerView: 1,
+                spaceBetween: 0,
               },
               600: {
-                slidesPerView: 3.8,
+                slidesPerView: 3,
                 spaceBetween: 5,
               },
               1000: {

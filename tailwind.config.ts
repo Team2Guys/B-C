@@ -83,6 +83,8 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        bdrgrey: "var(--bdr-grey)",
+        darkgrey: "var(--dark-grey)",
         primary: {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",

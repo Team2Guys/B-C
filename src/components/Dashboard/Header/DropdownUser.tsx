@@ -76,6 +76,7 @@ const DropdownUser = () => {
         <div className=" hidden sm:flex items-center gap-3">
           <div className="h-12 w-12 rounded-full overflow-hidden">
             <Image
+            className='h-12 w-12 rounded-full object-cover'
               src={
                 loggedInUser && loggedInUser.posterImageUrl
                   ? loggedInUser.posterImageUrl.imageUrl

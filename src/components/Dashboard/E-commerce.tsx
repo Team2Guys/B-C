@@ -1,7 +1,4 @@
 import React from 'react';
-import ChartOne from './Charts/ChartOne';
-import ChartThree from './Charts/ChartThree';
-import ChartTwo from './Charts/ChartTwo';
 import CardDataStats from './CardDataStats';
 import Cookies from 'js-cookie';
 import { useAppSelector } from 'components/Others/HelperRedux';
@@ -12,6 +9,7 @@ import { Skeleton } from 'antd';
 import { useQuery } from '@tanstack/react-query';
 import { adminRecords } from 'config/fetch';
 import { IRECORDS } from 'types/types';
+import { TbCalendarCheck, TbCategory } from 'react-icons/tb';
 
 
 const ECommerce: React.FC = () => {
@@ -80,10 +78,10 @@ const ECommerce: React.FC = () => {
 
         {!canCheckProfit ? null : (
           <CardDataStats
-            title="Total Profit"
+            title="Total Appointments"
             total={records?.total_appointments ? records?.total_appointments : ''}
           >
-            <FiShoppingCart
+            <TbCalendarCheck
               size={25}
               className="text-white dark:text-black"
             />
@@ -95,7 +93,7 @@ const ECommerce: React.FC = () => {
             title="Total Categories"
             total={records?.total_categories ? records?.total_categories : ''}
           >
-            <IoBagOutline
+            <TbCategory
               size={25}
               className="text-white dark:text-black"
             />
@@ -104,10 +102,10 @@ const ECommerce: React.FC = () => {
 
         {!CanCheckRevnue ? null : (
           <CardDataStats
-            title="Total Revenue"
+            title="Total Sub-Cetagories"
             total={records?.total_subCategories ? records?.total_subCategories : ''}
           >
-            <FiShoppingCart
+            <TbCategory
               size={25}
               className="text-white dark:text-black"
             />

@@ -10,6 +10,7 @@ import { FaEdit } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query';
 import { getAllAdmins } from 'config/fetch';
 import { ADMINS_PROPS } from 'types/interfaces';
+import TableSkeleton from 'components/Dashboard/Tables/TableSkelton';
 
 
 
@@ -24,11 +25,13 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   const [isClient, setIsClient] = useState(false);
 
 
-  const { data, isLoading, error } = useQuery<any[]>({
+  const { data, isLoading, error } = useQuery({
     queryKey: ['admins'],
     queryFn: getAllAdmins,
     enabled: !!Finaltoken,
   });
+  
+  const adminsData = Array.isArray(data) ? data : [];
 
 
   const handleDelete = async (id: string) => {
@@ -180,20 +183,23 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
               <Button
                 type="primary"
                 onClick={() => setselecteMenu('Add Admin')}
-                className="cursor-pointer p-2 text-black dark:text-white bg-inherit hover:bg-slate-300 dark:border-strokedark dark:bg-boxdark flex justify-center"
+                className="cursor-pointer p-2 text-black dark:text-white bg-inherit hover:bg-slate-300 dark:border-strokedark dark:bg-dashboardDark flex justify-center"
               >
                 Add new Admin
               </Button>
             </div>
           </div>
-          {(
+          { !isLoading ? (
             <Table
-              className="overflow-auto dark:border-strokedark dark:bg-boxdark"
-              dataSource={data}
+              className="overflow-auto dark:border-strokedark dark:bg-dashboardDark"
+              dataSource={adminsData}
               columns={columns}
               pagination={false}
               rowKey="id"
             />
+          ) : (
+
+            <TableSkeleton rows={0} columns={9} />
           )
 
           }
