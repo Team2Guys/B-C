@@ -50,24 +50,24 @@ const VideoBanner: React.FC<BannerProps> = ({ className, title }) => {
       )}
       <div className="relative  flex items-center h-full z-10">
         <div
-          className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl py-5"
+          className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl py-2 md:py-5"
           onClick={handleTextClick}
         >
-          <div className="py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
+          <div className="py-2 md:py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
             <p className="lg:text-[43px] text-25 font-black drop-shadow-lg capitalize">
               {title}
             </p>
-            <p className=" text-17 font-bold capitalize tracking-widest">
+            <p className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
               made to measure {title}
             </p>
-            <p className="mt-4 font-normal lg:text-16 text-14 w-[96%] uppercase">
+            <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout. The
               point of using Lorem Ipsum is that it has a more-or-less normal
             </p>
             <div className="mt-5">
               <Link
-                className="uppercase bg-white text-14 sm:text-16 font-medium shadow-md text-black rounded-full px-4 py-3"
+                className="uppercase bg-white text-12 md:text-16 font-medium shadow-md text-black rounded-full px-4 py-3"
                 href={'/request-appointment'}
               >
                 Book A Free Home Design Visit
