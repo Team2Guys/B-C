@@ -109,7 +109,7 @@ useEffect(() => {
           <FacebookShareButton url={shareURL}>
           <TiSocialFacebook size={20}  />
         </FacebookShareButton>
-        <PinterestShareButton url={shareURL} media={data} >
+        <PinterestShareButton url={shareURL} media={data.posterImage.imageUrl} >
           <TiSocialPinterest size={24}  />
         </PinterestShareButton>
         <WhatsappShareButton
