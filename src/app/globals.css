@@ -1,4 +1,3 @@
-/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -60,9 +59,7 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+ 
   body {
     @apply bg-lightgrey;
   }
@@ -359,6 +356,13 @@ html {
   background: #ff914e;
   /* Color when hovering over the scrollbar thumb */
 }
+
+
+.testimonial-back{
+  background: rgb(230,228,229);
+  background: linear-gradient(0deg, rgba(230,228,229,9) 5%, rgba(246,239,233,9) 5%, rgba(246,239,233,9) 95%, rgba(230,228,229,9) 95%);
+}
+
 
 .estimator-scrollbar::-webkit-scrollbar {
   width: 8px;

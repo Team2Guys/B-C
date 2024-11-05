@@ -243,19 +243,14 @@ const Header = () => {
               })}
             </div>
           </div>
-          <div className='flex items-center md:justify-end'>
-            <Link
-              className="py-2 px-2 xl:px-3 rounded-md text-10 xl:text-14 whitespace-nowrap bg-primary text-black"
-              href="/request-appointment"
-              onClick={handleLinkClick}
-            >
-              Book A Free Appointment
-            </Link>
-
-          </div>
-
-
-          <div className="ms-2 xs:ms-0 flex items-center lg:hidden">
+          <Link
+            className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap bg-primary text-black"
+            href="/appointment"
+            onClick={handleLinkClick}
+          >
+            Book Free Appointment
+          </Link>
+          <div className="flex lg:hidden">
             <Sheet
               drawerName={<RiMenuFoldLine size={25} />}
               open={drawerOpen}

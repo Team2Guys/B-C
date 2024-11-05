@@ -338,7 +338,19 @@ export interface BlogProps {
   isFirstItemLarge?: boolean;
   buttonView?: boolean;
 }
-export interface CommentDataType {
+
+ 
+ 
+ //LandingPage
+ export interface NavType{
+  image?:any;
+  title?: string;
+  description?: string;
+}
+export interface KeyType {
+  image?:any;
+  para?: string;
+}export interface CommentDataType {
   id: number;
   userName: string;
   comment: string;

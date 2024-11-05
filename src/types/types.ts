@@ -85,3 +85,52 @@ export interface IAppointments {
   whatsapp_number: string;
   windows: string;
 }
+//Landingpage
+export interface FeatureType{
+  icon?: string;
+  title?: string;
+}
+export interface InstaType{
+  video: string;
+}
+export interface ProductType{
+  image:string;
+}
+export interface TabDataType{
+  icon: string;
+  title: string;
+  video: string;
+  description: string;
+}
+//RollerMainPage
+export interface KeyFeaturesType{
+  icon: string;
+  heading: string;
+  para: string;
+}
+export interface ReviewsType{
+  id: number;
+  name:string;
+  date: string;
+  image?:string;
+  text: string;
+}
+export interface BlackoutRollerType{
+  heading: string;
+  Text: string;}
+export interface ListData{
+    imageurl:string;
+    text: string;
+  }
+
+
+  interface ListItemInfo {
+    className: string;   // Optional, you can make this `className?: string` if it's not always present
+    imageurl: string;
+    text: string;
+  }
+  
+  export interface ListItem {
+    info: ListItemInfo[];
+  }
+ 

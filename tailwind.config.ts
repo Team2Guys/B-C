@@ -10,13 +10,7 @@ const config = {
   ],
   prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
+    
     extend: {
       fontFamily: {
         gotham: ['var(--font-gotham)', 'sans-serif'],
@@ -25,6 +19,7 @@ const config = {
       backgroundImage:{
         hero: "url('/assets/images/bg-hero.png')",
         men: "url('/assets/images/static/menimage.png')",
+        keyimage: "url('/assets/images/Landing/Rectangle28.png')",
         appointment: "url('/assets/images/MotorisedBlind/appoint.png')",
       },
       fontSize: {
@@ -69,6 +64,7 @@ const config = {
 
       },
       colors: {
+        marcury:"#00000059",
         dashboardDark:"#141414",
         light:"var(--light)",
         btnclr:"var(--btn-clr)",
@@ -140,7 +136,6 @@ const config = {
     screens: {
       'xs': '480px',
       'sm': '640px',
-      // 'md': '895px',
       'md': '768px',
       'lg': '1024px',
       'xl': '1280px',

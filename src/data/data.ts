@@ -1,5 +1,6 @@
 // src/data.ts
 import exp from 'constants';
+import { KeyType } from 'types/interfaces';
 import {
   AboutStaticData,
   BlogInfo,
@@ -8,6 +9,7 @@ import {
   CommentDataType,
   FeatureProductData,
   GalleryItems,
+  NavType,
   OurHistory,
   ProductCardData,
   ProductItems,
@@ -25,7 +27,8 @@ import { BannerData } from 'types/interfaces';
 import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
-import { IProduct, ISUBCATEGORY } from 'types/types';
+import { IProduct, ISUBCATEGORY, ListItem } from 'types/types';
+import { title } from 'process';
 import { TiSocialFacebook } from 'react-icons/ti';
 
 export const generateSlug = (text: string) => {
@@ -1291,6 +1294,132 @@ export const slides: TRSlide[] = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
   },
 ];
+//Landingpage
+export const NavData : NavType[]=[
+  {
+    image: '/assets/images/Landing/vector.png',
+   title:'We Can Visit you',
+   description:'Take Measurements',
+  },
+  { image: '/assets/images/Landing/Vector1.png',
+    title:'Help Select Fabrics',
+    description:'install in 1-2 days ',
+   },
+   {image: '/assets/images/Landing/Group.png',
+    title:'GUARANTEE',
+    description:'3-YEAR',
+  },
+];
+export const KeyData: KeyType[]=[
+  {
+    image:"/assets/images/Landing/guarantee.png",
+    para:"we offer a fully comprehensive 5-year warrenty on all our motors",  
+  },
+  {
+    image: "/assets/images/Landing/businessmen.png",
+    para:"Our professional staff are fully trained to install as well as offer expert advice",  
+  },
+  {
+    image:"/assets/images/Landing/ready.png",
+    para:"we keep motors in stock, so no long delays waiting for stock",  
+  },
+  {
+    image:"/assets/images/Landing/loyalty.png",
+    para:"We only use the leading brands such as Somfy, nice and Motion",  
+  },
+  {
+    image:"/assets/images/Landing/guarantee.png",
+    para:"we offer a fully comprehensive 5-year warrenty on all our motors",  
+  },
+  {
+    image: "/assets/images/Landing/businessmen.png",
+    para:"Our professional staff are fully trained to install as well as offer expert advice",  
+  },
+  {
+    image:"/assets/images/Landing/ready.png",
+    para:"we keep motors in stock, so no long delays waiting for stock",  
+  },
+  {
+    image:"/assets/images/Landing/loyalty.png",
+    para:"We only use the leading brands such as Somfy, nice and Motion",  
+  },
+];
+
+export const FeatureData=[{
+    icon:"/assets/images/Landing/icon-automation1.png",
+    title: "Lorem Ibsum Blinds:",
+    list:[
+      {heading:"Automated Scheduling" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+      {heading:"Enhanced Convenience" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+      {heading:"Automated Scheduling" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+      {heading:"Enhanced Convenience" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+    ],},
+{
+  icon:"/assets/images/Landing/icon-automation1.png",
+  title: "Lorem Ibsum Blinds:",
+  list:[
+    {heading:"Automated Scheduling" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+    {heading:"Enhanced Convenience" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+    {heading:"Automated Scheduling" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+    {heading:"Enhanced Convenience" , para:"Set timers to automatically open or close your blinds at specific times for added convenience."},
+  ],},
+];
+
+export const InstaData=[
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+  { video: "/assets/video/Agsons.mp4"
+  },
+];
+
+export const ProductData=[
+  {
+    image: "/assets/images/Landing/image.png"
+  },
+  {
+    image: "/assets/images/Landing/image2.png"
+  },
+];
+export const TabData=[
+{
+  icon: "/assets/images/Landing/iconremote1.svg",
+  title: "With a Control Your Motors",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
+},
+{
+  icon: "/assets/images/Landing/iconremote1.svg",
+  title: "With a Control Your Motors2",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
+},
+{
+  icon: "/assets/images/Landing/iconremote1.svg",
+  title: "With a Control Your Motors3",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
+},
+{
+  icon: "/assets/images/Landing/iconremote1.svg",
+  title: "With a Control Your Motors4",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
+},
+{
+  icon: "/assets/images/Landing/iconremote1.svg",
+  title: "With a Control Your Motors5",
+  video: "/assets/video/Agsons.mp4",
+  description: "is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,"
+},
+];
 
 export const isActiveTabs: { name: string }[] = [
   {
@@ -1423,6 +1552,163 @@ export const blogPara = [
     para: ' It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of',
   },
 ];
+//RollerMainPage
+export const Roller3Data =[{
+  icon: "/assets/images/Rollerblind/roller.png",
+    heading: "Blackout Roller Blinds",
+    description: "What is Blackout Roller Blind Ibsum?",
+},
+{
+  icon: "/assets/images/Rollerblind/roller.png",
+    heading: "Blackout Roller Blinds",
+    description: "What is Blackout Roller Blind Ibsum?",
+},
+];
+export const KeyFeaturesData=[
+  {
+    icon:"/assets/images/Rollerblind/design1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+  },
+  {
+    icon:"/assets/images/Rollerblind/design1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+  },
+  {
+    icon:"/assets/images/Rollerblind/order1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+  },
+  {
+    icon:"/assets/images/Rollerblind/design1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+  },
+  {
+    icon:"/assets/images/Rollerblind/design1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+  },
+  {
+    icon:"/assets/images/Rollerblind/design1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+  },
+  {
+    icon:"/assets/images/Rollerblind/order1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+  },
+  {
+    icon:"/assets/images/Rollerblind/design1.png",
+    heading:"Lorem Ipsum",
+    para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+  },
+];
+export const ReviewsData=[
+  {
+  id: 1,
+  name:"Masuad Rana",
+  date:"jun 22, 2024",
+  text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+},
+{
+  id: 1,
+  name:"Masuad Rana",
+  date:"jun 22, 2024",
+  text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+},
+{
+  id: 1,
+  name:"Masuad Rana",
+  date:"jun 22, 2024",
+  text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+},
+{
+  id: 1,
+  name:"Masuad Rana",
+  date:"jun 22, 2024",
+  text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+},
+];
+export const BlackoutRollerData=[
+  {
+    heading:"All",
+    text:"See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from",},
+    {
+      heading:"BLACKOUT ROLLER BLINDS",
+      text:"See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from",},
+      {
+        heading:"SUNSCREEN ROLLER BLINDS",
+        text:"See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from",}];
+
+
+
+    export const ListData:ListItem[]=[
+      {
+        info: [
+          {
+            className: 'h-[493px]', // Example class name for height or any other style
+            imageurl: 'assets/images/Rollerblind/Rectangle907.png', // Example image URL
+            text: 'Thermal Blackout Black Roller Blind',
+          },
+          {
+            className: 'h-[308px]',
+            imageurl: 'assets/images/Rollerblind/Rectangle908.png',
+            text: 'Sunscreen Roller Blinds',
+          },
+        ],
+      },
+      {
+        info: [
+          {
+            className: 'h-[222px]',
+            imageurl: 'assets/images/Rollerblind/Rectangle906.png',
+            text: 'Patterned Roller Blinds',
+          },
+          {
+            className: 'h-[581px]',
+            imageurl: 'assets/images/Rollerblind/Rectangle900.png',
+            text: 'Plain Roller Blinds',
+          },
+        ],
+      },
+      {
+        info: [
+          {
+            className: 'h-[493px]', // Example class name for height or any other style
+            imageurl: 'assets/images/Rollerblind/Rectangle901.png', // Example image URL
+            text: 'Blackout Roller Blinds',
+          },
+          {
+            className: 'h-[308px]',
+            imageurl: 'assets/images/Rollerblind/Rectangle905.png',
+            text: 'Sunscreen Roller Blinds',
+          },
+        ],
+      },
+      {
+        info: [
+          {
+            className: 'h-[205px]',
+            imageurl: 'assets/images/Rollerblind/Rectangle902.png',
+            text: 'Patterned Roller Blinds',
+          },
+          {
+            className: 'h-[220px]',
+            imageurl: 'assets/images/Rollerblind/Rectangle903.png',
+            text: 'Plain Roller Blinds',
+          },
+          {
+            className: 'h-[356px]',
+            imageurl: 'assets/images/Rollerblind/Rectangle904.png',
+            text: 'Plain Roller Blinds',
+          },
+        ],
+      },
+      // Add more objects as needed
+    ];
 
 export const byRoomItems = [
   { productName: 'bathroom-blinds-dubai' },
