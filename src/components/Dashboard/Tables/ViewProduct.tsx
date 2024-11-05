@@ -171,9 +171,9 @@ const ViewProduct: React.FC<CategoryProps> = ({
           size={20}
           onClick={() => {
             if (canEditproduct) {
-              console.log(record, "canEditproduct")
+              console.log(record, 'canEditproduct');
               setEditProduct(record);
-              setselecteMenu("Add Products");
+              setselecteMenu('Add Products');
             }
           }}
         />
@@ -215,8 +215,8 @@ const ViewProduct: React.FC<CategoryProps> = ({
                 className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed bg-gray-500 text-white rounded-md'} p-2 ${canAddProduct ? 'bg-primary text-white' : ''} dark:border-strokedark flex justify-center dark:bg-black`}
                 onClick={() => {
                   if (canAddProduct) {
-                    setselecteMenu('Add Products');
                     setEditProduct(undefined);
+                    setselecteMenu('Add Products');
                   }
                 }}
               >
