@@ -58,13 +58,12 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     any | null | undefined
   >(EditInitialValues);
   const [imgError, setError] = useState<string | null | undefined>();
-  const [Categories, setCategories] = useState<any[]>();
   const [VariationOption, setVariationOption] =
     useState<string>('withoutVariation');
-  const [Subcategory, setSubcategory] = useState(null);
-
-  console.log(Subcategory, 'addedSubcategoryaddedSubcategoryaddedSubcategory');
-
+  const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
+  const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<
+    number[]
+  >([]);
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
@@ -91,13 +90,28 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
           updatedAt,
           __v,
           hoverImage,
+          category,
+          subCategory,
           ...EditInitialProductValues
         } = EditInitialValues as any;
         imageUrls ? setImagesUrl(imageUrls) : null;
-        posterImageUrl ? setposterimageUrl([posterImageUrl]) : null;
-        console.log(hoverImage, 'EditInitialValues.hoverImageUrl');
         hoverImage ? sethoverImage([hoverImage]) : null;
-        console.log(productInitialValue, 'productInitialValue');
+        console.log('FROM USE LAYEFFECT');
+        console.log(EditInitialValues);
+        if (category) {
+          const catArr = [];
+          catArr.push(category);
+          setSelectedCategoryIds(catArr);
+        }
+        if (subCategory && Array.isArray(subCategory)) {
+          const subcatArr = subCategory.map((cat: { id: number }) => cat.id);
+          setSelectedSubcategoryIds(subcatArr);
+        }
+
+        setProductInitialValue({
+          ...EditInitialProductValues,
+          name: EditInitialProductValues.title,
+        });
       } catch (err) {
         console.log(err, 'err');
       }
@@ -116,7 +130,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       if (!posterImageUrl || !(imagesUrl.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
       }
-      console.log(values, 'values');
 
       let newValues = {
         ...values,
@@ -129,13 +142,11 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       };
 
       setloading(true);
-      console.log(EditInitialValues);
       let updateFlag = productUpdateFlat;
 
-      // let url = updateFlag
-      //   ? `/api/products/edit_product/${EditInitialValues.id} `
-      //   : '/api/products/AddProduct';
-      let url = '/api/products/AddProduct';
+      let url = updateFlag
+        ? `/api/products/edit_product/${EditInitialValues.id} `
+        : '/api/products/AddProduct';
 
       const {
         categories,
@@ -175,8 +186,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
       let method: 'post' | 'put' = updateFlag ? 'put' : 'post';
 
-      // let response = await axios[method](
-      let response = await axios.post(
+      let response = await axios[method](
         `${process.env.NEXT_PUBLIC_BASE_URL}${url}`,
         updatedvalue,
         {
@@ -203,7 +213,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     } catch (err: any) {
       if (err.response && err.response.data && err.response.data.message) {
         setError(err.response.data.message);
-        console.log(err.response.data.message, 'err.response.data.message');
       } else {
         if (err instanceof Error) {
           setError(err.message);
@@ -219,32 +228,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     console.log(e);
     setVariationOption(e.target.value);
   };
-  useEffect(() => {
-    const CategoryHandler = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
-        );
-        const Categories = await response.json();
-        setCategories(Categories);
-      } catch (err) {
-        console.log(err, 'err');
-      }
-    };
-    const SubCategoryHandler = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
-        );
-        setSubcategory(response.data);
-      } catch (err) {
-        console.error('Error fetching subcategories:', err);
-      }
-    };
-
-    SubCategoryHandler();
-    CategoryHandler();
-  }, []);
 
   const handleImageIndex = (index: number, newImageIndex: number) => {
     const updatedImagesUrl = imagesUrl.map((item, i) =>
@@ -290,10 +273,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     queryFn: fetchSubCategories,
   });
 
-  const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
-  const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<
-    number[]
-  >([]);
   const [filteredSubcategories, setFilteredSubcategories] = useState<
     ICategory[]
   >([]);
@@ -1167,7 +1146,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                     className="cursor-pointer btext-red-500 hover:text-red-700"
                                     size={17}
                                     onClick={() => {
-                                      console.log('funciton called');
                                       ImageRemoveHandler(
                                         item.public_id,
                                         setImagesUrl,
