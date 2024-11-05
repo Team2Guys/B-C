@@ -79,7 +79,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
-        if (!EditInitialValues) return;
+        if (EditInitialValues.id === undefined) return;
 
         setProductUpdateFlat(true);
         const {
