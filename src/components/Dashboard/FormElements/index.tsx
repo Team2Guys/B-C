@@ -54,7 +54,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
 
 
   const headers = {
-    token: finalToken,
+  Authorization: `Bearer ${finalToken}`
   };
 
   const changeTextColor = () => {
