@@ -123,18 +123,18 @@ const Header = () => {
       </div>
 
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50">
-        <Container className="flex w-full justify-between px-2 items-center gap-1 md:gap-0 ">
-          <Link href={'/'} className="w-3/12 lg:w-1/12">
+        <Container className="flex w-full justify-between md:justify-start px-2 items-center gap-1 md:gap-3 lg:gap-0">
+          <Link href={'/'} className="w-7/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
 
-          <div className="w-3/12 lg:w-8/12 mt-[30px]">
+          <div className="w-3/12 lg:w-9/12 mt-[30px]">
             <div className="hidden lg:flex justify-evenly 
             
             
             text-12 xl:text-16 whitespace-nowrap  -space-x-8 xl:-space-x-3">
               <Link
-                className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${path === '/'
+                className={`px-2 lg:px-2 lg:mx-3 pb-6 pt-1 text-12 xl:text-15 ${path === '/'
                     ? 'font-bold text-black-500 bg-secondary text-white '
                     : 'hover:bg-secondary hover:text-white'
                   }`}
@@ -243,9 +243,9 @@ const Header = () => {
               })}
             </div>
           </div>
-          <div className='flex items-center'>
+          <div className='flex items-center md:justify-end'>
             <Link
-              className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap bg-primary text-black"
+              className="py-2 px-2 xl:px-3 rounded-md text-10 xl:text-14 whitespace-nowrap bg-primary text-black"
               href="/request-appointment"
               onClick={handleLinkClick}
             >

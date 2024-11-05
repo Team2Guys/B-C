@@ -22,7 +22,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
   const displayedProducts = limit ? products.slice(0, limit) : products;
 
   return (
-    <div className='px-4 md:px-0'>
+    <div className='px-2 md:px-0'>
       <div className="flex items-center gap-1">
         <h3 className="lg:text-4xl text-2xl text-nowrap">Related Products</h3>
         <div className="w-full border-t-[1px] border-[#BDC9BD] mt-2"></div>
