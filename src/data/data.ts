@@ -1247,7 +1247,7 @@ export const commercialMegaMenuItems = [
   { productName: 'offices' },
 
   { productName: 'indoor' },
-  { productName: 'outdoor' },
+  // { productName: 'outdoor' },
   { productName: 'skylight' },
   { productName: 'balcony' },
   { productName: 'pergola' },
@@ -1580,11 +1580,13 @@ export const megaMenubyRoom = [
   { productName: 'kids-bedroom' },
 
   { productName: 'indoor' },
-  // { productName: 'outdoor' },
+
   { productName: 'skylight' },
   { productName: 'balcony' },
   { productName: 'pergola' },
 ];
+
+export const megaMenubyLocation = [{ productName: 'outdoor' }];
 
 export const megaMenuDynamic = [
   { productName: 'sunscreen-roller-blinds' },
