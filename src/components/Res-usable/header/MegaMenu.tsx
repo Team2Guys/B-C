@@ -109,15 +109,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     const styles = megaMenubyStyle.map((item) =>
       generateSlug(item.productName),
     );
-    const rooms = megaMenubyRoom.map((item) => generateSlug(item.productName));
     const dynamics = megaMenuDynamic.map((item) =>
       generateSlug(item.productName),
     );
+    const rooms = megaMenubyRoom.map((item) => generateSlug(item.productName));
     const result = [[], [], []];
 
     sliderData.forEach((product) => {
       const slug = generateSlug(product.title);
-
       if (styles.includes(slug)) {
         //@ts-expect-error
         result[0].push(product);
