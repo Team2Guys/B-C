@@ -9,10 +9,12 @@ import { Prisma } from '@prisma/client';
 const prisma = new PrismaService();
 
 
-export const getAllproducts = () => {
+export const getAllproducts = async() => {
     try {
 
-        let products = prisma.products.findMany()
+        let products = await prisma.products.findMany({
+          include: {subCategory: true}
+        })
         return products;
     } catch (error) {
         console.error('Error fetching products:', error.message); // Log the exact error message
