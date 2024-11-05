@@ -361,37 +361,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({ EditInitialValues, EditPr
                           ) : null}
                         </div>
 
-                        {/* <div className="w-[33%]">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                            Purchase Price
-                          </label>
-                          <input
-                            type="number"
-                            name="purchasePrice"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.purchasePrice}
-                            placeholder="Purchase Price"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.purchasePrice &&
-                              formik.errors.purchasePrice
-                              ? "border-red-500"
-                              : ""
-                              }`}
-                          />
-                          {formik.touched.purchasePrice &&
-                            formik.errors.purchasePrice ? (
-                            <div className="text-red text-sm">
-                              {
-                                formik.errors.purchasePrice as FormikErrors<
-                                  FormValues["purchasePrice"]
-                                >
-                              }
-                            </div>
-                          ) : null}
-                        </div> */}
-
-
-
                         <div className="w-[50%]">
                           <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Discount Price
