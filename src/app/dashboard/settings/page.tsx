@@ -170,8 +170,9 @@ const Settings = () => {
                     {profilePhoto.map((profilePhoto, index: number) => {
                       return (
                         <>
-                          <div className="h-14 w-14 rounded-full overflow-hidden" key={index}>
+                          <div className="h-14 w-14 rounded-full overflow-hidden object-cover" key={index}>
                             <Image
+                            className='h-14 w-14 rounded-full'
                               src={
                                 profilePhoto && profilePhoto.imageUrl
                                   ? profilePhoto.imageUrl

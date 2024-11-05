@@ -875,7 +875,7 @@ export const productData: Tproductdata = {
   title: 'PRODUCT GUARANTEES',
   sideImage: '/assets/images/product-guarantees/guarantee1.png',
   sideImage1: '/assets/images/product-guarantees/guarantee2.png',
-  heading: 'BLINDS, CURTAINS & SHUTTERS PRODUCT GUARANTEES',
+  heading: 'BLINDS, CURTAINS & SHUTTERS PRODUCT GUARANTEES',
   content:
     'When you’re choosing Blinds & Curtains window dressings, you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications. you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications.',
 };
@@ -913,8 +913,8 @@ export const AboutUsPara = {
   subheading: 'About Us',
   heading: ['WELCOME TO', 'BLINDS & CURTAINS DUBAI'],
   paragraph: [
-    'A growing business based in the heart of Dubai with a showroom in Al Quoz. blindsandcurtains.ae draws on over 20 years of experience in the drapery industry. You can be assured of the highest level of service and knowledge available. All our advisors are fully trained in all aspects of blinds & curtains and will always offer you the best, most impartial, honest advice you could ask for.',
-    'Most of our products are manufactured right here in the U.A.E, ensuring that we can quality control check every single item leaving our factory, and delivering and fitting to your home within a week in most cases. All our blinds are manufactured to British Standard (BBSA) and are custom-made to your specifications. Factories used for our imported products have been quality tested for months before we signed exclusive distribution rights with them.',
+    'A growing business based in the heart of Dubai with a showroom in Al Quoz. blindsandcurtains.ae draws on over 20 years of experience in the drapery industry. You can be assured of the highest level of service and knowledge available. All our advisors are fully trained in all aspects of blinds & curtains and will always offer you the best, most impartial, honest advice you could ask for.',
+    'Most of our products are manufactured right here in the U.A.E, ensuring that we can quality control check every single item leaving our factory, and delivering and fitting to your home within a week in most cases. All our blinds are manufactured to British Standard (BBSA) and are custom-made to your specifications. Factories used for our imported products have been quality tested for months before we signed exclusive distribution rights with them.',
   ],
 };
 export const UsHistoryPara = {
@@ -1614,46 +1614,45 @@ export const megaMenuDynamic = [
 ];
 
 export const AddProductvalidationSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  description: Yup.string().required('Required'),
-  salePrice: Yup.number()
-    .min(1, 'Minimum sales price must be at least 1')
-    .required('Required'),
+  // name: Yup.string()
+  //   .min(2, 'Too Short!')
+  //   .max(50, 'Too Long!')
+  //   .required('Required'),
+  // description: Yup.string().required('Required'),
+  // salePrice: Yup.number()
+  //   .min(1, 'Minimum sales price must be at least 1')
+  //   .required('Required'),
   // purchasePrice: Yup.number()
   //   .min(1, "Must be at least 1")
   //   .required('Required'),
-
-  discountPrice: Yup.number().nullable(),
-  starRating: Yup.number()
-    .min(1, 'Rating must be at least 1')
-    .max(5, 'Star Rating should be a maximum of 5')
-    .nullable(),
-  reviews: Yup.string().nullable(),
-  colors: Yup.array().of(
-    Yup.object().shape({
-      colorName: Yup.string().nullable(),
-    }),
-  ),
-  modelDetails: Yup.array().of(
-    Yup.object().shape({
-      name: Yup.string().nullable(),
-      detail: Yup.string().nullable(),
-    }),
-  ),
-  spacification: Yup.array().of(
-    Yup.object().shape({
-      specsDetails: Yup.string().nullable(),
-    }),
-  ),
-  category: Yup.string().required('Category is required'),
-  totalStockQuantity: Yup.number().nullable(),
-  variantStockQuantities: Yup.array().of(
-    Yup.object().shape({
-      variant: Yup.string().nullable(),
-      quantity: Yup.number().nullable(),
-    }),
-  ),
+  // discountPrice: Yup.number().nullable(),
+  // starRating: Yup.number()
+  //   .min(1, 'Rating must be at least 1')
+  //   .max(5, 'Star Rating should be a maximum of 5')
+  //   .nullable(),
+  // reviews: Yup.string().nullable(),
+  // colors: Yup.array().of(
+  //   Yup.object().shape({
+  //     colorName: Yup.string().nullable(),
+  //   }),
+  // ),
+  // modelDetails: Yup.array().of(
+  //   Yup.object().shape({
+  //     name: Yup.string().nullable(),
+  //     detail: Yup.string().nullable(),
+  //   }),
+  // ),
+  // spacification: Yup.array().of(
+  //   Yup.object().shape({
+  //     specsDetails: Yup.string().nullable(),
+  //   }),
+  // ),
+  // // category: Yup.string().required('Category is required'),
+  // totalStockQuantity: Yup.number().nullable(),
+  // variantStockQuantities: Yup.array().of(
+  //   Yup.object().shape({
+  //     variant: Yup.string().nullable(),
+  //     quantity: Yup.number().nullable(),
+  //   }),
+  // ),
 });

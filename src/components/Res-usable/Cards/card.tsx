@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
         </div>
         <div className="px-2 py-4">
           <div className="font-bold text-[24px] mb-2">{data.title} </div>
-          <p className="text-[#333333] text-16 font-light leading-8 text-justify">
+          <p className="text-[#333333] text-15 md:text-16 font-light md:leading-8 md:text-justify">
             {truncateText(data.description || '', 30)}
           </p>
         </div>

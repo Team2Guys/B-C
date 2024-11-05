@@ -29,6 +29,11 @@ import {
   AddProductvalidationSchema,
   AddproductsinitialValues,
 } from 'data/data';
+import { Checkbox } from 'antd';
+import { useQuery } from '@tanstack/react-query';
+import { ICategory, ISUBCATEGORY } from 'types/types';
+import { fetchCategories, fetchSubCategories } from 'config/fetch';
+import showToast from 'components/Toaster/Toaster';
 
 const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   EditInitialValues,
@@ -43,9 +48,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     EditInitialValues &&
       EditInitialValues.posterImage && [EditInitialValues.posterImage],
   );
+  const [productUpdateFlat, setProductUpdateFlat] = useState(false);
   const [hoverImage, sethoverImage] = useState<any[] | null | undefined>(
     EditInitialValues &&
-      EditInitialValues.imageUrls && [EditInitialValues.imageUrls],
+      EditInitialValues.hoverImage && [EditInitialValues.hoverImage],
   );
   const [loading, setloading] = useState<boolean>(false);
   const [productInitialValue, setProductInitialValue] = useState<
@@ -55,48 +61,50 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const [Categories, setCategories] = useState<any[]>();
   const [VariationOption, setVariationOption] =
     useState<string>('withoutVariation');
-  const handleOptionChange = (e: any) => {
-    console.log(e);
-    setVariationOption(e.target.value);
-  };
+  const [Subcategory, setSubcategory] = useState(null);
+
+  console.log(Subcategory, 'addedSubcategoryaddedSubcategoryaddedSubcategory');
+
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
 
   const headers = {
-    token: finalToken,
+    Authorization: `Bearer ${finalToken}`,
   };
 
   const changeTextColor = () => {
     setIsOptionSelected(true);
   };
 
-  // useLayoutEffect(() => {
-  //   const CategoryHandler = async () => {
-  //     try {
-  //       if (!EditInitialValues) return;
-  //       const {
-  //         posterImageUrl,
-  //         imageUrl,
-  //         _id,
-  //         createdAt,
-  //         updatedAt,
-  //         __v,
-  //         hoverImage,
-  //         ...EditInitialProductValues
-  //       } = EditInitialValues as any;
-  //       imageUrl ? setImagesUrl(imageUrl) : null;
-  //       posterImageUrl ? setposterimageUrl([posterImageUrl]) : null;
-  //       console.log(hoverImage, "EditInitialValues.hoverImageUrl")
-  //       hoverImage ? sethoverImage([hoverImage]) : null
-  //       console.log(productInitialValue, "productInitialValue")
-  //     } catch (err) {
-  //       console.log(err, "err");
-  //     }
-  //   };
+  useLayoutEffect(() => {
+    const CategoryHandler = async () => {
+      try {
+        if (!EditInitialValues) return;
 
-  //   CategoryHandler();
-  // }, []);
+        setProductUpdateFlat(true);
+        const {
+          posterImageUrl,
+          imageUrls,
+          _id,
+          createdAt,
+          updatedAt,
+          __v,
+          hoverImage,
+          ...EditInitialProductValues
+        } = EditInitialValues as any;
+        imageUrls ? setImagesUrl(imageUrls) : null;
+        posterImageUrl ? setposterimageUrl([posterImageUrl]) : null;
+        console.log(hoverImage, 'EditInitialValues.hoverImageUrl');
+        hoverImage ? sethoverImage([hoverImage]) : null;
+        console.log(productInitialValue, 'productInitialValue');
+      } catch (err) {
+        console.log(err, 'err');
+      }
+    };
+
+    CategoryHandler();
+  }, []);
 
   const onSubmit = async (values: any, { resetForm }: any) => {
     try {
@@ -104,39 +112,83 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
       let hoverImageUrl = hoverImage && hoverImage[0];
       let createdAt = Date.now();
+
       if (!posterImageUrl || !(imagesUrl.length > 0)) {
-        throw new Error('Please select relevant Images');
+        return showToast('warn', 'Please select relevant Images');
       }
-      let newValue = {
+      console.log(values, 'values');
+
+      let newValues = {
         ...values,
-        posterImageUrl,
-        imageUrl: imagesUrl,
-        hoverImageUrl,
-        createdAt,
-        purchasePrice: 0,
+        title: values.name,
+        posterImage: posterImageUrl,
+        hoverImage: hoverImageUrl,
+        imageUrls: imagesUrl,
+        price: values.salePrice,
+        Meta_description: values.Meta_Description,
       };
+
       setloading(true);
+      console.log(EditInitialValues);
+      let updateFlag = productUpdateFlat;
 
-      let updateFlag = EditProductValue && EditInitialValues ? true : false;
+      // let url = updateFlag
+      //   ? `/api/products/edit_product/${EditInitialValues.id} `
+      //   : '/api/products/AddProduct';
+      let url = '/api/products/AddProduct';
 
-      let addProductUrl = updateFlag
-        ? `/api/products/updateProduct/${EditInitialValues._id} `
-        : null;
-      let url = `${process.env.NEXT_PUBLIC_BASE_URL}${
-        updateFlag ? addProductUrl : '/api/products/addProduct'
-      }`;
+      const {
+        categories,
+        subcategories,
+        code,
+        modelDetails,
+        purchasePrice,
+        reviews,
+        sizes,
+        starRating,
+        variantStockQuantities,
+        discountPrice,
+        totalStockQuantity,
+        spacification,
+        stock,
+        salePrice,
+        Meta_Description,
+        hoverImage: newhoverImage,
+        id,
+        name,
+        ...finalValues
+      } = newValues;
 
-      const response = await axios.post(url, newValue, {
-        headers: {
-          Authorization: `Bearer ${finalToken}`,
+      let updatedvalue = {
+        ...finalValues,
+        category: { connect: { id: selectedCategoryIds[0] } },
+      };
+
+      if (selectedSubcategoryIds.length > 0) {
+        updatedvalue = {
+          ...updatedvalue,
+          subCategory: {
+            connect: selectedSubcategoryIds.map((id) => ({ id })),
+          },
+        };
+      }
+
+      let method: 'post' | 'put' = updateFlag ? 'put' : 'post';
+
+      // let response = await axios[method](
+      let response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}${url}`,
+        updatedvalue,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
-      console.log(response, 'response');
-      Toaster(
+      );
+
+      showToast(
         'success',
-        updateFlag
-          ? 'Product has been sucessufully Updated !'
-          : 'Product has been sucessufully Created !',
+        `Product has been successfully ${updateFlag ? 'updated!' : 'Addded'}`,
       );
       setProductInitialValue(AddproductsinitialValues);
       resetForm();
@@ -144,12 +196,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       sethoverImage(null);
       setposterimageUrl(null);
       setImagesUrl([]);
+      setSelectedCategoryIds([]);
+      setSelectedSubcategoryIds([]);
+
       updateFlag ? setEditProduct && setEditProduct(undefined) : null;
-      setselecteMenu('Add All Products');
     } catch (err: any) {
-      if (err.response && err.response.data && err.response.data.error) {
-        setError(err.response.data.error);
-        console.log(err.response.data.error, 'err.response.data.message');
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+        console.log(err.response.data.message, 'err.response.data.message');
       } else {
         if (err instanceof Error) {
           setError(err.message);
@@ -158,10 +212,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         }
       }
     } finally {
-      // setloading(false);
+      setloading(false);
     }
   };
-
+  const handleOptionChange = (e: any) => {
+    console.log(e);
+    setVariationOption(e.target.value);
+  };
   useEffect(() => {
     const CategoryHandler = async () => {
       try {
@@ -170,12 +227,22 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         );
         const Categories = await response.json();
         setCategories(Categories);
-        // console.log(Categories, "Categories");
       } catch (err) {
         console.log(err, 'err');
       }
     };
+    const SubCategoryHandler = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
+        );
+        setSubcategory(response.data);
+      } catch (err) {
+        console.error('Error fetching subcategories:', err);
+      }
+    };
 
+    SubCategoryHandler();
     CategoryHandler();
   }, []);
 
@@ -205,6 +272,51 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     );
     setposterimageUrl(updatedImagesUrl);
   };
+  const {
+    data: categoriesList = [],
+    error,
+    isLoading,
+  } = useQuery<ICategory[], Error>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
+
+  const {
+    data: subCategoriesList = [],
+    error: subError,
+    isLoading: subLoading,
+  } = useQuery<ICategory[], Error>({
+    queryKey: ['subcategories'],
+    queryFn: fetchSubCategories,
+  });
+
+  const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
+  const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<
+    number[]
+  >([]);
+  const [filteredSubcategories, setFilteredSubcategories] = useState<
+    ICategory[]
+  >([]);
+
+  useEffect(() => {
+    const selectedCategories = categoriesList.filter((category) =>
+      selectedCategoryIds.includes(category.id),
+    );
+    const filteredSubcategories = subCategoriesList.filter((subcategory) =>
+      selectedCategoryIds.includes(subcategory.CategoryId),
+    );
+    setFilteredSubcategories(filteredSubcategories);
+  }, [selectedCategoryIds, categoriesList]);
+
+  useEffect(() => {
+    const selectedCategories = categoriesList.filter((category) =>
+      selectedCategoryIds.includes(category.id),
+    );
+    const filteredSubcategories = subCategoriesList.filter((subcategory) =>
+      selectedCategoryIds.includes(subcategory.CategoryId),
+    );
+    setFilteredSubcategories(filteredSubcategories);
+  }, [selectedCategoryIds, categoriesList]);
   return (
     <>
       <p
@@ -454,7 +566,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             </div>
                           ) : null}
                         </div>
-                        <div className="w-2/4">
+                        {/* <div className="w-2/4">
                           <SelectGroupTwo
                             name="category"
                             changeHandler={formik.handleChange}
@@ -471,6 +583,87 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             component="div"
                             className="text-red"
                           />
+                        </div> */}
+                      </div>
+                      <div className="w-full">
+                        <label className="mb-3 block py-4 px-2 text-sm font-medium text-black dark:text-white">
+                          Select Parent Category (at least one)
+                        </label>
+                        {isLoading ? (
+                          <div>
+                            <Loader />
+                          </div>
+                        ) : (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {categoriesList.map((category) => (
+                              <div
+                                key={category.id}
+                                className="flex items-center space-x-2"
+                              >
+                                <Checkbox
+                                  checked={selectedCategoryIds.includes(
+                                    category.id,
+                                  )}
+                                  onChange={(e) => {
+                                    const checked = e.target.checked;
+                                    setSelectedCategoryIds((prev) => {
+                                      if (checked) {
+                                        return [category.id];
+                                      } else {
+                                        setSelectedSubcategoryIds([]);
+                                        return [];
+                                      }
+                                    });
+                                  }}
+                                  id={`category-${category.id}`}
+                                />
+                                <label
+                                  htmlFor={`category-${category.id}`}
+                                  className="ml-2 text-black dark:text-white"
+                                >
+                                  {category.title}
+                                </label>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <div className="mt-4">
+                        <h2 className="text-lg font-medium">Subcategories</h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {filteredSubcategories.map((subcategory) => (
+                            <div
+                              key={subcategory.id}
+                              className="flex items-center space-x-2 p-2 border rounded"
+                            >
+                              <Checkbox
+                                checked={selectedSubcategoryIds.includes(
+                                  subcategory.id,
+                                )}
+                                onChange={(e) => {
+                                  const checked = e.target.checked;
+                                  setSelectedSubcategoryIds((prev) => {
+                                    if (checked) {
+                                      // If a new subcategory is checked, add it to the selected list
+                                      return [...prev, subcategory.id];
+                                    } else {
+                                      // If the current subcategory is unchecked, remove it from the selected list
+                                      return prev.filter(
+                                        (id) => id !== subcategory.id,
+                                      );
+                                    }
+                                  });
+                                }}
+                                id={`subcategory-${subcategory.id}`} // Corrected with template literals
+                              />
+                              <label
+                                htmlFor={`subcategory-${subcategory.id}`} // Corrected with template literals
+                                className="ml-2 text-black dark:text-white"
+                              >
+                                {subcategory.title}
+                              </label>
+                            </div>
+                          ))}
                         </div>
                       </div>
 

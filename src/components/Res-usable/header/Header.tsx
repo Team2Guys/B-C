@@ -123,17 +123,17 @@ const Header = () => {
       </div>
 
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50">
-        <Container className="flex w-full justify-between px-2 ">
+        <Container className="flex w-full justify-between px-2 items-center gap-1 md:gap-0 ">
           <Link href={'/'} className="w-3/12 lg:w-1/12">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
 
-          <div className="w-3/12 lg:w-8/12 mt-[22px]">
+          <div className="w-3/12 lg:w-8/12 mt-[30px]">
             <div
               className="hidden lg:flex justify-evenly 
             
             
-            text-12 xl:text-16 whitespace-nowrap lg:-space-x-8 xl:-space-x-3"
+            text-12 xl:text-16 whitespace-nowrap  -space-x-8 xl:-space-x-3"
             >
               <Link
                 className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${
