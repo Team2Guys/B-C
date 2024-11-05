@@ -47,8 +47,15 @@ model products {
   updatedAt   DateTime?
   createdAt   DateTime  @default(now())
   category     Categories     @relation("CategoryToProducts", fields: [CategoryId], references: [id])
-  subCategory  SubCategories? @relation("SubCategoryToProducts", fields: [SubCategoryId], references: [id])
+  subCategory  SubCategories[] @relation("SubCategoryToProducts")
   product_type String @default("By Type")
+  colors Json[]
+  Meta_description String?
+  Images_Alt_Text String?
+  Meta_Title String?
+  Canonical_Tag String?
+ 
+
 }
 
 
