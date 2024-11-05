@@ -1167,57 +1167,95 @@ export const intitalValues = {
 };
 
 export const blindMegaMenuItems = [
-  { productName: 'motorised-blinds' },
-  { productName: 'aluminium-venetian-blinds-dubai' },
-  { productName: 'blackout-blinds' },
-  { productName: 'colby-honeycomb-blinds' },
-  { productName: '3d-blinds' },
-  { productName: 'duplex-blinds' },
-  { productName: 'skylight-blinds-dubai' },
-  { productName: 'sheer-horizon-blinds' },
-  { productName: 'panel-blinds' },
-  { productName: 'roller-blinds' },
-  { productName: 'roman-blinds' },
   { productName: 'vertical-blinds' },
-  { productName: 'wood-venetian-blinds' },
+  { productName: 'zipline-outdoor-blinds' },
+  { productName: 'colby-honeycomb-blinds' },
+  { productName: 'panel-blinds' },
+  { productName: 'aluminium-venetian-blinds-dubai' },
+  { productName: 'wooden-blinds' },
+  { productName: 'daynight-blinds' },
+  { productName: 'roman-blinds' },
+  { productName: 'roller-blinds' },
+
+  { productName: 'staircase' },
+  { productName: 'vertical' },
+  { productName: 'conservatory' },
+  { productName: 'office' },
+  { productName: 'bedroom' },
+  { productName: 'kitchen' },
+  { productName: 'dining-room' },
+  { productName: 'living-room' },
+  { productName: 'officestudy' },
+
+  { productName: 'sunscreentransparent' },
+  { productName: 'blackout-blinds' },
+  { productName: 'outdoor' },
+  { productName: 'dimoutsemi-trasnparent' },
+  { productName: 'motorised' },
 ];
 
 export const curtainMegaMenuItems = [
-  { productName: 'made-to-measure-bed-room-curtains' },
-  { productName: 'blackout-curtains-dubai' },
-  { productName: 'eyelet-curtains' },
-  { productName: 'eyelet-curtains' },
-  { productName: 'home-curtains' },
-  { productName: 'hotel-curtains-dubai' },
-  { productName: 'made-to-measure-living-room-curtains' },
-  { productName: 'motorised-curtains' },
-  { productName: 'pinch-pleat-curtains' },
+  { productName: 'pencil-pleat' },
+  { productName: 'ripplefold' },
+  { productName: 'tab-top' },
+  { productName: 'eyelet' },
+  { productName: 'double-pinch-pleat' },
+  { productName: 'triple-pinch-pleat' },
+
+  { productName: 'conservatory' },
+  { productName: 'staircase' },
+  { productName: 'bedroom' },
+  { productName: 'dining' },
+  { productName: 'loungeliving' },
+  { productName: 'kids-bedroom' },
+
+  { productName: 'stripes-curtains' },
+  { productName: 'geometric-curtains' },
+  { productName: 'textured-curtains' },
+  { productName: 'kids-prints-curtains' },
+  { productName: 'natural-fabric-curtains' },
+  { productName: 'patterned-curtains' },
+  { productName: 'plain-curtains' },
   { productName: 'made-to-measure-sheer-curtains' },
-  { productName: 'pinch-pleat-curtains' },
-  { productName: 'goblet-pleat-curtains' },
-  { productName: 'made-to-measure-linen-curtains' },
-  { productName: 'triple-pinch-pleat-curtains' },
-  { productName: 'stage-and-theatre-curtains' },
-  { productName: 'made-to-measure-chiffon-curtains' },
+  { productName: 'blackout-curtains-dubai' },
 ];
+
 export const shutterMegaMenuItems = [
-  { productName: 'full-height-shutters' },
-  { productName: 'bay-window-shutters' },
-  { productName: 'tracked-window-shutters' },
   { productName: 'special-shape-shutters-wooden-shutters' },
-  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'outdoor-shutters' },
   { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+  { productName: 'cafe-style-shutters' },
+  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'bay-window-shutters' },
+  { productName: 'bi-fold-shutters' },
+  { productName: 'tracked-shutters' },
+  { productName: 'full-height-shutters' },
+
+  { productName: 'staircase-shutters' },
+  { productName: 'bathroom-shutters' },
+  { productName: 'kitchen-shutters' },
+  { productName: 'dining-room-shutters' },
+  { productName: 'living-room-shutters' },
 ];
 
 export const commercialMegaMenuItems = [
-  { productName: 'school-blinds' },
-  { productName: 'office-blinds' },
-  { productName: 'hotels-restaurants-blinds-curtains' },
-  { productName: 'office-window-curtains' },
-  { productName: 'printed-blinds' },
-  { productName: 'printed-blinds' },
-  { productName: 'hospital-curtains' },
-  { productName: 'aluminium-venetian-blinds-dubai' },
+  { productName: 'hospitals' },
+  { productName: 'restaurants' },
+  { productName: 'auditoriums' },
+  { productName: 'hotels' },
+  { productName: 'schools' },
+  { productName: 'offices' },
+
+  { productName: 'indoor' },
+  { productName: 'outdoor' },
+  { productName: 'skylight' },
+  { productName: 'balcony' },
+  { productName: 'pergola' },
+
+  { productName: 'fire-retardant' },
+  { productName: 'water-repellent ' },
+  { productName: 'washable' },
+  { productName: 'anti-microbial' },
 ];
 
 export const staticCommercialMegaMenuItems: IProduct[] = [
@@ -1481,73 +1519,155 @@ export const byTypeItems = [
   { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
 ];
 
-export const megaBlindsbyStyle = [
-  { productName: 'full-height-shutters' },
-  { productName: 'bay-window-shutters' },
-  { productName: 'tracked-window-shutters' },
+export const megaMenubyStyle = [
+  { productName: 'vertical-blinds' },
+  { productName: 'zipline-outdoor-blinds' },
+  { productName: 'colby-honeycomb-blinds' },
+  { productName: 'panel-blinds' },
+  { productName: 'aluminium-venetian-blinds-dubai' },
+  { productName: 'wooden-blinds' },
+  { productName: 'daynight-blinds' },
+  { productName: 'roman-blinds' },
+  { productName: 'roller-blinds' },
+
   { productName: 'special-shape-shutters-wooden-shutters' },
-  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'outdoor-shutters' },
   { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+  { productName: 'cafe-style-shutters' },
+  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'bay-window-shutters' },
+  { productName: 'bi-fold-shutters' },
+  { productName: 'tracked-shutters' },
+  { productName: 'full-height-shutters' },
+
+  { productName: 'pencil-pleat' },
+  { productName: 'ripplefold' },
+  { productName: 'tab-top' },
+  { productName: 'eyelet' },
+  { productName: 'double-pinch-pleat' },
+  { productName: 'triple-pinch-pleat' },
+
+  { productName: 'hospitals' },
+  { productName: 'restaurants' },
+  { productName: 'auditoriums' },
+  { productName: 'hotels' },
+  { productName: 'schools' },
+  { productName: 'offices' },
 ];
-// export const megaBlindsbyRoom = [
-//   { productName: 'pinch-pleat-curtains' },
-//   { productName: 'made-to-measure-linen-curtains' },
-//   { productName: 'goblet-pleat-curtains' },
-//   { productName: 'pelmet-curtains' },
-//   { productName: 'wave-curtains' },
-//   { productName: 'velvet-curtains' },
-// ];
-// export const megaBlindsbyFunction = [
-//   { productName: 'full-height-shutters' },
-//   { productName: 'bay-window-shutters' },
-//   { productName: 'tracked-window-shutters' },
-//   { productName: 'special-shape-shutters-wooden-shutters' },
-//   { productName: 'tier-on-tier-shutters-wooden-shutters' },
-//   { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
-// ];
-// export const megaShuttersbyFunction = [
-//   { productName: 'full-height-shutters' },
-//   { productName: 'bay-window-shutters' },
-//   { productName: 'tracked-window-shutters' },
-//   { productName: 'special-shape-shutters-wooden-shutters' },
-//   { productName: 'tier-on-tier-shutters-wooden-shutters' },
-//   { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
-// ];
+
+export const megaMenubyRoom = [
+  { productName: 'staircase' },
+  { productName: 'vertical' },
+  { productName: 'conservatory' },
+  { productName: 'office' },
+  { productName: 'bedroom' },
+  { productName: 'kitchen' },
+  { productName: 'dining-room' },
+  { productName: 'living-room' },
+  { productName: 'officestudy' },
+
+  // { productName: 'staircase-shutters' },
+  // { productName: 'bathroom-shutters' },
+  // { productName: 'kitchen-shutters' },
+  // { productName: 'dining-room-shutters' },
+  // { productName: 'living-room-shutters' },
+
+  { productName: 'conservatory' },
+  { productName: 'staircase' },
+  { productName: 'bedroom' },
+  { productName: 'dining' },
+  { productName: 'loungeliving' },
+  { productName: 'kids-bedroom' },
+
+  { productName: 'indoor' },
+  // { productName: 'outdoor' },
+  { productName: 'skylight' },
+  { productName: 'balcony' },
+  { productName: 'pergola' },
+];
+
+export const megaMenuDynamic = [
+  { productName: 'sunscreen-roller-blinds' },
+  { productName: 'sunscreentransparent' },
+  { productName: 'blackout-blinds' },
+  { productName: 'stripes-curtains' },
+  { productName: 'geometric-curtains' },
+  { productName: 'textured-curtains' },
+  { productName: 'kids-prints-curtains' },
+  { productName: 'natural-fabric-curtains' },
+  { productName: 'patterned-curtains' },
+  { productName: 'plain-curtains' },
+  { productName: 'made-to-measure-sheer-curtains' },
+  { productName: 'blackout-curtains-dubai' },
+  { productName: 'sunscreentransparent' },
+  { productName: 'blackout-blinds' },
+  { productName: 'outdoor' },
+  { productName: 'dimoutsemi-trasnparent' },
+  { productName: 'motorised' },
+
+  { productName: 'white' },
+  { productName: 'off-white' },
+  { productName: 'black' },
+  { productName: 'dark-woods' },
+  { productName: 'bold-colours' },
+  { productName: 'grey' },
+
+  { productName: 'stripes-curtains' },
+  { productName: 'geometric-curtains' },
+  { productName: 'textured-curtains' },
+  { productName: 'kids-prints-curtains' },
+  { productName: 'natural-fabric-curtains' },
+  { productName: 'patterned-curtains' },
+  { productName: 'plain-curtains' },
+  { productName: 'made-to-measure-sheer-curtains' },
+  { productName: 'blackout-curtains-dubai' },
+
+  { productName: 'fire-retardant' },
+  { productName: 'water-repellent ' },
+  { productName: 'washable' },
+  { productName: 'anti-microbial' },
+];
 
 export const AddProductvalidationSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  description: Yup.string().required('Required'),
-  salePrice: Yup.number()
-    .min(1, "Minimum sales price must be at least 1")
-    .required('Required'),
+  // name: Yup.string()
+  //   .min(2, 'Too Short!')
+  //   .max(50, 'Too Long!')
+  //   .required('Required'),
+  // description: Yup.string().required('Required'),
+  // salePrice: Yup.number()
+  //   .min(1, 'Minimum sales price must be at least 1')
+  //   .required('Required'),
   // purchasePrice: Yup.number()
   //   .min(1, "Must be at least 1")
   //   .required('Required'),
-
-
-  discountPrice: Yup.number().nullable(),
-  starRating: Yup.number()
-    .min(1, "Rating must be at least 1")
-    .max(5, 'Star Rating should be a maximum of 5')
-    .nullable(),
-  reviews: Yup.string().nullable(),
-  colors: Yup.array().of(Yup.object().shape({
-    colorName: Yup.string().nullable(),
-  })),
-  modelDetails: Yup.array().of(Yup.object().shape({
-    name: Yup.string().nullable(),
-    detail: Yup.string().nullable(),
-  })),
-  spacification: Yup.array().of(Yup.object().shape({
-    specsDetails: Yup.string().nullable()
-  })),
-  category: Yup.string().required('Category is required'),
-  totalStockQuantity: Yup.number().nullable(),
-  variantStockQuantities: Yup.array().of(Yup.object().shape({
-    variant: Yup.string().nullable(),
-    quantity: Yup.number().nullable(),
-  })),
+  // discountPrice: Yup.number().nullable(),
+  // starRating: Yup.number()
+  //   .min(1, 'Rating must be at least 1')
+  //   .max(5, 'Star Rating should be a maximum of 5')
+  //   .nullable(),
+  // reviews: Yup.string().nullable(),
+  // colors: Yup.array().of(
+  //   Yup.object().shape({
+  //     colorName: Yup.string().nullable(),
+  //   }),
+  // ),
+  // modelDetails: Yup.array().of(
+  //   Yup.object().shape({
+  //     name: Yup.string().nullable(),
+  //     detail: Yup.string().nullable(),
+  //   }),
+  // ),
+  // spacification: Yup.array().of(
+  //   Yup.object().shape({
+  //     specsDetails: Yup.string().nullable(),
+  //   }),
+  // ),
+  // // category: Yup.string().required('Category is required'),
+  // totalStockQuantity: Yup.number().nullable(),
+  // variantStockQuantities: Yup.array().of(
+  //   Yup.object().shape({
+  //     variant: Yup.string().nullable(),
+  //     quantity: Yup.number().nullable(),
+  //   }),
+  // ),
 });

@@ -40,9 +40,10 @@ const Products = () => {
     discountPrice: editProduct?.discountPrice,
     code: editProduct && editProduct.code,
     category: editProduct && editProduct?.CategoryId,
+    subCategory: editProduct && editProduct?.subCategory,
     Meta_Title: editProduct && editProduct?.Meta_Title,
     Canonical_Tag: editProduct && editProduct?.Canonical_Tag,
-    Meta_Description: editProduct && editProduct?.Meta_Description,
+    Meta_Description: editProduct && editProduct?.Meta_description,
     Images_Alt_Text: editProduct && editProduct?.Images_Alt_Text,
     modelDetails: editProduct && editProduct?.modelDetails,
     colors: editProduct?.colors,
@@ -56,13 +57,8 @@ const Products = () => {
     additionalInformation: editProduct && editProduct.additionalInformation,
     product_type: editProduct && editProduct.product_type,
   };
-console.log(EditInitialValues,"EditInitialValuesEditInitialValues")
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
-  
-  useEffect(() => {
-    console.log('Edit product triggered from parent');
-    console.log(editProduct);
-  }, [editProduct]);
+
   return (
     <DefaultLayout>
       <Breadcrumb pageName={productFlag ? 'Products' : 'Add Products'} />
