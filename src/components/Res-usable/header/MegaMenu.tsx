@@ -52,8 +52,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
     if (
       menuRef.current &&
-      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
       buttonRef.current &&
+      mouseEvent.relatedTarget &&
+      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
       !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
     ) {
       const newTimeoutId = setTimeout(() => {

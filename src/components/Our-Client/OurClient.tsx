@@ -14,8 +14,8 @@ const OurClient = () => {
           our clients
         </h2>
         <p className="text-center text-sm tracking-widest lg:w-2/5 mx-auto px-10 pt-3">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. 
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
         </p>
       </div>
       <div className="bg-white">
