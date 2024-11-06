@@ -11,7 +11,7 @@ import { generateSlug } from 'data/data';
 import { useParams } from 'next/navigation';
 import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
 
-const CommercialPage = () => {
+const Page = () => {
   const { subproduct } = useParams();
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
@@ -56,9 +56,9 @@ const CommercialPage = () => {
       ) : (
         <ProductDetailPage title={`${filteredProduct?.title}`} />
       )}
-       <VideoAutomation />
+      <VideoAutomation />
     </>
   );
 };
 
-export default CommercialPage;
+export default Page;
