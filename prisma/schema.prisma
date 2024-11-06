@@ -115,4 +115,22 @@ category String
 updatedAt   DateTime?
 createdAt   DateTime  @default(now())
 posterImage  Json @default("{}")
+comments blogs_comments[] @relation("BlogComments")
+
 }
+
+model blogs_comments {
+  id    Int @id @default(autoincrement())
+  name        String
+  Email       String
+  description String
+  createdAt   DateTime  @default(now())
+  replies Json[]
+blogId      Int
+blog        blogs @relation("BlogComments", fields: [blogId], references: [id])
+
+  }
+
+
+
+

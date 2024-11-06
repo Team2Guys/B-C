@@ -30,6 +30,7 @@ export class AllExceptionsFilter extends BaseExceptionFilter {
 
         if (exception instanceof HttpException){
                 myResponseObj.statusCode = exception.getStatus()
+                console.log(exception.getStatus(), "exception.getStatus()")
                 myResponseObj.message = exception.getResponse()
         } else if (exception instanceof PrismaClientValidationError){ 
             myResponseObj.statusCode = HttpStatus.UNPROCESSABLE_ENTITY;
@@ -51,7 +52,6 @@ export class AllExceptionsFilter extends BaseExceptionFilter {
         if (typeof message === 'string') {
             return message;
         } else if (typeof message === 'object' && message !== null) {
-            // Extract a relevant message or convert the object to a string
             return message.message || JSON.stringify(message);
         }
         return 'An error occurred';
