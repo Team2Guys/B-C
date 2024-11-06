@@ -29,8 +29,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   href,
   onClick,
 }) => {
-  console.log(sliderData, 'sliderData');
-
   const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeProduct, setactiveProduct] = useState<IProduct | undefined>();
@@ -128,7 +126,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         result[2].push(product);
       }
     });
-    console.log(result, 'result');
     return result;
   };
 
@@ -167,8 +164,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                 const parent = generateSlug(title);
 
                 const itemName = generateSlug(item.name);
-                console.log('itemName', itemName);
-                console.log('parent', parent);
 
                 return (
                   <div key={index} className="flex flex-col gap-5 w-full">
