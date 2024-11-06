@@ -55,9 +55,11 @@ function Comments({ data }: CommentsProps) {
     console.log(currentURL)
   }, []);
 
-  const totalPages = Math.ceil(CommentData.length / itemsPerPage);
+  const totalPages = Math.ceil(data?.comments.length / itemsPerPage);
 
-  const currentComments = CommentData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+
+  const currentComments = data?.comments.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -204,10 +206,15 @@ function Comments({ data }: CommentsProps) {
             </button>
           </div>
         </form>
-        <p className="text-18 font-normal text-darkgrey mt-2">
+
+        {(currentComments && currentComments.length > 0) &&
+          <p className="text-18 font-normal text-darkgrey mt-2">
           {data?.comments.length} Comments
         </p>
-        {data?.comments.map((item: any) => (
+         }
+
+      
+        {(currentComments && currentComments.length > 0)  && currentComments.map((item: any) => (
           <div key={item.id} className="mt-4 leading-8">
             <div className="flex justify-between items-center">
               <h5 className="text-16 font-semibold">{item.name}</h5>
