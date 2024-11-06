@@ -129,33 +129,43 @@ const Header = () => {
           </Link>
 
           <div className="w-3/12 lg:w-8/12 mt-[30px]">
-            <div className="hidden lg:flex justify-evenly 
+            <div
+              className="hidden lg:flex justify-evenly 
             
             
-            text-12 xl:text-16 whitespace-nowrap  -space-x-8 xl:-space-x-3">
+            text-12 xl:text-16 whitespace-nowrap  -space-x-8 xl:-space-x-3"
+            >
               <Link
-                className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${path === '/'
+                className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${
+                  path === '/'
                     ? 'font-bold text-black-500 bg-secondary text-white '
                     : 'hover:bg-secondary hover:text-white'
-                  }`}
+                }`}
                 href={'/'}
               >
                 Home
               </Link>
               {links.map((link, index) => {
-                let filteredSubCategories = subCategories?.filter((subcategory) => subcategory.CategoryId === link.id) || [];
+                let filteredSubCategories =
+                  subCategories?.filter(
+                    (subcategory) => subcategory.CategoryId === link.id,
+                  ) || [];
 
-                let filteredProducts = products?.filter((product) => product.CategoryId === link.id,) || [];
+                let filteredProducts =
+                  products?.filter(
+                    (product) => product.CategoryId === link.id,
+                  ) || [];
 
                 let combinedSliderData: any[] = [];
 
                 if (link.id === 2) {
                   const actualProducts = filteredProducts.filter((product) =>
-                    blindMegaMenuItems.some((menuItem) => menuItem.productName === generateSlug(product.title),
+                    blindMegaMenuItems.some(
+                      (menuItem) =>
+                        menuItem.productName === generateSlug(product.title),
                     ),
                   );
 
-                  console.log(actualProducts);
                   combinedSliderData = [
                     ...filteredSubCategories,
                     ...actualProducts,
@@ -203,14 +213,14 @@ const Header = () => {
                   ];
                 }
 
-
                 // const isActive =
                 //   link.href && path?.includes(generateSlug(link.label));
                 const isBlogPath = path.startsWith('/blog');
 
                 const isBlogActive = link.href === '/blog' && isBlogPath;
 
-                const isActive = !isBlogPath && path?.includes(generateSlug(link.label));
+                const isActive =
+                  !isBlogPath && path?.includes(generateSlug(link.label));
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
@@ -220,20 +230,19 @@ const Header = () => {
                     sliderData={combinedSliderData}
                     href={link.href}
                     className={
-
                       isBlogActive || isActive
                         ? 'font-bold text-black-500 bg-secondary text-white'
                         : 'hover:bg-secondary hover:text-white'
-
                     }
                   />
                 ) : (
                   <Link
                     key={index}
-                    className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${isBlogActive || isActive
+                    className={`px-3 pb-6 pt-1 text-12 xl:text-15 ${
+                      isBlogActive || isActive
                         ? 'font-bold text-black-500 text-white bg-secondary'
                         : 'hover:bg-secondary hover:text-white'
-                      }`}
+                    }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
                   >
@@ -243,7 +252,7 @@ const Header = () => {
               })}
             </div>
           </div>
-          <div className='flex items-center'>
+          <div className="flex items-center">
             <Link
               className="py-2 px-2 xl:px-5 rounded-md text-10 xl:text-16 whitespace-nowrap bg-primary text-black"
               href="/request-appointment"
@@ -251,9 +260,7 @@ const Header = () => {
             >
               Book A Free Appointment
             </Link>
-
           </div>
-
 
           <div className="ms-2 xs:ms-0 flex items-center lg:hidden">
             <Sheet
@@ -264,8 +271,9 @@ const Header = () => {
             >
               <div className="flex flex-col">
                 <Link
-                  className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${path === '/' ? 'font-bold text-black-500' : ''
-                    }`}
+                  className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
+                    path === '/' ? 'font-bold text-black-500' : ''
+                  }`}
                   onClick={handleCloseDrawer}
                   href="/"
                 >
@@ -275,10 +283,11 @@ const Header = () => {
                 {links.map((link, index) => (
                   <Link
                     key={index}
-                    className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${link.href && path?.includes(generateSlug(link.label))
+                    className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
+                      link.href && path?.includes(generateSlug(link.label))
                         ? 'font-bold text-black-500'
                         : ''
-                      }`}
+                    }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
                   >
@@ -288,8 +297,6 @@ const Header = () => {
               </div>
             </Sheet>
           </div>
-
-
         </Container>
       </nav>
     </>

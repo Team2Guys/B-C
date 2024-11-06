@@ -27,10 +27,17 @@ const CommercialPage = () => {
   const filteredSubCategory = subCategories?.find(
     (sub) => generateSlug(sub.title) === product,
   );
+  console.log('--------------- START --------------- ');
+  console.log('filteredSubCategory', filteredSubCategory);
+  console.log(products);
 
-  const relatedProducts = products?.filter(
-    (prod) => prod.SubCategoryId === filteredSubCategory?.id,
+  const relatedProducts = products?.filter((prod) =>
+    //@ts-expect-error
+    prod.subCategory?.some((sub) => sub.id === filteredSubCategory?.id),
   );
+
+  console.log('--------------- END --------------- ');
+  console.log('relatedProducts', relatedProducts);
 
   const filteredProduct = products?.find(
     (prod) => generateSlug(prod.title) === product,
@@ -56,7 +63,7 @@ const CommercialPage = () => {
       ) : (
         <ProductDetailPage title={`${filteredProduct?.title}`} />
       )}
-       <VideoAutomation />
+      <VideoAutomation />
     </>
   );
 };
