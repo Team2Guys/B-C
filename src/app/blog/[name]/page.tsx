@@ -29,7 +29,7 @@ const BlogDetail = () => {
     return <PageSkelton />;
   }
 
-  const blog = blogs?.find((blog) => generateSlug(blog.title) === name);
+  const blog:any = blogs?.find((blog) => generateSlug(blog.title) === name);
 
   if (!blog) {
     return <p>Blog not found.</p>;
@@ -49,14 +49,11 @@ const BlogDetail = () => {
         className="w-full h-full md:h-[608px] rounded-xl"
         width={1000}
         height={700}
-        // src={'/assets/images/Blog/blog.jpg'}
-        //@ts-expect-error
+   
         src={blog.posterImage?.imageUrl}
         alt="Blog Image"
       />
       <span dangerouslySetInnerHTML={{ __html: blog.content }} />
-
-      {/* <OurBlog id={"#top"} title="Popular Post" Blogdata={latestArticles} buttonView /> */}
       <Comments data={blog} />
     </Container>
   );
