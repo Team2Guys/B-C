@@ -7,82 +7,70 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Categories {
-  id           Int             @default(autoincrement()) @id
-  title        String          @unique
-  products     products[]      @relation("CategoryToProducts")
-  posterImage  Json
+  id            Int             @id @default(autoincrement())
+  title         String          @unique
+  products      products[]      @relation("CategoryToProducts")
+  posterImage   Json
   subCategories SubCategories[] @relation("CategoryToSubCategories")
- description String?
- createdAt   DateTime  @default(now())
-
+  description   String?
+  createdAt     DateTime        @default(now())
 }
 
 model SubCategories {
-  id          Int             @default(autoincrement()) @id
-  title       String          
+  id          Int        @id @default(autoincrement())
+  title       String
   CategoryId  Int
-  category    Categories      @relation("CategoryToSubCategories", fields: [CategoryId], references: [id])
-  products    products[]      @relation("SubCategoryToProducts")
+  category    Categories @relation("CategoryToSubCategories", fields: [CategoryId], references: [id])
+  products    products[] @relation("SubCategoryToProducts")
   posterImage Json
- description String?
-  createdAt   DateTime  @default(now())
-
-
+  description String?
+  createdAt   DateTime   @default(now())
 }
-
-
-
 
 model products {
-  id           Int            @default(autoincrement()) @id
-  title        String         @unique
-  posterImage  Json
-  imageUrls    Json[]
-  price        Float
-  CategoryId   Int
-  SubCategoryId Int?    
-  description  String?  
-  updatedAt   DateTime?
-  createdAt   DateTime  @default(now())
-  category     Categories     @relation("CategoryToProducts", fields: [CategoryId], references: [id])
-  subCategory  SubCategories[] @relation("SubCategoryToProducts")
-  product_type String @default("By Type")
-  colors Json[]
+  id               Int             @id @default(autoincrement())
+  title            String          @unique
+  posterImage      Json
+  imageUrls        Json[]
+  price            Float
+  CategoryId       Int
+  SubCategoryId    Int?
+  description      String?
+  updatedAt        DateTime?
+  createdAt        DateTime        @default(now())
+  category         Categories      @relation("CategoryToProducts", fields: [CategoryId], references: [id])
+  subCategory      SubCategories[] @relation("SubCategoryToProducts")
+  product_type     String          @default("By Type")
+  colors           Json[]
   Meta_description String?
-  Images_Alt_Text String?
-  Meta_Title String?
-  Canonical_Tag String?
- 
-
+  Images_Alt_Text  String?
+  Meta_Title       String?
+  Canonical_Tag    String?
 }
-
-
 
 enum contact_method {
-Whatsapp
-Email
-Telephone
+  Whatsapp
+  Email
+  Telephone
 }
+
 model Appointments {
-id Int @default(autoincrement()) @id
-name String
- phone_number String
- area String
- email String 
- whatsapp_number String?
- windows String
- prefered_Date DateTime
- how_user_find_us String
- user_query String
- product_type String[]
- other String?
- prefered_contact_method String[] @default([])
- prefered_time String?
+  id                      Int      @id @default(autoincrement())
+  name                    String
+  phone_number            String
+  area                    String
+  email                   String
+  whatsapp_number         String?
+  windows                 String
+  prefered_Date           DateTime
+  how_user_find_us        String
+  user_query              String
+  product_type            String[]
+  other                   String?
+  prefered_contact_method String[] @default([])
+  prefered_time           String?
 }
-
-
 
 model Admins {
   id                     Int     @id @default(autoincrement())
@@ -103,34 +91,28 @@ model Admins {
   canVeiwAdmins          Boolean @default(false)
   canVeiwTotalproducts   Boolean @default(false)
   canVeiwTotalCategories Boolean @default(false)
-  posterImageUrl Json?     
+  posterImageUrl         Json?
   role                   String  @default("Admin")
 }
 
 model blogs {
-id Int @id @default(autoincrement())
-title    String  @unique
-content   String
-category String
-updatedAt   DateTime?
-createdAt   DateTime  @default(now())
-posterImage  Json @default("{}")
-comments blogs_comments[] @relation("BlogComments")
-
+  id          Int              @id @default(autoincrement())
+  title       String           @unique
+  content     String
+  category    String
+  updatedAt   DateTime?
+  createdAt   DateTime         @default(now())
+  posterImage Json             @default("{}")
+  comments    blogs_comments[] @relation("BlogComments")
 }
 
 model blogs_comments {
-  id    Int @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
   Email       String
   description String
-  createdAt   DateTime  @default(now())
-  replies Json[]
-blogId      Int
-blog        blogs @relation("BlogComments", fields: [blogId], references: [id])
-
-  }
-
-
-
-
+  createdAt   DateTime @default(now())
+  replies     Json[]
+  blogId      Int
+  blog        blogs    @relation("BlogComments", fields: [blogId], references: [id])
+}

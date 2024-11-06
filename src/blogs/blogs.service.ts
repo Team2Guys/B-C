@@ -125,10 +125,12 @@ export class BlogsService {
       if (!existingComment) {
         new NotFoundException("comments not found")
       }
+      
       const replyObject = {
         name: reply.name,
         Email: reply.email,
         description: reply.description,
+        createdAt: new Date()
       };
 
 
