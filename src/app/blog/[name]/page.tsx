@@ -46,10 +46,9 @@ const BlogDetail = () => {
         </p>
       </div>
       <Image
-        className="w-full h-full md:h-[608px] rounded-xl"
+        className="w-full h-full md:h-[608px] rounded-2xl pb-5"
         width={1000}
-        height={700}
-   
+        height={1000}
         src={blog.posterImage?.imageUrl}
         alt="Blog Image"
       />

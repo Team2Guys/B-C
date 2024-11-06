@@ -59,7 +59,10 @@ function Comments({ data }: CommentsProps) {
 
 
 
-  const currentComments = data?.comments.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  const currentComments = data?.comments
+  .slice()
+  .reverse()
+  .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -247,8 +250,9 @@ function Comments({ data }: CommentsProps) {
             )}
           </div>
         ))}
-
-        <div className="flex justify-center mt-4 gap-2">
+        {
+          currentComments.length > 0 &&
+          <div className="flex justify-center mt-4 gap-2">
           <span
             className={`mx-1 w-16 h-14 flex justify-center items-center font-medium cursor-pointer ${currentPage === 1
               ? 'opacity-0'
@@ -282,6 +286,8 @@ function Comments({ data }: CommentsProps) {
             <GoArrowRight size={25} />
           </span>
         </div>
+        }
+       
       </div>
       <Modal
         title="Reply to Comment"
