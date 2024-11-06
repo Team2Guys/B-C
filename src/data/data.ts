@@ -1190,6 +1190,7 @@ export const blindMegaMenuItems = [
   { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
+  { productName: 'outdoor-blinds' },
   { productName: 'dimoutsemi-trasnparent' },
   { productName: 'motorised' },
 ];
@@ -1247,7 +1248,7 @@ export const commercialMegaMenuItems = [
   { productName: 'offices' },
 
   { productName: 'indoor' },
-  // { productName: 'outdoor' },
+  { productName: 'outdoor' },
   { productName: 'skylight' },
   { productName: 'balcony' },
   { productName: 'pergola' },
@@ -1579,14 +1580,12 @@ export const megaMenubyRoom = [
   { productName: 'loungeliving' },
   { productName: 'kids-bedroom' },
 
+  { productName: 'outdoor' },
   { productName: 'indoor' },
-
   { productName: 'skylight' },
   { productName: 'balcony' },
   { productName: 'pergola' },
 ];
-
-export const megaMenubyLocation = [{ productName: 'outdoor' }];
 
 export const megaMenuDynamic = [
   { productName: 'sunscreen-roller-blinds' },
@@ -1604,6 +1603,7 @@ export const megaMenuDynamic = [
   { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
+  { productName: 'outdoor-blinds' },
   { productName: 'dimoutsemi-trasnparent' },
   { productName: 'motorised' },
 
