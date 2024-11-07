@@ -66,7 +66,7 @@ const GalleryPage = () => {
     <>
       <TopHero title="GALLERY" image={bgBreadcrum} />
       <Container className="pt-16 pb-12 px-4 md:px-0">
-        <div className="flex justify-between items-center pb-4 mb-6 overflow-hidden">
+        <div className="flex justify-between items-center pb-4 mb-6 overflow-hidden md:px-5">
           <h1 className="text-2xl xs:text-3xl font-medium text-gray-800">
             GALLERY
           </h1>
@@ -115,7 +115,7 @@ const GalleryPage = () => {
           HOME OR OFFICE...
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 xs:mt-20 mt-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 xs:mt-20 mt-5 md:px-4">
           {currentItems &&
             currentItems.map((product: IProduct) => (
               <GalleryCard

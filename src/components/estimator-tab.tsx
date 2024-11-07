@@ -37,8 +37,8 @@ const EstimatorTabs: React.FC<EstimatorTabsProps> = ({
     productsByCategory[filteredCategories[selectedCategoryIndex]?.id] || [];
 
   return (
-    <div className="container mx-auto px-2 md:p-4">
-      <div className="flex bg-[#f6efe9] shadow-md justify-between text-[20px]">
+    <div className="container px-0">
+      <div className="flex bg-[#f6efe9] shadow-md justify-between text-[20px] md:text-[18px] lg:text-[16px] xl:text-[20px]">
         {filteredCategories.map((category, index) => (
           <div
             key={index}
@@ -65,7 +65,7 @@ const EstimatorTabs: React.FC<EstimatorTabsProps> = ({
           <div
             key={index}
             onClick={() => handleProductSelect(product)}
-            className={`p-4 cursor-pointer  ${
+            className={`p-4 cursor-pointer ${
               activeProduct?.id === product.id ? 'font-semibold' : ''
             }`}
           >
@@ -79,7 +79,7 @@ const EstimatorTabs: React.FC<EstimatorTabsProps> = ({
               />
             </div>
             <p
-              className={`mt-2 text-center text-14 md:text-base ${
+              className={`mt-2 text-center text-14 md:text-base${
                 activeProduct?.id === product.id ? '' : ''
               }`}
             >
