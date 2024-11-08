@@ -180,13 +180,12 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
           <div className="flex justify-between mb-4 items-center text-black dark:text-white ">
             <p>Admins</p>
             <div>
-              <Button
-                type="primary"
+              <button
                 onClick={() => setselecteMenu('Add Admin')}
-                className="cursor-pointer p-2 text-black dark:text-white bg-inherit hover:bg-slate-300 dark:border-strokedark dark:bg-dashboardDark flex justify-center"
+                className="dark:border-strokedark dark:bg-slate-500 bg-[#cdb7aa] text-white rounded-md border  hover:border-[#b59b8c] hover:text-white lg:p-2 md:p-2"
               >
                 Add new Admin
-              </Button>
+              </button>
             </div>
           </div>
           { !isLoading ? (
