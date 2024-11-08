@@ -66,7 +66,7 @@ const CommercialPage = () => {
     <div>
       {/* <TopHero title="" image={bgBreadcrum} /> */}
       <VideoBanner title={`Commercial`} />
-      <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4 md:px-0">
+      <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4">
         <div className="w-full md:w-1/2">
           <h3 className="font-bold text-xl xs:text-2xl tracking-wider">
             Office Blinds & Curtains:
@@ -130,7 +130,7 @@ const CommercialPage = () => {
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 md:px-0">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:px-0">
           {filteredProducts &&
             filteredProducts.map((product: IProduct) => {
               const category = categories?.find(

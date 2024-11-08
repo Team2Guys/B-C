@@ -147,8 +147,8 @@ const Estimator: React.FC = () => {
       {isLoadingProducts ? (
         <EstimatorSkeleton />
       ) : (
-        <div className="md:mt-10 lg:max-w-[95%] 2xl:max-w-[90%]">
-          <div className="grid grid-cols-12 md:gap-10 space-y-5 md:space-y-0">
+        <div className="md:mt-10 lg:max-w-[95%] xl:max-w-screen-2xl mx-auto w-full">
+          <div className="grid grid-cols-12 md:gap-4 space-y-5 md:space-y-0 md:px-2 xl:px-0">
             <div className=" col-span-12 md:col-span-5 lg:col-span-7">
               <Image
                 src={selectedProduct?.posterImage?.imageUrl}
@@ -294,9 +294,9 @@ const Estimator: React.FC = () => {
               />
             </Modal>
           </div>
-          <Container className="py-10">
+          <div className="py-10 2xl:max-w-screen-2xl mx-auto px-2 lg:pl-10 ">
             <RelatedProducts products={products || []} limit={4} />
-          </Container>
+          </div>
           <BookNowBanner />
           <VideoAutomation />
           <Support />

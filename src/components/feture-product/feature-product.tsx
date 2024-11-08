@@ -6,7 +6,6 @@ import FeatureCard from 'components/ui/feature-card';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories, fetchProducts } from 'config/fetch';
-import { Skeleton } from 'components/ui/skeleton';
 
 const FeatureProduct: React.FC = () => {
   // Fetch categories
@@ -59,22 +58,27 @@ const FeatureProduct: React.FC = () => {
   // Loading state
   if (isLoadingCategories || isLoadingProducts)
     return (
+      <div>
       <Container className="py-12">
-        <Skeleton className="mt-4 h-[32px] w-[50]" />
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-6 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
             {[...Array(3)].map((_, index) => (
-              <div key={index} className="max-w-md rounded lg:m-4 m-2">
-                <Skeleton className="rounded-3xl mb-4 h-[485px] w-[460px]" />
+              <div className='' key={index}>
+                  <div className="h-6 bg-gray-300 rounded mb-2"></div>
+                <div
+                
+                className="max-w-md rounded lg:m-4 m-2 animate-pulse"
+                >
+                <div className="bg-gray-300 lg:w-[460px] xl:w-[350px] md:w-[400px] sm:w-full lg:h-[400px] md:h-[300px] sm:h-auto rounded-3xl"></div>
                 <div className="px-2 py-4">
-                  <Skeleton className="mb-2 h-[24px] w-[200px]" />
-                  <Skeleton className="mb-2 h-[16px] w-[150px]" />
                 </div>
               </div>
+                </div>
             ))}
           </div>
         </div>
       </Container>
+    </div>
     );
 
   // Error handling
@@ -92,7 +96,7 @@ const FeatureProduct: React.FC = () => {
       </div>
 
       <div className="mt-10">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto border">
         <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap min-w-[470px]">
           {categoryOrder.map((categoryTitle) => {
             const category = categoryMap?.[categoryTitle];
