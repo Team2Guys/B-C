@@ -1,5 +1,5 @@
 'use client';
-import React, { SetStateAction } from 'react';
+import React, { SetStateAction, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
 import TableSkeleton from '../Tables/TableSkelton';
@@ -22,7 +22,9 @@ interface BlogProps {
 }
 
 const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
+
   const queryClient = useQueryClient();
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   const {
     data: blogs,
@@ -36,6 +38,19 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
   if (isLoading) {
     return <TableSkeleton rows={8} columns={5} />;
   }
+
+
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // Filter products based on search term
+  const filteredBlog: BlogInfo[] =
+  blogs?.filter((product: any) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    ) || [];
+
 
   const confirmDelete = (id: string) => {
     Modal.confirm({
@@ -141,19 +156,27 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
 
   return (
     <div className="mt-10">
-      <div className="text-end mb-4">
-        <button
+      <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
+            <input
+              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
+              type="search"
+              placeholder="Search Product"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+         <button
           onClick={() => setMenuType('Add Blog')}
           className="border rounded-md bg-primary px-4 py-2 font-semibold text-white"
         >
           Add Blog
         </button>
-      </div>
+          </div>
+ 
       {error ? (
         <p>Error fetching blogs😢</p>
-      ) : sortedBlogs && sortedBlogs.length > 0 ? (
+      ) : filteredBlog && filteredBlog.length > 0 ? (
         <Table
-          dataSource={sortedBlogs}
+          dataSource={filteredBlog}
           columns={columns}
           rowKey="id"
           pagination={false}

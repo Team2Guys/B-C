@@ -43,9 +43,9 @@ const BlogDetail = () => {
           {formatDateMonth(blog.createdAt)}
         </p>
       </div>
-      <div className='w-full h-full md:h-[608px] rounded-2xl'>
+      <div className='w-full h-full  rounded-2xl'>
         <Image
-          className="w-full h-full md:h-[600px] rounded-2xl pb-5 object-cover"
+          className="w-full h-full  rounded-2xl pb-5 "
           width={1000}
           height={608}
           src={blog.posterImage?.imageUrl}

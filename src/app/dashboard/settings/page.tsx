@@ -84,7 +84,7 @@ const Settings = () => {
               },
           },
         );
-
+  console.log(response,"responseresponseresponseresponse")
         if (response.status === 200) {
           console.log('Admin updated successfully:', response.data);
         } else {
@@ -167,7 +167,10 @@ const Settings = () => {
               <div className="px-7 py-5">
                 <div>
                   <div className="mb-4 flex items-center gap-3">
-                    {profilePhoto.map((profilePhoto, index: number) => {
+                  {
+                   profilePhoto &&  profilePhoto.length > 0 ? 
+
+                    profilePhoto.map((profilePhoto, index: number) => {
                       return (
                         <>
                           <div className="h-14 w-14 rounded-full overflow-hidden object-cover" key={index}>
@@ -213,7 +216,24 @@ const Settings = () => {
                           </div>
                         </>
                       );
-                    })}
+                    })
+                    :
+                    <div className="h-14 w-14 rounded-full overflow-hidden object-cover" >
+                      <Image
+                      className="h-14 w-14 rounded-full"
+                      src={
+                        loggedInUser && loggedInUser.posterImageUrl
+                          ? loggedInUser.posterImageUrl.imageUrl
+                          : "/images/dummy-avatar.jpg"
+                      }
+                      width={55}
+                      height={55}
+                      alt="User"
+                    />
+                                 
+                  </div>
+                  }
+      
 
                     {/* <div className="h-14 w-14 rounded-full overflow-hidden">
                       <Image

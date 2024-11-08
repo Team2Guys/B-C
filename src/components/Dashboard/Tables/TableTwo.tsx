@@ -207,7 +207,7 @@ let token = admin_token ? admin_token: super_admin_token
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
             <input
-              className="peer lg:p-3 p-2 block outline-none border rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
+              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
               type="search"
               placeholder="Search Category"
               value={searchTerm}
