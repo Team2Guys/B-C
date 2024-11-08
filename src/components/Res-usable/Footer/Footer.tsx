@@ -117,12 +117,21 @@ const Footer: React.FC = () => {
                           );
                           return (
                             <li key={subcategory.id}>
-                              <Link
-                                className="text-sm font-medium "
-                                href={`/${filteredCategory?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
-                              >
-                                {subcategory.title}
-                              </Link>
+                              {filteredCategory?.title.toLowerCase() === 'shutters' ? (
+                                <Link
+                                  className="text-sm font-medium"
+                                  href={`/shutters-range/${generateSlug(subcategory.title)}`}
+                                >
+                                  {subcategory.title}
+                                </Link>
+                              ) : (
+                                <Link
+                                  className="text-sm font-medium"
+                                  href={`/${filteredCategory?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
+                                >
+                                  {subcategory.title}
+                                </Link>
+                              )}
                             </li>
                           );
                         })}
