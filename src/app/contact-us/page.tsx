@@ -85,10 +85,10 @@ const ProductUs: React.FC = () => {
           <h5 className="xs:py-12 py-5 text-[#666666] text-base font-bold">
             CONTACT US
           </h5>
-          <h2 className="lg:text-5xl text-2xl font-bold text-[#333333]">
+          <h2 className="lg:text-5xl text-xl font-bold text-[#333333]">
             Tell us More
           </h2>
-          <p className="lg:text-16 lg:pt-4 lg:px-12 text-[#666666]">
+          <p className="text-14 lg:text-16 lg:pt-4 lg:px-12 text-[#666666]">
             Get some rough window measurements and call us on{' '}
             <Link
               target="_blank"
@@ -106,20 +106,20 @@ const ProductUs: React.FC = () => {
         <section className="flex flex-col lg:flex-row gap-5 lg:gap-12 bg-primary p-6 lg:p-12 lg:mt-20 mt-12 rounded-lg overflow-hidden">
           <div className="lg:w-1/2 w-full text-white ">
             <div className="lg:pl-12 ">
-              <p className="lg:text-xl font-bold">Contact Info :</p>
-              <h2 className="text-left lg:text-5xl text-2xl font-bold lg:mt-8 mt-4">
+              <p className="md:text-xl font-bold">Contact Info :</p>
+              <h2 className="text-left lg:text-5xl text-3xl font-bold lg:mt-8 mt-4">
                 Tell us More
               </h2>
-              <p className="lg:mt-8 mt-4 font-light">
+              <p className="lg:mt-8 mt-4 font-light text-14 lg:text-16 md:text-18">
                 Leverage agile frameworks to provide a robust <br /> synopsis
                 for high level overviews. Iterative <br /> approaches to
                 corporate strategy foster
               </p>
             </div>
             <div className="lg:mt-8 mt-4 lg:pl-12">
-              <p className="lg:text-xl font-bold">Contact Info :</p>
+              <p className="md:text-xl font-bold">Contact Info :</p>
               <div className="flex flex-col gap-4 lg:mt-6 mt-4">
-                <div className="flex gap-3 items-start">
+                <div className="text-14 md:text-18 flex gap-3 items-start">
                   <IoLocationSharp className="text-white w-6 h-6" />
                   <p>
                     Blinds & Curtains Dubai
@@ -129,7 +129,7 @@ const ProductUs: React.FC = () => {
                     Industrial Area 4 – Dubai – Dubai, UAE
                   </p>
                 </div>
-                <div className="flex gap-3 items-start">
+                <div className="text-14 md:text-18 flex gap-3 items-start">
                   <IoCall className="text-white w-6 h-6" />
                   <Link
                     target="_blank"
@@ -139,7 +139,7 @@ const ProductUs: React.FC = () => {
                     04 252 2025
                   </Link>
                 </div>
-                <div className="flex gap-3 items-start">
+                <div className=" text-14 flex gap-3 items-start md:text-18">
                   <MdEmail className="text-white w-6 h-6" />
                   <Link
                     target="_blank"
