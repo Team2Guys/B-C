@@ -24,7 +24,7 @@ const OurBlog = ({
 }: BlogProps) => {
   const route = useRouter();
   return (
-    <Container className="mt-10">
+    <Container className="mt-10 overflow-hidden">
       {buttonView ? (
         <div className="flex justify-between items-center">
           <p className="text-20 sm:text-[48px] font-bold capitalize">{title}</p>

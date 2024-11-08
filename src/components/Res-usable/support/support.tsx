@@ -12,7 +12,7 @@ const Support = () => {
             <div className="bg-white shadow-md rounded-full flex justify-center items-center h-12 w-12 text-secondary group-hover:bg-secondary group-hover:text-white duration-700">
               <FaStar size={25} />
             </div>
-            <h2 className="font-bold xs:text-20">{item.title}</h2>
+            <h2 className="font-bold xs:text-20 md:text-18 lg:text-center lg:text-16">{item.title}</h2>
             <p className="text-12 md:text-14 text-center">{item.description}</p>
           </div>
         </div>

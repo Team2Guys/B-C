@@ -96,7 +96,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex justify-center mt-10 space-x-3">
+          <div className="flex justify-center mt-10 lg:space-x-3">
             <Button
               variant={'secondary'}
               className="w-[55px] h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
