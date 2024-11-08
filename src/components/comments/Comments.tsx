@@ -140,7 +140,7 @@ function Comments({ data }: CommentsProps) {
 
 
   return (
-    <>
+    <div className='w-full'>
       <div className="flex justify-between items-center">
         <h4 className="text-20 font-semibold">Comments</h4>
         <div className="text-18 font-normal text-paralight flex items-center gap-2">
@@ -338,7 +338,7 @@ function Comments({ data }: CommentsProps) {
           </div>
         </form>
       </Modal>
-    </>
+    </div>
   );
 }
 
