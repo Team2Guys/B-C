@@ -16,7 +16,7 @@ const Guarrenty = () => {
             guaranteed, so you can rest assured you’re investing in quality
             products that are made to the highest specifications.
           </p>
-          <Link href={'./product-guarantees'} className="mt-4 block">
+          <Link href={'/product-guarantees'} className="mt-4 block">
             <Button className="shadow-slate-400 shadow-md w-32" variant={'white'}>
             Read More
             </Button>

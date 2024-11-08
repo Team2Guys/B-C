@@ -204,7 +204,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
         <>
           <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
             <input
-              className="peer lg:p-3 p-2 block outline-none border rounded-md border-gray-200 dark:bg-boxdark dark:bg-transparent dark:border-white text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none dark:text-black"
+              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
               type="search"
               placeholder="Search Product"
               value={searchTerm}
@@ -212,7 +212,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
             />
             <div>
               <p
-                className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed bg-gray-500 text-white rounded-md'} p-2 ${canAddProduct ? 'bg-primary text-white' : ''} dark:border-strokedark flex justify-center dark:bg-black`}
+                className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed bg-gray-500 text-white rounded-md'} p-2 ${canAddProduct ? 'dark:border-strokedark dark:bg-slate-500 bg-[#cdb7aa] text-white rounded-md border hover:border-[#bda394]' : ''}`}
                 onClick={() => {
                   if (canAddProduct) {
                     setEditProduct(undefined);
