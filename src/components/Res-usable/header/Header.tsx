@@ -128,10 +128,10 @@ const Header = () => {
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
 
-          <div className="w-3/12 lg:w-9/12 mt-5  ">
+          <div className="w-3/12 lg:w-9/12 mt-9  ">
             <div className="hidden lg:flex justify-evenly items-center lg:text-10 text-12 xl:text-16 whitespace-nowrap ">
               <Link
-                className={`pb-5 lg:text-10 text-12 xl:text-15 px-1 ${path === '/'
+                className={`pb-8 lg:text-10 text-12 xl:text-15 px-1 ${path === '/'
                     ? 'font-bold text-black-500 bg-secondary text-white '
                     : 'hover:bg-secondary hover:text-white'
                   }`}
@@ -227,7 +227,7 @@ const Header = () => {
                 ) : (
                   <Link
                     key={index}
-                    className={`pb-5 lg:text-10 text-12 xl:text-15 px-1 ${isBlogActive || isActive
+                    className={`pb-8 lg:text-10 text-12 xl:text-15 px-1 ${isBlogActive || isActive
                         ? 'font-bold text-black-500 text-white bg-secondary'
                         : 'hover:bg-secondary hover:text-white'
                       }`}

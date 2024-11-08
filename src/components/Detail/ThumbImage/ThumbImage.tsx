@@ -12,7 +12,7 @@ const ThumbImage:React.FC<GalleryProps>= ({card}) => {
   return (
     <>
     {
-        card.imageUrls.map((array,index)=>(
+       card?.imageUrls && card?.imageUrls.map((array,index)=>(
             <div className="!rounded-lg  transition-shadow duration-300 group" key={index}>
             <Image
               src={array.imageUrl}
