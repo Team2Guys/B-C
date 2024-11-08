@@ -57,6 +57,18 @@ const ViewSubcategries = ({
   //   loggedInUser &&
   //   (loggedInUser.role == 'Admin' ? loggedInUser.canEditCategory : true);
 
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // Filter products based on search term
+  const filteredProducts: Product[] =
+    category?.filter((product: any) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    ) || [];
+
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
@@ -202,7 +214,13 @@ const ViewSubcategries = ({
       ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
-            <p>Sub Categories</p>
+          <input
+              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
+              type="search"
+              placeholder="Search Category"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
             <div>
               <p
                 className={`${
@@ -225,10 +243,10 @@ const ViewSubcategries = ({
             </div>
           </div>
 
-          {category.length > 0 ? (
+          {filteredProducts.length > 0 ? (
             <Table
               className="overflow-x-scroll lg:overflow-auto"
-              dataSource={category}
+              dataSource={filteredProducts}
               columns={columns}
               pagination={false}
               rowKey="id"
