@@ -63,10 +63,10 @@ const FeatureProduct: React.FC = () => {
         <div className="flex justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
             {[...Array(3)].map((_, index) => (
-              <div className=''>
+              <div className='' key={index}>
                   <div className="h-6 bg-gray-300 rounded mb-2"></div>
                 <div
-                key={index}
+                
                 className="max-w-md rounded lg:m-4 m-2 animate-pulse"
                 >
                 <div className="bg-gray-300 lg:w-[460px] xl:w-[350px] md:w-[400px] sm:w-full lg:h-[400px] md:h-[300px] sm:h-auto rounded-3xl"></div>
