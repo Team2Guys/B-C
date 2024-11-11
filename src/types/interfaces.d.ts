@@ -182,7 +182,7 @@ export interface BlindsAndCurtainsTypes {
 
 export interface SocialDataType {
   href: string;
-  src: string;
+  icon: ReactNode;
   alt: string;
 }
 export interface FeatureProductData {
@@ -296,14 +296,17 @@ export interface formDataTypes {
   canAddCategory: boolean;
   canDeleteCategory: boolean;
   canEditCategory: boolean;
-  canCheckProfit: boolean;
-  canCheckRevenue: boolean;
-  canCheckVisitors: boolean;
-  canViewUsers: boolean;
-  canViewSales: boolean;
-  canVeiwAdmins: boolean;
-  canVeiwTotalproducts: boolean;
-  canVeiwTotalCategories: boolean;
+  canAddSubCategory: boolean; 
+  canDeleteSubCategory: boolean; 
+  canEditSubCategory: boolean; 
+  canViewAppointments: boolean; 
+  canVeiwAdmins: boolean; 
+  canVeiwTotalproducts: boolean; 
+  canVeiwTotalCategories: boolean; 
+  canVeiwTotalSubCategories: boolean; 
+  canAddBlog: boolean;
+  canDeleteBlog: boolean;
+  canEditBlog: boolean;
   id?: any;
 }
 

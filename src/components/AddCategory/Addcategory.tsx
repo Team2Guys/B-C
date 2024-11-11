@@ -138,7 +138,7 @@ let token = admin_token ? admin_token: super_admin_token
   return (
     <>
       <p
-        className="text-lg font-black mb-4 flex items-center justify-center gap-2 hover:bg-gray-200 w-fit p-2 cursor-pointer text-black dark:text-white"
+        className="text-lg font-black mb-4 flex items-center justify-center gap-2  w-fit p-2 cursor-pointer text-black dark:text-white"
         onClick={() => {
           setMenuType('Categories');
         }}
@@ -157,9 +157,9 @@ let token = admin_token ? admin_token: super_admin_token
           return (
             <Form onSubmit={formik.handleSubmit}>
               <div className="flex justify-center ">
-                <div className="flex flex-col gap-9 w-2/5 dark:border-strokedark dark:bg-boxdark">
-                  <div className="rounded-sm border border-stroke bg-white  dark:border-strokedark dark:bg-boxdark p-4">
-                    <div className="rounded-sm border border-stroke bg-white  dark:border-strokedark dark:bg-boxdark">
+                <div className="flex flex-col gap-9 w-2/5 dark:border-strokedark dark:bg-lightdark rounded-md">
+                  <div className="rounded-md  bg-white   dark:bg-lightdark p-4">
+                    <div className="rounded-sm border border-stroke bg-white  dark:border-strokedark dark:bg-lightdark">
                       <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
                         <h3 className="font-medium text-black dark:text-white">
                           Add Category Images
@@ -170,7 +170,7 @@ let token = admin_token ? admin_token: super_admin_token
                           {posterimageUrl.map((item: any, index) => {
                             return (
                               <div
-                                className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
+                                className="relative group rounded-lg overflow-hidden shadow-md bg-white  transform transition-transform duration-300 hover:scale-105"
                                 key={index}
                               >
                                 <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
@@ -202,7 +202,7 @@ let token = admin_token ? admin_token: super_admin_token
                       )}
                     </div>
 
-                    <div className="flex flex-col gap-5.5 p-6.5">
+                    <div className="flex flex-col space-y-3 mt-2">
                       <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                           Category Title

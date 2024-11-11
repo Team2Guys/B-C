@@ -65,6 +65,7 @@ export interface IRECORDS {
   total_appointments: string;
   total_categorie: string;
   total_subCategories: string;
+  total_Blogs:string;
 }
 export interface ISUBCATEGORY {
   title: string;

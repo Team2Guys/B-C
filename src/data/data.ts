@@ -26,7 +26,7 @@ import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
-import { TiSocialFacebook } from 'react-icons/ti';
+
 
 export const generateSlug = (text: string) => {
   if (!text) return '';
@@ -150,29 +150,6 @@ export const OurClientImage = [
     alt: 'Yellow-Zone-Group-Dubai 1',
   },
   // { src: '/assets/images/ourclient/yellow-zone-group-dubai-2.png', alt: 'Yellow-Zone-Group-Dubai 2' }
-];
-
-export const SocialData: SocialDataType[] = [
-  {
-    href: 'https://www.facebook.com/blindsandcurtainsdubai',
-    src: '/assets/images/icon/face.png',
-    alt: 'Facebook',
-  },
-  {
-    href: 'https://twitter.com',
-    src: '/assets/images/icon/link.png',
-    alt: 'Twitter',
-  },
-  {
-    href: 'https://www.instagram.com/blindsandcurtainsdubai/',
-    src: '/assets/images/icon/insta.png',
-    alt: 'Instagram',
-  },
-  {
-    href: 'https://wa.me/971544945339',
-    src: '/assets/images/icon/whats.png',
-    alt: 'Instagram',
-  },
 ];
 export const CommentData: CommentDataType[] = [
   {
@@ -1156,14 +1133,17 @@ export const intitalValues = {
   canAddCategory: false,
   canDeleteCategory: false,
   canEditCategory: false,
-  canCheckProfit: false,
-  canCheckRevenue: false,
-  canCheckVisitors: false,
-  canViewUsers: false,
-  canViewSales: false,
-  canVeiwAdmins: false,
-  canVeiwTotalproducts: false,
-  canVeiwTotalCategories: false,
+  canVeiwAdmins:false,
+  canAddSubCategory: false, 
+  canDeleteSubCategory: false, 
+  canEditSubCategory: false, 
+  canViewAppointments: false, 
+  canVeiwTotalproducts: false, 
+  canVeiwTotalCategories: false, 
+  canVeiwTotalSubCategories: false, 
+  canAddBlog: false,
+  canDeleteBlog: false,
+  canEditBlog: false,
 };
 
 export const blindMegaMenuItems = [

@@ -88,7 +88,7 @@ const UploadFile = ({
       }}
       onClick={handleDivClick}
     >
-      <div className="p-4 text-center text-black dark:bg-black dark:text-white">
+      <div className="p-4 text-center text-black dark:bg-lightdark dark:text-white">
         <input
           type="file"
           accept="image/*"
@@ -98,9 +98,9 @@ const UploadFile = ({
           ref={fileInputRef}
         />
         {isDraggableArea ? (
-          <BsCloudDownload className="inline-block mb-2 text-4xl text-gray-500" />
+          <BsCloudDownload className="inline-block mb-2 text-4xl text-gray-500 dark:text-white" />
         ) : (
-          <BsCloudUpload className="inline-block mb-2 text-4xl text-gray-500" />
+          <BsCloudUpload className="inline-block mb-2 text-4xl text-gray-500 dark:text-white" />
         )}
         <p className="text-black dark:text-white">
           Drag & Drop or Click to Upload
