@@ -219,7 +219,7 @@ let token = admin_token ? admin_token: super_admin_token
                   canAddCategory && 'cursor-pointer'
                 } lg:p-2 md:p-2 ${
                   canAddCategory &&
-                  'dark:border-strokedark dark:bg-slate-500 bg-[#cdb7aa] text-white rounded-md border  hover:border-[#b59b8c] hover:text-white '
+                  ' bg-secondary text-white rounded-md hover:text-white '
                 } flex justify-center ${
                   !canAddCategory && 'cursor-not-allowed '
                 }`}
