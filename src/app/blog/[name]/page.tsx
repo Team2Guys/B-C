@@ -43,16 +43,16 @@ const BlogDetail = () => {
           {formatDateMonth(blog.createdAt)}
         </p>
       </div>
-      <div className='w-full h-full  rounded-2xl'>
+      <div className=' md:h-[650px] object-cover'>
         <Image
-          className="w-full h-full  rounded-2xl pb-5 "
+          className="w-full h-full  pb-5   rounded-md md:h-[650px] object-cover"
           width={1000}
           height={608}
           src={blog.posterImage?.imageUrl}
           alt="Blog Image"
         />
       </div>
-      <div className='w-full overflow-hidden'>
+      <div className='w-full overflow-hidden text-start'>
         <span dangerouslySetInnerHTML={{ __html: blog.content }} />
       </div>
       <Comments data={blog} />
