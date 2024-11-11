@@ -139,7 +139,7 @@ const FormLayout = ({
   return (
     <>
       <p
-        className="text-lg font-black mb-4 flex items-center justify-center gap-2 hover:bg-gray-200 w-fit p-2 cursor-pointer text-black dark:bg-boxdark dark:bg-black dark:text-white dark:bg-boxdark dark:border-white"
+        className="text-lg font-black mb-4 flex items-center justify-center gap-2  w-fit p-2 cursor-pointer text-black dark:text-white "
         onClick={() => {
           setMenuType('Categories');
         }}
@@ -157,17 +157,17 @@ const FormLayout = ({
         {(formik) => {
           return (
             <Form onSubmit={formik.handleSubmit}>
-              <div className="flex justify-center dark:bg-boxdark dark:bg-black dark:text-white dark:bg-boxdark dark:border-white">
-                <div className="flex flex-col gap-9 w-2/5 dark:bg-boxdark dark:bg-black dark:text-white dark:bg-boxdark dark:border-white">
-                  <div className="rounded-sm border border-stroke bg-white  dark:bg-boxdark dark:bg-black dark:text-white dark:bg-boxdark dark:border-white p-3">
-                    <div className="rounded-sm border border-stroke bg-white  dark:border-strokedark dark:bg-boxdark">
-                      <div className="border-b border-stroke py-4 px-2 dark:bg-boxdark dark:bg-black dark:text-white dark:bg-boxdark dark:border-white">
+              <div className="flex justify-center  dark:text-white  ">
+                <div className="flex flex-col gap-9 w-2/5   dark:text-white  dark:border-white">
+                  <div className="rounded-md e bg-white  dark:bg-lightdark dark:bg-black dark:text-white  te p-3">
+                    <div className="rounded-sm border border-stroke bg-white  dark:border-strokedark dark:bg-lightdark">
+                      <div className="border-b border-stroke py-4 px-2 dark:bg-lightdark dark:bg-black dark:text-white  dark:border-white">
                         <h3 className="font-medium text-black dark:text-white">
                           Add Sub Category Images
                         </h3>
                       </div>
                       {posterimageUrl && posterimageUrl.length > 0 ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 dark:bg-boxdark dark:bg-black dark:text-white dark:bg-boxdark dark:border-white">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4  dark:bg-black dark:text-white dark:bg-lightdark dark:border-white">
                           {posterimageUrl.map((item: any, index) => {
                             return (
                               <div
@@ -205,7 +205,7 @@ const FormLayout = ({
 
                     <div className="flex flex-col gap-5.5 p-6.5">
                       <div>
-                        <label className="mb-3 block py-4 px-2 text-sm font-medium text-black dark:text-white">
+                        <label className=" block py-4 px-2 text-sm font-medium text-black dark:text-white">
                           Sub Category Name
                         </label>
                         <input
@@ -228,7 +228,7 @@ const FormLayout = ({
                       </div>
 
                       <div>
-                        <label className="mb-3 block py-4 px-2 text-sm font-medium text-black dark:text-white">
+                        <label className=" block py-4 px-2 text-sm font-medium text-black dark:text-white">
                           Category Description
                         </label>
                         <textarea
