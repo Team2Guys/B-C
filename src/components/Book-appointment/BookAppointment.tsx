@@ -530,7 +530,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
         </div>
         {!singlePage && (
           <div className="flex flex-wrap justify-between gap-2 mb-3">
-            <div className=" p-2 bg-white shadow-md rounded-md">
+            <div className=" p-2 bg-white rounded-md">
               <h2 className="text-11 font-light mb-3">Tell us what you need:</h2>
 
               <div className="flex flex-row gap-4">
