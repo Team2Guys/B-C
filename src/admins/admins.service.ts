@@ -217,6 +217,8 @@ export class AdminsService {
   }
 
 
+
+  
   // Get record sales
   async getRecords() {
     try {
@@ -225,13 +227,16 @@ export class AdminsService {
       let total_subCategories = await this.prisma.subCategories.count({})
       let total_admins = await this.prisma.admins.count({})
       let total_appointments = await this.prisma.appointments.count({})
+      let total_Blogs = await this.prisma.blogs.count({})
 
       return {
         total_admins,
         total_appointments,
         total_categories,
         total_products,
-        total_subCategories
+        total_subCategories,
+        total_Blogs
+
       }
 
     } catch (error) {
