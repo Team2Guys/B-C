@@ -3,13 +3,13 @@ import CardDataStats from './CardDataStats';
 import Cookies from 'js-cookie';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import { IoMdEye } from 'react-icons/io';
-import { FiShoppingCart } from 'react-icons/fi';
 import { IoBagOutline } from 'react-icons/io5';
 import { Skeleton } from 'antd';
 import { useQuery } from '@tanstack/react-query';
 import { adminRecords } from 'config/fetch';
 import { IRECORDS } from 'types/types';
 import { TbCalendarCheck, TbCategory } from 'react-icons/tb';
+import { FaBloggerB } from "react-icons/fa6";
 
 
 const ECommerce: React.FC = () => {
@@ -34,7 +34,7 @@ const ECommerce: React.FC = () => {
   if (isLoading)
     return (
       <div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
           <>
             <Skeleton avatar active />
             <Skeleton avatar active />
@@ -64,9 +64,12 @@ const ECommerce: React.FC = () => {
   const canVeiwTotalCategories =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalCategories : true);
+    const canVeiwTotalBlogs =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalBlogs : true);
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 2xl:gap-7">
         {!canVeiwAdmins ? null : (
           <CardDataStats
             title="Admins"
@@ -118,6 +121,18 @@ const ECommerce: React.FC = () => {
             total={records?.total_products ? records?.total_products : ''}
           >
             <IoBagOutline
+              size={25}
+              className="text-white dark:text-black"
+            />
+          </CardDataStats>
+        )}
+        
+        {!canVeiwTotalBlogs ? null : (
+          <CardDataStats
+            title="Total Blogs"
+            total={records?.total_Blogs? records?.total_Blogs : ''}
+          >
+            <FaBloggerB 
               size={25}
               className="text-white dark:text-black"
             />
