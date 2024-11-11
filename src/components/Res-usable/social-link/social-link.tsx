@@ -40,7 +40,7 @@ const SocialLink: React.FC = () => {
     <div className="flex gap-3 items-center">
       {SocialData.map((social, index) => (
         <Link key={index} href={social.href} target="_blank">
-          <div className=" text-white bg-secondary">
+          <div className=" text-white bg-secondary" >
             <div  className={`flex justify-center items-center rounded-full h-7 w-7 ${social.href.includes("pinterest.com") || social.href.includes("instagram.com") ? 'border border-white' : ''}`}>{social.icon}</div>
           </div>
         </Link>

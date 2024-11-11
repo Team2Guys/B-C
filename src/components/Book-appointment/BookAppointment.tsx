@@ -540,7 +540,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       checked={selectedOptions.blinds}
                       onChange={() => handleCheckboxChange('blinds')}
-                      className="mr-2"
+                      className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                     />
                     Blinds
                   </label>
@@ -552,7 +552,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       checked={selectedOptions.curtains}
                       onChange={() => handleCheckboxChange('curtains')}
-                      className="mr-2"
+                      className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                     />
                     Curtains
                   </label>
@@ -563,7 +563,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       checked={selectedOptions.shutters}
                       onChange={() => handleCheckboxChange('shutters')}
-                      className="mr-2"
+                      className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                     />
                     Shutters
                   </label>
@@ -574,12 +574,13 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <h2 className="text-11 font-light mb-3">How shall we contact you?</h2>
               <div className="flex flex-row gap-2 mt-2">
                 <label className="flex items-center text-11 text-[#898989]">
+                  
                   <input
                     type="checkbox"
                     name="whatsapp"
                     checked={contactMethods.whatsapp}
                     onChange={handleChangeContact}
-                    className="mr-2"
+                    className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                   />
                   WhatsApp
                 </label>
@@ -590,7 +591,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                     name="telephone"
                     checked={contactMethods.telephone}
                     onChange={handleChangeContact}
-                    className="mr-2"
+                    className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                   />
                   Telephone
                 </label>
@@ -600,7 +601,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                     name="email"
                     checked={contactMethods.email}
                     onChange={handleChangeContact}
-                    className="mr-2"
+                    className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                   />
                   Email
                 </label>
