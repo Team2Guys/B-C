@@ -76,7 +76,7 @@ export default function UserComponent({
                   <div className=" mb-4 flex gap-3 items-center">
                     <p className="w-full">Sign in As </p>
                     <Select
-                      className="w-full"
+                      className="w-full !ring-white outline-none"
                       defaultValue="Admin"
                       onChange={selecthandleChange}
                       options={[

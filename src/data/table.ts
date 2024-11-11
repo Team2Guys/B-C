@@ -42,17 +42,17 @@ export const appointmentColumns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    width: 100,
+    width: 150,
   },
   {
     title: 'Area',
     dataIndex: 'area',
-    width: 100,
+    width: 200,
   },
   {
     title: 'Email',
     dataIndex: 'email',
-    width: 150,
+    width: 200,
   },
   {
     title: 'Phone Number',
@@ -62,38 +62,40 @@ export const appointmentColumns = [
   {
     title: 'WhatsApp Number',
     dataIndex: 'whatsapp_number',
-    width: 120,
-  },
-  {
-    title: 'Preferred Contact Method',
-    dataIndex: 'prefered_contact_method',
-    width: 100,
-  },
-  {
-    title: 'Windows',
-    dataIndex: 'windows',
-    width: 100,
-  },
-  {
-    title: 'Product Type',
-    dataIndex: 'product_type',
-    width: 150,
-  },
-  {
-    title: 'How User Found Us',
-    dataIndex: 'how_user_find_us',
-    width: 100,
+    width: 170,
   },
   {
     title: 'User Query',
     dataIndex: 'user_query',
-    width: 100,
+    width: 200,
   },
+  {
+    title: 'Preferred Contact Method',
+    dataIndex: 'prefered_contact_method',
+    width: 200,
+  },
+  {
+    title: 'Windows',
+    dataIndex: 'windows',
+    width: 200,
+  },
+  {
+    title: 'Product Type',
+    dataIndex: 'product_type',
+    width: 200,
+  },
+  {
+    title: 'How User Found Us',
+    dataIndex: 'how_user_find_us',
+    width: 200,
+  },
+ 
 
   {
     title: 'Preferred Date',
     dataIndex: 'prefered_Date',
-    width: 100,
+    key: 'prefered_Date',
+    width: 250,
   },
 ];
 
