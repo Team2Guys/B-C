@@ -182,7 +182,7 @@ export interface BlindsAndCurtainsTypes {
 
 export interface SocialDataType {
   href: string;
-  src: string;
+  icon: ReactNode;
   alt: string;
 }
 export interface FeatureProductData {
