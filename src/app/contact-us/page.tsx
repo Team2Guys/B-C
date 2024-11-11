@@ -151,9 +151,10 @@ const ProductUs: React.FC = () => {
                 </div>
               </div>
             </div>
+          
             <div className="lg:mt-8 mt-4">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.7371250646106!2d55.2043024!3d25.110758399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b431460c8a5%3A0x29921603a3ff4e37!2sCustom%20Blinds%20And%20Curtains%20Dubai!5e0!3m2!1sen!2s!4v1724146508721!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d115601.00872970802!2d55.235686!3d25.117715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sBlinds%20And%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1731328247874!5m2!1sen!2sus"
                 width="100%"
                 height="300"
                 loading="lazy"

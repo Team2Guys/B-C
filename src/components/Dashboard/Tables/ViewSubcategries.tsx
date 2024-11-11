@@ -227,7 +227,7 @@ const ViewSubcategries = ({
                   canAddCategory && 'cursor-pointer'
                 } lg:p-2 md:p-2 ${
                   canAddCategory &&
-                  'dark:border-strokedark dark:bg-slate-500 bg-[#cdb7aa] text-white rounded-md border hover:border-[#bda394] '
+                  ' bg-secondary text-white rounded-md   '
                 } flex justify-center ${
                   !canAddCategory && 'cursor-not-allowed '
                 }`}
@@ -252,7 +252,7 @@ const ViewSubcategries = ({
               rowKey="id"
             />
           ) : (
-            'No Sub Categories found'
+            <p className='text-black dark:text-white'>No Sub Categories found</p>
           )}
         </>
       )}
