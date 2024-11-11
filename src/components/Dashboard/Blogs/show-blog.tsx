@@ -166,7 +166,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
             />
          <button
           onClick={() => setMenuType('Add Blog')}
-          className="border rounded-md bg-primary px-4 py-2 font-semibold text-white"
+          className=" rounded-md bg-secondary px-4 py-2 font-semibold text-white"
         >
           Add Blog
         </button>
@@ -182,7 +182,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
           pagination={false}
         />
       ) : (
-        <p>No Blogs found😢</p>
+        <p className='dark:text-white'>No Blogs found</p>
       )}
     </div>
   );

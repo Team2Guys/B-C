@@ -15,7 +15,7 @@ import { Table } from 'antd';
 const Appointments = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filteredAppointments, setFilteredAppointments] = useState<IAppointments[]>([]);
-
+console.log(filteredAppointments,"filteredAppointmentsfilteredAppointments")
   const admin = Cookies.get('2guysAdminToken') || '';
   const super_admin = Cookies.get('superAdminToken') || '';
   const token = admin || super_admin;
@@ -34,10 +34,33 @@ const Appointments = () => {
     setSearchTerm(e.target.value);
   };
 
+  function formatDate(isoDate: string): string {
+    const date = new Date(isoDate);
+    
+    const formattedDate = date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  
+    const formattedTime = date.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,  // 24-hour format
+    });
+  
+    return `${formattedDate} / ${formattedTime}`;
+  }
+  
+  
+
   useEffect(() => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
     if (appointments) {
-      const filtered = appointments.filter((appointment: IAppointments) =>
+      const filtered = appointments.map((appointment: IAppointments) => ({
+        ...appointment,
+        prefered_Date: formatDate(appointment.prefered_Date),
+      })).filter((appointment: IAppointments) =>
         appointment.name.toLowerCase().includes(lowercasedSearchTerm) ||
         appointment.area.toLowerCase().includes(lowercasedSearchTerm) ||
         appointment.email.toLowerCase().includes(lowercasedSearchTerm) ||
@@ -46,11 +69,13 @@ const Appointments = () => {
         appointment.windows?.toLowerCase().includes(lowercasedSearchTerm) ||
         appointment.how_user_find_us?.toLowerCase().includes(lowercasedSearchTerm) ||
         appointment.user_query?.toLowerCase().includes(lowercasedSearchTerm) ||
-        appointment.prefered_Date?.toLowerCase().includes(lowercasedSearchTerm)
+        appointment.prefered_Date.toLowerCase().includes(lowercasedSearchTerm)
       );
       setFilteredAppointments(filtered);
     }
   }, [searchTerm, appointments]);
+  
+
 
   return (
     <>
@@ -58,7 +83,7 @@ const Appointments = () => {
         <Breadcrumb pageName={'View Appointments'} />
         <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white pt-4">
           <input
-            className="peer lg:p-3 p-2 block outline-none border rounded-md border-gray-200 dark:bg-boxdark dark:bg-transparent dark:border-white text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none dark:text-black"
+            className="peer lg:p-3 p-2 block outline-none border rounded-md border-gray-200 dark:bg-white dark:bg-transparent dark:border-white text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none dark:text-black"
             type="search"
             placeholder="Search..."
             value={searchTerm}
@@ -68,8 +93,8 @@ const Appointments = () => {
         {
           appointments && (
             <Table
-              scroll={{ y: 120 * 5 }}
-              dataSource={filteredAppointments}  // Display filtered results
+              scroll={{ y: 110 * 5 }}
+              dataSource={filteredAppointments}  
               columns={appointmentColumns}
               pagination={false}
             />

@@ -212,7 +212,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
             />
             <div>
               <p
-                className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed bg-gray-500 text-white rounded-md'} p-2 ${canAddProduct ? 'dark:border-strokedark dark:bg-slate-500 bg-[#cdb7aa] text-white rounded-md border hover:border-[#bda394]' : ''}`}
+                className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed  text-white rounded-md'} p-2 ${canAddProduct ? '  bg-secondary text-white rounded-md ' : ''}`}
                 onClick={() => {
                   if (canAddProduct) {
                     setEditProduct(undefined);
