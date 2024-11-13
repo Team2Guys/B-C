@@ -47,6 +47,7 @@ model products {
   Images_Alt_Text  String?
   Meta_Title       String?
   Canonical_Tag    String?
+  short_description String?
 }
 
 enum contact_method {
@@ -83,9 +84,9 @@ model Admins {
   canAddCategory            Boolean @default(false)
   canDeleteCategory         Boolean @default(false)
   canEditCategory           Boolean @default(false)
-  canAddSubCategory            Boolean @default(false)
-  canDeleteSubCategory         Boolean @default(false)
-  canEditSubCategory           Boolean @default(false)
+  canAddSubCategory         Boolean @default(false)
+  canDeleteSubCategory      Boolean @default(false)
+  canEditSubCategory        Boolean @default(false)
   canViewAppointments       Boolean @default(false)
   canVeiwAdmins             Boolean @default(false)
   canVeiwTotalproducts      Boolean @default(false)
@@ -94,8 +95,8 @@ model Admins {
   canAddBlog                Boolean @default(false)
   canDeleteBlog             Boolean @default(false)
   canEditBlog               Boolean @default(false)
-  posterImageUrl Json?
-  role           String @default("Admin")
+  posterImageUrl            Json?
+  role                      String  @default("Admin")
 }
 
 model blogs {
