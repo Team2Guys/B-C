@@ -47,7 +47,7 @@ model products {
   Images_Alt_Text  String?
   Meta_Title       String?
   Canonical_Tag    String?
-  short_description String?
+ short_description String?
 }
 
 enum contact_method {
