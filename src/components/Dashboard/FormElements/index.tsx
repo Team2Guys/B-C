@@ -41,8 +41,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   setselecteMenu,
   setEditProduct,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<string>('');
-  const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
   const [imagesUrl, setImagesUrl] = useState<any[]>([]);
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(
     EditInitialValues &&
@@ -64,16 +62,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<
     number[]
   >([]);
+
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
 
   const headers = {
   Authorization: `Bearer ${finalToken}`
-  };
-
-  const changeTextColor = () => {
-    setIsOptionSelected(true);
   };
 
   useLayoutEffect(() => {
@@ -191,7 +186,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         updatedvalue,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${finalToken}`,
           },
         },
       );
@@ -224,10 +219,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setloading(false);
     }
   };
-  const handleOptionChange = (e: any) => {
-    console.log(e);
-    setVariationOption(e.target.value);
-  };
+
 
   const handleImageIndex = (index: number, newImageIndex: number) => {
     const updatedImagesUrl = imagesUrl.map((item, i) =>
@@ -255,6 +247,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     );
     setposterimageUrl(updatedImagesUrl);
   };
+
+
   const {
     data: categoriesList = [],
     error,
@@ -278,24 +272,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   >([]);
 
   useEffect(() => {
-    const selectedCategories = categoriesList.filter((category) =>
-      selectedCategoryIds.includes(category.id),
-    );
+
     const filteredSubcategories = subCategoriesList.filter((subcategory) =>
       selectedCategoryIds.includes(subcategory.CategoryId),
     );
     setFilteredSubcategories(filteredSubcategories);
   }, [selectedCategoryIds, categoriesList]);
 
-  useEffect(() => {
-    const selectedCategories = categoriesList.filter((category) =>
-      selectedCategoryIds.includes(category.id),
-    );
-    const filteredSubcategories = subCategoriesList.filter((subcategory) =>
-      selectedCategoryIds.includes(subcategory.CategoryId),
-    );
-    setFilteredSubcategories(filteredSubcategories);
-  }, [selectedCategoryIds, categoriesList]);
   return (
     <>
       <p
@@ -433,6 +416,37 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           </div>
                         ) : null}
                       </div>
+                      <div>
+                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          Short Description{' '}
+                        </label>
+                        <textarea
+                          name="short_description"
+                          onChange={formik.handleChange}
+                          value={formik.values.short_description}
+                          placeholder="Short Description"
+                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                            formik.touched.short_description &&
+                            formik.errors.short_description
+                              ? 'border-red-500'
+                              : ''
+                          }`}
+                        />
+                        {formik.touched.short_description &&
+                        formik.errors.short_description ? (
+                          <div className="text-red text-sm">
+                            {
+                              formik.errors.short_description as FormikErrors<
+                                FormValues['short_description']
+                              >
+                            }
+                          </div>
+                        ) : null}
+                      </div>
+
+
+
+
 
                       <div className="flex full gap-4">
                         <div className="w-[50%]">

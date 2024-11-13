@@ -55,7 +55,6 @@ const FeatureProduct: React.FC = () => {
     setVisibleCount(6);
   };
 
-  // Loading state
   if (isLoadingCategories || isLoadingProducts)
     return (
       <div>

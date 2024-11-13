@@ -52,7 +52,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               <div className="text-center space-y-3">
                 <h1 className="text-17 font-semibold">{product.title}</h1>
                 <p className="text-15 font-light md:w-[80%] mx-auto auto max-h-16 overflow-y-auto custom-scrollbar">
-                  {product.description}
+                  {product.short_description || product.description}
                 </p>
               </div>
               <div className="pt-5">
