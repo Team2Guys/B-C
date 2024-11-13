@@ -47,9 +47,6 @@ const CommercialPage = () => {
     return <PageSkelton />;
   }
 
-  // if (!filteredSubCategory && !filteredProduct) {
-  //   return <div>No matching product or subcategory found.</div>;
-  // }
 
   return (
     <>
