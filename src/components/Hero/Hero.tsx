@@ -68,13 +68,16 @@ function Hero() {
                       Blinds & Curtains Dubai
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold text-25 lg:text-[53px] sm:text-3xl leading-[30px] md:leading-[60px]">
-                    Custom Window <br />
-                    Blinds & Curtains
+                  <h1 className="text-black font-extrabold text-25 lg:text-[43px] sm:text-3xl leading-[30px] md:leading-[60px]">
+                    {/* Custom Window <br />
+                    Blinds & Curtains */}
+                    {item.heading}<br/>
+                    {item.subheading}
                   </h1>
                   <p className="font-normal text-14 mt-0 md:mt-5 mb-5">
-                    Lorem Ipsum is simply dummy text of the <br className='hidden md:block' /> and
-                    typesetting industry.
+                    {/* Lorem Ipsum is simply dummy text of the <br className='hidden md:block' /> and
+                    typesetting industry. */}
+                    {item.content}
                   </p>
                   <Link className='uppercase bg-white text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-12 w-fit' href={'/request-appointment'}>
                       Book A Free Home Design Visit
