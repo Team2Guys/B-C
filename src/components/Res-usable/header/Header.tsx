@@ -98,25 +98,10 @@ const Header = () => {
   return (
     <>
       <div className="w-full bg-secondary">
-        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center pb-3 md:pb-0">
+        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center h-12 pb-3 md:pb-0">
           <p className="text-white py-2 text-12 2xl:text-15 font-medium lg:tracking-[0.4px] xl:tracking-[1.8px] 2xl:tracking-[2px] leading-relaxed 2xl:leading-loose">
             We can visit you, take measurements, help select fabrics & install
-            in 2-3 days. Call Dubai{' '}
-            <Link
-              className="underline font-medium"
-              target="_blank"
-              href={'tel:04 252 2025'}
-            >
-              04 252 2025
-            </Link>{' '}
-            now or email us on{' '}
-            <Link
-              className="underline font-medium"
-              target="_blank"
-              href={'mailto:connect@twoguys.ae'}
-            >
-              connect@twoguys.ae
-            </Link>
+            in 2-3 days.
           </p>
           <SocialLink />
         </Container>

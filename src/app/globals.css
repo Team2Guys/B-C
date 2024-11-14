@@ -212,13 +212,14 @@ html {
 .Hero-slider .slick-dots li button:before {
   font-size: 19px !important;
   color: #fff !important;
+  opacity: .5;
 }
 .Hero-slider .slick-dots .slick-active :before {
   font-size: 19px !important;
 }
 
 .Hero-slider .slick-dots li.slick-active button:before {
-  color: var(--secondary-foreground) !important;
+  color: var(--secondary) !important;
 }
 
 .Hero-slider .slick-prev,

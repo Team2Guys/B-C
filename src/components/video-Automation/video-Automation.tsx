@@ -8,6 +8,13 @@ interface VideoAutomationProps {
 }
 const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
   const router = useRouter();
+  const handleNavigation = (event: any, path:string) => {
+    if (event.ctrlKey || event.metaKey) {
+      window.open(path, '_blank');
+    } else {
+      router.push(path);
+    }
+  };
   return (
     <div
       className={`relative w-full h-auto md:h-[397px] px-1 overflow-hidden mt-10 ${className}`}
@@ -32,13 +39,13 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
           </p>
           <div className="flex justify-center items-center  gap-2 md:gap-9 mt-4">
             <Button
-              onClick={() => router.push('/motorised-blinds')}
+              onClick={(event) => handleNavigation(event, '/motorised-blinds')}
               variant={'default'}
               className="py-4 px-2 md:py-7 text-12 text-white"
             >
               Motorised Blinds
             </Button>
-            <Button onClick={() => router.push('/curtains/motorised-curtains')} variant={'outline'} className="py-4 px-2 md:py-7">
+            <Button onClick={(event) => handleNavigation(event, '/curtains/motorised-curtains')} variant={'outline'} className="py-4 px-2 md:py-7">
               Motorised Curtains
             </Button>
           </div>

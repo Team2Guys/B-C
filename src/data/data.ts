@@ -135,7 +135,7 @@ export const footerLinks: TFooterSection[] = [
   },
 ];
 
-export const footerInfo = '  ©Blindsand & Curtains  2024 All rights reserved';
+export const footerInfo = 'Blinds & Curtains 2024 All Rights Reserved';
 
 export const OurClientImage = [
   { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
