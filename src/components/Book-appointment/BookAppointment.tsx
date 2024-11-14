@@ -181,7 +181,14 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 
   const handleDateChange = (date: Date | null) => {
     if (date) {
-      setFormData({ ...formData, prefered_Date: date });
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);  // Clear the time for accurate comparison
+
+      if (date >= today) {
+        setFormData({ ...formData, prefered_Date: date });
+      } else {
+        alert("Please select a date that is today or later.");
+      }
     }
   };
 
@@ -453,6 +460,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               selected={formData.prefered_Date}
               onChange={handleDateChange}
               className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
+              dateFormat="dd/MM/yy"  // Set date format to DD/MM/YY
+              minDate={new Date()}    // Disable past dates
             />
           </div>
           <div className="w-full custom-datepicker">
@@ -574,7 +583,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <h2 className="text-11 font-light mb-3">How shall we contact you?</h2>
               <div className="flex flex-row gap-2 mt-2">
                 <label className="flex items-center text-11 text-[#898989]">
-                  
+
                   <input
                     type="checkbox"
                     name="whatsapp"
