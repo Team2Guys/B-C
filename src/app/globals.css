@@ -78,7 +78,10 @@ html {
   scroll-behavior: smooth;
 }
 
-
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder{
+  color:var(--tabletext);
+  font-weight: 500 !important;
+}
 
 .custom-checkbox .ant-checkbox + span {
   color: var(--checkbox-text);
@@ -342,7 +345,6 @@ html {
 .ant-select-dropdown
   .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
   background-color: var(--primary);
-  color: white !important;
 }
 .ant-select-single.ant-select-open .ant-select-selection-item {
   font-size: larger !important;
@@ -406,3 +408,4 @@ html {
 .ant-modal-mask {
   background-color: rgba(0, 0, 0, 0.842) !important;
 }
+

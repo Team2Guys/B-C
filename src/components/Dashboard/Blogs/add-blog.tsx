@@ -230,23 +230,21 @@ const AddBlogs = ({
               <Spin />
             ) : (
               <Select
-                className="w-full h-[48px] detail-otion font-bold border rounded-md dark:bg-lightdark dark:text-white dark:placeholder:text-lightgrey"
-                placeholder="Select Category"
-                defaultValue={values.category[0]}
-                value={values.category}
-                onChange={(value) => setFieldValue('category', value)}
-                notFoundContent={
-                  categoryError
-                    ? 'Error loading categories'
-                    : 'No categories found'
-                }
-                options={
-                  categories?.map((category) => ({
-                    value: category.title,
-                    label: category.title,
-                  })) || []
-                }
-              />
+              className="w-full h-[48px] detail-option  border rounded-md "
+              placeholder="Select Category"
+              value={values.category}
+              onChange={(value) => setFieldValue('category', value)}
+              notFoundContent={
+                categoryError ? 'Error loading categories' : 'No categories found'
+              }
+              options={[
+                { value: "", label: "Select Category", disabled: true },
+                ...(categories?.map((category) => ({
+                  value: category.title,
+                  label: category.title,
+                })) || [])
+              ]}
+            />
             )}
             {categoryError && (
               <div className="text-red-500">{categoryError.message}</div>
