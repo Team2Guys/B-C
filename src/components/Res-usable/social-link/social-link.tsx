@@ -29,8 +29,8 @@ export const SocialData: SocialDataType[] = [
     alt: 'Instagram',
   },
   {
-    href: 'https://web.whatsapp.com/',
-    icon: <Image className='h-7 w-7' src="/assets/images/whatsapp.png" alt="Whatsapp" width={800} height={800} />,
+    href: 'https://wa.me/+971569112728',
+    icon: <Image className='h-7 w-7' src="/assets/images/icon/whats.png" alt="Whatsapp" width={800} height={800} />,
     alt: 'Whatsapp',
   },
 ];

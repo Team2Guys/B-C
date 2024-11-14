@@ -2,6 +2,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ComponentType, ReactNode } from 'react';
+import { Autoplay } from 'swiper/modules';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -41,7 +42,10 @@ function CustomSlider({
     nextArrow: PextArrow ? <PextArrow /> : undefined,
     prevArrow: PrevArrow ? <PrevArrow /> : undefined,
     focusOnSelect: true,
-    speed: 500,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 6000,
+    cssEase: "linear"
   };
 
   return (
