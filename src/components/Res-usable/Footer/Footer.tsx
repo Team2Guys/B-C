@@ -1,4 +1,4 @@
- 'use client';
+'use client';
 
 import React from 'react';
 import {
@@ -51,6 +51,7 @@ const Footer: React.FC = () => {
       </div>
     );
   }
+  const filterArray = ['shutters', 'White', 'Off White', 'Black', 'Dark Woods', 'Light Woods', 'Bold Colours', 'Grey'];
 
   return (
     <footer>
@@ -118,12 +119,16 @@ const Footer: React.FC = () => {
                           return (
                             <li key={subcategory.id}>
                               {filteredCategory?.title.toLowerCase() === 'shutters' ? (
-                                <Link
-                                  className="text-sm font-medium"
-                                  href={`/shutters-range/${generateSlug(subcategory.title)}`}
-                                >
-                                  {subcategory.title}
-                                </Link>
+                                <>
+
+                                  {filterArray.some(substring => subcategory.title.includes(substring)) ? '' : (<Link
+                                    className="text-sm font-medium"
+                                    href={`/shutters-range/${generateSlug(subcategory.title)}`}
+                                  >
+                                    {subcategory.title}
+                                  </Link>)}
+
+                                </>
                               ) : (
                                 <Link
                                   className="text-sm font-medium"
@@ -183,6 +188,18 @@ const Footer: React.FC = () => {
                   Blinds & Curtains Dubai
                 </h3>
                 <ul className="space-y-4 mt-4 text-sm lg:w-[100%]">
+                <li className='flex gap-2'>
+                    <p className="text-12 font-normal -tracking-widest">Phone Number</p>
+                    <Link href='tel:+971569112728' className="text-12 font-normal -tracking-widest">
+                     +971 56 911 2728
+                    </Link>
+                  </li>
+                  <li className='flex gap-2'>
+                    <p className="text-12 font-normal -tracking-widest">WhatsApp</p>
+                    <Link href='https://wa.me/+971569112728' className="text-12 font-normal -tracking-widest w-full">
+                     +971 56 911 2728
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       target="_blank"

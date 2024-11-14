@@ -27,7 +27,7 @@ const FeatureProduct: React.FC = () => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-
+  console.log(products)
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6);
   const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutters', 'Commercial'];
