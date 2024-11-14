@@ -68,7 +68,7 @@ function Hero() {
                       Blinds & Curtains Dubai
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold text-25 lg:text-[43px] sm:text-3xl leading-[30px] md:leading-[60px]">
+                  <h1 className="text-black font-extrabold text-25 md:text-[27px] lg:text-[33px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[45px] lg:leading-[60px]">
                     {/* Custom Window <br />
                     Blinds & Curtains */}
                     {item.heading}<br/>
