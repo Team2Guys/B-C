@@ -1251,6 +1251,8 @@ export const commercialMegaMenuItems = [
   { productName: 'hotels' },
   { productName: 'schools' },
   { productName: 'offices' },
+  { productName: 'gym' },
+  { productName: 'theater' },
 
   { productName: 'indoor' },
   { productName: 'outdoor' },
@@ -1567,6 +1569,8 @@ export const megaMenubyStyle = [
   { productName: 'hotels' },
   { productName: 'schools' },
   { productName: 'offices' },
+  { productName: 'gym' },
+  { productName: 'theater' },
 ];
 
 export const megaMenubyRoom = [
