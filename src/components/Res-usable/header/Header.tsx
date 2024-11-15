@@ -108,17 +108,17 @@ const Header = () => {
       </div>
 
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50">
-        <Container className="flex w-full justify-between  px-2 items-center gap-1 md:gap-3 lg:gap-0">
+        <Container className="flex w-full justify-between h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
           <Link href={'/'} className="w-7/12 lg:w-1/12 ">
             <Image width={150} height={150} src={logo} alt="Logo" />
           </Link>
 
-          <div className="w-3/12 lg:w-9/12 mt-9  ">
-            <div className="hidden lg:flex justify-evenly items-center lg:text-10 text-12 xl:text-16 whitespace-nowrap ">
+          <div className="w-3/12 lg:w-9/12 mt-9">
+            <div className="hidden lg:flex justify-evenly items-start lg:text-10 text-12 xl:text-16 whitespace-nowrap ">
               <Link
-                className={`pb-8 lg:text-10 text-12 xl:text-15 px-1 ${path === '/'
-                    ? 'font-bold text-black-500 bg-secondary text-white '
-                    : 'hover:bg-secondary hover:text-white'
+                className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${path === '/'
+                    ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary'
+                    : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-4'
                   }`}
                 href={'/'}
               >
@@ -204,17 +204,17 @@ const Header = () => {
                     className={
 
                       isBlogActive || isActive
-                        ? 'font-bold text-black-500 bg-secondary text-white'
-                        : 'hover:bg-secondary hover:text-white'
+                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary'
+                        : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-4'
 
                     }
                   />
                 ) : (
                   <Link
                     key={index}
-                    className={`pb-8 lg:text-10 text-12 xl:text-15 px-1 ${isBlogActive || isActive
-                        ? 'font-bold text-black-500 text-white bg-secondary'
-                        : 'hover:bg-secondary hover:text-white'
+                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${isBlogActive || isActive
+                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary'
+                        : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-4'
                       }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
