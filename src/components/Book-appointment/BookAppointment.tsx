@@ -6,7 +6,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { City } from 'country-state-city';
-
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 
@@ -182,7 +181,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
   const handleDateChange = (date: Date | null) => {
     if (date) {
       const today = new Date();
-      today.setHours(0, 0, 0, 0);  // Clear the time for accurate comparison
+      today.setHours(0, 0, 0, 0);
 
       if (date >= today) {
         setFormData({ ...formData, prefered_Date: date });
@@ -190,6 +189,15 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
         alert("Please select a date that is today or later.");
       }
     }
+  };
+  const handlePhoneChange = (phone: any) => {
+    // Strip out all non-numeric characters to get the raw number
+    let rawPhone = phone.replace(/\D/g, '');
+
+      rawPhone = `+${rawPhone.slice(0, 3)} ${rawPhone.slice(3, 5)} ${rawPhone.slice(5, 8)} ${rawPhone.slice(8, 12)}`;
+    
+console.log(rawPhone);
+    setFormData({ ...formData, whatsapp_number: rawPhone });
   };
 
   const handletimeChange = (date: Date | null) => {
@@ -398,7 +406,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <p className="text-red-500 text-xs">{errors.email}</p>
             )}
           </div>
-          <div>
+          <div className='relative overflow-hidden'>
             <label
               htmlFor="whatsapp_number"
               className="block text-11 font-light mb-1 "
@@ -409,9 +417,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               country={'ae'}
               countryCodeEditable={false}
               value={formData.whatsapp_number}
-              onChange={(phone) =>
-                setFormData({ ...formData, whatsapp_number: phone })
-              }
+              onChange={handlePhoneChange}
               inputStyle={{
                 width: '100%',
                 border: '1px solid #D1D5DB',
