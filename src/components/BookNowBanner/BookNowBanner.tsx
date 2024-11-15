@@ -4,8 +4,9 @@ import React from 'react';
 import bgBanner from '../../../public/assets/images/commercial-electric-blinds-hero-1_1.png';
 interface BookNowBannerProps {
   className?: string; // className is optional
+  parent?: string;
 }
-const BookNowBanner: React.FC<BookNowBannerProps> = ({ className }) => {
+const BookNowBanner: React.FC<BookNowBannerProps> = ({ className, parent }) => {
   return (
     <div
       className={`w-full md:mt-8 flex items-center relative ${className}`}
@@ -25,9 +26,15 @@ const BookNowBanner: React.FC<BookNowBannerProps> = ({ className }) => {
           <br />
           Send us an email or call us on: 04 252 2025
         </p> */}
-        <p className="text-16 sm:text-2xl md:text-3xl lg:text-4xl font-medium mx-auto w-full lg:w-3/4 text-center">Contact us today for a free consultation and discover the best custom-made blinds for your space</p>
+        <p className="text-16 sm:text-2xl md:text-3xl lg:text-4xl font-medium mx-auto w-full lg:w-3/4 text-center">
+          Contact us today for a free consultation and discover the best
+          custom-made {parent ? parent : 'blinds'} for your space
+        </p>
         <div className="mt-6 text-center">
-          <Link href="/request-appointment" className="px-4 py-3 bg-white rounded-md">
+          <Link
+            href="/request-appointment"
+            className="px-4 py-3 bg-white rounded-md"
+          >
             Book A Free Home Design Visit
           </Link>
         </div>
