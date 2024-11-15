@@ -1,4 +1,6 @@
 // src/data.ts
+
+
 import exp from 'constants';
 import {
   AboutStaticData,
@@ -6,9 +8,11 @@ import {
   BlogProps,
   CardTypes,
   CommentDataType,
+  Email,
   FeatureProductData,
   GalleryItems,
   OurHistory,
+  PhoneNumber,
   ProductCardData,
   ProductItems,
   SocialDataType,
@@ -67,11 +71,11 @@ export const cardData: CardTypes[] = [
 
 export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
-  heading: 'BLINDS & CURTAINS DUBAI',
+  heading: 'We offer window treatments for homes or offices in Dubai',
   paragraph: [
-    'Based in Dubai, specializes in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also functional.',
-    'All our professional teams are based in Dubai and speak great English and will easily understand your blinds and curtains requirements and advise as best as they can. We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).',
-    'Whether you’re looking for a classy, chic, or modern design, we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
+    'Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function.',
+    'All our professional teams are based in Dubai and speak good English and will easily understand your blinds and curtains requirements and advise as best as they can. We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).',
+    'A trusted window treatment company, Blinds & Curtains Dubai brings style and functionality to every room. Whether you’re looking for custom blinds, or blackout curtains we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
   ],
   buttonText: 'Read More',
 };
@@ -93,16 +97,25 @@ export const heroSlider = [
     id: 1,
     name: 'g2.png',
     imageUrl: '/assets/images/Hero/g2.png',
+    heading:"The Home of Customised",
+    subheading:"Window Coverings",
+    content:"Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete.  ",
   },
   {
     id: 2,
     name: 'g1.png',
     imageUrl: '/assets/images/Hero/g1.png',
+    heading:"Made To Measure Window  ",
+    subheading:"Curtains In Dubai",
+    content:"Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains makes it simple.",
   },
   {
     id: 3,
     name: 'g1.png',
     imageUrl: '/assets/images/Hero/g1.png',
+    heading:"Perfect Fit Window",
+    subheading:"Shutters Dubai",
+    content:"You won't find a better deal than having shutters installed in your Dubai home or office, complete with free consultation, quick installation, and a 5-year warranty.",
   },
 ];
 export const bannerData: BannerData = {
@@ -124,7 +137,17 @@ export const footerLinks: TFooterSection[] = [
   },
 ];
 
-export const footerInfo = '  ©Blindsand & Curtains  2024 All rights reserved';
+export const footerInfo = 'Blinds & Curtains 2024 All Rights Reserved';
+
+export const phoneNumberInfo: PhoneNumber = {
+  number:  '+971 054 494 5339',
+}
+export const WhatsAppInfo: PhoneNumber = {
+  number:  '+971 054 494 5339',
+}
+export const EmailInfo: Email = {
+  email: 'connect@twoguys.ae'
+}
 
 export const OurClientImage = [
   { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
@@ -378,19 +401,19 @@ export const ProductCardINFO: ProductCardData[] = [
 
 export const supportItems: SupportItem[] = [
   {
-    title: 'MOTORS DO THE WORK FOR YOU',
+    title: 'Added Convenience',
     description:
-      'No need to pull on heavy or hard-to-reach blinds and curtains. No more cables to operate or strings that get tangled up! Relax and let the motors do the work for you.',
+      'A luxurious addition to your home that lets you set timers, create scenes, and makes you wonder why you didn’t switch your blinds and curtains sooner.',
   },
   {
-    title: 'EXPERTS ASSIST',
+    title: 'Compatible with all major smart homes systems',
     description:
-      'No need to pull on heavy or hard-to-reach blinds and curtains. No more cables to operate or strings that get tangled up! Relax and let the motors do the work for you.',
+      'Talk to our specialists today to find the best option for your blinds & curtains, whether it’s a remote, Alexa, Google Home, or Apple HomeKit.',
   },
   {
-    title: 'SMART HOME AUTOMATION',
+    title: 'Energy Efficient',
     description:
-      'No need to pull on heavy or hard-to-reach blinds and curtains. No more cables to operate or strings that get tangled up! Relax and let the motors do the work for you.',
+      'Live comfortably and save energy with blinds and curtains automation that helps keep your room warm in winter and cool in summer.',
   },
 ];
 export const testimonials = [
@@ -1228,6 +1251,8 @@ export const commercialMegaMenuItems = [
   { productName: 'hotels' },
   { productName: 'schools' },
   { productName: 'offices' },
+  { productName: 'gym' },
+  { productName: 'theater' },
 
   { productName: 'indoor' },
   { productName: 'outdoor' },
@@ -1284,19 +1309,27 @@ export const commercialPagesItems = [
 export const items = [
   {
     id: 1,
-    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+    text: 'A team of 50 staff to ensure perfection from start-to-finish',
   },
   {
     id: 2,
-    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+    text: 'In house production - quality is our concern, not yours',
   },
   {
     id: 3,
-    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+    text: 'Free uninstall/re-install within 2 years',
   },
   {
     id: 4,
-    text: 'Lorem is simply dummy text of the printing and typesetting industry.',
+    text: '10 YEARS warranty on all mechanical parts and labour',
+  },
+  {
+    id: 5,
+    text: 'We’re trusted, with over 700+ 5* reviews',
+  },
+  {
+    id: 6,
+    text: 'Free home visits with free installation',
   },
 ];
 
@@ -1536,6 +1569,8 @@ export const megaMenubyStyle = [
   { productName: 'hotels' },
   { productName: 'schools' },
   { productName: 'offices' },
+  { productName: 'gym' },
+  { productName: 'theater' },
 ];
 
 export const megaMenubyRoom = [

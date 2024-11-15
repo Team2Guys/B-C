@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import 'app/globals.css';
 import { Providers } from './Providers';
 import { ToastContainer } from 'react-toastify';
+import WhatsIcon from 'components/Icons/Whatsapp';
 
 const gotham = localFont({
   src: [
@@ -32,6 +33,7 @@ export default function RootLayout({
         <body className={` ${gotham.className} bg-lightgrey`}>
           <PathnameWrapper>
             {children}
+            <WhatsIcon />
             <ToastContainer />
           </PathnameWrapper>
         </body>

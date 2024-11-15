@@ -1,4 +1,4 @@
- 'use client';
+'use client';
 
 import React from 'react';
 import {
@@ -9,6 +9,9 @@ import {
   shutterMegaMenuItems,
   curtainMegaMenuItems,
   commercialMegaMenuItems,
+  phoneNumberInfo,
+  WhatsAppInfo,
+  EmailInfo,
 } from 'data/data';
 import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { IoLogoPinterest } from 'react-icons/io5';
@@ -51,6 +54,7 @@ const Footer: React.FC = () => {
       </div>
     );
   }
+  const filterArray = ['shutters', 'White', 'Off White', 'Black', 'Dark Woods', 'Light Woods', 'Bold Colours', 'Grey'];
 
   return (
     <footer>
@@ -118,12 +122,16 @@ const Footer: React.FC = () => {
                           return (
                             <li key={subcategory.id}>
                               {filteredCategory?.title.toLowerCase() === 'shutters' ? (
-                                <Link
-                                  className="text-sm font-medium"
-                                  href={`/shutters-range/${generateSlug(subcategory.title)}`}
-                                >
-                                  {subcategory.title}
-                                </Link>
+                                <>
+
+                                  {filterArray.some(substring => subcategory.title.includes(substring)) ? '' : (<Link
+                                    className="text-sm font-medium"
+                                    href={`/shutters-range/${generateSlug(subcategory.title)}`}
+                                  >
+                                    {subcategory.title}
+                                  </Link>)}
+
+                                </>
                               ) : (
                                 <Link
                                   className="text-sm font-medium"
@@ -183,6 +191,24 @@ const Footer: React.FC = () => {
                   Blinds & Curtains Dubai
                 </h3>
                 <ul className="space-y-4 mt-4 text-sm lg:w-[100%]">
+                <li className='flex gap-2'>
+                    <p className="text-12 font-normal -tracking-widest">Email:</p>
+                    <Link href={`mailto:${EmailInfo.email}`} target='_blank' className="text-12 font-normal -tracking-widest">
+                    {EmailInfo.email}
+                    </Link>
+                  </li>
+                <li className='flex gap-2'>
+                    <p className="text-12 font-normal -tracking-widest">Phone Number:</p>
+                    <Link href={`tel:${phoneNumberInfo.number.replaceAll(' ','')}`} target='_blank' className="text-12 font-normal -tracking-widest">
+                    {phoneNumberInfo.number}
+                    </Link>
+                  </li>
+                  <li className='flex gap-2'>
+                    <p className="text-12 font-normal -tracking-widest">WhatsApp:</p>
+                    <Link href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ','')}`} target='_blank' className="text-12 font-normal -tracking-widest w-full">
+                    {WhatsAppInfo.number}
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       target="_blank"
