@@ -8,9 +8,11 @@ import {
   BlogProps,
   CardTypes,
   CommentDataType,
+  Email,
   FeatureProductData,
   GalleryItems,
   OurHistory,
+  PhoneNumber,
   ProductCardData,
   ProductItems,
   SocialDataType,
@@ -136,6 +138,16 @@ export const footerLinks: TFooterSection[] = [
 ];
 
 export const footerInfo = 'Blinds & Curtains 2024 All Rights Reserved';
+
+export const phoneNumberInfo: PhoneNumber = {
+  number:  '+971 054 494 5339',
+}
+export const WhatsAppInfo: PhoneNumber = {
+  number:  '+971 054 494 5339',
+}
+export const EmailInfo: Email = {
+  email: 'connect@twoguys.ae'
+}
 
 export const OurClientImage = [
   { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
