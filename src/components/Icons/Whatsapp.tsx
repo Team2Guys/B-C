@@ -1,12 +1,12 @@
+import { WhatsAppInfo } from 'data/data';
 import React from 'react';
 import { BsWhatsapp } from 'react-icons/bs';
 
 const WhatsIcon = () => {
-  const whatsappNumber = '+971569112728';
 
   return (
     <a
-      href='https://wa.me/+971569112728'
+    href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ','')}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
