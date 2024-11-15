@@ -8,7 +8,7 @@ interface VideoAutomationProps {
 }
 const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
   const router = useRouter();
-  const handleNavigation = (event: any, path:string) => {
+  const handleNavigation = (event: any, path: string) => {
     if (event.ctrlKey || event.metaKey) {
       window.open(path, '_blank');
     } else {
@@ -32,10 +32,12 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
         <div className="py-2 px-4 text-center">
           <p className="lg:text-[48px] text-25 font-bold">Smart & Motorised</p>
           <p className="lg:text-25 text-18 font-extralight ">
-          Move your blinds & curtains to your schedule
+            Move your blinds & curtains to your schedule
           </p>
           <p className="md:mt-4 font-normal lg:text-base text-14 ">
-          With smart home automation, you can set schedules, control them with your phone, or even use your voice. It’s easy, convenient, and lets you manage your blinds and curtains from anywhere.
+            With smart home automation, you can set schedules, control them with
+            your phone, or even use your voice. It’s easy, convenient, and lets
+            you manage your blinds and curtains from anywhere.
           </p>
           <div className="flex justify-center items-center  gap-2 md:gap-9 mt-4">
             <Button
@@ -45,7 +47,13 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
             >
               Motorised Blinds
             </Button>
-            <Button onClick={(event) => handleNavigation(event, '/curtains/motorised-curtains')} variant={'outline'} className="py-4 px-2 md:py-7">
+            <Button
+              onClick={(event) =>
+                handleNavigation(event, '/motorised-curtains')
+              }
+              variant={'outline'}
+              className="py-4 px-2 md:py-7"
+            >
               Motorised Curtains
             </Button>
           </div>
