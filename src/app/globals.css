@@ -128,7 +128,7 @@ html {
   position: absolute;
   width: 100%;
   height: 3px;
-  bottom: -26px;
+  bottom: 0px;
   left: 0;
   background-color: var(--primary);
   transform: scaleX(0);
@@ -145,7 +145,7 @@ html {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-@media only screen and (max-width: 1560px) {
+/* @media only screen and (max-width: 1560px) {
   .link-active::after {
     bottom: -20px;
   }
@@ -180,7 +180,7 @@ html {
   .link-footer:after {
     bottom: -10px;
   }
-}
+} */
 
 .ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
   background-color: var(--input) !important;
