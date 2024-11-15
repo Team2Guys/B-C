@@ -1,6 +1,5 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
-import OurBlog from 'components/Blogs/our-blog';
 import Container from 'components/Res-usable/Container/Container';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import Comments from 'components/comments/Comments';
@@ -8,7 +7,6 @@ import { formatDateMonth } from 'config';
 import { fetchBlogs } from 'config/fetch';
 import { blogData, generateSlug } from 'data/data';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React from 'react';
 import { BlogInfo } from 'types/interfaces';
@@ -29,7 +27,7 @@ const BlogDetail = () => {
     return <PageSkelton />;
   }
 
-  const blog = blogs?.find((blog) => generateSlug(blog.title) === name);
+  const blog: any = blogs?.find((blog) => generateSlug(blog.title) === name);
 
   if (!blog) {
     return <p>Blog not found.</p>;
@@ -45,18 +43,18 @@ const BlogDetail = () => {
           {formatDateMonth(blog.createdAt)}
         </p>
       </div>
-      <Image
-        className="w-full h-full md:h-[608px] rounded-xl"
-        width={1000}
-        height={700}
-        // src={'/assets/images/Blog/blog.jpg'}
-        //@ts-expect-error
-        src={blog.posterImage?.imageUrl}
-        alt="Blog Image"
-      />
-      <span dangerouslySetInnerHTML={{ __html: blog.content }} />
-
-      {/* <OurBlog id={"#top"} title="Popular Post" Blogdata={latestArticles} buttonView /> */}
+      <div className=' md:h-[650px] object-cover'>
+        <Image
+          className="w-full h-full  pb-5   rounded-md md:h-[650px] object-cover"
+          width={1000}
+          height={608}
+          src={blog.posterImage?.imageUrl}
+          alt="Blog Image"
+        />
+      </div>
+      <div className='w-full overflow-hidden text-start'>
+        <span dangerouslySetInnerHTML={{ __html: blog.content }} />
+      </div>
       <Comments data={blog} />
     </Container>
   );

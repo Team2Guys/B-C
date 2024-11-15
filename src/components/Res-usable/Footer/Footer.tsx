@@ -1,4 +1,4 @@
- 'use client';
+'use client';
 
 import React from 'react';
 import {
@@ -9,6 +9,9 @@ import {
   shutterMegaMenuItems,
   curtainMegaMenuItems,
   commercialMegaMenuItems,
+  phoneNumberInfo,
+  WhatsAppInfo,
+  EmailInfo,
 } from 'data/data';
 import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { IoLogoPinterest } from 'react-icons/io5';
@@ -51,6 +54,7 @@ const Footer: React.FC = () => {
       </div>
     );
   }
+  const filterArray = ['shutters', 'White', 'Off White', 'Black', 'Dark Woods', 'Light Woods', 'Bold Colours', 'Grey'];
 
   return (
     <footer>
@@ -61,13 +65,13 @@ const Footer: React.FC = () => {
               <Link href={'/'}>
                 <Image
                   src={'/assets/images/whitelogo.png'}
-                  className="w-auto h-auto"
+                  className="w-auto h-auto lg:w-24 lg:h-20"
                   alt="Logo"
-                  width={150}
-                  height={150}
+                  width={200}
+                  height={200}
                 />
               </Link>
-              <p className="text-sm text-white">
+              <p className="text-sm text-white text-wrap">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
@@ -76,19 +80,19 @@ const Footer: React.FC = () => {
                   target="_blank"
                   href={'https://www.facebook.com/blindsandcurtainsdubai'}
                 >
-                  <CiFacebook className="w-10 h-10" />
+                  <CiFacebook className="w-9 h-9" />
                 </Link>
                 <Link
                   target="_blank"
                   href={'https://www.pinterest.com/blindsandcurtainsdubai/'}
                 >
-                  <IoLogoPinterest className="w-10 h-10 rounded-full" />
+                  <IoLogoPinterest className="w-9 h-9 rounded-full" />
                 </Link>
                 <Link
                   target="_blank"
                   href={'https://www.instagram.com/blindsandcurtainsdubai/'}
                 >
-                  <AiOutlineInstagram className="w-10 h-10" />
+                  <AiOutlineInstagram className="w-9 h-9" />
                 </Link>
               </div>
             </div>
@@ -101,11 +105,11 @@ const Footer: React.FC = () => {
                   return order.indexOf(a.title) - order.indexOf(b.title);
                 })
                 .map((category) => (
-                  <div key={category.id}>
-                    <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit ">
+                  <div className='pl-2' key={category.id}>
+                    <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
                       {category.title}
                     </h3>
-                    <ul className="space-y-3 mt-4 text-sm">
+                    <ul className="space-y-2 mt-4">
                       {subcategories
                         ?.filter(
                           (subcategory) =>
@@ -117,12 +121,25 @@ const Footer: React.FC = () => {
                           );
                           return (
                             <li key={subcategory.id}>
-                              <Link
-                                className="text-14 font-medium "
-                                href={`/${filteredCategory?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
-                              >
-                                {subcategory.title}
-                              </Link>
+                              {filteredCategory?.title.toLowerCase() === 'shutters' ? (
+                                <>
+
+                                  {filterArray.some(substring => subcategory.title.includes(substring)) ? '' : (<Link
+                                    className="text-sm font-medium"
+                                    href={`/shutters-range/${generateSlug(subcategory.title)}`}
+                                  >
+                                    {subcategory.title}
+                                  </Link>)}
+
+                                </>
+                              ) : (
+                                <Link
+                                  className="text-sm font-medium"
+                                  href={`/${filteredCategory?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
+                                >
+                                  {subcategory.title}
+                                </Link>
+                              )}
                             </li>
                           );
                         })}
@@ -153,14 +170,14 @@ const Footer: React.FC = () => {
                 ))}
 
               {footerLinks.map((category, index) => (
-                <div key={index} className="md:col-span-1 lg:pl-8 mt-5 lg:mt-0">
+                <div key={index} className="md:col-span-1 mt-5 lg:mt-0 pl-2">
                   <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">
                     {category.title}
                   </h3>
                   <ul className="space-y-3 mt-4 text-sm">
                     {category.links.map((link, index) => (
                       <li key={index}>
-                        <Link className="text-16 font-medium" href={link.href}>
+                        <Link className="text-14 font-medium" href={link.href}>
                           {link.text}
                         </Link>
                       </li>
@@ -169,15 +186,33 @@ const Footer: React.FC = () => {
                 </div>
               ))}
 
-              <div className="md:col-span-1 lg:pl-8 mt-6 lg:ml-4 lg:mt-0">
-                <h3 className="font-bold mb-2 border-b-4 lg:border-0 w-fit">
+              <div className="md:col-span-1 mt-6 lg:w-[95%] pl-2">
+                <h3 className="font-bold mb-2 border-b-4 lg:border-0 w-fit text-16">
                   Blinds & Curtains Dubai
                 </h3>
-                <ul className="space-y-4 mt-4 text-sm">
+                <ul className="space-y-4 mt-4 text-sm lg:w-[100%]">
+                <li className='flex gap-2'>
+                    <p className="text-12 font-normal -tracking-widest">Email:</p>
+                    <Link href={`mailto:${EmailInfo.email}`} target='_blank' className="text-12 font-normal -tracking-widest">
+                    {EmailInfo.email}
+                    </Link>
+                  </li>
+                <li className='flex gap-2'>
+                    <p className="text-12 font-normal -tracking-widest">Phone Number:</p>
+                    <Link href={`tel:${phoneNumberInfo.number.replaceAll(' ','')}`} target='_blank' className="text-12 font-normal -tracking-widest">
+                    {phoneNumberInfo.number}
+                    </Link>
+                  </li>
+                  <li className='flex gap-2'>
+                    <p className="text-12 font-normal -tracking-widest">WhatsApp:</p>
+                    <Link href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ','')}`} target='_blank' className="text-12 font-normal -tracking-widest w-full">
+                    {WhatsAppInfo.number}
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       target="_blank"
-                      className="text-16 font-normal -tracking-widest"
+                      className="text-12 font-normal -tracking-widest w-full"
                       href={
                         'https://www.google.com/maps/place/Two+Guys+-+Blinds+%26+Curtains+Dubai/@25.1177196,55.2331055,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?entry=tts&g_ep=EgoyMDI0MDkxOC4xKgBIAVAD'
                       }
@@ -188,7 +223,7 @@ const Footer: React.FC = () => {
                   <div
                     style={{
                       overflow: 'hidden',
-                      width: '250px',
+                      width: '250px lg:200px',
                       height: '150px',
                     }}
                   >
@@ -208,7 +243,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="border-t border-[#F6EFE9]-300 py-4 text-center bg-[#F6EFE9]">
-        <p className="text-16 font-gotham-400">{footerInfo}</p>
+        <p className="text-14 font-gotham-400">{footerInfo}</p>
       </div>
     </footer>
   );

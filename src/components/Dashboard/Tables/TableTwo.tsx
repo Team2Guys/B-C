@@ -207,7 +207,7 @@ let token = admin_token ? admin_token: super_admin_token
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
             <input
-              className="peer lg:p-3 p-2 block outline-none border rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
+              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
               type="search"
               placeholder="Search Category"
               value={searchTerm}
@@ -219,7 +219,7 @@ let token = admin_token ? admin_token: super_admin_token
                   canAddCategory && 'cursor-pointer'
                 } lg:p-2 md:p-2 ${
                   canAddCategory &&
-                  'dark:border-strokedark dark:bg-slate-500 bg-[#cdb7aa] text-white rounded-md border  hover:border-[#b59b8c] hover:text-white '
+                  ' bg-secondary text-white rounded-md hover:text-white '
                 } flex justify-center ${
                   !canAddCategory && 'cursor-not-allowed '
                 }`}

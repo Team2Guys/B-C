@@ -78,12 +78,11 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         <hr className="h-2 mt-5 md:mt-8 border-black" />
         <div className="mt-10 text-center space-y-3">
           <h1 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
-            MADE TO MEASURE {categoryType ? categoryType : ''}
+            Explore Popular Made to Measure {categoryType ? categoryType : ''} Options
+
           </h1>
           <p className="text-14 md:text-15 font-normal md:w-[65%] mx-auto">
-            See our comprehensive Blinds range Find the perfect made-to-measure
-            blinds within our exclusive range. There are many shades and
-            stunning patterns to select from
+            Our bespoke blinds are designed to meet your needs. Various types of window blinds are available in a variety of materials and colours, so you can create an ambience to suit your style.
           </p>
         </div>
         <div ref={productContainerRef} className="my-2" />
@@ -96,7 +95,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex justify-center mt-10 space-x-3">
+          <div className="flex justify-center mt-10 lg:space-x-3">
             <Button
               variant={'secondary'}
               className="w-[55px] h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"

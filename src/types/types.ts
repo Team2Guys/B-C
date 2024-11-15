@@ -56,6 +56,8 @@ export interface IProduct {
   href?: string;
   product_type?: string;
   subCategory?: [];
+  short_description?: string
+
 }
 
 export interface IRECORDS {
@@ -65,6 +67,7 @@ export interface IRECORDS {
   total_appointments: string;
   total_categorie: string;
   total_subCategories: string;
+  total_Blogs:string;
 }
 export interface ISUBCATEGORY {
   title: string;

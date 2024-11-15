@@ -1,18 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import CardSlider from 'components/slider/CardSlider';
 import { cn } from 'lib/utils';
 import { usePathname, useRouter } from 'next/navigation';
 import { IProduct } from 'types/types';
 import Image from 'next/image';
 import Container from '../Container/Container';
-import {
-  generateSlug,
-  megaMenubyRoom,
-  megaMenubyStyle,
-  megaMenuDynamic,
-} from 'data/data';
+import { generateSlug, megaMenubyRoom, megaMenubyStyle, megaMenuDynamic } from 'data/data';
 
 interface MegaMenuProps {
   title: string;
@@ -47,7 +39,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   const handleMouseLeave = (event: React.MouseEvent) => {
     const mouseEvent = event as any;
-
+  
     if (
       menuRef.current &&
       buttonRef.current &&
@@ -58,7 +50,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       const newTimeoutId = setTimeout(() => {
         setIsOpen(false);
       }, 300);
-
+  
       setTimeoutId(newTimeoutId);
     }
   };
@@ -133,15 +125,20 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     sliderData,
     MegaMenu_Headings.length,
   );
-
   let currentLocation = window.location;
 
+  console.log(window.origin, 'currentLocation');
+
   return (
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div
+      className=""
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <button
         onClick={handleClick}
         ref={buttonRef}
-        className={cn('pb-10 pt-1 px-4 h-full flex items-start ', className)}
+        className={cn('px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200', className)}
       >
         {title}
       </button>
@@ -161,29 +158,25 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
             <div className="grid grid-cols-4 h-full gap-5 w-full">
               {MegaMenu_Headings.map((item, index) => {
+                console.log(distributedProducts, 'distributedProducts');
                 const parent = generateSlug(title);
-
                 const itemName = generateSlug(item.name);
 
                 return (
                   <div key={index} className="flex flex-col gap-5 w-full">
                     <p className="font-bold text-lg  ">
+                      {/* {title + ' ' + item.name} */}
+                      <div />
                       {title}{' '}
-                      {parent === 'commercial'
-                        ? item.name === 'By Style'
-                          ? 'By Places'
-                          : item.name === 'By Room'
-                            ? 'By Location'
-                            : 'By Specification'
-                        : item.name === 'dynamic'
-                          ? parent === 'blinds'
-                            ? 'By Function'
-                            : parent === 'curtains'
-                              ? 'By Fabrics'
-                              : parent === 'shutters'
-                                ? 'By Colour'
-                                : 'By Specification'
-                          : item.name}
+                      {item.name === 'dynamic'
+                        ? parent === 'blinds'
+                          ? 'By Function'
+                          : parent === 'curtains'
+                            ? 'By Fabrics'
+                            : parent === 'shutters'
+                              ? 'By Colour'
+                              : 'By Design'
+                        : item.name}
                     </p>
                     {distributedProducts[index]?.map(
                       (item: any, index: number) => (
@@ -211,7 +204,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                             route.push(path);
                             setIsOpen(false);
                           }}
-                          className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit  ${activeProduct?.title == item.title ? 'font-medium drop-shadow-sm ' : ' font-normal'}`}
+                          className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
                         >
                           {item.title}
                         </p>
@@ -221,15 +214,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                 );
               })}
 
-              <div className="relative">
+              <div className="relative h-fit">
                 <Image
                   src={activeProduct?.posterImage.imageUrl}
                   alt={activeProduct?.title || 'posterImage'}
                   width={500}
                   height={500}
-                  className="bg-contain"
+                  className="bg-contain h-[250px] lg:h-[300px]"
                 />
-                <p className="absolute bottom-0 z-999 w-full bg-white opacity-80 font-bold text-xl whitespace-normal text-center py-3">
+                <p className="absolute bottom-0 z-999 w-full bg-white opacity-80 font-semibold lg:font-bold text-16 lg:text-xl whitespace-normal text-center py-3">
                   {activeProduct?.title}
                 </p>
               </div>
