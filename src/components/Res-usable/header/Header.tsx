@@ -110,7 +110,7 @@ const Header = () => {
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50">
         <Container className="flex w-full justify-between h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
           <Link href={'/'} className="w-7/12 lg:w-1/12 ">
-            <Image width={150} height={150} src={logo} alt="Logo" />
+            <Image width={3500} height={2500} src={logo} alt="Logo" />
           </Link>
 
           <div className="w-3/12 lg:w-9/12 mt-9">
@@ -204,9 +204,8 @@ const Header = () => {
                     className={
 
                       isBlogActive || isActive
-                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                         : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-4'
-
                     }
                   />
                 ) : (
