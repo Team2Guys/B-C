@@ -98,42 +98,27 @@ const Header = () => {
   return (
     <>
       <div className="w-full bg-secondary">
-        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center pb-3 md:pb-0">
+        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center h-12 pb-3 md:pb-0">
           <p className="text-white py-2 text-12 2xl:text-15 font-medium lg:tracking-[0.4px] xl:tracking-[1.8px] 2xl:tracking-[2px] leading-relaxed 2xl:leading-loose">
             We can visit you, take measurements, help select fabrics & install
-            in 2-3 days. Call Dubai{' '}
-            <Link
-              className="underline font-medium"
-              target="_blank"
-              href={'tel:04 252 2025'}
-            >
-              04 252 2025
-            </Link>{' '}
-            now or email us on{' '}
-            <Link
-              className="underline font-medium"
-              target="_blank"
-              href={'mailto:connect@twoguys.ae'}
-            >
-              connect@twoguys.ae
-            </Link>
+            in 2-3 days.
           </p>
           <SocialLink />
         </Container>
       </div>
 
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50">
-        <Container className="flex w-full justify-between  px-2 items-center gap-1 md:gap-3 lg:gap-0">
+        <Container className="flex w-full justify-between h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
           <Link href={'/'} className="w-7/12 lg:w-1/12 ">
-            <Image width={150} height={150} src={logo} alt="Logo" />
+            <Image width={3500} height={2500} src={logo} alt="Logo" />
           </Link>
 
-          <div className="w-3/12 lg:w-9/12 mt-9  ">
-            <div className="hidden lg:flex justify-evenly items-center lg:text-10 text-12 xl:text-16 whitespace-nowrap ">
+          <div className="w-3/12 lg:w-9/12 mt-9">
+            <div className="hidden lg:flex justify-evenly items-start lg:text-10 text-12 xl:text-16 whitespace-nowrap ">
               <Link
-                className={`pb-8 lg:text-10 text-12 xl:text-15 px-1 ${path === '/'
-                    ? 'font-bold text-black-500 bg-secondary text-white '
-                    : 'hover:bg-secondary hover:text-white'
+                className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${path === '/'
+                    ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
+                    : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-4'
                   }`}
                 href={'/'}
               >
@@ -219,17 +204,16 @@ const Header = () => {
                     className={
 
                       isBlogActive || isActive
-                        ? 'font-bold text-black-500 bg-secondary text-white'
-                        : 'hover:bg-secondary hover:text-white'
-
+                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                        : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-4'
                     }
                   />
                 ) : (
                   <Link
                     key={index}
-                    className={`pb-8 lg:text-10 text-12 xl:text-15 px-1 ${isBlogActive || isActive
-                        ? 'font-bold text-black-500 text-white bg-secondary'
-                        : 'hover:bg-secondary hover:text-white'
+                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${isBlogActive || isActive
+                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
+                        : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-4'
                       }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
@@ -244,7 +228,7 @@ const Header = () => {
           <div className='lg:w-2/12 flex justify-center items-center gap-2 '>
           <Link
             className="py-2 px-2 lg:px-4  lg:text-12 xl:px-5 rounded-md text-10 2xl:text-15 whitespace-nowrap bg-primary text-black"
-            href="/appointment"
+            href="/request-appointment"
             onClick={handleLinkClick}
           >
             Book Free Appointment
