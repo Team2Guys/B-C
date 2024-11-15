@@ -117,7 +117,7 @@ const Header = () => {
             <div className="hidden lg:flex justify-evenly items-start lg:text-10 text-12 xl:text-16 whitespace-nowrap ">
               <Link
                 className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${path === '/'
-                    ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary'
+                    ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                     : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-4'
                   }`}
                 href={'/'}
@@ -204,7 +204,7 @@ const Header = () => {
                     className={
 
                       isBlogActive || isActive
-                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary'
+                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                         : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-4'
 
                     }
@@ -213,7 +213,7 @@ const Header = () => {
                   <Link
                     key={index}
                     className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${isBlogActive || isActive
-                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary'
+                        ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                         : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-4'
                       }`}
                     onClick={handleCloseDrawer}
