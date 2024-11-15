@@ -6,7 +6,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { City } from 'country-state-city';
-
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 
@@ -181,8 +180,24 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 
   const handleDateChange = (date: Date | null) => {
     if (date) {
-      setFormData({ ...formData, prefered_Date: date });
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (date >= today) {
+        setFormData({ ...formData, prefered_Date: date });
+      } else {
+        alert("Please select a date that is today or later.");
+      }
     }
+  };
+  const handlePhoneChange = (phone: any) => {
+    // Strip out all non-numeric characters to get the raw number
+    let rawPhone = phone.replace(/\D/g, '');
+
+      rawPhone = `+${rawPhone.slice(0, 3)} ${rawPhone.slice(3, 5)} ${rawPhone.slice(5, 8)} ${rawPhone.slice(8, 12)}`;
+    
+console.log(rawPhone);
+    setFormData({ ...formData, whatsapp_number: rawPhone });
   };
 
   const handletimeChange = (date: Date | null) => {
@@ -391,7 +406,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <p className="text-red-500 text-xs">{errors.email}</p>
             )}
           </div>
-          <div>
+          <div className='relative overflow-hidden'>
             <label
               htmlFor="whatsapp_number"
               className="block text-11 font-light mb-1 "
@@ -402,9 +417,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               country={'ae'}
               countryCodeEditable={false}
               value={formData.whatsapp_number}
-              onChange={(phone) =>
-                setFormData({ ...formData, whatsapp_number: phone })
-              }
+              onChange={handlePhoneChange}
               inputStyle={{
                 width: '100%',
                 border: '1px solid #D1D5DB',
@@ -453,6 +466,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               selected={formData.prefered_Date}
               onChange={handleDateChange}
               className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
+              dateFormat="dd/MM/yy"  // Set date format to DD/MM/YY
+              minDate={new Date()}    // Disable past dates
             />
           </div>
           <div className="w-full custom-datepicker">
@@ -530,7 +545,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
         </div>
         {!singlePage && (
           <div className="flex flex-wrap justify-between gap-2 mb-3">
-            <div className=" p-2 bg-white shadow-md rounded-md">
+            <div className=" p-2 bg-white rounded-md">
               <h2 className="text-11 font-light mb-3">Tell us what you need:</h2>
 
               <div className="flex flex-row gap-4">
@@ -540,7 +555,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       checked={selectedOptions.blinds}
                       onChange={() => handleCheckboxChange('blinds')}
-                      className="mr-2"
+                      className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                     />
                     Blinds
                   </label>
@@ -552,7 +567,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       checked={selectedOptions.curtains}
                       onChange={() => handleCheckboxChange('curtains')}
-                      className="mr-2"
+                      className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                     />
                     Curtains
                   </label>
@@ -563,7 +578,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       checked={selectedOptions.shutters}
                       onChange={() => handleCheckboxChange('shutters')}
-                      className="mr-2"
+                      className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                     />
                     Shutters
                   </label>
@@ -574,12 +589,13 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <h2 className="text-11 font-light mb-3">How shall we contact you?</h2>
               <div className="flex flex-row gap-2 mt-2">
                 <label className="flex items-center text-11 text-[#898989]">
+
                   <input
                     type="checkbox"
                     name="whatsapp"
                     checked={contactMethods.whatsapp}
                     onChange={handleChangeContact}
-                    className="mr-2"
+                    className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                   />
                   WhatsApp
                 </label>
@@ -590,7 +606,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                     name="telephone"
                     checked={contactMethods.telephone}
                     onChange={handleChangeContact}
-                    className="mr-2"
+                    className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                   />
                   Telephone
                 </label>
@@ -600,7 +616,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                     name="email"
                     checked={contactMethods.email}
                     onChange={handleChangeContact}
-                    className="mr-2"
+                    className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
                   />
                   Email
                 </label>

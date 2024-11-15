@@ -2,8 +2,6 @@
 import Image from 'next/image';
 import React from 'react';
 import { Allproduct } from 'types/interfaces';
-
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { generateSlug } from 'data/data';
 import { useQuery } from '@tanstack/react-query';
@@ -33,16 +31,16 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
         });
         const parent = filtered?.title.toLowerCase();
         return (
-          <Link
-            href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(product.title)}`}
+          <div
             key={product.id}
             className="relative group w-full overflow-hidden"
           >
             <div className="absolute w-full bottom-0">
               <div className="bg-white flex gap-2 justify-between items-center w-full p-2 px-4 md:opacity-0 group-hover:opacity-100 duration-700 rounded-b-xl">
-                <p className="text-12 lg:text-16 text-primary">{product.title}</p>
+                <p className="text-12 lg:text-16 text-primary"><Link className ="w-full cursor-pointer"href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(product.title)}`}>{product.title}</Link> </p>
                 <div className="border border-primary text-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14 text-nowrap">
-                  View More
+            
+                  <Link className ="w-full cursor-pointer"href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(product.title)}`}>View More</Link>
                 </div>
               </div>
             </div>
@@ -53,7 +51,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
               src={product.posterImage.imageUrl}
               alt={product.title}
             />
-          </Link>
+          </div>
         );
       })}
     </div>

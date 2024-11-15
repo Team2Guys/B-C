@@ -82,14 +82,17 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
       canAddCategory: true,
       canDeleteCategory: true,
       canEditCategory: true,
-      canCheckProfit: true,
-      canCheckRevenue: true,
-      canCheckVisitors: true,
-      canViewUsers: true,
-      canViewSales: true,
+      canAddSubCategory:true,
+      canDeleteSubCategory:true,
+      canEditSubCategory:true,
+      canViewAppointments:true,
       canVeiwAdmins: true,
       canVeiwTotalproducts: true,
       canVeiwTotalCategories: true,
+      canVeiwTotalSubCategories:true,
+      canAddBlog: true,
+      canDeleteBlog: true,
+      canEditBlog : true,
     });
 
 
@@ -102,14 +105,17 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
     { name: 'canAddCategory', label: 'Can Add Category' },
     { name: 'canDeleteCategory', label: 'Can Delete Category' },
     { name: 'canEditCategory', label: 'Can Edit Category' },
-    { name: 'canCheckProfit', label: 'Can Check Profit' },
-    { name: 'canCheckRevenue', label: 'Can Check Revenue' },
-    { name: 'canCheckVisitors', label: 'Can Check Visitors' },
-    { name: 'canViewUsers', label: 'Can View Users' },
-    { name: 'canViewSales', label: 'Can View Sales' },
-    { name: 'canVeiwAdmins', label: 'Can View Admins' },
-    { name: 'canVeiwTotalCategories', label: 'Can View Categories' },
-    { name: 'canVeiwTotalproducts', label: 'Can View Products' },
+    { name: 'canAddSubCategory', label: 'Can Add SubCategory' },
+    { name: 'canDeleteSubCategory', label: 'Can Delete SubCategory' },
+    { name: 'canEditSubCategory', label: 'Can Edit SubCategory' },
+    { name: 'canViewAppointments', label: 'Can View Appointments' },
+    { name: 'canVeiwAdmins', label: 'Can View Admins' }, 
+    { name: 'canVeiwTotalproducts', label: 'Can View Total Products' }, 
+    { name: 'canVeiwTotalCategories', label: 'Can View Total Categories' },
+    { name: 'canVeiwTotalSubCategories', label: 'Can View Total SubCategories' },
+    { name: 'canAddBlog', label: 'Can Add Blog' },
+    { name: 'canDeleteBlog', label: 'Can Delete Blog' },
+    { name: 'canEditBlog', label: 'Can Edit Blog' },
   ];
 
   const handleClearAllPermissions = () => {
@@ -121,21 +127,24 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
       canAddCategory: false,
       canDeleteCategory: false,
       canEditCategory: false,
-      canCheckProfit: false,
-      canCheckRevenue: false,
-      canCheckVisitors: false,
-      canViewUsers: false,
-      canViewSales: false,
-      canVeiwAdmins: false,
-      canVeiwTotalproducts: false,
+      canAddSubCategory: false, 
+      canDeleteSubCategory: false,
+      canEditSubCategory: false,
+      canViewAppointments: false,
+      canVeiwAdmins: false,  
+      canVeiwTotalproducts: false,  
       canVeiwTotalCategories: false,
+      canVeiwTotalSubCategories: false,  
+      canAddBlog: false,
+      canDeleteBlog: false,
+      canEditBlog: false,
     });
   };
 
   return (
     <>
       <div
-        className="text-lg font-black mb-4 flex items-center justify-center gap-2 hover:bg-gray-200 w-fit p-2 cursor-pointer"
+        className="text-lg font-black mb-4 flex items-center justify-center gap-2 dark:text-white w-fit p-2 cursor-pointer"
         onClick={() => {
           setselecteMenu('AllAdmin');
           setedit_admins && setedit_admins(undefined)
@@ -146,7 +155,7 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
       </div>
 
       <Form
-        className="max-w-screen-md mx-auto rounded-md shadow-xl mt-1 mb-5"
+        className="max-w-screen-md mx-auto rounded-md shadow-xl mt-1 mb-5 dark:bg-lightdark"
         layout="vertical"
         onFinish={handleSubmit}
       >
@@ -158,7 +167,7 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
             sm={{ order: 1, span: 24 }}
             xs={{ order: 1, span: 24 }}
           >
-            <p className="text-2xl">Create New Admin</p>
+            <p className="text-2xl dark:text-white">Create New Admin</p>
           </Col>
           <Col
             xl={{ order: 1, span: 12 }}
@@ -167,7 +176,7 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
             sm={{ order: 1, span: 12 }}
             xs={{ order: 1, span: 24 }}
           >
-            <Form.Item label={'Full Name'}>
+            <Form.Item label={<span className="text-black dark:text-white">Full Name</span>}>
               <Input
                 type="text"
                 name="fullname"
@@ -185,7 +194,7 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
             sm={{ order: 1, span: 12 }}
             xs={{ order: 1, span: 24 }}
           >
-            <Form.Item label={'Email'}>
+            <Form.Item label={<span className="text-black dark:text-white">Email</span>}>
               <Input
                 type="email"
                 name="email"
@@ -202,7 +211,7 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
             sm={{ order: 1, span: 24 }}
             xs={{ order: 1, span: 24 }}
           >
-            <Form.Item label={'Password'}>
+            <Form.Item label={<span className="text-black dark:text-white">Password</span>}>
               <Input
                 type="password"
                 name="password"
@@ -215,21 +224,21 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
           {checkboxData.map((checkbox, index) => (
             <Col
               key={index}
-              xl={{ order: 1, span: 6 }}
-              lg={{ order: 1, span: 6 }}
-              md={{ order: 1, span: 6 }}
+              xl={{ order: 1, span: 8 }}
+              lg={{ order: 1, span: 8 }}
+              md={{ order: 1, span: 8 }}
               sm={{ order: 1, span: 12 }}
-              xs={{ order: 1, span: 12 }}
+              xs={{ order: 1, span: 24 }}
             >
               <Checkbox
+                className="custom-checkbox"
                 name={checkbox.name}
-                checked={
-                  formData[checkbox.name as keyof typeof formData] as boolean
-                }
+                checked={formData[checkbox.name as keyof typeof formData] as boolean}
                 onChange={handleCheckboxChange}
               >
                 {checkbox.label}
               </Checkbox>
+
             </Col>
           ))}
 
@@ -264,7 +273,7 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
             sm={{ order: 1, span: 24 }}
             xs={{ order: 1, span: 24 }}
           >
-            {error ? <p className="text-primary">{error}</p> : null}
+            {error ? <p className="text-black dark:text-white text-lg">{error}</p> : null}
           </Col>
           <Col
             className="text-center mt-2"

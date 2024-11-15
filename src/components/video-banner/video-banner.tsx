@@ -61,9 +61,7 @@ const VideoBanner: React.FC<BannerProps> = ({ className, title }) => {
               made to measure {title}
             </p>
             <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
+              Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.
             </p>
             <div className="mt-5">
               <Link
