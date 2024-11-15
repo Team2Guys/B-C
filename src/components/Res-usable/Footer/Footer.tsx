@@ -189,14 +189,20 @@ const Footer: React.FC = () => {
                 </h3>
                 <ul className="space-y-4 mt-4 text-sm lg:w-[100%]">
                 <li className='flex gap-2'>
+                    <p className="text-12 font-normal -tracking-widest">Email</p>
+                    <Link href='mailto:info@blindsandcurtains.ae' target='_blank' className="text-12 font-normal -tracking-widest">
+                    info@blindsandcurtains.ae
+                    </Link>
+                  </li>
+                <li className='flex gap-2'>
                     <p className="text-12 font-normal -tracking-widest">Phone Number</p>
-                    <Link href='tel:+971569112728' className="text-12 font-normal -tracking-widest">
+                    <Link href='tel:+971569112728' target='_blank' className="text-12 font-normal -tracking-widest">
                      +971 56 911 2728
                     </Link>
                   </li>
                   <li className='flex gap-2'>
                     <p className="text-12 font-normal -tracking-widest">WhatsApp</p>
-                    <Link href='https://wa.me/+971569112728' className="text-12 font-normal -tracking-widest w-full">
+                    <Link href='https://wa.me/+971569112728' target='_blank' className="text-12 font-normal -tracking-widest w-full">
                      +971 56 911 2728
                     </Link>
                   </li>
