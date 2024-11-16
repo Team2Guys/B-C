@@ -4,11 +4,12 @@ import Link from 'next/link';
 import React from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
 import { UpdateShutterTitle } from './menu-card';
+import { ICategory } from 'types/types';
 
 interface TopHeroProps {
   title: string | any;
   image: StaticImageData;
-  category?: string;
+  category?: ICategory | undefined;
   home?: string;
   pagename?: string;
   backgroundposition?: string;
@@ -48,6 +49,12 @@ const TopHero: React.FC<TopHeroProps> = ({
             <FaHome size={20} />{' '}
             {home ? home.charAt(0).toUpperCase() + home?.slice(1) : 'Home'}
           </Link>
+          {category && (
+            <>
+              <FaAngleRight size={20} />
+              <Link href={`/${category.title.toLowerCase()}`} className='font-bold capitalize'>{category.title}</Link>
+            </>
+          )}
           <FaAngleRight size={20} />
           <p className="font-bold capitalize ">{pathname ? pathname : title}</p>
         </div>
