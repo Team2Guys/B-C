@@ -7,7 +7,7 @@ import { ISelectedPage } from 'types/types';
 interface BannerProps {
   className?: string;
   title: string;
-  selectedPage: ISelectedPage | null;
+  selectedPage?: ISelectedPage | null;
 }
 
 const VideoBanner: React.FC<BannerProps> = ({
