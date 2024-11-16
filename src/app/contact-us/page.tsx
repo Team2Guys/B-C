@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 import { IProduct } from 'types/types';
 import { fetchProducts } from 'config/fetch';
+import BookAppointment from 'components/Book-appointment/BookAppointment';
 
 const ProductUs: React.FC = () => {
   const [formData, SetFormData] = useState({
@@ -103,7 +104,7 @@ const ProductUs: React.FC = () => {
           </p>
         </section>
 
-        <section className="flex flex-col lg:flex-row gap-5 lg:gap-12 bg-primary p-6 lg:p-12 lg:mt-20 mt-12 rounded-lg overflow-hidden">
+        <section className="flex flex-col lg:flex-row gap-5  justify-between bg-primary p-6 lg:p-12 lg:mt-20 mt-12 rounded-lg overflow-hidden">
           <div className="lg:w-1/2 w-full text-white ">
             <div className="lg:pl-12 ">
               <p className="md:text-xl font-bold">Contact Info :</p>
@@ -122,36 +123,34 @@ const ProductUs: React.FC = () => {
                 <div className="text-14 md:text-18 flex gap-3 items-start">
                   <IoLocationSharp className="text-white w-6 h-6" />
                   <p>
-                    Blinds & Curtains Dubai
+                    Unit 43 22nd St
                     <br />
-                    Unit 43 22nd St – Al Quoz
-                    <br />
-                    Industrial Area 4 – Dubai – Dubai, UAE
+                    Al Quoz Industrial Area 4 – Dubai UAE
                   </p>
                 </div>
                 <div className="text-14 md:text-18 flex gap-3 items-start">
                   <IoCall className="text-white w-6 h-6" />
                   <Link
                     target="_blank"
-                    href={'tel:+04042522025'}
+                    href={'tel:+9710544945339'}
                     className="hover:underline"
                   >
-                    04 252 2025
+                    +971 054 494 5339
                   </Link>
                 </div>
                 <div className=" text-14 flex gap-3 items-start md:text-18">
                   <MdEmail className="text-white w-6 h-6" />
                   <Link
                     target="_blank"
-                    href="mailto:info@blindsandcurtains.ae"
+                    href="mailto:connect@twoguys.ae"
                     className="hover:underline"
                   >
-                    info@blindsandcurtains.ae
+                    connect@twoguys.ae
                   </Link>
                 </div>
               </div>
             </div>
-          
+
             <div className="lg:mt-8 mt-4">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d115601.00872970802!2d55.235686!3d25.117715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sBlinds%20And%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1731328247874!5m2!1sen!2sus"
@@ -163,7 +162,7 @@ const ProductUs: React.FC = () => {
             </div>
           </div>
 
-          <form
+          {/* <form
             onSubmit={handelSubmit}
             className="lg:w-1/2 bg-white lg:p-8 p-4 flex flex-col rounded-lg"
           >
@@ -237,7 +236,8 @@ const ProductUs: React.FC = () => {
                 value="Send Message"
               />
             </div>
-          </form>
+          </form> */}
+          <BookAppointment />
         </section>
       </Container>
     </>
