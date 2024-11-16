@@ -1698,3 +1698,20 @@ export const AddProductvalidationSchema = Yup.object().shape({
   //   }),
   // ),
 });
+
+
+
+export const TopHeroLink = [
+  { 
+    matchingTitle: 'blinds',
+    title: 'made-to-measure-blinds'
+  },
+  { 
+    matchingTitle: 'curtains',
+    title: 'made-to-measure-curtains'
+  },
+  { 
+    matchingTitle: 'shutters',
+    title: 'shutters-range'
+  },
+]

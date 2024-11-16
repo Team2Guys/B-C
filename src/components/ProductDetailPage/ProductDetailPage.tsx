@@ -12,6 +12,7 @@ import { fetchCategories, fetchProducts, fetchSubCategories } from 'config/fetch
 import Container from 'components/Res-usable/Container/Container';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
+import { usePathname } from 'next/navigation';
 
 interface IProductDetail {
   title: string;
@@ -31,6 +32,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
     queryFn: fetchCategories,
   });
 
+  const pathName = usePathname();
 
   const filterProduct = products?.find((product) => {
     return product.title === title;
@@ -60,7 +62,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
 
   return (
     <>
-      <TopHero title={title} category={category} image={bgBreadcrum} />
+      <TopHero title={title} category={category} image={bgBreadcrum} pagename={pathName} />
       <DetailInfo
         title={title ? title : ''}
         description={filterProduct?.description || ''}
