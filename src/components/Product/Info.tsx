@@ -4,39 +4,40 @@ import productimf from '../../../public/assets/images/product/product1.png';
 import Image from 'next/image';
 import { Button } from 'components/ui/button';
 import { useRouter } from 'next/navigation';
-const Info = () => {
-  const router = useRouter();
-  const handleNavigation = (event: any, path: string) => {
-    if (event.ctrlKey || event.metaKey) {
-      window.open(path, '_blank');
-    } else {
-      router.push(path);
-    }
-  };
+import { IInfo } from 'types/types';
+
+const Info = (selectedPage: IInfo) => {
+  const route = useRouter();
+  console.log(selectedPage);
+  if (!selectedPage.selectedPage) {
+    return <div>No content available</div>;
+  }
   return (
     <Container className="mt-10 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="space-y-4 md:w-[80%] text-start mx-0 flex flex-col justify-between px-4 md:px-0">
           <h1 className="text-18 leading-8 tracking-[3px]  md:tracking-[10px]  md:text-26 font-semibold">
-            Custom Window Blinds |{' '}
-            <span className="font-normal"> 35 Styles + 2000 Different Materials</span>
+            {selectedPage.selectedPage.subheading1} |{' '}
+            <span className="font-normal">
+              {' '}
+              {selectedPage.selectedPage.subheading2}
+            </span>
           </h1>
-
-          <p className="text-12 md:text-16 lg:text-18  md:leading-[33px] text-[#797D85]">
-            Blinds and Curtains Dubai offers more options in style, design, patterns, and colours than ready-made blinds. From large floor-to-ceiling windows to small bedroom windows, and from office spaces to holiday homes with bay windows, we have solutions for every space. Regardless of the size and scale, we measure, make and install outstanding blinds for every single project.
-          </p>
-          <p className="text-12 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85]">
-            As our staff are not paid sales commissions, they will give you honest, impartial advice to ensure the best for your home and pocket. A window treatment is an investment that improves your quality of life. Our sunscreen blinds let in soft, natural light while our blackout blinds block light and cut down on noise.
-          </p>
-          <p className="text-12 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85]">
-            Call the team now and book a free appointment today. No pressure!
-          </p>
+          {selectedPage.selectedPage.subheadingContent.map((item, index) => (
+            <p
+              key={index}
+              className="text-12 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85]"
+            >
+              {item.content}
+            </p>
+          ))}
           <div className=" pt-5 text-center md:text-start">
             <button
-             onClick={(event) =>
-              handleNavigation(event, '/request-appointment')
-            }
-             className="px-4 py-3 rounded-md bg-secondary text-white font-medium">
+              onClick={() => {
+                route.push('/request-appointment');
+              }}
+              className="px-4 py-3 rounded-md bg-secondary text-white font-medium"
+            >
               Book An Appointment
             </button>
           </div>
