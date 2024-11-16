@@ -4,7 +4,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import { IProduct } from 'types/types';
 import Image from 'next/image';
 import Container from '../Container/Container';
-import { generateSlug, megaMenubyRoom, megaMenubyStyle, megaMenuDynamic } from 'data/data';
+import {
+  generateSlug,
+  megaMenubyRoom,
+  megaMenubyStyle,
+  megaMenuDynamic,
+} from 'data/data';
 
 interface MegaMenuProps {
   title: string;
@@ -39,7 +44,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   const handleMouseLeave = (event: React.MouseEvent) => {
     const mouseEvent = event as any;
-  
+
     if (
       menuRef.current &&
       buttonRef.current &&
@@ -50,7 +55,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       const newTimeoutId = setTimeout(() => {
         setIsOpen(false);
       }, 300);
-  
+
       setTimeoutId(newTimeoutId);
     }
   };
@@ -127,8 +132,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   );
   let currentLocation = window.location;
 
-  console.log(window.origin, 'currentLocation');
-
   return (
     <div
       className=""
@@ -138,7 +141,10 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       <button
         onClick={handleClick}
         ref={buttonRef}
-        className={cn('px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200', className)}
+        className={cn(
+          'px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200',
+          className,
+        )}
       >
         {title}
       </button>
@@ -158,7 +164,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
             <div className="grid grid-cols-4 h-full gap-5 w-full">
               {MegaMenu_Headings.map((item, index) => {
-                console.log(distributedProducts, 'distributedProducts');
                 const parent = generateSlug(title);
                 const itemName = generateSlug(item.name);
 
