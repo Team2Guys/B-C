@@ -28,7 +28,7 @@ const itemsPerPage = 9;
 
 const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const pathname = usePathname();
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState<any>({title: 'All'});
   const [currentPage, setCurrentPage] = useState(1);
   const {
     data: products,
@@ -77,15 +77,14 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
-  const handleFilter = (filter: string) => {
+  const handleFilter = (filter: any) => {
     setActiveFilter(filter);
-    if (filter === 'All') {
+    if (filter.title === 'All') {
       setinner_filteredProducts(relatedProducts);
     } else {
-      console.log(filter.toLowerCase().trim(), "inner_filteredProducts")
       setinner_filteredProducts((pre)=>relatedProducts.filter((product) =>{
-        console.log('inner_filteredProducts', product.title.toLowerCase().trim(), "title")
-        return product.title.toLowerCase().trim() ==filter.toLowerCase().trim()}))
+  
+        return product.title.toLowerCase().trim() ==filter?.title.toLowerCase().trim()}))
 
     }
   };
@@ -153,8 +152,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         <div className="flex justify-center space-x-4 whitespace-nowrap overflow-auto">
           <Button
             variant={'feature'}
-            className={` ${activeFilter === 'All' ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}
-            onClick={() => handleFilter('All')}
+            className={` ${activeFilter?.title === 'All' ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}
+            onClick={() => handleFilter({title: 'All'})}
           >
             All
           </Button>
@@ -164,8 +163,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               <Button
                 key={product.id}
                 variant={'feature'}
-                className={` ${activeFilter === product.title ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}
-                onClick={() => handleFilter(product.title)}
+                className={` ${activeFilter.title === product.title ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}
+                onClick={() => handleFilter(product)}
               >
                 {product.title}
               </Button>
@@ -175,12 +174,10 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
       <Container className="text-center ">
         <h2 className="text-2xl xs:text-3xl sm:text-4xl">
-          {activeFilter.toUpperCase()}
+          {activeFilter.title.toUpperCase()}
         </h2>
         <p className="mt-3 text-15 leading-7">
-          See our comprehensive {activeFilter} range. Find the perfect
-          made-to-measure blinds within our exclusive range. Many shades and
-          stunning patterns to select from.
+     {activeFilter?.short_description}
         </p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {inner_filteredProducts &&
