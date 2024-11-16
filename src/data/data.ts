@@ -1,6 +1,5 @@
 // src/data.ts
 
-
 import exp from 'constants';
 import {
   AboutStaticData,
@@ -30,7 +29,6 @@ import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
-
 
 export const generateSlug = (text: string) => {
   if (!text) return '';
@@ -97,25 +95,28 @@ export const heroSlider = [
     id: 1,
     name: 'g2.png',
     imageUrl: '/assets/images/Hero/g2.png',
-    heading:"The Home of Customised",
-    subheading:"Window Coverings",
-    content:"Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete.  ",
+    heading: 'The Home of Customised',
+    subheading: 'Window Coverings',
+    content:
+      "Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete.  ",
   },
   {
     id: 2,
     name: 'g1.png',
     imageUrl: '/assets/images/Hero/g1.png',
-    heading:"Made To Measure Window  ",
-    subheading:"Curtains In Dubai",
-    content:"Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains makes it simple.",
+    heading: 'Made To Measure Window  ',
+    subheading: 'Curtains In Dubai',
+    content:
+      'Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains makes it simple.',
   },
   {
     id: 3,
     name: 'g1.png',
     imageUrl: '/assets/images/Hero/g1.png',
-    heading:"Perfect Fit Window",
-    subheading:"Shutters Dubai",
-    content:"You won't find a better deal than having shutters installed in your Dubai home or office, complete with free consultation, quick installation, and a 5-year warranty.",
+    heading: 'Perfect Fit Window',
+    subheading: 'Shutters Dubai',
+    content:
+      "You won't find a better deal than having shutters installed in your Dubai home or office, complete with free consultation, quick installation, and a 5-year warranty.",
   },
 ];
 export const bannerData: BannerData = {
@@ -140,14 +141,14 @@ export const footerLinks: TFooterSection[] = [
 export const footerInfo = 'Blinds & Curtains 2024 All Rights Reserved';
 
 export const phoneNumberInfo: PhoneNumber = {
-  number:  '+971 54 494 5339',
-}
+  number: '+971 54 494 5339',
+};
 export const WhatsAppInfo: PhoneNumber = {
-  number:  '+971 54 494 5339',
-}
+  number: '+971 54 494 5339',
+};
 export const EmailInfo: Email = {
-  email: 'connect@twoguys.ae'
-}
+  email: 'connect@twoguys.ae',
+};
 
 export const OurClientImage = [
   { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
@@ -1107,8 +1108,7 @@ export const AddproductsinitialValues: FormValues = {
   code: '',
   price: 0,
   product_type: 'By Type',
-  short_description : ""
-
+  short_description: '',
 };
 
 export const options = [
@@ -1158,14 +1158,14 @@ export const intitalValues = {
   canAddCategory: false,
   canDeleteCategory: false,
   canEditCategory: false,
-  canVeiwAdmins:false,
-  canAddSubCategory: false, 
-  canDeleteSubCategory: false, 
-  canEditSubCategory: false, 
-  canViewAppointments: false, 
-  canVeiwTotalproducts: false, 
-  canVeiwTotalCategories: false, 
-  canVeiwTotalSubCategories: false, 
+  canVeiwAdmins: false,
+  canAddSubCategory: false,
+  canDeleteSubCategory: false,
+  canEditSubCategory: false,
+  canViewAppointments: false,
+  canVeiwTotalproducts: false,
+  canVeiwTotalCategories: false,
+  canVeiwTotalSubCategories: false,
   canAddBlog: false,
   canDeleteBlog: false,
   canEditBlog: false,
@@ -1492,7 +1492,6 @@ export const byRoomItems = [
   { productName: 'made-to-measure-living-room-curtains' },
   { productName: 'living-room-shutters' },
   { productName: 'dining-room-shutters' },
-
 ];
 export const byTypeItems = [
   { productName: 'motorised-blinds' },
@@ -1698,3 +1697,86 @@ export const AddProductvalidationSchema = Yup.object().shape({
   //   }),
   // ),
 });
+
+export const categoriesContent = [
+  {
+    slug: 'made-to-measure-blinds',
+    content: {
+      heading: 'Made to Measure Blinds',
+      paragraph:
+        'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'Blinds and Curtains Dubai offers more options in style, design, patterns, and colours than ready-made blinds. From large floor-to-ceiling windows to small bedroom windows, and from office spaces to holiday homes with bay windows, we have solutions for every space. Regardless of the size and scale, we measure, make and install outstanding blinds for every single project. ',
+        },
+        {
+          content:
+            'As our staff are not paid sales commissions, they will give you honest, impartial advice to ensure the best for your home and pocket. A window treatment is an investment that improves your quality of life. Our Sunscreen Blinds let in soft, natural light while our Blackout Blinds block light and cut down on noise.',
+        },
+        {
+          content:
+            'Call the team now and book a free appointment today. No pressure!',
+        },
+      ],
+    },
+  },
+  {
+    slug: 'made-to-measure-curtains',
+    content: {
+      heading: 'Made to Measure Curtains',
+      paragraph:
+        'Our made-to-measure curtains are the perfect solution to give your home a fresh new look. With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor. Whether you’re looking for blackout curtains to keep the light out or sheer curtains to let the light in, we have the perfect solution for you. Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time. With our expert advice and guidance, you can create a stunning look that will transform your home.',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time.',
+        },
+        {
+          content:
+            'With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor.',
+        },
+        {
+          content:
+            'Our team of experts are on hand to provide advice and guidance on the best curtains for your home.',
+        },
+        {
+          content:
+            'We use only the highest quality materials to ensure that your curtains are durable and long-lasting.',
+        },
+      ],
+    },
+  },
+  {
+    slug: 'shutters-range',
+    content: {
+      heading: 'Made to Measure Curtains',
+      paragraph:
+        'Our made-to-measure curtains are the perfect solution to give your home a fresh new look. With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor. Whether you’re looking for blackout curtains to keep the light out or sheer curtains to let the light in, we have the perfect solution for you. Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time. With our expert advice and guidance, you can create a stunning look that will transform your home.',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time.',
+        },
+        {
+          content:
+            'With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor.',
+        },
+        {
+          content:
+            'Our team of experts are on hand to provide advice and guidance on the best curtains for your home.',
+        },
+        {
+          content:
+            'We use only the highest quality materials to ensure that your curtains are durable and long-lasting.',
+        },
+      ],
+    },
+  },
+];
