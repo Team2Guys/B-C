@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 import { City } from 'country-state-city';
 
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
+import Image from 'next/image';
 
 interface ProductOptions {
   shutters?: boolean;
@@ -313,6 +314,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
       setWordCount(value.length);
     }
   };
+
+  
   return (
     <div
       className={`bg-white  text-left text-black ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
@@ -324,10 +327,10 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
       )}
       <form
         onSubmit={handleSubmit}
-        className={` bg-white rounded-md ${singlePage ? 'w-full p-4 ' : ' px-6 py-2'}`}
+        className={` bg-white rounded-md ${singlePage ? 'w-full p-4 ' : ' px-4 py-2'}`}
       >
         <div
-          className={`xs:grid  mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-10'}`}
+          className={`xs:grid  mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-5'}`}
         >
           <div>
             <label htmlFor="name" className="block text-11 font-light ">
@@ -353,21 +356,25 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             >
               Phone Number *
             </label>
+            {/* <div className='border flex items-center px-1 h-9  border-gray-300 w-full rounded text-11 outline-none'>
+              <div className='w-2/12'>
+              <Image width={25} height={25} src={"/assets/images/aedflag.png"} alt='flag'/>
+              </div>
+              <div className='w-10/12 px-[2px]'>
+              <input className='h-8 m-[1px] border  w-full' type='text' />
+              </div>
+            </div> */}
             <PhoneInput
-              enableSearch={true}
-              countryCodeEditable={false}
-              disableSearchIcon={true}
-              country={'ae'}
+            className='mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none'
+              international
+              defaultCountry="AE"
+              limitMaxLength
+              countryCallingCodeEditable={false}
               value={formData.phone_number}
-              onChange={(phone) =>
+              onChange={(phone:any) =>
                 setFormData({ ...formData, phone_number: phone })
               }
-              inputStyle={{
-                width: '100%',
-                border: '1px solid #D1D5DB',
-                fontSize: '11px',
-                borderRadius: '0.375rem',
-              }}
+             
             />
             {errors.phone_number && (
               <p className="text-red-500 text-xs">{errors.phone_number}</p>
@@ -391,7 +398,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <p className="text-red-500 text-xs">{errors.email}</p>
             )}
           </div>
-          <div>
+          <div className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-2'}`}>
             <label
               htmlFor="whatsapp_number"
               className="block text-11 font-light mb-1 "
@@ -399,18 +406,15 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               WhatsApp No. If Different
             </label>
             <PhoneInput
-              country={'ae'}
-              countryCodeEditable={false}
-              value={formData.whatsapp_number}
-              onChange={(phone) =>
-                setFormData({ ...formData, whatsapp_number: phone })
-              }
-              inputStyle={{
-                width: '100%',
-                border: '1px solid #D1D5DB',
-                fontSize: '11px',
-                borderRadius: '0.375rem',
-              }}
+               international
+               defaultCountry="AE"
+               limitMaxLength
+               countryCallingCodeEditable={false}
+                value={formData.whatsapp_number}
+                onChange={(phone:any) =>
+                  setFormData({ ...formData, whatsapp_number: phone })
+                }
+              className='mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none'
             />
           </div>
           <div>
@@ -487,7 +491,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
             /> */}
           </div>
-          <div>
+          <div className={`w-full   ${singlePage ? 'col-span-4' : 'xl:col-span-2 2xl:col-span-1 '}`}>
             <label
               htmlFor="how_user_find_us"
               className="block text-11 font-light "
