@@ -5,6 +5,7 @@ import React from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
 import { UpdateShutterTitle } from './menu-card';
 import { ICategory } from 'types/types';
+import { usePathname } from 'next/navigation';
 
 interface TopHeroProps {
   title: string | any;
@@ -23,7 +24,11 @@ const TopHero: React.FC<TopHeroProps> = ({
   pagename,
   backgroundposition,
 }) => {
+  const page = usePathname();
+
   const pathname = title.replace('-', ' ');
+
+
   return (
     <div
       className="relative text-center text-black custom-breadcrum h-80 flex items-center justify-center bg-cover bg-center"
@@ -39,7 +44,8 @@ const TopHero: React.FC<TopHeroProps> = ({
       <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
       <div className="relative z-20 py-14 md:py-24">
         <h1 className="text-2xl xs:text-5xl md:text-6xl lg:text-7xl font-black mt-5 uppercase">
-          {UpdateShutterTitle(pathname)}
+          
+          { page.includes("/blinds/roller-blinds") ? "Made to Measure Roller Blinds" : UpdateShutterTitle(pathname)}
         </h1>
         <div className="flex justify-center items-center gap-4 mt-2 text-14 sm:text-base">
           <Link
@@ -52,7 +58,7 @@ const TopHero: React.FC<TopHeroProps> = ({
           {category && (
             <>
               <FaAngleRight size={20} />
-              <Link href={`/${category.title.toLowerCase()}`} className='font-bold capitalize'>{category.title}</Link>
+              <Link href={`/${category.title.toLowerCase()}`} className='font-bold capitalize'>{ category.title}</Link>
             </>
           )}
           <FaAngleRight size={20} />

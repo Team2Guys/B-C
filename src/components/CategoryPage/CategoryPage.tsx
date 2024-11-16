@@ -19,6 +19,7 @@ import { Button } from 'components/ui/button';
 import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 
+
 interface ICategoryPage {
   title: string;
   relatedProducts: IProduct[];
@@ -28,7 +29,7 @@ const itemsPerPage = 9;
 
 const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const pathname = usePathname();
-  const [activeFilter, setActiveFilter] = useState<any>({title: 'All'});
+  const [activeFilter, setActiveFilter] = useState<any>({title: 'All', short_description: "Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose Motorised Blinds options for added convenience or finish your blinds with a sleek cassette box."});
   const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState<ICategory | undefined>();
   category
@@ -101,16 +102,9 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     }
   };
 
-  console.log(inner_filteredProducts, "inner_filteredProducts")
+  console.log(pathname, "pathname")
 
-  // const indexOfLastItem = currentPage * itemsPerPage;
-  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  // const currentItems = filteredProducts?.slice(
-  //   indexOfFirstItem,
-  //   indexOfLastItem,
-  // );
   const totalPages = Math.ceil((filteredProducts?.length || 0) / itemsPerPage);
-
 
   return (
     <div>
@@ -135,8 +129,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               <div>
                 <h3 className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
                   <div className="tracking-[.6rem] mb-2">
-                    CHECK OUR OTHER RANGE OF {product.title}?
-                  </div>
+                  Roller Blinds in Dubai, UAE                  </div>
 
                   <span className="font-light tracking-[.2rem] ">
                     {product.title}
@@ -165,7 +158,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
           <Button
             variant={'feature'}
             className={` ${activeFilter?.title === 'All' ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}
-            onClick={() => handleFilter({title: 'All'})}
+            onClick={() => handleFilter({title: 'All',short_description : "Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose Motorised Blinds options for added convenience or finish your blinds with a sleek cassette box."})}
           >
             All
           </Button>
