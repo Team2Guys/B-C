@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import Info from 'components/Product/Info';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { generateSlug } from 'data/data';
+import { categoriesContent, generateSlug } from 'data/data';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import AllProducts from 'components/Product/All-Products/Products';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
@@ -20,7 +20,16 @@ const Products = () => {
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
-
+  const [selectedPage, setSelectedPage] = useState<{
+    heading: string;
+    paragraph: string;
+    subheading1: string;
+    subheading2: string;
+    subheadingContent: {
+      content: string;
+    }[];
+  } | null>(null);
+  const pathname = usePathname();
   const title = matchingLink ? matchingLink.label : productName;
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
 
@@ -28,7 +37,6 @@ const Products = () => {
     ? productName[0]
     : productName;
   const displayProductName = productNameString || 'Default Product';
-  const slugTitle = generateSlug(displayProductName);
 
   const {
     data: products,
@@ -69,15 +77,24 @@ const Products = () => {
     }
   }, [products, categories, productNameString]);
 
-  if (productError instanceof Error)
-    return <div>Error: {productError.message}</div>;
-  if (categoryError instanceof Error)
-    return <div>Error: {categoryError.message}</div>;
+  useEffect(() => {
+    console.log('pathname', generateSlug(pathname));
+    console.log(categoriesContent);
+
+    const selectedPage = categoriesContent.find(
+      (page) => page.slug === generateSlug(pathname),
+    );
+
+    console.log('selectedPage', selectedPage);
+    if (selectedPage) {
+      setSelectedPage(selectedPage.content);
+    }
+  }, [pathname]);
 
   return (
     <>
-      <VideoBanner title={`${title}`} />
-      <Info />
+      <VideoBanner title={`${title}`} selectedPage={selectedPage} />
+      <Info selectedPage={selectedPage} />
       <AllProducts products={filteredProducts} categoryType={`${title}`} />
       <Container className="mt-20 mb-20">
         <RelatedProducts products={filteredProducts || []} limit={4} />
