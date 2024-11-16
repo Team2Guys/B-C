@@ -24,20 +24,11 @@ const CommercialPage = () => {
     queryFn: fetchProducts,
   });
 
-  const filteredSubCategory = subCategories?.find(
-    (sub) => generateSlug(sub.title) === product,
-  );
-  console.log('--------------- START --------------- ');
-  console.log('filteredSubCategory', filteredSubCategory);
-  console.log(products);
+  const filteredSubCategory = subCategories?.find((sub) => generateSlug(sub.title) === product);
 
-  const relatedProducts = products?.filter((prod) =>
-    //@ts-expect-error
-    prod.subCategory?.some((sub) => sub.id === filteredSubCategory?.id),
+  const relatedProducts = products?.filter((prod: any) => prod.subCategory?.some((sub: any) => sub.id === filteredSubCategory?.id),
   );
 
-  console.log('--------------- END --------------- ');
-  console.log('relatedProducts', relatedProducts);
 
   const filteredProduct = products?.find(
     (prod) => generateSlug(prod.title) === product,
@@ -46,6 +37,8 @@ const CommercialPage = () => {
   if (subLoading || prodLoading) {
     return <PageSkelton />;
   }
+
+
 
 
   return (
