@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-center py-5 lg:w-5/6 space-y-2 sm:space-y-0">
+            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-center py-5 lg:w-5/6 space-y-0">
               {categories
                 ?.filter((category) => category.title !== 'Commercial')
                 .sort((a, b) => {
@@ -169,73 +169,73 @@ const Footer: React.FC = () => {
                   </div>
                 ))}
 
-              {footerLinks.map((category, index) => (
-                <div key={index} className="md:col-span-1 mt-5 lg:mt-0 pl-2">
-                  <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">
-                    {category.title}
-                  </h3>
-                  <ul className="space-y-3 mt-4 text-sm">
-                    {category.links.map((link, index) => (
-                      <li key={index}>
-                        <Link className="text-14 font-medium" href={link.href}>
-                          {link.text}
+              <div className='flex flex-col gap-4 col-span-2 pl-2'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 '>
+                  {footerLinks.map((category, index) => (
+                    <div key={index}>
+                      <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">
+                        {category.title}
+                      </h3>
+                      <ul className="space-y-3 mt-4 text-sm">
+                        {category.links.map((link, index) => (
+                          <li key={index}>
+                            <Link className="text-14 font-medium" href={link.href}>
+                              {link.text}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+
+                  <div>
+                    <h3 className="font-bold mb-2 border-b-4 lg:border-0 w-fit text-16">
+                      Blinds & Curtains Dubai
+                    </h3>
+                    <ul className="space-y-4 mt-4 text-sm lg:w-[100%]">
+                      <li className='flex gap-2'>
+                        <p className="text-12 font-normal">Email:</p>
+                        <Link href={`mailto:${EmailInfo.email}`} target='_blank' className="text-12 font-normal text-nowrap">
+                          {EmailInfo.email}
                         </Link>
                       </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                      <li className='flex gap-2'>
+                        <p className="text-12 font-normal w-fit">Phone Number:</p>
+                        <Link href={`tel:${phoneNumberInfo.number.replaceAll(' ', '')}`} target='_blank' className="text-12 font-normal text-nowrap">
+                          {phoneNumberInfo.number}
+                        </Link>
+                      </li>
+                      <li className='flex gap-2'>
+                        <p className="text-12 font-normal w-fit">WhatsApp:</p>
+                        <Link href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ', '')}`} target='_blank' className="text-12 font-normal w-full text-nowrap">
+                          {WhatsAppInfo.number}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          target="_blank"
+                          className="text-12 font-normal w-full"
+                          href={
+                            'https://www.google.com/maps/place/Two+Guys+-+Blinds+%26+Curtains+Dubai/@25.1177196,55.2331055,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?entry=tts&g_ep=EgoyMDI0MDkxOC4xKgBIAVAD'
+                          }
+                        >
+                          Unit 43 22nd St – Al Quoz Industrial Area 4 – Dubai UAE
+                        </Link>
+                      </li>
 
-              <div className="md:col-span-1 mt-6 lg:w-[95%] pl-2">
-                <h3 className="font-bold mb-2 border-b-4 lg:border-0 w-fit text-16">
-                  Blinds & Curtains Dubai
-                </h3>
-                <ul className="space-y-4 mt-4 text-sm lg:w-[100%]">
-                <li className='flex gap-2'>
-                    <p className="text-12 font-normal -tracking-widest">Email:</p>
-                    <Link href={`mailto:${EmailInfo.email}`} target='_blank' className="text-12 font-normal -tracking-widest">
-                    {EmailInfo.email}
-                    </Link>
-                  </li>
-                <li className='flex gap-2'>
-                    <p className="text-12 font-normal -tracking-widest">Phone Number:</p>
-                    <Link href={`tel:${phoneNumberInfo.number.replaceAll(' ','')}`} target='_blank' className="text-12 font-normal -tracking-widest">
-                    {phoneNumberInfo.number}
-                    </Link>
-                  </li>
-                  <li className='flex gap-2'>
-                    <p className="text-12 font-normal -tracking-widest">WhatsApp:</p>
-                    <Link href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ','')}`} target='_blank' className="text-12 font-normal -tracking-widest w-full">
-                    {WhatsAppInfo.number}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      target="_blank"
-                      className="text-12 font-normal -tracking-widest w-full"
-                      href={
-                        'https://www.google.com/maps/place/Two+Guys+-+Blinds+%26+Curtains+Dubai/@25.1177196,55.2331055,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?entry=tts&g_ep=EgoyMDI0MDkxOC4xKgBIAVAD'
-                      }
-                    >
-                      Unit 43 22nd St – Al Quoz Industrial Area 4 – Dubai UAE
-                    </Link>
-                  </li>
-                  <div
-                    style={{
-                      overflow: 'hidden',
-                      width: '250px lg:200px',
-                      height: '150px',
-                    }}
-                  >
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14450.034204416814!2d55.2256!3d25.1275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sTwo%20Guys%20-%20Blinds%20%26%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1727335871755!5m2!1sen!2sus"
-                      width="280"
-                      height="130"
-                      style={{ position: 'relative', left: '-52px' }}
-                      loading="lazy"
-                    ></iframe>
+                    </ul>
                   </div>
-                </ul>
+                </div>
+                <div className='overflow-hidden grow'
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14450.034204416814!2d55.2256!3d25.1275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sTwo%20Guys%20-%20Blinds%20%26%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1727335871755!5m2!1sen!2sus"
+                    
+                    className='w-full h-full min-h-60'
+                    // style={{ position: 'relative', left: '-52px' }}
+                    loading="lazy"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
