@@ -6,6 +6,7 @@ import { FaAngleRight, FaHome } from 'react-icons/fa';
 import { UpdateShutterTitle } from './menu-card';
 import { ICategory } from 'types/types';
 import { usePathname } from 'next/navigation';
+import { BreakCrum_conent_pages } from 'data/data';
 
 interface TopHeroProps {
   title: string | any;
@@ -29,6 +30,12 @@ const TopHero: React.FC<TopHeroProps> = ({
   const pathname = title.replace('-', ' ');
 
 
+
+
+
+const result = BreakCrum_conent_pages.find((value) =>
+  value.url.toLowerCase().includes(page.toLowerCase())
+);
   return (
     <div
       className="relative text-center text-black custom-breadcrum h-80 flex items-center justify-center bg-cover bg-center"
@@ -45,7 +52,8 @@ const TopHero: React.FC<TopHeroProps> = ({
       <div className="relative z-20 py-14 md:py-24">
         <h1 className="text-2xl xs:text-5xl md:text-6xl lg:text-7xl font-black mt-5 uppercase">
           
-          { page.includes("/blinds/roller-blinds") ? "Made to Measure Roller Blinds" : UpdateShutterTitle(pathname)}
+          
+          { result ? result.content : UpdateShutterTitle(pathname)}
         </h1>
         <div className="flex justify-center items-center gap-4 mt-2 text-14 sm:text-base">
           <Link

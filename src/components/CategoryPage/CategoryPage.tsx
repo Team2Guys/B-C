@@ -25,8 +25,6 @@ interface ICategoryPage {
   relatedProducts: IProduct[];
 }
 
-const itemsPerPage = 9;
-
 const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const pathname = usePathname();
   const [activeFilter, setActiveFilter] = useState<any>({title: 'All', short_description: "Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose Motorised Blinds options for added convenience or finish your blinds with a sleek cassette box."});
@@ -101,10 +99,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
     }
   };
-
-  console.log(pathname, "pathname")
-
-  const totalPages = Math.ceil((filteredProducts?.length || 0) / itemsPerPage);
 
   return (
     <div>
