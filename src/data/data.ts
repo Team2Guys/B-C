@@ -140,10 +140,10 @@ export const footerLinks: TFooterSection[] = [
 export const footerInfo = 'Blinds & Curtains 2024 All Rights Reserved';
 
 export const phoneNumberInfo: PhoneNumber = {
-  number:  '+971 054 494 5339',
+  number:  '+971 54 494 5339',
 }
 export const WhatsAppInfo: PhoneNumber = {
-  number:  '+971 054 494 5339',
+  number:  '+971 54 494 5339',
 }
 export const EmailInfo: Email = {
   email: 'connect@twoguys.ae'
