@@ -5,7 +5,14 @@ import Image from 'next/image';
 import { Button } from 'components/ui/button';
 import { useRouter } from 'next/navigation';
 const Info = () => {
-  const route = useRouter();
+  const router = useRouter();
+  const handleNavigation = (event: any, path: string) => {
+    if (event.ctrlKey || event.metaKey) {
+      window.open(path, '_blank');
+    } else {
+      router.push(path);
+    }
+  };
   return (
     <Container className="mt-10 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2">
@@ -25,7 +32,11 @@ const Info = () => {
             Call the team now and book a free appointment today. No pressure!
           </p>
           <div className=" pt-5 text-center md:text-start">
-            <button onClick={() => { route.push("/request-appointment") }} className="px-4 py-3 rounded-md bg-secondary text-white font-medium">
+            <button
+             onClick={(event) =>
+              handleNavigation(event, '/request-appointment')
+            }
+             className="px-4 py-3 rounded-md bg-secondary text-white font-medium">
               Book An Appointment
             </button>
           </div>
