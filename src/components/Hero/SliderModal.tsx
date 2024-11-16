@@ -47,10 +47,14 @@ function SliderModal({ setshowModel, className, modelType }: SliderModalProps) {
         className="w-full h-full mb-4 text-center text-12
          leading-5"
       >
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industrys standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book.
+
+        {modelType == "2_model" ? `A team of 50 staff to ensure perfection from start-to-finish
+In house production - quality is our concern, not yours
+Free uninstall/re-install within 2 years.` : 
+
+`10 YEARS warranty on all mechanical parts and labour
+We’re trusted, with over 700+ 5* reviews
+Free home visits with free installation.`}
       </div>
 
       <div id="modalHandler" className="header-review text-center">

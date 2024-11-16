@@ -16,6 +16,7 @@ import {
 } from 'data/data';
 import backbanner from '../../../../public/assets/images/aric-blands/aric-header.png';
 import cardImg from '../../../../public/assets/images/aric-blands/aric-blands.png';
+import { usePathname } from 'next/navigation';
 
 interface TsizePresets {
   width: number;
@@ -23,6 +24,7 @@ interface TsizePresets {
 }
 
 const AricBlind: React.FC = () => {
+  const pathName = usePathname();
   const [selectedSize, setSelectedSize] = useState<TsizePresets>(initialSize);
   const [sizePresets, setSizePresets] =
     useState<TsizePresets[]>(initialSizePresets);
@@ -57,7 +59,7 @@ const AricBlind: React.FC = () => {
 
   return (
     <>
-      <TopHero title="ARIC BLINDS" image={backbanner} />
+      <TopHero title="ARIC BLINDS" image={backbanner} pagename={pathName} />
       <Container className="max-w-screen-2xl mx-auto mt-10">
         <div className="flex flex-col items-center md:flex-row md:items-center lg:space-y-4 space-y-5 md:space-y-0 md:space-x-12 lg:p-6 rounded-lg">
           <div className="flex-shrink-0 lg:w-1/2">

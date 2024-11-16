@@ -7,6 +7,9 @@ import { UpdateShutterTitle } from './menu-card';
 import { ICategory } from 'types/types';
 import { TopHeroLink } from 'data/data';
 import { Skeleton } from 'antd';
+import { usePathname } from 'next/navigation';
+import { BreakCrum_conent_pages } from 'data/data';
+import { ITopHeroLink } from 'types/interfaces';
 
 interface TopHeroProps {
   title: string | any;
@@ -26,13 +29,15 @@ const TopHero: React.FC<TopHeroProps> = ({
   backgroundposition,
 }) => {
   const [pageName, setPageName] = useState<string[]>([]);
-  const [categoryArray, setCategoryArray] = useState<ICategory>();
+  const [pageTitle, setPageTitle] = useState<ITopHeroLink | null>(null); // Initially null
+
+  const page = usePathname();
 
   const pathname = title.replace('-', ' ');
-  console.log(category)
+
+  // Updating pageName on pagename change
   useEffect(() => {
     if (pagename) {
-
       const newPageName = pagename
         .split('/')
         .filter((segment: string) => segment !== '')
@@ -42,19 +47,40 @@ const TopHero: React.FC<TopHeroProps> = ({
     }
   }, [pagename]);
 
+  // Find breakcrumb content based on current page
+  const result = BreakCrum_conent_pages.find((value) =>
+    value.url.toLowerCase().includes(page.toLowerCase())
+  );
+
+  // Update pageTitle once per pageName
   useEffect(() => {
-    if (category) {
-      setCategoryArray(category)
+    if (pageName.length > 0) {
+      const lastItem = pageName[pageName.length - 1]; // Check the last item in pageName array
+
+      const matchedLink = TopHeroLink.find(
+        (heroLink) =>
+          heroLink.matchingTitle.toLowerCase() === lastItem.toLowerCase()
+      );
+
+      if (matchedLink) {
+        setPageTitle(matchedLink); // Set pageTitle if match found
+      } else {
+        // If no match found, we can try finding by title
+        const titleLink = TopHeroLink.find(
+          (heroLink) =>
+            heroLink.title.toLowerCase() === lastItem.toLowerCase()
+        );
+        setPageTitle(titleLink || null); // Update with either the found link or null
+      }
     }
-  }, [category])
+  }, [pageName]); // Run when pageName is updated
+
   return (
     <div
       className="relative text-center text-black custom-breadcrum h-80 flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage: `url(${image.src})`,
-        backgroundPosition: backgroundposition
-          ? backgroundposition
-          : 'left center',
+        backgroundPosition: backgroundposition ? backgroundposition : 'left center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
@@ -62,58 +88,31 @@ const TopHero: React.FC<TopHeroProps> = ({
       <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
       <div className="relative z-20 py-14 md:py-24">
         <h1 className="text-2xl xs:text-5xl md:text-6xl lg:text-7xl font-black mt-5 uppercase">
-          {UpdateShutterTitle(pathname)}
+          {result ? result.content : UpdateShutterTitle(pathname)}
         </h1>
         <div className="flex justify-center items-center gap-4 mt-2 text-14 sm:text-base">
-          <Link
-            href="/"
-            className="flex items-center gap-2 font-bold capitalize"
-          >
-            <FaHome size={20} />{' '}
-            {home ? home.charAt(0).toUpperCase() + home?.slice(1) : 'Home'}
+          <Link href="/" className="flex items-center gap-2 font-bold capitalize">
+            <FaHome size={20} /> {home ? home.charAt(0).toUpperCase() + home.slice(1) : 'Home'}
           </Link>
-          {
-            categoryArray ? (
-              <>
-                <FaAngleRight size={20} />
-                <Link
-                  href={
-                    (() => {
-                      const matchedLink = TopHeroLink.find(
-                        (heroLink) =>
-                          heroLink.matchingTitle.toLowerCase() === categoryArray.title.toLowerCase()
-                      );
-                      return matchedLink ? `/${matchedLink.title}` : "#";
-                    })()
-                  }
-                  className="font-bold capitalize"
-                >
-                  {categoryArray.title}
-                </Link>
-                <FaAngleRight size={20} />
-                <p className="font-bold capitalize">{pathname || title}</p>
-              </>
-            ) : pageName ? (
-              pageName.map((item, index) => {
-                const matchedLink = TopHeroLink.find(
-                  (heroLink) =>
-                    heroLink.matchingTitle.toLowerCase() === item.toLowerCase()
-                );
+          {pageName ? (
+            pageName.map((item, index) => {
+              const matchedLink = TopHeroLink.find(
+                (heroLink) => heroLink.matchingTitle.toLowerCase() === item.toLowerCase()
+              );
 
-                return (
-                  <React.Fragment key={index}>
-                    <FaAngleRight size={20} />
-                    <Link
-                      href={matchedLink ? `/${matchedLink.title}` : "#"}
-                      className="font-bold capitalize"
-                    >
-                      {item}
-                    </Link>
-                  </React.Fragment>
-                );
-              })
-            ) : null
-          }
+              return (
+                <React.Fragment key={index}>
+                  <FaAngleRight size={20} />
+                  <Link
+                    href={matchedLink ? `/${matchedLink.title}` : pageTitle ? `/${pageTitle.title}` : ''}
+                    className="font-bold capitalize"
+                  >
+                    {matchedLink ? item : pageTitle ? pageTitle.title : item == 'request appointment' ? 'Book Appointment' : item}
+                  </Link>
+                </React.Fragment>
+              );
+            })
+          ) : null}
         </div>
       </div>
     </div>

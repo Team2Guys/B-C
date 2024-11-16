@@ -1,5 +1,4 @@
 'use client';
-
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_subcategory.jpeg';
 import Container from 'components/Res-usable/Container/Container';
@@ -19,16 +18,15 @@ import { Button } from 'components/ui/button';
 import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 
+
 interface ICategoryPage {
   title: string;
   relatedProducts: IProduct[];
 }
 
-const itemsPerPage = 9;
-
 const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const pathname = usePathname();
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState<any>({title: 'All', short_description: "Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose Motorised Blinds options for added convenience or finish your blinds with a sleek cassette box."});
   const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState<ICategory | undefined>();
   category
@@ -68,18 +66,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     setFilteredProducts(filtered || []);
   };
   useEffect(() => {
-    if (subcategories && subcategories.length > 0 && categories) {
-      const filterSubCat = subcategories.find((subCat) => subCat.title === title);
-      if (filterSubCat) {
-        const filterCat = categories.find((cat) => cat.id === filterSubCat.CategoryId);
-        if (filterCat) {
-          setCategory(filterCat);
-          console.log(filterCat?.title);
-        }
-      }
-    }
-  }, [subcategories, categories, title]);
-  useEffect(() => {
     if (!relatedProducts || relatedProducts.length === 0) {
       filterProducts();
     } else {
@@ -89,31 +75,21 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
-  const handleFilter = (filter: string) => {
+  const handleFilter = (filter: any) => {
     setActiveFilter(filter);
-    if (filter === 'All') {
+    if (filter.title === 'All') {
       setinner_filteredProducts(relatedProducts);
     } else {
-      console.log(filter.toLowerCase().trim(), "inner_filteredProducts")
       setinner_filteredProducts((pre)=>relatedProducts.filter((product) =>{
-        console.log('inner_filteredProducts', product.title.toLowerCase().trim(), "title")
-        return product.title.toLowerCase().trim() ==filter.toLowerCase().trim()}))
+  
+        return product.title.toLowerCase().trim() ==filter?.title.toLowerCase().trim()}))
 
     }
   };
 
-  console.log(inner_filteredProducts, "inner_filteredProducts")
-
-  // const indexOfLastItem = currentPage * itemsPerPage;
-  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  // const currentItems = filteredProducts?.slice(
-  //   indexOfFirstItem,
-  //   indexOfLastItem,
-  // );
-  const totalPages = Math.ceil((filteredProducts?.length || 0) / itemsPerPage);
   return (
     <div>
-      <TopHero title={title} category={category} image={bgBreadcrum} />
+      <TopHero title={title} pagename={pathname} image={bgBreadcrum} />
       <Container className="pt-10 pb-14 flex flex-col gap-10 items-center">
         {filteredProducts?.map((product, index) => (
           <div
@@ -134,8 +110,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               <div>
                 <h3 className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
                   <div className="tracking-[.6rem] mb-2">
-                    CHECK OUR OTHER RANGE OF {product.title}?
-                  </div>
+                  Roller Blinds in Dubai, UAE                  </div>
 
                   <span className="font-light tracking-[.2rem] ">
                     {product.title}
@@ -163,8 +138,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         <div className="flex justify-center space-x-4 whitespace-nowrap overflow-auto">
           <Button
             variant={'feature'}
-            className={` ${activeFilter === 'All' ? 'bg-secondary text-white' : 'text-black hover:bg-secondary active:bg-secondary'}`}
-            onClick={() => handleFilter('All')}
+            className={` ${activeFilter?.title === 'All' ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}
+            onClick={() => handleFilter({title: 'All',short_description : "Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose Motorised Blinds options for added convenience or finish your blinds with a sleek cassette box."})}
           >
             All
           </Button>
@@ -174,8 +149,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               <Button
                 key={product.id}
                 variant={'feature'}
-                className={` ${activeFilter === product.title ? 'bg-secondary text-white' : 'text-black hover:bg-secondary active:bg-secondary'}`}
-                onClick={() => handleFilter(product.title)}
+                className={` ${activeFilter.title === product.title ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}
+                onClick={() => handleFilter(product)}
               >
                 {product.title}
               </Button>
@@ -184,13 +159,11 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
       </Container>
 
       <Container className="text-center ">
-        {/* <h2 className="text-2xl xs:text-3xl sm:text-4xl">
-          {activeFilter.toUpperCase()}
-        </h2> */}
+        <h2 className="text-2xl xs:text-3xl sm:text-4xl">
+          {activeFilter.title.toUpperCase()}
+        </h2>
         <p className="mt-3 text-15 leading-7">
-          See our comprehensive {activeFilter} range. Find the perfect
-          made-to-measure blinds within our exclusive range. Many shades and
-          stunning patterns to select from.
+     {activeFilter?.short_description}
         </p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {inner_filteredProducts &&

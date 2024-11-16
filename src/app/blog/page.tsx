@@ -10,8 +10,10 @@ import PageSkelton from 'components/Skeleton/PageSkelton';
 import { useQuery } from '@tanstack/react-query';
 import { BlogInfo } from 'types/interfaces';
 import { fetchBlogs } from 'config/fetch';
+import { usePathname } from 'next/navigation';
 
 const Blog: React.FC = () => {
+  const pathName = usePathname();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const popularPostRef = useRef<HTMLDivElement>(null);
@@ -63,11 +65,10 @@ const Blog: React.FC = () => {
       popularPostRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
   return (
     <>
       <Header />
-      <TopHero title="Blogs" image={bgBreadcrum} />
+      <TopHero title="Blogs" image={bgBreadcrum} pagename={pathName} />
 
       <div className='max-w-screen-xl mx-auto mt-10 px-4'>
         <input

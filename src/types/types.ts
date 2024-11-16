@@ -56,8 +56,7 @@ export interface IProduct {
   href?: string;
   product_type?: string;
   subCategory?: [];
-  short_description?: string
-
+  short_description?: string;
 }
 
 export interface IRECORDS {
@@ -67,7 +66,7 @@ export interface IRECORDS {
   total_appointments: string;
   total_categorie: string;
   total_subCategories: string;
-  total_Blogs:string;
+  total_Blogs: string;
 }
 export interface ISUBCATEGORY {
   title: string;
@@ -88,4 +87,20 @@ export interface IAppointments {
   user_query: string;
   whatsapp_number: string;
   windows: string;
+}
+
+interface SubheadingContent {
+  content: string;
+}
+
+export interface ISelectedPage {
+  heading: string;
+  paragraph: string;
+  subheading1: string;
+  subheading2: string;
+  subheadingContent: SubheadingContent[];
+}
+
+export interface IInfo {
+  selectedPage: ISelectedPage | null;
 }
