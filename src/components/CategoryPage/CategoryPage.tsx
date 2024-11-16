@@ -50,8 +50,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     queryFn: fetchCategories,
   });
 
-  const [filteredProducts, setFilteredProducts] =
-    useState<IProduct[]>(relatedProducts);
+  const [filteredProducts, setFilteredProducts] =useState<IProduct[]>(relatedProducts);
+  const [inner_filteredProducts, setinner_filteredProducts] =useState<IProduct[]>(relatedProducts);
 
   const filterProducts = () => {
     const filterSubCat = subcategories?.find(
@@ -92,20 +92,24 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const handleFilter = (filter: string) => {
     setActiveFilter(filter);
     if (filter === 'All') {
-      setFilteredProducts(relatedProducts);
+      setinner_filteredProducts(relatedProducts);
     } else {
-      setFilteredProducts(
-        relatedProducts.filter((product) => product.title === filter),
-      );
+      console.log(filter.toLowerCase().trim(), "inner_filteredProducts")
+      setinner_filteredProducts((pre)=>relatedProducts.filter((product) =>{
+        console.log('inner_filteredProducts', product.title.toLowerCase().trim(), "title")
+        return product.title.toLowerCase().trim() ==filter.toLowerCase().trim()}))
+
     }
   };
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredProducts?.slice(
-    indexOfFirstItem,
-    indexOfLastItem,
-  );
+  console.log(inner_filteredProducts, "inner_filteredProducts")
+
+  // const indexOfLastItem = currentPage * itemsPerPage;
+  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  // const currentItems = filteredProducts?.slice(
+  //   indexOfFirstItem,
+  //   indexOfLastItem,
+  // );
   const totalPages = Math.ceil((filteredProducts?.length || 0) / itemsPerPage);
   return (
     <div>
@@ -189,8 +193,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
           stunning patterns to select from.
         </p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {currentItems &&
-            currentItems.map((product: IProduct) => (
+          {inner_filteredProducts &&
+            inner_filteredProducts.map((product: IProduct) => (
               <GalleryCard
                 card={product}
                 key={product.id}
