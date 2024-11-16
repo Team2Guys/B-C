@@ -116,28 +116,36 @@ const Header = () => {
           <div className="w-3/12 lg:w-9/12 mt-9">
             <div className="hidden lg:flex justify-evenly items-start lg:text-10 text-12 xl:text-16 whitespace-nowrap ">
               <Link
-                className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${path === '/'
+                className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${
+                  path === '/'
                     ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                     : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-4'
-                  }`}
+                }`}
                 href={'/'}
               >
                 Home
               </Link>
               {links.map((link, index) => {
-                let filteredSubCategories = subCategories?.filter((subcategory) => subcategory.CategoryId === link.id) || [];
+                let filteredSubCategories =
+                  subCategories?.filter(
+                    (subcategory) => subcategory.CategoryId === link.id,
+                  ) || [];
 
-                let filteredProducts = products?.filter((product) => product.CategoryId === link.id,) || [];
+                let filteredProducts =
+                  products?.filter(
+                    (product) => product.CategoryId === link.id,
+                  ) || [];
 
                 let combinedSliderData: any[] = [];
 
                 if (link.id === 2) {
                   const actualProducts = filteredProducts.filter((product) =>
-                    blindMegaMenuItems.some((menuItem) => menuItem.productName === generateSlug(product.title),
+                    blindMegaMenuItems.some(
+                      (menuItem) =>
+                        menuItem.productName === generateSlug(product.title),
                     ),
                   );
 
-                  console.log(actualProducts);
                   combinedSliderData = [
                     ...filteredSubCategories,
                     ...actualProducts,
@@ -185,14 +193,14 @@ const Header = () => {
                   ];
                 }
 
-
                 // const isActive =
                 //   link.href && path?.includes(generateSlug(link.label));
                 const isBlogPath = path.startsWith('/blog');
 
                 const isBlogActive = link.href === '/blog' && isBlogPath;
 
-                const isActive = !isBlogPath && path?.includes(generateSlug(link.label));
+                const isActive =
+                  !isBlogPath && path?.includes(generateSlug(link.label));
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
@@ -202,7 +210,6 @@ const Header = () => {
                     sliderData={combinedSliderData}
                     href={link.href}
                     className={
-
                       isBlogActive || isActive
                         ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                         : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-4'
@@ -211,10 +218,11 @@ const Header = () => {
                 ) : (
                   <Link
                     key={index}
-                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${isBlogActive || isActive
+                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${
+                      isBlogActive || isActive
                         ? 'font-bold px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                         : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-4'
-                      }`}
+                    }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
                   >
@@ -224,52 +232,51 @@ const Header = () => {
               })}
             </div>
           </div>
-          
-          <div className='lg:w-2/12 flex justify-center items-center gap-2 '>
-          <Link
-            className="py-2 px-2 lg:px-4  lg:text-12 xl:px-5 rounded-md text-10 2xl:text-15 whitespace-nowrap bg-primary text-black"
-            href="/request-appointment"
-            onClick={handleLinkClick}
-          >
-            Book Free Appointment
-          </Link>
-          <div className="flex lg:hidden">
-            <Sheet
-              drawerName={<RiMenuFoldLine size={25} />}
-              open={drawerOpen}
-              setOpen={setDrawerOpen}
-              selectedLabel={selectedLabel}
+
+          <div className="lg:w-2/12 flex justify-center items-center gap-2 ">
+            <Link
+              className="py-2 px-2 lg:px-4  lg:text-12 xl:px-5 rounded-md text-10 2xl:text-15 whitespace-nowrap bg-primary text-black"
+              href="/request-appointment"
+              onClick={handleLinkClick}
             >
-              <div className="flex flex-col">
-                <Link
-                  className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${path === '/' ? 'font-bold text-black-500' : ''
-                    }`}
-                  onClick={handleCloseDrawer}
-                  href="/"
-                >
-                  Home
-                </Link>
-
-                {links.map((link, index) => (
+              Book Free Appointment
+            </Link>
+            <div className="flex lg:hidden">
+              <Sheet
+                drawerName={<RiMenuFoldLine size={25} />}
+                open={drawerOpen}
+                setOpen={setDrawerOpen}
+                selectedLabel={selectedLabel}
+              >
+                <div className="flex flex-col">
                   <Link
-                    key={index}
-                    className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${link.href && path?.includes(generateSlug(link.label))
-                        ? 'font-bold text-black-500'
-                        : ''
-                      }`}
+                    className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
+                      path === '/' ? 'font-bold text-black-500' : ''
+                    }`}
                     onClick={handleCloseDrawer}
-                    href={link.href}
+                    href="/"
                   >
-                    {link.label}
+                    Home
                   </Link>
-                ))}
-              </div>
-            </Sheet>
-          </div>
-          </div>
-    
 
-
+                  {links.map((link, index) => (
+                    <Link
+                      key={index}
+                      className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${
+                        link.href && path?.includes(generateSlug(link.label))
+                          ? 'font-bold text-black-500'
+                          : ''
+                      }`}
+                      onClick={handleCloseDrawer}
+                      href={link.href}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </Sheet>
+            </div>
+          </div>
         </Container>
       </nav>
     </>
