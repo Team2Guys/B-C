@@ -24,9 +24,7 @@ const Page = () => {
     queryFn: fetchProducts,
   });
 
-  const filteredSubCategory = subCategories?.find(
-    (sub) => generateSlug(sub.title) === subproduct,
-  );
+  const filteredSubCategory = subCategories?.find((sub) => generateSlug(sub.title) === subproduct);
 
   const relatedProducts = products?.filter((prod) => prod.SubCategoryId === filteredSubCategory?.id,
   );
