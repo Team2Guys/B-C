@@ -18,7 +18,6 @@ interface IProductDetail {
   title: string;
 }
 const ProductDetailPage = ({ title }: IProductDetail) => {
-  const [category, setCategory] = useState<ICategory | undefined>();
   const {
     data: products,
     error,
@@ -26,10 +25,6 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
   } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
-  });
-  const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
   });
 
   const pathName = usePathname();
@@ -42,19 +37,6 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
     return product.CategoryId === filterProduct?.CategoryId;
   });
 
-  useEffect(() => {
-    if (relatedProducts && relatedProducts?.length > 0) {
-      const filterRelatedProducts = relatedProducts.find(
-        (subCat) => subCat.title === title
-      );
-      if (filterRelatedProducts) {
-        const filterCat = categories?.find(
-          (cat) => cat.id === filterRelatedProducts?.CategoryId
-        );
-        setCategory(filterCat);
-      }
-    }
-  }, [relatedProducts, categories, title]);
 
 
   if (error instanceof Error) return <div>Error: {error.message}</div>;
@@ -62,7 +44,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
 
   return (
     <>
-      <TopHero title={title} category={category} image={bgBreadcrum} pagename={pathName} />
+      <TopHero title={title} image={bgBreadcrum} pagename={pathName} />
       <DetailInfo
         title={title ? title : ''}
         description={filterProduct?.description || ''}

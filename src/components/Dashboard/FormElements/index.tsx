@@ -394,7 +394,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           Description{' '}
                         </label>
                         <textarea
-                          name="Description"
+                          name="description"
                           onChange={formik.handleChange}
                           value={formik.values.description}
                           placeholder="description"

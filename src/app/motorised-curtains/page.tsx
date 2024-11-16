@@ -18,6 +18,7 @@ import Container from 'components/Res-usable/Container/Container';
 import { useQuery } from '@tanstack/react-query';
 import { IProduct } from 'types/types';
 import { fetchProducts } from 'config/fetch';
+import { usePathname } from 'next/navigation';
 
 const chooseUsItems = [
   {
@@ -56,6 +57,7 @@ const motorization = [
 ];
 
 const MotorisedBlind = () => {
+  const pathName = usePathname();
   const {
     data: products,
     error,
@@ -67,7 +69,7 @@ const MotorisedBlind = () => {
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
-      <TopHero title="Motorised Curtains" image={bgBreadcrum} />
+      <TopHero title="Motorised Curtains" image={bgBreadcrum} pagename={pathName} />
       <MotorisedInfo
         title={'MOTORISED CURTAINS'}
         subtitle={'The smartest curtains for your dream home.'}
