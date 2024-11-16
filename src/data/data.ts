@@ -141,10 +141,10 @@ export const footerLinks: TFooterSection[] = [
 export const footerInfo = 'Blinds & Curtains 2024 All Rights Reserved';
 
 export const phoneNumberInfo: PhoneNumber = {
-  number: '+971 054 494 5339',
+  number: '+971 54 494 5339',
 };
 export const WhatsAppInfo: PhoneNumber = {
-  number: '+971 054 494 5339',
+  number: '+971 54 494 5339',
 };
 export const EmailInfo: Email = {
   email: 'connect@twoguys.ae',
@@ -1490,6 +1490,8 @@ export const byRoomItems = [
   { productName: 'kitchen-shutters' },
   { productName: 'hotel-curtains-dubai' },
   { productName: 'made-to-measure-living-room-curtains' },
+  { productName: 'living-room-shutters' },
+  { productName: 'dining-room-shutters' },
 ];
 export const byTypeItems = [
   { productName: 'motorised-blinds' },
@@ -1533,6 +1535,11 @@ export const byTypeItems = [
   { productName: 'special-shape-shutters-wooden-shutters' },
   { productName: 'tier-on-tier-shutters-wooden-shutters' },
   { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+  { productName: 'geometric-curtains' },
+  { productName: 'stripes-curtains' },
+  { productName: 'plain-curtains' },
+  { productName: 'bi-fold-shutters' },
+  { productName: 'cafe-style-shutters' },
 ];
 
 export const megaMenubyStyle = [
