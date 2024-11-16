@@ -2,13 +2,19 @@
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
+import { ISelectedPage } from 'types/types';
 
 interface BannerProps {
   className?: string;
   title: string;
+  selectedPage?: ISelectedPage | null;
 }
 
-const VideoBanner: React.FC<BannerProps> = ({ className, title }) => {
+const VideoBanner: React.FC<BannerProps> = ({
+  className,
+  title,
+  selectedPage,
+}) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -28,6 +34,9 @@ const VideoBanner: React.FC<BannerProps> = ({ className, title }) => {
     event.stopPropagation();
   };
 
+  if (!selectedPage) {
+    return null;
+  }
   return (
     <div
       className={`relative w-full h-[300px] md:h-[450px] 2xl:h-[681px] overflow-hidden ${className}`}
@@ -58,10 +67,10 @@ const VideoBanner: React.FC<BannerProps> = ({ className, title }) => {
               {title}
             </p>
             <p className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
-              made to measure {title}
+              {selectedPage?.heading}
             </p>
             <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
-              Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.
+              {selectedPage?.paragraph}
             </p>
             <div className="mt-5">
               <Link
