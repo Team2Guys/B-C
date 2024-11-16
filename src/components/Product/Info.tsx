@@ -15,7 +15,7 @@ const Info = (selectedPage: IInfo) => {
   return (
     <Container className="mt-10 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="space-y-4 md:w-[80%] text-start mx-0 flex flex-col justify-between px-4 md:px-0">
+        <div className="space-y-4 md:w-[80%] text-start mx-0 flex flex-col px-4 md:px-0">
           <h1 className="text-18 leading-8 tracking-[3px]  md:tracking-[10px]  md:text-26 font-semibold">
             {selectedPage.selectedPage.subheading1} |{' '}
             <span className="font-normal">
