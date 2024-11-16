@@ -80,7 +80,7 @@ const GalleryPage = () => {
         <div className="overflow-x-auto">
           <div className="flex justify-center min-w-fit mx-auto">
             <div
-              className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === null ? 'bg-primary text-white' : ''}`}
+              className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === null ? 'bg-secondary text-white' : ''}`}
               onClick={() => handleCategoryClick(null)}
             >
               All
@@ -98,7 +98,7 @@ const GalleryPage = () => {
                 })
                 .map((category: ICategory, index: number) => (
                   <div
-                    className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === category.id ? 'bg-primary text-white' : ''}`}
+                    className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === category.id ? 'bg-secondary text-white' : ''}`}
                     key={index}
                     onClick={() => handleCategoryClick(category.id!)}
                   >
@@ -121,7 +121,7 @@ const GalleryPage = () => {
               <GalleryCard
                 card={product}
                 key={product.id}
-                relativeProducts={false}
+                relativeProducts={true}
               />
             ))}
         </div>

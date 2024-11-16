@@ -65,12 +65,15 @@ const OurBlog = ({
                     isFirstItemLarge && index === 0
                       ? 'md:h-[448.28px] w-full'
                       : ''
-                  }`}
+                  } cursor-pointer`}
                   width={500}
                   height={500}
                   //@ts-expect-error
                   src={blog.posterImage?.imageUrl}
                   alt="blog"
+                  onClick={() => {
+                    route.push(`/blog/${generateSlug(blog.title)}`);
+                  }}
                 />
               </div>
               <div
@@ -83,7 +86,14 @@ const OurBlog = ({
                     {formatDateMonth(blog.createdAt)}
                   </span>
                 </div>
-                <h3 className="text-24 font-bold">{blog.title}</h3>
+                <h3
+                  className="text-24 font-bold cursor-pointer"
+                  onClick={() => {
+                    route.push(`/blog/${generateSlug(blog.title)}`);
+                  }}
+                >
+                  {blog.title}
+                </h3>
                 <p className="mb-3">
                   {filteredContent.length > 160 ? (
                     isFirstItemLarge && index === 0 ? (

@@ -61,24 +61,25 @@ const Estimator: React.FC = () => {
       const firstCategory = categories.find((category) =>
         category.title.toLowerCase().includes('blinds'),
       );
-
+      console.log(firstCategory, 'firstCategory');
       if (firstCategory) {
         const productsInFirstCategory = products.filter(
           (product) => product.CategoryId === firstCategory.id,
         );
 
+        console.log(productsInFirstCategory[0], 'productsInFirstCategory');
         if (productsInFirstCategory.length > 0) {
-          setSelectedProduct(productsInFirstCategory[0]);
+          setActiveProduct(productsInFirstCategory[0]);
+          setSelectedProduct(activeProduct);
         }
       }
     }
   }, [categories, products]);
 
-
   useEffect(() => {
     calculatePrice(width, height);
-    setSelectedProduct(activeProduct)
-    console.log(activeProduct, "imageUrl")
+    setSelectedProduct(activeProduct);
+    console.log(activeProduct, 'imageUrl');
   }, [activeProduct]);
 
   if (categoriesError instanceof Error) return <EstimatorSkeleton />;
@@ -144,7 +145,7 @@ const Estimator: React.FC = () => {
 
   return (
     <>
-      {isLoadingProducts ? (
+      {isLoadingProducts || selectedProduct === null ? (
         <EstimatorSkeleton />
       ) : (
         <div className="md:mt-10 lg:max-w-[95%] xl:max-w-screen-2xl mx-auto w-full">
@@ -213,7 +214,7 @@ const Estimator: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-red-600 text-sm mb-4 px-5 font-semibold">
+                <p className="text-red-600 text-sm mb-4 px-5 ">
                   Note: Blinds with area less than 2 cm2 is considered 2 cm2
                 </p>
 

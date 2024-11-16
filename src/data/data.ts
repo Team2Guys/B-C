@@ -1490,6 +1490,9 @@ export const byRoomItems = [
   { productName: 'kitchen-shutters' },
   { productName: 'hotel-curtains-dubai' },
   { productName: 'made-to-measure-living-room-curtains' },
+  { productName: 'living-room-shutters' },
+  { productName: 'dining-room-shutters' },
+
 ];
 export const byTypeItems = [
   { productName: 'motorised-blinds' },
@@ -1533,6 +1536,11 @@ export const byTypeItems = [
   { productName: 'special-shape-shutters-wooden-shutters' },
   { productName: 'tier-on-tier-shutters-wooden-shutters' },
   { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+  { productName: 'geometric-curtains' },
+  { productName: 'stripes-curtains' },
+  { productName: 'plain-curtains' },
+  { productName: 'bi-fold-shutters' },
+  { productName: 'cafe-style-shutters' },
 ];
 
 export const megaMenubyStyle = [
