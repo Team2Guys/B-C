@@ -100,9 +100,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   // );
   const totalPages = Math.ceil((filteredProducts?.length || 0) / itemsPerPage);
 
-  // useEffect(() => {
-  //   setinner_filteredProducts(relatedProducts);
-  // }, [activeFilter]);
 
   return (
     <div>
