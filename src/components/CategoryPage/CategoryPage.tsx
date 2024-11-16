@@ -30,6 +30,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const pathname = usePathname();
   const [activeFilter, setActiveFilter] = useState<any>({title: 'All'});
   const [currentPage, setCurrentPage] = useState(1);
+  const [category, setCategory] = useState<ICategory | undefined>();
+  category
   const {
     data: products,
     error,
@@ -43,7 +45,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     queryKey: ['subcategories'],
     queryFn: fetchSubCategories,
   });
-
   const { data: categories } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
@@ -66,7 +67,18 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
     setFilteredProducts(filtered || []);
   };
-
+  useEffect(() => {
+    if (subcategories && subcategories.length > 0 && categories) {
+      const filterSubCat = subcategories.find((subCat) => subCat.title === title);
+      if (filterSubCat) {
+        const filterCat = categories.find((cat) => cat.id === filterSubCat.CategoryId);
+        if (filterCat) {
+          setCategory(filterCat);
+          console.log(filterCat?.title);
+        }
+      }
+    }
+  }, [subcategories, categories, title]);
   useEffect(() => {
     if (!relatedProducts || relatedProducts.length === 0) {
       filterProducts();
@@ -102,24 +114,24 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
   return (
     <div>
-      <TopHero title={title} image={bgBreadcrum} />
-      <Container className="pt-10 md:pt-20 pb-14 flex flex-col gap-10 items-center">
+      <TopHero title={title} category={category} image={bgBreadcrum} />
+      <Container className="pt-10 pb-14 flex flex-col gap-10 items-center">
         {filteredProducts?.map((product, index) => (
           <div
             key={index}
             className={`flex flex-col gap-4 justify-between mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
           >
-           <div className='w-full md:w-1/2'>
-           <Image
-           className='w-full h-full md:h-[600px]'
-              src={product.posterImage.imageUrl}
-              height={500}
-              width={500}
-              alt={product.title}
-            />
+            <div className='w-full md:w-1/2'>
+              <Image
+                className='w-full h-full md:h-[600px]'
+                src={product.posterImage.imageUrl}
+                height={500}
+                width={500}
+                alt={product.title}
+              />
 
-           </div>
-            <div className="w-full md:w-1/2 flex flex-col justify-between ">
+            </div>
+            <div className="w-full md:w-1/2 flex flex-col gap-4">
               <div>
                 <h3 className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
                   <div className="tracking-[.6rem] mb-2">
