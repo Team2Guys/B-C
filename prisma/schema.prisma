@@ -48,6 +48,7 @@ model products {
   Meta_Title       String?
   Canonical_Tag    String?
  short_description String?
+ heading String?
 }
 
 enum contact_method {
