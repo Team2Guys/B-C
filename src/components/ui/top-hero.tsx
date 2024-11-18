@@ -95,7 +95,7 @@ const TopHero: React.FC<TopHeroProps> = ({
                     {matchingPageTitle.matchingTitle}
                   </Link>) :
                       index === (pageName.length - 2) ? (
-                        <Link href={`/${pageName.at(0)?.toLowerCase() === 'blinds' ? 'made-to-measure-blinds' : pageName.at(0)?.toLowerCase() === 'curtains' ? 'made-to-measure-curtains' : pageName.at(0)?.toLowerCase() === 'shutters' ? 'shutters-range' : ''}/${item.replaceAll(' ', '-')} `} className="font-bold capitalize">
+                        <Link href={`/${pageName.at(0)?.toLowerCase() === 'blinds' ? 'made-to-measure-blinds' : pageName.at(0)?.toLowerCase() === 'curtains' ? 'made-to-measure-curtains' : pageName.at(0)?.toLowerCase() === 'shutters' ? 'shutters-range' : pageName.at(0)?.toLowerCase() === 'commercial' ? 'commercial' : '' }${item === "commercial" ? '' : `/${item.replaceAll(' ', '-')}`} `} className="font-bold capitalize">
                           {item}
                         </Link>
                       ) : (
