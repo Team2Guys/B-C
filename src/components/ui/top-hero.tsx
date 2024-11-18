@@ -52,29 +52,6 @@ const TopHero: React.FC<TopHeroProps> = ({
     value.url.toLowerCase().includes(page.toLowerCase())
   );
 
-  // Update pageTitle once per pageName
-  useEffect(() => {
-    if (pageName.length > 0) {
-      const lastItem = pageName[pageName.length - 1]; // Check the last item in pageName array
-
-      const matchedLink = TopHeroLink.find(
-        (heroLink) =>
-          heroLink.matchingTitle.toLowerCase() === lastItem.toLowerCase()
-      );
-
-      if (matchedLink) {
-        setPageTitle(matchedLink); // Set pageTitle if match found
-      } else {
-        // If no match found, we can try finding by title
-        const titleLink = TopHeroLink.find(
-          (heroLink) =>
-            heroLink.title.toLowerCase() === lastItem.toLowerCase()
-        );
-        setPageTitle(titleLink || null); // Update with either the found link or null
-      }
-    }
-  }, [pageName]); // Run when pageName is updated
-
   return (
     <div
       className="relative text-center text-black custom-breadcrum h-80 flex items-center justify-center bg-cover bg-center"
@@ -99,16 +76,23 @@ const TopHero: React.FC<TopHeroProps> = ({
               const matchedLink = TopHeroLink.find(
                 (heroLink) => heroLink.matchingTitle.toLowerCase() === item.toLowerCase()
               );
-
+              const matchingPageTitle = TopHeroLink.find((itemTitle) => itemTitle.title.toLowerCase() === item.toLowerCase())
               return (
                 <React.Fragment key={index}>
                   <FaAngleRight size={20} />
-                  <Link
-                    href={matchedLink ? `/${matchedLink.title}` : pageTitle ? `/${pageTitle.title}` : ''}
+                  {matchedLink ? (<Link
+                    href={`/${matchedLink.title}`}
                     className="font-bold capitalize"
                   >
-                    {matchedLink ? item : pageTitle ? pageTitle.title : item == 'request appointment' ? 'Book Appointment' : item}
-                  </Link>
+                    {item}
+                  </Link>) : matchingPageTitle ? (<Link
+                    href={`/${matchingPageTitle.title.replaceAll(' ', '-')}`}
+                    className="font-bold capitalize"
+                  >
+                    {matchingPageTitle.matchingTitle}
+                  </Link>) :
+                  (<h2 className="font-bold capitalize">{item}</h2>)
+                  }
                 </React.Fragment>
               );
             })

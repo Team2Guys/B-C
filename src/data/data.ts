@@ -1716,7 +1716,7 @@ export const TopHeroLink: ITopHeroLink[] = [
   },
   { 
     matchingTitle: 'shutters',
-    title: 'Shutters Range'
+    title: 'shutters range'
   },
 ]
 
