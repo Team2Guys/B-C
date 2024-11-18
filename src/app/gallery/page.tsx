@@ -14,9 +14,11 @@ import { fetchCategories, fetchProducts } from 'config/fetch';
 import Testimonial from 'components/slider/testimonial';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
+import { usePathname } from 'next/navigation';
 
 const itemsPerPage = 9;
 const GalleryPage = () => {
+  const pathName = usePathname();
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
     null,
   );
@@ -64,7 +66,7 @@ const GalleryPage = () => {
 
   return (
     <>
-      <TopHero title="GALLERY" image={bgBreadcrum} />
+      <TopHero title="GALLERY" image={bgBreadcrum} pagename={pathName} />
       <Container className="pt-16 pb-12 px-4 md:px-0">
         <div className="flex justify-between items-center pb-4 mb-6 overflow-hidden md:px-5">
           <h1 className="text-2xl xs:text-3xl font-medium text-gray-800">
