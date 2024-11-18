@@ -49,15 +49,15 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
         title={title ? title : ''}
         description={filterProduct?.description || ''}
         image={filterProduct?.posterImage?.imageUrl}
-        heading = {filterProduct?.heading || ""}
+        heading={filterProduct?.heading || ""}
       />
 
       {isLoading && filterProduct ? (
         <CardSkeleton />
       ) : (
         <DetailProduct
-          title={title ? title : ''}
-          description={filterProduct?.description || ''}
+          title={filterProduct?.Sub_Heading || ''}
+          description={filterProduct?.Sub_Heading_description || ''}
           products={filterProduct}
         />
       )}

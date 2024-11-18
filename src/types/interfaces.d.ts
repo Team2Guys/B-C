@@ -91,6 +91,8 @@ export interface FormValues {
   product_type: string
   short_description?: string
 heading?: string
+Sub_Heading?: string
+Sub_Heading_description?: string
 }
 
 interface Color {
