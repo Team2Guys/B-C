@@ -65,6 +65,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
         title={title ? title : ''}
         description={filterProduct?.description || ''}
         image={filterProduct?.posterImage?.imageUrl}
+        heading = {filterProduct?.heading || ""}
       />
 
       {isLoading && filterProduct ? (
