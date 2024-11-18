@@ -1110,7 +1110,9 @@ export const AddproductsinitialValues: FormValues = {
   price: 0,
   product_type: 'By Type',
   short_description: '',
-  heading: ""
+  heading: "",
+  Sub_Heading: "",
+  Sub_Heading_description: ""
 };
 
 export const options = [
