@@ -1,5 +1,4 @@
 'use client';
-
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_subcategory.jpeg';
 import Container from 'components/Res-usable/Container/Container';
@@ -67,18 +66,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     setFilteredProducts(filtered || []);
   };
   useEffect(() => {
-    if (subcategories && subcategories.length > 0 && categories) {
-      const filterSubCat = subcategories.find((subCat) => subCat.title === title);
-      if (filterSubCat) {
-        const filterCat = categories.find((cat) => cat.id === filterSubCat.CategoryId);
-        if (filterCat) {
-          setCategory(filterCat);
-          console.log(filterCat?.title);
-        }
-      }
-    }
-  }, [subcategories, categories, title]);
-  useEffect(() => {
     if (!relatedProducts || relatedProducts.length === 0) {
       filterProducts();
     } else {
@@ -102,7 +89,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
   return (
     <div>
-      <TopHero title={title} category={category} image={bgBreadcrum} />
+      <TopHero title={title} pagename={pathname} image={bgBreadcrum} />
       <Container className="pt-10 pb-14 flex flex-col gap-10 items-center">
         {filteredProducts?.map((product, index) => (
           <div
