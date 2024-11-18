@@ -416,6 +416,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           </div>
                         ) : null}
                       </div>
+
+
                       <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                           Short Description{' '}
@@ -444,6 +446,33 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         ) : null}
                       </div>
 
+  <div>
+                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          Heading{' '}
+                        </label>
+                        <textarea
+                          name="heading"
+                          onChange={formik.handleChange}
+                          value={formik.values.heading}
+                          placeholder="Heading Text"
+                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                            formik.touched.heading &&
+                            formik.errors.heading
+                              ? 'border-red-500'
+                              : ''
+                          }`}
+                        />
+                        {formik.touched.heading &&
+                        formik.errors.heading ? (
+                          <div className="text-red text-sm">
+                            {
+                              formik.errors.heading as FormikErrors<
+                                FormValues['heading']
+                              >
+                            }
+                          </div>
+                        ) : null}
+                      </div>
 
 
 
@@ -506,49 +535,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </div>
                       </div>
 
-                      <div className="flex gap-4">
-                        <div className="w-2/4">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                            Product Code
-                          </label>
-                          <input
-                            type="text"
-                            name="code"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.code}
-                            placeholder="Product code"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                              formik.touched.name && formik.errors.name
-                                ? 'border-red-500'
-                                : ''
-                            }`}
-                          />
-                          {formik.touched.name && formik.errors.code ? (
-                            <div className="text-red text-sm">
-                              {formik.errors.code as String}
-                            </div>
-                          ) : null}
-                        </div>
-                        {/* <div className="w-2/4">
-                          <SelectGroupTwo
-                            name="category"
-                            changeHandler={formik.handleChange}
-                            value={formik.values.category}
-                            Categories={Categories}
-                            selectedOption={selectedOption}
-                            setSelectedOption={setSelectedOption}
-                            changeTextColor={changeTextColor}
-                            isOptionSelected={isOptionSelected}
-                          />
+              
 
-                          <ErrorMessage
-                            name="category"
-                            component="div"
-                            className="text-red"
-                          />
-                        </div> */}
-                      </div>
                       <div className="w-full">
                         <label className="mb-3 block py-4 px-2 text-sm font-medium text-black dark:text-white">
                           Select Parent Category (at least one)
