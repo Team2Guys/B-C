@@ -55,7 +55,7 @@ const motorization = [
   },
 ];
 
-const MotorisedBlind = () => {
+const MotorisedCurtains = () => {
   const {
     data: products,
     error,
@@ -118,4 +118,4 @@ const MotorisedBlind = () => {
   );
 };
 
-export default MotorisedBlind;
+export default MotorisedCurtains;
