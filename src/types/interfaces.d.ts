@@ -349,3 +349,10 @@ export interface CommentDataType {
   createdAt: data;
   replyId?: number;
 }
+
+export interface PhoneNumber{
+  number: string;
+}
+export interface Email {
+  email: string;
+}

@@ -8,13 +8,10 @@ function Choose() {
         Why Choose Us:
       </h2>
         <p className="font-normal lg:text-3xl text-18 md:text-2xl ">
-          Experience Unmatched Quality & Service!
+        Made-to-Measure Window Treatments | 15+ Unique Blind Styles, 3000 Fabrics
         </p>
       <p className="mt-2 text-12 sm:text-14 2xl:text-16 text-black md:leading-9">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industrys standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book.
+      Providing style and functionality to each room for you is what we do as a trusted window treatment company.
       </p>
       <ul className="mt-8 space-y-2">
       {items.map((item) => (
