@@ -23,7 +23,7 @@ import { Image } from 'antd';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import { IoSearch } from 'react-icons/io5';
 import { getCategoryFromUrl } from 'config';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface TsizePresets {
   width: number;
@@ -32,7 +32,7 @@ interface TsizePresets {
 
 const Detailpage = ({ params }: { params: Allproduct }) => {
   const ProductName = getCategoryFromUrl(params.name);
-
+  const pathName = usePathname();
   const [selectedSize, setSelectedSize] = useState<TsizePresets>(initialSize);
   const [sizePresets, setSizePresets] =
     useState<TsizePresets[]>(initialSizePresets);
@@ -98,7 +98,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
-      <TopHero title={ProductName} image={backbanner} />
+      <TopHero title={ProductName} image={backbanner} pagename={pathName} />
       {detail &&
         detail.map((array, index) => (
           <>

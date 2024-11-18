@@ -12,6 +12,7 @@ import { useQuery } from '@tanstack/react-query';
 import { IProduct } from 'types/types';
 import { fetchProducts } from 'config/fetch';
 import BookAppointment from 'components/Book-appointment/BookAppointment';
+import { usePathname } from 'next/navigation';
 
 const ProductUs: React.FC = () => {
   const [formData, SetFormData] = useState({
@@ -78,9 +79,10 @@ const ProductUs: React.FC = () => {
       console.log('Form Data:', formData);
     }
   };
+  const pathName = usePathname();
   return (
     <>
-      <TopHero title="CONTACT US" image={second} />
+      <TopHero title="CONTACT US" image={second} pagename={pathName} />
       <Container>
         <section className="text-center mb-12 max-w-screen-xl mx-auto">
           <h5 className="xs:py-12 py-5 text-[#666666] text-base font-bold">

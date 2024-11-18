@@ -10,6 +10,7 @@ import {
   Email,
   FeatureProductData,
   GalleryItems,
+  ITopHeroLink,
   OurHistory,
   PhoneNumber,
   ProductCardData,
@@ -1698,6 +1699,27 @@ export const AddProductvalidationSchema = Yup.object().shape({
   //   }),
   // ),
 });
+
+
+
+export const TopHeroLink: ITopHeroLink[] = [
+  { 
+    matchingTitle: 'blinds',
+    title: 'made-to-measure-blinds'
+  },
+  { 
+    matchingTitle: 'curtains',
+    title: 'made-to-measure-curtains'
+  },
+  { 
+    matchingTitle: 'shutters',
+    title: 'shutters-range'
+  },
+  { 
+    matchingTitle: 'shutters',
+    title: 'shutters range'
+  },
+]
 
 export const categoriesContent = [
   {

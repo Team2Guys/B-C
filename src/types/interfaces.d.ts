@@ -357,3 +357,8 @@ export interface PhoneNumber{
 export interface Email {
   email: string;
 }
+
+export interface ITopHeroLink {
+  matchingTitle: string;
+  title: string;
+}
