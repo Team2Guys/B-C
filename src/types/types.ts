@@ -57,6 +57,7 @@ export interface IProduct {
   product_type?: string;
   subCategory?: [];
   short_description?: string;
+  heading?: string;
 }
 
 export interface IRECORDS {
