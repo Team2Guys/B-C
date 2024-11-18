@@ -13,6 +13,8 @@ interface detailprops {
     imageClass?: string;
     description2?: string;
     description3?: string;
+    heading?: string;
+
   }
 
 const DetailInfo: React.FC<detailprops> = ({
@@ -22,6 +24,7 @@ const DetailInfo: React.FC<detailprops> = ({
     image,
     className,
     imageClass,
+    heading
   }) => {
 
     const route = useRouter();
@@ -30,7 +33,7 @@ const DetailInfo: React.FC<detailprops> = ({
     <div className={`flex flex-wrap lg:flex-nowrap lg:gap-20 ${className}`}>
       <div className="w-full xl:w-5/12">
         <div className="space-y-4">
-          <h1 className="text-24 sm:text-32 md:text-[41px] font-medium">What are {title}</h1>
+          <h1 className="text-24 sm:text-32 md:text-[41px] font-medium">{heading ? heading : `What are ${title}`} </h1>
           <p className="underline underline-offset-8 text-[#6F747F]">
             {subtitle}
           </p>

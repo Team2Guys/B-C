@@ -64,7 +64,7 @@ const CommercialPage = () => {
   }
   return (
     <div>
-      {/* <TopHero title="" image={bgBreadcrum} /> */}
+      {/* title="" image={bgBreadcrum} /> */}
       <VideoBanner title={`Commercial`} />
       <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4">
         <div className="w-full md:w-1/2">

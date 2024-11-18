@@ -56,7 +56,7 @@ const motorization = [
   },
 ];
 
-const MotorisedCurtains = () => {
+const MotorisedBlind = () => {
   const pathName = usePathname();
   const {
     data: products,
@@ -69,19 +69,19 @@ const MotorisedCurtains = () => {
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
-      <TopHero title="Motorised Curtains" image={bgBreadcrum} pagename={pathName} />
+      <TopHero title="Motorised Blinds" image={bgBreadcrum} pagename={pathName} />
       <MotorisedInfo
-        title={'MOTORISED CURTAINS'}
-        subtitle={'The smartest curtains for your dream home.'}
+        title={'MOTORISED BLINDS'}
+        subtitle={'The smartest blinds for your dream home.'}
         description={
-          'Motorised curtains or electric curtains are typically operated by a remote control. You can even add smartphone control functionality to allow you total control of your curtains, home or away. Providing you with the same function as  but with the added comfort of only having to press a button rather than pull a chain. With a huge selection of fabrics and designs to choose from, our motorised curtains are the ideal choice for a beautiful and functional window dressing. Driven by an integrated motor that is hidden from sight, our motorised roller binds can be powered by rechargeable battery or directly from your mains supply. Our expert team of installation specialists will ensure all safety parameters and electrical regulations are met for your complete peace of mind.'
+          'Motorised blinds or electric blinds are typically operated by a remote control. You can even add smartphone control functionality to allow you total control of your blinds, home or away. Providing you with the same function as  but with the added comfort of only having to press a button rather than pull a chain. With a huge selection of fabrics and designs to choose from, our motorised blinds are the ideal choice for a beautiful and functional window dressing. Driven by an integrated motor that is hidden from sight, our motorised roller binds can be powered by rechargeable battery or directly from your mains supply. Our expert team of installation specialists will ensure all safety parameters and electrical regulations are met for your complete peace of mind.'
         }
         image={moto1}
       />
       <div className="bg-light text-center py-10 mt-20 mb-20">
         <Measure
-          title="MADE TO MEASURE MOTORISED CURTAINS"
-          description="Our entire motorised curtains collection is supplied on a made-to-measure basis. No more guessing or hoping it will fit. Our curtains are custom-made for your windows. Our end-to-end service means we are here from the very start right through to the final installment. You don’t have to lift a finger as we take care of the entire process on your behalf. We offer a range of motorised solutions."
+          title="MADE TO MEASURE MOTORISED BLINDS"
+          description="Our entire motorised blinds collection is supplied on a made-to-measure basis. No more guessing or hoping it will fit. Our blinds are custom-made for your windows. Our end-to-end service means we are here from the very start right through to the final installment. You don’t have to lift a finger as we take care of the entire process on your behalf. We offer a range of motorised solutions."
         />
       </div>
       <ChooseUs
@@ -93,7 +93,7 @@ const MotorisedCurtains = () => {
       <Measure
         className="mt-20"
         title="MOTORISED BENEFITS"
-        description="There are many advantages to choosing a motorised blind over a manually operated one. First and foremost, you have the ability to save a preferred position so that your curtains always open to the same spot. You can even add timers to command the curtains to open/close at set times. How’s that for convenience?"
+        description="There are many advantages to choosing a motorised blind over a manually operated one. First and foremost, you have the ability to save a preferred position so that your blinds always open to the same spot. You can even add timers to command the blinds to open/close at set times. How’s that for convenience?"
       />
       <div className="bg-white text-center py-10 mt-20">
         <ChooseUs
@@ -112,7 +112,7 @@ const MotorisedCurtains = () => {
         description3="Please remember that none of our sales team are on commission. All are paid a decent living wage which allows them to be as honest with you as possible and put you under ZERO pressure to buy. It is the way we enjoy being sold to, so we pass that method onto you too."
         image={moto2}
       />
-      <BookNowBanner parent="curtains" />
+      <BookNowBanner />
       <Container className="mt-20">
         <RelatedProducts products={products || []} limit={4} />
       </Container>
@@ -120,4 +120,5 @@ const MotorisedCurtains = () => {
   );
 };
 
-export default MotorisedCurtains;
+export default MotorisedBlind;
+

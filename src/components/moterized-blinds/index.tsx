@@ -103,7 +103,7 @@ const MotorisedBlind = () => {
       </div>
       <MotorisedInfo
         className="flex-row-reverse"
-        decClass="text-18 md:text-30 lg:text-37  md:leading-10 font-semibold text-center"
+        decClass="text-18 md:text-30 font-semibold text-start"
         description={
           "There's no hard sell just relaxed and pressure-free consultation"
         }
