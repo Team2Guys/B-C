@@ -151,11 +151,12 @@ const ViewProduct: React.FC<CategoryProps> = ({
         //@ts-expect-error
         const category = categories?.find((i) => i.id === record.CategoryId);
         if (category === undefined) return null;
+        const parent = generateSlug(category?.title);
         return (
           <FaRegEye
             className="cursor-pointer"
             onClick={() => {
-              const url = `/${generateSlug(category.title)}/${generateSlug(record.title)}`;
+              const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(record.title)}`;
               window.open(url, '_blank');
             }}
           />
