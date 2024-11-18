@@ -38,7 +38,7 @@ const DetailInfo: React.FC<detailprops> = ({
             {subtitle}
           </p>
           <div className="space-y-3 md:space-y-10">
-            <p className="text-12 md:text-16 leading-6 md:leading-8">{description}</p>
+          <p className="text-12 md:text-16 leading-6 md:leading-8" dangerouslySetInnerHTML={{ __html: description }}></p>
           </div>
           <Button onClick={()=>{route.push("/request-appointment")}} className='py-6 px-10' variant={"secondary"}>
           Book An Appointment Now
