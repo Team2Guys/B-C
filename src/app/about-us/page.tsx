@@ -11,11 +11,13 @@ import {
   OurHistoryData,
   UsHistoryPara,
 } from 'data/data';
+import { usePathname } from 'next/navigation';
 
 const AboutUsPage = () => {
+  const pathName = usePathname();
   return (
     <div>
-      <TopHero title="About Us" image={bgBreadcrum} />
+      <TopHero title="About Us" image={bgBreadcrum} pagename={pathName} />
       <Container className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 xs:p-2 px-6 2xl:gap-20 xs:py-20 md:px-10">
         <div
           className="w-full h-full"

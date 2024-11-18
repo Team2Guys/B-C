@@ -24,25 +24,16 @@ const Page = () => {
     queryFn: fetchProducts,
   });
 
-  const filteredSubCategory = subCategories?.find(
-    (sub) => generateSlug(sub.title) === subproduct,
+  const filteredSubCategory = subCategories?.find((sub) => generateSlug(sub.title) === subproduct);
+
+  const relatedProducts = products?.filter((prod) => prod.SubCategoryId === filteredSubCategory?.id,
   );
 
-  const relatedProducts = products?.filter(
-    (prod) => prod.SubCategoryId === filteredSubCategory?.id,
-  );
-
-  const filteredProduct = products?.find(
-    (prod) => generateSlug(prod.title) === subproduct,
-  );
+  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === subproduct,);
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;
   }
-
-  // if (!filteredSubCategory && !filteredProduct) {
-  //   return <div>No matching product or subcategory found.</div>;
-  // }
 
   return (
     <>

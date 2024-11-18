@@ -90,6 +90,9 @@ export interface FormValues {
   price: number;
   product_type: string
   short_description?: string
+heading?: string
+Sub_Heading?: string
+Sub_Heading_description?: string
 }
 
 interface Color {
@@ -355,4 +358,9 @@ export interface PhoneNumber{
 }
 export interface Email {
   email: string;
+}
+
+export interface ITopHeroLink {
+  matchingTitle: string;
+  title: string;
 }
