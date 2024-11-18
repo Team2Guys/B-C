@@ -20,6 +20,7 @@ interface TopHeroProps {
   home?: string;
   pagename?: string;
   backgroundposition?: string;
+  pageTitle?: string;
 }
 
 const TopHero: React.FC<TopHeroProps> = ({
@@ -29,15 +30,13 @@ const TopHero: React.FC<TopHeroProps> = ({
   home,
   pagename,
   backgroundposition,
+  pageTitle
 }) => {
   const [pageName, setPageName] = useState<string[]>([]);
-  const [pageTitle, setPageTitle] = useState<ITopHeroLink | null>(null); // Initially null
-
   const page = usePathname();
 
   const pathname = title.replace('-', ' ');
 
-  // Updating pageName on pagename change
   useEffect(() => {
     if (pagename) {
       const newPageName = pagename
@@ -50,7 +49,6 @@ const TopHero: React.FC<TopHeroProps> = ({
     }
   }, [pagename]);
 
-  // Find breakcrumb content based on current page
   const result = BreakCrum_conent_pages.find((value) =>
     value.url.toLowerCase().includes(page.toLowerCase())
   );
@@ -68,7 +66,7 @@ const TopHero: React.FC<TopHeroProps> = ({
       <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
       <div className="relative z-20 py-14 md:py-24">
         <h1 className="text-2xl xs:text-5xl md:text-6xl lg:text-7xl font-black mt-5 uppercase">
-          {result ? result.content : UpdateShutterTitle(pathname)}
+          {result ? result.content : UpdateShutterTitle(pageTitle ? pageTitle : pathname)}
         </h1>
         <div className="flex justify-center items-center gap-4 mt-2 text-14 sm:text-base">
           <Link href="/" className="flex items-center gap-2 font-bold capitalize">

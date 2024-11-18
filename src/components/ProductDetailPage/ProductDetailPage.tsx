@@ -44,7 +44,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
 
   return (
     <>
-      <TopHero title={title} image={bgBreadcrum} pagename={pathName} />
+      <TopHero title={title} pageTitle={`Made to Measure ${title}`} image={bgBreadcrum} pagename={pathName} />
       <DetailInfo
         title={title ? title : ''}
         description={filterProduct?.description || ''}
