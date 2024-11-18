@@ -10,6 +10,8 @@ import { Skeleton } from 'antd';
 import { usePathname } from 'next/navigation';
 import { BreakCrum_conent_pages } from 'data/data';
 import { ITopHeroLink } from 'types/interfaces';
+import { useQuery } from '@tanstack/react-query';
+import { fetchCategories, fetchSubCategories } from 'config/fetch';
 
 interface TopHeroProps {
   title: string | any;
@@ -44,6 +46,7 @@ const TopHero: React.FC<TopHeroProps> = ({
         .map((segment: string) => segment.replaceAll('-', ' '));
 
       setPageName(newPageName);
+      console.log(newPageName)
     }
   }, [pagename]);
 
@@ -91,8 +94,14 @@ const TopHero: React.FC<TopHeroProps> = ({
                   >
                     {matchingPageTitle.matchingTitle}
                   </Link>) :
-                  (<h2 className="font-bold capitalize">{item}</h2>)
-                  }
+                      index === (pageName.length - 2) ? (
+                        <Link href={`/${pageName.at(0)?.toLowerCase() === 'blinds' ? 'made-to-measure-blinds' : pageName.at(0)?.toLowerCase() === 'curtains' ? 'made-to-measure-curtains' : pageName.at(0)?.toLowerCase() === 'shutters' ? 'shutters-range' : ''}/${item.replaceAll(' ', '-')} `} className="font-bold capitalize">
+                          {item}
+                        </Link>
+                      ) : (
+                        <h2 className="font-bold capitalize">{item}</h2>
+                      )
+                    }
                 </React.Fragment>
               );
             })
