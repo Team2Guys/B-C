@@ -6,7 +6,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { City } from 'country-state-city';
-
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 import Image from 'next/image';
@@ -182,8 +181,24 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 
   const handleDateChange = (date: Date | null) => {
     if (date) {
-      setFormData({ ...formData, prefered_Date: date });
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (date >= today) {
+        setFormData({ ...formData, prefered_Date: date });
+      } else {
+        alert("Please select a date that is today or later.");
+      }
     }
+  };
+  const handlePhoneChange = (phone: any) => {
+    // Strip out all non-numeric characters to get the raw number
+    let rawPhone = phone.replace(/\D/g, '');
+
+      rawPhone = `+${rawPhone.slice(0, 3)} ${rawPhone.slice(3, 5)} ${rawPhone.slice(5, 8)} ${rawPhone.slice(8, 12)}`;
+    
+console.log(rawPhone);
+    setFormData({ ...formData, whatsapp_number: rawPhone });
   };
 
   const handletimeChange = (date: Date | null) => {
@@ -398,7 +413,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <p className="text-red-500 text-xs">{errors.email}</p>
             )}
           </div>
-          <div className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-2'}`}>
+          <div className='relative overflow-hidden'>
             <label
               htmlFor="whatsapp_number"
               className="block text-11 font-light mb-1 "
@@ -406,15 +421,16 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               WhatsApp No. If Different
             </label>
             <PhoneInput
-               international
-               defaultCountry="AE"
-               limitMaxLength
-               countryCallingCodeEditable={false}
-                value={formData.whatsapp_number}
-                onChange={(phone:any) =>
-                  setFormData({ ...formData, whatsapp_number: phone })
-                }
-              className='mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none'
+              country={'ae'}
+              countryCodeEditable={false}
+              value={formData.whatsapp_number}
+              onChange={handlePhoneChange}
+              inputStyle={{
+                width: '100%',
+                border: '1px solid #D1D5DB',
+                fontSize: '11px',
+                borderRadius: '0.375rem',
+              }}
             />
           </div>
           <div>
@@ -457,6 +473,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               selected={formData.prefered_Date}
               onChange={handleDateChange}
               className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
+              dateFormat="dd/MM/yy"  // Set date format to DD/MM/YY
+              minDate={new Date()}    // Disable past dates
             />
           </div>
           <div className="w-full custom-datepicker">
@@ -578,7 +596,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
               <h2 className="text-11 font-light mb-3">How shall we contact you?</h2>
               <div className="flex flex-row gap-2 mt-2">
                 <label className="flex items-center text-11 text-[#898989]">
-                  
+
                   <input
                     type="checkbox"
                     name="whatsapp"

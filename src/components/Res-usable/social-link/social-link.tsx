@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
 import { FaLinkedinIn } from "react-icons/fa";
 import Image from 'next/image';
+import { WhatsAppInfo } from 'data/data';
 
 interface SocialDataType {
   href: string;
@@ -29,8 +30,8 @@ export const SocialData: SocialDataType[] = [
     alt: 'Instagram',
   },
   {
-    href: 'https://web.whatsapp.com/',
-    icon: <Image className='h-7 w-7' src="/assets/images/whatsapp.png" alt="Whatsapp" width={800} height={800} />,
+    href: `https://wa.me/${WhatsAppInfo.number.replaceAll(' ','')}`,
+    icon: <Image className='h-7 w-7' src="/assets/images/icon/whats.png" alt="Whatsapp" width={800} height={800} />,
     alt: 'Whatsapp',
   },
 ];

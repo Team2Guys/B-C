@@ -3,7 +3,7 @@ import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import ProductCard from 'components/ui/Product-Card';
 import { byRoomItems, byTypeItems, generateSlug } from 'data/data';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { IProduct } from 'types/types';
 
@@ -15,9 +15,34 @@ interface relativeProps {
 const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const productsPerPage = 6;
+  const [productsPerPage, setProductsPerPage] = useState<number>(8);  // Default number of products per page
   const categories = ['All', 'By Type', 'By Room'];
   const productContainerRef = useRef<HTMLDivElement | null>(null);
+
+  // Set the products per page based on window width
+
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const updateProductsPerPage = () => {
+      if (width < 768 ) {
+        setProductsPerPage(4);
+      } else if (width <= 1024) {
+        setProductsPerPage(6); 
+      } else {
+        setProductsPerPage(8);
+      }
+    };
+
+    updateProductsPerPage();
+
+    window.addEventListener('resize', updateProductsPerPage);
+
+    return () => {
+      window.removeEventListener('resize', updateProductsPerPage);
+    };
+  }, []);
+
   const ByRoomItems = products.filter((product) =>
     byRoomItems.some(
       (item) => item.productName === generateSlug(product.title),
@@ -28,12 +53,14 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
       (item) => item.productName === generateSlug(product.title),
     ),
   );
+
   const filteredProducts: IProduct[] =
     activeCategory === 'All'
       ? products
       : activeCategory === 'By Room'
         ? ByRoomItems
         : ByTypeItems.reverse();
+
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
   const visibleProducts = filteredProducts.slice(
@@ -65,7 +92,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
             <Button
               key={category}
               className={`text-15 font-bold
-                ${activeCategory === category ? 'bg-primary text-white px-2 md:px-8 py-2 md:py-7' : 'text-black bg-transparent px-2 md:px-8 py-2 md:py-7'}`}
+                ${activeCategory === category ? 'bg-secondary text-white px-2 md:px-8 py-2 md:py-7' : 'text-black bg-transparent px-2 md:px-8 py-2 md:py-7'}`}
               onClick={() => {
                 setActiveCategory(category);
                 setCurrentPage(1);
@@ -78,12 +105,11 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         <hr className="h-2 mt-5 md:mt-8 border-black" />
         <div className="mt-10 text-center space-y-3">
           <h1 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
-            MADE TO MEASURE {categoryType ? categoryType : ''}
+            Explore Popular Made to Measure {categoryType ? categoryType : ''} Options
+
           </h1>
           <p className="text-14 md:text-15 font-normal md:w-[65%] mx-auto">
-            See our comprehensive Blinds range Find the perfect made-to-measure
-            blinds within our exclusive range. There are many shades and
-            stunning patterns to select from
+            Our bespoke blinds are designed to meet your needs. Various types of window blinds are available in a variety of materials and colours, so you can create an ambience to suit your style.
           </p>
         </div>
         <div ref={productContainerRef} className="my-2" />

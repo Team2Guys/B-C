@@ -107,15 +107,15 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
           >
            <div className='w-full md:w-1/2'>
            <Image
-           className='w-full h-full md:h-[600px]'
+           className='w-full h-full md:h-[500px]'
               src={product.posterImage.imageUrl}
-              height={500}
-              width={500}
+              height={800}
+              width={800}
               alt={product.title}
             />
 
            </div>
-            <div className="w-full md:w-1/2 flex flex-col justify-between ">
+            <div className="w-full md:w-1/2 flex flex-col  ">
               <div>
                 <h3 className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
                   <div className="tracking-[.6rem] mb-2">
@@ -131,7 +131,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                 </p>
               </div>
 
-              <div className="mt-5">
+              <div className="mt-10">
                 <Link
                   href={`/request-appointment`}
                   className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
