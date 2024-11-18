@@ -90,6 +90,7 @@ export interface FormValues {
   price: number;
   product_type: string
   short_description?: string
+heading?: string
 }
 
 interface Color {
