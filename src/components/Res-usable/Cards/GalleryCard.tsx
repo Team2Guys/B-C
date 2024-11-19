@@ -29,6 +29,13 @@ const GalleryCard: React.FC<GalleryProps> = ({
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const handleNavigation = (event: any, path: string) => {
+    if (event.ctrlKey || event.metaKey) {
+      window.open(path, '_blank');
+    } else {
+      router.push(path);
+    }
+  };
 
   return (
     <>
@@ -56,11 +63,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
             {card.title}
           </span>
           <div
-            onClick={() => {
-              router.push(
-                `${window.origin}/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(card.title)}`,
-              );
-            }}
+            onClick={() => handleNavigation (event , `${window.origin}/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(card.title)}`) }
             className={`border-[1px] border-primary px-2 py-1 whitespace-nowrap rounded-sm text-14 font-light cursor-pointer ${relativeProducts ? 'block' : 'hidden'}`}
           >
             View More
