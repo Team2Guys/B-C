@@ -1590,9 +1590,9 @@ export const megaMenubyRoom = [
   { productName: 'conservatory' },
   { productName: 'office' },
   { productName: 'bedroom' },
-  { productName: 'kitchen' },
+  { productName: 'kitchen-blinds' },
   { productName: 'dining-room' },
-  { productName: 'living-room' },
+  { productName: 'living-room-blinds' },
   { productName: 'officestudy' },
 
   // { productName: 'staircase-shutters' },
@@ -1601,10 +1601,12 @@ export const megaMenubyRoom = [
   // { productName: 'dining-room-shutters' },
   // { productName: 'living-room-shutters' },
 
-  { productName: 'conservatory' },
-  { productName: 'staircase' },
-  { productName: 'bedroom' },
-  { productName: 'dining' },
+  { productName: 'conservatory-blinds' },
+  { productName: 'staircase-blinds' },
+  { productName: 'bedroom-blinds' },
+  { productName: 'school-blinds' },
+  { productName: 'study-room-Blinds' },
+  { productName: 'dining-blinds' },
   { productName: 'loungeliving' },
   { productName: 'kids-bedroom' },
 
