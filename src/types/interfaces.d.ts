@@ -364,3 +364,9 @@ export interface ITopHeroLink {
   matchingTitle: string;
   title: string;
 }
+
+export interface IProductDiscription {
+  id?: number;
+  title: string;
+  CategoryPageDiscription?: string;
+}
