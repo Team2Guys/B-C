@@ -369,11 +369,11 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </label>
                         <input
                           type="text"
-                          name="Product Name"
+                          name="name"
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
                           value={formik.values.name}
-                          placeholder="name"
+                          placeholder="Product name"
                           className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey  bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
                             formik.touched.name && formik.errors.name
                               ? 'border-red-500'

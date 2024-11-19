@@ -121,3 +121,4 @@ const MotorisedBlind = () => {
 };
 
 export default MotorisedBlind;
+
