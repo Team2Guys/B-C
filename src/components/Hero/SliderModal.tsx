@@ -53,7 +53,7 @@ In house production - quality is our concern, not yours
 Free uninstall/re-install within 2 years.` : 
 
 `10 YEARS warranty on all mechanical parts and labour
-We’re trusted, with over 700+ 5* reviews
+We’re trusted, with over 750+ 5* reviews
 Free home visits with free installation.`}
       </div>
 

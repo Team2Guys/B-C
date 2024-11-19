@@ -1329,7 +1329,7 @@ export const items = [
   },
   {
     id: 5,
-    text: 'We’re trusted, with over 700+ 5* reviews',
+    text: 'We’re trusted, with over 750+ 5* reviews',
   },
   {
     id: 6,
