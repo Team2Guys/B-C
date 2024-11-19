@@ -34,6 +34,9 @@ export interface ICategory {
   description: string | null;
   id: number;
   posterImage: PosterImage;
+  products : []
+
+
 }
 
 interface Image {
