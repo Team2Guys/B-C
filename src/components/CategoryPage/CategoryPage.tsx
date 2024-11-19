@@ -133,7 +133,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                 </p>
               </div>
 
-              <div className="mt-5">
+              <div className="mt-10">
                 <Link
                   href={`/request-appointment`}
                   className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"

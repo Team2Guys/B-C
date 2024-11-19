@@ -58,8 +58,11 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
         <CardSkeleton />
       ) : (
         <DetailProduct
-          title={filterProduct?.Sub_Heading || ''}
-          description={filterProduct?.Sub_Heading_description || ''}
+          title={filterProduct?.Sub_Heading || title}
+          description={
+            filterProduct?.Sub_Heading_description ||
+            (filterProduct?.description && typeof filterProduct.description === 'string' ? filterProduct.description : '')
+          }
           products={filterProduct}
         />
       )}
