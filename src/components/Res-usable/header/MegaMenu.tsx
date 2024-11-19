@@ -121,7 +121,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       } else if (dynamics.includes(slug)) {
         //@ts-expect-error
         result[2].push(product);
-      }
+      } 
     });
     return result;
   };
@@ -132,6 +132,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   );
   let currentLocation = window.location;
 
+
+  console.log(distributeProducts, "distributedProducts")
   return (
     <div
       className=""
