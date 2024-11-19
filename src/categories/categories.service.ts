@@ -135,7 +135,7 @@ export class CategoriesService {
 
   async getsubAllCategories() {
     try {
-      let response = this.prisma.subCategories.findMany()
+      let response = this.prisma.subCategories.findMany({include:{products: true, category: true} })
       return response;
     } catch (error) {
       return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'INTERNAL_SERVER_ERROR')
