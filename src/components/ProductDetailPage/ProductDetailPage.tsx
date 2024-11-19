@@ -42,6 +42,8 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
 
+
+  
   return (
     <>
       <TopHero title={title} pageTitle={`Made to Measure ${title}`} image={bgBreadcrum} pagename={pathName} />

@@ -56,7 +56,7 @@ const motorization = [
   },
 ];
 
-const MotorisedBlind = () => {
+const MotorisedCurtains = () => {
   const pathName = usePathname();
   const {
     data: products,
@@ -120,4 +120,4 @@ const MotorisedBlind = () => {
   );
 };
 
-export default MotorisedBlind;
+export default MotorisedCurtains;

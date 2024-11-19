@@ -11,6 +11,7 @@ interface MotorisedInfoProps {
   imageClass?: string;
   description2?: string;
   description3?: string;
+  decClass?:string
 }
 
 const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
@@ -22,6 +23,7 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
   image,
   className,
   imageClass,
+  decClass,
 }) => {
   return (
     <Container className="mt-5 md:mt-20">
@@ -32,10 +34,10 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
             <p className="underline underline-offset-8 text-[#6F747F]">
               {subtitle}
             </p>
-            <div className="space-y-3 md:space-y-10">
-              <p className="text-12 md:text-16 md:leading-8">{description}</p>
-              <p className="text-12 md:text-16 md:leading-8">{description2}</p>
-              <p className="text-12 md:text-16 md:leading-8">{description3}</p>
+            <p className={`text-12 md:text-16 md:leading-8 ${decClass}`}>{description}</p>
+            <div className="space-y-3">
+              <p className="text-12 md:text-16 md:leading-8 px-1 md:px-0">{description2}</p>
+              <p className="text-12 md:text-16 md:leading-8 px-1 md:px-0">{description3}</p>
             </div>
           </div>
         </div>

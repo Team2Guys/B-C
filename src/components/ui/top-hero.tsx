@@ -65,10 +65,10 @@ const TopHero: React.FC<TopHeroProps> = ({
     >
       <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
       <div className="relative z-20 py-14 md:py-24">
-        <h1 className="text-2xl xs:text-5xl md:text-6xl lg:text-7xl font-black mt-5 uppercase">
+        <h1 className="text-xl xs:text-3xl md:text-4xl lg:text-5xl font-black mt-5 uppercase">
           {result ? result.content : UpdateShutterTitle(pageTitle ? pageTitle : pathname)}
         </h1>
-        <div className="flex justify-center items-center gap-4 mt-2 text-14 sm:text-base">
+        <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base">
           <Link href="/" className="flex items-center gap-2 font-bold capitalize">
             <FaHome size={20} /> {home ? home.charAt(0).toUpperCase() + home.slice(1) : 'Home'}
           </Link>
@@ -93,11 +93,11 @@ const TopHero: React.FC<TopHeroProps> = ({
                     {matchingPageTitle.matchingTitle}
                   </Link>) :
                       index === (pageName.length - 2) ? (
-                        <Link href={`/${pageName.at(0)?.toLowerCase() === 'blinds' ? 'made-to-measure-blinds' : pageName.at(0)?.toLowerCase() === 'curtains' ? 'made-to-measure-curtains' : pageName.at(0)?.toLowerCase() === 'shutters' ? 'shutters-range' : pageName.at(0)?.toLowerCase() === 'commercial' ? 'commercial' : '' }${item === "commercial" ? '' : `/${item.replaceAll(' ', '-')}`} `} className="font-bold capitalize">
+                        <Link href={`/${pageName.at(0)?.toLowerCase() === 'blinds' ? 'blinds' : pageName.at(0)?.toLowerCase() === 'curtains' ? 'curtains' : pageName.at(0)?.toLowerCase() === 'shutters' ? 'shutters' : pageName.at(0)?.toLowerCase() === 'commercial' ? 'commercial' : '' }${item === "commercial" ? '' : `/${item.replaceAll(' ', '-')}`} `} className="font-bold capitalize">
                           {item}
                         </Link>
                       ) : (
-                        <h2 className="font-bold capitalize">{item}</h2>
+                        <h2 className="font-bold capitalize">{item == 'request appointment' ? 'Book Appointment' : item }</h2>
                       )
                     }
                 </React.Fragment>
