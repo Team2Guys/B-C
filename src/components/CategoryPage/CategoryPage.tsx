@@ -138,7 +138,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         <div className="flex justify-center space-x-4 whitespace-nowrap overflow-auto">
           <Button
             variant={'feature'}
-            className={` ${activeFilter?.title === 'All' ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}
+            className={` ${activeFilter?.title === 'All' ? 'bg-secondary text-white' : 'text-black hover:bg-secondary active:bg-secondary'}`}
             onClick={() => handleFilter({title: 'All',short_description : "Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose Motorised Blinds options for added convenience or finish your blinds with a sleek cassette box."})}
           >
             All
@@ -149,7 +149,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               <Button
                 key={product.id}
                 variant={'feature'}
-                className={` ${activeFilter.title === product.title ? 'bg-[#cdb7aa] text-white' : 'text-black hover:bg-[#e0c7b9] active:bg-[#e0c7b9]'}`}
+                className={` ${activeFilter.title === product.title ? 'bg-secondary text-white' : 'text-black hover:bg-secondary active:bg-secondary'}`}
                 onClick={() => handleFilter(product)}
               >
                 {product.title}
@@ -162,7 +162,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         <h2 className="text-2xl xs:text-3xl sm:text-4xl">
           {activeFilter.title.toUpperCase()}
         </h2>
-        <p className="mt-3 text-15 leading-7">
+        <p className="mt-3 text-15 leading-7 w-full md:w-3/4 mx-auto">
      {activeFilter?.short_description}
         </p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
