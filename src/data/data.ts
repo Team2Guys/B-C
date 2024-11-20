@@ -1204,15 +1204,13 @@ export const blindMegaMenuItems = [
   { productName: 'motorised' },
 ];
 
-
-
 export const curtainMegaMenuItems = [
-  { productName: 'pencil-pleat' },
-  { productName: 'ripplefold' },
-  { productName: 'tab-top' },
-  { productName: 'eyelet' },
-  { productName: 'double-pinch-pleat' },
-  { productName: 'triple-pinch-pleat' },
+  { productName: 'pencil-pleat-curtains' },
+  { productName: 'ripplefold-curtains' },
+  { productName: 'tab-top-curtains' },
+  { productName: 'eyelet-curtains' },
+  { productName: 'double-pinch-pleat-curtains' },
+  { productName: 'triple-pinch-pleat-curtains' },
 
   { productName: 'conservatory' },
   { productName: 'staircase' },
@@ -1570,10 +1568,10 @@ export const megaMenubyStyle = [
   { productName: 'full-height-shutters' },
 
   { productName: 'pencil-pleat-curtains' },
-  { productName: 'ripplefold' },
+  { productName: 'ripplefold-curtains' },
   { productName: 'tab-top-curtains' },
   { productName: 'eyelet-curtains' },
-  { productName: 'double-pinch-pleat' },
+  { productName: 'double-pinch-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
 
   { productName: 'hospitals' },
@@ -1609,8 +1607,14 @@ export const megaMenubyRoom = [
   // { productName: 'school-blinds' },
   { productName: 'study-room-Blinds' },
   { productName: 'dining-room-blinds' },
-  { productName: 'loungeliving' },
-  { productName: 'kids-bedroom' },
+  // { productName: 'loungeliving' },
+  { productName: 'living-room-curtains' },
+  { productName: 'dining-room-curtains' },
+  { productName: 'bedroom-curtains' },
+  // { productName: 'kids-bedroom' },
+  { productName: 'kids-room-curtains' },
+  { productName: 'staircase-curtains' },
+  { productName: 'conservatory-curtains' },
 
   { productName: 'outdoor' },
   { productName: 'indoor' },
@@ -1818,9 +1822,5 @@ export const BreakCrum_conent_pages = [
 }
 ]
 
-
-
 export const Cateories = [9,2,5,12]
-
-
 
