@@ -1604,9 +1604,9 @@ export const megaMenubyRoom = [
   { productName: 'conservatory-blinds' },
   { productName: 'staircase-blinds' },
   { productName: 'bedroom-blinds' },
-  { productName: 'school-blinds' },
+  // { productName: 'school-blinds' },
   { productName: 'study-room-Blinds' },
-  { productName: 'dining-blinds' },
+  { productName: 'dining-room-blinds' },
   { productName: 'loungeliving' },
   { productName: 'kids-bedroom' },
 
