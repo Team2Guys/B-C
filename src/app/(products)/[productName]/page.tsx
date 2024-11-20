@@ -11,7 +11,11 @@ import { useParams, usePathname } from 'next/navigation';
 import AllProducts from 'components/Product/All-Products/Products';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
-import { fetchProducts, fetchSubCategories } from 'config/fetch';
+import {
+  fetchCategories,
+  fetchProducts,
+  fetchSubCategories,
+} from 'config/fetch';
 import VideoBanner from 'components/video-banner/video-banner';
 import { links } from 'components/Res-usable/header/Header';
 
@@ -31,7 +35,7 @@ const Products = () => {
   } | null>(null);
   const pathname = usePathname();
   const title = matchingLink ? matchingLink.label : productName;
-  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
 
   const productNameString = Array.isArray(productName)
     ? productName[0]
@@ -53,6 +57,14 @@ const Products = () => {
     isLoading: categoryLoading,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
+  const {
+    data: subCategories,
+    error: subCateERROR,
+    isLoading: isLoadingSubCategories,
+  } = useQuery<ICategory[]>({
+    queryKey: ['fetchSubCategories'],
     queryFn: fetchSubCategories,
   });
 
@@ -67,15 +79,29 @@ const Products = () => {
       const filterCat = categories?.find(
         (cat) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
       );
+      console.log('>>>>>>>>> <<<<<<<<<<<');
+      console.log('categories');
+      console.log(categories);
+      console.log('subCategories');
+      console.log(subCategories);
+      console.log('filterCat');
+      console.log(filterCat);
 
       if (filterCat) {
-        const filtered = products.filter(
-          (product) => product.CategoryId === filterCat.id,
-        );
-        setFilteredProducts(filtered);
+        const filteredProducts =
+          products.filter((product) => product.CategoryId === filterCat.id) ||
+          [];
+
+        const filteredSubCategories =
+          subCategories?.filter(
+            (subCat) => subCat.CategoryId === filterCat.id,
+          ) || [];
+
+        const filteredItems = [...filteredProducts, ...filteredSubCategories];
+        setFilteredProducts(filteredItems);
       }
     }
-  }, [products, categories, productNameString]);
+  }, [products, categories, subCategories, productNameString]);
 
   useEffect(() => {
     console.log('pathname', generateSlug(pathname));
