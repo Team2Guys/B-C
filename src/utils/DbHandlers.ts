@@ -13,7 +13,7 @@ export const getAllproducts = async() => {
     try {
 
         let products = await prisma.products.findMany({
-          include: {subCategory: true}
+          include: {subCategory: true, category: true}
         })
         return products;
     } catch (error) {
