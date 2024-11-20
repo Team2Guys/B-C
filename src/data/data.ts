@@ -1204,6 +1204,8 @@ export const blindMegaMenuItems = [
   { productName: 'motorised' },
 ];
 
+
+
 export const curtainMegaMenuItems = [
   { productName: 'pencil-pleat' },
   { productName: 'ripplefold' },
