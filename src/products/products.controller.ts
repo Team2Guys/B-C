@@ -27,7 +27,6 @@ async getAllProducts(){
 
 @Put("edit_product/:id")
 async edit_product(@Param("id") id: number, @Body() updated_product:Prisma.productsUpdateInput){
-  console.log(updated_product, "update proucts")
   return this.ProductsService.UpdateProductHandler(+id, updated_product)
 }
 

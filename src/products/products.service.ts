@@ -44,38 +44,6 @@ export class ProductsService {
         }
     }
 
-
-    //     UpdateProductHandler = async (id: number, updateProduct: Prisma.productsUpdateInput) => {
-
-    //         try {
-    //             let product = await this.prisma.products.findUnique({ where: { id: id }, include: { subCategory: true } })
-    //             if (!product) return CustomErrorHandler("product  not found", "NOT_FOUND")
-
-
-    //                 if (updateProduct.subCategory && updateProduct.subCategory.connect) {
-
-    //                     const newSubCategoryIds = updateProduct.subCategory.connect.map((sub: any) => sub.id);
-    //                     const subCategoriesToDisconnect = product?.subCategory
-    //                         .filter((sub: any) => !newSubCategoryIds.includes(sub.id))
-    //                         .map((sub: any) => ({ id: sub.id }));
-
-    //                     updateProduct.subCategory.disconnect = subCategoriesToDisconnect;
-    //                 }
-
-
-    //             let updated_products = await this.prisma.products.update({
-    //                 where: { id: id },
-    //                 data: updateProduct,
-    //                 include: {subCategory: true, category: true}
-    //             })
-    // console.log(updateProduct, "updated_product")
-    //             return { updated_products, message: "Product has been updated Successfully" }
-
-    //         } catch (error) {
-    //             return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'INTERNAL_SERVER_ERROR');
-
-    //         }
-    //     }
     UpdateProductHandler = async (id: number, updateProduct: Prisma.productsUpdateInput) => {
         try {
 
@@ -84,32 +52,18 @@ export class ProductsService {
                 include: { subCategory: true },
             });
 
+
             if (!product) {
                 return CustomErrorHandler("Product not found", "NOT_FOUND");
             }
 
 
-            if (updateProduct.subCategory && updateProduct.subCategory.connect) {
-
-                const newSubCategoryIds = Array.isArray(updateProduct.subCategory.connect)
-                    ? updateProduct.subCategory.connect.map((sub: any) => sub.id)
-                    : [updateProduct.subCategory.connect?.id];
-
-                const subCategoriesToDisconnect = product.subCategory
-                    .filter((sub: any) => !newSubCategoryIds.includes(sub.id))
-                    .map((sub: any) => ({ id: sub.id }));
-
-
-                updateProduct.subCategory.disconnect = subCategoriesToDisconnect;
-            }
-
-            let updated_products = await this.prisma.products.update({
+            let updated_products   = await this.prisma.products.update({
                 where: { id: id },
                 data: updateProduct,
                 include: { subCategory: true, category: true },
             });
 
-            console.log(updateProduct, "updated_product");
             return { updated_products, message: "Product has been updated successfully" };
         } catch (error) {
             return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, "INTERNAL_SERVER_ERROR");

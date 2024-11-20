@@ -24,6 +24,7 @@ export class CategoriesController {
   }
   @Put('updateCategory/:id')
   UpdateCategoryHanlder(@Param('id') id: number, @Body() updateCategoryDto: Prisma.CategoriesUpdateInput) {
+    console.log(updateCategoryDto,)
     return this.CategoriesService.CategoryUpdateHandler(+id, updateCategoryDto)
   }
 
