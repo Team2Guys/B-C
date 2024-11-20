@@ -1820,3 +1820,7 @@ export const BreakCrum_conent_pages = [
 
 
 
+export const Cateories = [9,2,5,12]
+
+
+
