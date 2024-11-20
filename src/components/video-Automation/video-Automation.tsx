@@ -42,7 +42,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
           </p>
           <div className="flex justify-center items-center  gap-2 md:gap-9 mt-4">
             <Button
-              onClick={(event) => handleNavigation(event, `/moterised-content/${generateSlug('Motorised Blinds')} `)}
+              onClick={(event) => handleNavigation(event, `${generateSlug('Motorised Blinds')} `)}
               variant={'default'}
               className="py-4 px-2 md:py-7 text-12 text-white"
             >
@@ -50,7 +50,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
             </Button>
             <Button
               onClick={(event) =>
-                handleNavigation(event, `/moterised-content/${generateSlug('Motorsied Curtains')}`)
+                handleNavigation(event, `${generateSlug('motorised-curtains')}`)
               }
               variant={'outline'}
               className="py-4 px-2 md:py-7"
@@ -65,3 +65,4 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
 };
 
 export default VideoAutomation;
+
