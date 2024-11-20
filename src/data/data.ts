@@ -1117,9 +1117,9 @@ export const AddproductsinitialValues: FormValues = {
   price: 0,
   product_type: 'By Type',
   short_description: '',
-  heading: "",
-  Sub_Heading: "",
-  Sub_Heading_description: ""
+  heading: '',
+  Sub_Heading: '',
+  Sub_Heading_description: '',
 };
 
 export const options = [
@@ -1210,8 +1210,6 @@ export const blindMegaMenuItems = [
   { productName: 'dimoutsemi-trasnparent' },
   { productName: 'motorised' },
 ];
-
-
 
 export const curtainMegaMenuItems = [
   { productName: 'pencil-pleat' },
@@ -1491,70 +1489,6 @@ export const blogPara = [
   },
 ];
 
-export const byRoomItems = [
-  { productName: 'bathroom-blinds-dubai' },
-  { productName: 'kitchen-blinds' },
-  { productName: 'bedroom-blinds' },
-  { productName: 'living-room-blinds' },
-  { productName: 'made-to-measure-bed-room-curtains' },
-  { productName: 'kids-room-curtains' },
-  { productName: 'hotel-curtains-dubai' },
-  { productName: 'bathroom-shutters' },
-  { productName: 'kitchen-shutters' },
-  { productName: 'hotel-curtains-dubai' },
-  { productName: 'made-to-measure-living-room-curtains' },
-  { productName: 'living-room-shutters' },
-  { productName: 'dining-room-shutters' },
-];
-export const byTypeItems = [
-  { productName: 'motorised-blinds' },
-  { productName: 'blackout-roller-blinds' },
-  { productName: 'duplex-blinds' },
-  { productName: 'panel-blinds' },
-  { productName: 'printed-blinds' },
-  { productName: 'skylight-blinds-dubai' },
-  { productName: 'aric-blinds' },
-  { productName: 'roman-blinds' },
-  { productName: 'roller-blinds' },
-  { productName: 'aluminium-venetian-blinds-dubai' },
-  { productName: 'blackout-blinds' },
-  { productName: 'eton-blinds' },
-  { productName: 'colby-honeycomb-blinds' },
-  { productName: '3d-blinds' },
-  { productName: 'sheer-horizon-blinds' },
-  { productName: 'vertical-blinds' },
-  { productName: 'sierra-blinds' },
-  { productName: 'sunscreen-roller-blinds' },
-  { productName: 'wood-venetian-blinds' },
-  { productName: 'blackout-curtains-dubai' },
-  { productName: 'motorised-curtains' },
-  { productName: 'eyelet-curtains' },
-  { productName: 'made-to-measure-sheer-curtains' },
-  { productName: 'pinch-pleat-curtains' },
-  { productName: 'made-to-measure-linen-curtains' },
-  { productName: 'goblet-pleat-curtains' },
-  { productName: 'pelmet-curtains' },
-  { productName: 'wave-curtains' },
-  { productName: 'velvet-curtains' },
-  { productName: 'stage-and-theatre-curtains' },
-  { productName: 'made-to-measure-chiffon-curtains' },
-  { productName: 'office-window-curtains' },
-  { productName: 'double-pleat-curtains' },
-  { productName: 'triple-pinch-pleat-curtains' },
-  { productName: 'made-to-measure-curtains' },
-  { productName: 'full-height-shutters' },
-  { productName: 'bay-window-shutters' },
-  { productName: 'tracked-window-shutters' },
-  { productName: 'special-shape-shutters-wooden-shutters' },
-  { productName: 'tier-on-tier-shutters-wooden-shutters' },
-  { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
-  { productName: 'geometric-curtains' },
-  { productName: 'stripes-curtains' },
-  { productName: 'plain-curtains' },
-  { productName: 'bi-fold-shutters' },
-  { productName: 'cafe-style-shutters' },
-];
-
 export const megaMenubyStyle = [
   { productName: 'vertical-blinds' },
   { productName: 'zipline-outdoor-blinds' },
@@ -1669,6 +1603,92 @@ export const megaMenuDynamic = [
   { productName: 'anti-microbial' },
 ];
 
+export const extendedByStyle = [
+  { productName: '3d-blinds' },
+  { productName: 'sheer-horizon-blinds' },
+  { productName: 'aric-blinds' },
+  { productName: 'zebra-blinds' },
+  { productName: 'pleated-blinds' },
+  { productName: 'sierra-blinds' },
+  { productName: 'eton-blinds' },
+  { productName: 'patricia-blinds' },
+  { productName: 'wooden-aluminium-blinds' },
+
+  { productName: 'eyelet-curtains' },
+  { productName: 'pinch-pleat-curtains' },
+  { productName: 'made-to-measure-sheer-curtains' },
+  { productName: 'goblet-pleat-curtains' },
+  { productName: 'triple-pinch-pleat-curtains' },
+  { productName: 'ripplefold-wave-curtains' },
+  { productName: 'double-pinch-pleat-curtains' },
+  { productName: 'pelmet-curtains' },
+  { productName: 'modern-curtains' },
+  { productName: 'tab-top-curtains' },
+  { productName: 'pencil-pleat-curtains' },
+  { productName: 'stripes-curtains' },
+
+  { productName: 'full-height-shutters' },
+  { productName: 'bay-window-shutters' },
+  { productName: 'special-shape-shutters' },
+  { productName: 'tier-on-tier-shutters' },
+  { productName: 'solid-panel-shutters' },
+  { productName: 'bi-fold-shutters' },
+  { productName: 'outdoor-shutters' },
+  { productName: 'staircase' },
+  { productName: 'cafe-style-shutters' },
+];
+export const extendedByRoom = [
+  { productName: 'kids-room-blinds' },
+  { productName: 'study-room-blinds' },
+  { productName: 'dining-room-blinds' },
+  { productName: 'conservatory-blinds' },
+  { productName: 'staircase-blinds' },
+  { productName: 'door-blinds' },
+
+  { productName: 'bedroom-curtains' },
+  { productName: 'living-room-curtains' },
+  { productName: 'kids-room-curtains' },
+  { productName: 'home-curtains' },
+  { productName: 'room-curtains' },
+  { productName: 'dining-room-curtains' },
+  { productName: 'staircase-curtains' },
+  { productName: 'conservatory-curtains' },
+
+  { productName: 'living-room-shutters' },
+  { productName: 'dining-room-shutters' },
+  { productName: 'kitchen-shutters' },
+  { productName: 'bedroom-shutters' },
+  { productName: 'staircase-shutters' },
+];
+export const extendedDynamic = [
+  { productName: 'motorised-blinds' },
+  { productName: 'blackout-blinds' },
+  { productName: 'skylight-blinds-dubai' },
+  { productName: 'roller-blinds' },
+  { productName: 'blackout-roller-blinds' },
+  { productName: 'sunscreen-blinds' },
+  { productName: 'dimout-blinds' },
+  { productName: 'transculent-blinds' },
+  { productName: 'zipline-outdoor-blinds' },
+
+  { productName: 'made-to-measure-chiffon-curtains' },
+  { productName: 'made-to-measure-chiffon-curtains' },
+  { productName: 'velvet-curtains' },
+  { productName: 'plain-curtains' },
+  { productName: 'patterned-curtains' },
+  { productName: 'natural-fabric-curtains' },
+  { productName: 'geometric-curtains' },
+  { productName: 'textured-curtains' },
+  { productName: 'kids-print-curtains' },
+
+  { productName: 'white-shutters' },
+  { productName: 'offwhite-shutters' },
+  { productName: 'black-shutters' },
+  { productName: 'dark-wood-shutters' },
+  { productName: 'bold-colours-shutters' },
+  { productName: 'grey-shutters' },
+];
+
 export const AddProductvalidationSchema = Yup.object().shape({
   // name: Yup.string()
   //   .min(2, 'Too Short!')
@@ -1713,26 +1733,24 @@ export const AddProductvalidationSchema = Yup.object().shape({
   // ),
 });
 
-
-
 export const TopHeroLink: ITopHeroLink[] = [
-  { 
+  {
     matchingTitle: 'blinds',
-    title: 'made-to-measure-blinds'
+    title: 'made-to-measure-blinds',
   },
-  { 
+  {
     matchingTitle: 'curtains',
-    title: 'made-to-measure-curtains'
+    title: 'made-to-measure-curtains',
   },
-  { 
+  {
     matchingTitle: 'shutters',
-    title: 'shutters-range'
+    title: 'shutters-range',
   },
-  { 
+  {
     matchingTitle: 'shutters',
-    title: 'shutters range'
+    title: 'shutters range',
   },
-]
+];
 
 export const categoriesContent = [
   {
@@ -1817,13 +1835,13 @@ export const categoriesContent = [
   },
 ];
 
-
 export const BreakCrum_conent_pages = [
   {
-  url: "/blinds/roller-blinds",
-  content: "Made to Measure Roller Blinds"
-}
-]
+    url: '/blinds/roller-blinds',
+    content: 'Made to Measure Roller Blinds',
+  },
+];
+
 
 //MoterisedBlindsData
 export const motorisedPageData = {
@@ -1903,12 +1921,4 @@ export const motorisedPageData1 = {
     'Please remember that none of our sales team are on commission. All are paid a decent living wage which allows them to be as honest with you as possible and put you under ZERO pressure to buy. It is the way we enjoy being sold to, so we pass that method onto you too.',
 };
 
-
-
-
-
-
-export const Cateories = [9,2,5,12]
-
-
-
+export const Cateories = [9, 2, 5, 12];
