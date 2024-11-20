@@ -223,9 +223,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                     title == 'Blinds' ? 'Blinds' : 'Curtains',
                                     '',
                                   )
-                                :
-                                
-                                item.title}
+                                : item.title}
                             </p>
                           </>
                         );
