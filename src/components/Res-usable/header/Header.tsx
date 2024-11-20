@@ -110,7 +110,13 @@ const Header = () => {
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50">
         <Container className="flex w-full justify-between h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
           <Link href={'/'} className="w-7/12 lg:w-1/12 ">
-            <Image width={3500} height={2500} src={logo} alt="Logo" className='w-32 h-full' />
+            <Image
+              width={3500}
+              height={2500}
+              src={logo}
+              alt="Logo"
+              className="w-32 h-full"
+            />
           </Link>
 
           <div className="w-3/12 lg:w-9/12 mt-9">

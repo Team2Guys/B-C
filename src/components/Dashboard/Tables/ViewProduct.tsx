@@ -15,6 +15,8 @@ import TableSkeleton from './TableSkelton';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories } from 'config/fetch';
+import { revalidatePath } from 'next/cache'
+import revalidateTag from 'components/ServerActons/ServerAction';
 
 interface Product {
   id: string;
@@ -26,17 +28,13 @@ interface Product {
 
 interface CategoryProps {
   Categories: any;
-  setCategory: any;
   setselecteMenu: (menu: string) => void;
-  loading: boolean;
   setEditProduct: any;
 }
 
 const ViewProduct: React.FC<CategoryProps> = ({
   Categories,
-  setCategory,
   setselecteMenu,
-  loading,
   setEditProduct,
 }) => {
   const router = useRouter();
@@ -84,7 +82,8 @@ const ViewProduct: React.FC<CategoryProps> = ({
           headers: { Authorization: `Bearer ${token}` },
         },
       );
-      setCategory((prev: Product[]) => prev.filter((item) => item.id !== key));
+      revalidateTag("calculatePrices")
+
       notification.success({
         message: 'Product Deleted',
         description: 'The product has been successfully deleted.',
@@ -199,9 +198,6 @@ const ViewProduct: React.FC<CategoryProps> = ({
 
   return (
     <div>
-      {loading || isLoadingCategories ? (
-        <TableSkeleton rows={8} columns={5} />
-      ) : (
         <>
           <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
             <input
@@ -225,7 +221,10 @@ const ViewProduct: React.FC<CategoryProps> = ({
               </p>
             </div>
           </div>
-          {filteredProducts && filteredProducts.length > 0 ? (
+          {filteredProducts && filteredProducts.length > 0 ? 
+          
+          
+          (
             <Table
               className="lg:overflow-hidden overflow-x-scroll !dark:border-strokedark !dark:bg-boxdark !bg-transparent"
               dataSource={filteredProducts}
@@ -233,11 +232,14 @@ const ViewProduct: React.FC<CategoryProps> = ({
               rowKey="id"
               pagination={false}
             />
-          ) : (
+          ) : 
+          
+          
+          (
             <p className="text-primary dark:text-white">No products found</p>
           )}
         </>
-      )}
+      
     </div>
   );
 };
