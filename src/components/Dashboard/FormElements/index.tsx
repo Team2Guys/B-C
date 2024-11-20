@@ -34,6 +34,9 @@ import { useQuery } from '@tanstack/react-query';
 import { ICategory, ISUBCATEGORY } from 'types/types';
 import { fetchCategories, fetchSubCategories } from 'config/fetch';
 import showToast from 'components/Toaster/Toaster';
+import { revalidatePath } from 'next/cache'
+import revalidateTag from 'components/ServerActons/ServerAction';
+
 
 const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   EditInitialValues,
@@ -171,7 +174,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       if (selectedSubcategoryIds.length > 0) {
         updatedvalue = {
           ...updatedvalue,
-          subCategory: {
+          subCategory: updateFlag ? {
+            set: selectedSubcategoryIds.map((id) => ({ id })),
+          } : {
             connect: selectedSubcategoryIds.map((id) => ({ id })),
           },
         };
@@ -188,6 +193,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
           },
         },
       );
+      revalidateTag("calculatePrices")
 
       showToast(
         'success',
