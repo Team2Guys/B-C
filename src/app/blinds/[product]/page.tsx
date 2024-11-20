@@ -41,12 +41,6 @@ const Cateories = [2]
   console.log(filteredSubCategory, "relatedProducts",subCategories)
 
 
-
-  const relatedProducts = products?.filter((prod: any) => prod.subCategory?.some((sub: any) => sub.id === filteredSubCategory?.id),
-  );
-
-
-
   const filteredProduct = products?.find((prod) => generateSlug(prod.title) === product,
   );
 
