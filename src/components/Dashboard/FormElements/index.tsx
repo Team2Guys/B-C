@@ -171,7 +171,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       if (selectedSubcategoryIds.length > 0) {
         updatedvalue = {
           ...updatedvalue,
-          subCategory: {
+          subCategory: updateFlag ? {
+            set: selectedSubcategoryIds.map((id) => ({ id })),
+          } : {
             connect: selectedSubcategoryIds.map((id) => ({ id })),
           },
         };
