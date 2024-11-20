@@ -121,7 +121,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       } else if (dynamics.includes(slug)) {
         //@ts-expect-error
         result[2].push(product);
-      } 
+      }
     });
     return result;
   };
@@ -132,8 +132,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   );
   let currentLocation = window.location;
 
-
-  console.log(title, "distributedProducts")
   return (
     <div
       className=""
@@ -168,7 +166,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               {MegaMenu_Headings.map((item, index) => {
                 const parent = generateSlug(title);
                 const itemName = item.name;
-                console.log(title, "itemName")
                 return (
                   <div key={index} className="flex flex-col gap-5 w-full">
                     <p className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
@@ -186,49 +183,43 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         : item.name}
                     </p>
                     {distributedProducts[index]?.map(
-                      
-                      
                       (item: any, index: number) => {
-                        console.log(item)
-                console.log(item.title.replace("blinds", ""),"itemName")
-
                         return (
+                          <>
+                            {' '}
+                            <p
+                              key={index}
+                              onMouseEnter={() => setactiveProduct(item)}
+                              onClick={() => {
+                                const slug = generateSlug(item.title);
+                                const basePath = item.href
+                                  ? `${window.origin}/${item.href}`
+                                  : `/${slug}`;
 
-<> <p
-                          key={index}
-                          onMouseEnter={() => setactiveProduct(item)}
-                          onClick={() => {
-                            const slug = generateSlug(item.title);
-                            const basePath = item.href
-                              ? `${window.origin}/${item.href}`
-                              : `/${slug}`;
+                                let path;
 
-                            let path;
+                                if (slug === 'office-blinds') {
+                                  path = '/commercial';
+                                } else if (
+                                  slug === 'hotels-restaurants-blinds-curtains'
+                                ) {
+                                  path = basePath;
+                                } else {
+                                  path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
+                                }
 
-                            if (slug === 'office-blinds') {
-                              path = '/commercial';
-                            } else if (
-                              slug === 'hotels-restaurants-blinds-curtains'
-                            ) {
-                              path = basePath;
-                            } else {
-                              path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
-                            }
-
-                            route.push(path);
-                            setIsOpen(false);
-                          }}
-                          className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
-                        >
-                          {(title =="Blinds" && itemName =="By Room") ? item.title.replace("Blinds", ""): item.title}
-
-
-                        </p></>
-                        )
-                       
+                                route.push(path);
+                                setIsOpen(false);
+                              }}
+                              className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
+                            >
+                              {title == 'Blinds' && itemName == 'By Room'
+                                ? item.title.replace('Blinds', '')
+                                : item.title}
+                            </p>
+                          </>
+                        );
                       },
-
-
                     )}
                   </div>
                 );
