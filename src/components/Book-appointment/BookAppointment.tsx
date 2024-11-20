@@ -191,15 +191,15 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
       }
     }
   };
-  const handlePhoneChange = (phone: any) => {
-    // Strip out all non-numeric characters to get the raw number
-    let rawPhone = phone.replace(/\D/g, '');
+  //   const handlePhoneChange = (phone: any) => {
+  //     // Strip out all non-numeric characters to get the raw number
+  //     let rawPhone = phone.replace(/\D/g, '');
 
-      rawPhone = `+${rawPhone.slice(0, 3)} ${rawPhone.slice(3, 5)} ${rawPhone.slice(5, 8)} ${rawPhone.slice(8, 12)}`;
-    
-console.log(rawPhone);
-    setFormData({ ...formData, whatsapp_number: rawPhone });
-  };
+  //       rawPhone = `+${rawPhone.slice(0, 3)} ${rawPhone.slice(3, 5)} ${rawPhone.slice(5, 8)} ${rawPhone.slice(8, 12)}`;
+
+  // console.log(rawPhone);
+  //     setFormData({ ...formData, whatsapp_number: rawPhone });
+  //   };
 
   const handletimeChange = (date: Date | null) => {
     if (date) {
@@ -330,7 +330,7 @@ console.log(rawPhone);
     }
   };
 
-  
+
   return (
     <div
       className={`bg-white  text-left text-black ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
@@ -380,16 +380,16 @@ console.log(rawPhone);
               </div>
             </div> */}
             <PhoneInput
-            className='mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none'
+              className='mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none'
               international
               defaultCountry="AE"
               limitMaxLength
               countryCallingCodeEditable={false}
               value={formData.phone_number}
-              onChange={(phone:any) =>
+              onChange={(phone: any) =>
                 setFormData({ ...formData, phone_number: phone })
               }
-             
+
             />
             {errors.phone_number && (
               <p className="text-red-500 text-xs">{errors.phone_number}</p>
@@ -421,16 +421,15 @@ console.log(rawPhone);
               WhatsApp No. If Different
             </label>
             <PhoneInput
-              country={'ae'}
-              countryCodeEditable={false}
+              className='mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none'
+              international
+              defaultCountry="AE"
+              limitMaxLength
+              countryCallingCodeEditable={false}
               value={formData.whatsapp_number}
-              onChange={handlePhoneChange}
-              inputStyle={{
-                width: '100%',
-                border: '1px solid #D1D5DB',
-                fontSize: '11px',
-                borderRadius: '0.375rem',
-              }}
+              onChange={(phone: any) =>
+                setFormData({ ...formData, whatsapp_number: phone })
+              }
             />
           </div>
           <div>
