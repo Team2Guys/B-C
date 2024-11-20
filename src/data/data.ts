@@ -1567,12 +1567,12 @@ export const megaMenubyStyle = [
   { productName: 'tracked-shutters' },
   { productName: 'full-height-shutters' },
 
-  { productName: 'pencil-pleat' },
+  { productName: 'pencil-pleat-curtains' },
   { productName: 'ripplefold' },
-  { productName: 'tab-top' },
-  { productName: 'eyelet' },
+  { productName: 'tab-top-curtains' },
+  { productName: 'eyelet-curtains' },
   { productName: 'double-pinch-pleat' },
-  { productName: 'triple-pinch-pleat' },
+  { productName: 'triple-pinch-pleat-curtains' },
 
   { productName: 'hospitals' },
   { productName: 'restaurants' },
