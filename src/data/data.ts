@@ -1908,3 +1908,7 @@ export const motorisedPageData1 = {
 
 
 
+export const Cateories = [9,2,5,12]
+
+
+
