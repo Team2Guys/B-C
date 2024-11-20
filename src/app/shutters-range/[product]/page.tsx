@@ -6,7 +6,7 @@ import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
-import { generateSlug } from 'data/data';
+import { Cateories, generateSlug } from 'data/data';
 import { useParams } from 'next/navigation';
 import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
 
@@ -23,13 +23,7 @@ const CommercialPage = () => {
     queryFn: fetchProducts,
   });
 
-  const filteredSubCategory = subCategories?.find(
-    (sub) => generateSlug(sub.title) === product,
-  );
-
-  const relatedProducts = products?.filter(
-    (prod) => prod.SubCategoryId === filteredSubCategory?.id,
-  );
+  const filteredSubCategory = subCategories?.find((sub) => (generateSlug(sub.title) === product) && (Cateories.some((item:number)=>item ==sub.CategoryId)));
 
   const filteredProduct = products?.find(
     (prod) => generateSlug(prod.title) === product,
@@ -39,9 +33,6 @@ const CommercialPage = () => {
     return <PageSkelton />;
   }
 
-  // if (!filteredSubCategory && !filteredProduct) {
-  //   return <div>No matching product or subcategory found.</div>;
-  // }
 
   return (
     <>
@@ -49,7 +40,7 @@ const CommercialPage = () => {
         <>
           <CategoryPage
             title={`${filteredSubCategory.title}`}
-            relatedProducts={relatedProducts || []}
+            relatedProducts={filteredSubCategory?.products || []}
           />
         </>
       ) : (
