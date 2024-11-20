@@ -8,7 +8,6 @@ import { IInfo } from 'types/types';
 
 const Info = (selectedPage: IInfo) => {
   const route = useRouter();
-  console.log(selectedPage);
   if (!selectedPage.selectedPage) {
     return <div>No content available</div>;
   }
