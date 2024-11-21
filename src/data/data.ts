@@ -1,4 +1,11 @@
 // src/data.ts
+import bgBreadcrum from '../../public/assets/images/Breadcrum/modern.png';
+import moto1 from '../../public/assets/images/MotorisedBlind/montorised1.png';
+import img1 from '../../public/assets/images/MotorisedBlind/guarantee1.png';
+import img2 from '../../public/assets/images/MotorisedBlind/businessmen1.png';
+import img3 from '../../public/assets/images/MotorisedBlind/ready-stock.png';
+import img4 from '../../public/assets/images/MotorisedBlind/loyalty-program.png';
+import moto2 from '../../public/assets/images/MotorisedBlind/mons2.png';
 
 import exp from 'constants';
 import {
@@ -1205,12 +1212,12 @@ export const blindMegaMenuItems = [
 ];
 
 export const curtainMegaMenuItems = [
-  { productName: 'pencil-pleat' },
-  { productName: 'ripplefold' },
-  { productName: 'tab-top' },
-  { productName: 'eyelet' },
-  { productName: 'double-pinch-pleat' },
-  { productName: 'triple-pinch-pleat' },
+  { productName: 'pencil-pleat-curtains' },
+  { productName: 'ripplefold-curtains' },
+  { productName: 'tab-top-curtains' },
+  { productName: 'eyelet-curtains' },
+  { productName: 'double-pinch-pleat-curtains' },
+  { productName: 'triple-pinch-pleat-curtains' },
 
   { productName: 'conservatory' },
   { productName: 'staircase' },
@@ -1503,12 +1510,12 @@ export const megaMenubyStyle = [
   { productName: 'tracked-shutters' },
   { productName: 'full-height-shutters' },
 
-  { productName: 'pencil-pleat' },
-  { productName: 'ripplefold' },
-  { productName: 'tab-top' },
-  { productName: 'eyelet' },
-  { productName: 'double-pinch-pleat' },
-  { productName: 'triple-pinch-pleat' },
+  { productName: 'pencil-pleat-curtains' },
+  { productName: 'ripplefold-curtains' },
+  { productName: 'tab-top-curtains' },
+  { productName: 'eyelet-curtains' },
+  { productName: 'double-pinch-pleat-curtains' },
+  { productName: 'triple-pinch-pleat-curtains' },
 
   { productName: 'hospitals' },
   { productName: 'restaurants' },
@@ -1540,11 +1547,17 @@ export const megaMenubyRoom = [
   { productName: 'conservatory-blinds' },
   { productName: 'staircase-blinds' },
   { productName: 'bedroom-blinds' },
-  { productName: 'school-blinds' },
+  // { productName: 'school-blinds' },
   { productName: 'study-room-Blinds' },
-  { productName: 'dining-blinds' },
-  { productName: 'loungeliving' },
-  { productName: 'kids-bedroom' },
+  { productName: 'dining-room-blinds' },
+  // { productName: 'loungeliving' },
+  { productName: 'living-room-curtains' },
+  { productName: 'dining-room-curtains' },
+  { productName: 'bedroom-curtains' },
+  // { productName: 'kids-bedroom' },
+  { productName: 'kids-room-curtains' },
+  { productName: 'staircase-curtains' },
+  { productName: 'conservatory-curtains' },
 
   { productName: 'outdoor' },
   { productName: 'indoor' },
@@ -1836,5 +1849,84 @@ export const BreakCrum_conent_pages = [
     content: 'Made to Measure Roller Blinds',
   },
 ];
+
+
+//MoterisedBlindsData
+export const motorisedPageData = {
+  title: 'Motorised Blinds',
+  heroImage: bgBreadcrum,
+  infoTitle: 'MOTORISED BLINDS',
+  infoSubtitle: 'Convert your windows into Smart Windows',
+  infoDescription:
+    'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These motorised blinds give you the option to control your window covering with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer remote control blinds that are smooth, reliable, and long-lasting. Whether you want a simple electric blind or fully connected, we’ve got the right motorisation system for you.',
+  infoImage: moto1,
+  measureTitle: '“Hey Alexa, lower my Blinds”',
+  measureDescription:
+    "With motorised systems, you can control them with a remote, your smartphone, or even your voice using Google Home, Apple HomeKit, or Amazon Alexa. Open and close your window coverings from anywhere in the house—or even while you're away. It's all about making things simpler and more flexible for you.",
+    chooseustitle :"Why Choose Us For Your Motorisation?",
+    chooseustitle1: "Control your windows anytime, anywhere!",
+     measureTitle1: 'Set Your Own Schedule or Control Remotely',
+     measureDescription1:
+    'We love our customers and want to make things easier for them. If you have several blinds in your home, one remote can control them all. You can control them from anywhere in the world with a wifi hub. As we work daily with motorisation systems and have experience in handling them we will discuss pros and cons and give honest impartial advice.',
+    chooseUsItems : [
+  { image: img1, text: '10 Years warranty on all mechanical parts and labour' },
+  { image: img2, text: 'A team of 50 staff to ensure perfection from start-to-finish' },
+  { image: img3, text: 'In house production - quality is our concern, not yours' },
+  { image: img4, text: 'We’re trusted, with over 700+ 5*reviews' },
+    ],
+ motorization:[
+  { text: 'Easily operate with remote. Smartphone, or voice command.' },
+    { text: 'Block out harmful UV rays, reducing energy usage and utility costs.' },
+    { text: 'Perfect for individuals with mobility or accessibility challenges.' },
+    { text: 'Programmable to block out sunlight at specific times, ensuring privacy.' },
+    { text: 'Adjust the amount of light entering your home to create the perfect ambiance.' },
+    ],
+  additionalDescription:
+    "There's no hard sell just relaxed and pressure-free consultation",
+  additionalImage: moto2,
+  additionalDescription2:
+    "We believe in making your experience as stress-free as possible. Our team members are paid a fair living wage, meaning they are here for you. Rest assured, no one is working on commission here. Our team’s priority is to provide honest, helpful advice that’s best for you—not to push for a sale. If you choose to go with us, congratulations. If not we’ll send you your quotation by email and one follow up call. Then it's up to you to decide.",
+  additionalDescription3:
+    'We approach every consultation the way we’d like to be treated: with honesty and zero pressure. If you’re interested in a no-obligation quotation, you can give our friendly team a call, or simply fill out the online contact form, and we’ll get back to you quickly.',
+};
+
+//Moterised Curtains Data
+export const motorisedPageData1 = {
+  title: 'Motorised Curtains',
+  heroImage: bgBreadcrum,
+  infoTitle: 'MOTORISED CURTAINS',
+  infoSubtitle: 'The smartest curtains for your dream home.',
+  infoDescription:
+  'Motorised curtains or electric curtains are typically operated by a remote control. You can even add smartphone control functionality to allow you total control of your curtains, home or away. Providing you with the same function as but with the added comfort of only having to press a button rather than pull a chain. With a huge selection of fabrics and designs to choose from, our motorised curtains are the ideal choice for a beautiful and functional window dressing. Driven by an integrated motor that is hidden from sight, our motorised roller binds can be powered by rechargeable battery or directly from your mains supply. Our expert team of installation specialists will ensure all safety parameters and electrical regulations are met for your complete peace of mind.',
+    infoImage: moto1,
+    measureTitle: 'MADE TO MEASURE MOTORISED CURTAINS',
+    measureDescription:
+    'Our entire motorised curtains collection is supplied on a made-to-measure basis. No more guessing or hoping it will fit. Our curtains are custom-made for your windows. Our end-to-end service means we are here from the very start right through to the final installment. You don’t have to lift a finger as we take care of the entire process on your behalf. We offer a range of motorised solutions.',
+    chooseustitle :"Why choose us for your motorization?",
+    chooseustitle1: "Why choose us for your motorization?",
+    measureTitle1: 'MOTORISED BENEFITS',
+    measureDescription1:
+    'There are many advantages to choosing a motorised blind over a manually operated one. First and foremost, you have the ability to save a preferred position so that your curtains always open to the same spot. You can even add timers to command the curtains to open/close at set times. How’s that for convenience?',
+    chooseUsItems1 : [
+      { image: img1, text: 'We offer a fully comprehensive 5 year warranty on all our motors' },
+      { image: img2, text: 'Our professional staff are fully trained to install as well as offer expert advice' },
+      { image: img3, text: 'We keep motors in stock, so no long delays waiting for stock' },
+      { image: img4, text: 'We only use the leading brands such as Somfy, Nice & Motion.' },
+    ],
+    motorization1:[
+      { text: 'Hassle free care. Our motorised tracks are superior quality. They just don’t break down' },
+      { text: 'Push the buttons on the remote or link up to your smart phone in literally 60 seconds' },
+      { text: 'How about Apple Home? YES. What about Alexa? Sure, why not. Ok, and Google' },
+      { text: 'Even if you have your own system, 99% of the time, our installers can liaise with your automation team to give you a full 360 solution.' },
+      { text: 'Set timers, set scenes. Control your motors from the room down the hall or from the other side of the world, it really is that simple once we set it up for you' },
+    ],
+    additionalDescription:
+    'All our team members are paid a decent living wage and are not trained for the hard sell.',
+    additionalImage: moto2,
+    additionalDescription2:
+    'You can call the sales team for a no obligation quotation on or fill out the online contact form and someone will get back to you as soon as possible.',
+    additionalDescription3:
+    'Please remember that none of our sales team are on commission. All are paid a decent living wage which allows them to be as honest with you as possible and put you under ZERO pressure to buy. It is the way we enjoy being sold to, so we pass that method onto you too.',
+};
 
 export const Cateories = [9, 2, 5, 12];
