@@ -83,7 +83,7 @@ const EstimatorTabs: React.FC<EstimatorTabsProps> = ({
                 activeProduct?.id === product.id ? '' : ''
               }`}
             >
-              {product.title}
+              {product.title.replace('/', ' ')}
             </p>
           </div>
         ))}
