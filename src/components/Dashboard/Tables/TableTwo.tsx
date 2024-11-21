@@ -62,11 +62,6 @@ let token = admin_token ? admin_token: super_admin_token
   };
 
   // Filter products based on search term
-  const filteredProducts: Product[] =
-    category?.filter((product: any) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
-    ) || [];
-
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
@@ -74,17 +69,31 @@ let token = admin_token ? admin_token: super_admin_token
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
         );
-        const Categories = await response.json();
-        setCategory(Categories);
+        const categories = await response.json();
+  
+        
+        const sortedCategories = categories.sort(
+          (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        );
+  
+       
+        setCategory(sortedCategories);
         setLoading(false);
       } catch (err) {
         console.log('err', err);
         setLoading(false);
       }
     };
-
+  
     CategoryHandler();
   }, []);
+  
+  // Filter products based on search term
+  const filteredProducts: Product[] =
+    category?.filter((product: any) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    ) || [];
+  
 
   const confirmDelete = (key: any) => {
     Modal.confirm({
