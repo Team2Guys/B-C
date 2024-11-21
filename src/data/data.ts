@@ -1637,6 +1637,8 @@ export const extendedByRoom = [
   { productName: 'conservatory-blinds' },
   { productName: 'staircase-blinds' },
   { productName: 'door-blinds' },
+  { productName: 'bedroom-blinds' },
+  { productName: 'bathroom-blinds' },
 
   { productName: 'bedroom-curtains' },
   { productName: 'living-room-curtains' },
