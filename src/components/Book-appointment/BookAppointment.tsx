@@ -191,16 +191,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
       }
     }
   };
-  //   const handlePhoneChange = (phone: any) => {
-  //     // Strip out all non-numeric characters to get the raw number
-  //     let rawPhone = phone.replace(/\D/g, '');
-
-  //       rawPhone = `+${rawPhone.slice(0, 3)} ${rawPhone.slice(3, 5)} ${rawPhone.slice(5, 8)} ${rawPhone.slice(8, 12)}`;
-
-  // console.log(rawPhone);
-  //     setFormData({ ...formData, whatsapp_number: rawPhone });
-  //   };
-
+  
   const handletimeChange = (date: Date | null) => {
     if (date) {
       setFormData({ ...formData, prefered_time: date.toISOString() });
