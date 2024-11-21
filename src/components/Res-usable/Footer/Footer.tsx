@@ -24,6 +24,7 @@ import {
 } from 'config/fetch';
 import FooterItem from 'components/FooterItem';
 import { updateProductTitle } from 'components/ui/menu-card';
+import { urls } from 'data/urls';
 
 const Footer: React.FC = () => {
   const { data: products } = useQuery<IProduct[]>({
@@ -52,6 +53,15 @@ const Footer: React.FC = () => {
   }
   const filterArray = ['shutters', 'White', 'Off White', 'Black', 'Dark Woods', 'Light Woods', 'Bold Colours', 'Grey'];
 
+  const ChangedProductUrl = (title: string): string => {
+    let products = urls.find((url: { productName: string, Url: string }) => {
+      return (url.productName === title)
+    })
+
+    return products ? products.Url : generateSlug(title)
+
+
+  }
   return (
     <footer>
       <div className="bg-primary text-white py-10">
@@ -122,7 +132,7 @@ const Footer: React.FC = () => {
 
                                   {filterArray.some(substring => subcategory.title.includes(substring)) ? '' : (<Link
                                     className="text-sm font-medium"
-                                    href={`/shutters-range/${generateSlug(subcategory.title)}`}
+                                    href={`/shutters-range/${ChangedProductUrl(subcategory.title)}`}
                                   >
                                     {subcategory.title}
                                   </Link>)}
@@ -131,7 +141,7 @@ const Footer: React.FC = () => {
                               ) : (
                                 <Link
                                   className="text-sm font-medium"
-                                  href={`/${filteredCategory?.title.toLowerCase()}/${generateSlug(subcategory.title)}`}
+                                  href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
                                 >
                                   {subcategory.title}
                                 </Link>
@@ -139,6 +149,8 @@ const Footer: React.FC = () => {
                             </li>
                           );
                         })}
+
+
                       {products
                         ?.filter(
                           (product) => product.CategoryId === category.id,
@@ -150,11 +162,12 @@ const Footer: React.FC = () => {
                           );
                           //@ts-expect-error
                           const parent = generateSlug(filteredCategory?.title);
+                          console.log(parent, "parent")
                           return (
                             <li key={product.id}>
                               <Link
                                 className="text-14 font-medium"
-                                href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(product.title)}`}
+                                href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${ChangedProductUrl(product.title)}`}
                               >
                                 {updateProductTitle(product.title)}
                               </Link>
