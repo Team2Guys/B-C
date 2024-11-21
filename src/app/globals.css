@@ -64,7 +64,9 @@
 }
 
 
-
+input{
+  outline: none;
+}
 @layer base {
   * {
     @apply border-border;

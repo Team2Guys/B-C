@@ -1,0 +1,81 @@
+'use client';
+
+import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
+import FormElements from 'components/Dashboard/FormElements';
+import ViewProduct from 'components/Dashboard/Tables/ViewProduct';
+import ProtectedRoute from 'hooks/AuthHookAdmin';
+import { useState } from 'react';
+
+interface PRODUCTS_PROPS {
+  products: any
+}
+
+const Products = ({ products }: PRODUCTS_PROPS) => {
+
+
+  const [editProduct, setEditProduct] = useState<any | undefined>();
+  const [selecteMenu, setselecteMenu] = useState<string>('Add All Products');
+
+
+
+  const EditInitialValues: any = {
+    id: editProduct?.id,
+    name: editProduct?.title,
+    description: editProduct?.description,
+    salePrice: editProduct?.price ? editProduct?.price : editProduct?.salePrice,
+    discountPrice: editProduct?.discountPrice,
+    code: editProduct && editProduct.code,
+    category: editProduct && editProduct?.CategoryId,
+    subCategory: editProduct && editProduct?.subCategory,
+    Meta_Title: editProduct && editProduct?.Meta_Title,
+    Canonical_Tag: editProduct && editProduct?.Canonical_Tag,
+    Meta_Description: editProduct && editProduct?.Meta_description,
+    Images_Alt_Text: editProduct && editProduct?.Images_Alt_Text,
+    modelDetails: editProduct && editProduct?.modelDetails,
+    colors: editProduct?.colors,
+    spacification: editProduct?.spacification,
+    sizes: editProduct && editProduct?.sizes,
+    starRating: editProduct && editProduct.starRating,
+    reviews: editProduct && editProduct.starRating,
+    posterImage: editProduct && editProduct.posterImage,
+    hoverImage: editProduct && editProduct.hoverImage,
+    imageUrls: editProduct && editProduct.imageUrls,
+    additionalInformation: editProduct && editProduct.additionalInformation,
+    product_type: editProduct && editProduct.product_type,
+    short_description: editProduct && editProduct.short_description,
+    heading: editProduct && editProduct.heading,
+    Sub_Heading: editProduct && editProduct.Sub_Heading,
+    Sub_Heading_description: editProduct && editProduct.Sub_Heading_description,
+
+  };
+  let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
+
+  return (
+    <>
+      <Breadcrumb pageName={productFlag ? 'Products' : 'Add Products'} />
+      {productFlag ? (
+        <ViewProduct
+          Categories={products}
+          setselecteMenu={setselecteMenu}
+          setEditProduct={setEditProduct}
+        />
+      ) : (
+        <FormElements
+          setselecteMenu={setselecteMenu}
+          EditInitialValues={EditInitialValues}
+          setEditProduct={setEditProduct}
+          EditProductValue={
+            EditInitialValues &&
+              (EditInitialValues.name !== undefined ||
+                EditInitialValues.category !== undefined)
+              ? EditInitialValues
+              : undefined
+          }
+        />
+      )}
+    </>
+
+  );
+};
+
+export default ProtectedRoute(Products)
