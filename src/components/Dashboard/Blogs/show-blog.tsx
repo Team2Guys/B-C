@@ -46,21 +46,23 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
   };
 
   // Filter products based on search term
-  const filteredBlog: BlogInfo[] =
-  blogs?.filter((product: any) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  const filteredBlog: BlogInfo[] = 
+  blogs
+    ?.sort((a: BlogInfo, b: BlogInfo) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())  
+    .filter((blog: BlogInfo) =>
+      blog.title.toLowerCase().includes(searchTerm.toLowerCase())
     ) || [];
 
+const confirmDelete = (id: string) => {
+  Modal.confirm({
+    title: 'Are you sure you want to delete this blog?',
+    content: 'Once deleted, the blog cannot be recovered.',
+    onOk: () => handleDelete(id),
+    okText: 'Yes',
+    cancelText: 'No',
+  });
+};
 
-  const confirmDelete = (id: string) => {
-    Modal.confirm({
-      title: 'Are you sure you want to delete this blog?',
-      content: 'Once deleted, the blog cannot be recovered.',
-      onOk: () => handleDelete(id),
-      okText: 'Yes',
-      cancelText: 'No',
-    });
-  };
 
   const handleDelete = async (id: string) => {
     try {
