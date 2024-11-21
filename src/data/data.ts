@@ -1622,7 +1622,7 @@ export const extendedByStyle = [
 
   { productName: 'eyelet-curtains' },
   { productName: 'pinch-pleat-curtains' },
-  { productName: 'made-to-measure-sheer-curtains' },
+  // { productName: 'made-to-measure-sheer-curtains' },
   { productName: 'goblet-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
   { productName: 'ripplefold-wave-curtains' },
@@ -1631,7 +1631,7 @@ export const extendedByStyle = [
   { productName: 'modern-curtains' },
   { productName: 'tab-top-curtains' },
   { productName: 'pencil-pleat-curtains' },
-  { productName: 'stripes-curtains' },
+  // { productName: 'stripes-curtains' },
 
   { productName: 'full-height-shutters' },
   { productName: 'bay-window-shutters' },
@@ -1672,12 +1672,12 @@ export const extendedDynamic = [
   { productName: 'motorised-blinds' },
   { productName: 'blackout-blinds' },
   { productName: 'skylight-blinds-dubai' },
-  { productName: 'roller-blinds' },
+  // { productName: 'roller-blinds' },
   { productName: 'blackout-roller-blinds' },
   { productName: 'sunscreen-blinds' },
   { productName: 'dimout-blinds' },
   { productName: 'transculent-blinds' },
-  { productName: 'zipline-outdoor-blinds' },
+  // { productName: 'zipline-outdoor-blinds' },
 
   { productName: 'made-to-measure-chiffon-curtains' },
   { productName: 'made-to-measure-linen-curtains' },
