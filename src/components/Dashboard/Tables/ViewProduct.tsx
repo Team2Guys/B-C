@@ -56,10 +56,18 @@ const ViewProduct: React.FC<CategoryProps> = ({
 
   useEffect(() => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
+    
     if (Categories) {
-      const filtered = Categories.filter((product: Product) =>
+      
+      const sortedCategories = Categories.sort(
+        (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
+  
+      
+      const filtered = sortedCategories.filter((product: Product) =>
         product.title.toLowerCase().includes(lowercasedSearchTerm),
       );
+  
       setFilteredProducts(filtered);
     }
   }, [searchTerm, Categories]);
