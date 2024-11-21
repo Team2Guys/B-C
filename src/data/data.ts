@@ -1643,6 +1643,8 @@ export const extendedByStyle = [
   { productName: 'staircase' },
   { productName: 'cafe-style-shutters' },
 ];
+
+
 export const extendedByRoom = [
   { productName: 'kids-room-blinds' },
   { productName: 'study-room-blinds' },
