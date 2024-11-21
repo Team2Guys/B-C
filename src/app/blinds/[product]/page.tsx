@@ -46,7 +46,7 @@ const CommercialPage = () => {
     return title_flag && (Cateories.some((item:number)=>item ==sub.CategoryId))
   });
 
-  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === ChangedProductUrl(product as string),
+  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === generateSlug(ChangedProductUrl(product as string)),
   );
 
   if (subLoading || prodLoading) {
