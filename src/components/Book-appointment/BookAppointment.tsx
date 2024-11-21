@@ -421,16 +421,14 @@ console.log(rawPhone);
               WhatsApp No. If Different
             </label>
             <PhoneInput
-              country={'ae'}
-              countryCodeEditable={false}
+              className='mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none'
+              international
+              defaultCountry="AE"
+              limitMaxLength
+              countryCallingCodeEditable={false}
               value={formData.whatsapp_number}
               onChange={handlePhoneChange}
-              inputStyle={{
-                width: '100%',
-                border: '1px solid #D1D5DB',
-                fontSize: '11px',
-                borderRadius: '0.375rem',
-              }}
+             
             />
           </div>
           <div>
