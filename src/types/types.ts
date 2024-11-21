@@ -110,3 +110,24 @@ export interface ISelectedPage {
 export interface IInfo {
   selectedPage: ISelectedPage | null;
 }
+
+export interface MotorisedPageProps {
+  title: string;
+  heroImage?: any;
+  infoTitle: string;
+  infoSubtitle: string;
+  infoDescription: string;
+  infoImage?: any;
+  measureTitle: string;
+  measureDescription: string;
+  chooseUsItems: { image: any; text: string }[];
+  motorization: { text: string }[];
+  additionalDescription?: string;
+  additionalImage?: any;
+  measureTitle1: string;
+  measureDescription1:string;
+  additionalDescription2: string;
+  additionalDescription3: string;
+  chooseustitle: string;
+  chooseustitle1: string;
+}

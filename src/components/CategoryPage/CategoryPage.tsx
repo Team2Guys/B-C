@@ -17,6 +17,8 @@ import { useEffect, useState } from 'react';
 import { Button } from 'components/ui/button';
 import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
+import { ProductDiscription } from 'data/content';
+import { items } from 'data/data';
 
 
 interface ICategoryPage {
@@ -86,6 +88,15 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
     }
   };
+  const handleFilterDiscription = (product:IProduct) => {
+    const filterDiscription = ProductDiscription.find((disc) => disc.id === product.id);
+    if (filterDiscription){
+      return filterDiscription?.CategoryPageDiscription;
+    }
+    else{
+      return product.description;
+    }
+  }
 
   return (
     <div>
@@ -117,11 +128,12 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                   </span>
                 </h3>
                 <p className="text-16 xs:text-18 leading-8 mt-4 text-lightdark">
-                  {product.description}
+                  {handleFilterDiscription(product)}
+                  {/* {product.description} */}
                 </p>
               </div>
 
-              <div className="mt-5">
+              <div className="mt-10">
                 <Link
                   href={`/request-appointment`}
                   className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"

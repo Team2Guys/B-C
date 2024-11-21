@@ -37,16 +37,16 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
     return product.CategoryId === filterProduct?.CategoryId;
   });
 
-
-
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
-
-
+  const getTrimmedTitle = (title: string) => {
+    return title.replace(/^Made to measure\s+/i, ''); 
+  };
+  const trimmedProductTitle = getTrimmedTitle(title);
   
   return (
     <>
-      <TopHero title={title} pageTitle={`Made to Measure ${title}`} image={bgBreadcrum} pagename={pathName} />
+      <TopHero title={title} pageTitle={`Made to Measure ${trimmedProductTitle}`} image={bgBreadcrum} pagename={pathName} />
       <DetailInfo
         title={title ? title : ''}
         description={filterProduct?.description || ''}
@@ -58,8 +58,11 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
         <CardSkeleton />
       ) : (
         <DetailProduct
-          title={filterProduct?.Sub_Heading || ''}
-          description={filterProduct?.Sub_Heading_description || ''}
+          title={filterProduct?.Sub_Heading || title}
+          description={
+            filterProduct?.Sub_Heading_description ||
+            (filterProduct?.description && typeof filterProduct.description === 'string' ? filterProduct.description : '')
+          }
           products={filterProduct}
         />
       )}
