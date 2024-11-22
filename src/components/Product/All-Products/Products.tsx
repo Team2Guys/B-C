@@ -170,7 +170,6 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         </div>
         <div ref={productContainerRef} className="my-2" />
         <div className="" id="productContainer">
-          {/* want to show all products if all  if select By styles then distributeProducts [0] and if by rom then show discribe[1] */}
           <ProductCard products={visibleProducts} isSizeSmall={true} />
         </div>
 

@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
+import { urls } from 'data/urls';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { ICategory, IProduct } from 'types/types';
+import { string } from 'yup';
 
 interface ProductCardDataProps {
   products: IProduct[];
@@ -28,9 +30,21 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
   });
 
   const getTrimmedTitle = (title: string) => {
-    return title.replace(/^Made to measure\s+/i, ''); 
+    return title.replace(/^Made to measure\s+/i, '');
   };
 
+
+  const ChangedProductUrl = (title: string): string => {
+    console.log(title, 'title')
+
+    let products = urls.find((url: { productName: string, Url: string }) => {
+      return (url.productName === title)
+    })
+
+    return products ? products.Url : generateSlug(title)
+
+
+  }
   return (
     <div
       className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${isSizeSmall && 'lg:grid-cols-4'} gap-5 p-1 md:p-0 mt-5`}
@@ -67,7 +81,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
                 <button
                   onClick={() => {
                     route.push(
-                      `/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(product.title)}`,
+                      `/${parent === 'shutters' ? `${parent}-range` : parent}/${ChangedProductUrl(product.title)}`,
                     );
                   }}
                   className="bg-transparent border border-white group-hover:bg-primary group-hover:border-primary text-black group-hover:text-white py-3 px-5 rounded-md"
