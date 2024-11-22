@@ -21,14 +21,6 @@ const CommercialPage = () => {
     queryFn: fetchSubCategories,
   });
 
-  type Person = {
-    blind: number,
-    shutter: number,
-    curtains: number,
-    commercial: number
-  };
-
-
   const Cateories = [2]
 
 
@@ -46,7 +38,7 @@ const CommercialPage = () => {
     return title_flag && (Cateories.some((item:number)=>item ==sub.CategoryId))
   });
 
-  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === generateSlug(ChangedProductUrl(product as string)),
+  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === (ChangedProductUrl(product as string)),
   );
 
   if (subLoading || prodLoading) {
