@@ -85,7 +85,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       queryClient.invalidateQueries(['blogs']);
     } catch (error) {
       showToast('warn', 'There was an error deleting the blog😢');
-      console.error('Error while deleting blog:', error);
+      
     }
   };
   const sortedBlogs = blogs?.sort(

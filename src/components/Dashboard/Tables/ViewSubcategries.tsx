@@ -61,7 +61,6 @@ const ViewSubcategries = ({
     setSearchTerm(e.target.value);
   };
 
-  // Filter products based on search term
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {

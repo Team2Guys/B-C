@@ -22,6 +22,9 @@ import {
 import { RxCross2 } from 'react-icons/rx';
 import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Image from 'next/image';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import MyEditor from './custom-editor';
 
 class MyUploadAdapter {
   private loader: any;
@@ -251,7 +254,7 @@ const AddBlogs = ({
             )}
           </div>
 
-          <CKEditor
+          {/* <CKEditor
             editor={ClassicEditor}
             config={{
               extraPlugins: [MyCustomUploadAdapterPlugin],
@@ -291,7 +294,8 @@ const AddBlogs = ({
               const data = editor.getData();
               setFieldValue('content', data);
             }}
-          />
+          /> */}
+          <MyEditor setFieldValue={setFieldValue} values={values} />
 
           <Button
             disabled={addBlogMutation.isPending ? true : false}
