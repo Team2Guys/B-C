@@ -21,14 +21,6 @@ const CommercialPage = () => {
     queryFn: fetchSubCategories,
   });
 
-  type Person = {
-    blind: number,
-    shutter: number,
-    curtains: number,
-    commercial: number
-  };
-
-
   const Cateories = [2]
 
 
@@ -42,12 +34,11 @@ const CommercialPage = () => {
   const filteredSubCategory = subCategories?.find((sub) => {
 
     let title = ChangedProductUrl(product as string)
-    console.log(title, "title")
-   let title_flag = title ===sub.title
+   let title_flag = title ===generateSlug(sub.title)
     return title_flag && (Cateories.some((item:number)=>item ==sub.CategoryId))
   });
 
-  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === ChangedProductUrl(product as string),
+  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === (ChangedProductUrl(product as string)),
   );
 
   if (subLoading || prodLoading) {

@@ -1,3 +1,4 @@
+import { generateSlug } from "./data"
 
 export const urls = [
     {
@@ -28,17 +29,34 @@ export const urls = [
       productName : "Solid Panel Shutters",
       Url : "solid-panel-shutters-plantation-shutters-dubai"
     },
+    {
+      productName : "Kids Prints Curtains",
+      Url : "curtain-prints-for-kids"
+    },
     ]
 
 
-
-export  const ChangedProductUrl = (title: string): string => {
+export const ChangedProductUrl = (title: string): string => {
 
     let products = urls.find((url: { productName: string, Url: string }) => {
-      return (url.Url === title)
+        return (url.Url === title)
     })
+let flag = products ? generateSlug(products.productName) : title
+console.log(flag, "title", title)
+    return flag
 
-    return products ? products.productName :title
+
+}
 
 
-  }
+export const ChangedProductUrl_handler = (title: string): string => {
+  console.log(title, 'title')
+
+  let products = urls.find((url: { productName: string, Url: string }) => {
+    return (url.productName === title)
+  })
+
+  return products ? products.Url : generateSlug(title)
+
+
+}

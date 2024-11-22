@@ -34,11 +34,11 @@ export const ordercolumns = [
 ];
 
 export const appointmentColumns = [
-  {
-    title: 'ID',
-    dataIndex: 'id',
-    width: 60,
-  },
+  // {
+  //   title: 'ID',
+  //   dataIndex: 'id',
+  //   width: 60,
+  // },
   {
     title: 'Name',
     dataIndex: 'name',

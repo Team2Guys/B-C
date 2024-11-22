@@ -1213,7 +1213,7 @@ export const blindMegaMenuItems = [
 
 export const curtainMegaMenuItems = [
   { productName: 'pencil-pleat-curtains' },
-  { productName: 'ripplefold-curtains' },
+  { productName: 'ripplefold-wave-curtains' },
   { productName: 'tab-top-curtains' },
   { productName: 'eyelet-curtains' },
   { productName: 'double-pinch-pleat-curtains' },
@@ -1511,7 +1511,7 @@ export const megaMenubyStyle = [
   { productName: 'full-height-shutters' },
 
   { productName: 'pencil-pleat-curtains' },
-  { productName: 'ripplefold-curtains' },
+  { productName: 'ripplefold-wave-curtains' },
   { productName: 'tab-top-curtains' },
   { productName: 'eyelet-curtains' },
   { productName: 'double-pinch-pleat-curtains' },
