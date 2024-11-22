@@ -42,6 +42,7 @@ const CommercialPage = () => {
   const filteredSubCategory = subCategories?.find((sub) => {
 
     let title = ChangedProductUrl(product as string)
+    console.log(title, "title")
    let title_flag = title ===sub.title
     return title_flag && (Cateories.some((item:number)=>item ==sub.CategoryId))
   });
