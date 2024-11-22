@@ -74,7 +74,7 @@ const confirmDelete = (id: string) => {
       queryClient.invalidateQueries(['blogs']);
     } catch (error) {
       showToast('warn', 'There was an error deleting the blog😢');
-      console.error('Error while deleting blog:', error);
+      
     }
   };
   const sortedBlogs = blogs?.sort(
