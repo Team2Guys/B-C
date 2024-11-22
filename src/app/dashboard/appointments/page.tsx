@@ -15,7 +15,7 @@ import { Table } from 'antd';
 const Appointments = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filteredAppointments, setFilteredAppointments] = useState<IAppointments[]>([]);
-console.log(filteredAppointments,"filteredAppointmentsfilteredAppointments")
+
   const admin = Cookies.get('2guysAdminToken') || '';
   const super_admin = Cookies.get('superAdminToken') || '';
   const token = admin || super_admin;
@@ -46,7 +46,7 @@ console.log(filteredAppointments,"filteredAppointmentsfilteredAppointments")
     const formattedTime = date.toLocaleTimeString('en-US', {
       hour: '2-digit',
       minute: '2-digit',
-      hour12: true,  // 24-hour format
+      hour12: true,  
     });
   
     return `${formattedDate} / ${formattedTime}`;
@@ -57,21 +57,29 @@ console.log(filteredAppointments,"filteredAppointmentsfilteredAppointments")
   useEffect(() => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
     if (appointments) {
-      const filtered = appointments.map((appointment: IAppointments) => ({
-        ...appointment,
-        prefered_Date: formatDate(appointment.prefered_Date),
-      })).filter((appointment: IAppointments) =>
-        appointment.name.toLowerCase().includes(lowercasedSearchTerm) ||
-        appointment.area.toLowerCase().includes(lowercasedSearchTerm) ||
-        appointment.email.toLowerCase().includes(lowercasedSearchTerm) ||
-        appointment.phone_number.toLowerCase().includes(lowercasedSearchTerm) ||
-        appointment.whatsapp_number.toLowerCase().includes(lowercasedSearchTerm) ||
-        appointment.windows?.toLowerCase().includes(lowercasedSearchTerm) ||
-        appointment.how_user_find_us?.toLowerCase().includes(lowercasedSearchTerm) ||
-        appointment.user_query?.toLowerCase().includes(lowercasedSearchTerm) ||
-        appointment.prefered_Date.toLowerCase().includes(lowercasedSearchTerm)
+     
+      const filtered = appointments
+        .map((appointment: IAppointments) => ({
+          ...appointment,
+          prefered_Date: formatDate(appointment.prefered_Date), 
+        }))
+        .filter((appointment: IAppointments) =>
+          appointment.name.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.area.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.email.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.phone_number.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.whatsapp_number.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.windows?.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.how_user_find_us?.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.user_query?.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.prefered_Date.toLowerCase().includes(lowercasedSearchTerm)
+        );
+
+      const sortedFilteredAppointments = filtered.sort(
+        (a, b) => new Date(b.prefered_Date).getTime() - new Date(a.prefered_Date).getTime()
       );
-      setFilteredAppointments(filtered);
+
+      setFilteredAppointments(sortedFilteredAppointments);
     }
   }, [searchTerm, appointments]);
   

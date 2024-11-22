@@ -35,6 +35,7 @@ export interface ICategory {
   id: number;
   posterImage: PosterImage;
   products : []
+  createdAt:Date
 
 
 }
