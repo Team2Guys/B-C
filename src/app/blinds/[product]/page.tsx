@@ -8,6 +8,7 @@ import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
+import { ChangedProductUrl, urls } from 'data/urls';
 import { useParams, usePathname } from 'next/navigation';
 import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
 
@@ -20,15 +21,7 @@ const CommercialPage = () => {
     queryFn: fetchSubCategories,
   });
 
-  type Person = {
-    blind: number,
-  shutter: number,
-  curtains : number, 
-  commercial : number
-  };
-  
-
-const Cateories = [2]
+  const Cateories = [2]
 
 
   const { data: products, isLoading: prodLoading } = useQuery<IProduct[]>({
@@ -36,12 +29,16 @@ const Cateories = [2]
     queryFn: fetchProducts,
   });
 
-  const filteredSubCategory = subCategories?.find((sub) => (generateSlug(sub.title) === product) && (Cateories.some((item:number)=>item ==sub.CategoryId)));
-
-  console.log(filteredSubCategory, "relatedProducts",subCategories)
 
 
-  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === product,
+  const filteredSubCategory = subCategories?.find((sub) => {
+
+    let title = ChangedProductUrl(product as string)
+   let title_flag = title ===generateSlug(sub.title)
+    return title_flag && (Cateories.some((item:number)=>item ==sub.CategoryId))
+  });
+
+  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === (ChangedProductUrl(product as string)),
   );
 
   if (subLoading || prodLoading) {

@@ -29,6 +29,9 @@ const Page = () => {
   const relatedProducts = products?.filter((prod) => prod.SubCategoryId === filteredSubCategory?.id,
   );
 
+  console.log(subproduct, "subproduct"
+  )
+
   const filteredProduct = products?.find((prod) => generateSlug(prod.title) === subproduct,);
 
   if (subLoading || prodLoading) {
