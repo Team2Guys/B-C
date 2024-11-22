@@ -28,7 +28,6 @@ interface CategoryProps {
   Categories: Product[]
   setselecteMenu: (menu: string) => void;
   setEditProduct: React.Dispatch<SetStateAction<Product | undefined>>;
-  createdAt: string | Date | number; 
 }
 
 const ViewProduct: React.FC<CategoryProps> = ({
