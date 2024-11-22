@@ -34,9 +34,8 @@ import { useQuery } from '@tanstack/react-query';
 import { ICategory, ISUBCATEGORY } from 'types/types';
 import { fetchCategories, fetchSubCategories } from 'config/fetch';
 import showToast from 'components/Toaster/Toaster';
-import { revalidatePath } from 'next/cache'
+import { revalidatePath } from 'next/cache';
 import revalidateTag from 'components/ServerActons/ServerAction';
-
 
 const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   EditInitialValues,
@@ -69,8 +68,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
-
-
 
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
@@ -174,11 +171,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       if (selectedSubcategoryIds.length > 0) {
         updatedvalue = {
           ...updatedvalue,
-          subCategory: updateFlag ? {
-            set: selectedSubcategoryIds.map((id) => ({ id })),
-          } : {
-            connect: selectedSubcategoryIds.map((id) => ({ id })),
-          },
+          subCategory: updateFlag
+            ? {
+                set: selectedSubcategoryIds.map((id) => ({ id })),
+              }
+            : {
+                connect: selectedSubcategoryIds.map((id) => ({ id })),
+              },
         };
       }
 
@@ -193,7 +192,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
           },
         },
       );
-      revalidateTag("calculatePrices")
+      revalidateTag('calculatePrices');
 
       showToast(
         'success',
@@ -224,7 +223,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     }
   };
 
-
   const handleImageIndex = (index: number, newImageIndex: number) => {
     const updatedImagesUrl = imagesUrl.map((item, i) =>
       i === index ? { ...item, imageIndex: newImageIndex } : item,
@@ -252,7 +250,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     setposterimageUrl(updatedImagesUrl);
   };
 
-
   const {
     data: categoriesList = [],
     error,
@@ -276,7 +273,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   >([]);
 
   useEffect(() => {
-
     const filteredSubcategories = subCategoriesList.filter((subcategory) =>
       selectedCategoryIds.includes(subcategory.CategoryId),
     );
@@ -421,7 +417,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         ) : null}
                       </div>
 
-
                       <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                           Short Description{' '}
@@ -450,7 +445,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         ) : null}
                       </div>
 
-  <div>
+                      <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                           Heading{' '}
                         </label>
@@ -460,14 +455,12 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           value={formik.values.heading}
                           placeholder="Heading Text"
                           className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.heading &&
-                            formik.errors.heading
+                            formik.touched.heading && formik.errors.heading
                               ? 'border-red-500'
                               : ''
                           }`}
                         />
-                        {formik.touched.heading &&
-                        formik.errors.heading ? (
+                        {formik.touched.heading && formik.errors.heading ? (
                           <div className="text-red text-sm">
                             {
                               formik.errors.heading as FormikErrors<
@@ -477,9 +470,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           </div>
                         ) : null}
                       </div>
-
-
-
 
                       <div className="flex full gap-4">
                         <div className="w-[50%]">
@@ -539,8 +529,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </div>
                       </div>
 
-              
-
                       <div className="w-full">
                         <label className="mb-3 block py-4 px-2 text-sm font-medium text-black dark:text-white">
                           Select Parent Category (at least one)
@@ -585,7 +573,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         )}
                       </div>
                       <div className="mt-4">
-                        <h2 className="text-lg font-medium dark:text-white">Subcategories</h2>
+                        <h2 className="text-lg font-medium dark:text-white">
+                          Subcategories
+                        </h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                           {filteredSubcategories.map((subcategory) => (
                             <div
@@ -729,24 +719,19 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                 </div>
 
                 <div className="flex flex-col gap-5">
-
                   <div className="p-4 rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
-
-                    
                     <div className="mb-4 text-black dark:text-white">
                       <label className="block text-sm font-medium text-black dark:text-white mb-2">
                         Add Stock Quantity
                       </label>
                     </div>
 
-
-
                     {VariationOption === 'withoutVariation' && (
                       <>
                         {withoutVariation.map((inputField, index) => (
                           <div key={index} className="mb-4">
                             <Field
-                            placeholder="Add Stock Quantity"
+                              placeholder="Add Stock Quantity"
                               type={inputField.type}
                               name={inputField.name}
                               className="w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary "
@@ -762,71 +747,62 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                     )}
                   </div>
                   <div className="p-4 rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
-
-                    
-
-<div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                    <div>
+                      <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                         Sub Heading
-                        </label>
-                        <textarea
-                          name="Sub_Heading"
-                          onChange={formik.handleChange}
-                          value={formik.values.Sub_Heading}
-                          placeholder="Sub Heading"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.Sub_Heading &&
-                            formik.errors.Sub_Heading
-                              ? 'border-red-500'
-                              : ''
-                          }`}
-                        />
-                        {formik.touched.Sub_Heading &&
-                        formik.errors.Sub_Heading ? (
-                          <div className="text-red text-sm">
-                            {
-                              formik.errors.heading as FormikErrors<
-                                FormValues['Sub_Heading']
-                              >
-                            }
-                          </div>
-                        ) : null}
-                      </div>
+                      </label>
+                      <textarea
+                        name="Sub_Heading"
+                        onChange={formik.handleChange}
+                        value={formik.values.Sub_Heading}
+                        placeholder="Sub Heading"
+                        className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                          formik.touched.Sub_Heading &&
+                          formik.errors.Sub_Heading
+                            ? 'border-red-500'
+                            : ''
+                        }`}
+                      />
+                      {formik.touched.Sub_Heading &&
+                      formik.errors.Sub_Heading ? (
+                        <div className="text-red text-sm">
+                          {
+                            formik.errors.heading as FormikErrors<
+                              FormValues['Sub_Heading']
+                            >
+                          }
+                        </div>
+                      ) : null}
+                    </div>
 
-
-
-                      <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                    <div>
+                      <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                         Sub Heading Description
-                        </label>
-                        <textarea
-                          name="Sub_Heading_description"
-                          onChange={formik.handleChange}
-                          value={formik.values.Sub_Heading_description}
-                          placeholder="Sub Heading Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.Sub_Heading_description &&
-                            formik.errors.Sub_Heading_description
-                              ? 'border-red-500'
-                              : ''
-                          }`}
-                        />
-                        {formik.touched.Sub_Heading_description &&
-                        formik.errors.Sub_Heading_description ? (
-                          <div className="text-red text-sm">
-                            {
-                              formik.errors.heading as FormikErrors<
-                                FormValues['Sub_Heading_description']
-                              >
-                            }
-                          </div>
-                        ) : null}
-                      </div>
-
-
-</div>
-
-
+                      </label>
+                      <textarea
+                        name="Sub_Heading_description"
+                        onChange={formik.handleChange}
+                        value={formik.values.Sub_Heading_description}
+                        placeholder="Sub Heading Description"
+                        className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                          formik.touched.Sub_Heading_description &&
+                          formik.errors.Sub_Heading_description
+                            ? 'border-red-500'
+                            : ''
+                        }`}
+                      />
+                      {formik.touched.Sub_Heading_description &&
+                      formik.errors.Sub_Heading_description ? (
+                        <div className="text-red text-sm">
+                          {
+                            formik.errors.heading as FormikErrors<
+                              FormValues['Sub_Heading_description']
+                            >
+                          }
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
 
                   <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
                     <div className="border-b border-stroke p-4 dark:border-strokedark">
@@ -886,12 +862,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                         ${
                                           formik.touched.modelDetails &&
                                           (
-                                            formik.touched.modelDetails as FormikTouched<
+                                            formik.touched
+                                              .modelDetails as FormikTouched<
                                               FormValues['modelDetails']
                                             >
                                           )?.[index]?.detail &&
                                           (
-                                            formik.errors.modelDetails as FormikErrors<
+                                            formik.errors
+                                              .modelDetails as FormikErrors<
                                               FormValues['modelDetails']
                                             >
                                           )?.[index]?.detail
@@ -924,9 +902,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                       </FieldArray>
                     </div>
                   </div>
-
-
-
 
                   <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
                     <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">

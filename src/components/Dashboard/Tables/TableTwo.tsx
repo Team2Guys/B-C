@@ -37,7 +37,7 @@ const TableTwo = ({
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
-let token = admin_token ? admin_token: super_admin_token
+  let token = admin_token ? admin_token : super_admin_token;
 
   const [category, setCategory] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -70,13 +70,12 @@ let token = admin_token ? admin_token: super_admin_token
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
         );
         const categories = await response.json();
-  
-        
+
         const sortedCategories = categories.sort(
-          (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+          (a: any, b: any) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
         );
-  
-       
+
         setCategory(sortedCategories);
         setLoading(false);
       } catch (err) {
@@ -84,16 +83,15 @@ let token = admin_token ? admin_token: super_admin_token
         setLoading(false);
       }
     };
-  
+
     CategoryHandler();
   }, []);
-  
+
   // Filter products based on search term
   const filteredProducts: Product[] =
     category?.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
     ) || [];
-  
 
   const confirmDelete = (key: any) => {
     Modal.confirm({
