@@ -23,12 +23,14 @@ const CommercialPage = () => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
+  
   const filteredSubCategory = subCategories?.find((sub) => (generateSlug(sub.title) === ChangedProductUrl(product as string)) && (Cateories.some((item:number)=>item ==sub.CategoryId)));
 
-  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === ChangedProductUrl(product as string),
+  const filteredProduct = products?.find((prod) => generateSlug(prod.title) ===ChangedProductUrl(product as string),
   );
 
-  console.log(filteredSubCategory, "filteredSubCategory")
+console.log(filteredSubCategory, "title")
+
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;

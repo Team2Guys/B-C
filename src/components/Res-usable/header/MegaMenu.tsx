@@ -10,6 +10,7 @@ import {
   megaMenubyStyle,
   megaMenuDynamic,
 } from 'data/data';
+import { ChangedProductUrl_handler } from 'data/urls';
 
 interface MegaMenuProps {
   title: string;
@@ -188,7 +189,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     </p>
                     {distributedProducts[index]?.map(
                       (item: any, index: number) => {
-                    console.log(item, "item")
+                    console.log(item.href, "item")
                         return (
                           <>
                             {' '}
@@ -196,10 +197,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                               key={index}
                               onMouseEnter={() => setactiveProduct(item)}
                               onClick={() => {
-                                const slug = generateSlug(item.title);
-                                const basePath = item.href
-                                  ? `${window.origin}/${item.href}`
-                                  : `/${slug}`;
+                                const slug = ChangedProductUrl_handler(item.title);
+                         const basePath = item.href ? `${window.origin}/${item.href}`: `/${slug}`;
 
                                 let path;
 
