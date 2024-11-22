@@ -30,8 +30,8 @@ export const urls = [
       Url : "solid-panel-shutters-plantation-shutters-dubai"
     },
     {
-      productName : "Staircase Curtains",
-      Url : "blinds-for-kids-room"
+      productName : "Kids Prints Curtains",
+      Url : "curtain-prints-for-kids"
     },
     ]
 
@@ -44,6 +44,19 @@ export const ChangedProductUrl = (title: string): string => {
 let flag = products ? generateSlug(products.productName) : title
 console.log(flag, "title", title)
     return flag
+
+
+}
+
+
+export const ChangedProductUrl_handler = (title: string): string => {
+  console.log(title, 'title')
+
+  let products = urls.find((url: { productName: string, Url: string }) => {
+    return (url.productName === title)
+  })
+
+  return products ? products.Url : generateSlug(title)
 
 
 }

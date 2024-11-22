@@ -70,14 +70,18 @@ const Blog: React.FC = () => {
       <Header />
       <TopHero title="Blogs" image={bgBreadcrum} pagename={pathName} />
 
-      <div className='max-w-screen-xl mx-auto mt-10 px-4'>
-        <input
-          className='w-full px-4 py-4 rounded-md ring-2 ring-secondary outline-none'
-          type='search'
-          placeholder='Search Here...'
-          value={searchTerm}
-          onChange={handleSearch}
+
+      <div className=' lg:max-w-[90%] 2xl:max-w-screen-2xl mx-auto px-2  overflow-hidden mt-10'>
+      <form className="relative w-max border border-secondary rounded-xl" onSubmit={(e)=>e.preventDefault()}>
+        <input type="search" className="peer cursor-pointer relative z-10 h-9 w-9 rounded-xl  bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:pl-12 focus:pr-4"
+         placeholder='Search Here...'
+         value={searchTerm}
+         onChange={handleSearch}
         />
+        <svg xmlns="http://www.w3.org/2000/svg" className="absolute inset-y-0 my-auto h-12 w-12  border-transparent stroke-gray-500 px-3 peer-focus:border-secondary peer-focus:stroke-secondary" fill="none" viewBox="0 0 22 22" stroke="currentColor" strokeWidth={3}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </form>
       </div>
 
       <div ref={popularPostRef}>
