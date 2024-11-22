@@ -1,5 +1,6 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
+import OurBlog from 'components/Blogs/our-blog';
 import Container from 'components/Res-usable/Container/Container';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import Comments from 'components/comments/Comments';
@@ -26,8 +27,14 @@ const BlogDetail = () => {
   if (error || isLoading) {
     return <PageSkelton />;
   }
-
+console.log(blogs,"blogsblogs")
   const blog: any = blogs?.find((blog) => generateSlug(blog.title) === name);
+
+  const filterRelatedPosts = blogs
+  ?.filter((blogItem) => blogItem.category === blog.category && generateSlug(blogItem.title) !== generateSlug(blog.title))
+  .slice(0, 3);
+
+
 
   if (!blog) {
     return <p>Blog not found.</p>;
@@ -56,6 +63,11 @@ const BlogDetail = () => {
         <span dangerouslySetInnerHTML={{ __html: blog.content }} />
       </div>
       <Comments data={blog} />
+
+      <div className='mt-10'>
+        <h3 className=" text-28 md:text-[48px] font-semibold">Related Articles</h3>
+          <OurBlog  Blogdata={filterRelatedPosts || []} />
+      </div>
     </Container>
   );
 };
