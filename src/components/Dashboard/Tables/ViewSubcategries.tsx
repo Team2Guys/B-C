@@ -63,7 +63,7 @@ const ViewSubcategries = ({
     setSearchTerm(e.target.value);
   };
 
-  // Filter products based on search term
+  
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
@@ -90,7 +90,7 @@ const ViewSubcategries = ({
     CategoryHandler();
   }, []);
   
-  // Filter products based on search term
+  
   const filteredProducts: Product[] =
     category?.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
