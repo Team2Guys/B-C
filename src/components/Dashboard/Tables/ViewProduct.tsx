@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SetStateAction } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -9,27 +9,26 @@ import { FaRegEye } from 'react-icons/fa';
 import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import { generateSlug } from 'data/data';
-import Loader from 'components/Loader/Loader';
 import Cookies from 'js-cookie';
-import TableSkeleton from './TableSkelton';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories } from 'config/fetch';
 import { revalidatePath } from 'next/cache';
 import revalidateTag from 'components/ServerActons/ServerAction';
 
-interface Product {
-  id: string;
+interface Product extends IProduct {
+  id: number;
   title: string;
   category: string;
   posterImage: { imageUrl: string };
   createdAt: string;
+  CategoryId: number;
 }
 
 interface CategoryProps {
-  Categories: any;
+  Categories: Product[];
   setselecteMenu: (menu: string) => void;
-  setEditProduct: any;
+  setEditProduct: React.Dispatch<SetStateAction<Product | undefined>>;
 }
 
 const ViewProduct: React.FC<CategoryProps> = ({
@@ -49,6 +48,15 @@ const ViewProduct: React.FC<CategoryProps> = ({
     setSearchTerm(e.target.value);
   };
 
+  const {
+    data: categories,
+    error: categoriesError,
+    isLoading: isLoadingCategories,
+  } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
+
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
 
   const canAddProduct =
@@ -64,12 +72,12 @@ const ViewProduct: React.FC<CategoryProps> = ({
     const lowercasedSearchTerm = searchTerm.toLowerCase();
 
     if (Categories) {
-      const sortedCategories = Categories.sort(
-        (a: any, b: any) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-      );
+      console.log(Categories, 'Categories');
 
-      const filtered = sortedCategories.filter((product: Product) =>
+      const filtered = Categories.sort(
+        (a: Product, b: Product) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+      ).filter((product: Product) =>
         product.title.toLowerCase().includes(lowercasedSearchTerm),
       );
 
@@ -77,7 +85,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
     }
   }, [searchTerm, Categories]);
 
-  const confirmDelete = (key: any) => {
+  const confirmDelete = (key: number) => {
     Modal.confirm({
       title: 'Are you sure you want to delete this product?',
       content: 'Once deleted, the product cannot be recovered.',
@@ -87,7 +95,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
     });
   };
 
-  const handleDelete = async (key: string) => {
+  const handleDelete = async (key: number) => {
     try {
       await axios.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/delete_product/${key}`,
@@ -110,14 +118,6 @@ const ViewProduct: React.FC<CategoryProps> = ({
       });
     }
   };
-  const {
-    data: categories,
-    error: categoriesError,
-    isLoading: isLoadingCategories,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
 
   const columns = [
     {
@@ -151,7 +151,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
       title: 'Time',
       dataIndex: 'createdAt',
       key: 'time',
-      render: (text: any, record: Product) => {
+      render: (text: string, record: Product) => {
         const createdAt = new Date(record.createdAt);
         return <span>{createdAt.toLocaleTimeString()}</span>;
       },
@@ -159,8 +159,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
     {
       title: 'Preview',
       key: 'Preview',
-      render: (text: any, record: Product) => {
-        //@ts-expect-error
+      render: (text: string, record: Product) => {
         const category = categories?.find((i) => i.id === record.CategoryId);
         if (category === undefined) return null;
         const parent = generateSlug(category?.title);
