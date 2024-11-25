@@ -198,7 +198,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                               onMouseEnter={() => setactiveProduct(item)}
                               onClick={() => {
                                 const slug = ChangedProductUrl_handler(item.title);
-                         const basePath = item.href ? `${window.origin}/${item.href}`: `/${slug}`;
+                              const basePath = item.href ? `${window.origin}/${item.href}`: `/${slug}`;
 
                                 let path;
 
@@ -217,12 +217,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                               }}
                               className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
                             >
-                         { ((title == 'Blinds' || title == 'Curtains') && itemName == 'By Room')
+                         {
+                              ((title == 'Blinds' || title == 'Curtains' || title == 'Shutters') && itemName == 'By Room') 
                                 ? item.title.replace(
-                                    title == 'Blinds' ? 'Blinds' : 'Curtains',
-                                    '',
+                                    title == 'Blinds' ? 'Blinds' : title == 'Curtains' ? 'Curtains' : 'Shutters', 
+                                    ''
                                   )
-                                : item.title}
+                                : item.title
+                            }
+
                             </p>
                           </>
                         );
