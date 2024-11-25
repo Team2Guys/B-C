@@ -26,10 +26,12 @@ interface SLIDERPROPS {
   PextArrow?: ComponentType<any>;
   PrevArrow?: ComponentType<any>;
   className?: string;
+  colorSlider?: boolean;
 }
 
 function CustomSlider({
   children,
+  colorSlider,
   PextArrow,
   PrevArrow,
   className,
@@ -37,7 +39,7 @@ function CustomSlider({
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: colorSlider ? 9 : 1,
     slidesToScroll: 1,
     nextArrow: PextArrow ? <PextArrow /> : undefined,
     prevArrow: PrevArrow ? <PrevArrow /> : undefined,
