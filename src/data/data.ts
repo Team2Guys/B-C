@@ -1247,7 +1247,6 @@ export const shutterMegaMenuItems = [
   { productName: 'bi-fold-shutters' },
   { productName: 'tracked-shutters' },
   { productName: 'full-height-shutters' },
-
   { productName: 'staircase-shutters' },
   { productName: 'bathroom-shutters' },
   { productName: 'kitchen-shutters' },
