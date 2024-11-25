@@ -19,7 +19,6 @@ const OurBlog = ({
   title,
   Blogdata,
   id,
-  isFirstItemLarge = false,
   buttonView = false,
 }: BlogProps) => {
   const route = useRouter();
@@ -48,67 +47,45 @@ const OurBlog = ({
           const filteredContent = removeImagesFromContent(blog.content);
           return (
             <div
-              className={`rounded-lg space-y-4 mt-5 ${className} ${
-                isFirstItemLarge && index === 0
-                  ? 'md:col-span-3 flex flex-col md:flex-row gap-5'
-                  : ''
-              }`}
+              className={`rounded-lg space-y-4 mt-5 flex flex-col justify-between ${className} `}
               key={index}
+              onClick={() => {
+                route.push(`/blog/${generateSlug(blog.title)}`);
+              }}
             >
               <div
-                className={`${
-                  isFirstItemLarge && index === 0 ? 'w-full lg:w-6/12' : ''
-                }`}
+                className={``}
               >
                 <Image
-                  className={`rounded-3xl md:h-[353.9px] w-full ${className} ${
-                    isFirstItemLarge && index === 0
-                      ? 'md:h-[448.28px] w-full'
-                      : ''
-                  } cursor-pointer`}
-                  width={500}
-                  height={500}
+                  className={`rounded-3xl md:h-[353.9px] w-full ${className} cursor-pointer`}
+                  width={700}
+                  height={700}
                   //@ts-expect-error
                   src={blog.posterImage?.imageUrl}
                   alt="blog"
-                  onClick={() => {
-                    route.push(`/blog/${generateSlug(blog.title)}`);
-                  }}
+                  
                 />
-              </div>
-              <div
-                className={`pt-1${
-                  isFirstItemLarge && index === 0 ? 'w-full lg:w-6/12' : ''
-                }`}
-              >
-                <div className="flex items-center gap-4 ">
+                <div className="flex items-center gap-4  pt-5">
                   <span className="text-12 font-medium text-[#999999]">
                     {formatDateMonth(blog.createdAt)}
                   </span>
                 </div>
                 <h3
-                  className="text-24 font-bold cursor-pointer"
+                  className="text-20 font-bold cursor-pointer"
                   onClick={() => {
                     route.push(`/blog/${generateSlug(blog.title)}`);
                   }}
                 >
                   {blog.title}
                 </h3>
-                <p className="mb-3">
+                <p className="">
                   {filteredContent.length > 160 ? (
-                    isFirstItemLarge && index === 0 ? (
                       <span
                         dangerouslySetInnerHTML={{
-                          __html: `${filteredContent.slice(0, 800)}...`,
+                          __html: `${filteredContent.slice(0, 100)}...`,
                         }}
                       />
-                    ) : (
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: `${filteredContent.slice(0, 160)}...`,
-                        }}
-                      />
-                    )
+                    
                   ) : (
                     <span
                       dangerouslySetInnerHTML={{ __html: filteredContent }}
@@ -116,17 +93,13 @@ const OurBlog = ({
                   )}
                 </p>
 
+              </div>
                 <Link
                   href={`/blog/${generateSlug(blog.title)}`}
-                  className={`text-primary text-18   ${
-                    isFirstItemLarge && index === 0
-                      ? 'border border-primary rounded-md bg-white px-3 py-2 '
-                      : 'underline font-bold'
-                  }`}
+                  className={`text-primary text-18 underline font-bold`}
                 >
                   Read More
                 </Link>
-              </div>
             </div>
           );
         })}
