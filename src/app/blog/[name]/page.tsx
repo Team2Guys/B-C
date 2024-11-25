@@ -27,7 +27,6 @@ const BlogDetail = () => {
   if (error || isLoading) {
     return <PageSkelton />;
   }
-console.log(blogs,"blogsblogs")
   const blog: any = blogs?.find((blog) => generateSlug(blog.title) === name);
 
   const filterRelatedPosts = blogs
