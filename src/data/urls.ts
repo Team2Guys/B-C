@@ -22,7 +22,7 @@ export const urls = [
       Url : "special-shape-shutters-wooden-shutters"
     },
     {
-      productName : "Tier On Tier Shutters",
+      productName : "Tier On Tier Shutters Wooden Shutters",
       Url : "tier-on-tier-shutters-wooden-shutters"
     },
     {
@@ -32,6 +32,55 @@ export const urls = [
     {
       productName : "Kids Prints Curtains",
       Url : "curtain-prints-for-kids"
+    },
+    {
+      productName : "Wood Venetian",
+      Url : "wooden-venetian"
+    },
+    {
+      productName : "Transculent Blinds",
+      Url : "translucent-blinds"
+    },
+    {
+      productName : "Double Pinch Pleat",
+      Url : "double-pleat-curtains"
+    },
+    {
+      productName : "Velvet Curtains",
+      Url : "velvet-curtains"
+    },
+    {
+      productName : "Office Curtains",
+      Url : "office-window-curtains"
+    },
+    {
+      productName : "Staircase Shutters",
+      Url : "staircase-shutters"
+    },
+    {
+      productName : "White Shutters",
+      Url : "white-shutters"
+    },
+    {
+      productName : "Off White Shutters",
+      Url : "off-white-shutters"
+    },
+    
+    {
+      productName : "Black Shutters",
+      Url : "black-shutters"
+    },
+    {
+      productName : "Dark Woods Shutters",
+      Url : "dark-wood-shutters"
+    },
+    {
+      productName : "Bold Colours Shutters",
+      Url : "bold-colours-shutters"
+    },
+    {
+      productName : "Grey Shutters",
+      Url : "grey-shutters"
     },
     ]
 
