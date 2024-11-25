@@ -1252,7 +1252,6 @@ export const shutterMegaMenuItems = [
   { productName: 'bathroom-shutters' },
   { productName: 'kitchen-shutters' },
   { productName: 'dining-room-shutters' },
-  { productName: 'living-room-shutters' },
 ];
 
 export const commercialMegaMenuItems = [
@@ -1538,11 +1537,12 @@ export const megaMenubyRoom = [
   { productName: 'living-room-blinds' },
   { productName: 'officestudy' },
 
-  // { productName: 'staircase-shutters' },
-  // { productName: 'bathroom-shutters' },
-  // { productName: 'kitchen-shutters' },
-  // { productName: 'dining-room-shutters' },
-  // { productName: 'living-room-shutters' },
+  { productName: 'living-room-shutters' },
+  { productName: 'dining-room-shutters' },
+  { productName: 'kitchen-shutters' },
+  { productName: 'bathroom-shutters' },
+  { productName: 'bedroom-shutters' },
+  { productName: 'staircase-shutters' },
 
   { productName: 'conservatory-blinds' },
   { productName: 'staircase-blinds' },
@@ -1586,12 +1586,12 @@ export const megaMenuDynamic = [
   { productName: 'dimoutsemi-trasnparent' },
   { productName: 'motorised' },
 
-  { productName: 'white' },
-  { productName: 'off-white' },
-  { productName: 'black' },
-  { productName: 'dark-woods' },
-  { productName: 'bold-colours' },
-  { productName: 'grey' },
+  { productName: 'white-shutters' },
+  { productName: 'off-white-shutters' },
+  { productName: 'black-shutters' },
+  { productName: 'dark-woods-shutters' },
+  { productName: 'bold-colours-shutters' },
+  { productName: 'grey-shutters' },
 
   { productName: 'stripes-curtains' },
   { productName: 'geometric-curtains' },
@@ -1640,7 +1640,7 @@ export const extendedByStyle = [
   { productName: 'solid-panel-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'outdoor-shutters' },
-  { productName: 'staircase' },
+  { productName: 'staircase-shutters' },
   { productName: 'cafe-style-shutters' },
 ];
 
