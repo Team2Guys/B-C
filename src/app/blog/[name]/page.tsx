@@ -41,7 +41,7 @@ console.log(blogs,"blogsblogs")
   }
 
   return (
-    <Container className="mt-10 space-y-4 lg:space-y-8">
+    <Container className="mt-10 space-y-4 lg:space-y-8 mb-10 md:mb-20">
       <div className="text-28 sm:text-[36px] md:text-[48px] font-bold">
         <h1>{blog.title}</h1>
       </div>
@@ -64,7 +64,7 @@ console.log(blogs,"blogsblogs")
       </div>
       <Comments data={blog} />
 
-      <div className='mt-10'>
+      <div className='mt-10 '>
         <h3 className=" text-28 md:text-[48px] font-semibold">Related Articles</h3>
           <OurBlog  Blogdata={filterRelatedPosts || []} />
       </div>
