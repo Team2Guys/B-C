@@ -1,21 +1,69 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
+interface IComment {
+  id: number;
+  name: string;
+  description: string;
+  createdAt: string;
+  status?: string; 
+}
 
 const Comments = ({ currentComments }: { currentComments: any[] }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [comments, setComments] = useState(currentComments); 
+
+  useEffect(() => {
+    setComments(currentComments.map(item => ({
+      ...item,
+      comments: item.comments.map((comment: IComment) => ({
+        ...comment,
+        status: comment.status || "pending",
+      })),
+
+    })));
+  }, [currentComments]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
 
-  const handleApprove = (id: number, type: string) => {
-    alert(`Approved ${type} comment with ID: ${id}`);
+  const handleApprove = (id: number, type: string, comment: any, item: any) => {
+    comment.status = 'approved';
+    setComments(prevComments =>
+      prevComments.map(i => 
+        i.id === item.id
+          ? {
+              ...i,
+              comments: i.comments.map((c:IComment) =>
+                c.id === comment.id ? { ...c, status: 'approved' } : c
+              ),
+            }
+          : i
+      )
+    );
+    console.log(`Approved ${type} comment with ID: ${id}`, {
+      title: item.title || "No Title", 
+      comment: comment.description,
+      status: comment.status,
+      createdAt: comment.createdAt,
+      name: comment.name,
+    });
   };
 
-  const handleReject = (id: number, type: string) => {
-    alert(`Rejected ${type} comment with ID: ${id}`);
+  const handleReject = (id: number, type: string, comment: any) => {
+    comment.status = 'rejected';
+    setComments(prevComments =>
+      prevComments.map(i => 
+        i.comments.map((c:IComment) =>
+          c.id === comment.id ? { ...c, status: 'rejected' } : c
+        )
+      )
+    );
+
+    console.log(`Rejected ${type} comment with ID: ${id}`);
   };
 
+  // Function to filter comments based on search term and whether comments exist
   const filterComments = (item: any) => {
     const term = searchTerm.toLowerCase();
 
@@ -46,19 +94,18 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
 
       <div className="w-full">
         <div className="p-2 bg-primary rounded-md">
-          {currentComments && currentComments.length > 0 ? (
-            currentComments.map((item: any) => {
+          {comments && comments.length > 0 ? (
+            comments.map((item: any) => {
               if (!filterComments(item)) return null;
 
               return (
                 <div key={item.id} className="mt-4 leading-8 border p-2 bg-white rounded-md shadow-sm">
                   <div className="flex justify-between items-center mb-4">
-                    <h5 className="text-2xl font-semibold">{item.title}</h5>
+                    <h5 className="text-2xl font-semibold">{item.title || "No Title"}</h5>
                     <span className="text-darkgrey">
                       {item?.createdAt ? new Date(item.createdAt).toLocaleString() : ''}
                     </span>
                   </div>
-
                   <div className="pl-6 border-l-2 mt-4">
                     {item.comments.map((comment: any) => (
                       <div key={comment.id} className="mt-4">
@@ -74,19 +121,23 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                         <div className="flex gap-4 mb-4">
                           <button
                             className="text-white bg-green-600 px-4 py-1 rounded"
-                            onClick={() => handleApprove(comment.id, 'comment')}
+                            onClick={() => handleApprove(comment.id, 'comment', comment, item)}  // Pass `item` here
                           >
                             Approve
                           </button>
                           <button
                             className="text-white bg-red-600 px-4 py-1 rounded"
-                            onClick={() => handleReject(comment.id, 'comment')}
+                            onClick={() => handleReject(comment.id, 'comment', comment)}
                           >
                             Reject
                           </button>
                         </div>
+                        {/* Display status */}
+                        <div className="mt-2 text-sm text-gray-500">
+                          Status: {comment.status}
+                        </div>
 
-                        
+                        {/* Only render replies if they exist */}
                         {comment?.replies && comment.replies.length > 0 && (
                           <div className="mt-4 pl-6 border-l-2">
                             {comment.replies.map((nestedItem: any) => (
@@ -103,13 +154,13 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                                 <div className="flex gap-4 mb-4">
                                   <button
                                     className="text-white bg-green-600 px-4 py-1 rounded"
-                                    onClick={() => handleApprove(nestedItem.id, 'reply')}
+                                    onClick={() => handleApprove(nestedItem.id, 'reply', nestedItem, item)}
                                   >
                                     Approve
                                   </button>
                                   <button
                                     className="text-white bg-red-600 px-4 py-1 rounded"
-                                    onClick={() => handleReject(nestedItem.id, 'reply')}
+                                    onClick={() => handleReject(nestedItem.id, 'reply', nestedItem)}
                                   >
                                     Reject
                                   </button>
