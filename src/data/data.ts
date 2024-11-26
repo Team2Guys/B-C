@@ -183,9 +183,16 @@ export const OurClientImage = [
   },
   // { src: '/assets/images/ourclient/yellow-zone-group-dubai-2.png', alt: 'Yellow-Zone-Group-Dubai 2' }
 ];
-export const CommentData: CommentDataType[] = [
+export const BlogTitles = [
+  { id: 1, title: 'Understanding React Basics' },
+  { id: 2, title: 'Advanced JavaScript Tips' },
+  { id: 3, title: 'Building Modern Web Apps' },
+];
+
+export const CommentData = [
   {
     id: 1,
+    blogId: 1, // Linking this comment to "Understanding React Basics"
     userName: 'Laura Hipster',
     comment:
       'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
@@ -193,51 +200,31 @@ export const CommentData: CommentDataType[] = [
   },
   {
     id: 2,
-    userName: 'Laura Hipster',
+    blogId: 2, // Linking this comment to "Advanced JavaScript Tips"
+    userName: 'John Doe',
     comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
-  },
-  {
-    id: 3,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
-  },
-  {
-    id: 4,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
-  },
-  {
-    id: 5,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id neque metus. Sed lacinia luctus sem eget congue.',
+    createdAt: 'October 05, 2022',
   },
 ];
-export const NestedCommentData: CommentDataType[] = [
+
+export const NestedCommentData = [
   {
     id: 1,
     replyId: 1,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
+    userName: 'Emma Watson',
+    comment: 'I totally agree with this statement!',
+    createdAt: 'October 04, 2022',
   },
   {
     id: 2,
-    replyId: 5,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
+    replyId: 1,
+    userName: 'Chris Pratt',
+    comment: 'Could you elaborate on this part?',
+    createdAt: 'October 06, 2022',
   },
 ];
+
 export const featureProducts: FeatureProductData[] = [
   {
     id: 1,
@@ -1247,7 +1234,6 @@ export const shutterMegaMenuItems = [
   { productName: 'bi-fold-shutters' },
   { productName: 'tracked-shutters' },
   { productName: 'full-height-shutters' },
-
   { productName: 'staircase-shutters' },
   { productName: 'bathroom-shutters' },
   { productName: 'kitchen-shutters' },
