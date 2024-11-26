@@ -63,7 +63,6 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
     console.log(`Rejected ${type} comment with ID: ${id}`);
   };
 
-  // Function to filter comments based on search term and whether comments exist
   const filterComments = (item: any) => {
     const term = searchTerm.toLowerCase();
 
@@ -76,12 +75,11 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
       (comment.createdAt && new Date(comment.createdAt).toLocaleString().toLowerCase().includes(term))
     );
 
-    return titleMatch || commentMatches; // Show item if it has comments and either the title or comment matches
+    return titleMatch || commentMatches;
   };
 
   return (
     <>
-      {/* Search bar */}
       <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
         <input
           className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
@@ -132,12 +130,11 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                             Reject
                           </button>
                         </div>
-                        {/* Display status */}
+                       
                         <div className="mt-2 text-sm text-gray-500">
                           Status: {comment.status}
                         </div>
 
-                        {/* Only render replies if they exist */}
                         {comment?.replies && comment.replies.length > 0 && (
                           <div className="mt-4 pl-6 border-l-2">
                             {comment.replies.map((nestedItem: any) => (
