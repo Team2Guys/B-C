@@ -126,9 +126,9 @@ const VideoBanner: React.FC<BannerProps> = ({
                     }
                   >
                     <div
-                      className={`w-28 h-16 ${item.color} border border-black rounded-md`}
+                      className={`w-36 h-16 ${item.color} border border-black rounded-md`}
                     ></div>
-                    <p className="w-28 text-16 text-center">{item.name}</p>
+                    <p className="w-36 text-13 text-center">{item.name}</p>
                   </div>
                 ))}
               </CustomSlider>
