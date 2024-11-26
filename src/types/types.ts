@@ -103,9 +103,9 @@ interface SubheadingContent {
 export interface ISelectedPage {
   heading: string;
   paragraph: string;
-  subheading1: string;
-  subheading2: string;
-  subheadingContent: SubheadingContent[];
+  subheading1?: string;
+  subheading2?: string;
+  subheadingContent?: SubheadingContent[];
 }
 
 export interface IInfo {

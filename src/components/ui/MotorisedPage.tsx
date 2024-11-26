@@ -79,7 +79,7 @@ const MotorisedPage: React.FC<MotorisedPageProps> = ({
           description3={additionalDescription3}
         />
       )}
-      <BookNowBanner />
+      <BookNowBanner  />
       <Container className="mt-20">
         <RelatedProducts products={products || []} limit={4} />
       </Container>
