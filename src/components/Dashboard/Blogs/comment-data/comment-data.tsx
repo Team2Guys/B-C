@@ -1,27 +1,13 @@
-import { BlogTitles, CommentData, NestedCommentData } from 'data/data';
-import React, { useState } from 'react';
+"use client"
+import { useState } from "react";
 
-const CommentsData = () => {
-  const [searchTerm, setSearchTerm] = useState(''); 
-  const [filteredComments, setFilteredComments] = useState(CommentData); 
+const Comments = ({ currentComments }: { currentComments: any[] }) => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchValue = e.target.value.toLowerCase();
-    setSearchTerm(searchValue);
-  
-    const filtered = CommentData.filter((comment) => {
-      const blogTitle = BlogTitles.find((blog) => blog.id === comment.blogId)?.title || '';
-      return (
-        blogTitle.toLowerCase().includes(searchValue) ||
-        comment.createdAt.toLowerCase().includes(searchValue) || 
-        comment.userName.toLowerCase().includes(searchValue) ||
-        comment.comment.toLowerCase().includes(searchValue)
-      );
-    });
-  
-    setFilteredComments(filtered);
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value.toLowerCase());
   };
-  
+
   const handleApprove = (id: number, type: string) => {
     alert(`Approved ${type} comment with ID: ${id}`);
   };
@@ -30,89 +16,121 @@ const CommentsData = () => {
     alert(`Rejected ${type} comment with ID: ${id}`);
   };
 
+  const filterComments = (item: any) => {
+    const term = searchTerm.toLowerCase();
+
+    const hasComments = item.comments && item.comments.length > 0;
+    if (!hasComments) return false;
+    const titleMatch = item.title.toLowerCase().includes(term);
+    const commentMatches = item.comments.some((comment: any) =>
+      comment.name.toLowerCase().includes(term) ||
+      comment.description.toLowerCase().includes(term) ||
+      (comment.createdAt && new Date(comment.createdAt).toLocaleString().toLowerCase().includes(term))
+    );
+
+    return titleMatch || commentMatches; // Show item if it has comments and either the title or comment matches
+  };
+
   return (
     <>
-     <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
+      {/* Search bar */}
+      <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
         <input
           className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
           type="search"
-          placeholder="Search Comments"
+          placeholder="Search Product"
           value={searchTerm}
-          onChange={handleSearch}
+          onChange={handleSearchChange}
         />
       </div>
 
+      <div className="w-full">
+        <div className="p-2 bg-primary rounded-md">
+          {currentComments && currentComments.length > 0 ? (
+            currentComments.map((item: any) => {
+              if (!filterComments(item)) return null;
 
-      <div className="p-6 bg-gray-100">
-        {filteredComments.map((item) => {
-          const blogTitle = BlogTitles.find((blog) => blog.id === item.blogId)?.title;
-
-          return (
-            <div key={item.id} className="bg-white p-4 mb-4 rounded shadow">
-            
-              {blogTitle && <h4 className="text-lg font-semibold mb-1">{blogTitle}</h4>}
-
-              
-              <div className="flex justify-between items-center mb-2">
-                <h5 className="text-lg font-bold">{item.userName}</h5>
-                <span className="text-sm text-gray-500">
-                  {item.createdAt ? new Date(item.createdAt).toLocaleString() : ''}
-                </span>
-              </div>
-              <p className="text-gray-700">{item.comment}</p>
-
-
-              <div className="flex gap-4 mt-2">
-                <button
-                  className="text-white bg-green-600 px-4 py-1 rounded"
-                  onClick={() => handleApprove(item.id, 'parent')}
-                >
-                  Approve
-                </button>
-                <button
-                  className="text-white bg-red-600 px-4 py-1 rounded"
-                  onClick={() => handleReject(item.id, 'parent')}
-                >
-                  Reject
-                </button>
-              </div>
-
-             
-              {NestedCommentData.filter((nested) => nested.replyId === item.id).map(
-                (nestedItem) => (
-                  <div key={nestedItem.id} className="mt-4 pl-6 border-l-2">
-                    <div className="flex justify-between items-center mb-2">
-                      <h5 className="text-md font-bold">{nestedItem.userName}</h5>
-                      <span className="text-sm text-gray-500">
-                        {nestedItem.createdAt
-                          ? new Date(nestedItem.createdAt).toLocaleString()
-                          : ''}
-                      </span>
-                    </div>
-                    <p className="text-gray-700">{nestedItem.comment}</p>
-                    <div className="flex gap-4 mt-2">
-                      <button
-                        className="text-white bg-green-600 px-4 py-1 rounded"
-                        onClick={() => handleApprove(nestedItem.id, 'nested')}
-                      >
-                        Approve
-                      </button>
-                      <button
-                        className="text-white bg-red-600 px-4 py-1 rounded"
-                        onClick={() => handleReject(nestedItem.id, 'nested')}
-                      >
-                        Reject
-                      </button>
-                    </div>
+              return (
+                <div key={item.id} className="mt-4 leading-8 border p-2 bg-white rounded-md shadow-sm">
+                  <div className="flex justify-between items-center mb-4">
+                    <h5 className="text-2xl font-semibold">{item.title}</h5>
+                    <span className="text-darkgrey">
+                      {item?.createdAt ? new Date(item.createdAt).toLocaleString() : ''}
+                    </span>
                   </div>
-                )
-              )}
-            </div>
-          );
-        })}
+
+                  <div className="pl-6 border-l-2 mt-4">
+                    {item.comments.map((comment: any) => (
+                      <div key={comment.id} className="mt-4">
+                        <div className="flex justify-between items-center">
+                          <h5 className="text-lg font-semibold">{comment.name}</h5>
+                          <span className="text-darkgrey">
+                            {comment.createdAt && new Date(comment.createdAt).toLocaleString()}
+                          </span>
+                        </div>
+                        <p className="leading-normal text-darkgrey text-base mb-4">
+                          {comment.description}
+                        </p>
+                        <div className="flex gap-4 mb-4">
+                          <button
+                            className="text-white bg-green-600 px-4 py-1 rounded"
+                            onClick={() => handleApprove(comment.id, 'comment')}
+                          >
+                            Approve
+                          </button>
+                          <button
+                            className="text-white bg-red-600 px-4 py-1 rounded"
+                            onClick={() => handleReject(comment.id, 'comment')}
+                          >
+                            Reject
+                          </button>
+                        </div>
+
+                        
+                        {comment?.replies && comment.replies.length > 0 && (
+                          <div className="mt-4 pl-6 border-l-2">
+                            {comment.replies.map((nestedItem: any) => (
+                              <div key={nestedItem.id} className="mt-4">
+                                <div className="flex justify-between items-center">
+                                  <h5 className="text-lg font-semibold">{nestedItem.name}</h5>
+                                  <span className="text-darkgrey">
+                                    {nestedItem.createdAt && new Date(nestedItem.createdAt).toLocaleString()}
+                                  </span>
+                                </div>
+                                <p className="leading-normal text-darkgrey text-base mb-4">
+                                  {nestedItem.description}
+                                </p>
+                                <div className="flex gap-4 mb-4">
+                                  <button
+                                    className="text-white bg-green-600 px-4 py-1 rounded"
+                                    onClick={() => handleApprove(nestedItem.id, 'reply')}
+                                  >
+                                    Approve
+                                  </button>
+                                  <button
+                                    className="text-white bg-red-600 px-4 py-1 rounded"
+                                    onClick={() => handleReject(nestedItem.id, 'reply')}
+                                  >
+                                    Reject
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <p>No comments available.</p>
+          )}
+        </div>
       </div>
     </>
   );
 };
 
-export default CommentsData;
+export default Comments;
