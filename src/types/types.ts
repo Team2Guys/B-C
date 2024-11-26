@@ -97,15 +97,15 @@ export interface IAppointments {
 }
 
 interface SubheadingContent {
-  content: string;
+  content?: string;
 }
 
 export interface ISelectedPage {
-  heading: string;
-  paragraph: string;
-  subheading1: string;
-  subheading2: string;
-  subheadingContent: SubheadingContent[];
+  heading?: string;
+  paragraph?: string;
+  subheading1?: string;
+  subheading2?: string;
+  subheadingContent?: SubheadingContent[];
 }
 
 export interface IInfo {
