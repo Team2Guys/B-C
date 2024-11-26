@@ -1,7 +1,9 @@
 'use client';
+import Container from 'components/Res-usable/Container/Container';
 import CustomSlider from 'components/slider/Slider';
 import { colorData } from 'data/data';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useRef, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { ISelectedPage } from 'types/types';
@@ -23,7 +25,7 @@ const VideoBanner: React.FC<BannerProps> = ({
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-
+  const router = useRouter();
   const handleVideoClick = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -43,6 +45,14 @@ const VideoBanner: React.FC<BannerProps> = ({
   if (!selectedPage) {
     return null;
   }
+  const handleNavigation = (event: React.MouseEvent, path: string) => {
+    event.stopPropagation();
+    if (event.ctrlKey || event.metaKey) {
+      window.open(path, '_blank');
+    } else {
+      router.push(path);
+    }
+  };
   return (
     <div
       className={`relative w-full ${colorSlider ? 'h-[700px]' : 'h-[300px] md:h-[450px] 2xl:h-[681px]'}  overflow-hidden ${className}`}
@@ -95,20 +105,34 @@ const VideoBanner: React.FC<BannerProps> = ({
           </div>
         </div>
         {colorSlider && (
-          <div className="bg-[#ffffffab] px-10 pt-10 mt-10">
-            <div className="text-center">
-              <h3 className="font-semibold text-2xl">Blinds By Color</h3>
-            </div>
-            <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5 md:pt-10" colorSlider={colorSlider}>
-              {colorData.map((item , index) => (
-                <div className="flex flex-col gap-2 mb-10" key={index}>
+          <div className="bg-[#ffffffab] pt-10 mt-5">
+            <Container>
+              <div className="text-center">
+                <h3 className="font-bold text-2xl">Shutters By Color</h3>
+              </div>
+              <CustomSlider
+                className="Hero-slider custom-color-silder z-40 mb-5 pt-10"
+                colorSlider={colorSlider}
+              >
+                {colorData.map((item, index) => (
                   <div
-                    className={`w-28 h-16 ${item.color} border border-black rounded-md`}
-                  ></div>
-                  <p className="w-28 text-16 text-center">{item.name}</p>
-                </div>
-              ))}
-            </CustomSlider>
+                    className="flex flex-col gap-2 mb-10 cursor-pointer"
+                    key={index}
+                    onClick={(event) =>
+                      handleNavigation(
+                        event,
+                        item.url,
+                      )
+                    }
+                  >
+                    <div
+                      className={`w-28 h-16 ${item.color} border border-black rounded-md`}
+                    ></div>
+                    <p className="w-28 text-16 text-center">{item.name}</p>
+                  </div>
+                ))}
+              </CustomSlider>
+            </Container>
           </div>
         )}
       </div>

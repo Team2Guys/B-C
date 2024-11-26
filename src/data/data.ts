@@ -17,6 +17,7 @@ import {
   Email,
   FeatureProductData,
   GalleryItems,
+  IColorData,
   ITopHeroLink,
   OurHistory,
   PhoneNumber,
@@ -1843,33 +1844,6 @@ export const categoriesContent = [
       ],
     },
   },
-  {
-    slug: 'blinds-by-color',
-    content: {
-      heading: 'Color blinds',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
-      subheadingContent: [
-        {
-          content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-        },
-        {
-          content:
-            'With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor.',
-        },
-        {
-          content:
-            'Our team of experts are on hand to provide advice and guidance on the best curtains for your home.',
-        },
-        {
-          content:
-            'We use only the highest quality materials to ensure that your curtains are durable and long-lasting.',
-        },
-      ],
-    },
-  },
 ];
 
 export const BreakCrum_conent_pages = [
@@ -1998,41 +1972,228 @@ export const motorisedPageData1 = {
 
 export const Cateories = [9, 2, 5, 12];
 
-export const colorData = [
+export const colorData: IColorData[] = [
   {
-    name: 'Brown Blinds',
-    color: 'bg-[#A38D79]'
+    name: 'Brown Shutters',
+    color: 'bg-[#A38D79]',
+    url: '/shutters-range/brown-shutters'
   },
   {
-    name: 'Blue Blinds',
-    color: 'bg-[#3D6075]'
+    name: 'Blue Shutters',
+    color: 'bg-[#3D6075]',
+    url: '/shutters-range/blue-shutters'
   },
   {
-    name: 'Cream Blinds',
-    color: 'bg-[#FAF9EF]'
+    name: 'Off White Shutters',
+    color: 'bg-[#FAF9EF]',
+    url: '/shutters-range/off-white-shutters'
   },
   {
-    name: 'Green Blinds',
-    color: 'bg-[#86A18F]'
+    name: 'Green Shutters',
+    color: 'bg-[#86A18F]',
+    url: '/shutters-range/green-shutters'
   },
   {
-    name: 'Orange Blinds',
-    color: 'bg-[#F2CB80]'
+    name: 'Orange Shutters',
+    color: 'bg-[#F2CB80]',
+    url: '/shutters-range/orange-shutters'
   },
   {
-    name: 'Pink Blinds',
-    color: 'bg-[#FAE3E3]'
+    name: 'Pink Shutters',
+    color: 'bg-[#FAE3E3]',
+    url: '/shutters-range/pink-shutters'
   },
   {
-    name: 'White Blinds',
-    color: 'bg-[#FFFFFF]'
+    name: 'White Shutters',
+    color: 'bg-[#FFFFFF]',
+    url: '/shutters-range/white-shutters'
   },
   {
-    name: 'Black Blinds',
-    color: 'bg-[#000000]'
+    name: 'Black Shutters',
+    color: 'bg-[#000000]',
+    url: '/shutters-range/black-shutters'
   },
   {
-    name: 'Grey Blinds',
-    color: 'bg-[#E4EAEB]'
+    name: 'Grey Shutters',
+    color: 'bg-[#E4EAEB]',
+    url: '/shutters-range/grey-shutters'
+  },
+  {
+    name: 'Dark Wood Shutters',
+    color: 'bg-[#E4EAEB]',
+    url: '/shutters-range/dark-wood-shutters'
+  },
+  {
+    name: 'Bold Colour Shutters',
+    color: 'bg-[#E4EAEB]',
+    url: '/shutters-range/bold-colours-shutters'
+  },
+]
+
+export const ByColorContent = [
+  {
+    slug: '/shutters-range/off-white-shutters',
+    content: {
+      heading: 'Off White Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/white-shutters',
+    content: {
+      heading: 'White Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/black-shutters',
+    content: {
+      heading: 'Black Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/dark-wood-shutters',
+    content: {
+      heading: 'Dark Wood Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/bold-colours-shutters',
+    content: {
+      heading: 'Bold Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/grey-shutters',
+    content: {
+      heading: 'Grey Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/brown-shutters',
+    content: {
+      heading: 'Brown Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/blue-shutters',
+    content: {
+      heading: 'Blue Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/green-shutters',
+    content: {
+      heading: 'Green Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/orange-shutters',
+    content: {
+      heading: 'Orange Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/pink-shutters',
+    content: {
+      heading: 'Pink Colour Shutters',
+      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
   },
 ]

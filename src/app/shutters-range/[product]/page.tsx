@@ -1,19 +1,36 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
+import ShuttersByColor from 'components/ByColor/ShuttersByColor';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
-import { Cateories, generateSlug } from 'data/data';
+import { Cateories, colorData, generateSlug } from 'data/data';
 import { ChangedProductUrl, urls } from 'data/urls';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { IColorData } from 'types/interfaces';
 import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
 
 const CommercialPage = () => {
+  const [ colorPage , setColorPage] = useState<IColorData | undefined>();
+  const [ colorPageLoading , setColorPageLoading] = useState<boolean>(false);
   const { product } = useParams();
-
+  const pathname = usePathname();
+  
+  useEffect(() => {
+    setColorPage(undefined);
+    setColorPageLoading(false);
+    if(pathname){
+      const matchingColorShutter = colorData.find((clr) => clr.url === pathname);
+      if(matchingColorShutter){
+        setColorPage(matchingColorShutter)
+      }
+      setColorPageLoading(true);
+    }
+  },[pathname])
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
@@ -31,14 +48,15 @@ const CommercialPage = () => {
   const filteredProduct = products?.find((prod) => generateSlug(prod.title) === generateSlug(ChangedProductUrl(product as string)),
   );
 
-  if (subLoading || prodLoading) {
+  if (subLoading || prodLoading || !colorPageLoading) {
     return <PageSkelton />;
   }
 
 
   return (
     <>
-      {filteredSubCategory ? (
+
+      {!colorPage ? filteredSubCategory ? (
         <>
           <CategoryPage
             title={`${filteredSubCategory.title}`}
@@ -47,7 +65,7 @@ const CommercialPage = () => {
         </>
       ) : (
         <ProductDetailPage title={`${filteredProduct?.title}`} />
-      )}
+      ) : <ShuttersByColor title={colorPage.name} />}
     </>
   );
 };
