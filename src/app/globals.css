@@ -224,9 +224,28 @@ html {
   color: var(--secondary) !important;
 }
 
-.Hero-slider .slick-prev,
-.Hero-slider .slick-next {
+.Hero-slider .slick-prev:not(.custom-color-arrow),
+.Hero-slider .slick-next:not(.custom-color-arrow) {
   display: none !important;
+}
+.custom-color-silder .slick-dots {
+  margin: 0 auto;
+  left: unset !important;
+}
+.custom-color-silder .slick-prev:before ,
+.custom-color-silder .slick-next:before {
+  content: '';
+  display: none;
+}
+.custom-color-arrow {
+  height: 30px !important;
+  width: 30px !important;
+}
+.custom-color-arrow.slick-next{
+  right: -50px !important;
+}
+.custom-color-arrow.slick-prev{
+  left: -50px !important;
 }
 .clip-custom-shape {
   clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 10% 51%, 0% 0%);
