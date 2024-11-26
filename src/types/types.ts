@@ -97,7 +97,7 @@ export interface IAppointments {
 }
 
 interface SubheadingContent {
-  content: string;
+  content?: string;
 }
 
 export interface ISelectedPage {

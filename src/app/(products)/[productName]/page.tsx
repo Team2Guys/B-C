@@ -104,14 +104,9 @@ const Products = () => {
   }, [products, categories, subCategories, productNameString]);
 
   useEffect(() => {
-    console.log('pathname', generateSlug(pathname));
-    console.log(categoriesContent);
-
     const selectedPage = categoriesContent.find(
       (page) => page.slug === generateSlug(pathname),
     );
-
-    console.log('selectedPage', selectedPage);
     if (selectedPage) {
       setSelectedPage(selectedPage.content);
     }
@@ -119,7 +114,7 @@ const Products = () => {
 
   return (
     <>
-      <VideoBanner title={`${title}`} selectedPage={selectedPage} />
+      <VideoBanner title={`${title}`} selectedPage={selectedPage} showButton={true} />
       <Info selectedPage={selectedPage} />
       <AllProducts products={filteredProducts} categoryType={`${title}`} />
       <Container className="mt-20 mb-20">
