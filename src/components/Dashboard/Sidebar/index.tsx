@@ -329,6 +329,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               View Blog
                             </Link>
                           </li>
+                          <li>
+                            <Link
+                              href="/dashboard/comment"
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
+                                pathname === 'dashboard/blog' &&
+                                'text-white bg-lightdark'
+                              } `}
+                            >
+                              View Comment
+                            </Link>
+                          </li>
                         </ul>
                       </div>
                       {/* <!-- Dropdown Menu End --> */}
