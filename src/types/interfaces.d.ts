@@ -370,3 +370,9 @@ export interface IProductDiscription {
   title: string;
   CategoryPageDiscription?: string;
 }
+
+export interface IColorData {
+  url: string;
+  color: string;
+  name: string;
+}
