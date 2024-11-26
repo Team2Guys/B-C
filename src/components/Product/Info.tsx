@@ -2,7 +2,6 @@ import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
 import productimf from '../../../public/assets/images/product/product1.png';
 import Image from 'next/image';
-import { Button } from 'components/ui/button';
 import { useRouter } from 'next/navigation';
 import { IInfo } from 'types/types';
 
@@ -22,7 +21,7 @@ const Info = (selectedPage: IInfo) => {
               {selectedPage.selectedPage.subheading2}
             </span>
           </h1>
-          {selectedPage.selectedPage.subheadingContent.map((item, index) => (
+          {selectedPage.selectedPage.subheadingContent && selectedPage.selectedPage.subheadingContent.map((item, index) => (
             <p
               key={index}
               className="text-12 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85]"
