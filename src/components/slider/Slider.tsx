@@ -48,13 +48,13 @@ function CustomSlider({
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: colorSlider ? 9 : 1,
+    slidesToShow: colorSlider ? 7 : 1,
     slidesToScroll: 1,
     nextArrow: NextArrow ? <NextArrow /> : colorSlider ? <SampleNextArrow /> : undefined,
     prevArrow: PrevArrow ? <PrevArrow /> : colorSlider ? <SamplePrevArrow /> : undefined,
     focusOnSelect: true,
     autoplay: colorSlider ? false : true,
-    speed: 1000,
+    speed: colorSlider? 500 : 1000,
     autoplaySpeed: 6000,
     cssEase: 'linear',
     responsive: colorSlider
@@ -62,35 +62,35 @@ function CustomSlider({
           {
             breakpoint: 1250,
             settings: {
-              slidesToShow: 7,
+              slidesToShow: 6,
               slidesToScroll: 1,
             },
           },
           {
             breakpoint: 1000,
             settings: {
-              slidesToShow: 6,
+              slidesToShow: 5,
               slidesToScroll: 1,
             },
           },
           {
             breakpoint: 800,
             settings: {
-              slidesToShow: 5,
+              slidesToShow: 4,
               slidesToScroll: 1,
             },
           },
           {
             breakpoint: 700,
             settings: {
-              slidesToShow: 4,
+              slidesToShow: 3,
               slidesToScroll: 1,
             },
           },
           {
             breakpoint: 500,
             settings: {
-              slidesToShow: 3,
+              slidesToShow: 2,
               slidesToScroll: 1,
             },
           },
