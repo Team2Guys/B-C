@@ -22,7 +22,7 @@ const Info = (selectedPage: IInfo) => {
               {selectedPage.selectedPage.subheading2}
             </span>
           </h1>
-          {selectedPage.selectedPage.subheadingContent.map((item, index) => (
+          {selectedPage.selectedPage.subheadingContent && selectedPage.selectedPage.subheadingContent.map((item, index) => (
             <p
               key={index}
               className="text-12 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85]"
