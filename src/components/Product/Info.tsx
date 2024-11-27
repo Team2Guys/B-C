@@ -1,8 +1,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
-import productimf from '../../../public/assets/images/product/product1.png';
+
 import Image from 'next/image';
-import { Button } from 'components/ui/button';
 import { useRouter } from 'next/navigation';
 import { IInfo } from 'types/types';
 
@@ -46,7 +45,7 @@ const Info = (selectedPage: IInfo) => {
             className="w-auto h-auto"
             width={602}
             height={400}
-            src={productimf}
+            src={"assets/images/product/product1.png"}
             alt="product"
           />
         </div>
