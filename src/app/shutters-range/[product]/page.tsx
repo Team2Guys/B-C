@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import ShuttersByColor from 'components/ByColor/ShuttersByColor';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
+import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
@@ -58,8 +59,10 @@ const CommercialPage = () => {
 
       {!colorPage ? filteredSubCategory ? (
         <>
-          <CategoryPage
+          <RoomProducts
             title={`${filteredSubCategory.title}`}
+            description={`${filteredSubCategory.description}`}
+            category={`${filteredSubCategory.category.title}`}
             relatedProducts={filteredSubCategory?.products || []}
           />
         </>
