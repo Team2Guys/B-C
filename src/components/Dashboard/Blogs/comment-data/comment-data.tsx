@@ -174,7 +174,7 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                           Status: {comment.status}
                         </div>
 
-                        {comment?.replies && comment.replies.length > 0 && (
+                        {/* {comment?.replies && comment.replies.length > 0 && (
                           <div className="mt-4 pl-6 border-l-2">
                             {comment.replies.map((nestedItem: any) => (
                               <div key={nestedItem.id} className="mt-4">
@@ -204,7 +204,7 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                               </div>
                             ))}
                           </div>
-                        )}
+                        )} */}
                       </div>
                     ))}
                   </div>
