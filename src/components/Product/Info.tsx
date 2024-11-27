@@ -2,7 +2,6 @@ import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
 import productimf from '../../../public/assets/images/product/product1.png';
 import Image from 'next/image';
-import { Button } from 'components/ui/button';
 import { useRouter } from 'next/navigation';
 import { IInfo } from 'types/types';
 
