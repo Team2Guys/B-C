@@ -1194,7 +1194,6 @@ export const blindMegaMenuItems = [
   { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
-  { productName: 'outdoor-blinds' },
   { productName: 'dimoutsemi-trasnparent' },
   { productName: 'motorised' },
 ];
@@ -1236,8 +1235,8 @@ export const shutterMegaMenuItems = [
   { productName: 'tracked-shutters' },
   { productName: 'full-height-shutters' },
   { productName: 'staircase-shutters' },
-  { productName: 'bathroom-shutters' },
-  { productName: 'kitchen-shutters' },
+  // { productName: 'bathroom-shutters' },
+  // { productName: 'kitchen-shutters' },
   { productName: 'dining-room-shutters' },
 ];
 
