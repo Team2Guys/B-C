@@ -204,7 +204,7 @@ function Comments({ data }: CommentsProps) {
 
         {(currentComments && currentComments.length > 0) &&
           <p className="text-18 font-normal text-darkgrey mt-2">
-          {data?.comments.length} Comments
+          {comments.length} Comments
         </p>
          }
 
