@@ -1,16 +1,18 @@
 "use client"
+import axios from "axios";
+import showToast from "components/Toaster/Toaster";
 import { useState, useEffect } from "react";
 interface IComment {
   id: number;
   name: string;
   description: string;
   createdAt: string;
-  status?: string; 
+  status?: string;
 }
 
 const Comments = ({ currentComments }: { currentComments: any[] }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [comments, setComments] = useState(currentComments); 
+  const [comments, setComments] = useState(currentComments);
 
   useEffect(() => {
     setComments(currentComments.map(item => ({
@@ -27,38 +29,75 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
 
-  const handleApprove = (id: number, type: string, comment: any, item: any) => {
-    comment.status = 'approved';
-    setComments(prevComments =>
-      prevComments.map(i => 
-        i.id === item.id
-          ? {
-              ...i,
-              comments: i.comments.map((c:IComment) =>
-                c.id === comment.id ? { ...c, status: 'approved' } : c
-              ),
-            }
-          : i
-      )
-    );
-    console.log(`Approved ${type} comment with ID: ${id}`, {
-      title: item.title || "No Title", 
-      comment: comment.description,
-      status: comment.status,
-      createdAt: comment.createdAt,
-      name: comment.name,
-    });
+  const handleApprove = async (id: number, type: string, comment: any, item: any) => {
+
+
+    try {
+      const res = await axios.patch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`, {
+        status: 'APPROVED',
+      });
+      if (res.status === 200) {
+
+        showToast('success', "Comment approved successfully🎉");
+        comment.status = 'APPROVED';
+        setComments(prevComments =>
+          prevComments.map(i =>
+            i.id === item.id
+              ? {
+                ...i,
+                comments: i.comments.map((c: IComment) =>
+                  c.id === comment.id ? { ...c, status: 'APPROVED' } : c
+                ),
+              }
+              : i
+          )
+        );
+      }
+      console.log(`Approved ${type} comment with ID: ${id}`, {
+        title: item.title || "No Title",
+        comment: comment.description,
+        status: comment.status,
+        createdAt: comment.createdAt,
+        name: comment.name,
+      });
+    } catch (error) {
+      console.error("Error approving the comment:", error);
+      showToast('error', "Facing issue to APPROVED😢");
+    }
+
   };
 
-  const handleReject = (id: number, type: string, comment: any) => {
-    comment.status = 'rejected';
-    setComments(prevComments =>
-      prevComments.map(i => 
-        i.comments.map((c:IComment) =>
-          c.id === comment.id ? { ...c, status: 'rejected' } : c
-        )
-      )
-    );
+  const handleReject = async (id: number, type: string, comment: any) => {
+
+
+    try {
+      const res = await axios.patch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`, {
+        status: 'REJECTED',
+      });
+      if (res.status === 200) {
+
+        showToast('success', "Comment Status updated successfully🎉");
+        comment.status = 'REJECTED';
+        setComments(prevComments =>
+          prevComments.map(i =>
+            i.id === comment.id
+              ? {
+                ...i,
+                comments: i.comments.map((c: IComment) =>
+                  c.id === comment.id
+                    ? { ...c, status: 'REJECTED' }
+                    : c
+                ),
+              }
+              : i
+          )
+        );
+      }
+
+    } catch (error) {
+      console.error("Error approving the comment:", error);
+      showToast('error', "Facing update status😢");
+    }
 
     console.log(`Rejected ${type} comment with ID: ${id}`);
   };
@@ -130,7 +169,7 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                             Reject
                           </button>
                         </div>
-                       
+
                         <div className="mt-2 text-sm text-gray-500">
                           Status: {comment.status}
                         </div>
