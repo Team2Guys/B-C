@@ -1958,6 +1958,52 @@ export const motorisedPageData1 = {
 
 export const Cateories = [9, 2, 5, 12];
 
+//BathroomBlindsData
+export const BathroomBlindsData=[
+{
+ imgsrc:"/assets/images/bathroom-blinds/Rectangle1.png",
+ title:"BATHROOM ROLLER BLINDS",
+ description:"Choose a Roller blind for a neat and clutter-free finish. From fun prints to textured plains, all in moisture-resistant fabrics, you’re sure to find the perfect bathroom blinds, whatever your style of bathroom. Roller blinds are ideal for any bathroom where you want to maximise light and space. They filter the light beautifully while giving you much-needed privacy, especially in downstairs bathrooms and rooms that are overlooked.",
+ buttontext:"VIEW OUR ROLLER BLINDS",
+},
+{
+  imgsrc:"/assets/images/bathroom-blinds/Rectangle2.png",
+  title:"BATHROOM VENETIAN BLINDS",
+  description:"Venetian blinds come in a wide range of colours, metallic shades, and special finishes for a sleek and contemporary look. Practical and easy to maintain, Venetian blinds are great for bathrooms. They are ideal for windows that are away from sinks, showers, and baths.",
+  buttontext:"VIEW OUR VENETIAN BLINDS",
+ },
+ {
+  imgsrc:"/assets/images/bathroom-blinds/Rectangle1.png",
+  title:"BATHROOM VERTICAL BLINDS",
+  description:"Ideal for large glazed windows and doors, Vertical blinds a great option for bathrooms and wet rooms, where their moisture-resistant properties are a real bonus. Vertical blinds come in a fantastic array of designs and fabrics that work particularly well in contemporary spaces. Durable and hardwearing PVC fabrics are especially suited to steamy bathrooms and wet rooms.",
+  buttontext:"VIEW OUR VERTICAL BLINDS",
+ },
+ {
+  imgsrc:"/assets/images/bathroom-blinds/Rectangle2.png",
+  title:"BATHROOM WOODEN BLINDS",
+  description:"Wood Venetian blinds are the natural choice for those who like to mix a bit of elegance with timeless while giving a modern or classic feel to any room. These give you the same good looks, but with the added benefit of being moisture-resistant.",
+  buttontext:"VIEW OUR WOODEN BLINDS",
+ },
+ {
+  imgsrc:"/assets/images/bathroom-blinds/Rectangle1.png",
+  title:"BATHROOM BLACKOUT BLINDS",
+  description:"Our blackout blinds for bathrooms guarantee all the privacy you need, which is important if your bathroom is overlooked by neighbors or looks out onto the street. Many are available in PVC fabrics that are 100% waterproof, and they all block out the light.",
+  buttontext:"VIEW OUR BLACKOUT BLINDS",
+ },
+ {
+  imgsrc:"/assets/images/bathroom-blinds/Rectangle2.png",
+  title:"BATHROOM SKYLIGHT BLINDS",
+  description:"Our skylight blinds come in a range of colours to suit your style and with a selection of waterproof fabrics, you don’t have to worry about accidental splashes.",
+  buttontext:"VIEW OUR SKYLIGHT BLINDS",
+ },
+]
+
+export const infoSectionData = {
+  title: 'Lorem Ipsum is simply dummy text of',
+  description:
+    "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+};
+
 export const colorData: IColorData[] = [
   {
     name: 'Brown Shutters',
