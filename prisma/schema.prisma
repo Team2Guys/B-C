@@ -111,21 +111,21 @@ model blogs {
   createdAt   DateTime         @default(now())
   posterImage Json             @default("{}")
   comments    blogs_comments[] @relation("BlogComments")
-  status      BlogStatus       @default(PENDING)
 }
 
 model blogs_comments {
-  id          Int      @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
   name        String
   Email       String
   description String
-  createdAt   DateTime @default(now())
+  createdAt   DateTime      @default(now())
   replies     Json[]
   blogId      Int
-  blog        blogs    @relation("BlogComments", fields: [blogId], references: [id])
+  blog        blogs         @relation("BlogComments", fields: [blogId], references: [id])
+  status      CommentStatus @default(PENDING)
 }
 
-enum BlogStatus {
+enum CommentStatus {
   PENDING
   APPROVED
   REJECTED

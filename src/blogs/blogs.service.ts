@@ -3,7 +3,7 @@ import { CreateBlogDto } from './dto/create-blog.dto';
 import { UpdateBlogDto } from './dto/update-blog.dto';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../../prisma/prisma.service';
-import { BlogStatus } from '@prisma/client';
+import { CommentStatus } from '@prisma/client';
 import {
   CustomErrorHandler,
   getStatusNameByCode,
@@ -156,26 +156,26 @@ export class BlogsService {
 
   async updateStatus(id: number, status: string) {
     try {
-      if (!Object.values(BlogStatus).includes(status as BlogStatus)) {
+      if (!Object.values(CommentStatus).includes(status as CommentStatus)) {
         throw new Error(
-          `Invalid status: ${status}. Valid statuses are ${Object.values(BlogStatus).join(', ')}`,
+          `Invalid status: ${status}. Valid statuses are ${Object.values(CommentStatus).join(', ')}`,
         );
       }
 
-      const existingBlog = await this.prisma.blogs.findUnique({
+      const existingBlog = await this.prisma.blogs_comments.findUnique({
         where: { id },
       });
       if (!existingBlog) {
-        throw new NotFoundException('Blog not found');
+        throw new NotFoundException('Comment not found');
       }
 
-      const updatedBlog = await this.prisma.blogs.update({
+      const updatedBlog = await this.prisma.blogs_comments.update({
         where: { id },
-        data: { status: status as BlogStatus },
+        data: { status: status as CommentStatus },
       });
 
       return {
-        message: 'Blog status updated successfully',
+        message: 'Comment status updated successfully',
         updatedBlog,
       };
     } catch (error) {

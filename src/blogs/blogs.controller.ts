@@ -55,7 +55,7 @@ export class BlogsController {
     return this.blogsService.addReply(+id, reply);
   }
 
-  @Patch('updateStatus/:id')
+  @Patch('/comment/status/:id')
   async updateStatus(
     @Param('id') id: string,
     @Body() updateStatusDto: UpdateStatusDto,
