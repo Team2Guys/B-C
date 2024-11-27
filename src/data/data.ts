@@ -2228,3 +2228,4 @@ export const ByColorContent = [
     },
   },
 ]
+export const specificTitles = ["Living Room Blinds","Staircase Blinds","Bedroom Blinds","Conservatory Blinds","Study Room Blinds","Dining Room Blinds","Kitchen Blinds","Kids Room Blinds","Bathroom Blinds","Bedroom Curtains","Conservatory Curtains","Living Room Curtains","Kids Room Curtains","Home Curtains","Room Curtains","Dining Room Curtains","Staircase Curtains","Kitchen Shutters","Bathroom Shutters","Living Room Shutters","Staircase Shutters","Dining Room Shutters","Bedroom Shutters","Indoor","Skylight","Balcony","Pergola","Outdoor"];
