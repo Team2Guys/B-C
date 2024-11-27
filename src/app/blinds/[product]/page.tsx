@@ -3,6 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
+import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import VideoAutomation from 'components/video-Automation/video-Automation';
@@ -45,13 +46,15 @@ const CommercialPage = () => {
     return <PageSkelton />;
   }
 
-
+console.log(filteredSubCategory,"descriptiondescription")
   return (
     <>
       {filteredSubCategory ? (
         <>
-          <CategoryPage
+          <RoomProducts
             title={`${filteredSubCategory.title}`}
+            description={`${filteredSubCategory.description}`}
+            category={`${filteredSubCategory.category.title}`}
             relatedProducts={filteredSubCategory?.products || []}
           />
         </>
