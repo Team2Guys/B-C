@@ -1,16 +1,23 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { BlogsService } from './blogs.service';
 import { CreateBlogDto } from './dto/create-blog.dto';
-import { UpdateBlogDto } from './dto/update-blog.dto';
+import { UpdateBlogDto, UpdateStatusDto } from './dto/update-blog.dto';
 import { Prisma } from '@prisma/client';
 import { CreateCommentDto } from './dto/create-comments.dto';
 
 @Controller('blogs')
 export class BlogsController {
-  constructor(private readonly blogsService: BlogsService) { }
+  constructor(private readonly blogsService: BlogsService) {}
 
-
-  @Post("/create_blog")
+  @Post('/create_blog')
   create(@Body() createBlogDto: Prisma.blogsCreateInput) {
     return this.blogsService.create(createBlogDto);
   }
@@ -26,7 +33,10 @@ export class BlogsController {
   }
 
   @Patch('update/:id')
-  update(@Param('id') id: string, @Body() updateBlogDto: Prisma.blogsUpdateInput) {
+  update(
+    @Param('id') id: string,
+    @Body() updateBlogDto: Prisma.blogsUpdateInput,
+  ) {
     return this.blogsService.update(+id, updateBlogDto);
   }
 
@@ -35,17 +45,21 @@ export class BlogsController {
     return this.blogsService.remove(+id);
   }
 
-  @Post("addComments/:id")
+  @Post('addComments/:id')
   Addcomments(@Param('id') id: string, @Body() Comment: CreateCommentDto) {
-    return this.blogsService.addComment(+id, Comment)
+    return this.blogsService.addComment(+id, Comment);
   }
 
-
-  @Post("addReply/:id")
+  @Post('addReply/:id')
   Addreply(@Param('id') id: string, @Body() reply: CreateCommentDto) {
-    return this.blogsService.addReply(+id, reply)
+    return this.blogsService.addReply(+id, reply);
   }
 
-
-
+  @Patch('updateStatus/:id')
+  async updateStatus(
+    @Param('id') id: string,
+    @Body() updateStatusDto: UpdateStatusDto,
+  ) {
+    return this.blogsService.updateStatus(+id, updateStatusDto.status);
+  }
 }

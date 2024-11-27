@@ -29,28 +29,28 @@ model SubCategories {
 }
 
 model products {
-  id               Int             @id @default(autoincrement())
-  title            String          @unique
-  posterImage      Json
-  imageUrls        Json[]
-  price            Float
-  CategoryId       Int
-  SubCategoryId    Int?
-  description      String?
-  updatedAt        DateTime?
-  createdAt        DateTime        @default(now())
-  category         Categories      @relation("CategoryToProducts", fields: [CategoryId], references: [id])
-  subCategory      SubCategories[] @relation("SubCategoryToProducts")
-  product_type     String          @default("By Type")
-  colors           Json[]
-  Meta_description String?
-  Images_Alt_Text  String?
-  Meta_Title       String?
-  Canonical_Tag    String?
- short_description String?
- heading String?
- Sub_Heading String?
- Sub_Heading_description String?
+  id                      Int             @id @default(autoincrement())
+  title                   String          @unique
+  posterImage             Json
+  imageUrls               Json[]
+  price                   Float
+  CategoryId              Int
+  SubCategoryId           Int?
+  description             String?
+  updatedAt               DateTime?
+  createdAt               DateTime        @default(now())
+  category                Categories      @relation("CategoryToProducts", fields: [CategoryId], references: [id])
+  subCategory             SubCategories[] @relation("SubCategoryToProducts")
+  product_type            String          @default("By Type")
+  colors                  Json[]
+  Meta_description        String?
+  Images_Alt_Text         String?
+  Meta_Title              String?
+  Canonical_Tag           String?
+  short_description       String?
+  heading                 String?
+  Sub_Heading             String?
+  Sub_Heading_description String?
 }
 
 enum contact_method {
@@ -111,6 +111,7 @@ model blogs {
   createdAt   DateTime         @default(now())
   posterImage Json             @default("{}")
   comments    blogs_comments[] @relation("BlogComments")
+  status      BlogStatus       @default(PENDING)
 }
 
 model blogs_comments {
@@ -122,4 +123,10 @@ model blogs_comments {
   replies     Json[]
   blogId      Int
   blog        blogs    @relation("BlogComments", fields: [blogId], references: [id])
+}
+
+enum BlogStatus {
+  PENDING
+  APPROVED
+  REJECTED
 }
