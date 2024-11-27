@@ -1,15 +1,10 @@
 import { Modal } from 'antd';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
-import { CommentData, NestedCommentData } from 'data/data';
-import Image from 'next/image';
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BsReply } from 'react-icons/bs';
 import { FaWhatsapp } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
-import { RiInstagramFill } from 'react-icons/ri';
 import { TiSocialFacebook, TiSocialPinterest } from 'react-icons/ti';
 import { useQueryClient } from '@tanstack/react-query';
 
@@ -51,18 +46,17 @@ function Comments({ data }: CommentsProps) {
   useEffect(() => {
     const currentURL = window.location.href;
     setShareURL(currentURL);
-
-    console.log(currentURL)
   }, []);
 
-  const totalPages = Math.ceil(data?.comments.length / itemsPerPage);
+  const comments = data?.comments?.filter((comment: any) => comment.status === 'APPROVED') || [];
+
+  const totalPages = Math.ceil(comments.length / itemsPerPage);
+  const currentComments = comments
+    .slice()
+    .reverse()
+    .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
 
-
-  const currentComments = data?.comments
-  .slice()
-  .reverse()
-  .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -98,7 +92,6 @@ function Comments({ data }: CommentsProps) {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('Form Data:', formData);
       let id = !isModalOpen ? data.id : commentId
       let endpoint = !isModalOpen ? "addComments" : "addReply"
 
@@ -138,7 +131,6 @@ function Comments({ data }: CommentsProps) {
   };
 
 
-
   return (
     <div className='w-full'>
       <div className="flex justify-between items-center">
@@ -149,7 +141,7 @@ function Comments({ data }: CommentsProps) {
             <FacebookShareButton url={shareURL}>
               <TiSocialFacebook size={20} />
             </FacebookShareButton>
-            <PinterestShareButton url={shareURL} media={data.posterImage.imageUrl} >
+            <PinterestShareButton url={shareURL} media={data?.posterImage?.imageUrl} >
               <TiSocialPinterest size={24} />
             </PinterestShareButton>
             <WhatsappShareButton

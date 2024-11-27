@@ -329,11 +329,15 @@ export interface BlogInfo {
   category: string;
   title: string;
   content: string;
-
+  comment?: commentprops[]
   createdAt?: date;
   updatedAt?: date;
 }
-
+interface commentprops{
+  status?: string;
+  title?: string;
+  name?: string;
+}
 export interface UpdateBlog extends BlogInfo {
   id: string;
 }
