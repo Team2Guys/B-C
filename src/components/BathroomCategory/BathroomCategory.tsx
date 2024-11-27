@@ -6,23 +6,12 @@ import { ICategory } from 'types/types';
 import { fetchSubCategories } from 'config/fetch';
 import Link from 'next/link';
 
-const BathroomCategory = () => {
-  const {
-    data: subCategories,
-    error: subCateERROR,
-    isLoading: isLoadingSubCategories,
-  } = useQuery<ICategory[]>({
-    queryKey: ['fetchSubCategories'],
-    queryFn: fetchSubCategories,
-  });
+const BathroomCategory = ({filteredProducts,isLoading,categoryTitle}:any) => {
 
-  const filteredCategories = subCategories?.filter((item) =>
-    specificTitles.includes(item.title)
-  );
-
+console.log(filteredProducts,"filteredProductsfilteredProducts")
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 px-2">
-      {isLoadingSubCategories
+      {isLoading
         ? Array.from({ length: 6 }).map((_, index) => (
             <div
               key={index}
@@ -35,8 +24,8 @@ const BathroomCategory = () => {
               <div className="h-10 w-1/2 bg-gray-300 rounded-md mt-2"></div>
             </div>
           ))
-        : filteredCategories &&
-          filteredCategories.map((arr, index) => (
+        : filteredProducts &&
+          filteredProducts.map((arr:any, index:number) => (
             <div
               className="flex flex-col items-center justify-between sm:items-start space-y-2 text-center sm:text-start w-full"
               key={index}
@@ -58,14 +47,13 @@ const BathroomCategory = () => {
               </p>
               <Link
                 href={`/${
-                  arr.category.title === "Shutters" 
-                    ? "shutters-range" 
-                    : generateSlug(arr.category.title)
-                }/${generateSlug(arr.title)}`}
+                  categoryTitle === "Shutters" ? "shutters-range" : categoryTitle.toLowerCase()
+                }/${generateSlug(arr.title).toLowerCase()}`}
                 className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center"
               >
                 View Our {arr.title}
               </Link>
+
             </div>
           ))}
     </div>
