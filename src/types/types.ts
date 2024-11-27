@@ -33,6 +33,7 @@ export interface ICategory {
   CategoryId: number;
   description: string | null;
   id: number;
+  category: any
   posterImage: PosterImage;
   products : []
   createdAt:Date
