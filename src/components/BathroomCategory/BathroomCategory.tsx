@@ -1,8 +1,21 @@
 import React from 'react';
 import { BathroomBlindsData } from 'data/data';
 import Image from 'next/image';
+import { useQuery } from '@tanstack/react-query';
+import { IProduct } from 'types/types';
+import { fetchProducts } from 'config/fetch';
 
 const BathroomCategory = () => {
+  const {
+    data: products,
+    error: productError,
+    isLoading: productLoading,
+  } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+
+  console.log(products,"productsproductsproducts")
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 mx-auto px-2">
       {BathroomBlindsData.map((arr, index) => (
