@@ -1176,7 +1176,7 @@ export const blindMegaMenuItems = [
   { productName: 'colby-honeycomb-blinds' },
   { productName: 'panel-blinds' },
   { productName: 'aluminium-venetian-blinds-dubai' },
-  { productName: 'wooden-blinds' },
+  { productName: 'wood-venetian' },
   { productName: 'daynight-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
@@ -1194,7 +1194,6 @@ export const blindMegaMenuItems = [
   { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
-  { productName: 'dimoutsemi-trasnparent' },
   { productName: 'motorised' },
 ];
 
@@ -1480,7 +1479,7 @@ export const megaMenubyStyle = [
   { productName: 'colby-honeycomb-blinds' },
   { productName: 'panel-blinds' },
   { productName: 'aluminium-venetian-blinds-dubai' },
-  { productName: 'wooden-blinds' },
+  { productName: 'wood-venetian' },
   { productName: 'daynight-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
@@ -1569,7 +1568,6 @@ export const megaMenuDynamic = [
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
   { productName: 'outdoor-blinds' },
-  { productName: 'dimoutsemi-trasnparent' },
   { productName: 'motorised' },
 
   { productName: 'white-shutters' },
