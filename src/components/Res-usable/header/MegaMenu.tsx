@@ -184,7 +184,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                             ? 'By Fabrics'
                             : parent === 'shutters'
                               ? 'By Colour'
-                              : 'By Design'
+                              : 'By Function'
                         : item.name}
                     </p>
                     {distributedProducts[index]?.map(
