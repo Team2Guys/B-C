@@ -96,13 +96,14 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
               const filteredCategory = categoriesList.find(
                 (cat) => cat.id === item?.CategoryId,
               );
-              return 'hello';
-              // <GalleryCard
-              //   card={item}
-              //   key={item.id}
-              //   relativeProducts={true}
-              //   parent={filteredCategory?.title.toLowerCase()}
-              // />
+              return (
+                <GalleryCard
+                  card={item}
+                  key={item.id}
+                  relativeProducts={true}
+                  parent={filteredCategory?.title.toLowerCase()}
+                />
+              );
             })}
           </div>
         ) : (
