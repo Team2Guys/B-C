@@ -1628,7 +1628,6 @@ export const extendedByStyle = [
   { productName: 'cafe-style-shutters' },
 ];
 
-
 export const extendedByRoom = [
   { productName: 'kids-room-blinds' },
   { productName: 'study-room-blinds' },
@@ -1956,44 +1955,50 @@ export const motorisedPageData1 = {
 export const Cateories = [9, 2, 5, 12];
 
 //BathroomBlindsData
-export const BathroomBlindsData=[
-{
- imgsrc:"/assets/images/bathroom-blinds/Rectangle1.png",
- title:"BATHROOM ROLLER BLINDS",
- description:"Choose a Roller blind for a neat and clutter-free finish. From fun prints to textured plains, all in moisture-resistant fabrics, you’re sure to find the perfect bathroom blinds, whatever your style of bathroom. Roller blinds are ideal for any bathroom where you want to maximise light and space. They filter the light beautifully while giving you much-needed privacy, especially in downstairs bathrooms and rooms that are overlooked.",
- buttontext:"VIEW OUR ROLLER BLINDS",
-},
-{
-  imgsrc:"/assets/images/bathroom-blinds/Rectangle2.png",
-  title:"BATHROOM VENETIAN BLINDS",
-  description:"Venetian blinds come in a wide range of colours, metallic shades, and special finishes for a sleek and contemporary look. Practical and easy to maintain, Venetian blinds are great for bathrooms. They are ideal for windows that are away from sinks, showers, and baths.",
-  buttontext:"VIEW OUR VENETIAN BLINDS",
- },
- {
-  imgsrc:"/assets/images/bathroom-blinds/Rectangle1.png",
-  title:"BATHROOM VERTICAL BLINDS",
-  description:"Ideal for large glazed windows and doors, Vertical blinds a great option for bathrooms and wet rooms, where their moisture-resistant properties are a real bonus. Vertical blinds come in a fantastic array of designs and fabrics that work particularly well in contemporary spaces. Durable and hardwearing PVC fabrics are especially suited to steamy bathrooms and wet rooms.",
-  buttontext:"VIEW OUR VERTICAL BLINDS",
- },
- {
-  imgsrc:"/assets/images/bathroom-blinds/Rectangle2.png",
-  title:"BATHROOM WOODEN BLINDS",
-  description:"Wood Venetian blinds are the natural choice for those who like to mix a bit of elegance with timeless while giving a modern or classic feel to any room. These give you the same good looks, but with the added benefit of being moisture-resistant.",
-  buttontext:"VIEW OUR WOODEN BLINDS",
- },
- {
-  imgsrc:"/assets/images/bathroom-blinds/Rectangle1.png",
-  title:"BATHROOM BLACKOUT BLINDS",
-  description:"Our blackout blinds for bathrooms guarantee all the privacy you need, which is important if your bathroom is overlooked by neighbors or looks out onto the street. Many are available in PVC fabrics that are 100% waterproof, and they all block out the light.",
-  buttontext:"VIEW OUR BLACKOUT BLINDS",
- },
- {
-  imgsrc:"/assets/images/bathroom-blinds/Rectangle2.png",
-  title:"BATHROOM SKYLIGHT BLINDS",
-  description:"Our skylight blinds come in a range of colours to suit your style and with a selection of waterproof fabrics, you don’t have to worry about accidental splashes.",
-  buttontext:"VIEW OUR SKYLIGHT BLINDS",
- },
-]
+export const BathroomBlindsData = [
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle1.png',
+    title: 'BATHROOM ROLLER BLINDS',
+    description:
+      'Choose a Roller blind for a neat and clutter-free finish. From fun prints to textured plains, all in moisture-resistant fabrics, you’re sure to find the perfect bathroom blinds, whatever your style of bathroom. Roller blinds are ideal for any bathroom where you want to maximise light and space. They filter the light beautifully while giving you much-needed privacy, especially in downstairs bathrooms and rooms that are overlooked.',
+    buttontext: 'VIEW OUR ROLLER BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle2.png',
+    title: 'BATHROOM VENETIAN BLINDS',
+    description:
+      'Venetian blinds come in a wide range of colours, metallic shades, and special finishes for a sleek and contemporary look. Practical and easy to maintain, Venetian blinds are great for bathrooms. They are ideal for windows that are away from sinks, showers, and baths.',
+    buttontext: 'VIEW OUR VENETIAN BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle1.png',
+    title: 'BATHROOM VERTICAL BLINDS',
+    description:
+      'Ideal for large glazed windows and doors, Vertical blinds a great option for bathrooms and wet rooms, where their moisture-resistant properties are a real bonus. Vertical blinds come in a fantastic array of designs and fabrics that work particularly well in contemporary spaces. Durable and hardwearing PVC fabrics are especially suited to steamy bathrooms and wet rooms.',
+    buttontext: 'VIEW OUR VERTICAL BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle2.png',
+    title: 'BATHROOM WOODEN BLINDS',
+    description:
+      'Wood Venetian blinds are the natural choice for those who like to mix a bit of elegance with timeless while giving a modern or classic feel to any room. These give you the same good looks, but with the added benefit of being moisture-resistant.',
+    buttontext: 'VIEW OUR WOODEN BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle1.png',
+    title: 'BATHROOM BLACKOUT BLINDS',
+    description:
+      'Our blackout blinds for bathrooms guarantee all the privacy you need, which is important if your bathroom is overlooked by neighbors or looks out onto the street. Many are available in PVC fabrics that are 100% waterproof, and they all block out the light.',
+    buttontext: 'VIEW OUR BLACKOUT BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle2.png',
+    title: 'BATHROOM SKYLIGHT BLINDS',
+    description:
+      'Our skylight blinds come in a range of colours to suit your style and with a selection of waterproof fabrics, you don’t have to worry about accidental splashes.',
+    buttontext: 'VIEW OUR SKYLIGHT BLINDS',
+  },
+];
 
 export const infoSectionData = {
   title: 'Lorem Ipsum is simply dummy text of',
@@ -2003,68 +2008,50 @@ export const infoSectionData = {
 
 export const colorData: IColorData[] = [
   {
-    name: 'Brown Shutters',
-    color: 'bg-[#A38D79]',
-    url: '/shutters-range/brown-shutters'
-  },
-  {
-    name: 'Blue Shutters',
-    color: 'bg-[#3D6075]',
-    url: '/shutters-range/blue-shutters'
-  },
-  {
+    id: 1,
     name: 'Off White Shutters',
     color: 'bg-[#FAF9EF]',
-    url: '/shutters-range/off-white-shutters'
+    url: '/shutters-range/off-white-shutters',
   },
   {
-    name: 'Green Shutters',
-    color: 'bg-[#86A18F]',
-    url: '/shutters-range/green-shutters'
-  },
-  {
-    name: 'Orange Shutters',
-    color: 'bg-[#F2CB80]',
-    url: '/shutters-range/orange-shutters'
-  },
-  {
-    name: 'Pink Shutters',
-    color: 'bg-[#FAE3E3]',
-    url: '/shutters-range/pink-shutters'
-  },
-  {
+    id: 2,
     name: 'White Shutters',
     color: 'bg-[#FFFFFF]',
-    url: '/shutters-range/white-shutters'
+    url: '/shutters-range/white-shutters',
   },
   {
+    id: 3,
     name: 'Black Shutters',
     color: 'bg-[#000000]',
-    url: '/shutters-range/black-shutters'
+    url: '/shutters-range/black-shutters',
   },
   {
+    id: 4,
     name: 'Grey Shutters',
     color: 'bg-[#E4EAEB]',
-    url: '/shutters-range/grey-shutters'
+    url: '/shutters-range/grey-shutters',
   },
   {
+    id: 5,
     name: 'Dark Wood Shutters',
     color: 'bg-[#E4EAEB]',
-    url: '/shutters-range/dark-wood-shutters'
+    url: '/shutters-range/dark-wood-shutters',
   },
   {
+    id: 6,
     name: 'Bold Colour Shutters',
     color: 'bg-[#E4EAEB]',
-    url: '/shutters-range/bold-colours-shutters'
+    url: '/shutters-range/bold-colours-shutters',
   },
-]
+];
 
 export const ByColorContent = [
   {
     slug: '/shutters-range/off-white-shutters',
     content: {
       heading: 'Off White Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2079,7 +2066,8 @@ export const ByColorContent = [
     slug: '/shutters-range/white-shutters',
     content: {
       heading: 'White Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2094,7 +2082,8 @@ export const ByColorContent = [
     slug: '/shutters-range/black-shutters',
     content: {
       heading: 'Black Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2109,7 +2098,8 @@ export const ByColorContent = [
     slug: '/shutters-range/dark-wood-shutters',
     content: {
       heading: 'Dark Wood Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2124,7 +2114,8 @@ export const ByColorContent = [
     slug: '/shutters-range/bold-colours-shutters',
     content: {
       heading: 'Bold Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2139,7 +2130,8 @@ export const ByColorContent = [
     slug: '/shutters-range/grey-shutters',
     content: {
       heading: 'Grey Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2154,7 +2146,8 @@ export const ByColorContent = [
     slug: '/shutters-range/brown-shutters',
     content: {
       heading: 'Brown Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2169,7 +2162,8 @@ export const ByColorContent = [
     slug: '/shutters-range/blue-shutters',
     content: {
       heading: 'Blue Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2184,7 +2178,8 @@ export const ByColorContent = [
     slug: '/shutters-range/green-shutters',
     content: {
       heading: 'Green Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2199,7 +2194,8 @@ export const ByColorContent = [
     slug: '/shutters-range/orange-shutters',
     content: {
       heading: 'Orange Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2214,7 +2210,8 @@ export const ByColorContent = [
     slug: '/shutters-range/pink-shutters',
     content: {
       heading: 'Pink Colour Shutters',
-      paragraph: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
       subheadingContent: [
@@ -2225,5 +2222,34 @@ export const ByColorContent = [
       ],
     },
   },
-]
-export const specificTitles = ["Living Room Blinds","Staircase Blinds","Bedroom Blinds","Conservatory Blinds","Study Room Blinds","Dining Room Blinds","Kitchen Blinds","Kids Room Blinds","Bathroom Blinds","Bedroom Curtains","Conservatory Curtains","Living Room Curtains","Kids Room Curtains","Home Curtains","Room Curtains","Dining Room Curtains","Staircase Curtains","Kitchen Shutters","Bathroom Shutters","Living Room Shutters","Staircase Shutters","Dining Room Shutters","Bedroom Shutters","Indoor","Skylight","Balcony","Pergola","Outdoor"];
+];
+export const specificTitles = [
+  'Living Room Blinds',
+  'Staircase Blinds',
+  'Bedroom Blinds',
+  'Conservatory Blinds',
+  'Study Room Blinds',
+  'Dining Room Blinds',
+  'Kitchen Blinds',
+  'Kids Room Blinds',
+  'Bathroom Blinds',
+  'Bedroom Curtains',
+  'Conservatory Curtains',
+  'Living Room Curtains',
+  'Kids Room Curtains',
+  'Home Curtains',
+  'Room Curtains',
+  'Dining Room Curtains',
+  'Staircase Curtains',
+  'Kitchen Shutters',
+  'Bathroom Shutters',
+  'Living Room Shutters',
+  'Staircase Shutters',
+  'Dining Room Shutters',
+  'Bedroom Shutters',
+  'Indoor',
+  'Skylight',
+  'Balcony',
+  'Pergola',
+  'Outdoor',
+];
