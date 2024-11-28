@@ -14,10 +14,6 @@ export const urls = [
       Url : "wave-curtains"
     },
     {
-      productName : "Tracked System Shutters",
-      Url : "tracked-window-shutters"
-    },
-    {
       productName : "Special Shape Shutters",
       Url : "special-shape-shutters-wooden-shutters"
     },
@@ -81,6 +77,22 @@ export const urls = [
     {
       productName : "Grey Shutters",
       Url : "grey-shutters"
+    },
+    {
+      productName : "Bedroom Curtains",
+      Url : "made-to-measure-bed-room-curtains"
+    },
+    {
+      productName : "Living Room Curtains",
+      Url : "made-to-measure-living-room-curtains"
+    },
+    {
+      productName : "Bathroom Blinds",
+      Url : "bathroom-blinds-dubai"
+    },
+    {
+      productName : "Kids Bedroom",
+      Url : "kids-room-curtains"
     },
     ]
 
