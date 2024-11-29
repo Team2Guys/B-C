@@ -1176,8 +1176,9 @@ export const blindMegaMenuItems = [
   { productName: 'colby-honeycomb-blinds' },
   { productName: 'panel-blinds' },
   { productName: 'aluminium-venetian-blinds-dubai' },
-  { productName: 'wood-venetian' },
-  { productName: 'daynight-blinds' },
+  // { productName: 'wood-venetian' },
+  { productName: 'duplex-blinds' },
+  { productName: 'wooden-venetian' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
 
@@ -1191,10 +1192,11 @@ export const blindMegaMenuItems = [
   { productName: 'living-room' },
   { productName: 'officestudy' },
 
-  { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
   { productName: 'motorised' },
+  { productName: 'dimout-roller-blinds' },
+  { productName: 'sunscreen-roller-blinds' },
 ];
 
 export const curtainMegaMenuItems = [
@@ -1231,12 +1233,12 @@ export const shutterMegaMenuItems = [
   { productName: 'tier-on-tier-shutters-wooden-shutters' },
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
-  { productName: 'tracked-shutters' },
   { productName: 'full-height-shutters' },
   { productName: 'staircase-shutters' },
   // { productName: 'bathroom-shutters' },
   // { productName: 'kitchen-shutters' },
   { productName: 'dining-room-shutters' },
+  { productName: 'tracked-window-shutters' },
 ];
 
 export const commercialMegaMenuItems = [
@@ -1479,8 +1481,9 @@ export const megaMenubyStyle = [
   { productName: 'colby-honeycomb-blinds' },
   { productName: 'panel-blinds' },
   { productName: 'aluminium-venetian-blinds-dubai' },
-  { productName: 'wood-venetian' },
-  { productName: 'daynight-blinds' },
+  // { productName: 'wood-venetian' },
+  { productName: 'duplex-blinds' },
+  { productName: 'wooden-venetian' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
 
@@ -1491,8 +1494,9 @@ export const megaMenubyStyle = [
   { productName: 'tier-on-tier-shutters-wooden-shutters' },
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
-  { productName: 'tracked-shutters' },
   { productName: 'full-height-shutters' },
+  { productName: 'tracked-window-shutters' },
+
 
   { productName: 'pencil-pleat-curtains' },
   { productName: 'ripplefold-wave-curtains' },
@@ -1553,7 +1557,6 @@ export const megaMenubyRoom = [
 
 export const megaMenuDynamic = [
   { productName: 'sunscreen-roller-blinds' },
-  { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'stripes-curtains' },
   { productName: 'geometric-curtains' },
@@ -1564,11 +1567,11 @@ export const megaMenuDynamic = [
   { productName: 'plain-curtains' },
   { productName: 'made-to-measure-sheer-curtains' },
   { productName: 'blackout-curtains-dubai' },
-  { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
   { productName: 'outdoor-blinds' },
   { productName: 'motorised' },
+  { productName: 'dimout-roller-blinds' },
 
   { productName: 'white-shutters' },
   { productName: 'off-white-shutters' },
