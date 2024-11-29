@@ -61,6 +61,8 @@ const RoomProducts = ({ title, relatedProducts,description,category }: ICategory
     queryFn: fetchCategories,
   });
 
+  const pathName = usePathname();
+
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
   const [productCategory, setProductCategory] = useState<string>('');
@@ -115,7 +117,7 @@ const RoomProducts = ({ title, relatedProducts,description,category }: ICategory
         title={title}
         pageTitle={`Made to Measure ${title}`}
         image={bgBreadcrum}
-        pagename={title}
+        pagename={pathName}
       />
       <Container className="my-12">
         <div className="flex flex-col justify-center items-center space-y-4 px-2">
