@@ -1212,7 +1212,7 @@ export const curtainMegaMenuItems = [
   { productName: 'bedroom' },
   { productName: 'dining' },
   { productName: 'loungeliving' },
-  { productName: 'kids-bedroom' },
+  // { productName: 'kids-bedroom' },
 
   { productName: 'stripes-curtains' },
   { productName: 'geometric-curtains' },
