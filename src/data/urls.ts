@@ -1,9 +1,16 @@
 import { generateSlug } from "./data"
 
 export const urls = [
+  {
+    productName : "Living Room Curtains",
+    Url : "made-to-measure-living-room-curtains",
+    errorUrl:"/curtains/living-room-curtains"
+  },
     {
         productName : "Kids Room Blinds",
-        Url : "blinds-for-kids-room"
+        Url : "blinds-for-kids-room",
+        errorUrl:"kids-room-blinds"
+
     },
     {
       productName : "Zipline Outdoor Blinds",
@@ -80,19 +87,18 @@ export const urls = [
     },
     {
       productName : "Bedroom Curtains",
-      Url : "made-to-measure-bed-room-curtains"
-    },
-    {
-      productName : "Living Room Curtains",
-      Url : "made-to-measure-living-room-curtains"
+      Url : "made-to-measure-bed-room-curtains",
+      errorUrl:"/curtains/bedroom-curtains"
     },
     {
       productName : "Bathroom Blinds",
-      Url : "bathroom-blinds-dubai"
+      Url : "bathroom-blinds-dubai",
+      errorUrl:"/blinds/bathroom-blinds"
     },
     {
       productName : "Kids Bedroom",
-      Url : "kids-room-curtains"
+      Url : "kids-room-curtains",
+      errorUrl:"/curtains/kids-bedroom"
     },
     ]
 
@@ -118,6 +124,5 @@ export const ChangedProductUrl_handler = (title: string): string => {
   })
 
   return products ? products.Url : generateSlug(title)
-
 
 }
