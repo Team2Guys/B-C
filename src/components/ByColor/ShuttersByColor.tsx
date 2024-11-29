@@ -11,7 +11,7 @@ import {
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
-import { ByColorContent } from 'data/data';
+import { ByColorContent, colorData, generateSlug } from 'data/data';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
@@ -28,7 +28,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
       content: string;
     }[];
   } | null>(null);
-  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [showAll, setShowAll] = useState(false);
   const pathname = usePathname();
   // const title = generateSlug(pathname).replaceAll('-',' ');
@@ -40,6 +40,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
+
   const {
     data: categoriesList = [],
     error,
@@ -48,28 +49,34 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
     queryKey: ['category'],
     queryFn: fetchCategories,
   });
+  const getColorHex = (path: string): string | null => {
+    const colorMatch = colorData.find(
+      (color) => color.url === path
+    );
+    return colorMatch ? colorMatch.color.slice(4, -1) : null;
+  };
+
   useEffect(() => {
-    if (products) {
-      const filteredCategory = products.filter((prod) => prod.CategoryId === 9);
-      if (filteredCategory) {
-        const filteredSubcategories = filteredCategory.filter(
-          (prodItem) =>
-            prodItem.subCategory &&
-            prodItem.subCategory.find((item: any) => item.title === title),
-        );
-        console.log(filteredSubcategories, 'filteredSubcategories');
-        // const filteredProduct = filteredCategory.filter((prodItem) => prodItem)
-        setFilteredProducts(filteredSubcategories);
-      }
+    const selectedColorHex = getColorHex(pathname);
+
+    if (selectedColorHex && products) {
+      console.log("Debuge 1")
+      const filteredByColor = products.filter((prod) =>
+        //@ts-expect-error
+        prod.colors?.some((color) => color.colorName === selectedColorHex)
+      );
+      console.log("Debuge 2")
+      console.log(filteredByColor);
+      setFilteredProducts(filteredByColor);
     }
-  }, [pathname]);
+  }, [pathname, products]);
+
   const handleShowMore = () => {
     setShowAll(true);
   };
 
-  const productsToDisplay = showAll
-    ? filteredProducts
-    : filteredProducts.slice(0, 6);
+
+
   useEffect(() => {
     const selectedPage = ByColorContent.find((page) => page.slug === pathname);
     if (selectedPage) {
@@ -90,11 +97,11 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
             <span className="font-bold">{title}</span> By Colour
           </h2>
         </div>
-        {productsToDisplay.length > 0 ? (
+        {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
-            {productsToDisplay.map((item) => {
+            {filteredProducts.map((item) => {
               const filteredCategory = categoriesList.find(
-                (cat) => cat.id === item?.CategoryId,
+                (cat) => cat.id === item?.CategoryId
               );
               return (
                 <GalleryCard
@@ -107,7 +114,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
             })}
           </div>
         ) : (
-          <p className="text-18 font-medium">No Products found</p>
+          <p className="text-18 font-medium">No Products found😢</p>
         )}
 
         {!showAll && filteredProducts.length > 6 && (
@@ -121,9 +128,9 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
           </div>
         )}
       </Container>
-      <Container className="my-20">
+      {/* <Container className="my-20">
         <RelatedProducts products={products || []} limit={4} />
-      </Container>
+      </Container> */}
       <VideoAutomation />
       <Support />
     </>

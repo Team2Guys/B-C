@@ -3,6 +3,8 @@
 import { useQuery } from '@tanstack/react-query';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
+import Container from 'components/Res-usable/Container/Container';
+import Support from 'components/Res-usable/support/support';
 import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
@@ -61,7 +63,15 @@ console.log(filteredSubCategory,"descriptiondescription")
       ) : (
         <ProductDetailPage title={`${filteredProduct?.title}`} />
       )}
-      <VideoAutomation />
+            {/* {filteredSubCategory  ? "": 
+            <>
+            <VideoAutomation />
+            <Container>
+              <Support/>
+            </Container>
+            </>
+            } */}
+
     </>
   );
 };

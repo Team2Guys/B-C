@@ -95,11 +95,7 @@ export const urls = [
       Url : "bathroom-blinds-dubai",
       errorUrl:"/blinds/bathroom-blinds"
     },
-    {
-      productName : "Kids Bedroom",
-      Url : "kids-room-curtains",
-      errorUrl:"/curtains/kids-bedroom"
-    },
+  
     ]
 
 
