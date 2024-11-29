@@ -15,6 +15,7 @@ import {
   fetchSubCategories,
 } from 'config/fetch';
 import TopHero from 'components/ui/top-hero';
+import { usePathname } from 'next/navigation';
 
 interface ICategoryPage {
   title: string;
@@ -47,6 +48,8 @@ const RoomProducts = ({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
+
+  const pathName = usePathname();
 
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
@@ -100,7 +103,7 @@ const RoomProducts = ({
         title={title}
         pageTitle={`Made to Measure ${title}`}
         image={bgBreadcrum}
-        pagename={title}
+        pagename={pathName}
       />
       <Container className="my-12">
         <div className="flex flex-col justify-center items-center space-y-4 px-2">
