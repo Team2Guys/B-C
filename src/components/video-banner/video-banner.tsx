@@ -79,7 +79,7 @@ const VideoBanner: React.FC<BannerProps> = ({
               >
                 {colorData.map((item, index) => (
                   <div
-                    className="flex flex-col gap-2 mb-10 cursor-pointer"
+                    className="flex-col items-center gap-2 mb-10 cursor-pointer color-box-wrapper"
                     key={`${item.color}-${index}`}
                     onClick={(event) => handleNavigation(event, item.url)}
                   >
