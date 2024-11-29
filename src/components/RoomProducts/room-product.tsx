@@ -1,14 +1,18 @@
-"use client";
-import BathroomCategory from "components/BathroomCategory/BathroomCategory";
-import Container from "components/Res-usable/Container/Container";
-import VideoAutomation from "components/video-Automation/video-Automation";
-import VideoBanner from "components/video-banner/video-banner";
-import Support from "components/Res-usable/support/support";
-import React, { useEffect, useState } from "react";
-import { infoSectionData } from "data/data";
-import { ICategory, IProduct } from "types/types";
-import { useQuery } from "@tanstack/react-query";
-import { fetchCategories, fetchProducts, fetchSubCategories } from "config/fetch";
+'use client';
+import BathroomCategory from 'components/BathroomCategory/BathroomCategory';
+import Container from 'components/Res-usable/Container/Container';
+import VideoAutomation from 'components/video-Automation/video-Automation';
+import Support from 'components/Res-usable/support/support';
+import React, { useEffect, useState } from 'react';
+import { ICategory, IProduct } from 'types/types';
+import { useQuery } from '@tanstack/react-query';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
+import {
+  fetchCategories,
+  fetchProducts,
+  fetchSubCategories,
+} from 'config/fetch';
+import TopHero from 'components/ui/top-hero';
 import { usePathname, useRouter } from "next/navigation";
 import { urls } from "data/urls";
 import NotFound from "app/not-found";
@@ -16,8 +20,8 @@ import NotFound from "app/not-found";
 interface ICategoryPage {
   title: string;
   relatedProducts: IProduct[];
-  description:string;
-  category:string;
+  description: string;
+  category: string;
 }
 
 const RoomProducts = ({ title, relatedProducts,description,category }: ICategoryPage) => {
@@ -43,37 +47,38 @@ const RoomProducts = ({ title, relatedProducts,description,category }: ICategory
     error,
     isLoading,
   } = useQuery<IProduct[]>({
-    queryKey: ["products"],
+    queryKey: ['products'],
     queryFn: fetchProducts,
   });
 
   const { data: subcategories } = useQuery<ICategory[]>({
-    queryKey: ["subcategories"],
+    queryKey: ['subcategories'],
     queryFn: fetchSubCategories,
   });
 
   const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ["categories"],
+    queryKey: ['categories'],
     queryFn: fetchCategories,
   });
 
-  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>(relatedProducts);
-  const [productCategory, setProductCategory] = useState<string>("");
+  const [filteredProducts, setFilteredProducts] =
+    useState<IProduct[]>(relatedProducts);
+  const [productCategory, setProductCategory] = useState<string>('');
 
   const filterProducts = () => {
     const filterSubCat = subcategories?.find(
-      (subCat) => subCat.title === title
+      (subCat) => subCat.title === title,
     );
     const filterCat = categories?.find(
-      (cat) => cat.id === filterSubCat?.CategoryId
+      (cat) => cat.id === filterSubCat?.CategoryId,
     );
 
     const filtered = products?.filter(
-      (product) => product.CategoryId === filterCat?.id
+      (product) => product.CategoryId === filterCat?.id,
     );
 
     // Determine category title (Blinds, Curtains, etc.)
-    setProductCategory(filterCat?.title || "");
+    setProductCategory(filterCat?.title || '');
 
     setFilteredProducts(filtered || []);
   };
@@ -86,9 +91,9 @@ const RoomProducts = ({ title, relatedProducts,description,category }: ICategory
 
       // Determine category title if relatedProducts is provided
       const relatedCategory = categories?.find(
-        (cat) => cat.id === relatedProducts[0]?.CategoryId
+        (cat) => cat.id === relatedProducts[0]?.CategoryId,
       );
-      setProductCategory(relatedCategory?.title || "");
+      setProductCategory(relatedCategory?.title || '');
     }
   }, [title, products, subcategories, categories]);
 
@@ -98,12 +103,19 @@ const RoomProducts = ({ title, relatedProducts,description,category }: ICategory
   }
   return (
     <>
-      <VideoBanner
+      {/* <VideoBanner
         title={title}
         selectedPage={{
           heading: category,
           paragraph:description,
         }}
+          
+      /> */}
+      <TopHero
+        title={title}
+        pageTitle={`Made to Measure ${title}`}
+        image={bgBreadcrum}
+        pagename={title}
       />
       <Container className="my-12">
         <div className="flex flex-col justify-center items-center space-y-4 px-2">
