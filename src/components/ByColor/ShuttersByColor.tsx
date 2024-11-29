@@ -6,7 +6,11 @@ import Container from 'components/Res-usable/Container/Container';
 import Support from 'components/Res-usable/support/support';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import VideoBanner from 'components/video-banner/video-banner';
-import { fetchCategories, fetchProducts, fetchSubCategories } from 'config/fetch';
+import {
+  fetchCategories,
+  fetchProducts,
+  fetchSubCategories,
+} from 'config/fetch';
 import { ByColorContent } from 'data/data';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -48,9 +52,12 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
     if (products) {
       const filteredCategory = products.filter((prod) => prod.CategoryId === 9);
       if (filteredCategory) {
-        const filteredSubcategories = filteredCategory.filter((prodItem) => prodItem.subCategory && prodItem.subCategory.find((item: any) => item.title === title)
-          );
-        console.log(filteredSubcategories , "filteredSubcategories")
+        const filteredSubcategories = filteredCategory.filter(
+          (prodItem) =>
+            prodItem.subCategory &&
+            prodItem.subCategory.find((item: any) => item.title === title),
+        );
+        console.log(filteredSubcategories, 'filteredSubcategories');
         // const filteredProduct = filteredCategory.filter((prodItem) => prodItem)
         setFilteredProducts(filteredSubcategories);
       }
@@ -83,22 +90,26 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
             <span className="font-bold">{title}</span> By Colour
           </h2>
         </div>
-        {productsToDisplay.length > 0 ? (<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
-          {productsToDisplay.map((item) => {
-            const filteredCategory = categoriesList.find(
-              (cat) => cat.id === item?.CategoryId,
-            );
-            return (
-              <GalleryCard
-                card={item}
-                key={item.id}
-                relativeProducts={true}
-                parent={filteredCategory?.title.toLowerCase()}
-              />
-            );
-          })}
-        </div>) : (<p className='text-18 font-medium'>No Products found</p>)}
-        
+        {productsToDisplay.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
+            {productsToDisplay.map((item) => {
+              const filteredCategory = categoriesList.find(
+                (cat) => cat.id === item?.CategoryId,
+              );
+              return (
+                <GalleryCard
+                  card={item}
+                  key={item.id}
+                  relativeProducts={true}
+                  parent={filteredCategory?.title.toLowerCase()}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <p className="text-18 font-medium">No Products found</p>
+        )}
+
         {!showAll && filteredProducts.length > 6 && (
           <div className="text-center">
             <button

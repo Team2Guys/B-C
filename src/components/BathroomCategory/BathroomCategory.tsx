@@ -6,9 +6,12 @@ import { ICategory } from 'types/types';
 import { fetchSubCategories } from 'config/fetch';
 import Link from 'next/link';
 
-const BathroomCategory = ({filteredProducts,isLoading,categoryTitle}:any) => {
-
-console.log(filteredProducts,"filteredProductsfilteredProducts")
+const BathroomCategory = ({
+  filteredProducts,
+  isLoading,
+  categoryTitle,
+}: any) => {
+  console.log(filteredProducts, 'filteredProductsfilteredProducts');
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 px-2">
       {isLoading
@@ -25,9 +28,9 @@ console.log(filteredProducts,"filteredProductsfilteredProducts")
             </div>
           ))
         : filteredProducts &&
-          filteredProducts.map((arr:any, index:number) => (
+          filteredProducts.map((arr: any, index: number) => (
             <div
-              className="flex flex-col items-center justify-between sm:items-start space-y-2 text-center sm:text-start w-full"
+              className="flex flex-col md:items-center justify-center sm:items-start space-y-2 text-center sm:text-start w-full "
               key={index}
             >
               <div className="space-y-2 w-full">
@@ -38,7 +41,9 @@ console.log(filteredProducts,"filteredProductsfilteredProducts")
                   width={800}
                   alt={arr.title}
                 />
-                <h2 className="font-bold text-base sm:text-xl md:text-2xl">{arr.title}</h2>
+                <h2 className="font-bold text-base sm:text-xl md:text-2xl text-center">
+                  {arr.title}
+                </h2>
               </div>
               <p className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal">
                 {arr.description && arr.description.length > 160
@@ -47,13 +52,14 @@ console.log(filteredProducts,"filteredProductsfilteredProducts")
               </p>
               <Link
                 href={`/${
-                  categoryTitle === "Shutters" ? "shutters-range" : categoryTitle.toLowerCase()
+                  categoryTitle === 'Shutters'
+                    ? 'shutters-range'
+                    : categoryTitle.toLowerCase()
                 }/${generateSlug(arr.title).toLowerCase()}`}
-                className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center"
+                className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center "
               >
                 View Our {arr.title}
               </Link>
-
             </div>
           ))}
     </div>
