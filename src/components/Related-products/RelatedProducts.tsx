@@ -20,7 +20,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
     queryFn: fetchCategories,
   });
   const displayedProducts = limit ? products.slice(0, limit) : products;
-
+  console.log(displayedProducts, 'displayedProducts')
   return (
     <div className='px-2 md:px-4'>
       <div className="flex items-center gap-1">
@@ -31,7 +31,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
         Lectus pulvinar tincidunt accumsan ullamcorper dolor acsed facilisis
         molestie aliquam.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:mt-20 mt-4 lg:mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:mt-20 mt-4 lg:mb-10">
         {displayedProducts.map((item) => {
           const filteredCategory = categoriesList.find(
             (cat) => cat.id === item?.CategoryId,
