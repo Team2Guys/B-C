@@ -80,7 +80,7 @@ export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
   heading: 'We offer window treatments for homes or offices in Dubai',
   paragraph: [
-    'Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and <a href="/blinds/roller-blinds/sunscreen-roller-blinds" style="text-decoration: underline">shutters</a>. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function.',
+    'Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and <a href="/shutters-range" style="text-decoration: underline">shutters</a>. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function.',
     'All our professional teams are based in Dubai and speak good English and will easily understand your blinds and curtains requirements and advise as best as they can. We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).',
     'A trusted window treatment company, Blinds & Curtains Dubai brings style and functionality to every room. Whether you’re looking for <a href="/made-to-measure-blinds" style="text-decoration: underline">custom blinds</a>, or <a href="/curtains/blackout-curtains-dubai" style="text-decoration: underline">blackout curtains</a> we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
   ],
