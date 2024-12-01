@@ -1,5 +1,6 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
+import NotFound from 'app/not-found';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
@@ -22,14 +23,22 @@ const CommercialPage = () => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-  
-  const filteredSubCategory = subCategories?.find((sub) => (generateSlug(sub.title) === ChangedProductUrl(product as string)) && (Cateories.some((item:number)=>item ==sub.CategoryId)));
-  const filteredProduct = products?.find((prod) => generateSlug(prod.title) ===ChangedProductUrl(product as string),
+
+  const filteredSubCategory = subCategories?.find(
+    (sub) =>
+      generateSlug(sub.title) === ChangedProductUrl(product as string) &&
+      Cateories.some((item: number) => item == sub.CategoryId),
+  );
+  const filteredProduct = products?.find(
+    (prod) => generateSlug(prod.title) === ChangedProductUrl(product as string),
   );
 
-console.log(filteredSubCategory, "title")
+  console.log(filteredSubCategory, 'title');
   if (subLoading || prodLoading) {
     return <PageSkelton />;
+  }
+  if (!filteredSubCategory && !filteredProduct) {
+    return <NotFound />;
   }
 
   return (
