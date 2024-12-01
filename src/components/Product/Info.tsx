@@ -29,9 +29,8 @@ const Info = (selectedPage: IInfo) => {
               <p
                 key={index}
                 className="text-12 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85]"
-              >
-                {item.content}
-              </p>
+                dangerouslySetInnerHTML={{ __html: item.content as string }}
+              ></p>
             ))}
           <div className=" pt-5 text-center md:text-start">
             <button
