@@ -29,10 +29,8 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
             {data.paragraph.map((para, index) => (
               <p
                 key={index}
-                className={`text-black text-13 sm:text-14 lg:text-16 font-normal  md:text-justify md:leading-9 md:tracking-wide `}
-              >
-                {para}
-              </p>
+                className={`text-black text-13 sm:text-14 lg:text-16 font-normal  md:text-justify md:leading-9 md:tracking-wide `} dangerouslySetInnerHTML={ {__html : para}}
+              ></p>
             ))}
           </div>
 

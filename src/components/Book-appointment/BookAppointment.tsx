@@ -191,7 +191,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
       }
     }
   };
-  
+
   const handletimeChange = (date: Date | null) => {
     if (date) {
       setFormData({ ...formData, prefered_time: date.toISOString() });
@@ -552,7 +552,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       checked={selectedOptions.blinds}
                       onChange={() => handleCheckboxChange('blinds')}
-                      className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
+                      className="mr-2 appearance-none w-4 h-4 border-2 border-secondary flex justify-center items-center rounded-sm checked:bg-secondary checked:border-secondary checked:before:content-['✔'] checked:before:text-white"
                     />
                     Blinds
                   </label>
@@ -564,7 +564,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       checked={selectedOptions.curtains}
                       onChange={() => handleCheckboxChange('curtains')}
-                      className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
+                      className="mr-2 appearance-none w-4 h-4 border-2 border-secondary flex justify-center items-center rounded-sm checked:bg-secondary checked:border-secondary checked:before:content-['✔'] checked:before:text-white"
                     />
                     Curtains
                   </label>
@@ -575,7 +575,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       checked={selectedOptions.shutters}
                       onChange={() => handleCheckboxChange('shutters')}
-                      className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
+                      className="mr-2 appearance-none w-4 h-4 border-2 border-secondary flex justify-center items-center rounded-sm checked:bg-secondary checked:border-secondary checked:before:content-['✔'] checked:before:text-white"
                     />
                     Shutters
                   </label>
@@ -592,7 +592,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                     name="whatsapp"
                     checked={contactMethods.whatsapp}
                     onChange={handleChangeContact}
-                    className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
+                    className="mr-2 appearance-none w-4 h-4 border-2 border-secondary flex justify-center items-center rounded-sm checked:bg-secondary checked:border-secondary checked:before:content-['✔'] checked:before:text-white"
                   />
                   WhatsApp
                 </label>
@@ -603,7 +603,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                     name="telephone"
                     checked={contactMethods.telephone}
                     onChange={handleChangeContact}
-                    className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
+                    className="mr-2 appearance-none w-4 h-4 border-2 border-secondary flex justify-center items-center rounded-sm checked:bg-secondary checked:border-secondary checked:before:content-['✔'] checked:before:text-white"
                   />
                   Telephone
                 </label>
@@ -613,7 +613,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                     name="email"
                     checked={contactMethods.email}
                     onChange={handleChangeContact}
-                    className="mr-2 appearance-none w-4 h-4 border-2 border-[#A9B4A4] flex justify-center items-center rounded-sm checked:bg-[#A9B4A4] checked:border-[#A9B4A4] checked:before:content-['✔'] checked:before:text-white "
+                    className="mr-2 appearance-none w-4 h-4 border-2 border-secondary flex justify-center items-center rounded-sm checked:bg-secondary checked:border-secondary checked:before:content-['✔'] checked:before:text-white"
                   />
                   Email
                 </label>
@@ -637,6 +637,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
                       type="checkbox"
                       id={option}
                       name={option}
+                      className="appearance-none w-4 h-4 border-2 border-secondary flex justify-center items-center rounded-sm checked:bg-secondary checked:border-secondary checked:before:content-['✔'] checked:before:text-white checked:before:text-xs"
                       checked={selectedOptions[option as keyof ProductOptions]}
                       onChange={() =>
                         handleCheckboxChange(option as keyof ProductOptions)
