@@ -16,6 +16,7 @@ import TopHero from 'components/ui/top-hero';
 import { usePathname, useRouter } from 'next/navigation';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
+import { ByRoomCommercialProduct, generateSlug } from 'data/data';
 
 interface ICategoryPage {
   title: string;
@@ -24,15 +25,35 @@ interface ICategoryPage {
   category: string;
 }
 
-const RoomProducts = ({
+const CommercialByRoom = ({
   title,
   relatedProducts,
   description,
   category,
 }: ICategoryPage) => {
   const pathname = usePathname();
-  const router = useRouter();
   const [isNotFound, setIsNotFound] = useState(false);
+  const [filteredProducts, setFilteredProducts] =
+    useState<IProduct[]>(relatedProducts);
+  const [productCategory, setProductCategory] = useState<string>('');
+
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+  const { data: subcategories } = useQuery<ICategory[]>({
+    queryKey: ['subcategories'],
+    queryFn: fetchSubCategories,
+  });
+  const { data: categories } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
+
   useEffect(() => {
     if (pathname) {
       const matchingUrl = urls.find((url) => url.errorUrl === pathname);
@@ -46,31 +67,6 @@ const RoomProducts = ({
     }
   }, [pathname]);
 
-  const {
-    data: products,
-    error,
-    isLoading,
-  } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
-
-  const { data: subcategories } = useQuery<ICategory[]>({
-    queryKey: ['subcategories'],
-    queryFn: fetchSubCategories,
-  });
-
-  const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
-
-  const pathName = usePathname();
-
-  const [filteredProducts, setFilteredProducts] =
-    useState<IProduct[]>(relatedProducts);
-  const [productCategory, setProductCategory] = useState<string>('');
-
   const filterProducts = () => {
     const filterSubCat = subcategories?.find(
       (subCat) => subCat.title === title,
@@ -78,30 +74,34 @@ const RoomProducts = ({
     const filterCat = categories?.find(
       (cat) => cat.id === filterSubCat?.CategoryId,
     );
-
-    const filtered = products?.filter(
-      (product) => product.CategoryId === filterCat?.id,
-    );
-
-    // Determine category title (Blinds, Curtains, etc.)
     setProductCategory(filterCat?.title || '');
 
-    setFilteredProducts(filtered || []);
+    const matchingRoom = ByRoomCommercialProduct.find(
+      (room) => room.title === title,
+    );
+
+    console.log('================== ++++ +++');
+    console.log(matchingRoom);
+    console.log(products);
+    let p: IProduct[] = [];
+    if (matchingRoom) {
+      //@ts-expect-error
+      p = products?.filter((product) =>
+        matchingRoom.productsTitles.includes(generateSlug(product.title)),
+      );
+    }
+
+    setProductCategory(filterCat?.title || '');
+    setFilteredProducts(p);
   };
 
   useEffect(() => {
-    if (!relatedProducts || relatedProducts.length === 0) {
-      filterProducts();
-    } else {
-      setFilteredProducts(relatedProducts);
-
-      // Determine category title if relatedProducts is provided
-      const relatedCategory = categories?.find(
-        (cat) => cat.id === relatedProducts[0]?.CategoryId,
-      );
-      setProductCategory(relatedCategory?.title || '');
-    }
+    filterProducts();
   }, [title, products, subcategories, categories]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   if (isNotFound) {
@@ -109,19 +109,11 @@ const RoomProducts = ({
   }
   return (
     <>
-      {/* <VideoBanner
-        title={title}
-        selectedPage={{
-          heading: category,
-          paragraph:description,
-        }}
-          
-      /> */}
       <TopHero
         title={title}
         pageTitle={`Made to Measure ${title}`}
         image={bgBreadcrum}
-        pagename={pathName}
+        pagename={pathname}
       />
       <Container className="my-12">
         <div className="flex flex-col justify-center items-center space-y-4 px-2">
@@ -135,7 +127,7 @@ const RoomProducts = ({
         <BathroomCategory
           filteredProducts={filteredProducts}
           isLoading={isLoading}
-          categoryTitle={productCategory} // Pass the category title here
+          categoryTitle={productCategory}
         />
       </Container>
 
@@ -147,4 +139,4 @@ const RoomProducts = ({
   );
 };
 
-export default RoomProducts;
+export default CommercialByRoom;

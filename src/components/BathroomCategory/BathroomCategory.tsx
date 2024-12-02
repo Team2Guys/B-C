@@ -45,11 +45,16 @@ const BathroomCategory = ({
                   {arr.title}
                 </h2>
               </div>
-              <p className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal">
-                {arr.description && arr.description.length > 160
-                  ? `${arr.description.slice(0, 160)}...`
-                  : arr.description}
-              </p>
+              <p
+                className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    arr.description && arr.description.length > 160
+                      ? `${arr.description.slice(0, 200)}...`
+                      : arr.description,
+                }}
+              />
+
               <Link
                 href={`/${
                   categoryTitle === 'Shutters'
