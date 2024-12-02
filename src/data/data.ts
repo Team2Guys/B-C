@@ -1174,12 +1174,12 @@ export const intitalValues = {
 export const blindMegaMenuItems = [
   { productName: 'vertical-blinds' },
   { productName: 'zipline-outdoor-blinds' },
-  { productName: 'colby-honeycomb-blinds' },
+  { productName: 'honeycomb-blinds' },
   { productName: 'panel-blinds' },
-  { productName: 'aluminium-venetian-blinds-dubai' },
+  { productName: 'aluminium-blinds' },
   // { productName: 'wood-venetian' },
-  { productName: 'duplex-blinds' },
-  { productName: 'wooden-venetian' },
+  { productName: 'daynight-blinds' },
+  { productName: 'wooden-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
 
@@ -1195,17 +1195,17 @@ export const blindMegaMenuItems = [
 
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
-  { productName: 'motorised' },
-  { productName: 'dimout-roller-blinds' },
-  { productName: 'sunscreen-roller-blinds' },
+  { productName: 'motorised-blinds' },
+  { productName: 'dimout-blindssemi-transparent' },
+  { productName: 'sunscreentransparent' },
 ];
 
 export const curtainMegaMenuItems = [
   { productName: 'pencil-pleat-curtains' },
-  { productName: 'ripplefold-wave-curtains' },
+  { productName: 'ripplefoldwave-curtains' },
   { productName: 'tab-top-curtains' },
   { productName: 'eyelet-curtains' },
-  { productName: 'double-pinch-pleat-curtains' },
+  { productName: 'double-pinch-pleat' },
   { productName: 'triple-pinch-pleat-curtains' },
 
   { productName: 'conservatory' },
@@ -1222,16 +1222,16 @@ export const curtainMegaMenuItems = [
   { productName: 'natural-fabric-curtains' },
   { productName: 'patterned-curtains' },
   { productName: 'plain-curtains' },
-  { productName: 'made-to-measure-sheer-curtains' },
-  { productName: 'blackout-curtains-dubai' },
+  { productName: 'sheer-curtains' },
+  { productName: 'blackout-curtains' },
 ];
 
 export const shutterMegaMenuItems = [
-  { productName: 'special-shape-shutters-wooden-shutters' },
+  { productName: 'special-shape-shutters' },
   { productName: 'outdoor-shutters' },
-  { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+  { productName: 'solid-panel-shutters' },
   { productName: 'cafe-style-shutters' },
-  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'tier-on-tier-shutters' },
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'full-height-shutters' },
@@ -1250,7 +1250,7 @@ export const commercialMegaMenuItems = [
   { productName: 'schools' },
   { productName: 'offices' },
   { productName: 'gym' },
-  { productName: 'theater' },
+  { productName: 'theatre' },
 
   { productName: 'indoor' },
   { productName: 'outdoor' },
@@ -1299,8 +1299,8 @@ export const commercialPagesItems = [
   { productName: 'printed-blinds' },
   { productName: 'vertical-blinds' },
   { productName: 'panel-blinds' },
-  { productName: 'special-shape-shutters-wooden-shutters' },
-  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'special-shape-shutters' },
+  { productName: 'tier-on-tier-shutters' },
   { productName: 'motorised-blinds' },
 ];
 
@@ -1479,30 +1479,30 @@ export const blogPara = [
 export const megaMenubyStyle = [
   { productName: 'vertical-blinds' },
   { productName: 'zipline-outdoor-blinds' },
-  { productName: 'colby-honeycomb-blinds' },
+  { productName: 'honeycomb-blinds' },
   { productName: 'panel-blinds' },
-  { productName: 'aluminium-venetian-blinds-dubai' },
+  { productName: 'aluminium-blinds' },
   // { productName: 'wood-venetian' },
-  { productName: 'duplex-blinds' },
-  { productName: 'wooden-venetian' },
+  { productName: 'daynight-blinds' },
+  { productName: 'wooden-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
 
-  { productName: 'special-shape-shutters-wooden-shutters' },
+  { productName: 'special-shape-shutters' },
   { productName: 'outdoor-shutters' },
-  { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+  { productName: 'solid-panel-shutters' },
   { productName: 'cafe-style-shutters' },
-  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'tier-on-tier-shutters' },
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'full-height-shutters' },
   { productName: 'tracked-window-shutters' },
 
   { productName: 'pencil-pleat-curtains' },
-  { productName: 'ripplefold-wave-curtains' },
+  { productName: 'ripplefoldwave-curtains' },
   { productName: 'tab-top-curtains' },
   { productName: 'eyelet-curtains' },
-  { productName: 'double-pinch-pleat-curtains' },
+  { productName: 'double-pinch-pleat' },
   { productName: 'triple-pinch-pleat-curtains' },
 
   { productName: 'hospitals' },
@@ -1512,7 +1512,7 @@ export const megaMenubyStyle = [
   { productName: 'schools' },
   { productName: 'offices' },
   { productName: 'gym' },
-  { productName: 'theater' },
+  { productName: 'theatre' },
 ];
 
 export const megaMenubyRoom = [
@@ -1536,6 +1536,7 @@ export const megaMenubyRoom = [
   { productName: 'conservatory-blinds' },
   { productName: 'staircase-blinds' },
   { productName: 'bedroom-blinds' },
+    { productName: 'office-blinds' },
   // { productName: 'school-blinds' },
   { productName: 'study-room-Blinds' },
   { productName: 'dining-room-blinds' },
@@ -1556,7 +1557,7 @@ export const megaMenubyRoom = [
 ];
 
 export const megaMenuDynamic = [
-  { productName: 'sunscreen-roller-blinds' },
+  { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'stripes-curtains' },
   { productName: 'geometric-curtains' },
@@ -1565,13 +1566,13 @@ export const megaMenuDynamic = [
   { productName: 'natural-fabric-curtains' },
   { productName: 'patterned-curtains' },
   { productName: 'plain-curtains' },
-  { productName: 'made-to-measure-sheer-curtains' },
-  { productName: 'blackout-curtains-dubai' },
+  { productName: 'sheer-curtains' },
+  { productName: 'blackout-curtains' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
   { productName: 'outdoor-blinds' },
-  { productName: 'motorised' },
-  { productName: 'dimout-roller-blinds' },
+  { productName: 'motorised-blinds' },
+  { productName: 'dimout-blindssemi-transparent' },
 
   { productName: 'white-shutters' },
   { productName: 'light-wood-shutters' },
@@ -1588,8 +1589,8 @@ export const megaMenuDynamic = [
   { productName: 'natural-fabric-curtains' },
   { productName: 'patterned-curtains' },
   { productName: 'plain-curtains' },
-  { productName: 'made-to-measure-sheer-curtains' },
-  { productName: 'blackout-curtains-dubai' },
+  { productName: 'sheer-curtains' },
+  { productName: 'blackout-curtains' },
 
   { productName: 'fire-retardant' },
   { productName: 'water-repellent' },
@@ -1610,11 +1611,11 @@ export const extendedByStyle = [
 
   { productName: 'eyelet-curtains' },
   { productName: 'pinch-pleat-curtains' },
-  // { productName: 'made-to-measure-sheer-curtains' },
+  // { productName: 'sheer-curtains' },
   { productName: 'goblet-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
-  { productName: 'ripplefold-wave-curtains' },
-  { productName: 'double-pinch-pleat-curtains' },
+  { productName: 'ripplefoldwave-curtains' },
+  // { productName: 'double-pinch-pleat-curtains' },
   { productName: 'pelmet-curtains' },
   { productName: 'modern-curtains' },
   { productName: 'tab-top-curtains' },
@@ -1624,7 +1625,7 @@ export const extendedByStyle = [
   { productName: 'full-height-shutters' },
   { productName: 'bay-window-shutters' },
   { productName: 'special-shape-shutters' },
-  { productName: 'tier-on-tier-shutters' },
+  // { productName: 'tier-on-tier-shutters' },
   { productName: 'solid-panel-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'outdoor-shutters' },
@@ -1640,6 +1641,7 @@ export const extendedByRoom = [
   { productName: 'staircase-blinds' },
   { productName: 'door-blinds' },
   { productName: 'bedroom-blinds' },
+    { productName: 'office-blinds' },
   { productName: 'bathroom-blinds' },
 
   { productName: 'bedroom-curtains' },

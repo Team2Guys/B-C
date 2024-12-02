@@ -31,20 +31,7 @@ const RoomProducts = ({
   category,
 }: ICategoryPage) => {
   const pathname = usePathname();
-  const router = useRouter();
   const [isNotFound, setIsNotFound] = useState(false);
-  useEffect(() => {
-    if (pathname) {
-      const matchingUrl = urls.find((url) => url.errorUrl === pathname);
-
-      if (matchingUrl) {
-        console.log(matchingUrl, 'matchingUrl');
-        setIsNotFound(true);
-      } else {
-        setIsNotFound(false);
-      }
-    }
-  }, [pathname]);
 
   const {
     data: products,
@@ -65,7 +52,18 @@ const RoomProducts = ({
     queryFn: fetchCategories,
   });
 
-  const pathName = usePathname();
+  useEffect(() => {
+    if (pathname) {
+      const matchingUrl = urls.find((url) => url.errorUrl === pathname);
+      console.log(pathname, 'pathnamepathname');
+      if (matchingUrl) {
+        console.log(matchingUrl, 'matchingUrl');
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    }
+  }, [pathname]);
 
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
@@ -121,7 +119,7 @@ const RoomProducts = ({
         title={title}
         pageTitle={`Made to Measure ${title}`}
         image={bgBreadcrum}
-        pagename={pathName}
+        pagename={pathname}
       />
       <Container className="my-12">
         <div className="flex flex-col justify-center items-center space-y-4 px-2">
@@ -135,7 +133,7 @@ const RoomProducts = ({
         <BathroomCategory
           filteredProducts={filteredProducts}
           isLoading={isLoading}
-          categoryTitle={productCategory} // Pass the category title here
+          categoryTitle={productCategory}
         />
       </Container>
 

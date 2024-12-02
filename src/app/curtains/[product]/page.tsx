@@ -7,13 +7,16 @@ import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { ChangedProductUrl } from 'data/urls';
-import { useParams } from 'next/navigation';
+import { ChangedProductUrl, urls } from 'data/urls';
+import { useParams, usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const { product } = useParams();
   const Cateories = [5];
+  const path = usePathname();
+  const [isNotFound, setIsNotFound] = useState(false);
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
@@ -35,7 +38,21 @@ const CommercialPage = () => {
       generateSlug(prod.title) === ChangedProductUrl(product as string) &&
       Cateories.some((item: number) => item == prod.CategoryId),
   );
-
+  useEffect(() => {
+    if (path) {
+      const matchingUrl = urls.find((url) => url.errorUrl === path);
+      console.log(path,"pathnamepathname")
+      if (matchingUrl) {
+        console.log(matchingUrl, "matchingUrl");
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    }
+  }, [path]);
+  if (isNotFound) {
+    return <NotFound />;
+  }
   console.log(filteredSubCategory, 'title');
   if (subLoading || prodLoading) {
     return <PageSkelton />;
