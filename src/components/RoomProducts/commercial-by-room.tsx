@@ -80,9 +80,6 @@ const CommercialByRoom = ({
       (room) => room.title === title,
     );
 
-    console.log('================== ++++ +++');
-    console.log(matchingRoom);
-    console.log(products);
     let p: IProduct[] = [];
     if (matchingRoom) {
       //@ts-expect-error
@@ -98,10 +95,6 @@ const CommercialByRoom = ({
   useEffect(() => {
     filterProducts();
   }, [title, products, subcategories, categories]);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   if (isNotFound) {
@@ -127,7 +120,6 @@ const CommercialByRoom = ({
         <BathroomCategory
           filteredProducts={filteredProducts}
           isLoading={isLoading}
-          categoryTitle={productCategory}
         />
       </Container>
 
