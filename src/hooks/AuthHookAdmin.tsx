@@ -26,7 +26,13 @@ function ProtectedRoute(WrappedComponent: any) {
         console.log(user, "user")
         dispatch(loggedInAdminAction(user.data));
       } catch (err: any) {
-        console.log(err, 'err');
+
+        if(err.response?.data?.statusCode == 401){
+          Cookies.remove(adminFlag ?"superAdminToken": "2guysAdminToken" )
+          router.push('/dashboard/Admin-login');
+          return;
+        }
+        console.log(err.response.data.statusCode, 'err');
       }
     };
 
