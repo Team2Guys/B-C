@@ -2,6 +2,9 @@
 import { useQuery } from '@tanstack/react-query';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
+import Container from 'components/Res-usable/Container/Container';
+import Support from 'components/Res-usable/support/support';
+import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
@@ -43,20 +46,30 @@ const CommercialPage = () => {
     return <PageSkelton />;
   }
 
-
+console.log(filteredSubCategory,"descriptiondescription")
   return (
     <>
       {filteredSubCategory ? (
         <>
-          <CategoryPage
+          <RoomProducts
             title={`${filteredSubCategory.title}`}
+            description={`${filteredSubCategory.description}`}
+            category={`${filteredSubCategory.category.title}`}
             relatedProducts={filteredSubCategory?.products || []}
           />
         </>
       ) : (
         <ProductDetailPage title={`${filteredProduct?.title}`} />
       )}
-      <VideoAutomation />
+            {/* {filteredSubCategory  ? "": 
+            <>
+            <VideoAutomation />
+            <Container>
+              <Support/>
+            </Container>
+            </>
+            } */}
+
     </>
   );
 };

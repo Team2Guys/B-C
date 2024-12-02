@@ -2,6 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
+import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
@@ -45,9 +46,11 @@ const CommercialPage = () => {
     <>
       {filteredSubCategory ? (
         <>
-          <CategoryPage
+          <RoomProducts
             title={`${filteredSubCategory.title}`}
-            relatedProducts={relatedProducts || []}
+            description={`${filteredSubCategory.description}`}
+            category={`${filteredSubCategory.category.title}`}
+            relatedProducts={filteredSubCategory?.products || []}
           />
         </>
       ) : (

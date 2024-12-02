@@ -1,13 +1,14 @@
 'use client';
 import Container from 'components/Res-usable/Container/Container';
 import CustomSlider from 'components/slider/Slider';
+import TopHero from 'components/ui/top-hero';
 import { colorData } from 'data/data';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useRef, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { ISelectedPage } from 'types/types';
-
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 interface BannerProps {
   className?: string;
   title: string;
@@ -24,8 +25,10 @@ const VideoBanner: React.FC<BannerProps> = ({
   colorSlider,
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isColorActive, setIsColorActive] = useState<string>('');
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
   const handleVideoClick = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -55,87 +58,93 @@ const VideoBanner: React.FC<BannerProps> = ({
   };
   return (
     <div
-      className={`relative w-full ${colorSlider ? 'h-[700px]' : 'h-[300px] md:h-[450px] 2xl:h-[681px]'}  overflow-hidden ${className}`}
+      className={`relative w-full ${colorSlider ? 'h-full' : 'h-[300px] md:h-[450px] 2xl:h-[681px]'}  overflow-hidden ${className}`}
       onClick={handleVideoClick}
     >
-      <video
-        ref={videoRef}
-        className="absolute inset-0 object-cover w-full h-full"
-        src="/assets/video/Agsons.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        controls={false}
-      />
-      {!isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <FaPlay className="text-white text-4xl" />
-        </div>
-      )}
-      <div
-        className={`relative flex ${colorSlider ? 'flex-col justify-end' : 'items-center'} h-full z-10`}
-      >
-        <div
-          className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl py-2 md:py-5"
-          onClick={handleTextClick}
-        >
-          <div className="py-2 md:py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
-            <p className="lg:text-[44px] text-25 font-black drop-shadow-lg capitalize">
-              {title}
-            </p>
-            <p className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
-              {selectedPage?.heading}
-            </p>
-            <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
-              {selectedPage?.paragraph}
-            </p>
-            {showButton ? (
-              <div className="mt-5">
-                <Link
-                  className="uppercase bg-white text-12 md:text-16 font-medium shadow-md text-black rounded-full px-4 py-3"
-                  href={'/request-appointment'}
-                >
-                  Book A Free Home Design Visit
-                </Link>
-              </div>
-            ) : (
-              ''
-            )}
-          </div>
-        </div>
-        {colorSlider && (
-          <div className="bg-[#ffffffab] pt-10 mt-5">
+      {colorSlider ? (
+        <>
+          <TopHero
+            title={title}
+            pageTitle={`${title}`}
+            image={bgBreadcrum}
+            pagename={title}
+          />
+
+          <div className="bg-[#ffffffab] pt-10">
             <Container>
               <div className="text-center">
                 <h3 className="font-bold text-2xl">Shutters By Color</h3>
               </div>
-              <CustomSlider
-                className="Hero-slider custom-color-silder z-40 mb-5 pt-10"
-                colorSlider={colorSlider}
+              <div
+                className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-6 gap-5 py-10"
               >
                 {colorData.map((item, index) => (
                   <div
-                    className="flex flex-col gap-2 mb-10 cursor-pointer"
-                    key={index}
-                    onClick={(event) =>
-                      handleNavigation(
-                        event,
-                        item.url,
-                      )
-                    }
+                    className="flex-col items-center gap-2 cursor-pointer color-box-wrapper"
+                    key={`${item.color}-${index}`}
+                    onClick={(event) => handleNavigation(event, item.url)}
                   >
                     <div
-                      className={`w-36 h-16 ${item.color} border border-black rounded-md`}
+                      className={`w-full max-w-36 h-16 ${item.color} border-2 ${pathname === item.url ? 'border-secondary shadow-lg' : 'border-transparent'} rounded-md`}
                     ></div>
-                    <p className="w-36 text-13 text-center">{item.name}</p>
+                    <p className="w-full max-w-36 text-13 text-center">{item.name}</p>
                   </div>
                 ))}
-              </CustomSlider>
+              </div>
             </Container>
           </div>
-        )}
-      </div>
+        </>
+      ) : (
+        <>
+          <video
+            ref={videoRef}
+            className="absolute inset-0 object-cover w-full h-full"
+            src="/assets/video/Agsons.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls={false}
+          />
+          {!isPlaying && (
+            <div className="absolute inset-0 flex items-center justify-center z-20">
+              <FaPlay className="text-white text-4xl" />
+            </div>
+          )}
+          <div
+            className={`relative flex ${colorSlider ? 'flex-col justify-end' : 'items-center'} h-full z-10`}
+          >
+            <div
+              className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl py-2 md:py-5"
+              onClick={handleTextClick}
+            >
+              <div className="py-2 md:py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
+                <p className="lg:text-[44px] text-25 font-black drop-shadow-lg capitalize">
+                  {title}
+                </p>
+                <p className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
+                  {selectedPage?.heading}
+                </p>
+                <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
+                  {selectedPage?.paragraph}
+                </p>
+                {showButton ? (
+                  <div className="mt-5">
+                    <Link
+                      className="uppercase bg-white text-12 md:text-16 font-medium shadow-md text-black rounded-full px-4 py-3"
+                      href={'/request-appointment'}
+                    >
+                      Book A Free Home Design Visit
+                    </Link>
+                  </div>
+                ) : (
+                  ''
+                )}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

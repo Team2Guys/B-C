@@ -47,7 +47,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
               variant={'default'}
               className="py-4 px-2 md:py-7 text-12 text-white"
             >
-              Motorised Blinds
+              Automated Blinds
             </Button>
             <Button
               // onClick={(event) =>handleNavigation(event, `${generateSlug('motorised-curtains')}`)}
@@ -56,7 +56,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
               variant={'outline'}
               className="py-4 px-2 md:py-7"
             >
-              Motorised Curtains
+              Automated Curtains
             </Button>
           </div>
         </div>
