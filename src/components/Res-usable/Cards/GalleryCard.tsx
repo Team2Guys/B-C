@@ -56,16 +56,16 @@ const GalleryCard: React.FC<GalleryProps> = ({
         />
         <div
          onClick={() => handleNavigation (event , `${window.origin}/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(card.title)}`) }
-          className={`absolute bottom-0 px-2 w-full h-12 flex items-center ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+          className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
         >
           <span
-            className={`text-black text-start ${relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'}`}
+            className={`text-black text-start text-primary ${relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'}`}
           >
             {card.title}
           </span>
           <div
             onClick={() => handleNavigation (event , `${window.origin}/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(card.title)}`) }
-            className={`border-[1px] border-primary px-2 py-1 whitespace-nowrap rounded-sm text-14 font-light cursor-pointer ${relativeProducts ? 'block' : 'hidden'}`}
+            className={`border border-primary text-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14 text-nowrap ${relativeProducts ? 'block' : 'hidden'}`}
           >
             View More
           </div>

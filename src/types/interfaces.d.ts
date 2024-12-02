@@ -88,11 +88,11 @@ export interface FormValues {
   CategoryId?: number;
   SubCategoryId?: number;
   price: number;
-  product_type: string
-  short_description?: string
-heading?: string
-Sub_Heading?: string
-Sub_Heading_description?: string
+  product_type: string;
+  short_description?: string;
+  heading?: string;
+  Sub_Heading?: string;
+  Sub_Heading_description?: string;
 }
 
 interface Color {
@@ -300,14 +300,14 @@ export interface formDataTypes {
   canAddCategory: boolean;
   canDeleteCategory: boolean;
   canEditCategory: boolean;
-  canAddSubCategory: boolean; 
-  canDeleteSubCategory: boolean; 
-  canEditSubCategory: boolean; 
-  canViewAppointments: boolean; 
-  canVeiwAdmins: boolean; 
-  canVeiwTotalproducts: boolean; 
-  canVeiwTotalCategories: boolean; 
-  canVeiwTotalSubCategories: boolean; 
+  canAddSubCategory: boolean;
+  canDeleteSubCategory: boolean;
+  canEditSubCategory: boolean;
+  canViewAppointments: boolean;
+  canVeiwAdmins: boolean;
+  canVeiwTotalproducts: boolean;
+  canVeiwTotalCategories: boolean;
+  canVeiwTotalSubCategories: boolean;
   canAddBlog: boolean;
   canDeleteBlog: boolean;
   canEditBlog: boolean;
@@ -329,11 +329,15 @@ export interface BlogInfo {
   category: string;
   title: string;
   content: string;
-
+  comment?: commentprops[];
   createdAt?: date;
   updatedAt?: date;
 }
-
+interface commentprops {
+  status?: string;
+  title?: string;
+  name?: string;
+}
 export interface UpdateBlog extends BlogInfo {
   id: string;
 }
@@ -353,7 +357,7 @@ export interface CommentDataType {
   replyId?: number;
 }
 
-export interface PhoneNumber{
+export interface PhoneNumber {
   number: string;
 }
 export interface Email {
@@ -372,6 +376,7 @@ export interface IProductDiscription {
 }
 
 export interface IColorData {
+  id: number;
   url: string;
   color: string;
   name: string;

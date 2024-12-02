@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
 import { UpdateShutterTitle } from './menu-card';
 import { ICategory } from 'types/types';
-import { TopHeroLink } from 'data/data';
+import { colorData, TopHeroLink } from 'data/data';
 import { Skeleton } from 'antd';
 import { usePathname } from 'next/navigation';
 import { BreakCrum_conent_pages } from 'data/data';
@@ -45,7 +45,6 @@ const TopHero: React.FC<TopHeroProps> = ({
         .map((segment: string) => segment.replaceAll('-', ' '));
 
       setPageName(newPageName);
-      console.log(newPageName)
     }
   }, [pagename]);
 
@@ -78,6 +77,7 @@ const TopHero: React.FC<TopHeroProps> = ({
                 (heroLink) => heroLink.matchingTitle.toLowerCase() === item.toLowerCase()
               );
               const matchingPageTitle = TopHeroLink.find((itemTitle) => itemTitle.title.toLowerCase() === item.toLowerCase())
+              const matchingColorData = colorData.find((item) => item.url === page);
               return (
                 <React.Fragment key={index}>
                   <FaAngleRight size={20} />
@@ -90,16 +90,21 @@ const TopHero: React.FC<TopHeroProps> = ({
                     href={`/${matchingPageTitle.title.replaceAll(' ', '-')}`}
                     className="font-bold capitalize"
                   >
-                    {matchingPageTitle.matchingTitle}
+                    {matchingPageTitle.title}
                   </Link>) :
-                      index === (pageName.length - 2) ? (
-                        <Link href={`/${pageName.at(0)?.toLowerCase() === 'blinds' ? 'blinds' : pageName.at(0)?.toLowerCase() === 'curtains' ? 'curtains' : pageName.at(0)?.toLowerCase() === 'shutters' ? 'shutters' : pageName.at(0)?.toLowerCase() === 'commercial' ? 'commercial' : '' }${item === "commercial" ? '' : `/${item.replaceAll(' ', '-')}`} `} className="font-bold capitalize">
-                          {item}
-                        </Link>
-                      ) : (
-                        <h2 className="font-bold capitalize">{item == 'request appointment' ? 'Book Appointment' : item }</h2>
-                      )
-                    }
+                    index === (pageName.length - 2) ? (
+                      <Link href={`/${pageName.at(0)?.toLowerCase() === 'blinds' ? 'blinds' : pageName.at(0)?.toLowerCase() === 'curtains' ? 'curtains' : pageName.at(0)?.toLowerCase() === 'shutters' ? 'shutters' : pageName.at(0)?.toLowerCase() === 'commercial' ? 'commercial' : ''}${item === "commercial" ? '' : `/${item.replaceAll(' ', '-')}`} `} className="font-bold capitalize">
+                        {item}
+                      </Link>
+                    ) : matchingColorData ? (<>
+                      <Link href='/shutters-range' className="font-bold capitalize" >Shutters Range</Link>
+                      <FaAngleRight size={20} />
+                      <h2 className="font-bold capitalize">{item}</h2>
+                      </>
+                    ) : (
+                      <h2 className="font-bold capitalize">{item == 'request appointment' ? 'Book Appointment' : item}</h2>
+                    )
+                  }
                 </React.Fragment>
               );
             })

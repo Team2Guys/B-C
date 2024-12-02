@@ -184,7 +184,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                             ? 'By Fabrics'
                             : parent === 'shutters'
                               ? 'By Colour'
-                              : 'By Design'
+                              : 'By Function'
                         : item.name}
                     </p>
                     {distributedProducts[index]?.map(
@@ -209,7 +209,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                 ) {
                                   path = basePath;
                                 } else {
-                                  path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
+                                  path = `/${parent === 'shutters' ? `${parent}-range` : parent}${slug === 'dimout-roller-blinds' || slug === 'sunscreen-roller-blinds' ? '/roller-blinds': ''}/${slug}`;
                                 }
 
                                 route.push(path);
@@ -225,7 +225,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                   )
                                 : item.title
                             }
-
                             </p>
                           </>
                         );

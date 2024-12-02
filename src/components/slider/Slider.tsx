@@ -12,7 +12,10 @@ function SampleNextArrow(props: any) {
       style={{ ...style }}
       onClick={onClick}
     >
-      <FaArrowRightLong size={30} className='text-black border-2 border-black rounded-full p-1' />
+      <FaArrowRightLong
+        size={30}
+        className="text-black border-2 border-black rounded-full p-1"
+      />
     </div>
   );
 }
@@ -25,7 +28,10 @@ function SamplePrevArrow(props: any) {
       style={{ ...style }}
       onClick={onClick}
     >
-      <FaArrowLeftLong size={30} className='text-black border-2 border-black rounded-full p-1' />
+      <FaArrowLeftLong
+        size={30}
+        className="text-black border-2 border-black rounded-full p-1"
+      />
     </div>
   );
 }
@@ -48,13 +54,21 @@ function CustomSlider({
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: colorSlider ? 7 : 1,
+    slidesToShow: colorSlider ? 6 : 1,
     slidesToScroll: 1,
-    nextArrow: NextArrow ? <NextArrow /> : colorSlider ? <SampleNextArrow /> : undefined,
-    prevArrow: PrevArrow ? <PrevArrow /> : colorSlider ? <SamplePrevArrow /> : undefined,
+    nextArrow: NextArrow ? (
+      <NextArrow />
+    ) : colorSlider ? (
+      <SampleNextArrow />
+    ) : undefined,
+    prevArrow: PrevArrow ? (
+      <PrevArrow />
+    ) : colorSlider ? (
+      <SamplePrevArrow />
+    ) : undefined,
     focusOnSelect: true,
     autoplay: colorSlider ? false : true,
-    speed: colorSlider? 500 : 1000,
+    speed: colorSlider ? 500 : 1000,
     autoplaySpeed: 6000,
     cssEase: 'linear',
     responsive: colorSlider
@@ -62,7 +76,7 @@ function CustomSlider({
           {
             breakpoint: 1250,
             settings: {
-              slidesToShow: 6,
+              slidesToShow: 5,
               slidesToScroll: 1,
             },
           },
