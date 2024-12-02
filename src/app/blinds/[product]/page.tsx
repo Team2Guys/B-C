@@ -2,23 +2,20 @@
 
 import { useQuery } from '@tanstack/react-query';
 import NotFound from 'app/not-found';
-import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
-import Container from 'components/Res-usable/Container/Container';
-import Support from 'components/Res-usable/support/support';
 import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
-import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
-import VideoAutomation from 'components/video-Automation/video-Automation';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl, urls } from 'data/urls';
 import { useParams, usePathname } from 'next/navigation';
-import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
+import { useEffect, useState } from 'react';
+import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const { product } = useParams();
   const path = usePathname();
+  const [isNotFound, setIsNotFound] = useState(false);
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
@@ -31,6 +28,22 @@ const CommercialPage = () => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
+
+  useEffect(() => {
+    if (path) {
+      const matchingUrl = urls.find((url) => url.errorUrl === path);
+      console.log(path,"pathnamepathname")
+      if (matchingUrl) {
+        console.log(matchingUrl, "matchingUrl");
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    }
+  }, [path]);
+  if (isNotFound) {
+    return <NotFound />;
+  }
 
   const filteredSubCategory = subCategories?.find((sub) => {
     let title = ChangedProductUrl(product as string);
@@ -68,14 +81,8 @@ const CommercialPage = () => {
       ) : (
         <ProductDetailPage title={`${filteredProduct?.title}`} />
       )}
-      {/* {filteredSubCategory  ? "": 
-            <>
-            <VideoAutomation />
-            <Container>
-              <Support/>
-            </Container>
-            </>
-            } */}
+           
+
     </>
   );
 };

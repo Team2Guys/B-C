@@ -1,13 +1,13 @@
 import React from 'react';
-import { generateSlug } from 'data/data';
 import Image from 'next/image';
+import { IProduct } from 'types/types';
+import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Link from 'next/link';
-import { ChangedProductUrl_handler } from 'data/urls';
 
 interface BathroomCategoryProps {
   filteredProducts: IProduct[];
   isLoading: boolean;
-  categoryTitle: string;
+  categoryTitle?: string;
 }
 
 const BathroomCategory = ({
@@ -15,6 +15,34 @@ const BathroomCategory = ({
   isLoading,
   categoryTitle,
 }: BathroomCategoryProps) => {
+  const getPath = (arr: IProduct, parent: string) => {
+    categoryTitle === 'none' ? (categoryTitle = parent) : categoryTitle;
+    const slug = ChangedProductUrl_handler(arr.title);
+    const basePath =
+      arr.href &&
+      typeof categoryTitle &&
+      categoryTitle?.toLowerCase() === 'string'
+        ? `${window.origin}/${arr.href}`
+        : `/${slug}`;
+
+    const path =
+      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+      (slug === 'hotels-restaurants-blinds-curtains'
+        ? basePath
+        : `/${
+            (parent ? parent === 'Shutters' : categoryTitle === 'Shutters')
+              ? `${parent ? parent.toLowerCase() : categoryTitle?.toLowerCase()}-range`
+              : parent
+                ? parent?.toLowerCase()
+                : categoryTitle?.toLocaleLowerCase()
+          }${
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
+              ? '/roller-blinds'
+              : ''
+          }/${slug}`);
+    return path;
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 px-2">
       {isLoading
@@ -31,8 +59,8 @@ const BathroomCategory = ({
             </div>
           ))
         : filteredProducts &&
-          filteredProducts.map((arr: any, index: number) => {
-            const parent = categoryTitle ? categoryTitle : arr.category.title;
+          filteredProducts.map((arr: IProduct, index: number) => {
+            const parent = arr.category?.title;
             return (
               <div
                 className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full "
@@ -50,23 +78,14 @@ const BathroomCategory = ({
                     {arr.title}
                   </h2>
                 </div>
-                <p
-                  className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal"
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      arr.description && arr.description.length > 160
-                        ? `${arr.description.slice(0, 200)}...`
-                        : arr.description,
-                  }}
-                />
-
+                <p className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal">
+                  {arr.description && arr.description.length > 160
+                    ? `${arr.description.slice(0, 160)}...`
+                    : arr.description}
+                </p>
                 <Link
-                  href={`/${
-                    parent === 'Shutters'
-                      ? 'shutters-range'
-                      : parent.toLowerCase()
-                  }/${ChangedProductUrl_handler(arr.title)}`}
-                  className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center "
+                  href={getPath(arr, parent)}
+                  className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center"
                 >
                   View Our {arr.title}
                 </Link>

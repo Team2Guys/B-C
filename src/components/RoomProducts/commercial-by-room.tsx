@@ -120,6 +120,7 @@ const CommercialByRoom = ({
         <BathroomCategory
           filteredProducts={filteredProducts}
           isLoading={isLoading}
+          categoryTitle="none"
         />
       </Container>
 

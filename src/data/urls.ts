@@ -9,23 +9,29 @@ export const urls = [
   {
     productName: 'Kids Room Blinds',
     Url: 'blinds-for-kids-room',
-    errorUrl: 'kids-room-blinds',
+    errorUrl: '/blinds/kids-room-blinds',
+  },
+  {
+    productName: 'Day/Night Blinds',
+    Url: 'duplex-blinds',
+    errorUrl: '/blinds/daynight-blinds',
+  },
+  {
+    productName: 'Wooden Blinds',
+    Url: 'wooden-venetian',
+    errorUrl: '/blinds/wooden-blinds',
   },
   {
     productName: 'Zipline Outdoor Blinds',
     Url: 'zipline-blinds',
   },
   {
-    productName: 'Ripplefold / Wave Curtains',
+    productName: 'Ripplefold/Wave Curtains',
     Url: 'wave-curtains',
   },
   {
     productName: 'Special Shape Shutters',
     Url: 'special-shape-shutters-wooden-shutters',
-  },
-  {
-    productName: 'Tier On Tier Shutters Wooden Shutters',
-    Url: 'tier-on-tier-shutters-wooden-shutters',
   },
   {
     productName: 'Solid Panel Shutters',
@@ -34,10 +40,6 @@ export const urls = [
   {
     productName: 'Kids Prints Curtains',
     Url: 'curtain-prints-for-kids',
-  },
-  {
-    productName: 'Wood Venetian',
-    Url: 'wooden-venetian',
   },
   {
     productName: 'Transculent Blinds',
@@ -54,6 +56,7 @@ export const urls = [
   {
     productName: 'Office Curtains',
     Url: 'office-window-curtains',
+    errorUrl: 'office-curtains',
   },
   {
     productName: 'Staircase Shutters',
@@ -95,19 +98,29 @@ export const urls = [
     errorUrl: '/blinds/bathroom-blinds',
   },
   {
-    productName: 'Blackout Curtains',
-    Url: 'blackout-curtains-dubai',
-    errorUrl: '/curtains/blackout-curtains',
+    productName: 'Aluminium Blinds',
+    Url: 'aluminium-venetian-blinds-dubai',
+    errorUrl: '/blinds/aluminium-blinds',
   },
   {
-    productName: 'Day/Night Blinds',
-    Url: 'duplex-blinds',
-    errorUrl: '/blinds/daynight-blinds',
+    productName: 'Honeycomb Blinds',
+    Url: 'colby-honeycomb-blinds',
+    errorUrl: '/blinds/honeycomb-blinds',
+  },
+  {
+    productName: 'Sunscreen/Transparent',
+    Url: 'sunscreen-roller-blinds',
+    errorUrl: '/blinds/roller-blinds/sunscreentransparent',
   },
   {
     productName: 'Dimout Blinds/Semi Transparent',
-    Url: 'roller-blinds/dimout-roller-blinds',
-    errorUrl: '/blinds/dimout-blindssemi-transparent',
+    Url: 'dimout-roller-blinds',
+    errorUrl: '/blinds/roller-blinds/dimout-blindssemi-transparent',
+  },
+  {
+    productName: 'Blackout Curtains',
+    Url: 'blackout-curtains-dubai',
+    errorUrl: '/curtains/blackout-curtains',
   },
   {
     productName: 'Sheer Curtains',
@@ -115,11 +128,48 @@ export const urls = [
     errorUrl: '/curtains/sheer-curtains',
   },
   {
+    productName: 'Tier On Tier Shutters',
+    Url: 'tier-on-tier-shutters-wooden-shutters',
+    errorUrl: '/shutters-range/tier-on-tier-shutters',
+  },
+  {
+    productName: 'Solid Panel Shutters',
+    Url: 'solid-panel-shutters-plantation-shutters-dubai',
+    errorUrl: '/shutters-range/solid-panel-shutters',
+  },
+  {
+    productName: 'Special Shape Shutters',
+    Url: 'special-shape-shutters-wooden-shutters',
+    errorUrl: '/shutters-range/special-shape-shutters',
+  },
+  {
+    productName: 'Theatre Curtains',
+    Url: 'stage-and-theatre-curtains',
+    errorUrl: '/curtains/theatre-curtains',
+  },
+  {
+    productName: 'Dimout Blinds/Semi Transparent',
+    Url: 'roller-blinds/dimout-roller-blinds',
+    errorUrl: '/blinds/dimout-blindssemi-transparent',
+  },
+  {
     productName: 'Ripplefold/Wave Curtains',
     Url: 'wave-curtains',
     errorUrl: '/curtains/ripplefoldwave-curtains',
   },
 ];
+
+// Map for predefined slugs and their paths
+export const predefinedPaths = {
+  'office-blinds': '/commercial',
+  theatre: '/curtains/stage-and-theatre-curtains',
+  hospitals: '/curtains/hospital-curtains',
+  restaurants: '/hotels-restaurants-blinds-curtains',
+  hotels: '/hotels-restaurants-blinds-curtains',
+  schools: '/blinds/school-blinds',
+  offices: '/curtains/office-window-curtains',
+  gym: '/curtains/gym-curtains',
+};
 
 export const ChangedProductUrl = (title: string): string => {
   let products = urls.find((url: { productName: string; Url: string }) => {

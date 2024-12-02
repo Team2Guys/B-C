@@ -1,23 +1,20 @@
 'use client';
-
 import { useQuery } from '@tanstack/react-query';
 import NotFound from 'app/not-found';
-import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
-import Container from 'components/Res-usable/Container/Container';
-import Support from 'components/Res-usable/support/support';
 import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
-import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
-import VideoAutomation from 'components/video-Automation/video-Automation';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { ChangedProductUrl } from 'data/urls';
-import { useParams } from 'next/navigation';
-import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
+import { ChangedProductUrl, urls } from 'data/urls';
+import { useParams, usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { ICategory, IProduct } from 'types/types';
 
 const Page = () => {
   const { subproduct } = useParams();
+  const path = usePathname()
+  const [isNotFound, setIsNotFound] = useState(false);
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
@@ -37,6 +34,21 @@ const Page = () => {
       title_flag && Cateories.some((item: number) => item == sub.CategoryId)
     );
   });
+  useEffect(() => {
+    if (path) {
+      const matchingUrl = urls.find((url) => url.errorUrl === path);
+      console.log(path,"pathnamepathname")
+      if (matchingUrl) {
+        console.log(matchingUrl, "matchingUrl");
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    }
+  }, [path]);
+  if (isNotFound) {
+    return <NotFound />;
+  }
 
   const relatedProducts = products?.filter(
     (prod) => prod.SubCategoryId === filteredSubCategory?.id,
@@ -44,19 +56,17 @@ const Page = () => {
 
   console.log(subproduct, 'subproduct');
   const filteredProduct = products?.find(
-    (prod) =>
-      generateSlug(prod.title) === ChangedProductUrl(subproduct as string) &&
-      Cateories.some((item: number) => item == prod.CategoryId),
+    (prod) => generateSlug(prod.title) === ChangedProductUrl(subproduct as string) && Cateories.some((item: number) => item == prod.CategoryId),
   );
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;
   }
-  if (!filteredSubCategory && !filteredProduct) {
+  if (!filteredSubCategory && !filteredProduct || isNotFound) {
     return <NotFound />;
   }
 
-  return (
+  return ( 
     <>
       {filteredSubCategory ? (
         <>
