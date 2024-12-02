@@ -2,8 +2,19 @@ import React from 'react';
 import { generateSlug } from 'data/data';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChangedProductUrl_handler } from 'data/urls';
 
-const BathroomCategory = ({ filteredProducts, isLoading }: any) => {
+interface BathroomCategoryProps {
+  filteredProducts: IProduct[];
+  isLoading: boolean;
+  categoryTitle: string;
+}
+
+const BathroomCategory = ({
+  filteredProducts,
+  isLoading,
+  categoryTitle,
+}: BathroomCategoryProps) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 px-2">
       {isLoading
@@ -21,7 +32,7 @@ const BathroomCategory = ({ filteredProducts, isLoading }: any) => {
           ))
         : filteredProducts &&
           filteredProducts.map((arr: any, index: number) => {
-            const parent = arr.category.title;
+            const parent = categoryTitle ? categoryTitle : arr.category.title;
             return (
               <div
                 className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full "
@@ -54,7 +65,7 @@ const BathroomCategory = ({ filteredProducts, isLoading }: any) => {
                     parent === 'Shutters'
                       ? 'shutters-range'
                       : parent.toLowerCase()
-                  }/${generateSlug(arr.title)}`}
+                  }/${ChangedProductUrl_handler(arr.title)}`}
                   className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center "
                 >
                   View Our {arr.title}

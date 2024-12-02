@@ -56,7 +56,7 @@ const CommercialPage = () => {
           <CommercialByRoom
             title={`${filteredSubCategory.title}`}
             description={`${filteredSubCategory.description}`}
-            category={`${filteredSubCategory.category.title} ss`}
+            category={`${filteredSubCategory.category.title}`}
             relatedProducts={filteredSubCategory?.products || []}
           />
         </>
