@@ -157,14 +157,16 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                         </p>
                         <div className="flex gap-4 mb-4">
                           <button
-                            className="text-white bg-green-600 px-4 py-1 rounded"
-                            onClick={() => handleApprove(comment.id, 'comment', comment, item)}  // Pass `item` here
+                            className={`text-white px-4 py-1 rounded ${comment.status === 'APPROVED' ? 'bg-gray-400': 'bg-green-600 '}`}
+                            onClick={() => handleApprove(comment.id, 'comment', comment, item)} 
+                            disabled={comment.status === 'APPROVED'}
                           >
                             Approve
                           </button>
                           <button
-                            className="text-white bg-red-600 px-4 py-1 rounded"
+                            className={`text-white px-4 py-1 rounded ${comment.status === 'REJECTED' ? 'bg-gray-400': 'bg-red-600 '}`}
                             onClick={() => handleReject(comment.id, 'comment', comment)}
+                            disabled={comment.status === 'REJECTED'}
                           >
                             Reject
                           </button>

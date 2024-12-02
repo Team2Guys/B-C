@@ -7,6 +7,7 @@ import PageSkelton from 'components/Skeleton/PageSkelton';
 import { BlogInfo } from 'types/interfaces';
 import { useQuery } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
+import ProtectedRoute from 'hooks/AuthHookAdmin';
 
 const Comment = () => {
   const {
@@ -33,4 +34,4 @@ const Comment = () => {
   );
 };
 
-export default Comment;
+export default ProtectedRoute(Comment);
