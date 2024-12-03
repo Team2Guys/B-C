@@ -61,7 +61,12 @@ export interface IProduct {
   subCategory?: [];
   short_description?: string;
   heading?: string;
-  colors?: [];
+  colors?: [
+    {
+      colorName: string;
+      colorCode?: string;
+    },
+  ];
   Sub_Heading?: string;
   Sub_Heading_description?: string;
 }

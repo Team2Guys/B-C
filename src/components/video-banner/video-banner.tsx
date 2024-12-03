@@ -29,6 +29,7 @@ const VideoBanner: React.FC<BannerProps> = ({
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const router = useRouter();
   const pathname = usePathname();
+
   const handleVideoClick = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -83,7 +84,8 @@ const VideoBanner: React.FC<BannerProps> = ({
                     onClick={(event) => handleNavigation(event, item.url)}
                   >
                     <div
-                      className={`w-full max-w-36 h-16 bg-[#${item.color}] border-2 ${pathname === item.url ? 'border-secondary shadow-lg' : 'border-transparent'} rounded-md`}
+                      className={`w-full max-w-36 h-16  border-2 ${pathname === item.url ? 'border-secondary shadow-lg' : 'border-transparent'} rounded-md`}
+                      style={{ backgroundColor: `#${item.color}` }}
                     ></div>
                     <p className="w-full max-w-36 text-13 text-center">
                       {item.name}
