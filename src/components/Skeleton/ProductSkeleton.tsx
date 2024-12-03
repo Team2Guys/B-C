@@ -1,4 +1,4 @@
-import { Skeleton} from 'antd';
+import { Skeleton } from 'antd';
 
 const ProductSkeleton = () => {
   return (
@@ -8,12 +8,12 @@ const ProductSkeleton = () => {
       <div className="flex-1 space-y-6 py-1">
         <div className="space-y-4">
           <div className="h-8 bg-gray-300 rounded w-1/3"></div>
-          
+
           <div className="flex space-x-2">
             <div className="h-12 bg-gray-300 rounded w-24"></div>
             <div className="h-12 bg-gray-300 rounded w-24"></div>
           </div>
-          
+
           <div className="flex space-x-2">
             <div className="h-8 bg-gray-300 rounded w-24"></div>
             <div className="h-8 bg-gray-300 rounded w-24"></div>
