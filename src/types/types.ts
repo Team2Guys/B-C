@@ -57,7 +57,7 @@ export interface IProduct {
   updatedAt: string | null;
   length?: any;
   href?: string;
-  category?: { title: string };
+  category?: any;
   product_type?: string;
   subCategory?: [];
   short_description?: string;
