@@ -30,7 +30,7 @@ const BathroomCategory = ({
         : filteredProducts &&
           filteredProducts.map((arr: any, index: number) => (
             <div
-              className="flex flex-col md:items-center justify-center sm:items-start space-y-2 text-center sm:text-start w-full "
+              className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full "
               key={index}
             >
               <div className="space-y-2 w-full">
