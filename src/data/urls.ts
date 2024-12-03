@@ -37,10 +37,6 @@ export const urls = [
       Url : "special-shape-shutters-wooden-shutters"
     },
     {
-      productName : "Tier On Tier Shutters Wooden Shutters",
-      Url : "tier-on-tier-shutters-wooden-shutters"
-    },
-    {
       productName : "Solid Panel Shutters",
       Url : "solid-panel-shutters-plantation-shutters-dubai"
     },
@@ -138,6 +134,17 @@ export const urls = [
       Url : "tier-on-tier-shutters-wooden-shutters",
       errorUrl:"/shutters-range/tier-on-tier-shutters"
     },
+    {
+      productName : "Solid Panel Shutters",
+      Url : "solid-panel-shutters-plantation-shutters-dubai",
+      errorUrl:"/shutters-range/solid-panel-shutters"
+    },
+    {
+      productName : "Special Shape Shutters",
+      Url : "special-shape-shutters-wooden-shutters",
+      errorUrl:"/shutters-range/special-shape-shutters"
+    },
+  
     ]
 
 
