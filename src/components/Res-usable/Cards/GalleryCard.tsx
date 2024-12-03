@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 interface GalleryProps {
   card: IProduct;
   relativeProducts?: boolean;
-  parent: string;
+  parent?: string;
 }
 
 const GalleryCard: React.FC<GalleryProps> = ({
