@@ -6,13 +6,14 @@ import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
-import { Cateories, generateSlug } from 'data/data';
+import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
 import { useParams } from 'next/navigation';
 import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const { product } = useParams();
+  const Cateories = [5];
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
@@ -30,7 +31,9 @@ const CommercialPage = () => {
       Cateories.some((item: number) => item == sub.CategoryId),
   );
   const filteredProduct = products?.find(
-    (prod) => generateSlug(prod.title) === ChangedProductUrl(product as string),
+    (prod) =>
+      generateSlug(prod.title) === ChangedProductUrl(product as string) &&
+      Cateories.some((item: number) => item == prod.CategoryId),
   );
 
   console.log(filteredSubCategory, 'title');

@@ -33,6 +33,8 @@ const CommercialPage = () => {
       }
     }
   }, [pathname]);
+
+  const Cateories = [9];
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
