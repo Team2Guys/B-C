@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Loader from 'components/Loader/Loader';
 import Cookies from 'js-cookie';
+import axios from 'axios';
+import { loggedInAdminAction } from 'redux/slices/AdminsSlice';
+
 
 function ProtectedRoute(WrappedComponent: any) {
   const Wrapper = (props: any) => {
@@ -10,12 +13,14 @@ function ProtectedRoute(WrappedComponent: any) {
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
+
       const token = Cookies.get('2guysAdminToken');
       const superAdmintoken = Cookies.get('superAdminToken');
       let Finaltoken = superAdmintoken ? superAdmintoken : token;
 
       if (Finaltoken) {
         router.push('/dashboard');
+    
       } else {
         setLoading(false);
       }

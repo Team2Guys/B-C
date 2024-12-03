@@ -4,7 +4,7 @@ import CustomSlider from 'components/slider/Slider';
 import TopHero from 'components/ui/top-hero';
 import { colorData } from 'data/data';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useRef, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { ISelectedPage } from 'types/types';
@@ -25,8 +25,10 @@ const VideoBanner: React.FC<BannerProps> = ({
   colorSlider,
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isColorActive, setIsColorActive] = useState<string>('');
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
   const handleVideoClick = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -56,7 +58,7 @@ const VideoBanner: React.FC<BannerProps> = ({
   };
   return (
     <div
-      className={`relative w-full ${colorSlider ? 'h-[700px]' : 'h-[300px] md:h-[450px] 2xl:h-[681px]'}  overflow-hidden ${className}`}
+      className={`relative w-full ${colorSlider ? 'h-full' : 'h-[300px] md:h-[450px] 2xl:h-[681px]'}  overflow-hidden ${className}`}
       onClick={handleVideoClick}
     >
       {colorSlider ? (
@@ -68,28 +70,27 @@ const VideoBanner: React.FC<BannerProps> = ({
             pagename={title}
           />
 
-          <div className="bg-[#ffffffab] pt-10 mt-5">
+          <div className="bg-[#ffffffab] pt-10">
             <Container>
               <div className="text-center">
                 <h3 className="font-bold text-2xl">Shutters By Color</h3>
               </div>
-              <CustomSlider
-                className="Hero-slider custom-color-silder z-40 mb-5 pt-10"
-                colorSlider={colorSlider}
+              <div
+                className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-6 gap-5 py-10"
               >
                 {colorData.map((item, index) => (
                   <div
-                    className="flex flex-col gap-2 mb-10 cursor-pointer"
+                    className="flex-col items-center gap-2 cursor-pointer color-box-wrapper"
                     key={`${item.color}-${index}`}
                     onClick={(event) => handleNavigation(event, item.url)}
                   >
                     <div
-                      className={`w-36 h-16 ${item.color} border border-black rounded-md`}
+                      className={`w-full max-w-36 h-16 ${item.color} border-2 ${pathname === item.url ? 'border-secondary shadow-lg' : 'border-transparent'} rounded-md`}
                     ></div>
-                    <p className="w-36 text-13 text-center">{item.name}</p>
+                    <p className="w-full max-w-36 text-13 text-center">{item.name}</p>
                   </div>
                 ))}
-              </CustomSlider>
+              </div>
             </Container>
           </div>
         </>
