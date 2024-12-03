@@ -15,6 +15,7 @@ import Testimonial from 'components/slider/testimonial';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { usePathname } from 'next/navigation';
+import { generateSlug } from 'data/data';
 
 const itemsPerPage = 9;
 const GalleryPage = () => {
@@ -119,13 +120,19 @@ const GalleryPage = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 xs:mt-20 mt-5 md:px-4">
           {currentItems &&
-            currentItems.map((product: IProduct) => (
-              <GalleryCard
-                card={product}
-                key={product.id}
-                relativeProducts={true}
-              />
-            ))}
+            currentItems.map((product: IProduct) => {
+              if (!product.category) {
+                return null;
+              }
+              return (
+                <GalleryCard
+                  card={product}
+                  key={product.id}
+                  relativeProducts={true}
+                  parent={generateSlug(product?.category.title)}
+                />
+              );
+            })}
         </div>
 
         <div className="flex justify-center items-center mt-20 w-full">
