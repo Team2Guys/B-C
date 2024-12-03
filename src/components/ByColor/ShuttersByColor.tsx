@@ -51,22 +51,20 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
     queryFn: fetchCategories,
   });
   const getColorHex = (path: string): string | null => {
-    const colorMatch = colorData.find(
-      (color) => color.url === path
-    );
-    return colorMatch ? colorMatch.color.slice(4, -1) : null;
+    const colorMatch = colorData.find((color) => color.url === path);
+    return colorMatch ? colorMatch.color : null;
   };
 
   useEffect(() => {
     const selectedColorHex = getColorHex(pathname);
 
     if (selectedColorHex && products) {
-      console.log("Debuge 1")
+      console.log('Debuge 1');
       const filteredByColor = products.filter((prod) =>
         //@ts-expect-error
-        prod.colors?.some((color) => color.colorName === selectedColorHex)
+        prod.colors?.some((color) => color.colorName === selectedColorHex),
       );
-      console.log("Debuge 2")
+      console.log('Debuge 2');
       console.log(filteredByColor);
       setFilteredProducts(filteredByColor);
     }
@@ -78,10 +76,10 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
 
   useEffect(() => {
     if (products) {
-    const filterprod = products.filter((prod) => prod.CategoryId === 9)
-    setRelaiveProducts(filterprod);
+      const filterprod = products.filter((prod) => prod.CategoryId === 9);
+      setRelaiveProducts(filterprod);
     }
-  },[products]);
+  }, [products]);
 
   useEffect(() => {
     const selectedPage = ByColorContent.find((page) => page.slug === pathname);
@@ -110,7 +108,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
             {filteredProducts.map((item) => {
               const filteredCategory = categoriesList.find(
-                (cat) => cat.id === item?.CategoryId
+                (cat) => cat.id === item?.CategoryId,
               );
               return (
                 <GalleryCard
