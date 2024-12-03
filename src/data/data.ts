@@ -1497,7 +1497,6 @@ export const megaMenubyStyle = [
   { productName: 'full-height-shutters' },
   { productName: 'tracked-window-shutters' },
 
-
   { productName: 'pencil-pleat-curtains' },
   { productName: 'ripplefold-wave-curtains' },
   { productName: 'tab-top-curtains' },
@@ -2013,37 +2012,37 @@ export const colorData: IColorData[] = [
   {
     id: 1,
     name: 'Off White Shutters',
-    color: 'bg-[#FAF9EF]',
+    color: 'FAF9EF',
     url: '/shutters-range/off-white-shutters',
   },
   {
     id: 2,
     name: 'White Shutters',
-    color: 'bg-[#FFFFFF]',
+    color: 'FFFFFF',
     url: '/shutters-range/white-shutters',
   },
   {
     id: 3,
     name: 'Black Shutters',
-    color: 'bg-[#000000]',
+    color: '000000',
     url: '/shutters-range/black-shutters',
   },
   {
     id: 4,
     name: 'Grey Shutters',
-    color: 'bg-[#E4EAEB]',
+    color: '808080',
     url: '/shutters-range/grey-shutters',
   },
   {
     id: 5,
     name: 'Dark Wood Shutters',
-    color: 'bg-[#E4EAEB]',
+    color: '815438',
     url: '/shutters-range/dark-wood-shutters',
   },
   {
     id: 6,
     name: 'Bold Colour Shutters',
-    color: 'bg-[#E4EAEB]',
+    color: '74125c',
     url: '/shutters-range/bold-colours-shutters',
   },
 ];

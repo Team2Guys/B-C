@@ -29,6 +29,7 @@ const VideoBanner: React.FC<BannerProps> = ({
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const router = useRouter();
   const pathname = usePathname();
+
   const handleVideoClick = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -75,9 +76,7 @@ const VideoBanner: React.FC<BannerProps> = ({
               <div className="text-center">
                 <h3 className="font-bold text-2xl">Shutters By Color</h3>
               </div>
-              <div
-                className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-6 gap-5 py-10"
-              >
+              <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-6 gap-5 py-10">
                 {colorData.map((item, index) => (
                   <div
                     className="flex-col items-center gap-2 cursor-pointer color-box-wrapper"
@@ -85,9 +84,12 @@ const VideoBanner: React.FC<BannerProps> = ({
                     onClick={(event) => handleNavigation(event, item.url)}
                   >
                     <div
-                      className={`w-full max-w-36 h-16 ${item.color} border-2 ${pathname === item.url ? 'border-secondary shadow-lg' : 'border-transparent'} rounded-md`}
+                      className={`w-full max-w-36 h-16  border-2 ${pathname === item.url ? 'border-secondary shadow-lg' : 'border-transparent'} rounded-md`}
+                      style={{ backgroundColor: `#${item.color}` }}
                     ></div>
-                    <p className="w-full max-w-36 text-13 text-center">{item.name}</p>
+                    <p className="w-full max-w-36 text-13 text-center">
+                      {item.name}
+                    </p>
                   </div>
                 ))}
               </div>
