@@ -2028,19 +2028,19 @@ export const colorData: IColorData[] = [
   {
     id: 4,
     name: 'Grey Shutters',
-    color: 'bg-[#E4EAEB]',
+    color: 'bg-[#808080]',
     url: '/shutters-range/grey-shutters',
   },
   {
     id: 5,
     name: 'Dark Wood Shutters',
-    color: 'bg-[#E4EAEB]',
+    color: 'bg-[#815438]',
     url: '/shutters-range/dark-wood-shutters',
   },
   {
     id: 6,
     name: 'Bold Colour Shutters',
-    color: 'bg-[#E4EAEB]',
+    color: 'bg-[#74125c]',
     url: '/shutters-range/bold-colours-shutters',
   },
 ];
