@@ -41,7 +41,9 @@ const CommercialPage = () => {
   });
 
   const filteredProduct = products?.find(
-    (prod) => generateSlug(prod.title) === ChangedProductUrl(product as string),
+    (prod) =>
+      generateSlug(prod.title) === ChangedProductUrl(product as string) &&
+      Cateories.some((item: number) => item == prod.CategoryId),
   );
 
   if (subLoading || prodLoading) {
