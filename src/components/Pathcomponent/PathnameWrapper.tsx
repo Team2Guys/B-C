@@ -24,6 +24,7 @@ const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
         <>
           {splited_urls.includes('blog') ? null : (
             <>
+            
               <Guarrenty />
               <Testimonial />
               <OurClient />

@@ -2,10 +2,8 @@
 import BathroomCategory from 'components/BathroomCategory/BathroomCategory';
 import Container from 'components/Res-usable/Container/Container';
 import VideoAutomation from 'components/video-Automation/video-Automation';
-import VideoBanner from 'components/video-banner/video-banner';
 import Support from 'components/Res-usable/support/support';
 import React, { useEffect, useState } from 'react';
-import { infoSectionData } from 'data/data';
 import { ICategory, IProduct } from 'types/types';
 import { useQuery } from '@tanstack/react-query';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
@@ -15,6 +13,9 @@ import {
   fetchSubCategories,
 } from 'config/fetch';
 import TopHero from 'components/ui/top-hero';
+import { usePathname, useRouter } from "next/navigation";
+import { urls } from "data/urls";
+import NotFound from "app/not-found";
 
 interface ICategoryPage {
   title: string;
@@ -23,12 +24,24 @@ interface ICategoryPage {
   category: string;
 }
 
-const RoomProducts = ({
-  title,
-  relatedProducts,
-  description,
-  category,
-}: ICategoryPage) => {
+const RoomProducts = ({ title, relatedProducts,description,category }: ICategoryPage) => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const [isNotFound, setIsNotFound] = useState(false);
+  useEffect(() => {
+    if (pathname) {
+      const matchingUrl = urls.find((url) => url.errorUrl === pathname);
+      
+      if (matchingUrl) {
+        console.log(matchingUrl, "matchingUrl");
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    }
+  }, [pathname]);
+
+  
   const {
     data: products,
     error,
@@ -47,6 +60,8 @@ const RoomProducts = ({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
+
+  const pathName = usePathname();
 
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
@@ -85,7 +100,9 @@ const RoomProducts = ({
   }, [title, products, subcategories, categories]);
 
   if (error instanceof Error) return <div>Error: {error.message}</div>;
-
+  if (isNotFound) {
+    return <NotFound />;
+  }
   return (
     <>
       {/* <VideoBanner
@@ -100,7 +117,7 @@ const RoomProducts = ({
         title={title}
         pageTitle={`Made to Measure ${title}`}
         image={bgBreadcrum}
-        pagename={title}
+        pagename={pathName}
       />
       <Container className="my-12">
         <div className="flex flex-col justify-center items-center space-y-4 px-2">

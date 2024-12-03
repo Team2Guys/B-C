@@ -33,12 +33,10 @@ export interface ICategory {
   CategoryId: number;
   description: string | null;
   id: number;
-  category: any
+  category: any;
   posterImage: PosterImage;
-  products : []
-  createdAt:Date
-
-
+  products: [];
+  createdAt: Date;
 }
 
 interface Image {
@@ -63,6 +61,7 @@ export interface IProduct {
   subCategory?: [];
   short_description?: string;
   heading?: string;
+  colors?: [];
   Sub_Heading?: string;
   Sub_Heading_description?: string;
 }
@@ -127,7 +126,7 @@ export interface MotorisedPageProps {
   additionalDescription?: string;
   additionalImage?: any;
   measureTitle1: string;
-  measureDescription1:string;
+  measureDescription1: string;
   additionalDescription2: string;
   additionalDescription3: string;
   chooseustitle: string;
