@@ -9,7 +9,19 @@ export const urls = [
     {
         productName : "Kids Room Blinds",
         Url : "blinds-for-kids-room",
-        errorUrl:"kids-room-blinds"
+        errorUrl:"/blinds/kids-room-blinds"
+
+    },
+    {
+      productName : "Day/Night Blinds",
+      Url : "duplex-blinds",
+      errorUrl:"/blinds/daynight-blinds"
+
+   },
+   {
+        productName : "Wooden Blinds",
+        Url : "wooden-venetian",
+        errorUrl:"/blinds/wooden-blinds"
 
     },
     {
@@ -17,16 +29,12 @@ export const urls = [
       Url : "zipline-blinds"
     },
     {
-      productName : "Ripplefold / Wave Curtains",
+      productName : "Ripplefold/Wave Curtains",
       Url : "wave-curtains"
     },
     {
       productName : "Special Shape Shutters",
       Url : "special-shape-shutters-wooden-shutters"
-    },
-    {
-      productName : "Tier On Tier Shutters Wooden Shutters",
-      Url : "tier-on-tier-shutters-wooden-shutters"
     },
     {
       productName : "Solid Panel Shutters",
@@ -35,10 +43,6 @@ export const urls = [
     {
       productName : "Kids Prints Curtains",
       Url : "curtain-prints-for-kids"
-    },
-    {
-      productName : "Wood Venetian",
-      Url : "wooden-venetian"
     },
     {
       productName : "Transculent Blinds",
@@ -94,6 +98,51 @@ export const urls = [
       productName : "Bathroom Blinds",
       Url : "bathroom-blinds-dubai",
       errorUrl:"/blinds/bathroom-blinds"
+    },
+    {
+      productName : "Aluminium Blinds",
+      Url : "aluminium-venetian-blinds-dubai",
+      errorUrl:"/blinds/aluminium-blinds"
+    },
+    {
+      productName : "Honeycomb Blinds",
+      Url : "colby-honeycomb-blinds",
+      errorUrl:"/blinds/honeycomb-blinds"
+    },
+    {
+      productName : "Sunscreen/Transparent",
+      Url : "sunscreen-roller-blinds",
+      errorUrl:"/blinds/roller-blinds/sunscreentransparent"
+    },
+    {
+      productName : "Dimout Blinds/Semi Transparent",
+      Url : "dimout-roller-blinds",
+      errorUrl:"/blinds/roller-blinds/dimout-blindssemi-transparent"
+    },
+    {
+      productName : "Blackout Curtains",
+      Url : "blackout-curtains-dubai",
+      errorUrl:"/curtains/blackout-curtains"
+    },
+    {
+      productName : "Sheer Curtains",
+      Url : "made-to-measure-sheer-curtains",
+      errorUrl:"/curtains/sheer-curtains"
+    },
+    {
+      productName : "Tier On Tier Shutters",
+      Url : "tier-on-tier-shutters-wooden-shutters",
+      errorUrl:"/shutters-range/tier-on-tier-shutters"
+    },
+    {
+      productName : "Solid Panel Shutters",
+      Url : "solid-panel-shutters-plantation-shutters-dubai",
+      errorUrl:"/shutters-range/solid-panel-shutters"
+    },
+    {
+      productName : "Special Shape Shutters",
+      Url : "special-shape-shutters-wooden-shutters",
+      errorUrl:"/shutters-range/special-shape-shutters"
     },
   
     ]
