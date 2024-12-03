@@ -1258,7 +1258,7 @@ export const commercialMegaMenuItems = [
   { productName: 'pergola' },
 
   { productName: 'fire-retardant' },
-  { productName: 'water-repellent ' },
+  { productName: 'water-repellent' },
   { productName: 'washable' },
   { productName: 'anti-microbial' },
 ];
@@ -1591,7 +1591,7 @@ export const megaMenuDynamic = [
   { productName: 'blackout-curtains-dubai' },
 
   { productName: 'fire-retardant' },
-  { productName: 'water-repellent ' },
+  { productName: 'water-repellent' },
   { productName: 'washable' },
   { productName: 'anti-microbial' },
 ];
