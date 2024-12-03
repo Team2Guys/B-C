@@ -1,6 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
+import NotFound from 'app/not-found';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import Container from 'components/Res-usable/Container/Container';
@@ -27,25 +28,32 @@ const Page = () => {
     queryFn: fetchProducts,
   });
 
-  const filteredSubCategory = subCategories?.find((sub) => generateSlug(sub.title) === subproduct);
-
-  const relatedProducts = products?.filter((prod) => prod.SubCategoryId === filteredSubCategory?.id,
+  const filteredSubCategory = subCategories?.find(
+    (sub) => generateSlug(sub.title) === subproduct,
   );
 
-  console.log(subproduct, "subproduct"
-  )
+  const relatedProducts = products?.filter(
+    (prod) => prod.SubCategoryId === filteredSubCategory?.id,
+  );
 
-  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === subproduct,);
+  console.log(subproduct, 'subproduct');
+
+  const filteredProduct = products?.find(
+    (prod) => generateSlug(prod.title) === subproduct,
+  );
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;
+  }
+  if (!filteredSubCategory && !filteredProduct) {
+    return <NotFound />;
   }
 
   return (
     <>
       {filteredSubCategory ? (
         <>
-         <RoomProducts
+          <RoomProducts
             title={`${filteredSubCategory.title}`}
             description={`${filteredSubCategory.description}`}
             category={`${filteredSubCategory.category.title}`}
@@ -60,7 +68,7 @@ const Page = () => {
         <ProductDetailPage title={`${filteredProduct?.title}`} />
       )}
 
-{/* {filteredSubCategory  ? "": 
+      {/* {filteredSubCategory  ? "": 
             <>
             <VideoAutomation />
             <Container>
