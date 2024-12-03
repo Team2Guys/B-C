@@ -61,7 +61,6 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
     if (selectedColorHex && products) {
       console.log('Debuge 1');
       const filteredByColor = products.filter((prod) =>
-        //@ts-expect-error
         prod.colors?.some((color) => color.colorName === selectedColorHex),
       );
       console.log('Debuge 2');
