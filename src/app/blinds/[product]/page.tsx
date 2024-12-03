@@ -1,6 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
+import NotFound from 'app/not-found';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
@@ -12,37 +13,42 @@ import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const { product } = useParams();
-  const path = usePathname()
+  const path = usePathname();
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
   });
 
-  const Cateories = [2]
-
+  const Cateories = [2];
 
   const { data: products, isLoading: prodLoading } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
 
-
-
   const filteredSubCategory = subCategories?.find((sub) => {
-
-    let title = ChangedProductUrl(product as string)
-   let title_flag = title ===generateSlug(sub.title)
-    return title_flag && (Cateories.some((item:number)=>item ==sub.CategoryId))
+    let title = ChangedProductUrl(product as string);
+    let title_flag = title === generateSlug(sub.title);
+    return (
+      title_flag && Cateories.some((item: number) => item == sub.CategoryId)
+    );
   });
 
-  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === (ChangedProductUrl(product as string)),
+  const filteredProduct = products?.find(
+    (prod) =>
+      generateSlug(prod.title) === ChangedProductUrl(product as string) &&
+      Cateories.some((item: number) => item == prod.CategoryId),
   );
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;
   }
 
+  if (!filteredSubCategory && !filteredProduct) {
+    return <NotFound />;
+  }
+  console.log(filteredSubCategory, 'descriptiondescription');
   return (
     <>
       {filteredSubCategory ? (
