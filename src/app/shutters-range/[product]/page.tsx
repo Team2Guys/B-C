@@ -25,7 +25,7 @@ const CommercialPage = () => {
     setColorPage(undefined);
     setColorPageLoading(false);
     if(pathname){
-      const matchingColorShutter = colorData.find((clr) => clr.url === pathname);
+      const matchingColorShutter = colorData.find((clr) => clr.url === (pathname));
       if(matchingColorShutter){
         setColorPage(matchingColorShutter)
       }
@@ -42,13 +42,11 @@ const CommercialPage = () => {
     queryFn: fetchProducts,
   });
 
- 
 
   const filteredSubCategory = subCategories?.find((sub) => (generateSlug(sub.title) === ChangedProductUrl(product as string)) && (Cateories.some((item:number)=>item ==sub.CategoryId)));
-
-  const filteredProduct = products?.find((prod) => generateSlug(prod.title) === generateSlug(ChangedProductUrl(product as string)),
+  const filteredProduct = products?.find((prod) => generateSlug(prod.title) ===ChangedProductUrl(product as string),
   );
-
+console.log(filteredProduct,"filteredProductfilteredProduct")
   if (subLoading || prodLoading || !colorPageLoading) {
     return <PageSkelton />;
   }
