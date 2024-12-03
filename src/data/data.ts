@@ -1573,6 +1573,7 @@ export const megaMenuDynamic = [
   { productName: 'dimout-roller-blinds' },
 
   { productName: 'white-shutters' },
+  { productName: 'light-wood-shutters' },
   { productName: 'off-white-shutters' },
   { productName: 'black-shutters' },
   { productName: 'dark-woods-shutters' },
@@ -1676,8 +1677,9 @@ export const extendedDynamic = [
   { productName: 'textured-curtains' },
   { productName: 'kids-print-curtains' },
 
-  { productName: 'white-shutters' },
   { productName: 'offwhite-shutters' },
+  { productName: 'white-shutters' },
+  { productName: 'light-wood-shutters' },
   { productName: 'black-shutters' },
   { productName: 'dark-wood-shutters' },
   { productName: 'bold-colours-shutters' },
@@ -2041,8 +2043,14 @@ export const colorData: IColorData[] = [
   },
   {
     id: 6,
+    name: 'Light Wood Shutters',
+    color: 'deb887',
+    url: '/shutters-range/light-wood-shutters',
+  },
+  {
+    id: 7,
     name: 'Bold Colour Shutters',
-    color: '74125c',
+    color: '8f1601',
     url: '/shutters-range/bold-colours-shutters',
   },
 ];
@@ -2145,73 +2153,9 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/brown-shutters',
+    slug: '/shutters-range/light-wood-shutters',
     content: {
-      heading: 'Brown Colour Shutters',
-      paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
-      subheadingContent: [
-        {
-          content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-        },
-      ],
-    },
-  },
-  {
-    slug: '/shutters-range/blue-shutters',
-    content: {
-      heading: 'Blue Colour Shutters',
-      paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
-      subheadingContent: [
-        {
-          content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-        },
-      ],
-    },
-  },
-  {
-    slug: '/shutters-range/green-shutters',
-    content: {
-      heading: 'Green Colour Shutters',
-      paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
-      subheadingContent: [
-        {
-          content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-        },
-      ],
-    },
-  },
-  {
-    slug: '/shutters-range/orange-shutters',
-    content: {
-      heading: 'Orange Colour Shutters',
-      paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
-      subheadingContent: [
-        {
-          content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-        },
-      ],
-    },
-  },
-  {
-    slug: '/shutters-range/pink-shutters',
-    content: {
-      heading: 'Pink Colour Shutters',
+      heading: 'Light Wood Shutters',
       paragraph:
         'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',

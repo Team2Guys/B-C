@@ -76,7 +76,7 @@ const VideoBanner: React.FC<BannerProps> = ({
               <div className="text-center">
                 <h3 className="font-bold text-2xl">Shutters By Color</h3>
               </div>
-              <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-7 gap-1 py-10">
+              <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4 py-10">
                 {colorData.map((item, index) => (
                   <div
                     className="flex-col items-center gap-2 cursor-pointer color-box-wrapper"
