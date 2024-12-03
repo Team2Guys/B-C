@@ -18,13 +18,12 @@ import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const [colorPage, setColorPage] = useState<IColorData | undefined>();
-  const [colorPageLoading, setColorPageLoading] = useState<boolean>(false);
+  // const [colorPageLoading, setColorPageLoading] = useState<boolean>(false);
   const { product } = useParams();
   const pathname = usePathname();
 
   useEffect(() => {
     setColorPage(undefined);
-    setColorPageLoading(false);
     if (pathname) {
       const matchingColorShutter = colorData.find(
         (clr) => clr.url === pathname,
@@ -32,7 +31,6 @@ const CommercialPage = () => {
       if (matchingColorShutter) {
         setColorPage(matchingColorShutter);
       }
-      setColorPageLoading(true);
     }
   }, [pathname]);
 
@@ -59,7 +57,7 @@ const CommercialPage = () => {
       generateSlug(ChangedProductUrl(product as string)),
   );
 
-  if (subLoading || prodLoading || !colorPageLoading) {
+  if (subLoading || prodLoading) {
     return <PageSkelton />;
   }
   if (!filteredSubCategory && !filteredProduct && !colorPage) {
