@@ -9,11 +9,13 @@ import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl, urls } from 'data/urls';
 import { useParams, usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const { product } = useParams();
   const path = usePathname();
+  const [isNotFound, setIsNotFound] = useState(false);
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
@@ -26,6 +28,22 @@ const CommercialPage = () => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
+
+  useEffect(() => {
+    if (path) {
+      const matchingUrl = urls.find((url) => url.errorUrl === path);
+      console.log(path,"pathnamepathname")
+      if (matchingUrl) {
+        console.log(matchingUrl, "matchingUrl");
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    }
+  }, [path]);
+  if (isNotFound) {
+    return <NotFound />;
+  }
 
   const filteredSubCategory = subCategories?.find((sub) => {
     let title = ChangedProductUrl(product as string);
