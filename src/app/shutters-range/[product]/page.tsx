@@ -35,21 +35,7 @@ const CommercialPage = () => {
     }
   }, [pathname]);
 
-  useEffect(() => {
-    if (pathname) {
-      const matchingUrl = urls.find((url) => url.errorUrl === pathname);
-      console.log(pathname,"pathnamepathname")
-      if (matchingUrl) {
-        console.log(matchingUrl, "matchingUrl");
-        setIsNotFound(true);
-      } else {
-        setIsNotFound(false);
-      }
-    }
-  }, [pathname]);
-  if (isNotFound) {
-    return <NotFound />;
-  }
+  
 
   const Cateories = [9];
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
@@ -73,6 +59,21 @@ const CommercialPage = () => {
       generateSlug(prod.title) ===
       generateSlug(ChangedProductUrl(product as string)),
   );
+  useEffect(() => {
+    if (pathname) {
+      const matchingUrl = urls.find((url) => url.errorUrl === pathname);
+      console.log(pathname,"pathnamepathname")
+      if (matchingUrl) {
+        console.log(matchingUrl, "matchingUrl");
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    }
+  }, [pathname]);
+  if (isNotFound) {
+    return <NotFound />;
+  }
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;
