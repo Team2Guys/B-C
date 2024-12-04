@@ -16,7 +16,6 @@ export const urls = [
       productName : "Day/Night Blinds",
       Url : "duplex-blinds",
       errorUrl:"/blinds/daynight-blinds"
-
    },
    {
         productName : "Wooden Blinds",
@@ -58,7 +57,8 @@ export const urls = [
     },
     {
       productName : "Office Curtains",
-      Url : "office-window-curtains"
+      Url : "office-window-curtains",
+      errorUrl : "office-curtains"
     },
     {
       productName : "Staircase Shutters",
@@ -150,6 +150,19 @@ export const urls = [
       errorUrl:"/curtains/theatre-curtains"
     },
     ]
+
+
+      // Map for predefined slugs and their paths
+ export const predefinedPaths = {
+    'office-blinds': '/commercial',
+    'theatre': '/curtains/stage-and-theatre-curtains',
+    'hospitals': '/curtains/hospital-curtains',
+    'restaurants': '/hotels-restaurants-blinds-curtains',
+    'hotels': '/hotels-restaurants-blinds-curtains',
+    'schools': '/blinds/school-blinds',
+    'offices': '/curtains/office-window-curtains',
+    'gym': '/curtains/gym-curtains',
+  };
 
 
 export const ChangedProductUrl = (title: string): string => {

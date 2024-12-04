@@ -21,6 +21,7 @@ const CommercialPage = () => {
   // const [colorPageLoading, setColorPageLoading] = useState<boolean>(false);
   const { product } = useParams();
   const pathname = usePathname();
+  const [isNotFound, setIsNotFound] = useState(false);
 
   useEffect(() => {
     setColorPage(undefined);
@@ -33,6 +34,22 @@ const CommercialPage = () => {
       }
     }
   }, [pathname]);
+
+  useEffect(() => {
+    if (pathname) {
+      const matchingUrl = urls.find((url) => url.errorUrl === pathname);
+      console.log(pathname,"pathnamepathname")
+      if (matchingUrl) {
+        console.log(matchingUrl, "matchingUrl");
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    }
+  }, [pathname]);
+  if (isNotFound) {
+    return <NotFound />;
+  }
 
   const Cateories = [9];
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
