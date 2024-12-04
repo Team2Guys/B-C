@@ -207,9 +207,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                   path = '/commercial';
                                 } else if (
                                   slug === 'hotels-restaurants-blinds-curtains'
-                                ) {
+                                )
+                                {
                                   path = basePath;
-                                } else {
+                                } 
+                                else if(slug === 'theatre'){
+                                  path = '/curtains/stage-and-theatre-curtains';
+                                }
+                                else {
                                   path = `/${parent === 'shutters' ? `${parent}-range` : parent}${slug === 'dimout-roller-blinds' || slug === 'sunscreen-roller-blinds' ? '/roller-blinds': ''}/${slug}`;
                                 }
 

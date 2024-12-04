@@ -144,7 +144,11 @@ export const urls = [
       Url : "special-shape-shutters-wooden-shutters",
       errorUrl:"/shutters-range/special-shape-shutters"
     },
-  
+    {
+      productName : "Theatre Curtains",
+      Url : "stage-and-theatre-curtains",
+      errorUrl:"/curtains/theatre-curtains"
+    },
     ]
 
 
