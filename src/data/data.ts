@@ -38,6 +38,7 @@ import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
+import { title } from 'process';
 
 export const generateSlug = (text: string) => {
   if (!text) return '';
@@ -2200,4 +2201,52 @@ export const specificTitles = [
   'Balcony',
   'Pergola',
   'Outdoor',
+];
+
+export const ByRoomCommercialProduct = [
+  {
+    title: 'Indoor',
+    productsTitles: [
+      'motorised-blinds',
+      'blackout-curtains',
+      'bay-window-shutters',
+      'daynight-blinds',
+    ],
+  },
+  {
+    title: 'Skylight',
+    productsTitles: [
+      'pleated-blinds',
+      'tab-top-curtains',
+      'dimout-blindssemi-transparent',
+      'solid-panel-shutters',
+    ],
+  },
+  {
+    title: 'Balcony',
+    productsTitles: [
+      'blackout-blinds',
+      'outdoor-shutters',
+      'roman-blinds',
+      'eyelet-curtains',
+    ],
+  },
+  {
+    title: 'Pergola',
+    productsTitles: [
+      'sheer-curtains',
+      'blackout-curtains',
+      'aluminium-blinds',
+      'bi-fold-shutters',
+    ],
+  },
+  {
+    title: 'Outdoor',
+    productsTitles: [
+      'aluminium-blinds',
+      'ripplefoldwave-curtains',
+      'full-height-shutters',
+      'sunscreentransparent',
+    ],
+  },
 ];
