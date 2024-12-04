@@ -7,7 +7,7 @@ import Link from 'next/link';
 interface BathroomCategoryProps {
   filteredProducts: IProduct[];
   isLoading: boolean;
-  categoryTitle: string;
+  categoryTitle?: string;
 }
 
 const BathroomCategory = ({
@@ -15,21 +15,26 @@ const BathroomCategory = ({
   isLoading,
   categoryTitle,
 }: BathroomCategoryProps) => {
-
-  const getPath = (arr: IProduct) => {
+  const getPath = (arr: IProduct, parent: string) => {
+    categoryTitle === 'none' ? (categoryTitle = parent) : categoryTitle;
     const slug = ChangedProductUrl_handler(arr.title);
     const basePath =
-      arr.href && typeof categoryTitle.toLowerCase() === 'string'
+      arr.href &&
+      typeof categoryTitle &&
+      categoryTitle?.toLowerCase() === 'string'
         ? `${window.origin}/${arr.href}`
         : `/${slug}`;
+
     const path =
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
         : `/${
-            categoryTitle === 'Shutters'
-              ? `${categoryTitle.toLowerCase()}-range`
-              : categoryTitle.toLowerCase()
+            (parent ? parent === 'Shutters' : categoryTitle === 'Shutters')
+              ? `${parent ? parent.toLowerCase() : categoryTitle?.toLowerCase()}-range`
+              : parent
+                ? parent?.toLowerCase()
+                : categoryTitle?.toLocaleLowerCase()
           }${
             ['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
               ? '/roller-blinds'
@@ -54,36 +59,39 @@ const BathroomCategory = ({
             </div>
           ))
         : filteredProducts &&
-          filteredProducts.map((arr: IProduct, index: number) => (
-            <div
-              className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full "
-              key={index}
-            >
-              <div className="space-y-2 w-full">
-                <Image
-                  className="w-full h-full md:h-[374px] rounded-md object-cover"
-                  src={arr.posterImage.imageUrl}
-                  height={800}
-                  width={800}
-                  alt={arr.title}
-                />
-                <h2 className="font-bold text-base sm:text-xl md:text-2xl text-center">
-                  {arr.title}
-                </h2>
-              </div>
-              <p className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal">
-                {arr.description && arr.description.length > 160
-                  ? `${arr.description.slice(0, 160)}...`
-                  : arr.description}
-              </p>
-              <Link
-                href={getPath(arr)} 
-                className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center"
+          filteredProducts.map((arr: IProduct, index: number) => {
+            const parent = arr.category?.title;
+            return (
+              <div
+                className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full "
+                key={index}
               >
-                View Our {arr.title}
-              </Link>
-            </div>
-          ))}
+                <div className="space-y-2 w-full">
+                  <Image
+                    className="w-full h-full md:h-[374px] rounded-md object-cover"
+                    src={arr.posterImage.imageUrl}
+                    height={800}
+                    width={800}
+                    alt={arr.title}
+                  />
+                  <h2 className="font-bold text-base sm:text-xl md:text-2xl text-center">
+                    {arr.title}
+                  </h2>
+                </div>
+                <p className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal">
+                  {arr.description && arr.description.length > 160
+                    ? `${arr.description.slice(0, 160)}...`
+                    : arr.description}
+                </p>
+                <Link
+                  href={getPath(arr, parent)}
+                  className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center"
+                >
+                  View Our {arr.title}
+                </Link>
+              </div>
+            );
+          })}
     </div>
   );
 };
