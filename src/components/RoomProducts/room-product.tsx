@@ -126,8 +126,7 @@ const RoomProducts = ({
           <h2 className="text-xl sm:text-30 font-bold border border-b-[#A9B4A4] text-center">
             {title}
           </h2>
-          <p className="font-normal text-xs sm:text-16 leading-7 sm:leading-9 text-center text-[#666768]">
-            {description}
+          <p className="font-normal text-xs sm:text-16 leading-7 sm:leading-9 text-center text-[#666768]" dangerouslySetInnerHTML={{ __html: description}}>
           </p>
         </div>
         <BathroomCategory
