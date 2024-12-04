@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import { IProduct } from 'types/types';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 interface BathroomCategoryProps {
@@ -16,7 +15,6 @@ const BathroomCategory = ({
   isLoading,
   categoryTitle,
 }: BathroomCategoryProps) => {
-  const route = useRouter();
 
   const getPath = (arr: IProduct) => {
     const slug = ChangedProductUrl_handler(arr.title);
@@ -29,8 +27,8 @@ const BathroomCategory = ({
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
         : `/${
-            categoryTitle === 'shutters'
-              ? `${categoryTitle}-range`
+            categoryTitle === 'Shutters'
+              ? `${categoryTitle.toLowerCase()}-range`
               : categoryTitle.toLowerCase()
           }${
             ['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
