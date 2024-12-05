@@ -56,10 +56,10 @@ const OurClient = () => {
                 >
                   <Image
                     key={index}
-                    className="w-full px-5 h-16 object-contain active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent"
+                    className="w-full px-5 h-10 object-contain active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent"
                     src={image.src}
                     alt={image.alt}
-                    width={250}
+                    width={400}
                     height={400}
                   />
                 </div>
