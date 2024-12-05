@@ -2,6 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import NotFound from 'app/not-found';
+import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
@@ -71,12 +72,22 @@ const CommercialPage = () => {
     <>
       {filteredSubCategory ? (
         <>
-          <RoomProducts
+        {
+          filteredSubCategory.title === "Roller Blinds" ?
+          <CategoryPage
+            title={`${filteredSubCategory.title}`}
+            relatedProducts={filteredSubCategory?.products || []}
+          />
+          :
+         <RoomProducts
             title={`${filteredSubCategory.title}`}
             description={`${filteredSubCategory.description}`}
             category={`${filteredSubCategory.category.title}`}
             relatedProducts={filteredSubCategory?.products || []}
-          />
+          /> 
+        }
+          
+          
         </>
       ) : (
         <ProductDetailPage title={`${filteredProduct?.title}`} />
