@@ -161,29 +161,14 @@ export const EmailInfo: Email = {
 };
 
 export const OurClientImage = [
-  { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/logo2.png', alt: 'Logomain' },
-  {
-    src: '/assets/images/ourclient/logo3.png',
-    alt: 'Plantation-Shutters-Dubai 1',
-  },
-  { src: '/assets/images/ourclient/logo4.png', alt: 'Two-Guys-Logo' },
-  {
-    src: '/assets/images/ourclient/logo5.png',
-    alt: 'Yellow-Zone-Group-Dubai 1',
-  },
-  { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/logo2.png', alt: 'Logomain' },
-  {
-    src: '/assets/images/ourclient/logo3.png',
-    alt: 'Plantation-Shutters-Dubai 1',
-  },
-  { src: '/assets/images/ourclient/logo4.png', alt: 'Two-Guys-Logo' },
-  {
-    src: '/assets/images/ourclient/logo5.png',
-    alt: 'Yellow-Zone-Group-Dubai 1',
-  },
-  // { src: '/assets/images/ourclient/yellow-zone-group-dubai-2.png', alt: 'Yellow-Zone-Group-Dubai 2' }
+  { src: '/assets/images/ourclient/client1.png', alt: 'Floors-Walls-Dubai 1' },
+  { src: '/assets/images/ourclient/client2.png', alt: 'Logomain' },
+  {src: '/assets/images/ourclient/client3.png', alt: 'Two-Guys-Logo'},
+  { src: '/assets/images/ourclient/client4.png', alt: 'Two-Guys-Logo' },
+  { src: '/assets/images/ourclient/client5.png', alt: 'Two-Guys-Logo'},
+  { src: '/assets/images/ourclient/client6.png', alt: 'Floors-Walls-Dubai 1' },
+  { src: '/assets/images/ourclient/client7.png', alt: 'Logomain' },
+  { src: '/assets/images/ourclient/client8.png', alt: 'Plantation-Shutters-Dubai 1',},
 ];
 export const BlogTitles = [
   { id: 1, title: 'Understanding React Basics' },
