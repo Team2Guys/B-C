@@ -31,9 +31,6 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   });
   
   const adminsData = Array.isArray(data) ? data : [];
-  console.log(Finaltoken, 'Finaltoken')
-  console.log(data, 'data')
-console.log(adminsData, 'adminsData');
 
   const handleDelete = async (id: string) => {
     try {
