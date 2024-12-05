@@ -30,14 +30,6 @@ export const urls = [
     Url: 'wave-curtains',
   },
   {
-    productName: 'Special Shape Shutters',
-    Url: 'special-shape-shutters-wooden-shutters',
-  },
-  {
-    productName: 'Solid Panel Shutters',
-    Url: 'solid-panel-shutters-plantation-shutters-dubai',
-  },
-  {
     productName: 'Kids Prints Curtains',
     Url: 'curtain-prints-for-kids',
   },
@@ -46,7 +38,7 @@ export const urls = [
     Url: 'translucent-blinds',
   },
   {
-    productName: 'Double Pinch Pleat',
+    productName: 'Double Pinch Pleat Curtains',
     Url: 'double-pleat-curtains',
   },
   {
@@ -132,16 +124,16 @@ export const urls = [
     Url: 'tier-on-tier-shutters-wooden-shutters',
     errorUrl: '/shutters-range/tier-on-tier-shutters',
   },
-  {
-    productName: 'Solid Panel Shutters',
-    Url: 'solid-panel-shutters-plantation-shutters-dubai',
-    errorUrl: '/shutters-range/solid-panel-shutters',
-  },
-  {
-    productName: 'Special Shape Shutters',
-    Url: 'special-shape-shutters-wooden-shutters',
-    errorUrl: '/shutters-range/special-shape-shutters',
-  },
+  // {
+  //   productName: 'Solid Panel Shutters',
+  //   Url: 'solid-panel-shutters-plantation-shutters-dubai',
+  //   errorUrl: '/shutters-range/solid-panel-shutters',
+  // },
+  // {
+  //   productName: 'Special Shape Shutters',
+  //   Url: 'special-shape-shutters-wooden-shutters',
+  //   errorUrl: '/shutters-range/special-shape-shutters',
+  // },
   {
     productName: 'Theatre Curtains',
     Url: 'stage-and-theatre-curtains',
@@ -167,7 +159,7 @@ export const predefinedPaths = {
   restaurants: '/hotels-restaurants-blinds-curtains',
   hotels: '/hotels-restaurants-blinds-curtains',
   schools: '/blinds/school-blinds',
-  offices: '/curtains/office-window-curtains',
+  // offices: '/commercial/offices',
   gym: '/curtains/gym-curtains',
 };
 

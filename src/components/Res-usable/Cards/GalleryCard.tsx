@@ -7,6 +7,7 @@ import { GalleryItems } from 'types/interfaces';
 import { generateSlug } from 'data/data';
 import { IProduct } from 'types/types';
 import { useRouter } from 'next/navigation';
+import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
 interface GalleryProps {
   card: IProduct;
@@ -36,6 +37,28 @@ const GalleryCard: React.FC<GalleryProps> = ({
       router.push(path);
     }
   };
+  const getPath = (arr: IProduct)=> {
+    const slug = ChangedProductUrl_handler(arr.title);
+    const basePath =
+      arr.href && parent
+        ? `${window.origin}/${arr.href}`
+        : `/${slug}`;
+
+    const path =
+      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+      (slug === 'hotels-restaurants-blinds-curtains'
+        ? basePath
+        : `/${
+            parent?.toLowerCase() === 'shutters'
+              ? `${parent.toLowerCase()}-range`
+              : parent?.toLowerCase()
+          }${
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
+              ? '/roller-blinds'
+              : ''
+          }/${slug}`);
+    return path;
+  };
 
   return (
     <>
@@ -54,12 +77,8 @@ const GalleryCard: React.FC<GalleryProps> = ({
             ),
           }}
         />
-        <div
-          onClick={() =>
-            router.push(
-              `${window.origin}/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(card.title)}`,
-            )
-          }
+        <Link
+          href={getPath(card)}
           className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
         >
           <span
@@ -67,17 +86,13 @@ const GalleryCard: React.FC<GalleryProps> = ({
           >
             {card.title}
           </span>
-          <div
-            onClick={() =>
-              router.push(
-                `${window.origin}/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(card.title)}`,
-              )
-            }
+          <Link 
+            href={getPath(card)}
             className={`border border-primary text-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14 text-nowrap ${relativeProducts ? 'block' : 'hidden'}`}
           >
             View More
-          </div>
-        </div>
+          </Link>
+        </Link>
       </div>
     </>
   );

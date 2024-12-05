@@ -209,7 +209,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         route.push(path);
                         setIsOpen(false);
                       }}
-                      className={` font-gotham text-15 cursor-pointer whitespace-break-spaces w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
+                      className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
                     >
                          {
                               ((title == 'Blinds' || title == 'Curtains' || title == 'Shutters') && itemName == 'By Room' || itemName == 'dynamic') 
