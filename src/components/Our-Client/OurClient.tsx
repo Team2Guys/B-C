@@ -55,8 +55,9 @@ const OurClient = () => {
                   key={index}
                 >
                   <Image
+                    // style={{filter:'brightness( 100% ) contrast( 50% ) saturate( 0% ) blur( 0px ) hue-rotate( 0deg )'}}
                     key={index}
-                    className="w-full px-5 h-10 object-contain active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent"
+                    className="w-full px-5 h-10 object-contain active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent brightness-100 contrast-50 saturate-0 blur-0 hue-rotate-0"
                     src={image.src}
                     alt={image.alt}
                     width={400}
