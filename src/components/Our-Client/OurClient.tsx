@@ -51,11 +51,10 @@ const OurClient = () => {
             {OurClientImage.map((image: any, index: any) => (
               <SwiperSlide className=" py-4" key={index}>
                 <div
-                  className=" active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white"
+                  className="active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white active:border-none"
                   key={index}
                 >
                   <Image
-                    // style={{filter:'brightness( 100% ) contrast( 50% ) saturate( 0% ) blur( 0px ) hue-rotate( 0deg )'}}
                     key={index}
                     className="w-full px-5 h-10 object-contain active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent brightness-100 contrast-50 saturate-0 blur-0 hue-rotate-0"
                     src={image.src}
