@@ -15,6 +15,7 @@ import { ICategory, IProduct } from 'types/types';
 import { fetchCategories } from 'config/fetch';
 import { revalidatePath } from 'next/cache';
 import revalidateTag from 'components/ServerActons/ServerAction';
+import { ChangedProductUrl_handler } from 'data/urls';
 
 interface Product extends IProduct {
   id: number;
@@ -67,7 +68,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
     (loggedInUser.role == 'Admin' ? loggedInUser.canDeleteProduct : true);
   const canEditproduct =
     loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canEditproduct : true);
+    (loggedInUser.role == 'Admin' ? loggedInUser.canEditProduct : true);
   useEffect(() => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
 
@@ -167,7 +168,11 @@ const ViewProduct: React.FC<CategoryProps> = ({
           <FaRegEye
             className="cursor-pointer"
             onClick={() => {
-              const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(record.title)}`;
+              const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${
+                // generateSlug(record.title)
+                ChangedProductUrl_handler(record.title)
+              }
+              `;
               window.open(url, '_blank');
             }}
           />
