@@ -73,16 +73,19 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               />
               <div className="text-center space-y-3">
                 <h1 className="text-17 font-semibold">{trimmedProductTitle}</h1>
-                <p className="text-15 font-light md:w-[80%] mx-auto auto max-h-16 overflow-y-auto custom-scrollbar">
-                  {product.short_description || product.description}
-                </p>
+                <p className="text-15 font-light md:w-[80%] mx-auto auto max-h-16 overflow-y-auto custom-scrollbar" dangerouslySetInnerHTML={{ __html : product.short_description || product.description }}></p>
               </div>
               <div className="pt-5">
                 <button
-                  onClick={() => {
-                    route.push(
-                      `/${parent === 'shutters' ? `${parent}-range` : parent}/${ChangedProductUrl(product.title)}`,
-                    );
+                  onClick={(event) => {
+                    const slug = ChangedProductUrl(product.title);
+                    const path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
+                  
+                    if (event.ctrlKey || event.metaKey) {
+                      window.open(path, '_blank');
+                    } else {
+                      route.push(path);
+                    }
                   }}
                   className="bg-transparent border border-white group-hover:bg-primary group-hover:border-primary text-black group-hover:text-white py-3 px-5 rounded-md"
                 >
