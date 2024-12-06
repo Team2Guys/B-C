@@ -3,12 +3,13 @@ import { Button } from 'components/ui/button';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react'
+import { POSTER_iMAGE } from 'types/types';
 
 interface detailprops {
     title?: string;
     subtitle?: string;
     description: string;
-    image: any;
+    image: POSTER_iMAGE;
     className?: string;
     imageClass?: string;
     description2?: string;
@@ -52,8 +53,8 @@ const DetailInfo: React.FC<detailprops> = ({
           className='md:h-[526.24px] w-full rounded-3xl object-cover'
             width={455}
             height={420}
-            src={image}
-            alt="Motorised Blind Image"
+            src={image.imageUrl}
+            alt={image?.altText || "Image"}
           />
         </div>
       </div>
