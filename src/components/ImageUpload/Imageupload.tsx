@@ -32,16 +32,12 @@ const UploadFile = ({
       file = e.dataTransfer.files[0];
     }
 
-    console.log('file', file);
     try {
       const response = await uploadPhotosToBackend(file ? [file] : files);
       setImagesUrl && setImagesUrl((prev) => [...prev, response]);
-      setposterimageUrl && setposterimageUrl(response);
-      sethoverImage && sethoverImage(response);
-      console.log('Debuge 2');
-      console.log(response);
-      console.log('Photos uploaded successfully');
-      console.log(response);
+      setposterimageUrl && setposterimageUrl([response]);
+      sethoverImage && sethoverImage([response]);
+
     } catch (error) {
       console.error('Failed to upload photos:', error);
     } finally {
