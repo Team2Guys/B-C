@@ -42,7 +42,8 @@ export default function Review_banner() {
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    refs: ""
   };
 
   return (
