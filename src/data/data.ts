@@ -1890,60 +1890,61 @@ export const motorisedPageData1 = {
   title: 'Motorised Curtains',
   heroImage: bgBreadcrum,
   infoTitle: 'MOTORISED CURTAINS',
-  infoSubtitle: 'The smartest curtains for your dream home.',
+  infoSubtitle: 'Convert your windows into Smart Windows ',
   infoDescription:
-    'Motorised curtains or electric curtains are typically operated by a remote control. You can even add smartphone control functionality to allow you total control of your curtains, home or away. Providing you with the same function as but with the added comfort of only having to press a button rather than pull a chain. With a huge selection of fabrics and designs to choose from, our motorised curtains are the ideal choice for a beautiful and functional window dressing. Driven by an integrated motor that is hidden from sight, our motorised roller binds can be powered by rechargeable battery or directly from your mains supply. Our expert team of installation specialists will ensure all safety parameters and electrical regulations are met for your complete peace of mind.',
+    "Our passion for excellence makes us more than just a window covering company. There are so many reasons to go electric. Everything else in your life is automated, why not your blinds?  Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with motorised curtains. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly, continuously for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts."
+,
   infoImage: moto1,
-  measureTitle: 'MADE TO MEASURE MOTORISED CURTAINS',
+  measureTitle: 'Made to Measure Motorised Curtains',
   measureDescription:
-    'Our entire motorised curtains collection is supplied on a made-to-measure basis. No more guessing or hoping it will fit. Our curtains are custom-made for your windows. Our end-to-end service means we are here from the very start right through to the final installment. You don’t have to lift a finger as we take care of the entire process on your behalf. We offer a range of motorised solutions.',
-  chooseustitle: 'Why choose us for your motorization?',
-  chooseustitle1: 'Why choose us for your motorization?',
-  measureTitle1: 'MOTORISED BENEFITS',
+    `Just say the word, and let your motorisation system do the rest. It's now easier to control them with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
+  chooseustitle: 'Why Choose Us For Your Motorisation?',
+  chooseustitle1: 'Control your windows anytime, anywhere!',
+  measureTitle1: 'Set Your Own Schedule or Control Remotely',
   measureDescription1:
-    'There are many advantages to choosing a motorised blind over a manually operated one. First and foremost, you have the ability to save a preferred position so that your curtains always open to the same spot. You can even add timers to command the curtains to open/close at set times. How’s that for convenience?',
+    `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use your system so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants.`,
   chooseUsItems1: [
     {
       image: img1,
-      text: 'We offer a fully comprehensive 5 year warranty on all our motors',
+      text: '10 Years warranty on all mechanical parts and labour',
     },
     {
       image: img2,
-      text: 'Our professional staff are fully trained to install as well as offer expert advice',
+      text: '50 experts to make sure perfection is maintained from start-to-finish',
     },
     {
       image: img3,
-      text: 'We keep motors in stock, so no long delays waiting for stock',
+      text: `Quality production - we're in it for the long haul`,
     },
     {
       image: img4,
-      text: 'We only use the leading brands such as Somfy, Nice & Motion.',
+      text: 'More than 700 5-star reviews prove our reputation as trusted',
     },
   ],
   motorization1: [
     {
-      text: 'Hassle free care. Our motorised tracks are superior quality. They just don’t break down',
+      text: 'Easily operate with remote. Smartphone, or voice command.',
     },
     {
-      text: 'Push the buttons on the remote or link up to your smart phone in literally 60 seconds',
+      text: 'Save money and protect your home from UV rays.',
     },
     {
-      text: 'How about Apple Home? YES. What about Alexa? Sure, why not. Ok, and Google',
+      text:`It's perfect for people with mobility or accessibility issues.` ,
     },
     {
-      text: 'Even if you have your own system, 99% of the time, our installers can liaise with your automation team to give you a full 360 solution.',
+      text: 'You can set it up to block out the sun at specific times.',
     },
     {
-      text: 'Set timers, set scenes. Control your motors from the room down the hall or from the other side of the world, it really is that simple once we set it up for you',
+      text: 'Adjust the amount of light entering your home to create the perfect ambiance.',
     },
   ],
   additionalDescription:
-    'All our team members are paid a decent living wage and are not trained for the hard sell.',
+    `There's no hard sell just relaxed and pressure-free consultation`,
   additionalImage: moto2,
   additionalDescription2:
-    'You can call the sales team for a no obligation quotation on or fill out the online contact form and someone will get back to you as soon as possible.',
+    `At Blinds and Curtains Dubai, choosing window coverings should be fun and enjoyable instead of stressful. So we designed our consultations to be relaxed and informative. Our team is here to guide you, not to push you. We take the time to fully understand your needs and provide solutions that genuinely work for your space, whether you're looking for fabrics, motorised options, or light control advice.`,
   additionalDescription3:
-    'Please remember that none of our sales team are on commission. All are paid a decent living wage which allows them to be as honest with you as possible and put you under ZERO pressure to buy. It is the way we enjoy being sold to, so we pass that method onto you too.',
+    `Every home is different, and every customer has a different taste. That's why we listen to you and offer honest, helpful advice during our consultations. There's no hustle, no pressure, and definitely no hard sell.`,
 };
 
 export const Cateories = [9, 2, 5, 12];
