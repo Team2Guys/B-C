@@ -2238,3 +2238,14 @@ export const ByRoomCommercialProduct = [
     ],
   },
 ];
+
+export const BooKNowbannerContent = [
+  {
+    url: '/blinds/roller-blinds',
+    content: 'Ready to get started? Call our sales team at (04) 252 2025 for a free quote or fill out the online form, and we&apos;ll be in touch'
+  },
+  {
+    url: '/blinds/panel-blinds',
+    content: 'Need expert advice? We can make <a href="/made-to-measure-blinds" style="text-decoration: underline">custom window blinds</a> for you. Feel free to give us a call at (04) 252 2025, or fill out our online contact form, and we&apos;ll walk you through everything.'
+  }
+]
