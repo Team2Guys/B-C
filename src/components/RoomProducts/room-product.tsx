@@ -16,6 +16,7 @@ import TopHero from 'components/ui/top-hero';
 import { usePathname, useRouter } from 'next/navigation';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
+import { generateSlug } from 'data/data';
 
 interface ICategoryPage {
   title: string;
@@ -91,9 +92,17 @@ const RoomProducts = ({
     if (!relatedProducts || relatedProducts.length === 0) {
       filterProducts();
     } else {
-      setFilteredProducts(relatedProducts);
-
-      // Determine category title if relatedProducts is provided
+      if (title === 'Bedroom Blinds') {
+        const updatedProducts = relatedProducts.map((product) => {
+          if (generateSlug(product.title) === 'blackout-blinds') {
+            return { ...product, title: 'Blackout/Private Blinds' };
+          }
+          return product;
+        });
+        setFilteredProducts(updatedProducts);
+      } else {
+        setFilteredProducts(relatedProducts);
+      }
       const relatedCategory = categories?.find(
         (cat) => cat.id === relatedProducts[0]?.CategoryId,
       );
@@ -126,8 +135,10 @@ const RoomProducts = ({
           <h2 className="text-xl sm:text-30 font-bold border border-b-[#A9B4A4] text-center">
             {title}
           </h2>
-          <p className="font-normal text-xs sm:text-16 leading-7 sm:leading-9 text-center text-[#666768]" dangerouslySetInnerHTML={{ __html: description}}>
-          </p>
+          <p
+            className="font-normal text-xs sm:text-16 leading-7 sm:leading-9 text-center text-[#666768]"
+            dangerouslySetInnerHTML={{ __html: description }}
+          ></p>
         </div>
         <BathroomCategory
           filteredProducts={filteredProducts}
