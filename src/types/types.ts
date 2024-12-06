@@ -57,11 +57,17 @@ export interface IProduct {
   updatedAt: string | null;
   length?: any;
   href?: string;
+  category?: any;
   product_type?: string;
   subCategory?: [];
   short_description?: string;
   heading?: string;
-  colors?: [];
+  colors?: [
+    {
+      colorName: string;
+      colorCode?: string;
+    },
+  ];
   Sub_Heading?: string;
   Sub_Heading_description?: string;
 }

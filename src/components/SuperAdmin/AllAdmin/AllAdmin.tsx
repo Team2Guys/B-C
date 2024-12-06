@@ -28,11 +28,9 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   const { data, isLoading, error } = useQuery({
     queryKey: ['admins'],
     queryFn: getAllAdmins,
-    enabled: !!Finaltoken,
   });
   
   const adminsData = Array.isArray(data) ? data : [];
-
 
   const handleDelete = async (id: string) => {
     try {

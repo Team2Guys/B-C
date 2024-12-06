@@ -20,7 +20,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
     queryFn: fetchCategories,
   });
   const displayedProducts = limit ? products.slice(0, limit) : products;
-  console.log(displayedProducts, 'displayedProducts')
+  
   return (
     <div className='px-2 md:px-4'>
       <div className="flex items-center gap-1">
