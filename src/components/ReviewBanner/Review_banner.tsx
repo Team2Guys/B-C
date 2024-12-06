@@ -105,6 +105,7 @@ export default function Review_banner() {
           </div>
         </div>
       </Container>
+      
     </>
   );
 }
