@@ -1,17 +1,13 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
-import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
-import Container from 'components/Res-usable/Container/Container';
-import Support from 'components/Res-usable/support/support';
 import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
-import VideoAutomation from 'components/video-Automation/video-Automation';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl, urls } from 'data/urls';
 import { useParams, usePathname } from 'next/navigation';
-import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
+import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const { product } = useParams();
