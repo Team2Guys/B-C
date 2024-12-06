@@ -16,7 +16,7 @@ import TopHero from 'components/ui/top-hero';
 import { usePathname, useRouter } from 'next/navigation';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
-import { generateSlug } from 'data/data';
+import { generateSlug, subCategoryName } from 'data/data';
 
 interface ICategoryPage {
   title: string;
@@ -33,6 +33,7 @@ const RoomProducts = ({
 }: ICategoryPage) => {
   const pathname = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
+  const [categoryName, setCategoryName] = useState<string | null>(null);
 
   const {
     data: products,
@@ -62,6 +63,12 @@ const RoomProducts = ({
         setIsNotFound(true);
       } else {
         setIsNotFound(false);
+      }
+    }
+    if(title){
+      const matchingTitle = subCategoryName.find((cat) => cat.name === title);
+      if(matchingTitle){
+        setCategoryName(matchingTitle.alterName);
       }
     }
   }, [pathname]);
@@ -133,7 +140,7 @@ const RoomProducts = ({
       <Container className="my-12">
         <div className="flex flex-col justify-center items-center space-y-4 px-2">
           <h2 className="text-xl sm:text-30 font-bold border border-b-[#A9B4A4] text-center">
-            {title}
+            {categoryName ? categoryName : title}
           </h2>
           <p
             className="font-normal text-xs sm:text-16 leading-7 sm:leading-9 text-center text-[#666768]"
