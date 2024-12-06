@@ -8,7 +8,7 @@ function Choose() {
         Why Choose Us:
       </h2>
         <p className="font-normal lg:text-3xl text-18 md:text-2xl ">
-        Made-to-Measure Window Treatments | 15+ Unique Blind Styles, 3000 Fabrics
+        Made-to-Measure Window Treatments | 15+ Unique Blind Styles, 3000 Fabric  Choices
         </p>
       <p className="mt-2 text-12 sm:text-14 2xl:text-16 text-black md:leading-9">
       Providing style and functionality to each room for you is what we do as a trusted window treatment company.

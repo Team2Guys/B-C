@@ -42,7 +42,8 @@ export default function Review_banner() {
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    refs: ""
   };
 
   return (
@@ -75,7 +76,7 @@ export default function Review_banner() {
                   width={140}
                   height={140}
                 />
-                <Slider {...settings}>
+                <Slider {...settings as any}>
                   {slides.map((slide, index: any) => (
                     <div
                       key={index}
@@ -105,6 +106,7 @@ export default function Review_banner() {
           </div>
         </div>
       </Container>
+      
     </>
   );
 }
