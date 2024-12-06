@@ -29,7 +29,7 @@ const FeatureProduct: React.FC = () => {
   });
   console.log(products)
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
-  const [visibleCount, setVisibleCount] = useState<number>(6);
+  const [visibleCount, setVisibleCount] = useState<number>(8);
   const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutters', 'Commercial'];
   const categoryMap = categories?.reduce(
     (acc, category) => {
@@ -47,12 +47,12 @@ const FeatureProduct: React.FC = () => {
   const visibleProducts = filteredProducts?.slice(0, visibleCount);
 
   const handleViewMore = () => {
-    setVisibleCount((prevCount) => prevCount + 6);
+    setVisibleCount((prevCount) => prevCount + 8);
   };
 
   const handleShowAll = () => {
     setActiveCategory(null);
-    setVisibleCount(6);
+    setVisibleCount(8);
   };
 
   if (isLoadingCategories || isLoadingProducts)
@@ -89,8 +89,8 @@ const FeatureProduct: React.FC = () => {
   return (
     <Container className="mt-20">
       <div className="text-center">
-        <h1 className="text-26 md:text-32 font-bold">Window Covering Inspirations</h1>
-        <p className="text-16 font-normal text-primary">Made To Measure blinds and curtains </p>
+        <h1 className="text-26 md:text-32 font-bold">Elegant & Functional Window Coverings</h1>
+        <p className="text-16 font-normal text-primary">We deliver on our promises, every single time </p>
         <hr className="border-2 border-primary w-28 mx-auto" />
       </div>
 

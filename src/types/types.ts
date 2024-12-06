@@ -39,10 +39,14 @@ export interface ICategory {
   createdAt: Date;
 }
 
-interface Image {
+export interface Image {
   imageUrl: string;
   public_id: string;
+  altText?:string
 }
+
+
+export interface POSTER_iMAGE extends Image{}
 
 export interface IProduct {
   id: number;
