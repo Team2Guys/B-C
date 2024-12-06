@@ -78,8 +78,14 @@ const BathroomCategory = ({
                     {arr.title}
                   </h2>
                 </div>
-                <p className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal" dangerouslySetInnerHTML={{ __html: arr.short_description ? arr.short_description :arr.description.slice(0, 100)}}>
-                </p>
+                <p
+                  className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal"
+                  dangerouslySetInnerHTML={{
+                    __html: arr.short_description
+                      ? arr.short_description
+                      : `${arr.description.slice(0, 101)}...`,
+                  }}
+                ></p>
                 <Link
                   href={getPath(arr, parent)}
                   className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center"
