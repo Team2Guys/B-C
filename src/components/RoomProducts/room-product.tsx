@@ -95,7 +95,7 @@ const RoomProducts = ({
       if (title === 'Bedroom Blinds') {
         const updatedProducts = relatedProducts.map((product) => {
           if (generateSlug(product.title) === 'blackout-blinds') {
-            return { ...product, title: 'Private Blinds' };
+            return { ...product, title: 'Blackout/Private Blinds' };
           }
           return product;
         });
