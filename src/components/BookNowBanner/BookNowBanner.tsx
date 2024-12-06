@@ -1,12 +1,25 @@
+'use client'
 import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import bgBanner from '../../../public/assets/images/commercial-electric-blinds-hero-1_1.png';
+import { usePathname } from 'next/navigation';
+import { BooKNowbannerContent } from 'data/data';
 interface BookNowBannerProps {
-  className?: string; // className is optional
+  className?: string;
   parent?: string;
 }
 const BookNowBanner: React.FC<BookNowBannerProps> = ({ className, parent }) => {
+  const pathname = usePathname();
+  const [content, setContent] = useState<string | null>(null);
+  useEffect(() => {
+    if (pathname) {
+      const filteredContent = BooKNowbannerContent.find((content) => content.url === pathname);
+      if (filteredContent) {
+        setContent(filteredContent.content);
+      }
+    }
+  }, [pathname])
   return (
     <div
       className={`w-full md:mt-8 flex items-center relative ${className}`}
@@ -26,10 +39,19 @@ const BookNowBanner: React.FC<BookNowBannerProps> = ({ className, parent }) => {
           <br />
           Send us an email or call us on: 04 252 2025
         </p> */}
-        <p className="text-16 sm:text-2xl md:text-3xl lg:text-4xl font-medium mx-auto w-full lg:w-3/4 text-center">
-          Contact us today for a free consultation and discover the best
-          custom-made {parent ? parent : 'blinds'} for your space
+        <p
+          className="text-16 sm:text-2xl md:text-3xl lg:text-4xl font-medium mx-auto w-full lg:w-3/4 text-center"
+        >
+          {content ? (
+            <span dangerouslySetInnerHTML={{ __html: content }} />
+          ) : (
+            <>
+              Contact us today for a free consultation and discover the best custom-made{' '}
+              {parent || 'blinds'} for your space
+            </>
+          )}
         </p>
+
         <div className="mt-6 text-center">
           <Link
             href="/request-appointment"
