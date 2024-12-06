@@ -3,17 +3,20 @@ import Image from 'next/image';
 import { IProduct } from 'types/types';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Link from 'next/link';
+import { Categories_wise_Images } from 'data/Images';
 
 interface BathroomCategoryProps {
   filteredProducts: IProduct[];
   isLoading: boolean;
   categoryTitle?: string;
+  subCategory?:string
 }
 
 const BathroomCategory = ({
   filteredProducts,
   isLoading,
   categoryTitle,
+  subCategory
 }: BathroomCategoryProps) => {
   const getPath = (arr: IProduct, parent: string) => {
     categoryTitle === 'none' ? (categoryTitle = parent) : categoryTitle;
@@ -43,6 +46,21 @@ const BathroomCategory = ({
     return path;
   };
 
+let prod_finder_handler =(arr:IProduct)=>{
+  let product 
+  for (let category of Categories_wise_Images) {
+    if (category.Category_id === arr.CategoryId && category.sub_Category === subCategory) {
+
+        product = category.Product.find((value) => value.product_name === arr.title);
+        break; 
+    }
+}
+
+return product;
+
+}
+
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 px-2">
       {isLoading
@@ -60,7 +78,9 @@ const BathroomCategory = ({
           ))
         : filteredProducts &&
           filteredProducts.map((arr: IProduct, index: number) => {
-            const parent = arr.category?.title;
+        const parent = arr.category?.title;
+        let product_Images = prod_finder_handler(arr)
+
             return (
               <div
                 className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full "
@@ -69,10 +89,10 @@ const BathroomCategory = ({
                 <div className="space-y-2 w-full">
                   <Image
                     className="w-full h-full md:h-[374px] rounded-md object-cover"
-                    src={arr.posterImage.imageUrl}
+                    src={product_Images ? product_Images.Imagesurl : arr.posterImage.imageUrl}
                     height={800}
                     width={800}
-                    alt={arr.title}
+                    alt={product_Images ? product_Images.altText : arr.title}
                   />
                   <h2 className="font-bold text-base sm:text-xl md:text-2xl text-center">
                     {arr.title}
