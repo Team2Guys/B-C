@@ -2,13 +2,10 @@
 import { Form, Formik } from 'formik';
 import React, { useEffect, useState, SetStateAction, Fragment } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
-import dynamic from 'next/dynamic';
 import { Select, Spin } from 'antd';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { ICategory } from 'types/types';
 import { fetchCategories } from 'config/fetch';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Imageupload from 'components/ImageUpload/Imageupload';
 import axios from 'axios';
 import showToast from 'components/Toaster/Toaster';
@@ -22,6 +19,8 @@ import {
 import { RxCross2 } from 'react-icons/rx';
 import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Image from 'next/image';
+import 'react-quill/dist/quill.snow.css';
+import MyEditor from './custom-editor';
 
 class MyUploadAdapter {
   private loader: any;
@@ -251,7 +250,7 @@ const AddBlogs = ({
             )}
           </div>
 
-          <CKEditor
+          {/* <CKEditor
             editor={ClassicEditor}
             config={{
               extraPlugins: [MyCustomUploadAdapterPlugin],
@@ -291,7 +290,8 @@ const AddBlogs = ({
               const data = editor.getData();
               setFieldValue('content', data);
             }}
-          />
+          /> */}
+          <MyEditor setFieldValue={setFieldValue} values={values} />
 
           <Button
             disabled={addBlogMutation.isPending ? true : false}

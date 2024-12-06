@@ -35,27 +35,25 @@ const ViewSubcategries = ({
   editCategory,
 }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
-  const super_admin_token = Cookies.get('superAdminToken')
+  const super_admin_token = Cookies.get('superAdminToken');
 
-  let token = admin_token ? admin_token: super_admin_token
-  
+  let token = admin_token ? admin_token : super_admin_token;
+
   const [category, setCategory] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
 
-  const canDeleteCategory = true;
-  // const canDeleteCategory =
-  //   loggedInUser &&
-  //   (loggedInUser.role == 'Admin' ? loggedInUser.canDeleteCategory : true);
-  // const canAddCategory = loggedInUser && (loggedInUser.role == 'Admin' ? loggedInUser.canAddCategory : true)
-  const canAddCategory = true;
-
-  const canEditCategory = true;
-  // const canEditCategory =
-  //   loggedInUser &&
-  //   (loggedInUser.role == 'Admin' ? loggedInUser.canEditCategory : true);
+  const canDeleteCategory =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canDeleteSubCategory : true);
+  const canAddCategory =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canAddSubCategory : true);
+  const canEditCategory =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canEditSubCategory : true);
 
   const [searchTerm, setSearchTerm] = useState<string>('');
 
@@ -63,7 +61,6 @@ const ViewSubcategries = ({
     setSearchTerm(e.target.value);
   };
 
-  // Filter products based on search term
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
@@ -72,13 +69,12 @@ const ViewSubcategries = ({
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
         );
         const categories = await response.json();
-  
-     
+
         const sortedCategories = categories.sort(
-          (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+          (a: any, b: any) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
         );
-  
-        
+
         setCategory(sortedCategories);
         setLoading(false);
       } catch (err) {
@@ -86,16 +82,15 @@ const ViewSubcategries = ({
         setLoading(false);
       }
     };
-  
+
     CategoryHandler();
   }, []);
-  
+
   // Filter products based on search term
   const filteredProducts: Product[] =
     category?.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
     ) || [];
-  
 
   const confirmDelete = (key: any) => {
     Modal.confirm({
@@ -223,7 +218,7 @@ const ViewSubcategries = ({
       ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
-          <input
+            <input
               className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
               type="search"
               placeholder="Search Category"
@@ -235,8 +230,7 @@ const ViewSubcategries = ({
                 className={`${
                   canAddCategory && 'cursor-pointer'
                 } lg:p-2 md:p-2 ${
-                  canAddCategory &&
-                  ' bg-secondary text-white rounded-md   '
+                  canAddCategory && ' bg-secondary text-white rounded-md   '
                 } flex justify-center ${
                   !canAddCategory && 'cursor-not-allowed '
                 }`}
@@ -261,7 +255,9 @@ const ViewSubcategries = ({
               rowKey="id"
             />
           ) : (
-            <p className='text-black dark:text-white'>No Sub Categories found</p>
+            <p className="text-black dark:text-white">
+              No Sub Categories found
+            </p>
           )}
         </>
       )}

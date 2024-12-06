@@ -33,10 +33,10 @@ export interface ICategory {
   CategoryId: number;
   description: string | null;
   id: number;
+  category: any;
   posterImage: PosterImage;
-  products : []
-
-
+  products: [];
+  createdAt: Date;
 }
 
 interface Image {
@@ -57,10 +57,17 @@ export interface IProduct {
   updatedAt: string | null;
   length?: any;
   href?: string;
+  category?: any;
   product_type?: string;
   subCategory?: [];
   short_description?: string;
   heading?: string;
+  colors?: [
+    {
+      colorName: string;
+      colorCode?: string;
+    },
+  ];
   Sub_Heading?: string;
   Sub_Heading_description?: string;
 }
@@ -96,15 +103,15 @@ export interface IAppointments {
 }
 
 interface SubheadingContent {
-  content: string;
+  content?: string;
 }
 
 export interface ISelectedPage {
-  heading: string;
-  paragraph: string;
-  subheading1: string;
-  subheading2: string;
-  subheadingContent: SubheadingContent[];
+  heading?: string;
+  paragraph?: string;
+  subheading1?: string;
+  subheading2?: string;
+  subheadingContent?: SubheadingContent[];
 }
 
 export interface IInfo {
@@ -125,7 +132,7 @@ export interface MotorisedPageProps {
   additionalDescription?: string;
   additionalImage?: any;
   measureTitle1: string;
-  measureDescription1:string;
+  measureDescription1: string;
   additionalDescription2: string;
   additionalDescription3: string;
   chooseustitle: string;

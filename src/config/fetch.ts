@@ -122,7 +122,9 @@ export const getAllAdmins = async () => {
     }
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/get_all_admin`,
-      { headers: headers },
+      { headers: {
+        Authorization: `Bearer ${token}`,
+      }},
     );
     const admins = await response.json();
     return admins;

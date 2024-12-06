@@ -15,6 +15,7 @@ import showToast from 'components/Toaster/Toaster';
 import Image from 'next/image';
 import { FaRegEye } from 'react-icons/fa';
 import { generateSlug } from 'data/data';
+import { useAppSelector } from 'components/Others/HelperRedux';
 
 interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -22,9 +23,20 @@ interface BlogProps {
 }
 
 const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
-
   const queryClient = useQueryClient();
   const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
+  console.log('loggedInUser', loggedInUser);
+  const canAddBlog =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canAddBlog : true);
+  const canDeleteBlog =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canDeleteBlog : true);
+  const canEditBlog =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canEditBlog : true);
 
   const {
     data: blogs,
@@ -39,30 +51,29 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
     return <TableSkeleton rows={8} columns={5} />;
   }
 
-
-
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
-  // Filter products based on search term
-  const filteredBlog: BlogInfo[] = 
-  blogs
-    ?.sort((a: BlogInfo, b: BlogInfo) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())  
-    .filter((blog: BlogInfo) =>
-      blog.title.toLowerCase().includes(searchTerm.toLowerCase())
-    ) || [];
+  const filteredBlog: BlogInfo[] =
+    blogs
+      ?.sort(
+        (a: BlogInfo, b: BlogInfo) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+      )
+      .filter((blog: BlogInfo) =>
+        blog.title.toLowerCase().includes(searchTerm.toLowerCase()),
+      ) || [];
 
-const confirmDelete = (id: string) => {
-  Modal.confirm({
-    title: 'Are you sure you want to delete this blog?',
-    content: 'Once deleted, the blog cannot be recovered.',
-    onOk: () => handleDelete(id),
-    okText: 'Yes',
-    cancelText: 'No',
-  });
-};
-
+  const confirmDelete = (id: string) => {
+    Modal.confirm({
+      title: 'Are you sure you want to delete this blog?',
+      content: 'Once deleted, the blog cannot be recovered.',
+      onOk: () => handleDelete(id),
+      okText: 'Yes',
+      cancelText: 'No',
+    });
+  };
 
   const handleDelete = async (id: string) => {
     try {
@@ -74,7 +85,7 @@ const confirmDelete = (id: string) => {
       queryClient.invalidateQueries(['blogs']);
     } catch (error) {
       showToast('warn', 'There was an error deleting the blog😢');
-      console.error('Error while deleting blog:', error);
+      
     }
   };
   const sortedBlogs = blogs?.sort(
@@ -133,11 +144,13 @@ const confirmDelete = (id: string) => {
       //@ts-expect-error
       render: (_, record: UpdateBlog) => (
         <LiaEdit
-          className="cursor-pointer"
+          className={`${canEditBlog ? 'cursor-pointer' : 'cursor-not-allowed text-slate-200'}`}
           size={20}
           onClick={() => {
-            setEditBlog(record);
-            setMenuType('Add Blog');
+            if (canEditBlog) {
+              setEditBlog(record);
+              setMenuType('Add Blog');
+            }
           }}
         />
       ),
@@ -148,9 +161,13 @@ const confirmDelete = (id: string) => {
       //@ts-expect-error
       render: (_, record: UpdateBlog) => (
         <RiDeleteBin6Line
-          className="text-red cursor-pointer"
+          className={`${canDeleteBlog ? 'text-red cursor-pointer' : 'cursor-not-allowed text-slate-200'}`}
           size={20}
-          onClick={() => confirmDelete(record.id)}
+          onClick={() => {
+            if (canDeleteBlog) {
+              confirmDelete(record.id);
+            }
+          }}
         />
       ),
     },
@@ -159,21 +176,25 @@ const confirmDelete = (id: string) => {
   return (
     <div className="mt-10">
       <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
-            <input
-              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
-              type="search"
-              placeholder="Search Product"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-         <button
-          onClick={() => setMenuType('Add Blog')}
-          className=" rounded-md bg-secondary px-4 py-2 font-semibold text-white"
+        <input
+          className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
+          type="search"
+          placeholder="Search Product"
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <button
+          className={`${canAddBlog ? 'cursor-pointer rounded-md' : 'cursor-not-allowed  text-primary rounded-md'} p-2 ${canAddBlog ? '  bg-secondary text-white rounded-md ' : ''}`}
+          onClick={() => {
+            if (canAddBlog) {
+              setMenuType('Add Blog');
+            }
+          }}
         >
           Add Blog
         </button>
-          </div>
- 
+      </div>
+
       {error ? (
         <p>Error fetching blogs😢</p>
       ) : filteredBlog && filteredBlog.length > 0 ? (
@@ -184,7 +205,7 @@ const confirmDelete = (id: string) => {
           pagination={false}
         />
       ) : (
-        <p className='dark:text-white'>No Blogs found</p>
+        <p className="dark:text-white">No Blogs found</p>
       )}
     </div>
   );
