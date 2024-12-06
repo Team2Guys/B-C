@@ -115,6 +115,7 @@ export interface ISelectedPage {
   paragraph?: string;
   subheading1?: string;
   subheading2?: string;
+  posterImage?: string;
   subheadingContent?: SubheadingContent[];
 }
 
