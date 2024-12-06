@@ -47,12 +47,12 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const [imagesUrl, setImagesUrl] = useState<any[]>([]);
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(
     EditInitialValues &&
-      EditInitialValues.posterImage && [EditInitialValues.posterImage],
+    EditInitialValues.posterImage && [EditInitialValues.posterImage],
   );
   const [productUpdateFlat, setProductUpdateFlat] = useState(false);
   const [hoverImage, sethoverImage] = useState<any[] | null | undefined>(
     EditInitialValues &&
-      EditInitialValues.hoverImage && [EditInitialValues.hoverImage],
+    EditInitialValues.hoverImage && [EditInitialValues.hoverImage],
   );
   const [loading, setloading] = useState<boolean>(false);
   const [productInitialValue, setProductInitialValue] = useState<
@@ -380,11 +380,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           onBlur={formik.handleBlur}
                           value={formik.values.name}
                           placeholder="Product name"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey  bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.name && formik.errors.name
+                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey  bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
                               ? 'border-red-500'
                               : ''
-                          }`}
+                            }`}
                         />
                         {formik.touched.name && formik.errors.name ? (
                           <div className="text-red text-sm">
@@ -402,15 +401,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           onChange={formik.handleChange}
                           value={formik.values.description}
                           placeholder="description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.description &&
-                            formik.errors.description
+                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
+                              formik.errors.description
                               ? 'border-red-500'
                               : ''
-                          }`}
+                            }`}
                         />
                         {formik.touched.description &&
-                        formik.errors.description ? (
+                          formik.errors.description ? (
                           <div className="text-red text-sm">
                             {
                               formik.errors.description as FormikErrors<
@@ -431,15 +429,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           onChange={formik.handleChange}
                           value={formik.values.short_description}
                           placeholder="Short Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.short_description &&
-                            formik.errors.short_description
+                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.short_description &&
+                              formik.errors.short_description
                               ? 'border-red-500'
                               : ''
-                          }`}
+                            }`}
                         />
                         {formik.touched.short_description &&
-                        formik.errors.short_description ? (
+                          formik.errors.short_description ? (
                           <div className="text-red text-sm">
                             {
                               formik.errors.short_description as FormikErrors<
@@ -450,7 +447,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         ) : null}
                       </div>
 
-  <div>
+                      <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                           Heading{' '}
                         </label>
@@ -459,15 +456,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           onChange={formik.handleChange}
                           value={formik.values.heading}
                           placeholder="Heading Text"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.heading &&
-                            formik.errors.heading
+                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.heading &&
+                              formik.errors.heading
                               ? 'border-red-500'
                               : ''
-                          }`}
+                            }`}
                         />
                         {formik.touched.heading &&
-                        formik.errors.heading ? (
+                          formik.errors.heading ? (
                           <div className="text-red text-sm">
                             {
                               formik.errors.heading as FormikErrors<
@@ -493,15 +489,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.salePrice}
                             placeholder="Sale Price"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                              formik.touched.salePrice &&
-                              formik.errors.salePrice
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.salePrice &&
+                                formik.errors.salePrice
                                 ? 'border-red-500'
                                 : ''
-                            }`}
+                              }`}
                           />
                           {formik.touched.salePrice &&
-                          formik.errors.salePrice ? (
+                            formik.errors.salePrice ? (
                             <div className="text-red text-sm">
                               {
                                 formik.errors.salePrice as FormikErrors<
@@ -523,15 +518,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.discountPrice}
                             placeholder="Discount Price"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                              formik.touched.discountPrice &&
-                              formik.errors.discountPrice
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.discountPrice &&
+                                formik.errors.discountPrice
                                 ? 'border-red-500'
                                 : ''
-                            }`}
+                              }`}
                           />
                           {formik.touched.discountPrice &&
-                          formik.errors.discountPrice ? (
+                            formik.errors.discountPrice ? (
                             <div className="text-red text-sm">
                               {formik.errors.discountPrice as String}
                             </div>
@@ -539,7 +533,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </div>
                       </div>
 
-              
+
 
                       <div className="w-full">
                         <label className="mb-3 block py-4 px-2 text-sm font-medium text-black dark:text-white">
@@ -635,14 +629,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.Meta_Title}
                             placeholder="Meta Title"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                              formik.touched.name && formik.errors.name
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
                                 ? 'border-red-500'
                                 : ''
-                            }`}
+                              }`}
                           />
                           {formik.touched.Meta_Title &&
-                          formik.errors.Meta_Title ? (
+                            formik.errors.Meta_Title ? (
                             <div className="text-red text-sm">
                               {formik.errors.code as String}
                             </div>
@@ -659,15 +652,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onChange={formik.handleChange}
                             value={formik.values.Canonical_Tag}
                             placeholder="Canonical Tag"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                              formik.touched.name && formik.errors.name
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
                                 ? 'border-red-500'
                                 : ''
-                            }`}
+                              }`}
                           />
 
                           {formik.touched.Canonical_Tag &&
-                          formik.errors.Canonical_Tag ? (
+                            formik.errors.Canonical_Tag ? (
                             <div className="text-red text-sm">
                               {formik.errors.code as String}
                             </div>
@@ -683,15 +675,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           onChange={formik.handleChange}
                           value={formik.values.Meta_Description}
                           placeholder="Meta Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.description &&
-                            formik.errors.description
+                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
+                              formik.errors.description
                               ? 'border-red-500'
                               : ''
-                          }`}
+                            }`}
                         />
                         {formik.touched.Meta_Description &&
-                        formik.errors.Meta_Description ? (
+                          formik.errors.Meta_Description ? (
                           <div className="text-red text-sm">
                             {formik.errors.code as String}
                           </div>
@@ -710,14 +701,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.Images_Alt_Text}
                             placeholder="Images Alt Text"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                              formik.touched.name && formik.errors.name
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
                                 ? 'border-red-500'
                                 : ''
-                            }`}
+                              }`}
                           />
                           {formik.touched.Images_Alt_Text &&
-                          formik.errors.Images_Alt_Text ? (
+                            formik.errors.Images_Alt_Text ? (
                             <div className="text-red text-sm">
                               {formik.errors.code as String}
                             </div>
@@ -732,7 +722,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                   <div className="p-4 rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
 
-                    
+
                     <div className="mb-4 text-black dark:text-white">
                       <label className="block text-sm font-medium text-black dark:text-white mb-2">
                         Add Stock Quantity
@@ -746,7 +736,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         {withoutVariation.map((inputField, index) => (
                           <div key={index} className="mb-4">
                             <Field
-                            placeholder="Add Stock Quantity"
+                              placeholder="Add Stock Quantity"
                               type={inputField.type}
                               name={inputField.name}
                               className="w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary "
@@ -763,68 +753,66 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                   </div>
                   <div className="p-4 rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
 
-                    
 
-<div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+
+                    <div>
+                      <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                         Sub Heading
-                        </label>
-                        <textarea
-                          name="Sub_Heading"
-                          onChange={formik.handleChange}
-                          value={formik.values.Sub_Heading}
-                          placeholder="Sub Heading"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.Sub_Heading &&
+                      </label>
+                      <textarea
+                        name="Sub_Heading"
+                        onChange={formik.handleChange}
+                        value={formik.values.Sub_Heading}
+                        placeholder="Sub Heading"
+                        className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Sub_Heading &&
                             formik.errors.Sub_Heading
-                              ? 'border-red-500'
-                              : ''
+                            ? 'border-red-500'
+                            : ''
                           }`}
-                        />
-                        {formik.touched.Sub_Heading &&
+                      />
+                      {formik.touched.Sub_Heading &&
                         formik.errors.Sub_Heading ? (
-                          <div className="text-red text-sm">
-                            {
-                              formik.errors.heading as FormikErrors<
-                                FormValues['Sub_Heading']
-                              >
-                            }
-                          </div>
-                        ) : null}
-                      </div>
+                        <div className="text-red text-sm">
+                          {
+                            formik.errors.heading as FormikErrors<
+                              FormValues['Sub_Heading']
+                            >
+                          }
+                        </div>
+                      ) : null}
+                    </div>
 
 
 
-                      <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                    <div>
+                      <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                         Sub Heading Description
-                        </label>
-                        <textarea
-                          name="Sub_Heading_description"
-                          onChange={formik.handleChange}
-                          value={formik.values.Sub_Heading_description}
-                          placeholder="Sub Heading Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
-                            formik.touched.Sub_Heading_description &&
+                      </label>
+                      <textarea
+                        name="Sub_Heading_description"
+                        onChange={formik.handleChange}
+                        value={formik.values.Sub_Heading_description}
+                        placeholder="Sub Heading Description"
+                        className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Sub_Heading_description &&
                             formik.errors.Sub_Heading_description
-                              ? 'border-red-500'
-                              : ''
+                            ? 'border-red-500'
+                            : ''
                           }`}
-                        />
-                        {formik.touched.Sub_Heading_description &&
+                      />
+                      {formik.touched.Sub_Heading_description &&
                         formik.errors.Sub_Heading_description ? (
-                          <div className="text-red text-sm">
-                            {
-                              formik.errors.heading as FormikErrors<
-                                FormValues['Sub_Heading_description']
-                              >
-                            }
-                          </div>
-                        ) : null}
-                      </div>
+                        <div className="text-red text-sm">
+                          {
+                            formik.errors.heading as FormikErrors<
+                              FormValues['Sub_Heading_description']
+                            >
+                          }
+                        </div>
+                      ) : null}
+                    </div>
 
 
-</div>
+                  </div>
 
 
 
@@ -855,23 +843,22 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                       }
                                       placeholder="Model Name"
                                       className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
-                                      ${
-                                        formik.touched.modelDetails &&
-                                        (
-                                          formik.touched
-                                            .modelDetails as FormikTouched<
-                                            FormValues['modelDetails']
-                                          >
-                                        )?.[index]?.name &&
-                                        (
-                                          formik.errors
-                                            .modelDetails as FormikErrors<
-                                            FormValues['modelDetails']
-                                          >
-                                        )?.[index]?.name
+                                      ${formik.touched.modelDetails &&
+                                          (
+                                            formik.touched
+                                              .modelDetails as FormikTouched<
+                                                FormValues['modelDetails']
+                                              >
+                                          )?.[index]?.name &&
+                                          (
+                                            formik.errors
+                                              .modelDetails as FormikErrors<
+                                                FormValues['modelDetails']
+                                              >
+                                          )?.[index]?.name
                                           ? 'border-red-500'
                                           : ''
-                                      }`}
+                                        }`}
                                     />
                                     <input
                                       type="text"
@@ -883,8 +870,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                       }
                                       placeholder="Model Detail"
                                       className={`w-full rounded-lg ml-2 border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
-                                        ${
-                                          formik.touched.modelDetails &&
+                                        ${formik.touched.modelDetails &&
                                           (
                                             formik.touched.modelDetails as FormikTouched<
                                               FormValues['modelDetails']
@@ -895,8 +881,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                               FormValues['modelDetails']
                                             >
                                           )?.[index]?.detail
-                                            ? 'border-red-500'
-                                            : ''
+                                          ? 'border-red-500'
+                                          : ''
                                         }`}
                                     />
                                     <button
@@ -955,22 +941,21 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                       }
                                       placeholder="Add color Code"
                                       className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
-                                     ${
-                                       formik.touched.colors &&
-                                       (formik.touched.colors &&
-                                         (formik.touched
-                                           .colors as FormikTouched<
-                                           FormValues['colors']
-                                         >))[index]?.colorName &&
-                                       formik.errors.color &&
-                                       (
-                                         formik.errors.colors as FormikErrors<
-                                           FormValues['colors']
-                                         >
-                                       )[index]?.colorName
-                                         ? 'border-red-500'
-                                         : ''
-                                     }
+                                     ${formik.touched.colors &&
+                                          (formik.touched.colors &&
+                                            (formik.touched
+                                              .colors as FormikTouched<
+                                                FormValues['colors']
+                                              >))[index]?.colorName &&
+                                          formik.errors.color &&
+                                          (
+                                            formik.errors.colors as FormikErrors<
+                                              FormValues['colors']
+                                            >
+                                          )[index]?.colorName
+                                          ? 'border-red-500'
+                                          : ''
+                                        }
                                       
                                       `}
                                     />
@@ -1028,21 +1013,20 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                       }
                                       placeholder="Specification Details"
                                       className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
-               ${
-                 formik.touched.spacification &&
-                 (
-                   formik.touched.spacification as FormikTouched<
-                     FormValues['spacification']
-                   >
-                 )?.[index]?.specsDetails &&
-                 (
-                   formik.errors.spacification as FormikErrors<
-                     FormValues['spacification']
-                   >
-                 )?.[index]?.specsDetails
-                   ? 'border-red-500'
-                   : ''
-               }`}
+               ${formik.touched.spacification &&
+                                          (
+                                            formik.touched.spacification as FormikTouched<
+                                              FormValues['spacification']
+                                            >
+                                          )?.[index]?.specsDetails &&
+                                          (
+                                            formik.errors.spacification as FormikErrors<
+                                              FormValues['spacification']
+                                            >
+                                          )?.[index]?.specsDetails
+                                          ? 'border-red-500'
+                                          : ''
+                                        }`}
                                     />
                                     <button
                                       type="button"
