@@ -1748,6 +1748,7 @@ export const categoriesContent = [
         'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
+      posterImage:"/assets/images/Blinds/landing/landing.webp",
       subheadingContent: [
         {
           content:
@@ -1772,6 +1773,7 @@ export const categoriesContent = [
         'Our made-to-measure curtains are the perfect solution to give your home a fresh new look. With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor. Whether you’re looking for blackout curtains to keep the light out or sheer curtains to let the light in, we have the perfect solution for you. Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time. With our expert advice and guidance, you can create a stunning look that will transform your home.',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
+      posterImage:"/assets/images/Curtain/landing/landing.webp",
       subheadingContent: [
         {
           content:
@@ -1800,6 +1802,8 @@ export const categoriesContent = [
         'Our made-to-measure curtains are the perfect solution to give your home a fresh new look. With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor. Whether you’re looking for blackout curtains to keep the light out or sheer curtains to let the light in, we have the perfect solution for you. Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time. With our expert advice and guidance, you can create a stunning look that will transform your home.',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
+      posterImage:"/assets/images/Shutters/landing/landing.webp",
+
       subheadingContent: [
         {
           content:
