@@ -30,8 +30,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const [activeFilter, setActiveFilter] = useState<any>({
     title: 'All',
     short_description:
-      'Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose Motorised Blinds options for added convenience or finish your blinds with a sleek cassette box.',
-  });
+      'Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose <a href="/blinds/motorised-blinds" style="text-decoration: underline">Motorised Blinds</a> options for added convenience or finish your blinds with a sleek cassette box.',
+  })
   const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState<ICategory | undefined>();
   category;
@@ -101,13 +101,13 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     const filterDiscription = ProductDiscription.find(
       (disc) => disc.id === product.id,
     );
+    console.log(filterDiscription,"filterDiscription")
     if (filterDiscription) {
       return filterDiscription?.CategoryPageDiscription;
     } else {
       return product.description;
     }
   };
-
   return (
     <div>
       <TopHero title={title} pagename={pathname} image={bgBreadcrum} />
@@ -137,9 +137,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                     {product.title}
                   </span>
                 </h3>
-                <p className="text-16 xs:text-18 leading-8 mt-4 text-lightdark">
-                  {handleFilterDiscription(product)}
-                  {/* {product.description} */}
+                <p className="text-16 xs:text-18 leading-8 mt-4 text-lightdark" dangerouslySetInnerHTML={{__html : product.description && product.description}}>
+                  {/* {handleFilterDiscription(product)} */}
                 </p>
               </div>
 
@@ -190,9 +189,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         <h2 className="text-2xl xs:text-3xl sm:text-4xl">
           {activeFilter.title.toUpperCase()}
         </h2>
-        <p className="mt-3 text-15 leading-7 w-full md:w-3/4 mx-auto">
-          {activeFilter?.short_description}
-        </p>
+        <p className="mt-3 text-15 leading-7 w-full md:w-3/4 mx-auto" dangerouslySetInnerHTML={{__html: activeFilter?.short_description}}></p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {inner_filteredProducts &&
             inner_filteredProducts.map((product: IProduct) => (
