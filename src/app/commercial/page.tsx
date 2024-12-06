@@ -130,7 +130,7 @@ const CommercialPage = () => {
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:px-0">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6 md:px-0">
           {filteredProducts &&
             filteredProducts.map((product: IProduct) => {
               const category = categories?.find(

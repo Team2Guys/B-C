@@ -17,7 +17,7 @@ import Support from 'components/Res-usable/support/support';
 import { usePathname } from 'next/navigation';
 import { generateSlug } from 'data/data';
 
-const itemsPerPage = 9;
+const itemsPerPage = 12;
 const GalleryPage = () => {
   const pathName = usePathname();
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
@@ -118,7 +118,7 @@ const GalleryPage = () => {
           HOME OR OFFICE...
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 xs:mt-20 mt-5 md:px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
           {currentItems &&
             currentItems.map((product: IProduct) => {
               if (!product.category) {
