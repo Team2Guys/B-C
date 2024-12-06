@@ -17,6 +17,7 @@ import {
   Email,
   FeatureProductData,
   GalleryItems,
+  IColorData,
   ITopHeroLink,
   OurHistory,
   PhoneNumber,
@@ -37,6 +38,7 @@ import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
+import { title } from 'process';
 
 export const generateSlug = (text: string) => {
   if (!text) return '';
@@ -79,9 +81,9 @@ export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
   heading: 'We offer window treatments for homes or offices in Dubai',
   paragraph: [
-    'Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function.',
+    'Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and <a href="/shutters-range" style="text-decoration: underline">shutters</a>. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function.',
     'All our professional teams are based in Dubai and speak good English and will easily understand your blinds and curtains requirements and advise as best as they can. We have the largest selection of blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).',
-    'A trusted window treatment company, Blinds & Curtains Dubai brings style and functionality to every room. Whether you’re looking for custom blinds, or blackout curtains we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
+    'A trusted window treatment company, Blinds & Curtains Dubai brings style and functionality to every room. Whether you’re looking for <a href="/made-to-measure-blinds" style="text-decoration: underline">custom blinds</a>, or <a href="/curtains/blackout-curtains-dubai" style="text-decoration: underline">blackout curtains</a> we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.',
   ],
   buttonText: 'Read More',
 };
@@ -159,33 +161,25 @@ export const EmailInfo: Email = {
 };
 
 export const OurClientImage = [
-  { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/logo2.png', alt: 'Logomain' },
-  {
-    src: '/assets/images/ourclient/logo3.png',
-    alt: 'Plantation-Shutters-Dubai 1',
-  },
-  { src: '/assets/images/ourclient/logo4.png', alt: 'Two-Guys-Logo' },
-  {
-    src: '/assets/images/ourclient/logo5.png',
-    alt: 'Yellow-Zone-Group-Dubai 1',
-  },
-  { src: '/assets/images/ourclient/lgo1.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/logo2.png', alt: 'Logomain' },
-  {
-    src: '/assets/images/ourclient/logo3.png',
-    alt: 'Plantation-Shutters-Dubai 1',
-  },
-  { src: '/assets/images/ourclient/logo4.png', alt: 'Two-Guys-Logo' },
-  {
-    src: '/assets/images/ourclient/logo5.png',
-    alt: 'Yellow-Zone-Group-Dubai 1',
-  },
-  // { src: '/assets/images/ourclient/yellow-zone-group-dubai-2.png', alt: 'Yellow-Zone-Group-Dubai 2' }
+  { src: '/assets/images/ourclient/client1.png', alt: 'Floors-Walls-Dubai 1' },
+  { src: '/assets/images/ourclient/client2.png', alt: 'Logomain' },
+  {src: '/assets/images/ourclient/client3.png', alt: 'Two-Guys-Logo'},
+  { src: '/assets/images/ourclient/client4.png', alt: 'Two-Guys-Logo' },
+  { src: '/assets/images/ourclient/client5.png', alt: 'Two-Guys-Logo'},
+  { src: '/assets/images/ourclient/client6.png', alt: 'Floors-Walls-Dubai 1' },
+  { src: '/assets/images/ourclient/client7.png', alt: 'Logomain' },
+  { src: '/assets/images/ourclient/client8.png', alt: 'Plantation-Shutters-Dubai 1',},
 ];
-export const CommentData: CommentDataType[] = [
+export const BlogTitles = [
+  { id: 1, title: 'Understanding React Basics' },
+  { id: 2, title: 'Advanced JavaScript Tips' },
+  { id: 3, title: 'Building Modern Web Apps' },
+];
+
+export const CommentData = [
   {
     id: 1,
+    blogId: 1, // Linking this comment to "Understanding React Basics"
     userName: 'Laura Hipster',
     comment:
       'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
@@ -193,51 +187,31 @@ export const CommentData: CommentDataType[] = [
   },
   {
     id: 2,
-    userName: 'Laura Hipster',
+    blogId: 2, // Linking this comment to "Advanced JavaScript Tips"
+    userName: 'John Doe',
     comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
-  },
-  {
-    id: 3,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
-  },
-  {
-    id: 4,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
-  },
-  {
-    id: 5,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id neque metus. Sed lacinia luctus sem eget congue.',
+    createdAt: 'October 05, 2022',
   },
 ];
-export const NestedCommentData: CommentDataType[] = [
+
+export const NestedCommentData = [
   {
     id: 1,
     replyId: 1,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
+    userName: 'Emma Watson',
+    comment: 'I totally agree with this statement!',
+    createdAt: 'October 04, 2022',
   },
   {
     id: 2,
-    replyId: 5,
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
+    replyId: 1,
+    userName: 'Chris Pratt',
+    comment: 'Could you elaborate on this part?',
+    createdAt: 'October 06, 2022',
   },
 ];
+
 export const featureProducts: FeatureProductData[] = [
   {
     id: 1,
@@ -1185,11 +1159,12 @@ export const intitalValues = {
 export const blindMegaMenuItems = [
   { productName: 'vertical-blinds' },
   { productName: 'zipline-outdoor-blinds' },
-  { productName: 'colby-honeycomb-blinds' },
+  { productName: 'honeycomb-blinds' },
   { productName: 'panel-blinds' },
-  { productName: 'aluminium-venetian-blinds-dubai' },
-  { productName: 'wooden-blinds' },
+  { productName: 'aluminium-blinds' },
+  // { productName: 'wood-venetian' },
   { productName: 'daynight-blinds' },
+  { productName: 'wooden-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
 
@@ -1203,18 +1178,18 @@ export const blindMegaMenuItems = [
   { productName: 'living-room' },
   { productName: 'officestudy' },
 
-  { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
-  { productName: 'outdoor-blinds' },
-  { productName: 'dimoutsemi-trasnparent' },
-  { productName: 'motorised' },
+  { productName: 'motorised-blinds' },
+  { productName: 'dimout-blindssemi-transparent' },
+  { productName: 'sunscreentransparent' },
 ];
 
 export const curtainMegaMenuItems = [
   { productName: 'pencil-pleat-curtains' },
-  { productName: 'ripplefold-curtains' },
+  { productName: 'ripplefoldwave-curtains' },
   { productName: 'tab-top-curtains' },
+  { productName: 'motorised-curtains' },
   { productName: 'eyelet-curtains' },
   { productName: 'double-pinch-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
@@ -1224,7 +1199,7 @@ export const curtainMegaMenuItems = [
   { productName: 'bedroom' },
   { productName: 'dining' },
   { productName: 'loungeliving' },
-  { productName: 'kids-bedroom' },
+  // { productName: 'kids-bedroom' },
 
   { productName: 'stripes-curtains' },
   { productName: 'geometric-curtains' },
@@ -1233,26 +1208,24 @@ export const curtainMegaMenuItems = [
   { productName: 'natural-fabric-curtains' },
   { productName: 'patterned-curtains' },
   { productName: 'plain-curtains' },
-  { productName: 'made-to-measure-sheer-curtains' },
-  { productName: 'blackout-curtains-dubai' },
+  { productName: 'sheer-curtains' },
+  { productName: 'blackout-curtains' },
 ];
 
 export const shutterMegaMenuItems = [
-  { productName: 'special-shape-shutters-wooden-shutters' },
+  { productName: 'special-shape-shutters' },
   { productName: 'outdoor-shutters' },
-  { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+  { productName: 'solid-panel-shutters' },
   { productName: 'cafe-style-shutters' },
-  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'tier-on-tier-shutters' },
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
-  { productName: 'tracked-shutters' },
   { productName: 'full-height-shutters' },
-
   { productName: 'staircase-shutters' },
-  { productName: 'bathroom-shutters' },
-  { productName: 'kitchen-shutters' },
+  // { productName: 'bathroom-shutters' },
+  // { productName: 'kitchen-shutters' },
   { productName: 'dining-room-shutters' },
-  { productName: 'living-room-shutters' },
+  { productName: 'tracked-window-shutters' },
 ];
 
 export const commercialMegaMenuItems = [
@@ -1263,7 +1236,7 @@ export const commercialMegaMenuItems = [
   { productName: 'schools' },
   { productName: 'offices' },
   { productName: 'gym' },
-  { productName: 'theater' },
+  { productName: 'theatre' },
 
   { productName: 'indoor' },
   { productName: 'outdoor' },
@@ -1272,7 +1245,7 @@ export const commercialMegaMenuItems = [
   { productName: 'pergola' },
 
   { productName: 'fire-retardant' },
-  { productName: 'water-repellent ' },
+  { productName: 'water-repellent' },
   { productName: 'washable' },
   { productName: 'anti-microbial' },
 ];
@@ -1312,8 +1285,8 @@ export const commercialPagesItems = [
   { productName: 'printed-blinds' },
   { productName: 'vertical-blinds' },
   { productName: 'panel-blinds' },
-  { productName: 'special-shape-shutters-wooden-shutters' },
-  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'special-shape-shutters' },
+  { productName: 'tier-on-tier-shutters' },
   { productName: 'motorised-blinds' },
 ];
 
@@ -1492,27 +1465,29 @@ export const blogPara = [
 export const megaMenubyStyle = [
   { productName: 'vertical-blinds' },
   { productName: 'zipline-outdoor-blinds' },
-  { productName: 'colby-honeycomb-blinds' },
+  { productName: 'honeycomb-blinds' },
   { productName: 'panel-blinds' },
-  { productName: 'aluminium-venetian-blinds-dubai' },
-  { productName: 'wooden-blinds' },
+  { productName: 'aluminium-blinds' },
+  // { productName: 'wood-venetian' },
   { productName: 'daynight-blinds' },
+  { productName: 'wooden-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
 
-  { productName: 'special-shape-shutters-wooden-shutters' },
+  { productName: 'special-shape-shutters' },
   { productName: 'outdoor-shutters' },
-  { productName: 'solid-panel-shutters-plantation-shutters-dubai' },
+  { productName: 'solid-panel-shutters' },
   { productName: 'cafe-style-shutters' },
-  { productName: 'tier-on-tier-shutters-wooden-shutters' },
+  { productName: 'tier-on-tier-shutters' },
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
-  { productName: 'tracked-shutters' },
   { productName: 'full-height-shutters' },
+  { productName: 'tracked-window-shutters' },
 
   { productName: 'pencil-pleat-curtains' },
-  { productName: 'ripplefold-curtains' },
+  { productName: 'ripplefoldwave-curtains' },
   { productName: 'tab-top-curtains' },
+  { productName: 'motorised-curtains' },
   { productName: 'eyelet-curtains' },
   { productName: 'double-pinch-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
@@ -1524,7 +1499,7 @@ export const megaMenubyStyle = [
   { productName: 'schools' },
   { productName: 'offices' },
   { productName: 'gym' },
-  { productName: 'theater' },
+  { productName: 'theatre' },
 ];
 
 export const megaMenubyRoom = [
@@ -1538,15 +1513,17 @@ export const megaMenubyRoom = [
   { productName: 'living-room-blinds' },
   { productName: 'officestudy' },
 
-  // { productName: 'staircase-shutters' },
-  // { productName: 'bathroom-shutters' },
-  // { productName: 'kitchen-shutters' },
-  // { productName: 'dining-room-shutters' },
-  // { productName: 'living-room-shutters' },
+  { productName: 'living-room-shutters' },
+  { productName: 'dining-room-shutters' },
+  { productName: 'kitchen-shutters' },
+  { productName: 'bathroom-shutters' },
+  { productName: 'bedroom-shutters' },
+  { productName: 'staircase-shutters' },
 
   { productName: 'conservatory-blinds' },
   { productName: 'staircase-blinds' },
   { productName: 'bedroom-blinds' },
+    { productName: 'offices-blinds' },
   // { productName: 'school-blinds' },
   { productName: 'study-room-Blinds' },
   { productName: 'dining-room-blinds' },
@@ -1567,7 +1544,6 @@ export const megaMenubyRoom = [
 ];
 
 export const megaMenuDynamic = [
-  { productName: 'sunscreen-roller-blinds' },
   { productName: 'sunscreentransparent' },
   { productName: 'blackout-blinds' },
   { productName: 'stripes-curtains' },
@@ -1577,21 +1553,21 @@ export const megaMenuDynamic = [
   { productName: 'natural-fabric-curtains' },
   { productName: 'patterned-curtains' },
   { productName: 'plain-curtains' },
-  { productName: 'made-to-measure-sheer-curtains' },
-  { productName: 'blackout-curtains-dubai' },
-  { productName: 'sunscreentransparent' },
+  { productName: 'sheer-curtains' },
+  { productName: 'blackout-curtains' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
   { productName: 'outdoor-blinds' },
-  { productName: 'dimoutsemi-trasnparent' },
-  { productName: 'motorised' },
+  { productName: 'motorised-blinds' },
+  { productName: 'dimout-blindssemi-transparent' },
 
-  { productName: 'white' },
-  { productName: 'off-white' },
-  { productName: 'black' },
-  { productName: 'dark-woods' },
-  { productName: 'bold-colours' },
-  { productName: 'grey' },
+  { productName: 'white-shutters' },
+  { productName: 'light-wood-shutters' },
+  { productName: 'off-white-shutters' },
+  { productName: 'black-shutters' },
+  { productName: 'dark-woods-shutters' },
+  { productName: 'bold-colours-shutters' },
+  { productName: 'grey-shutters' },
 
   { productName: 'stripes-curtains' },
   { productName: 'geometric-curtains' },
@@ -1600,11 +1576,11 @@ export const megaMenuDynamic = [
   { productName: 'natural-fabric-curtains' },
   { productName: 'patterned-curtains' },
   { productName: 'plain-curtains' },
-  { productName: 'made-to-measure-sheer-curtains' },
-  { productName: 'blackout-curtains-dubai' },
+  { productName: 'sheer-curtains' },
+  { productName: 'blackout-curtains' },
 
   { productName: 'fire-retardant' },
-  { productName: 'water-repellent ' },
+  { productName: 'water-repellent' },
   { productName: 'washable' },
   { productName: 'anti-microbial' },
 ];
@@ -1622,11 +1598,11 @@ export const extendedByStyle = [
 
   { productName: 'eyelet-curtains' },
   { productName: 'pinch-pleat-curtains' },
-  // { productName: 'made-to-measure-sheer-curtains' },
+  // { productName: 'sheer-curtains' },
   { productName: 'goblet-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
-  { productName: 'ripplefold-wave-curtains' },
-  { productName: 'double-pinch-pleat-curtains' },
+  { productName: 'ripplefoldwave-curtains' },
+  // { productName: 'double-pinch-pleat-curtains-curtains' },
   { productName: 'pelmet-curtains' },
   { productName: 'modern-curtains' },
   { productName: 'tab-top-curtains' },
@@ -1636,14 +1612,13 @@ export const extendedByStyle = [
   { productName: 'full-height-shutters' },
   { productName: 'bay-window-shutters' },
   { productName: 'special-shape-shutters' },
-  { productName: 'tier-on-tier-shutters' },
+  // { productName: 'tier-on-tier-shutters' },
   { productName: 'solid-panel-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'outdoor-shutters' },
-  { productName: 'staircase' },
+  { productName: 'staircase-shutters' },
   { productName: 'cafe-style-shutters' },
 ];
-
 
 export const extendedByRoom = [
   { productName: 'kids-room-blinds' },
@@ -1653,6 +1628,7 @@ export const extendedByRoom = [
   { productName: 'staircase-blinds' },
   { productName: 'door-blinds' },
   { productName: 'bedroom-blinds' },
+    { productName: 'offices-blinds' },
   { productName: 'bathroom-blinds' },
 
   { productName: 'bedroom-curtains' },
@@ -1691,8 +1667,9 @@ export const extendedDynamic = [
   { productName: 'textured-curtains' },
   { productName: 'kids-print-curtains' },
 
-  { productName: 'white-shutters' },
   { productName: 'offwhite-shutters' },
+  { productName: 'white-shutters' },
+  { productName: 'light-wood-shutters' },
   { productName: 'black-shutters' },
   { productName: 'dark-wood-shutters' },
   { productName: 'bold-colours-shutters' },
@@ -1774,11 +1751,11 @@ export const categoriesContent = [
       subheadingContent: [
         {
           content:
-            'Blinds and Curtains Dubai offers more options in style, design, patterns, and colours than ready-made blinds. From large floor-to-ceiling windows to small bedroom windows, and from office spaces to holiday homes with bay windows, we have solutions for every space. Regardless of the size and scale, we measure, make and install outstanding blinds for every single project. ',
+            '<a href="/" style="text-decoration: underline">Blinds and Curtains Dubai</a> offers more options in style, design, patterns, and colours than ready-made blinds. From large floor-to-ceiling windows to small bedroom windows, and from office spaces to holiday homes with bay windows, we have solutions for every space. Regardless of the size and scale, we measure, make and install outstanding blinds for every single project. ',
         },
         {
           content:
-            'As our staff are not paid sales commissions, they will give you honest, impartial advice to ensure the best for your home and pocket. A window treatment is an investment that improves your quality of life. Our Sunscreen Blinds let in soft, natural light while our Blackout Blinds block light and cut down on noise.',
+            'As our staff are not paid sales commissions, they will give you honest, impartial advice to ensure the best for your home and pocket. A window treatment is an investment that improves your quality of life. Our <a href="/blinds/roller-blinds/sunscreen-roller-blinds" style="text-decoration: underline">Sunscreen Blinds</a> let in soft, natural light while our <a href="/blinds/blackout-blinds" style="text-decoration: underline">Blackout Blinds</a> block light and cut down on noise.',
         },
         {
           content:
@@ -1859,7 +1836,7 @@ export const motorisedPageData = {
   infoTitle: 'MOTORISED BLINDS',
   infoSubtitle: 'Convert your windows into Smart Windows',
   infoDescription:
-    'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These motorised blinds give you the option to control your window covering with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer remote control blinds that are smooth, reliable, and long-lasting. Whether you want a simple electric blind or fully connected, we’ve got the right motorisation system for you.',
+    'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These motorised blinds give you the option to control your <a href="/made-to-measure-curtains" style="text-decoration: underline">window covering</a> with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer <a href="/blinds/motorised-blinds" style="text-decoration: underline">remote control blinds</a> that are smooth, reliable, and long-lasting. Whether you want a simple electric blind or fully connected, we’ve got the right motorisation system for you.',
   infoImage: moto1,
   measureTitle: '“Hey Alexa, lower my Blinds”',
   measureDescription:
@@ -1913,60 +1890,362 @@ export const motorisedPageData1 = {
   title: 'Motorised Curtains',
   heroImage: bgBreadcrum,
   infoTitle: 'MOTORISED CURTAINS',
-  infoSubtitle: 'The smartest curtains for your dream home.',
+  infoSubtitle: 'Convert your windows into Smart Windows ',
   infoDescription:
-    'Motorised curtains or electric curtains are typically operated by a remote control. You can even add smartphone control functionality to allow you total control of your curtains, home or away. Providing you with the same function as but with the added comfort of only having to press a button rather than pull a chain. With a huge selection of fabrics and designs to choose from, our motorised curtains are the ideal choice for a beautiful and functional window dressing. Driven by an integrated motor that is hidden from sight, our motorised roller binds can be powered by rechargeable battery or directly from your mains supply. Our expert team of installation specialists will ensure all safety parameters and electrical regulations are met for your complete peace of mind.',
+    "Our passion for excellence makes us more than just a window covering company. There are so many reasons to go electric. Everything else in your life is automated, why not your blinds?  Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with motorised curtains. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly, continuously for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts."
+,
   infoImage: moto1,
-  measureTitle: 'MADE TO MEASURE MOTORISED CURTAINS',
+  measureTitle: 'Made to Measure Motorised Curtains',
   measureDescription:
-    'Our entire motorised curtains collection is supplied on a made-to-measure basis. No more guessing or hoping it will fit. Our curtains are custom-made for your windows. Our end-to-end service means we are here from the very start right through to the final installment. You don’t have to lift a finger as we take care of the entire process on your behalf. We offer a range of motorised solutions.',
-  chooseustitle: 'Why choose us for your motorization?',
-  chooseustitle1: 'Why choose us for your motorization?',
-  measureTitle1: 'MOTORISED BENEFITS',
+    `Just say the word, and let your motorisation system do the rest. It's now easier to control them with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
+  chooseustitle: 'Why Choose Us For Your Motorisation?',
+  chooseustitle1: 'Control your windows anytime, anywhere!',
+  measureTitle1: 'Set Your Own Schedule or Control Remotely',
   measureDescription1:
-    'There are many advantages to choosing a motorised blind over a manually operated one. First and foremost, you have the ability to save a preferred position so that your curtains always open to the same spot. You can even add timers to command the curtains to open/close at set times. How’s that for convenience?',
+    `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use your system so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants.`,
   chooseUsItems1: [
     {
       image: img1,
-      text: 'We offer a fully comprehensive 5 year warranty on all our motors',
+      text: '10 Years warranty on all mechanical parts and labour',
     },
     {
       image: img2,
-      text: 'Our professional staff are fully trained to install as well as offer expert advice',
+      text: '50 experts to make sure perfection is maintained from start-to-finish',
     },
     {
       image: img3,
-      text: 'We keep motors in stock, so no long delays waiting for stock',
+      text: `Quality production - we're in it for the long haul`,
     },
     {
       image: img4,
-      text: 'We only use the leading brands such as Somfy, Nice & Motion.',
+      text: 'More than 700 5-star reviews prove our reputation as trusted',
     },
   ],
   motorization1: [
     {
-      text: 'Hassle free care. Our motorised tracks are superior quality. They just don’t break down',
+      text: 'Easily operate with remote. Smartphone, or voice command.',
     },
     {
-      text: 'Push the buttons on the remote or link up to your smart phone in literally 60 seconds',
+      text: 'Save money and protect your home from UV rays.',
     },
     {
-      text: 'How about Apple Home? YES. What about Alexa? Sure, why not. Ok, and Google',
+      text:`It's perfect for people with mobility or accessibility issues.` ,
     },
     {
-      text: 'Even if you have your own system, 99% of the time, our installers can liaise with your automation team to give you a full 360 solution.',
+      text: 'You can set it up to block out the sun at specific times.',
     },
     {
-      text: 'Set timers, set scenes. Control your motors from the room down the hall or from the other side of the world, it really is that simple once we set it up for you',
+      text: 'Adjust the amount of light entering your home to create the perfect ambiance.',
     },
   ],
   additionalDescription:
-    'All our team members are paid a decent living wage and are not trained for the hard sell.',
+    `There's no hard sell just relaxed and pressure-free consultation`,
   additionalImage: moto2,
   additionalDescription2:
-    'You can call the sales team for a no obligation quotation on or fill out the online contact form and someone will get back to you as soon as possible.',
+    `At Blinds and Curtains Dubai, choosing window coverings should be fun and enjoyable instead of stressful. So we designed our consultations to be relaxed and informative. Our team is here to guide you, not to push you. We take the time to fully understand your needs and provide solutions that genuinely work for your space, whether you're looking for fabrics, motorised options, or light control advice.`,
   additionalDescription3:
-    'Please remember that none of our sales team are on commission. All are paid a decent living wage which allows them to be as honest with you as possible and put you under ZERO pressure to buy. It is the way we enjoy being sold to, so we pass that method onto you too.',
+    `Every home is different, and every customer has a different taste. That's why we listen to you and offer honest, helpful advice during our consultations. There's no hustle, no pressure, and definitely no hard sell.`,
 };
 
 export const Cateories = [9, 2, 5, 12];
+
+//BathroomBlindsData
+export const BathroomBlindsData = [
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle1.png',
+    title: 'BATHROOM ROLLER BLINDS',
+    description:
+      'Choose a Roller blind for a neat and clutter-free finish. From fun prints to textured plains, all in moisture-resistant fabrics, you’re sure to find the perfect bathroom blinds, whatever your style of bathroom. Roller blinds are ideal for any bathroom where you want to maximise light and space. They filter the light beautifully while giving you much-needed privacy, especially in downstairs bathrooms and rooms that are overlooked.',
+    buttontext: 'VIEW OUR ROLLER BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle2.png',
+    title: 'BATHROOM VENETIAN BLINDS',
+    description:
+      'Venetian blinds come in a wide range of colours, metallic shades, and special finishes for a sleek and contemporary look. Practical and easy to maintain, Venetian blinds are great for bathrooms. They are ideal for windows that are away from sinks, showers, and baths.',
+    buttontext: 'VIEW OUR VENETIAN BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle1.png',
+    title: 'BATHROOM VERTICAL BLINDS',
+    description:
+      'Ideal for large glazed windows and doors, Vertical blinds a great option for bathrooms and wet rooms, where their moisture-resistant properties are a real bonus. Vertical blinds come in a fantastic array of designs and fabrics that work particularly well in contemporary spaces. Durable and hardwearing PVC fabrics are especially suited to steamy bathrooms and wet rooms.',
+    buttontext: 'VIEW OUR VERTICAL BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle2.png',
+    title: 'BATHROOM WOODEN BLINDS',
+    description:
+      'Wood Venetian blinds are the natural choice for those who like to mix a bit of elegance with timeless while giving a modern or classic feel to any room. These give you the same good looks, but with the added benefit of being moisture-resistant.',
+    buttontext: 'VIEW OUR WOODEN BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle1.png',
+    title: 'BATHROOM BLACKOUT BLINDS',
+    description:
+      'Our blackout blinds for bathrooms guarantee all the privacy you need, which is important if your bathroom is overlooked by neighbors or looks out onto the street. Many are available in PVC fabrics that are 100% waterproof, and they all block out the light.',
+    buttontext: 'VIEW OUR BLACKOUT BLINDS',
+  },
+  {
+    imgsrc: '/assets/images/bathroom-blinds/Rectangle2.png',
+    title: 'BATHROOM SKYLIGHT BLINDS',
+    description:
+      'Our skylight blinds come in a range of colours to suit your style and with a selection of waterproof fabrics, you don’t have to worry about accidental splashes.',
+    buttontext: 'VIEW OUR SKYLIGHT BLINDS',
+  },
+];
+
+export const infoSectionData = {
+  title: 'Lorem Ipsum is simply dummy text of',
+  description:
+    "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+};
+
+export const colorData: IColorData[] = [
+  {
+    id: 1,
+    name: 'Off White Shutters',
+    color: 'FAF9EF',
+    url: '/shutters-range/off-white-shutters',
+  },
+  {
+    id: 2,
+    name: 'White Shutters',
+    color: 'FFFFFF',
+    url: '/shutters-range/white-shutters',
+  },
+  {
+    id: 3,
+    name: 'Black Shutters',
+    color: '000000',
+    url: '/shutters-range/black-shutters',
+  },
+  {
+    id: 4,
+    name: 'Grey Shutters',
+    color: '808080',
+    url: '/shutters-range/grey-shutters',
+  },
+  {
+    id: 5,
+    name: 'Dark Wood Shutters',
+    color: '815438',
+    url: '/shutters-range/dark-wood-shutters',
+  },
+  {
+    id: 6,
+    name: 'Light Wood Shutters',
+    color: 'deb887',
+    url: '/shutters-range/light-wood-shutters',
+  },
+  {
+    id: 7,
+    name: 'Bold Colour Shutters',
+    color: '8f1601',
+    url: '/shutters-range/bold-colours-shutters',
+  },
+];
+
+export const ByColorContent = [
+  {
+    slug: '/shutters-range/off-white-shutters',
+    content: {
+      heading: 'Off White Colour Shutters',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/white-shutters',
+    content: {
+      heading: 'White Colour Shutters',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/black-shutters',
+    content: {
+      heading: 'Black Colour Shutters',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/dark-wood-shutters',
+    content: {
+      heading: 'Dark Wood Colour Shutters',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/bold-colours-shutters',
+    content: {
+      heading: 'Bold Colour Shutters',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/grey-shutters',
+    content: {
+      heading: 'Grey Colour Shutters',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+  {
+    slug: '/shutters-range/light-wood-shutters',
+    content: {
+      heading: 'Light Wood Shutters',
+      paragraph:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+      subheading1: 'Custom Window Blinds ',
+      subheading2: '35 Styles + 2000 Different Materials',
+      subheadingContent: [
+        {
+          content:
+            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+        },
+      ],
+    },
+  },
+];
+export const specificTitles = [
+  'Living Room Blinds',
+  'Staircase Blinds',
+  'Bedroom Blinds',
+  'Conservatory Blinds',
+  'Study Room Blinds',
+  'Dining Room Blinds',
+  'Kitchen Blinds',
+  'Kids Room Blinds',
+  'Bathroom Blinds',
+  'Bedroom Curtains',
+  'Conservatory Curtains',
+  'Living Room Curtains',
+  'Kids Room Curtains',
+  'Home Curtains',
+  'Room Curtains',
+  'Dining Room Curtains',
+  'Staircase Curtains',
+  'Kitchen Shutters',
+  'Bathroom Shutters',
+  'Living Room Shutters',
+  'Staircase Shutters',
+  'Dining Room Shutters',
+  'Bedroom Shutters',
+  'Indoor',
+  'Skylight',
+  'Balcony',
+  'Pergola',
+  'Outdoor',
+];
+
+export const ByRoomCommercialProduct = [
+  {
+    title: 'Indoor',
+    productsTitles: [
+      'motorised-blinds',
+      'blackout-curtains',
+      'bay-window-shutters',
+      'daynight-blinds',
+    ],
+  },
+  {
+    title: 'Skylight',
+    productsTitles: [
+      'pleated-blinds',
+      'tab-top-curtains',
+      'dimout-blindssemi-transparent',
+      'solid-panel-shutters',
+    ],
+  },
+  {
+    title: 'Balcony',
+    productsTitles: [
+      'blackout-blinds',
+      'outdoor-shutters',
+      'roman-blinds',
+      'eyelet-curtains',
+    ],
+  },
+  {
+    title: 'Pergola',
+    productsTitles: [
+      'sheer-curtains',
+      'blackout-curtains',
+      'aluminium-blinds',
+      'bi-fold-shutters',
+    ],
+  },
+  {
+    title: 'Outdoor',
+    productsTitles: [
+      'aluminium-blinds',
+      'ripplefoldwave-curtains',
+      'full-height-shutters',
+      'sunscreentransparent',
+    ],
+  },
+];
+
+export const BooKNowbannerContent = [
+  {
+    url: '/blinds/roller-blinds',
+    content: 'Ready to get started? Call our sales team at (04) 252 2025 for a free quote or fill out the online form, and we&apos;ll be in touch'
+  },
+  {
+    url: '/blinds/panel-blinds',
+    content: 'Need expert advice? We can make <a href="/made-to-measure-blinds" style="text-decoration: underline">custom window blinds</a> for you. Feel free to give us a call at (04) 252 2025, or fill out our online contact form, and we&apos;ll walk you through everything.'
+  }
+]

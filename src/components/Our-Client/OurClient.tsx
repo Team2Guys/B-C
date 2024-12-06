@@ -51,15 +51,15 @@ const OurClient = () => {
             {OurClientImage.map((image: any, index: any) => (
               <SwiperSlide className=" py-4" key={index}>
                 <div
-                  className=" active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white"
+                  className="active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white active:border-none"
                   key={index}
                 >
                   <Image
                     key={index}
-                    className="w-full px-5 h-16 object-contain active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent"
+                    className="w-full px-5 h-10 object-contain active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent brightness-100 contrast-50 saturate-0 blur-0 hue-rotate-0"
                     src={image.src}
                     alt={image.alt}
-                    width={250}
+                    width={400}
                     height={400}
                   />
                 </div>

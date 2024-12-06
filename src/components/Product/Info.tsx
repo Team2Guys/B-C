@@ -2,14 +2,16 @@ import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
 import productimf from '../../../public/assets/images/product/product1.png';
 import Image from 'next/image';
-import { Button } from 'components/ui/button';
 import { useRouter } from 'next/navigation';
 import { IInfo } from 'types/types';
+import SkeletonLoading from 'components/Skeleton-loading/SkeletonLoading';
+import PageSkelton from 'components/Skeleton/PageSkelton';
+import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 
 const Info = (selectedPage: IInfo) => {
   const route = useRouter();
   if (!selectedPage.selectedPage) {
-    return <div>No content available</div>;
+    return <PageSkelton header={true} />;
   }
   return (
     <Container className="mt-10 md:mt-20">
@@ -22,14 +24,14 @@ const Info = (selectedPage: IInfo) => {
               {selectedPage.selectedPage.subheading2}
             </span>
           </h1>
-          {selectedPage.selectedPage.subheadingContent.map((item, index) => (
-            <p
-              key={index}
-              className="text-12 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85]"
-            >
-              {item.content}
-            </p>
-          ))}
+          {selectedPage.selectedPage.subheadingContent &&
+            selectedPage.selectedPage.subheadingContent.map((item, index) => (
+              <p
+                key={index}
+                className="text-12 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85]"
+                dangerouslySetInnerHTML={{ __html: item.content as string }}
+              ></p>
+            ))}
           <div className=" pt-5 text-center md:text-start">
             <button
               onClick={() => {

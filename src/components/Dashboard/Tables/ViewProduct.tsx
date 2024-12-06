@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SetStateAction } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -9,27 +9,27 @@ import { FaRegEye } from 'react-icons/fa';
 import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import { generateSlug } from 'data/data';
-import Loader from 'components/Loader/Loader';
 import Cookies from 'js-cookie';
-import TableSkeleton from './TableSkelton';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories } from 'config/fetch';
-import { revalidatePath } from 'next/cache'
+import { revalidatePath } from 'next/cache';
 import revalidateTag from 'components/ServerActons/ServerAction';
+import { ChangedProductUrl_handler } from 'data/urls';
 
-interface Product {
-  id: string;
+interface Product extends IProduct {
+  id: number;
   title: string;
   category: string;
   posterImage: { imageUrl: string };
   createdAt: string;
+  CategoryId: number;
 }
 
 interface CategoryProps {
-  Categories: any;
+  Categories: Product[];
   setselecteMenu: (menu: string) => void;
-  setEditProduct: any;
+  setEditProduct: React.Dispatch<SetStateAction<Product | undefined>>;
 }
 
 const ViewProduct: React.FC<CategoryProps> = ({
@@ -49,30 +49,44 @@ const ViewProduct: React.FC<CategoryProps> = ({
     setSearchTerm(e.target.value);
   };
 
-  const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-  const canAddProduct = true;
-  const canDeleteProduct = true;
-  const canEditproduct = true;
+  const {
+    data: categories,
+    error: categoriesError,
+    isLoading: isLoadingCategories,
+  } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
 
+  const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
+
+  const canAddProduct =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canAddProduct : true);
+  const canDeleteProduct =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canDeleteProduct : true);
+  const canEditproduct =
+    loggedInUser &&
+    (loggedInUser.role == 'Admin' ? loggedInUser.canEditProduct : true);
   useEffect(() => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
-    
+
     if (Categories) {
-      
-      const sortedCategories = Categories.sort(
-        (a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      );
-  
-      
-      const filtered = sortedCategories.filter((product: Product) =>
+      console.log(Categories, 'Categories');
+
+      const filtered = Categories.sort(
+        (a: Product, b: Product) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+      ).filter((product: Product) =>
         product.title.toLowerCase().includes(lowercasedSearchTerm),
       );
-  
+
       setFilteredProducts(filtered);
     }
   }, [searchTerm, Categories]);
 
-  const confirmDelete = (key: any) => {
+  const confirmDelete = (key: number) => {
     Modal.confirm({
       title: 'Are you sure you want to delete this product?',
       content: 'Once deleted, the product cannot be recovered.',
@@ -82,7 +96,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
     });
   };
 
-  const handleDelete = async (key: string) => {
+  const handleDelete = async (key: number) => {
     try {
       await axios.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/delete_product/${key}`,
@@ -90,7 +104,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
           headers: { Authorization: `Bearer ${token}` },
         },
       );
-      revalidateTag("calculatePrices")
+      revalidateTag('calculatePrices');
 
       notification.success({
         message: 'Product Deleted',
@@ -105,14 +119,6 @@ const ViewProduct: React.FC<CategoryProps> = ({
       });
     }
   };
-  const {
-    data: categories,
-    error: categoriesError,
-    isLoading: isLoadingCategories,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
 
   const columns = [
     {
@@ -146,7 +152,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
       title: 'Time',
       dataIndex: 'createdAt',
       key: 'time',
-      render: (text: any, record: Product) => {
+      render: (text: string, record: Product) => {
         const createdAt = new Date(record.createdAt);
         return <span>{createdAt.toLocaleTimeString()}</span>;
       },
@@ -154,8 +160,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
     {
       title: 'Preview',
       key: 'Preview',
-      render: (text: any, record: Product) => {
-        //@ts-expect-error
+      render: (text: string, record: Product) => {
         const category = categories?.find((i) => i.id === record.CategoryId);
         if (category === undefined) return null;
         const parent = generateSlug(category?.title);
@@ -163,7 +168,11 @@ const ViewProduct: React.FC<CategoryProps> = ({
           <FaRegEye
             className="cursor-pointer"
             onClick={() => {
-              const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${generateSlug(record.title)}`;
+              const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${
+                // generateSlug(record.title)
+                ChangedProductUrl_handler(record.title)
+              }
+              `;
               window.open(url, '_blank');
             }}
           />
@@ -206,48 +215,41 @@ const ViewProduct: React.FC<CategoryProps> = ({
 
   return (
     <div>
-        <>
-          <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
-            <input
-              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
-              type="search"
-              placeholder="Search Product"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <div>
-              <p
-                className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed  text-white rounded-md'} p-2 ${canAddProduct ? '  bg-secondary text-white rounded-md ' : ''}`}
-                onClick={() => {
-                  if (canAddProduct) {
-                    setEditProduct(undefined);
-                    setselecteMenu('Add Products');
-                  }
-                }}
-              >
-                Add Products
-              </p>
-            </div>
+      <>
+        <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
+          <input
+            className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
+            type="search"
+            placeholder="Search Product"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <div>
+            <p
+              className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed  text-white rounded-md'} p-2 ${canAddProduct ? '  bg-secondary text-white rounded-md ' : ''}`}
+              onClick={() => {
+                if (canAddProduct) {
+                  setEditProduct(undefined);
+                  setselecteMenu('Add Products');
+                }
+              }}
+            >
+              Add Products
+            </p>
           </div>
-          {filteredProducts && filteredProducts.length > 0 ? 
-          
-          
-          (
-            <Table
-              className="lg:overflow-hidden overflow-x-scroll !dark:border-strokedark !dark:bg-boxdark !bg-transparent"
-              dataSource={filteredProducts}
-              columns={columns}
-              rowKey="id"
-              pagination={false}
-            />
-          ) : 
-          
-          
-          (
-            <p className="text-primary dark:text-white">No products found</p>
-          )}
-        </>
-      
+        </div>
+        {filteredProducts && filteredProducts.length > 0 ? (
+          <Table
+            className="lg:overflow-hidden overflow-x-scroll !dark:border-strokedark !dark:bg-boxdark !bg-transparent"
+            dataSource={filteredProducts}
+            columns={columns}
+            rowKey="id"
+            pagination={false}
+          />
+        ) : (
+          <p className="text-primary dark:text-white">No products found</p>
+        )}
+      </>
     </div>
   );
 };

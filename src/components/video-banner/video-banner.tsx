@@ -1,22 +1,28 @@
 'use client';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useRef, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { ISelectedPage } from 'types/types';
-
 interface BannerProps {
   className?: string;
   title: string;
   selectedPage?: ISelectedPage | null;
+  showButton?: boolean;
+  colorSlider?: boolean;
 }
 
 const VideoBanner: React.FC<BannerProps> = ({
   className,
   title,
   selectedPage,
+  showButton,
+  colorSlider,
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleVideoClick = () => {
     if (videoRef.current) {
@@ -37,52 +43,68 @@ const VideoBanner: React.FC<BannerProps> = ({
   if (!selectedPage) {
     return null;
   }
+  const handleNavigation = (event: React.MouseEvent, path: string) => {
+    event.stopPropagation();
+    if (event.ctrlKey || event.metaKey) {
+      window.open(path, '_blank');
+    } else {
+      router.push(path);
+    }
+  };
   return (
     <div
-      className={`relative w-full h-[300px] md:h-[450px] 2xl:h-[681px] overflow-hidden ${className}`}
+      className={`relative w-full ${colorSlider ? 'h-full' : 'h-[300px] md:h-[450px] 2xl:h-[681px]'}  overflow-hidden ${className}`}
       onClick={handleVideoClick}
     >
-      <video
-        ref={videoRef}
-        className="absolute inset-0 object-cover w-full h-full"
-        src="/assets/video/Agsons.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        controls={false}
-      />
-      {!isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <FaPlay className="text-white text-4xl" />
-        </div>
-      )}
-      <div className="relative  flex items-center h-full z-10">
-        <div
-          className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl py-2 md:py-5"
-          onClick={handleTextClick}
-        >
-          <div className="py-2 md:py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
-            <p className="lg:text-[43px] text-25 font-black drop-shadow-lg capitalize">
-              {title}
-            </p>
-            <p className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
-              {selectedPage?.heading}
-            </p>
-            <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
-              {selectedPage?.paragraph}
-            </p>
-            <div className="mt-5">
-              <Link
-                className="uppercase bg-white text-12 md:text-16 font-medium shadow-md text-black rounded-full px-4 py-3"
-                href={'/request-appointment'}
-              >
-                Book A Free Home Design Visit
-              </Link>
+        <>
+          <video
+            ref={videoRef}
+            className="absolute inset-0 object-cover w-full h-full"
+            src="/assets/video/Agsons.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls={false}
+          />
+          {!isPlaying && (
+            <div className="absolute inset-0 flex items-center justify-center z-20">
+              <FaPlay className="text-white text-4xl" />
+            </div>
+          )}
+          <div
+            className={`relative flex ${colorSlider ? 'flex-col justify-end' : 'items-center'} h-full z-10`}
+          >
+            <div
+              className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl py-2 md:py-5"
+              onClick={handleTextClick}
+            >
+              <div className="py-2 md:py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
+                <p className="lg:text-[44px] text-25 font-black drop-shadow-lg capitalize">
+                  {title}
+                </p>
+                <p className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
+                  {selectedPage?.heading}
+                </p>
+                <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
+                  {selectedPage?.paragraph}
+                </p>
+                {showButton ? (
+                  <div className="mt-5">
+                    <Link
+                      className="uppercase bg-white text-12 md:text-16 font-medium shadow-md text-black rounded-full px-4 py-3"
+                      href={'/request-appointment'}
+                    >
+                      Book A Free Home Design Visit
+                    </Link>
+                  </div>
+                ) : (
+                  ''
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
     </div>
   );
 };
