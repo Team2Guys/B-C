@@ -76,7 +76,7 @@ export default function Review_banner() {
                   width={140}
                   height={140}
                 />
-                <Slider {...settings}>
+                <Slider {...settings as any}>
                   {slides.map((slide, index: any) => (
                     <div
                       key={index}
