@@ -35,6 +35,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
   };
 
 
+  console.log(products,"filtered" )
 
 
   const getPath =  (product: IProduct, parent: string)=> {
@@ -66,9 +67,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
     >
       {products &&
         products.map((product: IProduct) => {
-          const category = categories?.find(
-            (cat) => cat.id === product.CategoryId,
-          );
+          const category = categories?.find((cat) => cat.id === product.CategoryId);
           if (!category) return null;
 
           const trimmedProductTitle = getTrimmedTitle(product.title);
