@@ -121,6 +121,7 @@ const CommercialByRoom = ({
           filteredProducts={filteredProducts}
           isLoading={isLoading}
           categoryTitle="none"
+          subCategory={title}
         />
       </Container>
 
