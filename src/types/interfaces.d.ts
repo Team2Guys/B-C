@@ -369,10 +369,15 @@ export interface ITopHeroLink {
   title: string;
 }
 
-export interface IProductDiscription {
-  id?: number;
-  title: string;
-  CategoryPageDiscription?: string;
+export interface IRollerBlinds {
+  Category_id: number;
+  sub_Category: string;
+  Product: {
+    product_name: string;
+    altText: string;
+    Imagesurl: string;
+    desc?: string;
+  }[];
 }
 
 export interface IColorData {
