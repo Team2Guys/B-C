@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Hero />
       <Appointment />
-      <Review_banner />
+      {/* <Review_banner /> */}
       <HomeCard />
       <BlindsAndCurtainssection />
       <div className="mx-auto">
