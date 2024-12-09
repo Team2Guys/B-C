@@ -1279,8 +1279,8 @@ export const staticCommercialMegaMenuItems: IProduct[] = [
 export const commercialPagesItems = [
   { productName: 'hotels-restaurants' },
   { productName: 'printed-blinds' },
-  { productName: 'school-blinds'},
   { productName: 'sunscreen-roller-blinds'},
+  { productName: 'school-blinds'},
   { productName: 'vertical-blinds' },
   { productName: 'aluminium-blinds' },
   { productName: 'wooden-blinds' },
