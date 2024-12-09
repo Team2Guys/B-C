@@ -69,7 +69,7 @@ export const urls = [
   },
   {
     productName: 'Dark Woods Shutters',
-    Url: 'dark-wood-shutters',
+    Url: 'dark-woods-shutters',
   },
   {
     productName: 'Bold Colours Shutters',
