@@ -502,7 +502,40 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       },
     ],
   },
-
+  {
+    Category_id: 5,
+    sub_Category: 'Dining Room Curtains',
+    Product: [
+      {
+        product_name: 'Plain Curtains',
+        altText: 'Plain Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Ripplefold/Wave Curtains',
+        altText: 'Ripplefold/Wave Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/curtains/Dining Room curtains/Ripple-fold-wave-curtains-for-dining-room.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Natural Fabric Curtains',
+        altText: 'Natural Fabric Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Patterned Curtains',
+        altText: 'Patterned Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
   {
     Category_id: 9,
     sub_Category: 'Staircase Shutters',
