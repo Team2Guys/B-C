@@ -1233,7 +1233,7 @@ export const commercialMegaMenuItems = [
   { productName: 'auditoriums' },
   { productName: 'hotels-restaurants' },
   { productName: 'schools' },
-  { productName: 'offices' },
+  // { productName: 'offices' },
   { productName: 'gym' },
   { productName: 'theatre' },
 
@@ -1496,7 +1496,7 @@ export const megaMenubyStyle = [
   { productName: 'auditoriums' },
   { productName: 'hotels-restaurants' },
   { productName: 'schools' },
-  { productName: 'offices' },
+  // { productName: 'offices' },
   { productName: 'gym' },
   { productName: 'theatre' },
 ];
