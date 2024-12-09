@@ -1,3 +1,5 @@
+import { IRollerBlinds } from 'types/interfaces';
+
 interface ICategories_wise_Images {
   Category_id: number;
   sub_Category: string;
@@ -861,35 +863,148 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     ],
   },
   {
-    Category_id: 12,
+    Category_id: 5,
     sub_Category: 'Hospital Curtains',
     Product: [
       {
-        product_name: 'Sunscreen/Transparent',
-        altText: 'Sunscreen/Transparent',
-        Imagesurl:
-          '/assets/images/optimized-images/commerical/Outdoor/Sunscreen-blinds.webp',
+        product_name: 'Sheer Curtains',
+        altText: 'Sheer Curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/hospital/s.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
-        product_name: 'Aluminium Blinds',
-        altText: 'Aluminium Blinds',
-        Imagesurl:
-          '/assets/images/optimized-images/commerical/Outdoor/Aluminium-blinds.webp',
+        product_name: 'Motorised curtains',
+        altText: 'Motorised curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/hospital/b.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
-        product_name: 'Full Height Shutters',
-        altText: 'Full Height Shutters',
+        product_name: 'Blackout Curtains',
+        altText: 'Blackout Curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/hospital/b.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Plain Curtains',
+        altText: 'Plain Curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/hospital/p.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
+  {
+    Category_id: 2,
+    sub_Category: 'School Blinds',
+    Product: [
+      {
+        product_name: 'Roman Blinds',
+        altText: 'Roman Blinds',
         Imagesurl:
-          '/assets/images/optimized-images/commerical/Outdoor/Full-height-shutters.webp',
+          '/assets/images/optimized-images/commerical/School Blinds/Aluminium School blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Day/Night Blinds',
+        altText: 'Day/Night Blinds',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/School Blinds/Day Night School Blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Dimout Blinds/Semi Transparent',
+        altText: 'Blackout Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/School Blinds/Dimout school blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
+  {
+    Category_id: 5,
+    sub_Category: 'Gym Curtains',
+    Product: [
+      {
+        product_name: 'Motorised curtains',
+        altText: 'Motorised curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/gym/Motorised gym curtains.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Made to Measure Linen Curtains',
+        altText: 'Made to Measure Linen Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/gym/Linen curtains for gym.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Velvet Curtains',
+        altText: 'Velvet Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/gym/Velvet Curtains for gym.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Blackout Curtains',
+        altText: 'Blackout Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/gym/Blackout gym curtains.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
+  {
+    Category_id: 5,
+    sub_Category: 'Theatre Curtains',
+    Product: [
+      {
+        product_name: 'Pinch Pleat Curtains',
+        altText: 'Pinch Pleat Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/gym/Motorised gym curtains.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Stripes Curtains',
+        altText: 'Stripes Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/gym/Linen curtains for gym.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Textured Curtains',
+        altText: 'Textured Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/gym/Velvet Curtains for gym.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Ripplefold/Wave Curtains',
         altText: 'Ripplefold/Wave Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/commerical/Outdoor/Ripplefold-curtains.webp',
+          '/assets/images/optimized-images/commerical/gym/Blackout gym curtains.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
+];
+
+export const RollerBlindsPage: IRollerBlinds[] = [
+  {
+    Category_id: 2,
+    sub_Category: 'Roller Blinds',
+    Product: [
+      {
+        product_name: 'Sunscreen/Transparent',
+        altText: 'Sunscreen/Transparent',
+        Imagesurl:
+          '/assets/images/optimized-images/blinds/Roller/Sunscreen.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Blackout Roller Blinds',
+        altText: 'Blackout Roller Blinds',
+        Imagesurl: '/assets/images/optimized-images/blinds/Roller/Blackout.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
