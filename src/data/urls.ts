@@ -149,17 +149,22 @@ export const urls = [
     Url: 'wave-curtains',
     errorUrl: '/curtains/ripplefoldwave-curtains',
   },
+  {
+    productName: 'hotels-restaurants',
+    Url: 'hotels-restaurants-blinds-curtains',
+    errorUrl: '/hotels-restaurants',
+  },
 ];
 
-// Map for predefined slugs and their paths
+
 export const predefinedPaths = {
-  'office-blinds': '/commercial',
+  'offices-blinds': '/commercial',
   theatre: '/curtains/stage-and-theatre-curtains',
   hospitals: '/curtains/hospital-curtains',
-  restaurants: '/hotels-restaurants-blinds-curtains',
-  hotels: '/hotels-restaurants-blinds-curtains',
+  // restaurants: '/hotels-restaurants-blinds-curtains',
+  'hotels-restaurants': '/hotels-restaurants-blinds-curtains',
   schools: '/blinds/school-blinds',
-  // offices: '/commercial/offices',
+  offices: '/commercial',
   gym: '/curtains/gym-curtains',
 };
 
@@ -181,3 +186,17 @@ export const ChangedProductUrl_handler = (title: string): string => {
 
   return products ? products.Url : generateSlug(title);
 };
+
+
+
+export const CommercialUrl=[
+  {urlName:"hospitals", Redirect:"/curtains/hospital-curtains"},
+  {urlName:"restaurants", Redirect:"/hotels-restaurants-blinds-curtains"},
+  {urlName:"hotels", Redirect:"/hotels-restaurants-blinds-curtains"},
+  {urlName:"offices", Redirect:"/curtains/office-window-curtains"},
+  {urlName:"schools", Redirect:"/blinds/school-blinds"},
+  {urlName:"gym", Redirect:"/curtains/gym-curtains"},
+  {urlName:"theatre", Redirect:"/curtains/stage-and-theatre-curtains"},
+  {urlName:"wooden-aluminium-blinds", Redirect:"/blinds/wooden-venetian"},
+]
+
