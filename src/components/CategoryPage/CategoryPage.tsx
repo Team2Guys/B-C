@@ -208,15 +208,23 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
           dangerouslySetInnerHTML={{ __html: activeFilter?.short_description }}
         ></p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {inner_filteredProducts &&
-            inner_filteredProducts.map((product: IProduct) => (
-              <GalleryCard
-                card={product}
-                key={product.id}
-                relativeProducts={true}
-                parent={`${pathname}`}
-              />
-            ))}
+          {filteredProducts &&
+            filteredProducts.map((product: IProduct) => {
+              const category = categories?.find(
+                (cat) => cat.id === product.CategoryId,
+              );
+              console.log(category, 'categor');
+              if (!category) return null;
+              const parent = generateSlug(category.title);
+              return (
+                <GalleryCard
+                  card={product}
+                  key={product.id}
+                  relativeProducts={true}
+                  parent={parent}
+                />
+              );
+            })}
         </div>
       </Container>
       <BookNowBanner />
