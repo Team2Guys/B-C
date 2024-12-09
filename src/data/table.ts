@@ -84,7 +84,6 @@ export const appointmentColumns = [
     dataIndex: 'how_user_find_us',
     width: 200,
   },
- 
 
   {
     title: 'Preferred Date',
@@ -115,7 +114,6 @@ export const columns = [
     dataIndex: 'title',
     key: 'title',
   },
-
   {
     title: 'Created At',
     dataIndex: 'createdAt',
