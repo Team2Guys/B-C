@@ -53,7 +53,7 @@ const VideoBanner: React.FC<BannerProps> = ({
   };
   return (
     <div
-      className={`relative w-full ${colorSlider ? 'h-full' : 'h-[300px] md:h-[450px] 2xl:h-[681px]'}  overflow-hidden ${className}`}
+      className={`relative w-full ${colorSlider ? 'h-full' : 'h-full py-2 2xl:h-[681px]'}  overflow-hidden ${className}`}
       onClick={handleVideoClick}
     >
         <>
@@ -76,7 +76,7 @@ const VideoBanner: React.FC<BannerProps> = ({
             className={`relative flex ${colorSlider ? 'flex-col justify-end' : 'items-center'} h-full z-10`}
           >
             <div
-              className=" bg-black/35 w-[300px] sm:w-[479px] 2xl:w-[635px] rounded-e-2xl py-2 md:py-5"
+              className=" bg-black/35 w-[300px] sm:w-[579px] 2xl:w-[635px] rounded-e-2xl py-2 md:py-5"
               onClick={handleTextClick}
             >
               <div className="py-2 md:py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
