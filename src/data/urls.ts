@@ -84,11 +84,6 @@ export const urls = [
     Url: 'made-to-measure-sheer-curtains',
     errorUrl: '/curtains/sheer-curtains',
   },
-  {
-    productName: 'Tier On Tier Shutters',
-    Url: 'tier-on-tier-shutters-wooden-shutters',
-    // errorUrl: '/shutters-range/tier-on-tier-shutters',
-  },
   // {
   //   productName: 'Solid Panel Shutters',
   //   Url: 'solid-panel-shutters-plantation-shutters-dubai',
@@ -168,7 +163,6 @@ export const CommercialUrl=[
   {urlName:"gym", Redirect:"/curtains/gym-curtains"},
   {urlName:"theatre", Redirect:"/curtains/stage-and-theatre-curtains"},
   {urlName:"wooden-aluminium-blinds", Redirect:"/blinds/wooden-venetian"},
-    {urlName:"tier-on-tier-shutters", Redirect:"/shutters-range/tier-on-tier-shutters-wooden-shutters"},
 ]
 
 export const getProduct = [
