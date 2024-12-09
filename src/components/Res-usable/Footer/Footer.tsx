@@ -104,6 +104,7 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-items-center py-5 lg:w-5/6 space-y-0">
+              <div>
               {categories
                 ?.filter((category) => category.title !== 'Commercial')
                 .sort((a, b) => {
@@ -177,6 +178,7 @@ const Footer: React.FC = () => {
                     </ul>
                   </div>
                 ))}
+              </div>
 
               <div className='flex flex-col gap-4 col-span-2 pl-2'>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 '>
