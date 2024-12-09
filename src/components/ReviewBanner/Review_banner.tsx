@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
-import Slider from 'react-slick';
+import Slider, { SliderSettings } from 'react-slick';
+
 import { FcGoogle } from 'react-icons/fc';
 import { TRSlide } from 'types/interfaces';
 import { PiQuotesFill } from 'react-icons/pi';
@@ -40,7 +41,7 @@ function SamplePrevArrow(props: any) {
 }
 
 export default function Review_banner() {
-  const settings = {
+  const settings:SliderSettings = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -53,6 +54,7 @@ export default function Review_banner() {
 
   return (
     <>
+    
       <Container className=" px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md">
           <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
@@ -84,15 +86,14 @@ export default function Review_banner() {
                   width={140}
                   height={140}
                 />
-                <Slider {...(settings as any)}>
+
+                <Slider {...settings}>
                   {slides.map((slide, index: any) => (
                     <div
                       key={index}
                       className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
                     >
-                      {/* <div className=' bg-white w-fit rotate-180 text-8xl absolute -top-10 left-2/4 z-10 -translate-x-2/4 px-10'>
-                        <PiQuotesFill className='z-50 ' />
-                        </div> */}
+                        
                       <h3 className="text-xl font-semibold text-white">
                         {slide.title}
                       </h3>
@@ -100,6 +101,9 @@ export default function Review_banner() {
                     </div>
                   ))}
                 </Slider>
+
+
+
                 <div className="bg-white w-fit mx-auto px-7 py-1 mt-4 rounded-b-xl shadow-lg -mb-2 ">
                   <Image
                     className=""
@@ -109,6 +113,11 @@ export default function Review_banner() {
                     height={70}
                   />
                 </div>
+
+
+
+
+
               </div>
             </div>
           </div>
