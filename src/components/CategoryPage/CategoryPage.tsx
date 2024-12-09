@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 import { Button } from 'components/ui/button';
 import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
-import { items } from 'data/data';
+import { generateSlug, items } from 'data/data';
 import { RollerBlindsPage } from 'data/Images';
 
 interface ICategoryPage {
