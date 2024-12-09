@@ -40,7 +40,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
               ? `${parent.toLowerCase()}-range`
               : parent?.toLowerCase()
           }${
-            ['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds','blackout-roller-blinds'].includes(slug)
               ? '/roller-blinds'
               : ''
           }/${slug}`);
