@@ -18,7 +18,7 @@ import { Button } from 'components/ui/button';
 import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import { ProductDiscription } from 'data/content';
-import { items } from 'data/data';
+import { generateSlug, items } from 'data/data';
 
 interface ICategoryPage {
   title: string;
@@ -191,15 +191,23 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         </h2>
         <p className="mt-3 text-15 leading-7 w-full md:w-3/4 mx-auto" dangerouslySetInnerHTML={{__html: activeFilter?.short_description}}></p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {inner_filteredProducts &&
-            inner_filteredProducts.map((product: IProduct) => (
-              <GalleryCard
-                card={product}
-                key={product.id}
-                relativeProducts={true}
-                parent={`${pathname}`}
-              />
-            ))}
+        {filteredProducts &&
+            filteredProducts.map((product: IProduct) => {
+              const category = categories?.find(
+                (cat) => cat.id === product.CategoryId,
+              );
+              console.log(category, 'categor');
+              if (!category) return null;
+              const parent = generateSlug(category.title);
+              return (
+                <GalleryCard
+                  card={product}
+                  key={product.id}
+                  relativeProducts={true}
+                  parent={parent}
+                />
+              );
+            })}
         </div>
       </Container>
       <BookNowBanner />
