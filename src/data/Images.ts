@@ -196,6 +196,12 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
           '/assets/images/optimized-images/blinds/Bathroom Blinds/s.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
+      {
+        product_name: 'Sunscreen/Transparent',
+        altText: 'Sunscreen/Transparent',
+        Imagesurl: '/assets/images/optimized-images/blinds/Bathroom Blinds/r.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
     ],
   },
   {
@@ -218,6 +224,12 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Zebra Blinds',
         altText: 'Zebra Blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/dinnng room/z.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Sunscreen/Transparent',
+        altText: 'Sunscreen/Transparent',
+        Imagesurl: '/assets/images/optimized-images/blinds/dinnng room/r.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -247,6 +259,12 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
           '/assets/images/optimized-images/blinds/Kitchen Blinds/v.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
+      {
+        product_name: 'Sunscreen/Transparent',
+        altText: 'Sunscreen/Transparent',
+        Imagesurl: '/assets/images/optimized-images/blinds/Kitchen Blinds/r.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
     ],
   },
   {
@@ -271,27 +289,61 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Eton Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Living Room Blinds/w.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Living room wooden blinds are perfect for a blend of style, practicality, and sustainability. These blinds are made with high-quality, sustainably sourced materials, enhancing your space while staying eco-friendly. Select from a wide range of colours and materials to match your decor. Not only do they look great, but they also control light to set the mood anytime. Give your living room a stylish upgrade with <a href="/blinds/wooden-venetian" style="text-decoration:  underline">wooden blinds</a>.',
       },
       {
         product_name: 'Roman Blinds',
         altText: 'Roman Blinds',
         Imagesurl:
-          '/assets/images/optimized-images/blinds/Living Room Blinds/r.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+          '/assets/images/optimized-images/blinds/Living Room Blinds/rb.jpg',
+        desc: 'Roman blinds are perfect for adding style and functionality to your home, offering a timeless and smart window treatment solution. Our collection features a wide range of Roman blinds for living rooms, carefully made to complement any decor style. Pair them with <a href="/made-to-measure-living-room-curtains" style="text-decoration:  underline">living room curtains</a> to get a more coordinated and fashionable design. <a href="/blinds/roman-blinds" style="text-decoration:  underline">Roman Blinds</a> enhance the ambience of your room with their cohesive design, improved light control, and privacy.',
       },
       {
         product_name: 'Vertical Blinds',
         altText: 'Vertical Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Living Room Blinds/v.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Living room vertical blinds are a great way to make your space look good and functional. This type of blind lets you control light and privacy and can be used on sliding glass doors or oversized windows. You can easily find something that fits your style because they are available in many colours, fabrics, and materials. Upgrade your living room with our <a href="/blinds/vertical-blinds" style="text-decoration:  underline">vertical blinds</a> for a functional yet fashionable window treatment solution',
       },
       {
         product_name: 'Dimout Blinds/Semi Transparent',
         altText: 'Dimout Blinds/Semi Transparent',
         Imagesurl:
-          '/assets/images/optimized-images/blinds/Living Room Blinds/rb.jpg',
+          '/assets/images/optimized-images/blinds/Living Room Blinds/r.jpg',
+        desc: 'We have a diverse range of roller blinds for your living room, designed to combine style, functionality, and suitability. Whether you’re looking for <a href="/blinds/translucent-blinds" style="text-decoration:  underline">translucent roller blinds</a> to create soft, filtered light that holds a cosy ambience or <a href="/blinds/roller-blinds/blackout-roller-blinds" style="text-decoration:  underline">blackout roller blinds</a> to provide complete privacy and block out unwanted light, we have something to suit every need. Available in various colours, fabrics, and designs, our roller blinds are crafted to uplift your space.',
+      },
+    ],
+  },
+  {
+    Category_id: 5,
+    sub_Category: 'Kids Room Curtains',
+    Product: [
+      {
+        product_name: 'Kids Prints Curtains',
+        altText: 'Kids Prints Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/curtains/Kids room curtains/b.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Made to measure Chiffon Curtains',
+        altText: 'Made to measure Chiffon Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/curtains/Kids room curtains/c.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Tab Top Curtains',
+        altText: 'Tab Top Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/curtains/Kids room curtains/b.jpg',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Blackout Curtains',
+        altText: 'Blackout Curtains',
+        Imagesurl:
+          '/assets/images/optimized-images/curtains/Kids room curtains/b.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -315,15 +367,15 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
-        product_name: 'Vertical Blinds',
-        altText: 'Vertical Blinds',
+        product_name: 'Velvet Curtains',
+        altText: 'Velvet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Bedroom Curtains/v.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
-        product_name: 'Dimout Blinds/Semi Transparent',
-        altText: 'Dimout Blinds/Semi Transparent',
+        product_name: 'Blackout Curtains',
+        altText: 'Blackout Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Bedroom Curtains/d.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
@@ -349,7 +401,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
-        product_name: 'Natural Fabric Curtains',
+        product_name: 'Eyelet Curtains',
         altText: 'Eyelet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Conservatory curtains/m.jpg',
