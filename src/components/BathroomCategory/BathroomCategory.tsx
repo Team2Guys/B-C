@@ -49,14 +49,6 @@ const BathroomCategory = ({
           }/${slug}`);
     return path;
   };
-  useEffect(() => {
-    if (pathname.includes('commercial')) {
-      console.log('pathname', pathname + 'chal oy');
-    } else {
-      console.log('pathname', pathname + 'commercial nahi hai');
-    }
-    console.log(categoryTitle + 'categoryTitle');
-  }, [pathname]);
 
   let prod_finder_handler = (arr: IProduct) => {
     let product;
@@ -95,7 +87,6 @@ const BathroomCategory = ({
 
   if (!isLoadingSubCategories) {
     console.log('----------- subCategories --------------');
-    console.log(subCategories);
   }
 
   return (
