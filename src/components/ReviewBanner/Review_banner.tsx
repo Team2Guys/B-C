@@ -16,22 +16,27 @@ function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={"block absolute -right-7 xs:-right-3 bottom-3 font-semibold text-white cursor-pointer"}
-      onClick={onClick}>
-      <GoArrowRight size={30}  />
+      className={
+        'block absolute -right-7 xs:-right-3 bottom-3 font-semibold text-white cursor-pointer'
+      }
+      onClick={onClick}
+    >
+      <GoArrowRight size={30} />
     </div>
   );
 }
 
-function SamplePrevArrow(props:any) {
+function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-     <div
-      className={"block absolute -left-7 xs:-left-3 bottom-3 font-semibold text-white z-10 cursor-pointer"}
-      onClick={onClick}>
+    <div
+      className={
+        'block absolute -left-7 xs:-left-3 bottom-3 font-semibold text-white z-10 cursor-pointer'
+      }
+      onClick={onClick}
+    >
       <GoArrowLeft size={30} />
     </div>
- 
   );
 }
 
@@ -44,7 +49,7 @@ export default function Review_banner() {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    refs: ""
+    // refs: ""
   };
 
   return (
@@ -54,7 +59,9 @@ export default function Review_banner() {
         <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md">
           <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
             <div className="lg:text-4xl text-2xl font-bold text-center">
-              <h3>Trusted Partner<br/> in Every Detail
+              <h3>
+                Trusted Partner
+                <br /> in Every Detail
               </h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10 lg:mb-0 mb-20">
@@ -64,7 +71,8 @@ export default function Review_banner() {
                     <FcGoogle className="lg:text-3xl text-14" />
                   </span>
                   {/* <span className="font-bold">4.8 |</span> */}
-                  <p className="lg:text-base text-12">With Over 750 5-Star Reviews
+                  <p className="lg:text-base text-12">
+                    With Over 750 5-Star Reviews
                   </p>
                 </div>
               </Link>
@@ -115,7 +123,6 @@ export default function Review_banner() {
           </div>
         </div>
       </Container>
-      
     </>
   );
 }
