@@ -28,24 +28,12 @@ import { ChangedProductUrl } from 'data/urls';
 
 const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
+  const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
 
-  const {
-    data: products,
-    error,
-    isLoading,
-  } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
+  const { data: products,error,isLoading,} = useQuery<IProduct[]>({queryKey: ['products'],queryFn: fetchProducts,});
 
-  const {
-    data: categories,
-    error: categoryError,
-    isLoading: categoryLoading,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
+  const {data: categories,error: categoryError,isLoading: categoryLoading,} = useQuery<ICategory[]>({queryKey: ['categories'],queryFn: fetchCategories});
+
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
@@ -54,28 +42,26 @@ const CommercialPage = () => {
   
   useEffect(() => {
     if (products && subCategories) {
-      const matchingProductNames = commercialPagesItems.map((item) =>
-        generateSlug(ChangedProductUrl(item.productName)),
-      );
-  
-      const matchingSubCategoryTitles = subCategories.map((subCategory) =>
-        generateSlug(ChangedProductUrl(subCategory.title)),
-      );
-  
-      const filtered = products.filter((product) => {
-        const productSlug = generateSlug(ChangedProductUrl(product.title));
-        return (
-          matchingProductNames.includes(productSlug) ||
-          matchingSubCategoryTitles.includes(productSlug)
-        );
-      });
+
+      const matchingSubCategoryTitles = subCategories.filter((subCategory) => commercialPagesItems.some((prod:string)=>prod ===generateSlug(subCategory.title)));
+
+      const filtered = products.filter((product) => commercialPagesItems.some((prod:string)=>prod ===generateSlug(product.title)));
+
+        console.log(matchingSubCategoryTitles, "filtered")
+      
       setFilteredProducts(filtered);
+      let arry = [...filtered, ...matchingSubCategoryTitles]
+      console.log(arry, "filtered")
+      setmixProdCategeries(arry);
     }
   }, [products, subCategories]);
   
   if (isLoading || categoryLoading) {
     return <div></div>;
   }
+console.log(generateSlug("Sunscreen/Transparent"), "filtered")
+
+  
 
   return (
     <div>
@@ -132,7 +118,7 @@ const CommercialPage = () => {
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <ProductCard products={filteredProducts || []} />
+        <ProductCard products={mixProdCategeries || []} />
       </Container>
       <BookNowBanner />
       <Container className="text-center py-10">

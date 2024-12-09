@@ -95,7 +95,6 @@ const BathroomCategory = ({
 
   if (!isLoadingSubCategories) {
     console.log('----------- subCategories --------------');
-    console.log(subCategories);
   }
 
   return (
