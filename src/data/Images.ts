@@ -420,4 +420,154 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       },
     ],
   },
+  {
+    Category_id: 12,
+    sub_Category: 'Indoor',
+    Product: [
+      {
+        product_name: 'Day/Night Blinds',
+        altText: 'Day/Night Blinds',
+        Imagesurl: '/assets/images/optimized-images/commerical/Indoor/Day-night-blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Bay Window Shutters',
+        altText: 'Bay Window Shutters',
+        Imagesurl: '/assets/images/optimized-images/commerical/Indoor/Bay-window.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Motorised blinds',
+        altText: 'Motorised blinds',
+        Imagesurl: '/assets/images/optimized-images/commerical/Indoor/Bay-window.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Blackout Curtains',
+        altText: 'Blackout Curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/Indoor/blackout-curtains.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
+  {
+    Category_id: 12,
+    sub_Category: 'Skylight',
+    Product: [
+      {
+        product_name: 'Solid Panel Shutters',
+        altText: 'Solid Panel Shutters',
+        Imagesurl: '/assets/images/optimized-images/commerical/Skylight/Solid-panel.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Tab Top Curtains',
+        altText: 'Tab Top Curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/Skylight/Solid-panel.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Pleated Blinds',
+        altText: 'Pleated Blinds',
+        Imagesurl: '/assets/images/optimized-images/commerical/Skylight/Pleated-Blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Dimout Blinds/Semi Transparent',
+        altText: 'Dimout Blinds/Semi Transparent',
+        Imagesurl: '/assets/images/optimized-images/commerical/Skylight/Dimout-blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
+  {
+    Category_id: 12,
+    sub_Category: 'Balcony',
+    Product: [
+      {
+        product_name: 'Blackout Blinds',
+        altText: 'Blackout Blinds',
+        Imagesurl: '/assets/images/optimized-images/commerical/Balcony/Blackout-blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Roman Blinds',
+        altText: 'Roman Blinds',
+        Imagesurl: '/assets/images/optimized-images/commerical/Balcony/Roman-Blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Outdoor Shutters',
+        altText: 'Outdoor Shutters',
+        Imagesurl: '/assets/images/optimized-images/commerical/Balcony/Outdoor-Shutters.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Eyelet Curtains',
+        altText: 'Eyelet Curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/Balcony/Eyelet-curtains.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
+  {
+    Category_id: 12,
+    sub_Category: 'Pergola',
+    Product: [
+      {
+        product_name: 'Sheer Curtains',
+        altText: 'Sheer Curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/Pergola/Sheer-Curtains-for-Pergola.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Aluminium Blinds',
+        altText: 'Aluminium Blinds',
+        Imagesurl: '/assets/images/optimized-images/commerical/Pergola/Aluminium-Blinds-for-Pergola.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Bi Fold Shutters',
+        altText: 'Bi Fold Shutters',
+        Imagesurl: '/assets/images/optimized-images/commerical/Pergola/Blackout-curtains-for-Pergola.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Blackout Curtains',
+        altText: 'Blackout Curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/Pergola/Blackout-curtains-for-Pergola.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
+  {
+    Category_id: 12,
+    sub_Category: 'Outdoor',
+    Product: [
+      {
+        product_name: 'Sunscreen/Transparent',
+        altText: 'Sunscreen/Transparent',
+        Imagesurl: '/assets/images/optimized-images/commerical/Outdoor/Sunscreen-blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Aluminium Blinds',
+        altText: 'Aluminium Blinds',
+        Imagesurl: '/assets/images/optimized-images/commerical/Outdoor/Aluminium-blinds.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Full Height Shutters',
+        altText: 'Full Height Shutters',
+        Imagesurl: '/assets/images/optimized-images/commerical/Outdoor/Full-height-shutters.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Ripplefold/Wave Curtains',
+        altText: 'Ripplefold/Wave Curtains',
+        Imagesurl: '/assets/images/optimized-images/commerical/Outdoor/Ripplefold-curtains.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+    ],
+  },
 ];
