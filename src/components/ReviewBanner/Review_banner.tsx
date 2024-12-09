@@ -52,7 +52,7 @@ export default function Review_banner() {
                   }}
                   loop={true}
                   speed={500}
-                  className="relative"
+                  className="relative mySwiper"
                 >
                   {slides.map((slide, index: any) => (
                     <SwiperSlide key={index}>
