@@ -32,9 +32,9 @@ const CommercialPage = () => {
   useEffect(() => {
     if (path) {
       const matchingUrl = urls.find((url) => url.errorUrl === path);
-      console.log(path,"pathnamepathname")
+      console.log(path, 'pathnamepathname');
       if (matchingUrl) {
-        console.log(matchingUrl, "matchingUrl");
+        console.log(matchingUrl, 'matchingUrl');
         setIsNotFound(true);
       } else {
         setIsNotFound(false);
@@ -66,33 +66,29 @@ const CommercialPage = () => {
   if (!filteredSubCategory && !filteredProduct) {
     return <NotFound />;
   }
+
   console.log(filteredSubCategory, 'descriptiondescription');
   return (
     <>
       {filteredSubCategory ? (
         <>
-        {
-          filteredSubCategory.title === "Roller Blinds" ?
-          <CategoryPage
-            title={`${filteredSubCategory.title}`}
-            relatedProducts={filteredSubCategory?.products || []}
-          />
-          :
-         <RoomProducts
-            title={`${filteredSubCategory.title}`}
-            description={`${filteredSubCategory.description}`}
-            category={`${filteredSubCategory.category.title}`}
-            relatedProducts={filteredSubCategory?.products || []}
-          /> 
-        }
-          
-          
+          {filteredSubCategory.title === 'Roller Blinds' ? (
+            <CategoryPage
+              title={`${filteredSubCategory.title}`}
+              relatedProducts={filteredSubCategory?.products || []}
+            />
+          ) : (
+            <RoomProducts
+              title={`${filteredSubCategory.title}`}
+              description={`${filteredSubCategory.description}`}
+              category={`${filteredSubCategory.category.title}`}
+              relatedProducts={filteredSubCategory?.products || []}
+            />
+          )}
         </>
       ) : (
         <ProductDetailPage title={`${filteredProduct?.title}`} />
       )}
-           
-
     </>
   );
 };

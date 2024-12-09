@@ -24,44 +24,45 @@ import {
   staticCommercialMegaMenuItems,
 } from 'data/data';
 import VideoBanner from 'components/video-banner/video-banner';
+import { ChangedProductUrl } from 'data/urls';
 
 const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
+  const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
 
-  const {
-    data: products,
-    error,
-    isLoading,
-  } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
+  const { data: products,error,isLoading,} = useQuery<IProduct[]>({queryKey: ['products'],queryFn: fetchProducts,});
+
+  const {data: categories,error: categoryError,isLoading: categoryLoading,} = useQuery<ICategory[]>({queryKey: ['categories'],queryFn: fetchCategories});
+
+  const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
+    queryKey: ['sub-categories'],
+    queryFn: fetchSubCategories,
   });
 
-  const {
-    data: categories,
-    error: categoryError,
-    isLoading: categoryLoading,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
-
+  
   useEffect(() => {
-    if (products) {
-      const matchingProductNames = commercialPagesItems.map((item) =>
-        generateSlug(item.productName),
-      );
+    if (products && subCategories) {
 
-      const filtered = products.filter((product) =>
-        matchingProductNames.includes(generateSlug(product.title)),
-      );
+      const matchingSubCategoryTitles = subCategories.filter((subCategory) => commercialPagesItems.some((prod:string)=>prod ===generateSlug(subCategory.title)));
 
+      const filtered = products.filter((product) => commercialPagesItems.some((prod:string)=>prod ===generateSlug(product.title)));
+
+        console.log(matchingSubCategoryTitles, "filtered")
+      
       setFilteredProducts(filtered);
+      let arry = [...filtered, ...matchingSubCategoryTitles]
+      console.log(arry, "filtered")
+      setmixProdCategeries(arry);
     }
-  }, [products]);
+  }, [products, subCategories]);
+  
   if (isLoading || categoryLoading) {
     return <div></div>;
   }
+console.log(generateSlug("Sunscreen/Transparent"), "filtered")
+
+  
+
   return (
     <div>
       {/* title="" image={bgBreadcrum} /> */}
@@ -117,7 +118,7 @@ const CommercialPage = () => {
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <ProductCard products={filteredProducts || []} />
+        <ProductCard products={mixProdCategeries || []} />
       </Container>
       <BookNowBanner />
       <Container className="text-center py-10">
@@ -149,14 +150,14 @@ const CommercialPage = () => {
               );
             })}
         </div>
-        <div className="h-fit mt-10 md:mt-20 text-center">
+        {/* <div className="h-fit mt-10 md:mt-20 text-center">
           <Link
             href="/products"
             className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
           >
             View More
           </Link>
-        </div>
+        </div> */}
       </Container>
       <Container >
         <RelatedProducts products={filteredProducts || []} limit={4} />

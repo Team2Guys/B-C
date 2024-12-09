@@ -2,8 +2,9 @@
 const nextConfig = {
     images: {
         domains: ['furniturezone.pk', 'example.com', 'res.cloudinary.com', "unsplash.com"],
-        unoptimized: true,    
+        unoptimized: true,
     },
+
 };
 
 export default nextConfig;
