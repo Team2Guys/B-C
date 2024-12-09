@@ -13,6 +13,7 @@ const Info = (selectedPage: IInfo) => {
   if (!selectedPage.selectedPage) {
     return <PageSkelton header={true} />;
   }
+  console.log(selectedPage.selectedPage,"selectedPage")
   return (
     <Container className="mt-10 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2">
@@ -45,10 +46,10 @@ const Info = (selectedPage: IInfo) => {
         </div>
         <div className="flex justify-center md:justify-end mt-5 md:mt-0">
           <Image
-            className="w-auto h-auto"
+            className="w-auto h-auto rounded-xl"
             width={602}
             height={400}
-            src={productimf}
+            src={ selectedPage.selectedPage.posterImage ? selectedPage.selectedPage.posterImage : productimf}
             alt="product"
           />
         </div>
