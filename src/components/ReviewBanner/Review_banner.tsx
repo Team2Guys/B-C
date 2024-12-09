@@ -35,7 +35,7 @@ function SamplePrevArrow(props:any) {
 }
 
 export default function Review_banner() {
-  const settings = {
+  const settings:any = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -78,7 +78,7 @@ export default function Review_banner() {
                   height={140}
                 />
 
-
+  
 
                 <div className="bg-white w-fit mx-auto px-7 py-1 mt-4 rounded-b-xl shadow-lg -mb-2 ">
                   <Image
