@@ -113,7 +113,7 @@ export const heroSlider = [
   {
     id: 2,
     name: 'g1.png',
-    imageUrl: '/assets/images/Hero/g1.png',
+    imageUrl: '/assets/images/Hero/g3.png',
     heading: 'Made To Measure Window  ',
     subheading: 'Curtains In Dubai',
     content:
