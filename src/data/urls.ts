@@ -34,51 +34,16 @@ export const urls = [
     Url: 'curtain-prints-for-kids',
   },
   {
-    productName: 'Transculent Blinds',
-    Url: 'translucent-blinds',
-  },
-  {
     productName: 'Double Pinch Pleat Curtains',
     Url: 'double-pleat-curtains',
   },
-  {
-    productName: 'Velvet Curtains',
-    Url: 'velvet-curtains',
-  },
+ 
   {
     productName: 'Office Curtains',
     Url: 'office-window-curtains',
     errorUrl: 'office-curtains',
   },
-  {
-    productName: 'Staircase Shutters',
-    Url: 'staircase-shutters',
-  },
-  {
-    productName: 'White Shutters',
-    Url: 'white-shutters',
-  },
-  {
-    productName: 'Off White Shutters',
-    Url: 'off-white-shutters',
-  },
 
-  {
-    productName: 'Black Shutters',
-    Url: 'black-shutters',
-  },
-  {
-    productName: 'Dark Woods Shutters',
-    Url: 'dark-wood-shutters',
-  },
-  {
-    productName: 'Bold Colours Shutters',
-    Url: 'bold-colours-shutters',
-  },
-  {
-    productName: 'Grey Shutters',
-    Url: 'grey-shutters',
-  },
   {
     productName: 'Bedroom Curtains',
     Url: 'made-to-measure-bed-room-curtains',
@@ -122,7 +87,7 @@ export const urls = [
   {
     productName: 'Tier On Tier Shutters',
     Url: 'tier-on-tier-shutters-wooden-shutters',
-    errorUrl: '/shutters-range/tier-on-tier-shutters',
+    // errorUrl: '/shutters-range/tier-on-tier-shutters',
   },
   // {
   //   productName: 'Solid Panel Shutters',
@@ -153,6 +118,11 @@ export const urls = [
     productName: 'hotels-restaurants',
     Url: 'hotels-restaurants-blinds-curtains',
     errorUrl: '/hotels-restaurants',
+  },
+  {
+    productName: 'blackout-roller-blinds',
+    Url: '/roller-blinds/blackout-roller-blinds',
+    errorUrl: '/blinds/blackout-roller-blinds',
   },
 ];
 
@@ -198,5 +168,5 @@ export const CommercialUrl=[
   {urlName:"gym", Redirect:"/curtains/gym-curtains"},
   {urlName:"theatre", Redirect:"/curtains/stage-and-theatre-curtains"},
   {urlName:"wooden-aluminium-blinds", Redirect:"/blinds/wooden-venetian"},
+  {urlName:"tier-on-tier-shutters", Redirect:"/shutters-range/tier-on-tier-shutters-wooden-shutters"},
 ]
-
