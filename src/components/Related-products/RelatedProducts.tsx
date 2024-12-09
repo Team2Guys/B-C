@@ -28,8 +28,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
         <div className="w-full border-t-[1px] border-[#BDC9BD] mt-2"></div>
       </div>
       <p className="font-normal text-12 md:text-18 mt-2 lg:mt-4">
-        Lectus pulvinar tincidunt accumsan ullamcorper dolor acsed facilisis
-        molestie aliquam.
+      Explore our collection, each piece a showcase of exceptional window blinds design.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:mt-20 mt-4 lg:mb-10">
         {displayedProducts.map((item) => {
