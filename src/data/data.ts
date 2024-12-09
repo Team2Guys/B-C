@@ -113,7 +113,7 @@ export const heroSlider = [
   {
     id: 2,
     name: 'g1.png',
-    imageUrl: '/assets/images/Hero/g1.png',
+    imageUrl: '/assets/images/Hero/g3.png',
     heading: 'Made To Measure Window  ',
     subheading: 'Curtains In Dubai',
     content:
@@ -163,12 +163,15 @@ export const EmailInfo: Email = {
 export const OurClientImage = [
   { src: '/assets/images/ourclient/client1.png', alt: 'Floors-Walls-Dubai 1' },
   { src: '/assets/images/ourclient/client2.png', alt: 'Logomain' },
-  {src: '/assets/images/ourclient/client3.png', alt: 'Two-Guys-Logo'},
+  { src: '/assets/images/ourclient/client3.png', alt: 'Two-Guys-Logo' },
   { src: '/assets/images/ourclient/client4.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client5.png', alt: 'Two-Guys-Logo'},
+  { src: '/assets/images/ourclient/client5.png', alt: 'Two-Guys-Logo' },
   { src: '/assets/images/ourclient/client6.png', alt: 'Floors-Walls-Dubai 1' },
   { src: '/assets/images/ourclient/client7.png', alt: 'Logomain' },
-  { src: '/assets/images/ourclient/client8.png', alt: 'Plantation-Shutters-Dubai 1',},
+  {
+    src: '/assets/images/ourclient/client8.png',
+    alt: 'Plantation-Shutters-Dubai 1',
+  },
 ];
 export const BlogTitles = [
   { id: 1, title: 'Understanding React Basics' },
@@ -1230,11 +1233,10 @@ export const shutterMegaMenuItems = [
 
 export const commercialMegaMenuItems = [
   { productName: 'hospitals' },
-  { productName: 'restaurants' },
   { productName: 'auditoriums' },
-  { productName: 'hotels' },
+  { productName: 'hotels-restaurants' },
   { productName: 'schools' },
-  { productName: 'offices' },
+  // { productName: 'offices' },
   { productName: 'gym' },
   { productName: 'theatre' },
 
@@ -1278,17 +1280,19 @@ export const staticCommercialMegaMenuItems: IProduct[] = [
 ];
 
 export const commercialPagesItems = [
-  { productName: 'school-blinds' },
-
-  { productName: 'hotels-restaurants-blinds-curtains' },
-  { productName: 'blackout-blinds' },
-  { productName: 'printed-blinds' },
-  { productName: 'vertical-blinds' },
-  { productName: 'panel-blinds' },
-  { productName: 'special-shape-shutters' },
-  { productName: 'tier-on-tier-shutters' },
-  { productName: 'motorised-blinds' },
+  'hotels-restaurants',
+  'printed-blinds',
+  'school-blinds',
+  "sunscreentransparent",
+  'vertical-blinds',
+  'aluminium-blinds',
+  'wooden-blinds',
+  'blackout-roller-blinds',
+  'motorised-blinds',
+  'panel-blinds',
+  'roman-blinds',
 ];
+
 
 export const items = [
   {
@@ -1493,11 +1497,10 @@ export const megaMenubyStyle = [
   { productName: 'triple-pinch-pleat-curtains' },
 
   { productName: 'hospitals' },
-  { productName: 'restaurants' },
   { productName: 'auditoriums' },
-  { productName: 'hotels' },
+  { productName: 'hotels-restaurants' },
   { productName: 'schools' },
-  { productName: 'offices' },
+  // { productName: 'offices' },
   { productName: 'gym' },
   { productName: 'theatre' },
 ];
@@ -1523,7 +1526,7 @@ export const megaMenubyRoom = [
   { productName: 'conservatory-blinds' },
   { productName: 'staircase-blinds' },
   { productName: 'bedroom-blinds' },
-    { productName: 'offices-blinds' },
+  { productName: 'offices-blinds' },
   // { productName: 'school-blinds' },
   { productName: 'study-room-Blinds' },
   { productName: 'dining-room-blinds' },
@@ -1628,7 +1631,7 @@ export const extendedByRoom = [
   { productName: 'staircase-blinds' },
   { productName: 'door-blinds' },
   { productName: 'bedroom-blinds' },
-    { productName: 'offices-blinds' },
+  { productName: 'offices-blinds' },
   { productName: 'bathroom-blinds' },
 
   { productName: 'bedroom-curtains' },
@@ -1748,7 +1751,7 @@ export const categoriesContent = [
         'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenge.',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
-      posterImage:"/assets/images/Blinds/landing/landing.webp",
+      posterImage: '/assets/images/Blinds/landing/landing.webp',
       subheadingContent: [
         {
           content:
@@ -1773,7 +1776,7 @@ export const categoriesContent = [
         'Our made-to-measure curtains are the perfect solution to give your home a fresh new look. With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor. Whether you’re looking for blackout curtains to keep the light out or sheer curtains to let the light in, we have the perfect solution for you. Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time. With our expert advice and guidance, you can create a stunning look that will transform your home.',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
-      posterImage:"/assets/images/Curtain/landing/landing.webp",
+      posterImage: '/assets/images/Curtain/landing/landing.webp',
       subheadingContent: [
         {
           content:
@@ -1802,7 +1805,7 @@ export const categoriesContent = [
         'Our made-to-measure curtains are the perfect solution to give your home a fresh new look. With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor. Whether you’re looking for blackout curtains to keep the light out or sheer curtains to let the light in, we have the perfect solution for you. Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time. With our expert advice and guidance, you can create a stunning look that will transform your home.',
       subheading1: 'Custom Window Blinds ',
       subheading2: '35 Styles + 2000 Different Materials',
-      posterImage:"/assets/images/Shutters/landing/landing.webp",
+      posterImage: '/assets/images/Shutters/landing/landing.webp',
 
       subheadingContent: [
         {
@@ -1973,17 +1976,14 @@ export const motorisedPageData1 = {
   infoTitle: 'MOTORISED CURTAINS',
   infoSubtitle: 'Convert your windows into Smart Windows ',
   infoDescription:
-    "Our passion for excellence makes us more than just a window covering company. There are so many reasons to go electric. Everything else in your life is automated, why not your blinds?  Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with motorised curtains. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly, continuously for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts."
-,
+    "Our passion for excellence makes us more than just a window covering company. There are so many reasons to go electric. Everything else in your life is automated, why not your blinds?  Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with motorised curtains. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly, continuously for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts.",
   infoImage: moto1,
   measureTitle: 'Made to Measure Motorised Curtains',
-  measureDescription:
-    `Just say the word, and let your motorisation system do the rest. It's now easier to control them with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
+  measureDescription: `Just say the word, and let your motorisation system do the rest. It's now easier to control them with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
   chooseustitle: 'Why Choose Us For Your Motorisation?',
   chooseustitle1: 'Control your windows anytime, anywhere!',
   measureTitle1: 'Set Your Own Schedule or Control Remotely',
-  measureDescription1:
-    `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use your system so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants.`,
+  measureDescription1: `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use your system so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants.`,
   chooseUsItems1: [
     {
       image: img1,
@@ -2010,7 +2010,7 @@ export const motorisedPageData1 = {
       text: 'Save money and protect your home from UV rays.',
     },
     {
-      text:`It's perfect for people with mobility or accessibility issues.` ,
+      text: `It's perfect for people with mobility or accessibility issues.`,
     },
     {
       text: 'You can set it up to block out the sun at specific times.',
@@ -2019,13 +2019,10 @@ export const motorisedPageData1 = {
       text: 'Adjust the amount of light entering your home to create the perfect ambiance.',
     },
   ],
-  additionalDescription:
-    `There's no hard sell just relaxed and pressure-free consultation`,
+  additionalDescription: `There's no hard sell just relaxed and pressure-free consultation`,
   additionalImage: moto2,
-  additionalDescription2:
-    `At Blinds and Curtains Dubai, choosing window coverings should be fun and enjoyable instead of stressful. So we designed our consultations to be relaxed and informative. Our team is here to guide you, not to push you. We take the time to fully understand your needs and provide solutions that genuinely work for your space, whether you're looking for fabrics, motorised options, or light control advice.`,
-  additionalDescription3:
-    `Every home is different, and every customer has a different taste. That's why we listen to you and offer honest, helpful advice during our consultations. There's no hustle, no pressure, and definitely no hard sell.`,
+  additionalDescription2: `At Blinds and Curtains Dubai, choosing window coverings should be fun and enjoyable instead of stressful. So we designed our consultations to be relaxed and informative. Our team is here to guide you, not to push you. We take the time to fully understand your needs and provide solutions that genuinely work for your space, whether you're looking for fabrics, motorised options, or light control advice.`,
+  additionalDescription3: `Every home is different, and every customer has a different taste. That's why we listen to you and offer honest, helpful advice during our consultations. There's no hustle, no pressure, and definitely no hard sell.`,
 };
 
 export const Cateories = [9, 2, 5, 12];
@@ -2323,17 +2320,19 @@ export const ByRoomCommercialProduct = [
 export const BooKNowbannerContent = [
   {
     url: '/blinds/roller-blinds',
-    content: 'Ready to get started? Call our sales team at (04) 252 2025 for a free quote or fill out the online form, and we&apos;ll be in touch'
+    content:
+      'Ready to get started? Call our sales team at (04) 252 2025 for a free quote or fill out the online form, and we&apos;ll be in touch',
   },
   {
     url: '/blinds/panel-blinds',
-    content: 'Need expert advice? We can make <a href="/made-to-measure-blinds" target="_blank" target="_blank" style="text-decoration: underline">custom window blinds</a> for you. Feel free to give us a call at (04) 252 2025, or fill out our online contact form, and we&apos;ll walk you through everything.'
-  }
-]
+    content:
+      'Need expert advice? We can make <a href="/made-to-measure-blinds" target="_blank" target="_blank" style="text-decoration: underline">custom window blinds</a> for you. Feel free to give us a call at (04) 252 2025, or fill out our online contact form, and we&apos;ll walk you through everything.',
+  },
+];
 
 export const subCategoryName = [
-    {
-      name: 'Living Room Blinds',
-      alterName: 'Made To Measure Blinds For Living Room'
-    }
-]
+  {
+    name: 'Living Room Blinds',
+    alterName: 'Made To Measure Blinds For Living Room',
+  },
+];

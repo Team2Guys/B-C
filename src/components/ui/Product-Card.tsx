@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { urls } from 'data/urls';
+import { ChangedProductUrl_handler, CommercialUrl, predefinedPaths, urls } from 'data/urls';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { ICategory, IProduct } from 'types/types';
@@ -34,26 +35,39 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
   };
 
 
-  const ChangedProductUrl = (title: string): string => {
-    console.log(title, 'title')
-
-    let products = urls.find((url: { productName: string, Url: string }) => {
-      return (url.productName === title)
-    })
-
-    return products ? products.Url : generateSlug(title)
+  console.log(products,"filtered" )
 
 
-  }
+  const getPath =  (product: IProduct, parent: string)=> {
+    const slug = ChangedProductUrl_handler(product.title);
+    const basePath =
+      product.href && parent
+        ? `${window.origin}/${product.href}`
+        : `/${slug}`;
+
+    const path =
+      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+      (slug === 'hotels-restaurants-blinds-curtains'
+        ? basePath
+        : `/${
+            parent?.toLowerCase() === 'shutters'
+              ? `${parent.toLowerCase()}-range`
+              : parent?.toLowerCase()
+          }${
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
+              ? '/roller-blinds'
+              : ''
+          }/${slug}`);
+    return path;
+  };
+
   return (
     <div
       className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${isSizeSmall && 'lg:grid-cols-4'} gap-5 p-1 md:p-0 mt-5`}
     >
       {products &&
         products.map((product: IProduct) => {
-          const category = categories?.find(
-            (cat) => cat.id === product.CategoryId,
-          );
+          const category = categories?.find((cat) => cat.id === product.CategoryId);
           if (!category) return null;
 
           const trimmedProductTitle = getTrimmedTitle(product.title);
@@ -76,21 +90,12 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
                 <p className="text-15 font-light md:w-[80%] mx-auto auto max-h-16 overflow-y-auto custom-scrollbar" dangerouslySetInnerHTML={{ __html : product.short_description || product.description }}></p>
               </div>
               <div className="pt-5">
-                <button
-                  onClick={(event) => {
-                    const slug = ChangedProductUrl(product.title);
-                    const path = `/${parent === 'shutters' ? `${parent}-range` : parent}/${slug}`;
-                  
-                    if (event.ctrlKey || event.metaKey) {
-                      window.open(path, '_blank');
-                    } else {
-                      route.push(path);
-                    }
-                  }}
+                <Link
+                  href={getPath(product, parent)}
                   className="bg-transparent border border-white group-hover:bg-primary group-hover:border-primary text-black group-hover:text-white py-3 px-5 rounded-md"
                 >
                   View {category.title}
-                </button>
+                </Link>
               </div>
             </div>
           );
