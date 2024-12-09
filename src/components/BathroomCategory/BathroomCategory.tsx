@@ -43,20 +43,12 @@ const BathroomCategory = ({
                 ? parent?.toLowerCase()
                 : categoryTitle?.toLocaleLowerCase()
           }${
-            ['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds','blackout-roller-blinds'].includes(slug)
               ? '/roller-blinds'
               : ''
           }/${slug}`);
     return path;
   };
-  useEffect(() => {
-    if (pathname.includes('commercial')) {
-      console.log('pathname', pathname + 'chal oy');
-    } else {
-      console.log('pathname', pathname + 'commercial nahi hai');
-    }
-    console.log(categoryTitle + 'categoryTitle');
-  }, [pathname]);
 
   let prod_finder_handler = (arr: IProduct) => {
     let product;
