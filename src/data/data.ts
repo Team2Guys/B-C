@@ -1230,9 +1230,8 @@ export const shutterMegaMenuItems = [
 
 export const commercialMegaMenuItems = [
   { productName: 'hospitals' },
-  { productName: 'restaurants' },
   { productName: 'auditoriums' },
-  { productName: 'hotels' },
+  { productName: 'hotels-restaurants' },
   { productName: 'schools' },
   { productName: 'offices' },
   { productName: 'gym' },
@@ -1278,16 +1277,17 @@ export const staticCommercialMegaMenuItems: IProduct[] = [
 ];
 
 export const commercialPagesItems = [
-  { productName: 'school-blinds' },
-
-  { productName: 'hotels-restaurants-blinds-curtains' },
-  { productName: 'blackout-blinds' },
+  { productName: 'hotels-restaurants' },
   { productName: 'printed-blinds' },
+  { productName: 'school-blinds'},
+  { productName: 'sunscreen-roller-blinds'},
   { productName: 'vertical-blinds' },
-  { productName: 'panel-blinds' },
-  { productName: 'special-shape-shutters' },
-  { productName: 'tier-on-tier-shutters' },
+  { productName: 'aluminium-blinds' },
+  { productName: 'wooden-blinds' },
+  { productName: 'blackout-blinds' },
   { productName: 'motorised-blinds' },
+  { productName: 'panel-blinds' },
+  { productName: 'roman-blinds' },
 ];
 
 export const items = [
@@ -1493,9 +1493,8 @@ export const megaMenubyStyle = [
   { productName: 'triple-pinch-pleat-curtains' },
 
   { productName: 'hospitals' },
-  { productName: 'restaurants' },
   { productName: 'auditoriums' },
-  { productName: 'hotels' },
+  { productName: 'hotels-restaurants' },
   { productName: 'schools' },
   { productName: 'offices' },
   { productName: 'gym' },
