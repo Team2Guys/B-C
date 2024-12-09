@@ -24,6 +24,7 @@ import {
   staticCommercialMegaMenuItems,
 } from 'data/data';
 import VideoBanner from 'components/video-banner/video-banner';
+import { ChangedProductUrl } from 'data/urls';
 
 const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
@@ -45,23 +46,37 @@ const CommercialPage = () => {
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
+  const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
+    queryKey: ['sub-categories'],
+    queryFn: fetchSubCategories,
+  });
 
+  
   useEffect(() => {
-    if (products) {
+    if (products && subCategories) {
       const matchingProductNames = commercialPagesItems.map((item) =>
-        generateSlug(item.productName),
+        generateSlug(ChangedProductUrl(item.productName)),
       );
-
-      const filtered = products.filter((product) =>
-        matchingProductNames.includes(generateSlug(product.title)),
+  
+      const matchingSubCategoryTitles = subCategories.map((subCategory) =>
+        generateSlug(ChangedProductUrl(subCategory.title)),
       );
-
+  
+      const filtered = products.filter((product) => {
+        const productSlug = generateSlug(ChangedProductUrl(product.title));
+        return (
+          matchingProductNames.includes(productSlug) ||
+          matchingSubCategoryTitles.includes(productSlug)
+        );
+      });
       setFilteredProducts(filtered);
     }
-  }, [products]);
+  }, [products, subCategories]);
+  
   if (isLoading || categoryLoading) {
     return <div></div>;
   }
+
   return (
     <div>
       {/* title="" image={bgBreadcrum} /> */}
@@ -130,7 +145,7 @@ const CommercialPage = () => {
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:px-0">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6 md:px-0">
           {filteredProducts &&
             filteredProducts.map((product: IProduct) => {
               const category = categories?.find(
@@ -149,14 +164,14 @@ const CommercialPage = () => {
               );
             })}
         </div>
-        <div className="h-fit mt-10 md:mt-20 text-center">
+        {/* <div className="h-fit mt-10 md:mt-20 text-center">
           <Link
             href="/products"
             className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
           >
             View More
           </Link>
-        </div>
+        </div> */}
       </Container>
       <Container >
         <RelatedProducts products={filteredProducts || []} limit={4} />

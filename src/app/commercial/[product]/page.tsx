@@ -7,12 +7,13 @@ import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { ChangedProductUrl } from 'data/urls';
-import { useParams } from 'next/navigation';
+import { ChangedProductUrl, CommercialUrl } from 'data/urls';
+import { useParams, useRouter } from 'next/navigation';
 import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const { product } = useParams();
+const router =   useRouter();
 
   const Cateories = [12];
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
@@ -34,6 +35,15 @@ const CommercialPage = () => {
   const relatedProducts = products?.filter(
     (prod) => prod.SubCategoryId === filteredSubCategory?.id,
   );
+
+console.log(product, "product")
+  const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
+return( prod.urlName == String(product)?.toLowerCase())
+  })
+
+  if(redirected_product){
+    router.push(redirected_product.Redirect);
+  }
 
   const filteredProduct = products?.find(
     (prod) =>

@@ -16,7 +16,7 @@ const ThumbImage:React.FC<GalleryProps>= ({card}) => {
             <div className="!rounded-lg  transition-shadow duration-300 group" key={index}>
             <Image
               src={array.imageUrl}
-              alt={"image"}
+              alt={array.altText || "Image"}
               className=" rounded-xl"
               preview={{
                 mask: (
