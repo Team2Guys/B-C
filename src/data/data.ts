@@ -1851,7 +1851,7 @@ export const categorydata = [
         subtitle:"Find blinds crafted to enhance the look and feel of each specific space in your home.",
       },
       {
-        type: "By Function",
+        type: "dynamic",
         title: "Practical Elegance",
         subtitle:"Explore our blinds sorted by their practical features, ensuring you get both style and functionality.",
       },
@@ -1877,7 +1877,7 @@ export const categorydata = [
             subtitle:"Find Curtain crafted to enhance the look and feel of each specific space in your home.",
           },
           {
-            type: "By Function",
+            type: "dynamic",
             title: "Curtain for Every Room",
             subtitle:"Find Curtain crafted to enhance the look and feel of each specific space in your home.",
           },
@@ -1903,7 +1903,7 @@ export const categorydata = [
               subtitle:"Find shutters crafted to enhance the look and feel of each specific space in your home.",
             },
             {
-              type: "By Function",
+              type: "dynamic",
               title: "shutters for Every Room",
               subtitle:"Find shutters crafted to enhance the look and feel of each specific space in your home.",
             },
