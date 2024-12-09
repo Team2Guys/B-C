@@ -17,8 +17,8 @@ import { useEffect, useState } from 'react';
 import { Button } from 'components/ui/button';
 import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
-import { ProductDiscription } from 'data/content';
 import { generateSlug, items } from 'data/data';
+import { RollerBlindsPage } from 'data/Images';
 
 interface ICategoryPage {
   title: string;
@@ -31,7 +31,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     title: 'All',
     short_description:
       'Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose <a href="/blinds/motorised-blinds" style="text-decoration: underline">Motorised Blinds</a> options for added convenience or finish your blinds with a sleek cassette box.',
-  })
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const [category, setCategory] = useState<ICategory | undefined>();
   category;
@@ -97,65 +97,79 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
       );
     }
   };
-  const handleFilterDiscription = (product: IProduct) => {
-    const filterDiscription = ProductDiscription.find(
-      (disc) => disc.id === product.id,
-    );
-    console.log(filterDiscription,"filterDiscription")
-    if (filterDiscription) {
-      return filterDiscription?.CategoryPageDiscription;
-    } else {
-      return product.description;
+  let prod_finder_handler = (arr: IProduct) => {
+    let product;
+    for (let category of RollerBlindsPage) {
+      if (
+        category.Category_id === arr.CategoryId &&
+        category.sub_Category === 'Roller Blinds'
+      ) {
+        product = category.Product.find(
+          (value) => value.product_name === arr.title,
+        );
+        break;
+      }
     }
+
+    return product;
   };
+
   return (
     <div>
       <TopHero title={title} pagename={pathname} image={bgBreadcrum} />
       <Container className="pt-10 pb-14 flex flex-col gap-10 items-center">
-        {filteredProducts?.map((product, index) => (
-          <div
-            key={index}
-            className={`flex flex-col gap-4 justify-between mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
-          >
-            <div className="w-full md:w-1/2">
-              <Image
-                className="w-full h-full md:h-[600px]"
-                src={product.posterImage.imageUrl}
-                height={500}
-                width={500}
-                alt={product.title}
-              />
-            </div>
-            <div className="w-full md:w-1/2 flex flex-col gap-4">
-              <div>
-                <h3 className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
-                  <div className="tracking-[.6rem] mb-2">
-                    Roller Blinds in Dubai, UAE{' '}
-                  </div>
+        {filteredProducts?.map((product, index) => {
+          let product_Images = prod_finder_handler(product);
 
-                  <span className="font-light tracking-[.2rem] ">
-                    {product.title}
-                  </span>
-                </h3>
-                <p className="text-16 xs:text-18 leading-8 mt-4 text-lightdark" dangerouslySetInnerHTML={{__html : product.description && product.description}}>
-                  {/* {handleFilterDiscription(product)} */}
-                </p>
+          return (
+            <div
+              key={index}
+              className={`flex flex-col gap-4 justify-between mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
+            >
+              <div className="w-full md:w-1/2">
+                {product_Images && (
+                  <Image
+                    className="w-full h-full md:h-[600px]"
+                    src={product_Images.Imagesurl}
+                    height={500}
+                    width={500}
+                    alt={product.title}
+                  />
+                )}
               </div>
+              <div className="w-full md:w-1/2 flex flex-col gap-4">
+                <div>
+                  <h3 className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
+                    <div className="tracking-[.6rem] mb-2">
+                      Roller Blinds in Dubai, UAE{' '}
+                    </div>
+                    <span className="font-light tracking-[.2rem] ">
+                      {product.title}
+                    </span>
+                  </h3>
+                  <p
+                    className="text-16 xs:text-18 leading-8 mt-4 text-lightdark"
+                    dangerouslySetInnerHTML={{
+                      __html: product.description && product.description,
+                    }}
+                  ></p>
+                </div>
 
-              <div className="mt-10">
-                <Link
-                  href={`/request-appointment`}
-                  className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
-                >
-                  Book An Appointment Now
-                </Link>
+                <div className="mt-10">
+                  <Link
+                    href={`/request-appointment`}
+                    className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
+                  >
+                    Book An Appointment Now
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </Container>
 
-      <Container className="text-center py-6">
+      {/* <Container className="text-center py-6">
         <div className="flex justify-center space-x-4 whitespace-nowrap overflow-auto">
           <Button
             variant={'feature'}
@@ -189,9 +203,12 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         <h2 className="text-2xl xs:text-3xl sm:text-4xl">
           {activeFilter.title.toUpperCase()}
         </h2>
-        <p className="mt-3 text-15 leading-7 w-full md:w-3/4 mx-auto" dangerouslySetInnerHTML={{__html: activeFilter?.short_description}}></p>
+        <p
+          className="mt-3 text-15 leading-7 w-full md:w-3/4 mx-auto"
+          dangerouslySetInnerHTML={{ __html: activeFilter?.short_description }}
+        ></p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {filteredProducts &&
+          {filteredProducts &&
             filteredProducts.map((product: IProduct) => {
               const category = categories?.find(
                 (cat) => cat.id === product.CategoryId,
@@ -209,7 +226,9 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               );
             })}
         </div>
-      </Container>
+      </Container> */}
+
+
       <BookNowBanner />
       <Container className="py-10">
         <RelatedProducts products={filteredProducts || []} limit={4} />

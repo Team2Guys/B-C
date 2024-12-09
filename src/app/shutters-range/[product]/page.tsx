@@ -9,8 +9,8 @@ import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { Cateories, colorData, generateSlug } from 'data/data';
-import { ChangedProductUrl, urls } from 'data/urls';
-import { useParams, usePathname } from 'next/navigation';
+import { ChangedProductUrl, CommercialUrl, urls } from 'data/urls';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { IColorData } from 'types/interfaces';
 import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
@@ -21,6 +21,7 @@ const CommercialPage = () => {
   const { product } = useParams();
   const pathname = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
+  const router =   useRouter();
 
   useEffect(() => {
     setColorPage(undefined);
@@ -53,11 +54,19 @@ const CommercialPage = () => {
       Cateories.some((item: number) => item == sub.CategoryId),
   );
 
+  const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
+    return( prod.urlName == String(product)?.toLowerCase())
+      })
+  if(redirected_product){
+    router.push(redirected_product.Redirect);
+  }
+
   const filteredProduct = products?.find(
     (prod) =>
       generateSlug(prod.title) ===
       generateSlug(ChangedProductUrl(product as string)),
   );
+  
   useEffect(() => {
     if (pathname) {
       const matchingUrl = urls.find((url) => url.errorUrl === pathname);

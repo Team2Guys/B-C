@@ -34,17 +34,10 @@ export const urls = [
     Url: 'curtain-prints-for-kids',
   },
   {
-    productName: 'Transculent Blinds',
-    Url: 'translucent-blinds',
-  },
-  {
     productName: 'Double Pinch Pleat Curtains',
     Url: 'double-pleat-curtains',
   },
-  {
-    productName: 'Velvet Curtains',
-    Url: 'velvet-curtains',
-  },
+ 
   {
     productName: 'Office Curtains',
     Url: 'office-window-curtains',
@@ -119,11 +112,6 @@ export const urls = [
     Url: 'made-to-measure-sheer-curtains',
     errorUrl: '/curtains/sheer-curtains',
   },
-  {
-    productName: 'Tier On Tier Shutters',
-    Url: 'tier-on-tier-shutters-wooden-shutters',
-    errorUrl: '/shutters-range/tier-on-tier-shutters',
-  },
   // {
   //   productName: 'Solid Panel Shutters',
   //   Url: 'solid-panel-shutters-plantation-shutters-dubai',
@@ -153,6 +141,11 @@ export const urls = [
     productName: 'hotels-restaurants',
     Url: 'hotels-restaurants-blinds-curtains',
     errorUrl: '/hotels-restaurants',
+  },
+  {
+    productName: 'blackout-roller-blinds',
+    Url: '/roller-blinds/blackout-roller-blinds',
+    errorUrl: '/blinds/blackout-roller-blinds',
   },
 ];
 
@@ -199,4 +192,49 @@ export const CommercialUrl=[
   {urlName:"theatre", Redirect:"/curtains/stage-and-theatre-curtains"},
   {urlName:"wooden-aluminium-blinds", Redirect:"/blinds/wooden-venetian"},
 ]
+
+export const getProduct = [
+  'Roller Blinds',
+  'Roman Blinds',
+  'Wooden Blinds',
+  'Day/Night Blinds',
+  'Vertical Blinds',
+  'Blackout Blinds',
+  'Motorised blinds',
+  'Aluminium Blinds',
+  'Sheer Horizon Blinds',
+  'Sunscreen/Transparent',
+  'Dimout Blinds',
+  'Bedroom Blinds',
+  'Kitchen Blinds',
+  'Living Room Blinds',
+  'Motorised curtains',
+  'Blackout Curtains',
+  'Ripplefold/Wave Curtains',
+  'Pinch Pleat Curtains',
+  'Linen Curtains',
+  'Eyelet Curtains',
+  'Sheer Curtains',
+  'Bedroom Curtains',
+  'Living Room Curtains',
+  'Textured Curtains',
+  'Theatre Curtains',
+  'Kids Prints Curtains',
+  'Geometric Curtains',
+  'Tab Top Curtains',
+  'Full Height Shutters',
+  'Bay Window Shutters',
+  'Tracked Window Shutters',
+  'Special Shape Shutters',
+  'Tier On Tier Shutters',
+  'Solid Panel Shutters',
+  'Cafe Style Shutters',
+  'Living Room Shutters',
+  'Kitchen Shutters',
+  'Bedroom Shutters',
+  'Bathroom Shutters',
+  'Bi Fold Shutters',
+  'Outdoor Shutters',
+  'Staircase Shutters'
+];
 
