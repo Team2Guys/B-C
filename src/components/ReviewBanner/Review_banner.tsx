@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
-import Slider from 'react-slick';
+import Slider, { SliderSettings } from 'react-slick';
+
 import { FcGoogle } from 'react-icons/fc';
 import { TRSlide } from 'types/interfaces';
 import { PiQuotesFill } from 'react-icons/pi';
@@ -15,43 +16,52 @@ function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={"block absolute -right-7 xs:-right-3 bottom-3 font-semibold text-white cursor-pointer"}
-      onClick={onClick}>
-      <GoArrowRight size={30}  />
+      className={
+        'block absolute -right-7 xs:-right-3 bottom-3 font-semibold text-white cursor-pointer'
+      }
+      onClick={onClick}
+    >
+      <GoArrowRight size={30} />
     </div>
   );
 }
 
-function SamplePrevArrow(props:any) {
+function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-     <div
-      className={"block absolute -left-7 xs:-left-3 bottom-3 font-semibold text-white z-10 cursor-pointer"}
-      onClick={onClick}>
+    <div
+      className={
+        'block absolute -left-7 xs:-left-3 bottom-3 font-semibold text-white z-10 cursor-pointer'
+      }
+      onClick={onClick}
+    >
       <GoArrowLeft size={30} />
     </div>
- 
   );
 }
 
 export default function Review_banner() {
-  const settings = {
+  const settings:SliderSettings = {
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    // refs: ""
   };
 
   return (
     <>
+    
       <Container className=" px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md">
           <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
             <div className="lg:text-4xl text-2xl font-bold text-center">
-              <h3>Trusted Partner<br/> in Every Detail
+              <h3>
+                Trusted Partner
+                <br /> in Every Detail
               </h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10 lg:mb-0 mb-20">
@@ -61,7 +71,8 @@ export default function Review_banner() {
                     <FcGoogle className="lg:text-3xl text-14" />
                   </span>
                   {/* <span className="font-bold">4.8 |</span> */}
-                  <p className="lg:text-base text-12">With Over 750 5-Star Reviews
+                  <p className="lg:text-base text-12">
+                    With Over 750 5-Star Reviews
                   </p>
                 </div>
               </Link>
@@ -75,15 +86,14 @@ export default function Review_banner() {
                   width={140}
                   height={140}
                 />
+
                 <Slider {...settings}>
                   {slides.map((slide, index: any) => (
                     <div
                       key={index}
                       className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
                     >
-                      {/* <div className=' bg-white w-fit rotate-180 text-8xl absolute -top-10 left-2/4 z-10 -translate-x-2/4 px-10'>
-                        <PiQuotesFill className='z-50 ' />
-                        </div> */}
+                        
                       <h3 className="text-xl font-semibold text-white">
                         {slide.title}
                       </h3>
@@ -91,6 +101,9 @@ export default function Review_banner() {
                     </div>
                   ))}
                 </Slider>
+
+
+
                 <div className="bg-white w-fit mx-auto px-7 py-1 mt-4 rounded-b-xl shadow-lg -mb-2 ">
                   <Image
                     className=""
@@ -100,6 +113,11 @@ export default function Review_banner() {
                     height={70}
                   />
                 </div>
+
+
+
+
+
               </div>
             </div>
           </div>

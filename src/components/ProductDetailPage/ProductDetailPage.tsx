@@ -50,7 +50,7 @@ const ProductDetailPage = ({ title }: IProductDetail) => {
       <DetailInfo
         title={title ? title : ''}
         description={filterProduct?.description || ''}
-        image={filterProduct?.posterImage?.imageUrl}
+        image={filterProduct?.posterImage}
         heading={filterProduct?.heading || ""}
       />
 
