@@ -59,14 +59,14 @@ const BathroomCategory = ({
           category.sub_Category === subCategory
         ) {
           product = category.Product.find(
-            (value) => value.product_name === arr.title,
+            (value) => value.product_name === arr.title.trim(),
           );
           break;
         }
       } else {
         if (category.sub_Category === subCategory) {
           product = category.Product.find(
-            (value) => value.product_name === arr.title,
+            (value) => value.product_name === arr.title.trim(),
           );
           break;
         }
