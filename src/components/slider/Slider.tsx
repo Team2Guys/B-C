@@ -1,3 +1,4 @@
+"use client"
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -51,7 +52,7 @@ function CustomSlider({
   PrevArrow,
   className,
 }: SLIDERPROPS) {
-  const settings = {
+  const settings:any = {
     dots: true,
     infinite: true,
     slidesToShow: colorSlider ? 6 : 1,

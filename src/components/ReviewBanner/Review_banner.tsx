@@ -78,7 +78,26 @@ export default function Review_banner() {
                   height={140}
                 />
 
-  
+                <Slider {...settings}>
+                  {slides.map((slide, index: any) => (
+                    <div
+                      key={index}
+                      className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
+                    >
+                      {/* <div className=' bg-white w-fit rotate-180 text-8xl absolute -top-10 left-2/4 z-10 -translate-x-2/4 px-10'>
+                        <PiQuotesFill className='z-50 ' />
+                        </div> */}
+
+                        
+                      <h3 className="text-xl font-semibold text-white">
+                        {slide.title}
+                      </h3>
+                      <p className="mt-2 text-white">{slide.content}</p>
+                    </div>
+                  ))}
+                </Slider>
+
+
 
                 <div className="bg-white w-fit mx-auto px-7 py-1 mt-4 rounded-b-xl shadow-lg -mb-2 ">
                   <Image
