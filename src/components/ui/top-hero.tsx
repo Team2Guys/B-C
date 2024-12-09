@@ -48,7 +48,7 @@ const TopHero: React.FC<TopHeroProps> = ({
     }
   }, [pagename]);
 
-  const result = BreakCrum_conent_pages.find((value) =>
+  const result = BreakCrum_conent_pages.find((value:any) =>
     value.url.toLowerCase().includes(page.toLowerCase())
   );
 

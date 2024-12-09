@@ -2336,3 +2336,11 @@ export const subCategoryName = [
     alterName: 'Made To Measure Blinds For Living Room',
   },
 ];
+
+
+export const BreakCrum_conent_pages = [
+  {
+    url: '/blinds/roller-blinds',
+    content: 'Made to Measure Roller Blinds',
+  },
+];
