@@ -54,16 +54,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     EditInitialValues.hoverImage && [EditInitialValues.hoverImage],
   );
   const [loading, setloading] = useState<boolean>(false);
-  const [productInitialValue, setProductInitialValue] = useState<
-    any | null | undefined
-  >(EditInitialValues);
+  const [productInitialValue, setProductInitialValue] = useState<any | null | undefined>(EditInitialValues);
+
   const [imgError, setError] = useState<string | null | undefined>();
-  const [VariationOption, setVariationOption] =
-    useState<string>('withoutVariation');
+  const [VariationOption, setVariationOption] =useState<string>('withoutVariation');
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
-  const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<
-    number[]
-  >([]);
+  const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<number[]>([]);
+  const [previousSelectedCategories, setpreviousSelectedCategories] = useState<number[]>([]);
 
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
@@ -99,6 +96,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         if (subCategory && Array.isArray(subCategory)) {
           const subcatArr = subCategory.map((cat: { id: number }) => cat.id);
           setSelectedSubcategoryIds(subcatArr);
+          setpreviousSelectedCategories(subcatArr)
         }
 
         setProductInitialValue({
@@ -180,8 +178,17 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
               },
         };
       }
+      else if (updateFlag) {
+        updatedvalue = {
+          ...updatedvalue,
+          subCategory: {
+            disconnect: previousSelectedCategories.map((id) => ({ id })),
+          },
+        };
+      }
 
       let method: 'post' | 'put' = updateFlag ? 'put' : 'post';
+console.log(updatedvalue, "updatedvalue")
 
       let response = await axios[method](
         `${process.env.NEXT_PUBLIC_BASE_URL}${url}`,
@@ -208,6 +215,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setSelectedSubcategoryIds([]);
 
       updateFlag ? setEditProduct && setEditProduct(undefined) : null;
+    
+    
     } catch (err: any) {
       if (err.response && err.response.data && err.response.data.message) {
         setError(err.response.data.message);
