@@ -51,22 +51,22 @@ const ECommerce: React.FC = () => {
 
   const canVeiwAdmins =
     loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : true);
+    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : false);
   const canCheckProfit =
     loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canCheckProfit : true);
+    (loggedInUser.role == 'Admin' ? loggedInUser.canCheckProfit : false);
   const CanCheckRevnue =
     loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.CanCheckRevnue : true);
+    (loggedInUser.role == 'Admin' ? loggedInUser.CanCheckRevnue : false);
   const canVeiwTotalproducts =
     loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalproducts : true);
+    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalproducts : false);
   const canVeiwTotalCategories =
     loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalCategories : true);
+    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalCategories : false);
     const canVeiwTotalBlogs =
     loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalBlogs : true);
+    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalBlogs : false);
   return (
     <>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 2xl:gap-7">
