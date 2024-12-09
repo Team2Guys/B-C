@@ -1277,18 +1277,19 @@ export const staticCommercialMegaMenuItems: IProduct[] = [
 ];
 
 export const commercialPagesItems = [
-  { productName: 'hotels-restaurants' },
-  { productName: 'printed-blinds' },
-  { productName: 'school-blinds'},
-  { productName: 'sunscreen-roller-blinds'},
-  { productName: 'vertical-blinds' },
-  { productName: 'aluminium-blinds' },
-  { productName: 'wooden-blinds' },
-  { productName: 'blackout-blinds' },
-  { productName: 'motorised-blinds' },
-  { productName: 'panel-blinds' },
-  { productName: 'roman-blinds' },
+  'hotels-restaurants',
+  'printed-blinds',
+  'school-blinds',
+  "sunscreentransparent",
+  'vertical-blinds',
+  'aluminium-blinds',
+  'wooden-blinds',
+  'blackout-roller-blinds',
+  'motorised-blinds',
+  'panel-blinds',
+  'roman-blinds',
 ];
+
 
 export const items = [
   {
