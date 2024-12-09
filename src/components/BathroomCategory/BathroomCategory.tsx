@@ -72,7 +72,6 @@ const BathroomCategory = ({
           break;
         }
       } else {
-        console.log('test2' + subCategory);
         if (category.sub_Category === subCategory) {
           product = category.Product.find(
             (value) => value.product_name === arr.title,
