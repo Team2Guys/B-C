@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
-import Slider from 'react-slick';
+import Slider, { SliderSettings } from 'react-slick';
+
 import { FcGoogle } from 'react-icons/fc';
 import { TRSlide } from 'types/interfaces';
 import { PiQuotesFill } from 'react-icons/pi';
@@ -35,7 +36,7 @@ function SamplePrevArrow(props:any) {
 }
 
 export default function Review_banner() {
-  const settings:any = {
+  const settings:SliderSettings = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -84,10 +85,6 @@ export default function Review_banner() {
                       key={index}
                       className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
                     >
-                      {/* <div className=' bg-white w-fit rotate-180 text-8xl absolute -top-10 left-2/4 z-10 -translate-x-2/4 px-10'>
-                        <PiQuotesFill className='z-50 ' />
-                        </div> */}
-
                         
                       <h3 className="text-xl font-semibold text-white">
                         {slide.title}
