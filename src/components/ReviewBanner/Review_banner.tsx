@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
-import Slider from 'react-slick';
+import Slider, { SliderSettings } from 'react-slick';
+
 import { FcGoogle } from 'react-icons/fc';
 import { TRSlide } from 'types/interfaces';
 import { PiQuotesFill } from 'react-icons/pi';
@@ -35,7 +36,7 @@ function SamplePrevArrow(props:any) {
 }
 
 export default function Review_banner() {
-  const settings:any = {
+  const settings:SliderSettings = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -77,7 +78,7 @@ export default function Review_banner() {
                   width={140}
                   height={140}
                 />
-{/* 
+
                 <Slider {...settings}>
                   {slides.map((slide, index: any) => (
                     <div
@@ -91,7 +92,7 @@ export default function Review_banner() {
                       <p className="mt-2 text-white">{slide.content}</p>
                     </div>
                   ))}
-                </Slider> */}
+                </Slider>
 
 
 

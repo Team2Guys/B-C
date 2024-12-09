@@ -1,5 +1,6 @@
 "use client"
-import Slider from 'react-slick';
+import Slider, { SliderSettings } from 'react-slick';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ComponentType, ReactNode } from 'react';
@@ -52,7 +53,7 @@ function CustomSlider({
   PrevArrow,
   className,
 }: SLIDERPROPS) {
-  const settings:any = {
+  const settings:SliderSettings = {
     dots: true,
     infinite: true,
     slidesToShow: colorSlider ? 6 : 1,
@@ -130,7 +131,7 @@ function CustomSlider({
 
   return (
     <div className={`slider-container w-full ${className}`}>
-      {/* <Slider {...settings}>{children}</Slider> */}
+      <Slider {...settings}>{children}</Slider>
     </div>
   );
 }
