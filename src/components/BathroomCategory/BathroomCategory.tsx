@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { IProduct } from 'types/types';
+import { ICategory, IProduct } from 'types/types';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Link from 'next/link';
 import { Categories_wise_Images } from 'data/Images';
+import { useQuery } from '@tanstack/react-query';
+import { fetchSubCategories } from 'config/fetch';
+import { usePathname } from 'next/navigation';
 
 interface BathroomCategoryProps {
   filteredProducts: IProduct[];
@@ -18,6 +21,7 @@ const BathroomCategory = ({
   categoryTitle,
   subCategory,
 }: BathroomCategoryProps) => {
+  const pathname = usePathname();
   const getPath = (arr: IProduct, parent: string) => {
     categoryTitle === 'none' ? (categoryTitle = parent) : categoryTitle;
     const slug = ChangedProductUrl_handler(arr.title);
@@ -45,23 +49,55 @@ const BathroomCategory = ({
           }/${slug}`);
     return path;
   };
+  useEffect(() => {
+    if (pathname.includes('commercial')) {
+      console.log('pathname', pathname + 'chal oy');
+    } else {
+      console.log('pathname', pathname + 'commercial nahi hai');
+    }
+    console.log(categoryTitle + 'categoryTitle');
+  }, [pathname]);
 
   let prod_finder_handler = (arr: IProduct) => {
     let product;
     for (let category of Categories_wise_Images) {
-      if (
-        category.Category_id === arr.CategoryId &&
-        category.sub_Category === subCategory
-      ) {
-        product = category.Product.find(
-          (value) => value.product_name === arr.title,
-        );
-        break;
+      if (!pathname.includes('commercial')) {
+        if (
+          category.Category_id === arr.CategoryId &&
+          category.sub_Category === subCategory
+        ) {
+          product = category.Product.find(
+            (value) => value.product_name === arr.title,
+          );
+          break;
+        }
+      } else {
+        console.log('test2' + subCategory);
+        if (category.sub_Category === subCategory) {
+          product = category.Product.find(
+            (value) => value.product_name === arr.title,
+          );
+          break;
+        }
       }
     }
 
     return product;
   };
+
+  const {
+    data: subCategories,
+    error: subCateERROR,
+    isLoading: isLoadingSubCategories,
+  } = useQuery<ICategory[]>({
+    queryKey: ['fetchSubCategories'],
+    queryFn: fetchSubCategories,
+  });
+
+  if (!isLoadingSubCategories) {
+    console.log('----------- subCategories --------------');
+    console.log(subCategories);
+  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 px-2">
