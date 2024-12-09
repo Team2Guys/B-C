@@ -24,7 +24,7 @@ import {
 } from 'config/fetch';
 import FooterItem from 'components/FooterItem';
 import { updateProductTitle } from 'components/ui/menu-card';
-import { urls } from 'data/urls';
+import { getProduct, urls } from 'data/urls';
 
 const Footer: React.FC = () => {
   const { data: products } = useQuery<IProduct[]>({
@@ -117,65 +117,63 @@ const Footer: React.FC = () => {
                       {category.title}
                     </h3>
                     <ul className="space-y-2 mt-4">
-                      {subcategories
-                        ?.filter(
-                          (subcategory) =>
-                            subcategory.CategoryId === category.id,
-                        )
-                        .map((subcategory) => {
-                          const filteredCategory = categories?.find(
-                            (cat) => cat.id === subcategory.CategoryId,
-                          );
-                          return (
-                            <li key={subcategory.id}>
-                              {filteredCategory?.title.toLowerCase() === 'shutters' ? (
-                                <>
+  {subcategories
+    ?.filter((subcategory) => subcategory.CategoryId === category.id)
+    .map((subcategory) => {
+      const filteredCategory = categories?.find(
+        (cat) => cat.id === subcategory.CategoryId
+      );
+      return (
+        <li key={subcategory.id}>
+          {filteredCategory?.title.toLowerCase() === 'shutters' ? (
+            <>
+              {filterArray.some((substring) => subcategory.title.includes(substring)) ? (
+                ''
+              ) : (
+                <Link
+                  className="text-sm font-medium"
+                  href={`/shutters-range/${ChangedProductUrl(subcategory.title)}`}
+                >
+                  {subcategory.title}
+                </Link>
+              )}
+            </>
+          ) : (
+            <>
+              {getProduct.some((substring) => subcategory.title.includes(substring)) && (
+                <Link
+                  className="text-sm font-medium"
+                  href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
+                >
+                  {subcategory.title}
+                </Link>
+              )}
+            </>
+          )}
+        </li>
+      );
+    })}
 
-                                  {filterArray.some(substring => subcategory.title.includes(substring)) ? '' : (<Link
-                                    className="text-sm font-medium"
-                                    href={`/shutters-range/${ChangedProductUrl(subcategory.title)}`}
-                                  >
-                                    {subcategory.title}
-                                  </Link>)}
+        {products
+          ?.filter((product) => product.CategoryId === category.id)
+          .map((product) => {
+            const filteredCategory = categories?.find((cat) => cat.id === product.CategoryId);
+            const parent = generateSlug(filteredCategory?.title || '');
+            return (
+              <li key={product.id}>
+                {getProduct.some((substring) => product.title.includes(substring)) && (
+                  <Link
+                    className="text-14 font-medium"
+                    href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${ChangedProductUrl(product.title)}`}
+                  >
+                    {product.title=='Motorised blinds' ? "Motorised blinds" : updateProductTitle(product.title)}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
+      </ul>
 
-                                </>
-                              ) : (
-                                <Link
-                                  className="text-sm font-medium"
-                                  href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
-                                >
-                                  {subcategory.title}
-                                </Link>
-                              )}
-                            </li>
-                          );
-                        })}
-
-
-                      {products
-                        ?.filter(
-                          (product) => product.CategoryId === category.id,
-                        )
-                        .slice(0, category.id === 2 ? 5 : 6)
-                        .map((product) => {
-                          const filteredCategory = categories?.find(
-                            (cat) => cat.id === product.CategoryId,
-                          );
-                          //@ts-expect-error
-                          const parent = generateSlug(filteredCategory?.title);
-                          console.log(parent, "parent")
-                          return (
-                            <li key={product.id}>
-                              <Link
-                                className="text-14 font-medium"
-                                href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${ChangedProductUrl(product.title)}`}
-                              >
-                                {updateProductTitle(product.title)}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                    </ul>
                   </div>
                 ))}
               </div>

@@ -169,7 +169,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         })}
       </Container>
 
-      <Container className="text-center py-6">
+      {/* <Container className="text-center py-6">
         <div className="flex justify-center space-x-4 whitespace-nowrap overflow-auto">
           <Button
             variant={'feature'}
@@ -226,7 +226,9 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               );
             })}
         </div>
-      </Container>
+      </Container> */}
+
+
       <BookNowBanner />
       <Container className="py-10">
         <RelatedProducts products={filteredProducts || []} limit={4} />
