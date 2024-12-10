@@ -152,7 +152,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Link href={`${window.origin}/${href}`}
+      <Link href={`${window.origin}${href}`}
         ref={buttonRef}
         className={cn(
           'px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200',
