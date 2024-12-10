@@ -2,6 +2,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import ProductCard from 'components/ui/Product-Card';
+import { categorydata } from 'data/data';
 import {
   extendedByRoom,
   extendedByStyle,
@@ -26,6 +27,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const [productsPerPage, setProductsPerPage] = useState<number>(8);
   const categories = ['All', 'By Style', 'By Room', 'dynamic'];
   const productContainerRef = useRef<HTMLDivElement | null>(null);
+  const [content, setContent] = useState({ title: '', subtitle: '' });
 
   useEffect(() => {
     const width = window.innerWidth;
@@ -59,6 +61,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   );
 
   const byStyleItems = [...extendedByStyle, ...megaMenubyStyle].flat();
+
   const ByStyleItems = useMemo(
     () =>
       products.filter((product) =>
@@ -101,9 +104,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     ByDynamicItems,
     products,
   ]);
-  // const finalFilteredProducts = activeCategory === 'By Type' ? ByTypeItems.reverse() : filteredProducts;
-  console.log('================================================');
-  console.log(filteredProducts);
+
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
   const visibleProducts = filteredProducts.slice(
@@ -126,6 +127,31 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
       window.scrollTo({ top, behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    const mainCategory = categorydata.find(
+      (category) => category.category.toLowerCase() === categoryType.toLowerCase()
+    );
+
+    if (mainCategory) {
+      const categoryContent = mainCategory.types.find(
+        (type) => type.type.toLowerCase() === activeCategory.toLowerCase()
+      );
+
+      if (categoryContent) {
+        setContent({
+          title: categoryContent.title,
+          subtitle: categoryContent.subtitle,
+        });
+      } else {
+        setContent({ title: '', subtitle: '' });
+      }
+    } else {
+      setContent({ title: '', subtitle: '' });
+    }
+  }, [activeCategory, categoryType]);
+
+
 
   return (
     <Container className="mt-10 md:mt-16">
@@ -159,15 +185,13 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         <hr className="h-2 mt-5 md:mt-8 border-black" />
         <div className="mt-10 text-center space-y-3">
           <h1 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
-            Explore Popular Made to Measure {categoryType ? categoryType : ''}{' '}
-            Options
+            {content.title}
           </h1>
           <p className="text-14 md:text-15 font-normal md:w-[65%] mx-auto">
-            Our bespoke blinds are designed to meet your needs. Various types of
-            window blinds are available in a variety of materials and colours,
-            so you can create an ambience to suit your style.
+            {content.subtitle}
           </p>
         </div>
+            {/* categorydata */}
         <div ref={productContainerRef} className="my-2" />
         <div className="" id="productContainer">
           <ProductCard products={visibleProducts} isSizeSmall={true} />

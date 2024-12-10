@@ -4,7 +4,6 @@ import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_subcategory.
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 import Link from 'next/link';
-import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
@@ -14,10 +13,8 @@ import {
   fetchSubCategories,
 } from 'config/fetch';
 import { useEffect, useState } from 'react';
-import { Button } from 'components/ui/button';
 import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
-import { generateSlug, items } from 'data/data';
 import { RollerBlindsPage } from 'data/Images';
 
 interface ICategoryPage {
@@ -27,18 +24,9 @@ interface ICategoryPage {
 
 const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const pathname = usePathname();
-  const [activeFilter, setActiveFilter] = useState<any>({
-    title: 'All',
-    short_description:
-      'Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose <a href="/blinds/motorised-blinds" style="text-decoration: underline">Motorised Blinds</a> options for added convenience or finish your blinds with a sleek cassette box.',
-  });
-  const [currentPage, setCurrentPage] = useState(1);
-  const [category, setCategory] = useState<ICategory | undefined>();
-  category;
   const {
     data: products,
     error,
-    isLoading,
   } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
@@ -53,10 +41,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     queryFn: fetchCategories,
   });
 
-  const [filteredProducts, setFilteredProducts] =
-    useState<IProduct[]>(relatedProducts);
-  const [inner_filteredProducts, setinner_filteredProducts] =
-    useState<IProduct[]>(relatedProducts);
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>(relatedProducts);
 
   const filterProducts = () => {
     const filterSubCat = subcategories?.find(
@@ -72,6 +57,8 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
     setFilteredProducts(filtered || []);
   };
+
+
   useEffect(() => {
     if (!relatedProducts || relatedProducts.length === 0) {
       filterProducts();
@@ -82,21 +69,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
-  const handleFilter = (filter: any) => {
-    setActiveFilter(filter);
-    if (filter.title === 'All') {
-      setinner_filteredProducts(relatedProducts);
-    } else {
-      setinner_filteredProducts((pre) =>
-        relatedProducts.filter((product) => {
-          return (
-            product.title.toLowerCase().trim() ==
-            filter?.title.toLowerCase().trim()
-          );
-        }),
-      );
-    }
-  };
   let prod_finder_handler = (arr: IProduct) => {
     let product;
     for (let category of RollerBlindsPage) {
@@ -169,7 +141,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
         })}
       </Container>
 
-      <Container className="text-center py-6">
+      {/* <Container className="text-center py-6">
         <div className="flex justify-center space-x-4 whitespace-nowrap overflow-auto">
           <Button
             variant={'feature'}
@@ -226,7 +198,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               );
             })}
         </div>
-      </Container>
+      </Container> */}
       <BookNowBanner />
       <Container className="py-10">
         <RelatedProducts products={filteredProducts || []} limit={4} />
