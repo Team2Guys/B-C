@@ -1,4 +1,4 @@
-import { formatDate, formatDateTime } from 'config';
+import {formatDateTime } from 'config';
 
 export const ordercolumns = [
   {
