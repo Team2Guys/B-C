@@ -12,7 +12,6 @@ import { LiaSearchPlusSolid } from 'react-icons/lia';
 import {
   initialSize,
   sizePresets as initialSizePresets,
-  relativeProducts,
 } from 'data/data';
 import backbanner from '../../../../public/assets/images/aric-blands/aric-header.png';
 import cardImg from '../../../../public/assets/images/aric-blands/aric-blands.png';
@@ -26,8 +25,6 @@ interface TsizePresets {
 const AricBlind: React.FC = () => {
   const pathName = usePathname();
   const [selectedSize, setSelectedSize] = useState<TsizePresets>(initialSize);
-  const [sizePresets, setSizePresets] =
-    useState<TsizePresets[]>(initialSizePresets);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -130,7 +127,7 @@ const AricBlind: React.FC = () => {
               <div>
                 <span className="text-gray-700">Presets</span>
                 <div className="grid grid-cols-2 gap-2 mt-1">
-                  {sizePresets.map((preset: TsizePresets, index: number) => (
+                  {initialSizePresets.map((preset: TsizePresets, index: number) => (
                     <button
                       key={index}
                       onClick={() =>
