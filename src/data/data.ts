@@ -1182,7 +1182,7 @@ export const blindMegaMenuItems = [
   { productName: 'officestudy' },
 
   { productName: 'blackout-blinds' },
-  { productName: 'outdoor' },
+  // { productName: 'outdoor' },
   { productName: 'motorised-blinds' },
   { productName: 'dimout-blindssemi-transparent' },
   { productName: 'sunscreentransparent' },
@@ -1228,7 +1228,7 @@ export const shutterMegaMenuItems = [
   // { productName: 'bathroom-shutters' },
   // { productName: 'kitchen-shutters' },
   { productName: 'dining-room-shutters' },
-  { productName: 'tracked-window-shutters' },
+  { productName: 'tracked-shutters' },
 ];
 
 export const commercialMegaMenuItems = [
@@ -1486,7 +1486,7 @@ export const megaMenubyStyle = [
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'full-height-shutters' },
-  { productName: 'tracked-window-shutters' },
+  { productName: 'tracked-shutters' },
 
   { productName: 'pencil-pleat-curtains' },
   { productName: 'ripplefoldwave-curtains' },
@@ -1560,7 +1560,7 @@ export const megaMenuDynamic = [
   { productName: 'blackout-curtains' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
-  { productName: 'outdoor-blinds' },
+  // { productName: 'outdoor-blinds' },
   { productName: 'motorised-blinds' },
   { productName: 'dimout-blindssemi-transparent' },
 
@@ -2268,79 +2268,80 @@ export const categorydata = [
       {
         type: "ALL",
         title: "Explore Popular Made to Measure Blind Options",
-        subtitle:"Our bespoke blinds are designed to meet your needs. Various types of window blinds are available in a variety of materials and colours, so you can create an ambience to suit your style.",
+        subtitle: "Our bespoke blinds are designed to meet your needs. Various types of window blinds are available in a variety of materials and colours, so you can create an ambience to suit your style.",
       },
       {
         type: "By Style",
         title: "Style Your Space",
         subtitle:
-        "Pick blinds that match the vibe of your room, from minimalist to modern.",
+          "Pick blinds that match the vibe of your room, from minimalist to modern.",
       },
       {
         type: "By Room",
         title: "Blinds for Every Room",
-        subtitle:"Find blinds crafted to enhance the look and feel of each specific space in your home.",
+        subtitle: "Find blinds crafted to enhance the look and feel of each specific space in your home.",
       },
       {
         type: "dynamic",
         title: "Practical Elegance",
-        subtitle:"Explore our blinds sorted by their practical features, ensuring you get both style and functionality.",
+        subtitle: "Explore our blinds sorted by their practical features, ensuring you get both style and functionality.",
       },
     ],
   },
+  {
+    category: "Curtains",
+    types: [
       {
-        category: "Curtains",
-        types: [
-          {
-            type: "ALL",
-            title: "Explore Popular Made to Measure Blind Options",
-            subtitle:
-                  "Our bespoke Curtain are designed to meet your needs. Various types of window Curtain are available in a variety of materials and colours, so you can create an ambience to suit your style.",},
-          {
-            type: "By Style",
-            title: "Style Your Space",
-            subtitle:
-            "Pick Curtain that match the vibe of your room, from minimalist to modern.",
-          },
-          {
-            type: "By Room",
-            title: "Curtain for Every Room",
-            subtitle:"Find Curtain crafted to enhance the look and feel of each specific space in your home.",
-          },
-          {
-            type: "dynamic",
-            title: "Curtain for Every Room",
-            subtitle:"Find Curtain crafted to enhance the look and feel of each specific space in your home.",
-          },
-        ],
+        type: "ALL",
+        title: "Explore Popular Made to Measure Blind Options",
+        subtitle:
+          "Our bespoke Curtain are designed to meet your needs. Various types of window Curtain are available in a variety of materials and colours, so you can create an ambience to suit your style.",
       },
-          {
-          category: "shutters",
-          types: [
-            {
-              type: "ALL",
-              title: "Explore Popular Made to Measure shutters Options",
-              subtitle:"Our bespoke shutters are designed to meet your needs. Various types of window shutters are available in a variety of materials and colours, so you can create an ambience to suit your style.",
-            },
-            {
-              type: "By Style",
-              title: "Style Your Space",
-              subtitle:
-              "Pick shutters that match the vibe of your room, from minimalist to modern.",
-            },
-            {
-              type: "By Room",
-              title: "shutters for Every Room",
-              subtitle:"Find shutters crafted to enhance the look and feel of each specific space in your home.",
-            },
-            {
-              type: "dynamic",
-              title: "shutters for Every Room",
-              subtitle:"Find shutters crafted to enhance the look and feel of each specific space in your home.",
-            },
-          ],
-        },
-      ]
+      {
+        type: "By Style",
+        title: "Style Your Space",
+        subtitle:
+          "Pick Curtain that match the vibe of your room, from minimalist to modern.",
+      },
+      {
+        type: "By Room",
+        title: "Curtain for Every Room",
+        subtitle: "Find Curtain crafted to enhance the look and feel of each specific space in your home.",
+      },
+      {
+        type: "dynamic",
+        title: "Curtain for Every Room",
+        subtitle: "Find Curtain crafted to enhance the look and feel of each specific space in your home.",
+      },
+    ],
+  },
+  {
+    category: "shutters",
+    types: [
+      {
+        type: "ALL",
+        title: "Explore Popular Made to Measure shutters Options",
+        subtitle: "Our bespoke shutters are designed to meet your needs. Various types of window shutters are available in a variety of materials and colours, so you can create an ambience to suit your style.",
+      },
+      {
+        type: "By Style",
+        title: "Style Your Space",
+        subtitle:
+          "Pick shutters that match the vibe of your room, from minimalist to modern.",
+      },
+      {
+        type: "By Room",
+        title: "shutters for Every Room",
+        subtitle: "Find shutters crafted to enhance the look and feel of each specific space in your home.",
+      },
+      {
+        type: "dynamic",
+        title: "shutters for Every Room",
+        subtitle: "Find shutters crafted to enhance the look and feel of each specific space in your home.",
+      },
+    ],
+  },
+]
 
 export const relativeProductsDescription = [
   {
