@@ -13,7 +13,7 @@ import {
   fetchSubCategories,
 } from 'config/fetch';
 import TopHero from 'components/ui/top-hero';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { generateSlug, subCategoryName } from 'data/data';

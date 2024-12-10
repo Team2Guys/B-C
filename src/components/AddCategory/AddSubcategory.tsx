@@ -125,7 +125,6 @@ const FormLayout = ({
 
   const {
     data: categoriesList = [],
-    error,
     isLoading,
   } = useQuery<ICategory[], Error>({
     queryKey: ['category'],

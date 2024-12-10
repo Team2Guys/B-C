@@ -1,27 +1,23 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Select, Modal } from 'antd';
-import Accordion from 'components/Res-usable/Accordion/Accordion';
-import EstimatorSlider from 'components/slider/EstimatorSlider/EstimatorSlider';
+import { Modal } from 'antd';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategories, fetchProducts } from 'config/fetch';
 import { ICategory, IProduct } from 'types/types';
 import estimateIMG from '../../../public/assets/images/getestimate.png';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import Container from 'components/Res-usable/Container/Container';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { Button } from 'components/ui/button';
-import { estimateSldie, generateSlug, optionDetail } from 'data/data';
+import {generateSlug } from 'data/data';
 import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
 import { useRouter } from 'next/navigation';
 import Input from 'components/Common/regularInputs';
 import EstimatorTabs from 'components/estimator-tab';
 
 const Estimator: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
   const [activeProduct, setActiveProduct] = useState<IProduct | null>(null);
 
@@ -32,16 +28,9 @@ const Estimator: React.FC = () => {
   const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
   const route = useRouter();
 
-  const description = selectedProduct?.description || '';
-
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
-  };
-
   const {
     data: categories,
     error: categoriesError,
-    isLoading: isLoadingCategories,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,

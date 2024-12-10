@@ -4,11 +4,10 @@ import { useQuery } from '@tanstack/react-query';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import PageSkelton from 'components/Skeleton/PageSkelton';
-import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { useParams, usePathname } from 'next/navigation';
-import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
+import { usePathname } from 'next/navigation';
+import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const path = usePathname();
@@ -34,12 +33,6 @@ const CommercialPage = () => {
     (prod) => generateSlug(prod.title) === generateSlug(path),
   );
 
-  console.log(
-    '++ __________________ _ _ _ ++ NEW PAGE IS UNDERPROCESSING +++++++',
-  );
-
-  console.log(generateSlug('Hotels & Restaurants , blinds & curtains'));
-  console.log(generateSlug(path));
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;

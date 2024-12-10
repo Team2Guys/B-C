@@ -7,13 +7,10 @@ import img3 from '../../public/assets/images/MotorisedBlind/ready-stock.png';
 import img4 from '../../public/assets/images/MotorisedBlind/loyalty-program.png';
 import moto2 from '../../public/assets/images/MotorisedBlind/mons2.png';
 
-import exp from 'constants';
 import {
-  AboutStaticData,
   BlogInfo,
   BlogProps,
   CardTypes,
-  CommentDataType,
   Email,
   FeatureProductData,
   GalleryItems,
@@ -23,7 +20,6 @@ import {
   PhoneNumber,
   ProductCardData,
   ProductItems,
-  SocialDataType,
   SupportItem,
   TFooterSection,
   THeroImages,
@@ -38,7 +34,6 @@ import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
-import { title } from 'process';
 
 export const generateSlug = (text: string) => {
   if (!text) return '';

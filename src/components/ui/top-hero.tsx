@@ -1,22 +1,17 @@
 'use client';
-import Image, { StaticImageData } from 'next/image';
+import  { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
 import { UpdateShutterTitle } from './menu-card';
 import { ICategory } from 'types/types';
 import { colorData, TopHeroLink } from 'data/data';
-import { Skeleton } from 'antd';
 import { usePathname } from 'next/navigation';
 import { BreakCrum_conent_pages } from 'data/data';
-import { ITopHeroLink } from 'types/interfaces';
-import { useQuery } from '@tanstack/react-query';
-import { fetchCategories, fetchSubCategories } from 'config/fetch';
 
 interface TopHeroProps {
   title: string | any;
   image: StaticImageData;
-  category?: ICategory | undefined;
   home?: string;
   pagename?: string;
   backgroundposition?: string;
@@ -26,7 +21,6 @@ interface TopHeroProps {
 const TopHero: React.FC<TopHeroProps> = ({
   title,
   image,
-  category,
   home,
   pagename,
   backgroundposition,

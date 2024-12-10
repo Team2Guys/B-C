@@ -13,7 +13,6 @@ import { useQueryClient } from '@tanstack/react-query';
 import {
   FacebookShareButton,
   PinterestShareButton,
-  WhatsappIcon,
   WhatsappShareButton
 } from "react-share";
 import { toast } from 'react-toastify';
@@ -37,7 +36,6 @@ function Comments({ data }: CommentsProps) {
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setloading] = useState(false);
-  const [selectedComment, setSelectedComment] = useState<SelectedComment | null>(null);
   const [shareURL, setShareURL] = useState('');
   const [commentId, setcommentId] = useState('');
   const queryClient = useQueryClient();
@@ -111,23 +109,18 @@ function Comments({ data }: CommentsProps) {
         setloading(false)
 
       }
-
-
-
       setFormData({ name: '', email: '', description: '' });
     }
   };
   const handleReplyClick = (commentId: string, type: CommentType) => {
     setFormData({ name: '', email: '', description: '' });
 
-    setSelectedComment({ id: commentId, type });
     setcommentId(commentId)
     setIsModalOpen(true);
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    setSelectedComment(null);
   };
 
 

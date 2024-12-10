@@ -4,14 +4,10 @@ import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import Container from 'components/Res-usable/Container/Container';
 import { GoArrowRight, GoArrowLeft } from 'react-icons/go';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
-import Guarrenty from 'components/Res-usable/guarrenty/guarrenty';
-import OurClient from 'components/Our-Client/OurClient';
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories, fetchProducts } from 'config/fetch';
-import Testimonial from 'components/slider/testimonial';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { usePathname } from 'next/navigation';
@@ -28,7 +24,6 @@ const GalleryPage = () => {
   const {
     data: categories,
     error: categoriesError,
-    isLoading: isLoadingCategories,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
@@ -37,7 +32,6 @@ const GalleryPage = () => {
   const {
     data: products,
     error: productsError,
-    isLoading: isLoadingProducts,
   } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,

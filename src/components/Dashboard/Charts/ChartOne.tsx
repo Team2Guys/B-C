@@ -1,6 +1,6 @@
 'use client';
 import { ApexOptions } from 'apexcharts';
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import Cookies from 'js-cookie';
 import axios from 'axios';

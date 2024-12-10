@@ -2,7 +2,7 @@
 
 import { ApexOptions } from 'apexcharts';
 import axios from 'axios';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, {useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import Cookies from 'js-cookie';
 import { useAppSelector } from 'components/Others/HelperRedux';

@@ -1,18 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-
-import axios, { AxiosResponse } from 'axios';
 import { useRouter } from 'next/navigation';
 import Toaster from 'components/Toaster/Toaster';
 import { useAppDispatch } from 'components/Others/HelperRedux';
 import { loggedInAdminAction } from '../../../../redux/slices/AdminsSlice';
 import USRcomponent from 'components/userComponent/userComponent';
 import { IoIosLock, IoMdMail } from 'react-icons/io';
-import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import NoneAuth from 'hooks/None-AuthHook';
-
-
 import Cookies from 'js-cookie';
 import { Api_handler } from 'utils/helperFunctions';
 

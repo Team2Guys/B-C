@@ -1,6 +1,6 @@
 'use client';
 import { Form, Formik } from 'formik';
-import React, { useEffect, useState, SetStateAction, Fragment } from 'react';
+import React, {  useState, SetStateAction, Fragment } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Select, Spin } from 'antd';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -12,7 +12,6 @@ import showToast from 'components/Toaster/Toaster';
 import Loader from 'components/Loader/Loader';
 import { Button } from 'components/ui/button';
 import {
-  BlogInfo as IBlog,
   UpdateBlog as IUpdateBlog,
   UpdateBlog,
 } from 'types/interfaces';
@@ -44,13 +43,6 @@ class MyUploadAdapter {
 
   abort(): void {}
 }
-
-function MyCustomUploadAdapterPlugin(editor: any) {
-  editor.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
-    return new MyUploadAdapter(loader);
-  };
-}
-
 interface IAddBlogs {
   setMenuType: React.Dispatch<SetStateAction<string>>;
   EditInitialValues?: IUpdateBlog;

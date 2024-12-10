@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
-import { Allproduct, BlogInfo, BlogProps } from 'types/interfaces';
+import { IAppointments, ICategory, IRECORDS } from 'types/types';
+import { Allproduct, BlogInfo } from 'types/interfaces';
 import Cookies from 'js-cookie';
 
 const superAdmintoken = Cookies.get('superAdminToken');

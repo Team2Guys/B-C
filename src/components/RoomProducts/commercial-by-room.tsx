@@ -13,7 +13,7 @@ import {
   fetchSubCategories,
 } from 'config/fetch';
 import TopHero from 'components/ui/top-hero';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { ByRoomCommercialProduct, generateSlug } from 'data/data';
@@ -35,7 +35,6 @@ const CommercialByRoom = ({
   const [isNotFound, setIsNotFound] = useState(false);
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
-  const [productCategory, setProductCategory] = useState<string>('');
 
   const {
     data: products,
@@ -74,7 +73,6 @@ const CommercialByRoom = ({
     const filterCat = categories?.find(
       (cat) => cat.id === filterSubCat?.CategoryId,
     );
-    setProductCategory(filterCat?.title || '');
 
     const matchingRoom = ByRoomCommercialProduct.find(
       (room) => room.title === title,
@@ -88,7 +86,6 @@ const CommercialByRoom = ({
       );
     }
 
-    setProductCategory(filterCat?.title || '');
     setFilteredProducts(p);
   };
 

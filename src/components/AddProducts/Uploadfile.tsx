@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, DragEvent, SetStateAction } from 'react';
+import React, { useState, SetStateAction } from 'react';
 import { BsCloudDownload, BsCloudUpload } from 'react-icons/bs';
 
 interface PROPS {

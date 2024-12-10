@@ -210,7 +210,9 @@ const Header = () => {
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
+                  
                     onClick={handleCloseDrawer}
+
                     key={link.id}
                     title={link.label || ''}
                     sliderData={combinedSliderData}

@@ -13,7 +13,6 @@ import Cookies from 'js-cookie';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories } from 'config/fetch';
-import { revalidatePath } from 'next/cache';
 import revalidateTag from 'components/ServerActons/ServerAction';
 import { ChangedProductUrl_handler } from 'data/urls';
 
@@ -51,8 +50,6 @@ const ViewProduct: React.FC<CategoryProps> = ({
 
   const {
     data: categories,
-    error: categoriesError,
-    isLoading: isLoadingCategories,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
