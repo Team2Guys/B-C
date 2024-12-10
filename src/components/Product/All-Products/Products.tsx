@@ -28,6 +28,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const categories = ['All', 'By Style', 'By Room', 'dynamic'];
   const productContainerRef = useRef<HTMLDivElement | null>(null);
   const [content, setContent] = useState({ title: '', subtitle: '' });
+
   useEffect(() => {
     const width = window.innerWidth;
     const updateProductsPerPage = () => {
@@ -60,6 +61,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   );
 
   const byStyleItems = [...extendedByStyle, ...megaMenubyStyle].flat();
+
   const ByStyleItems = useMemo(
     () =>
       products.filter((product) =>
@@ -102,9 +104,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     ByDynamicItems,
     products,
   ]);
-  // const finalFilteredProducts = activeCategory === 'By Type' ? ByTypeItems.reverse() : filteredProducts;
-  console.log('================================================');
-  console.log(filteredProducts);
+
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
   const visibleProducts = filteredProducts.slice(
