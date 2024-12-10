@@ -201,7 +201,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       {
         product_name: 'Sunscreen/Transparent',
         altText: 'Sunscreen/Transparent',
-        Imagesurl: '/assets/images/optimized-images/blinds/Bathroom Blinds/r.webp',
+        Imagesurl:
+          '/assets/images/optimized-images/blinds/Bathroom Blinds/r.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -264,7 +265,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       {
         product_name: 'Sunscreen/Transparent',
         altText: 'Sunscreen/Transparent',
-        Imagesurl: '/assets/images/optimized-images/blinds/Kitchen Blinds/r.jpg',
+        Imagesurl:
+          '/assets/images/optimized-images/blinds/Kitchen Blinds/r.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -392,28 +394,28 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Motorised curtains',
         altText: 'Motorised curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Conservatory curtains/e.jpg',
+          '/assets/images/optimized-images/curtains/Conservatory curtains/motorised-curtains-for-conservatory.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Natural Fabric Curtains',
         altText: 'Made to Measure Linen Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains//Conservatory curtains/e.jpg',
+          '/assets/images/optimized-images/curtains//Conservatory curtains/Eyelet-curtains-for-conservatory.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Eyelet Curtains',
         altText: 'Eyelet Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Conservatory curtains/m.jpg',
+          '/assets/images/optimized-images/curtains/Conservatory curtains/Eyelet-curtains-for-conservatory.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Pencil Pleat Curtains',
         altText: 'Pencil Pleat Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Conservatory curtains/m.jpg',
+          '/assets/images/optimized-images/curtains/Conservatory curtains/pencil pleat curtains for conservatory.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
