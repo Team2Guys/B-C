@@ -24,9 +24,11 @@ import {
 } from 'config/fetch';
 import FooterItem from 'components/FooterItem';
 import { updateProductTitle } from 'components/ui/menu-card';
-import { getProduct, urls } from 'data/urls';
+import { ChangedProductUrl_handler, getProduct, predefinedPaths, urls } from 'data/urls';
+import { useRouter } from 'next/navigation';
 
 const Footer: React.FC = () => {
+  const route = useRouter();
   const { data: products } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
@@ -61,9 +63,15 @@ const Footer: React.FC = () => {
     'Bold Colours',
     'Grey',
   ];
-
+  const handleNavigation = (event: any, path: string) => {
+    if (event.ctrlKey || event.metaKey) {
+      window.open(path, '_blank');
+    } else {
+      route.push(path);
+    }
+  };
   const ChangedProductUrl = (title: string): string => {
-    let products = urls.find((url: { productName: string; Url: string }) => {
+    let products = urls.find((url: { productName: string, Url: string }) => {
       return url.productName === title;
     });
 
@@ -187,14 +195,35 @@ const Footer: React.FC = () => {
                                 {getProduct.some((substring) =>
                                   product.title.includes(substring),
                                 ) && (
-                                  <Link
-                                    className="text-14 font-medium"
-                                    href={`/${parent === 'shutters' ? `${parent}-range` : parent}/${ChangedProductUrl(product.title)}`}
+                                  <div
+                                    className="text-14 font-medium cursor-pointer"
+                                    onClick={(event) => {
+                                      const slug = ChangedProductUrl_handler(product.title);
+                                      const basePath = product.href
+                                        ? `${window.origin}/${product.href}`
+                                        : `/${slug}`;
+                        
+                                      const path =
+                                        predefinedPaths[slug as keyof typeof predefinedPaths] ||
+                                        (slug === "hotels-restaurants-blinds-curtains"
+                                          ? basePath
+                                          : `/${parent === "shutters" ? `${parent}-range` : parent}${
+                                              [
+                                                "dimout-roller-blinds",
+                                                "sunscreen-roller-blinds",
+                                                "blackout-roller-blinds",
+                                              ].includes(slug)
+                                                ? "/roller-blinds"
+                                                : ""
+                                            }/${slug}`);
+                        
+                                      handleNavigation(event, path);
+                                    }}
                                   >
                                     {product.title == 'Motorised blinds'
                                       ? 'Motorised blinds'
                                       : updateProductTitle(product.title)}
-                                  </Link>
+                                  </div>
                                 )}
                               </li>
                             );
@@ -253,12 +282,12 @@ const Footer: React.FC = () => {
                             {phoneNumberInfo.number}
                           </Link>
                         </li>
-                        <li className="flex gap-2 flex-wrap">
-                          <p className="text-12 font-normal w-fit">WhatsApp:</p>
+                        <li className="flex gap-2 flex-wrap md:flex-nowrap">
+                          <p className="text-12 font-normal ">WhatsApp:</p>
                           <Link
                             href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ', '')}`}
                             target="_blank"
-                            className="text-12 font-normal w-full text-nowrap"
+                            className="text-12 font-normal"
                           >
                             {WhatsAppInfo.number}
                           </Link>
