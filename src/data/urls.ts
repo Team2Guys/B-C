@@ -43,7 +43,35 @@ export const urls = [
     Url: 'office-window-curtains',
     errorUrl: 'office-curtains',
   },
+  {
+    productName: 'Staircase Shutters',
+    Url: 'staircase-shutters',
+  },
+  {
+    productName: 'White Shutters',
+    Url: 'white-shutters',
+  },
+  {
+    productName: 'Off White Shutters',
+    Url: 'off-white-shutters',
+  },
 
+  {
+    productName: 'Black Shutters',
+    Url: 'black-shutters',
+  },
+  {
+    productName: 'Dark Woods Shutters',
+    Url: 'dark-woods-shutters',
+  },
+  {
+    productName: 'Bold Colours Shutters',
+    Url: 'bold-colours-shutters',
+  },
+  {
+    productName: 'Grey Shutters',
+    Url: 'grey-shutters',
+  },
   {
     productName: 'Bedroom Curtains',
     Url: 'made-to-measure-bed-room-curtains',
