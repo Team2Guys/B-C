@@ -11,6 +11,7 @@ import useColorMode from 'hooks/useColorMode';
 import { formatDate } from 'config';
 import Cookies from 'js-cookie';
 import TableSkeleton from './TableSkelton';
+import { CategoriesType } from 'types/interfaces';
 interface Product {
   _id: string;
   name: string;
@@ -21,10 +22,8 @@ interface Product {
 
 interface CategoryProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
-  seteditCategory?: React.Dispatch<
-    SetStateAction<  undefined | null>
-  >;
-  editCategory?:  undefined | null;
+  seteditCategory?: React.Dispatch<SetStateAction<CategoriesType |  undefined | null>>;
+  editCategory?: CategoriesType | undefined | null;
 }
 
 const TableTwo = ({
