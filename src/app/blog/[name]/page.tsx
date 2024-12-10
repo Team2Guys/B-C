@@ -13,7 +13,6 @@ import React from 'react';
 import { BlogInfo } from 'types/interfaces';
 
 const BlogDetail = () => {
-  const latestArticles = blogData.slice(0, 3);
   const { name } = useParams();
   const {
     data: blogs,

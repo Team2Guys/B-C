@@ -5,7 +5,6 @@ import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
-import Loader from 'components/Loader/Loader';
 import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
@@ -32,7 +31,6 @@ interface CategoryProps {
 const TableTwo = ({
   setMenuType,
   seteditCategory,
-  editCategory,
 }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
@@ -105,7 +103,7 @@ const TableTwo = ({
 
   const handleDelete = async (key: any) => {
     try {
-      const response = await axios.delete(
+       await axios.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/deleteCategory/${key}`,
         {
           headers: {

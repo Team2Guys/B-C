@@ -9,7 +9,6 @@ import {
   WhatsAppInfo,
   EmailInfo,
 } from 'data/data';
-import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { IoLogoPinterest } from 'react-icons/io5';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { CiFacebook } from 'react-icons/ci';
@@ -22,7 +21,6 @@ import {
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
-import FooterItem from 'components/FooterItem';
 import { updateProductTitle } from 'components/ui/menu-card';
 import { ChangedProductUrl_handler, getProduct, predefinedPaths, urls } from 'data/urls';
 import { useRouter } from 'next/navigation';

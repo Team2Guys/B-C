@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // Import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import { IProduct } from 'types/types';
 import MenuCard from 'components/ui/menu-card';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';

@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React from 'react';
 import { ReactNode } from 'react';
 import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
-import { FaLinkedinIn } from "react-icons/fa";
 import Image from 'next/image';
 import { WhatsAppInfo } from 'data/data';
 

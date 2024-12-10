@@ -1,7 +1,7 @@
 "use client"
 
-import React, { SetStateAction, useEffect, useState } from 'react';
-import { Table, Button } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Table } from 'antd';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
@@ -25,7 +25,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   const [isClient, setIsClient] = useState(false);
 
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['admins'],
     queryFn: getAllAdmins,
   });
@@ -44,7 +44,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/deletAdmin/${id}`,
         {
           headers: {
-            token: token,
+            token: Finaltoken,
           },
         },
       );

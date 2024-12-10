@@ -25,9 +25,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   sliderData,
   className,
   href,
-  onClick,
 }) => {
-  const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeProduct, setactiveProduct] = useState<IProduct | undefined>();
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
@@ -116,7 +114,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     },
   ];
 
-  const distributeProducts = (arr: any[], columns: number) => {
+  const distributeProducts = () => {
     const styles = megaMenubyStyle.map((item) =>
       generateSlug(item.productName),
     );
@@ -142,11 +140,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     return result;
   };
 
-  const distributedProducts = distributeProducts(
-    sliderData,
-    MegaMenu_Headings.length,
-  );
-  let currentLocation = window.location;
+  const distributedProducts = distributeProducts();
 
   console.log(title, 'distributedProducts');
   console.log(title, 'itemName');

@@ -15,7 +15,6 @@ import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
-import Link from 'next/link';
 import TopHero from 'components/ui/top-hero';
 interface ShuttersByColorProps {
   title: string;
@@ -40,8 +39,6 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
   // const title = generateSlug(pathname).replaceAll('-',' ');
   const {
     data: products,
-    error: productError,
-    isLoading: productLoading,
   } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
@@ -49,8 +46,6 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
 
   const {
     data: categoriesList = [],
-    error,
-    isLoading,
   } = useQuery<ICategory[], Error>({
     queryKey: ['category'],
     queryFn: fetchCategories,

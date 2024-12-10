@@ -9,7 +9,6 @@ import { LiaEdit } from 'react-icons/lia';
 import { CategoriesType } from 'types/interfaces';
 import useColorMode from 'hooks/useColorMode';
 import { useAppSelector } from 'components/Others/HelperRedux';
-import { Skeleton } from 'components/ui/skeleton';
 import TableSkeleton from './TableSkelton';
 import Cookies from 'js-cookie';
 

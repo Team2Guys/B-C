@@ -4,9 +4,7 @@ import productimf from '../../../public/assets/images/product/product1.png';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { IInfo } from 'types/types';
-import SkeletonLoading from 'components/Skeleton-loading/SkeletonLoading';
 import PageSkelton from 'components/Skeleton/PageSkelton';
-import ProductSkeleton from 'components/Skeleton/ProductSkeleton';
 
 const Info = (selectedPage: IInfo) => {
   const route = useRouter();

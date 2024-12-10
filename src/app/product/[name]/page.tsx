@@ -45,9 +45,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   const handleSizeChange = (width: number, height: number) => {
     setSelectedSize({ width, height });
   };
-  const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
-  };
+
 
   const handleClickOutside = (event: MouseEvent) => {
     if (modalRef.current && !modalRef.current.contains(event.target as Node)) {

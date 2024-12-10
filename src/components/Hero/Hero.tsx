@@ -42,7 +42,7 @@ function Hero() {
   return (
     <Container>
       <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5 md:pt-10 md:pb-5">
-        {heroSlider.map((item: any, index) => {
+        {heroSlider.map((item: any) => {
           return (
             <div key={item.id}>
               <div className=" flex flex-wrap md:flex-nowrap  lg:px-0 px-4">

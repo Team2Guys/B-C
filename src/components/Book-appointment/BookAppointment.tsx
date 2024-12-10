@@ -8,7 +8,6 @@ import PhoneInput from 'react-phone-number-input'
 import { City } from 'country-state-city';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
-import Image from 'next/image';
 
 interface ProductOptions {
   shutters?: boolean;
@@ -163,22 +162,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const timeHandler = (date: Date) => {
-    let time = new Date(date);
-
-    let hours = time.getHours();
-    let minutes = time.getMinutes();
-
-    let ampm = hours >= 12 ? 'PM' : 'AM';
-
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    let minutesStr = minutes < 10 ? '0' + minutes : minutes;
-
-    let formattedTime = hours + ':' + minutesStr + ' ' + ampm;
-    return formattedTime;
-  };
-
   const handleDateChange = (date: Date | null) => {
     if (date) {
       const today = new Date();
@@ -192,11 +175,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     }
   };
 
-  const handletimeChange = (date: Date | null) => {
-    if (date) {
-      setFormData({ ...formData, prefered_time: date.toISOString() });
-    }
-  };
 
   const validate = () => {
     let isValid = true;

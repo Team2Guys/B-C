@@ -1,14 +1,13 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
-import moto1 from '../../../public/assets/images/MotorisedBlind/montorised1.png';
 import DetailInfo from 'components/Detail/detail-info/detail-info';
 import DetailProduct from 'components/Detail/detail-product/detail-product';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { useQuery } from '@tanstack/react-query';
-import { ICategory, IProduct } from 'types/types';
-import { fetchCategories, fetchProducts, fetchSubCategories } from 'config/fetch';
+import {  IProduct } from 'types/types';
+import { fetchProducts, } from 'config/fetch';
 import Container from 'components/Res-usable/Container/Container';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import CardSkeleton from 'components/Skeleton/card-skeleton';

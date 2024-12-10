@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Metadata } from 'next';
 import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper';
 import localFont from 'next/font/local';

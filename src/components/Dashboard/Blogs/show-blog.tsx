@@ -4,7 +4,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
 import TableSkeleton from '../Tables/TableSkelton';
 import { BlogInfo, UpdateBlog } from 'types/interfaces';
-import { formatDateMonth, formatDateTime } from 'config';
+import { formatDateMonth } from 'config';
 import { LiaEdit } from 'react-icons/lia';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { Modal } from 'antd';
@@ -88,9 +88,6 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       
     }
   };
-  const sortedBlogs = blogs?.sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-  );
 
   const columns: ColumnsType<BlogInfo> = [
     {

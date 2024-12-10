@@ -8,17 +8,14 @@ import {
   Form,
   ErrorMessage,
   Field,
-  FormikValues,
   FormikTouched,
 } from 'formik';
 
-import SelectGroupTwo from 'components/Dashboard/SelectGroup/SelectGroupTwo';
 import Imageupload from 'components/ImageUpload/Imageupload';
 import { RxCross2 } from 'react-icons/rx';
 import Image from 'next/image';
 import { ImageRemoveHandler } from 'utils/helperFunctions';
 import { FormValues, ADDPRODUCTFORMPROPS } from 'types/interfaces';
-import Toaster from 'components/Toaster/Toaster';
 import axios from 'axios';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import Loader from 'components/Loader/Loader';
@@ -31,15 +28,13 @@ import {
 } from 'data/data';
 import { Checkbox } from 'antd';
 import { useQuery } from '@tanstack/react-query';
-import { ICategory, ISUBCATEGORY } from 'types/types';
+import { ICategory } from 'types/types';
 import { fetchCategories, fetchSubCategories } from 'config/fetch';
 import showToast from 'components/Toaster/Toaster';
-import { revalidatePath } from 'next/cache';
 import revalidateTag from 'components/ServerActons/ServerAction';
 
 const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   EditInitialValues,
-  EditProductValue,
   setselecteMenu,
   setEditProduct,
 }) => {
