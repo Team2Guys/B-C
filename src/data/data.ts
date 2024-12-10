@@ -2191,7 +2191,16 @@ export const specificTitles = [
   'Pergola',
   'Outdoor',
 ];
-
+export const officeBlindsItems = [
+  "Office Blinds",
+  "Office Curtains",
+  "Office Roller Blinds",
+  "Office Windows Curtains",
+  "Office Windows Blinds",
+  "Professional Blinds",
+  "Custom Made-to-Measure Blinds",
+  "Commercial Office Blinds",
+];
 export const ByRoomCommercialProduct = [
   {
     title: 'Indoor',
