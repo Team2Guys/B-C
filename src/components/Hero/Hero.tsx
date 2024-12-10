@@ -10,7 +10,7 @@ import Link from 'next/link';
 function Hero() {
   const [showModel, setshowModel] = useState<string>('');
   const [isMobile, setIsMobile] = useState<boolean>(false);
-
+ console.log(isMobile,"isMobile")
   useEffect(() => {
     const checkScreenSize = () => {
       if (typeof window !== 'undefined') {

@@ -9,7 +9,6 @@ import moto2 from '../../public/assets/images/MotorisedBlind/mons2.png';
 
 import {
   BlogInfo,
-  BlogProps,
   CardTypes,
   Email,
   FeatureProductData,
@@ -35,6 +34,7 @@ import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
 import { IProduct, ISUBCATEGORY } from 'types/types';
 
+/* eslint-disable no-useless-escape */
 export const generateSlug = (text: string) => {
   if (!text) return '';
   return text
@@ -45,6 +45,7 @@ export const generateSlug = (text: string) => {
     .replace(/[^\w\-]+/g, '')
     .replace(/\-\-+/g, '-');
 };
+/* eslint-enable no-useless-escape */
 
 export const cardData: CardTypes[] = [
   {

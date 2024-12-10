@@ -1,11 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import { ICategory, IProduct } from 'types/types';
+import { IProduct } from 'types/types';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Link from 'next/link';
 import { Categories_wise_Images } from 'data/Images';
-import { useQuery } from '@tanstack/react-query';
-import { fetchSubCategories } from 'config/fetch';
 import { usePathname } from 'next/navigation';
 
 interface BathroomCategoryProps {

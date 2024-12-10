@@ -78,7 +78,7 @@ const FormLayout = ({
           connect: { id: values.CategoryId },
         },
       };
-
+      console.log(CategoryId,"CategoryId")
       let updateFlag = editCategoryName ? true : false;
       let addProductUrl = updateFlag
         ? `/api/categories/updatesubCategory/${editCategory.id}`

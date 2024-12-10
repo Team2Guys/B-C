@@ -24,7 +24,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   let Finaltoken = superAdmintoken ? superAdmintoken : token;
   const [isClient, setIsClient] = useState(false);
 
-
+  console.log(admins,"admins")
   const { data, isLoading } = useQuery({
     queryKey: ['admins'],
     queryFn: getAllAdmins,
@@ -266,6 +266,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
                 e.stopPropagation();
                 const { password, ...withoutPassowrd } = record
                 setedit_admins(withoutPassowrd); setselecteMenu(" ")
+                console.log(password,"password")
               }}
             />
 

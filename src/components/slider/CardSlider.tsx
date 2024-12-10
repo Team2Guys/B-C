@@ -35,7 +35,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
   breakpoints,
 }) => {
   const route = useRouter();
-
+ console.log(onClick,"onClick")
   return (
     <div className="px-4">
       <Swiper

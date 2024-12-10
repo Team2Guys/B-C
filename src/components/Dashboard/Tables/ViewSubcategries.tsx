@@ -36,11 +36,12 @@ const ViewSubcategries = ({
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
-  let token = admin_token ? admin_token : super_admin_token;
-
+  const token = admin_token ? admin_token : super_admin_token;
+  console.log(editCategory,"editCategory")
   const [category, setCategory] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
+  console.log(toggleColorMode,"toggleColorMode")
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
 
@@ -103,7 +104,7 @@ const ViewSubcategries = ({
 
   const handleDelete = async (key: any) => {
     try {
-      const response = await axios.delete(
+       await axios.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/deletesubCategory/${key}`,
         {
           headers: {

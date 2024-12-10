@@ -4,7 +4,6 @@ import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import { FaRegEye } from 'react-icons/fa';
 import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
@@ -36,7 +35,6 @@ const ViewProduct: React.FC<CategoryProps> = ({
   setselecteMenu,
   setEditProduct,
 }) => {
-  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const admin_token = Cookies.get('2guysAdminToken');

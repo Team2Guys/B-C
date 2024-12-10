@@ -33,7 +33,6 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   const ProductName = getCategoryFromUrl(params.name);
   const pathName = usePathname();
   const [selectedSize, setSelectedSize] = useState<TsizePresets>(initialSize);
-  const [sizePresets, setSizePresets] =useState<TsizePresets[]>(initialSizePresets);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [detail, setdetail] = useState<IProduct[]>([]);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -171,7 +170,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
                     <div>
                       <span className="text-gray-700">Presets</span>
                       <div className="grid grid-cols-2 gap-2 mt-1">
-                        {sizePresets.map(
+                        {initialSizePresets.map(
                           (preset: TsizePresets, index: number) => (
                             <button
                               key={index}

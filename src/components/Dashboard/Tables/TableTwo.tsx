@@ -34,14 +34,14 @@ const TableTwo = ({
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
-  let token = admin_token ? admin_token : super_admin_token;
+  const token = admin_token ? admin_token : super_admin_token;
 
   const [category, setCategory] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-
+  console.log(toggleColorMode,"toggleColorMode")
   const canAddCategory =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canAddCategory : true);
