@@ -596,21 +596,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Solid Panel Shutters/Living-Room-Shutters-Dubai-1-1030x693.webp',
+          '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Bay Window Shutters/Bay-window-shutters.webp',
+          '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Special Shape Shutters/Special-Shape-shutters.webp',
+          '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -623,21 +623,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Full Height Shutters',
         altText: 'Full Height Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Full Height Shutters/full-height-shutters.webp',
+          '/assets/images/optimized-images/shutters/Living Room Shutters/full-height-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Bay Window Shutters/Bay-window-shutters.webp',
+          '/assets/images/optimized-images/shutters/Living Room Shutters/Bay-window-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Tier On Tier Shutters',
         altText: 'Tier On Tier Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Tier On Tier Shutters/Tier-on-Tier-shutters.webp',
+          '/assets/images/optimized-images/shutters/Living Room Shutters/Tier-on-Tier-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -650,21 +650,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Solid Panel Shutters/Living-Room-Shutters-Dubai-1-1030x693.webp',
+          '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Bi Fold Shutters',
         altText: 'Bi Fold Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Special Shape Shutters/Special-Shape-shutters.webp',
+          '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Special Shape Shutters/Special-Shape-shutters.webp',
+          '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -674,24 +674,24 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     sub_Category: 'Bedroom Shutters',
     Product: [
       {
-        product_name: 'Tracked Window Shutters',
-        altText: 'Tracked Window Shutters',
+        product_name: 'Tracked Shutters',
+        altText: 'Tracked Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Tracked Window Shutters/Tracked-window-shutters.webp',
+          '/assets/images/optimized-images/shutters/bedroom/Tracked-Shutters.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Bi Fold Shutters',
         altText: 'Bi Fold Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Special Shape Shutters/Special-Shape-shutters.webp',
+          '/assets/images/optimized-images/shutters/bedroom/Tracked-Shutters.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Tier On Tier Shutters',
         altText: 'Tier On Tier Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Tier On Tier Shutters/Tier-on-Tier-shutters.webp',
+          '/assets/images/optimized-images/shutters/bedroom/Tier-on-Tier-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -704,21 +704,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Solid Panel Shutters/Living-Room-Shutters-Dubai-1-1030x693.webp',
+          '/assets/images/optimized-images/shutters/kitchen/Solid-panel-shutter.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Cafe Style Shutters',
         altText: 'Cafe Style Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Special Shape Shutters/Special-Shape-shutters.webp',
+          '/assets/images/optimized-images/shutters/kitchen/Special-Shape-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Special Shape Shutters/Special-Shape-shutters.webp',
+          '/assets/images/optimized-images/shutters/kitchen/Special-Shape-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -731,14 +731,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Solid Panel Shutters/Living-Room-Shutters-Dubai-1-1030x693.webp',
+          '/assets/images/optimized-images/shutters/bathroom/Solid-panel-shutter.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Bay Window Shutters/Bay-window-shutters.webp',
+          '/assets/images/optimized-images/shutters/bathroom/Bay-window-shutters.webp',
+        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+      },
+      {
+        product_name: 'Special Shape Shutters',
+        altText: 'Special Shape Shutters',
+        Imagesurl:
+          '/assets/images/optimized-images/shutters/bathroom/Special-shaped-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
