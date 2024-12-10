@@ -19,7 +19,6 @@ import {
 import { RxCross2 } from 'react-icons/rx';
 import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Image from 'next/image';
-import 'react-quill/dist/quill.snow.css';
 import MyEditor from './custom-editor';
 
 class MyUploadAdapter {
