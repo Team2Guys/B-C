@@ -67,7 +67,6 @@ const CommercialPage = () => {
     return <NotFound />;
   }
 
-  console.log(filteredSubCategory, 'descriptiondescription');
   return (
     <>
       {filteredSubCategory ? (
