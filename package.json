@@ -52,6 +52,7 @@
     "swiper": "^11.1.12",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
+    "typescript-eslint": "^8.18.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {

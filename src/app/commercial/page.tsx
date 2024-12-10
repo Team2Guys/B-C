@@ -59,8 +59,6 @@ const CommercialPage = () => {
   if (isLoading || categoryLoading) {
     return <div></div>;
   }
-console.log(generateSlug("Sunscreen/Transparent"), "filtered")
-
   
 
   return (
