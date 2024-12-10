@@ -17,7 +17,6 @@ import {
 } from "react-share";
 import { toast } from 'react-toastify';
 type CommentType = 'parent' | 'nested';
-type SelectedComment = { id: any; type: CommentType };
 interface CommentsProps {
   data: any;
 }
@@ -96,7 +95,7 @@ function Comments({ data }: CommentsProps) {
 
       try {
         setloading(true)
-        let response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${endpoint}/${id}`, formData)
+        await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${endpoint}/${id}`, formData)
         if (isModalOpen) {
           setIsModalOpen(false)
         }
@@ -114,7 +113,7 @@ function Comments({ data }: CommentsProps) {
   };
   const handleReplyClick = (commentId: string, type: CommentType) => {
     setFormData({ name: '', email: '', description: '' });
-
+    console.log(type,"type")
     setcommentId(commentId)
     setIsModalOpen(true);
   };

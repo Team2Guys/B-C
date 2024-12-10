@@ -32,6 +32,7 @@ const CommercialByRoom = ({
   category,
 }: ICategoryPage) => {
   const pathname = usePathname();
+  console.log(category,"category")
   const [isNotFound, setIsNotFound] = useState(false);
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
@@ -67,26 +68,19 @@ const CommercialByRoom = ({
   }, [pathname]);
 
   const filterProducts = () => {
-    const filterSubCat = subcategories?.find(
-      (subCat) => subCat.title === title,
-    );
-    const filterCat = categories?.find(
-      (cat) => cat.id === filterSubCat?.CategoryId,
-    );
-
     const matchingRoom = ByRoomCommercialProduct.find(
       (room) => room.title === title,
     );
 
-    let p: IProduct[] = [];
+    let productdata: IProduct[] = [];
     if (matchingRoom) {
       //@ts-expect-error
-      p = products?.filter((product) =>
+      productdata = products?.filter((product) =>
         matchingRoom.productsTitles.includes(generateSlug(product.title)),
       );
     }
 
-    setFilteredProducts(p);
+    setFilteredProducts(productdata);
   };
 
   useEffect(() => {

@@ -11,7 +11,7 @@ const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const withoutHeaderPages = ['/blog',];
 
-  let splited_urls = pathname.split('/');
+  const splited_urls = pathname.split('/');
 
   return (
     <>

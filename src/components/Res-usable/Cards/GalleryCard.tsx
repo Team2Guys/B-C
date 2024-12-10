@@ -1,10 +1,9 @@
 'use client';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { Image } from 'antd';
 import { IProduct } from 'types/types';
-import { useRouter } from 'next/navigation';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
 interface GalleryProps {

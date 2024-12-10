@@ -34,7 +34,7 @@ const RoomProducts = ({
   const pathname = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
   const [categoryName, setCategoryName] = useState<string | null>(null);
-
+ console.log(category,"category")
   const {
     data: products,
     error,

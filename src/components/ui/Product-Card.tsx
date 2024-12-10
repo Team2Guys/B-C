@@ -4,7 +4,6 @@ import { generateSlug } from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React from 'react';
 import { ICategory, IProduct } from 'types/types';
 

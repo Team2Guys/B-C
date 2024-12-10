@@ -1,3 +1,4 @@
+import React from 'react';
 import axios, { AxiosResponse} from 'axios';
 import PRODUCTS_TYPES from 'types/interfaces';
 

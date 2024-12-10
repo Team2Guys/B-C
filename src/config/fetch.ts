@@ -68,9 +68,7 @@ export const adminRecords = async (
   }
 };
 
-export const fetchAppointments = async (
-  token: string,
-): Promise<IAppointments[]> => {
+export const fetchAppointments = async (): Promise<IAppointments[]> => {
   try {
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/getAllappointments`,
@@ -108,6 +106,7 @@ export const PostAppointments = async (p0: {
   };
   other: string;
 }): Promise<IAppointments[]> => {
+  console.log(p0,"p0")
   const response = await axios.post(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
   );

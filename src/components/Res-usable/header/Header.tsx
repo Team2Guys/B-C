@@ -11,7 +11,6 @@ import SocialLink from '../social-link/social-link';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import {
-  fetchCategories,
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
@@ -41,9 +40,6 @@ const Header = () => {
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
     undefined,
   );
-  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
-    null,
-  );
 
   const path = usePathname();
   const handleLinkClick = () => {
@@ -55,23 +51,12 @@ const Header = () => {
     setDrawerOpen(false);
   };
 
-  const handleCategoryClick = (categoryId: number | null) => {
-    setSelectedCategoryId(categoryId);
-  };
 
-  const {
-    data: categories,
-    error: categoriesError,
-    isLoading: isLoadingCategories,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
+ 
 
   const {
     data: products,
     error: productsError,
-    isLoading: isLoadingProducts,
   } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
@@ -79,21 +64,12 @@ const Header = () => {
 
   const {
     data: subCategories,
-    error: subCateERROR,
-    isLoading: isLoadingSubCategories,
   } = useQuery<ICategory[]>({
     queryKey: ['fetchSubCategories'],
     queryFn: fetchSubCategories,
   });
-
-  if (categoriesError instanceof Error)
-    return <div>Error: {categoriesError.message}</div>;
   if (productsError instanceof Error)
     return <div>Error: {productsError.message}</div>;
-
-  const filteredProducts = selectedCategoryId
-    ? products?.filter((product) => product.CategoryId === selectedCategoryId)
-    : products;
 
   return (
     <>
