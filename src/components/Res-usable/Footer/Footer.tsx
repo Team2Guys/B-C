@@ -26,7 +26,6 @@ import { ChangedProductUrl_handler, getProduct, predefinedPaths, urls } from 'da
 import { useRouter } from 'next/navigation';
 
 const Footer: React.FC = () => {
-  const route = useRouter();
   const { data: products } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,

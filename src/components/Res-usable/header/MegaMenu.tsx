@@ -32,7 +32,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const [timeoutId, setTimeoutId] = useState<any | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLAnchorElement>(null);
-  const route = useRouter();
 
   const handleMouseEnter = () => {
     if (timeoutId) {
