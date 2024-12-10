@@ -1565,7 +1565,7 @@ export const megaMenuDynamic = [
   { productName: 'dimout-blindssemi-transparent' },
 
   { productName: 'white-shutters' },
-  { productName: 'light-wood-shutters' },
+  { productName: 'light-woods-shutters' },
   { productName: 'off-white-shutters' },
   { productName: 'black-shutters' },
   { productName: 'dark-woods-shutters' },
@@ -1672,9 +1672,9 @@ export const extendedDynamic = [
 
   { productName: 'offwhite-shutters' },
   { productName: 'white-shutters' },
-  { productName: 'light-wood-shutters' },
+  { productName: 'light-woods-shutters' },
   { productName: 'black-shutters' },
-  { productName: 'dark-wood-shutters' },
+  { productName: 'dark-woods-shutters' },
   { productName: 'bold-colours-shutters' },
   { productName: 'grey-shutters' },
 ];
@@ -2029,15 +2029,15 @@ export const colorData: IColorData[] = [
   },
   {
     id: 5,
-    name: 'Dark Wood Shutters',
+    name: 'Dark Woods Shutters',
     color: '815438',
-    url: '/shutters-range/dark-wood-shutters',
+    url: '/shutters-range/dark-woods-shutters',
   },
   {
     id: 6,
-    name: 'Light Wood Shutters',
+    name: 'Light Woods Shutters',
     color: 'deb887',
-    url: '/shutters-range/light-wood-shutters',
+    url: '/shutters-range/light-woods-shutters',
   },
   {
     id: 7,
@@ -2097,9 +2097,9 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/dark-wood-shutters',
+    slug: '/shutters-range/dark-woods-shutters',
     content: {
-      heading: 'Dark Wood Colour Shutters',
+      heading: 'Dark Woods Colour Shutters',
       paragraph:
         'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
@@ -2145,9 +2145,9 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/light-wood-shutters',
+    slug: '/shutters-range/light-woods-shutters',
     content: {
-      heading: 'Light Wood Shutters',
+      heading: 'Light Woods Shutters',
       paragraph:
         'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
