@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosRequestConfig, AxiosStatic } from 'axios';
+import axios, { AxiosResponse} from 'axios';
 import PRODUCTS_TYPES from 'types/interfaces';
 
 type setTotalProducts = React.Dispatch<React.SetStateAction<PRODUCTS_TYPES[]>>;
@@ -6,8 +6,6 @@ type setTotalPage = React.Dispatch<React.SetStateAction<string | undefined>>;
 type setError = React.Dispatch<React.SetStateAction<any>>;
 type setLoading = React.Dispatch<React.SetStateAction<boolean>>;
 import Cookies from 'js-cookie';
-import { headers } from 'next/headers';
-import { json } from 'stream/consumers';
 const token = Cookies.get('2guysAdminToken');
 const superAdmintoken = Cookies.get('superAdminToken');
 const finalToken = token ? token : superAdmintoken;
@@ -42,10 +40,7 @@ export const ImageRemoveHandler = async (
   imagePublicId: string,
   setterFunction: any,
 ) => {
-  const requestConfig: AxiosRequestConfig = {
-    data: { imageUrl: imagePublicId },
-  };
-  console.log('function called');
+ 
   console.log(imagePublicId);
   try {
     const response = await axios.delete(
@@ -96,7 +91,7 @@ export let getPRODUCTS = async (
 ) => {
   try {
     setLoading(true);
-    const { products, totalPages, currentPage, totalProducts }: any =
+    const { products, totalPages, totalProducts }: any =
       await getPaginatedproducts(pageNumber);
     setTotalProducts(products);
     setTotalPage && setTotalPage(totalPages);
