@@ -155,7 +155,7 @@ const GalleryPage = () => {
                       ? 'bg-btnclr text-white'
                       : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
                   }`}
-                  onClick={(e) => {
+                  onClick={() => {
                     setCurrentPage(page + 1);
                   }}
                 >

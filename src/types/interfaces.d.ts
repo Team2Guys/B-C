@@ -47,7 +47,6 @@ export interface Category {
 interface CategoriesType {
   posterImageUrl: IMAGE_INTERFACE;
 }
-export interface CategoriesType extends Category {}
 
 interface CloudinaryImage {
   public_id: string | undefined;

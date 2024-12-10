@@ -8,7 +8,6 @@ import axios from 'axios';
 import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
-import { CategoriesType } from 'types/interfaces';
 import { formatDate } from 'config';
 import Cookies from 'js-cookie';
 import TableSkeleton from './TableSkelton';
@@ -23,9 +22,9 @@ interface Product {
 interface CategoryProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
   seteditCategory?: React.Dispatch<
-    SetStateAction<CategoriesType | undefined | null>
+    SetStateAction<  undefined | null>
   >;
-  editCategory?: CategoriesType | undefined | null;
+  editCategory?:  undefined | null;
 }
 
 const TableTwo = ({
