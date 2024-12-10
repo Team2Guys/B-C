@@ -7,7 +7,6 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Support from 'components/Res-usable/support/support';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import { Button } from 'components/ui/button';
-import { LiaSearchPlusSolid } from 'react-icons/lia';
 import { useQuery } from '@tanstack/react-query';
 
 import {
@@ -34,8 +33,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   const ProductName = getCategoryFromUrl(params.name);
   const pathName = usePathname();
   const [selectedSize, setSelectedSize] = useState<TsizePresets>(initialSize);
-  const [sizePresets, setSizePresets] =
-    useState<TsizePresets[]>(initialSizePresets);
+  const [sizePresets, setSizePresets] =useState<TsizePresets[]>(initialSizePresets);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [detail, setdetail] = useState<IProduct[]>([]);
   const modalRef = useRef<HTMLDivElement>(null);

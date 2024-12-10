@@ -6,7 +6,6 @@ const Abundant = () => {
   return (
     <DefaultLayout>
       <Breadcrumb pageName={'Abundant Order'} />
-      {/* <FilterTable data={Orderdata} columns={ordercolumns1} /> */}
     </DefaultLayout>
   );
 };

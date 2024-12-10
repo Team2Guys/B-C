@@ -6,7 +6,7 @@ import PageSkelton from 'components/Skeleton/PageSkelton';
 import Comments from 'components/comments/Comments';
 import { formatDateMonth } from 'config';
 import { fetchBlogs } from 'config/fetch';
-import { blogData, generateSlug } from 'data/data';
+import {  generateSlug } from 'data/data';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React from 'react';
