@@ -282,7 +282,7 @@ const Footer: React.FC = () => {
                             {phoneNumberInfo.number}
                           </Link>
                         </li>
-                        <li className="flex gap-2 flex-wrap md:flex-nowrap">
+                        <li className="flex gap-2 flex-wrap">
                           <p className="text-12 font-normal ">WhatsApp:</p>
                           <Link
                             href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ', '')}`}
