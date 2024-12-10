@@ -23,7 +23,6 @@ import {
 } from 'config/fetch';
 import { updateProductTitle } from 'components/ui/menu-card';
 import { ChangedProductUrl_handler, getProduct, predefinedPaths, urls } from 'data/urls';
-import { useRouter } from 'next/navigation';
 
 const Footer: React.FC = () => {
   const { data: products } = useQuery<IProduct[]>({
