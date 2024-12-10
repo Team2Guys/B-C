@@ -2,22 +2,22 @@
   "root": true,
   "extends": [
     "next/core-web-vitals",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:unused-imports/recommended"
+    "eslint:recommended"
   ],
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "unused-imports"],
+  "plugins": ["unused-imports"],
   "rules": {
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
-      "warn",
+      "error",
       {
         "vars": "all",
         "varsIgnorePattern": "^_",
         "args": "after-used",
         "argsIgnorePattern": "^_"
       }
-    ]
+    ],
+    "@typescript-eslint/no-unused-vars": "off", 
+    "prefer-const": "warn", 
+    "no-useless-catch": "warn"
   }
 }
