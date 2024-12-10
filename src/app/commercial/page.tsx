@@ -21,6 +21,7 @@ import ProductCard from 'components/ui/Product-Card';
 import {
   commercialPagesItems,
   generateSlug,
+  officeBlindsItems,
   staticCommercialMegaMenuItems,
 } from 'data/data';
 import VideoBanner from 'components/video-banner/video-banner';
@@ -30,32 +31,32 @@ const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
 
-  const { data: products,error,isLoading,} = useQuery<IProduct[]>({queryKey: ['products'],queryFn: fetchProducts,});
+  const { data: products, error, isLoading, } = useQuery<IProduct[]>({ queryKey: ['products'], queryFn: fetchProducts, });
 
-  const {data: categories,error: categoryError,isLoading: categoryLoading,} = useQuery<ICategory[]>({queryKey: ['categories'],queryFn: fetchCategories});
+  const { data: categories, error: categoryError, isLoading: categoryLoading, } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
   });
 
-  
+
   useEffect(() => {
     if (products && subCategories) {
 
-      const matchingSubCategoryTitles = subCategories.filter((subCategory) => commercialPagesItems.some((prod:string)=>prod ===generateSlug(subCategory.title)));
+      const matchingSubCategoryTitles = subCategories.filter((subCategory) => commercialPagesItems.some((prod: string) => prod === generateSlug(subCategory.title)));
 
-      const filtered = products.filter((product) => commercialPagesItems.some((prod:string)=>prod ===generateSlug(product.title)));
+      const filtered = products.filter((product) => commercialPagesItems.some((prod: string) => prod === generateSlug(product.title)));
 
-        console.log(matchingSubCategoryTitles, "filtered")
-      
+      console.log(matchingSubCategoryTitles, "filtered")
+
       setFilteredProducts(filtered);
       let arry = [...filtered, ...matchingSubCategoryTitles]
       console.log(arry, "filtered")
       setmixProdCategeries(arry);
     }
   }, [products, subCategories]);
-  
+
   if (isLoading || categoryLoading) {
     return <div></div>;
   }
@@ -78,15 +79,11 @@ const CommercialPage = () => {
             some of the top schools and companies in Dubai, you can be
             confident.
           </p>
+
           <ul className="text-14 xs:text-18 md:leading-8 text-lightdark list-disc list-inside ps-2">
-            <li>Office Blinds</li>
-            <li>Office Curtains</li>
-            <li>Office Roller Blinds</li>
-            <li>Office Windows Curtains</li>
-            <li>Office Windows Blinds</li>
-            <li>Professional Blinds</li>
-            <li>Custom Made-to-Measure Blinds</li>
-            <li>Commercial Office Blinds</li>
+            {officeBlindsItems.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
           <div className="h-fit flex justify-center md:justify-start mt-8">
             <Link
