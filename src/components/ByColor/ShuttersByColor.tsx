@@ -11,7 +11,7 @@ import {
   fetchProducts,
 } from 'config/fetch';
 import { ByColorContent, colorData } from 'data/data';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
@@ -34,8 +34,9 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
   const [loadingFilteredProducts, setLoadingFilteredProducts] = useState<boolean>(false);
   const [relaiveProducts, setRelaiveProducts] = useState<IProduct[]>([]);
   const [showAll, setShowAll] = useState(false);
-  const [pathname, setpathname] = useState<string>("");
-  const routing = usePathname();
+  // const [pathname, setpathname] = useState<string>("");
+  const pathname = usePathname();
+  const route = useRouter();
   // const title = generateSlug(pathname).replaceAll('-',' ');
   const {
     data: products,
@@ -74,13 +75,6 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
     }
   }, [pathname]);
 
-useEffect(() => {
-  
-  setpathname(routing)
-  
-}, [])
-
-
   const handleShowMore = () => {
     setShowAll(true);
   };
@@ -100,7 +94,12 @@ useEffect(() => {
   }, [pathname]);
 
   const handleNavigation = (event: React.MouseEvent, path: string) => {
-    setpathname(path)
+    event.stopPropagation();
+    if (event.ctrlKey || event.metaKey) {
+      window.open(path, '_blank');
+    } else {
+      route.push(path);
+    }
   };
   return (
     <>
