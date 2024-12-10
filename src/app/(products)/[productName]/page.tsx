@@ -31,16 +31,12 @@ const Products = () => {
     subheading2: string;
     subheadingContent: {
       content: string;
-    }[];
-  } | null>(null);
+    }[];} | null>(null);
   const pathname = usePathname();
   const title = matchingLink ? matchingLink.label : productName;
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
 
-  const productNameString = Array.isArray(productName)
-    ? productName[0]
-    : productName;
-  const displayProductName = productNameString || 'Default Product';
+  const productNameString = Array.isArray(productName)? productName[0] : productName;
 
   const {
     data: products,
