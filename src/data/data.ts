@@ -2352,5 +2352,12 @@ export const categorydata = [
   },
 ]
 
+export const relativeProductsDescription = [
+  {
+    url: '/made-to-measure-blinds',
+    description: 'Explore our collection, each piece a showcase of exceptional window blinds design.',
+  },
+]
+
 
 
