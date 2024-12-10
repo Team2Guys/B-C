@@ -148,14 +148,7 @@ const CommercialPage = () => {
               );
             })}
         </div>
-        {/* <div className="h-fit mt-10 md:mt-20 text-center">
-          <Link
-            href="/products"
-            className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
-          >
-            View More
-          </Link>
-        </div> */}
+  
       </Container>
       <Container >
         <RelatedProducts products={filteredProducts || []} limit={4} />
