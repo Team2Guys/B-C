@@ -43,7 +43,7 @@ const BathroomCategory = ({
                 ? parent?.toLowerCase()
                 : categoryTitle?.toLocaleLowerCase()
           }${
-            ['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds','blackout-roller-blinds'].includes(slug)
               ? '/roller-blinds'
               : ''
           }/${slug}`);
@@ -87,7 +87,6 @@ const BathroomCategory = ({
 
   if (!isLoadingSubCategories) {
     console.log('----------- subCategories --------------');
-    console.log(subCategories);
   }
 
   return (

@@ -1182,7 +1182,7 @@ export const blindMegaMenuItems = [
   { productName: 'officestudy' },
 
   { productName: 'blackout-blinds' },
-  { productName: 'outdoor' },
+  // { productName: 'outdoor' },
   { productName: 'motorised-blinds' },
   { productName: 'dimout-blindssemi-transparent' },
   { productName: 'sunscreentransparent' },
@@ -1230,7 +1230,7 @@ export const shutterMegaMenuItems = [
   // { productName: 'bathroom-shutters' },
   // { productName: 'kitchen-shutters' },
   { productName: 'dining-room-shutters' },
-  { productName: 'tracked-window-shutters' },
+  { productName: 'tracked-shutters' },
 ];
 
 export const commercialMegaMenuItems = [
@@ -1282,17 +1282,17 @@ export const staticCommercialMegaMenuItems: IProduct[] = [
 ];
 
 export const commercialPagesItems = [
-  { productName: 'hotels-restaurants' },
-  { productName: 'printed-blinds' },
-  { productName: 'school-blinds' },
-  { productName: 'sunscreen-roller-blinds' },
-  { productName: 'vertical-blinds' },
-  { productName: 'aluminium-blinds' },
-  { productName: 'wooden-blinds' },
-  { productName: 'blackout-blinds' },
-  { productName: 'motorised-blinds' },
-  { productName: 'panel-blinds' },
-  { productName: 'roman-blinds' },
+  'hotels-restaurants',
+  'printed-blinds',
+  'school-blinds',
+  'sunscreentransparent',
+  'vertical-blinds',
+  'aluminium-blinds',
+  'wooden-blinds',
+  'blackout-roller-blinds',
+  'motorised-blinds',
+  'panel-blinds',
+  'roman-blinds',
 ];
 
 export const items = [
@@ -1487,7 +1487,7 @@ export const megaMenubyStyle = [
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'full-height-shutters' },
-  { productName: 'tracked-window-shutters' },
+  { productName: 'tracked-shutters' },
 
   { productName: 'pencil-pleat-curtains' },
   { productName: 'ripplefoldwave-curtains' },
@@ -1563,12 +1563,12 @@ export const megaMenuDynamic = [
   { productName: 'blackout-curtains' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
-  { productName: 'outdoor-blinds' },
+  // { productName: 'outdoor-blinds' },
   { productName: 'motorised-blinds' },
   { productName: 'dimout-blindssemi-transparent' },
 
   { productName: 'white-shutters' },
-  { productName: 'light-wood-shutters' },
+  { productName: 'light-woods-shutters' },
   { productName: 'off-white-shutters' },
   { productName: 'black-shutters' },
   { productName: 'dark-woods-shutters' },
@@ -1675,9 +1675,9 @@ export const extendedDynamic = [
 
   { productName: 'offwhite-shutters' },
   { productName: 'white-shutters' },
-  { productName: 'light-wood-shutters' },
+  { productName: 'light-woods-shutters' },
   { productName: 'black-shutters' },
-  { productName: 'dark-wood-shutters' },
+  { productName: 'dark-woods-shutters' },
   { productName: 'bold-colours-shutters' },
   { productName: 'grey-shutters' },
 ];
@@ -2032,15 +2032,15 @@ export const colorData: IColorData[] = [
   },
   {
     id: 5,
-    name: 'Dark Wood Shutters',
+    name: 'Dark Woods Shutters',
     color: '815438',
-    url: '/shutters-range/dark-wood-shutters',
+    url: '/shutters-range/dark-woods-shutters',
   },
   {
     id: 6,
-    name: 'Light Wood Shutters',
+    name: 'Light Woods Shutters',
     color: 'deb887',
-    url: '/shutters-range/light-wood-shutters',
+    url: '/shutters-range/light-woods-shutters',
   },
   {
     id: 7,
@@ -2100,9 +2100,9 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/dark-wood-shutters',
+    slug: '/shutters-range/dark-woods-shutters',
     content: {
-      heading: 'Dark Wood Colour Shutters',
+      heading: 'Dark Woods Colour Shutters',
       paragraph:
         'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
@@ -2148,9 +2148,9 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/light-wood-shutters',
+    slug: '/shutters-range/light-woods-shutters',
     content: {
-      heading: 'Light Wood Shutters',
+      heading: 'Light Woods Shutters',
       paragraph:
         'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
       subheading1: 'Custom Window Blinds ',
@@ -2194,7 +2194,16 @@ export const specificTitles = [
   'Pergola',
   'Outdoor',
 ];
-
+export const officeBlindsItems = [
+  'Office Blinds',
+  'Office Curtains',
+  'Office Roller Blinds',
+  'Office Windows Curtains',
+  'Office Windows Blinds',
+  'Professional Blinds',
+  'Custom Made-to-Measure Blinds',
+  'Commercial Office Blinds',
+];
 export const ByRoomCommercialProduct = [
   {
     title: 'Indoor',
@@ -2260,5 +2269,103 @@ export const subCategoryName = [
   {
     name: 'Living Room Blinds',
     alterName: 'Made To Measure Blinds For Living Room',
+  },
+];
+
+export const categorydata = [
+  {
+    category: 'Blinds',
+    types: [
+      {
+        type: 'ALL',
+        title: 'Explore Popular Made to Measure Blind Options',
+        subtitle:
+          'Our bespoke blinds are designed to meet your needs. Various types of window blinds are available in a variety of materials and colours, so you can create an ambience to suit your style.',
+      },
+      {
+        type: 'By Style',
+        title: 'Style Your Space',
+        subtitle:
+          'Pick blinds that match the vibe of your room, from minimalist to modern.',
+      },
+      {
+        type: 'By Room',
+        title: 'Blinds for Every Room',
+        subtitle:
+          'Find blinds crafted to enhance the look and feel of each specific space in your home.',
+      },
+      {
+        type: 'dynamic',
+        title: 'Practical Elegance',
+        subtitle:
+          'Explore our blinds sorted by their practical features, ensuring you get both style and functionality.',
+      },
+    ],
+  },
+  {
+    category: 'Curtains',
+    types: [
+      {
+        type: 'ALL',
+        title: 'Explore Popular Made to Measure Blind Options',
+        subtitle:
+          'Our bespoke Curtain are designed to meet your needs. Various types of window Curtain are available in a variety of materials and colours, so you can create an ambience to suit your style.',
+      },
+      {
+        type: 'By Style',
+        title: 'Style Your Space',
+        subtitle:
+          'Pick Curtain that match the vibe of your room, from minimalist to modern.',
+      },
+      {
+        type: 'By Room',
+        title: 'Curtain for Every Room',
+        subtitle:
+          'Find Curtain crafted to enhance the look and feel of each specific space in your home.',
+      },
+      {
+        type: 'dynamic',
+        title: 'Curtain for Every Room',
+        subtitle:
+          'Find Curtain crafted to enhance the look and feel of each specific space in your home.',
+      },
+    ],
+  },
+  {
+    category: 'shutters',
+    types: [
+      {
+        type: 'ALL',
+        title: 'Explore Popular Made to Measure shutters Options',
+        subtitle:
+          'Our bespoke shutters are designed to meet your needs. Various types of window shutters are available in a variety of materials and colours, so you can create an ambience to suit your style.',
+      },
+      {
+        type: 'By Style',
+        title: 'Style Your Space',
+        subtitle:
+          'Pick shutters that match the vibe of your room, from minimalist to modern.',
+      },
+      {
+        type: 'By Room',
+        title: 'shutters for Every Room',
+        subtitle:
+          'Find shutters crafted to enhance the look and feel of each specific space in your home.',
+      },
+      {
+        type: 'dynamic',
+        title: 'shutters for Every Room',
+        subtitle:
+          'Find shutters crafted to enhance the look and feel of each specific space in your home.',
+      },
+    ],
+  },
+];
+
+export const relativeProductsDescription = [
+  {
+    url: '/made-to-measure-blinds',
+    description:
+      'Explore our collection, each piece a showcase of exceptional window blinds design.',
   },
 ];

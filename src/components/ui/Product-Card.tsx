@@ -35,6 +35,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
   };
 
 
+  console.log(products,"filtered" )
 
 
   const getPath =  (product: IProduct, parent: string)=> {
@@ -53,7 +54,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               ? `${parent.toLowerCase()}-range`
               : parent?.toLowerCase()
           }${
-            ['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds','blackout-roller-blinds'].includes(slug)
               ? '/roller-blinds'
               : ''
           }/${slug}`);
@@ -66,9 +67,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
     >
       {products &&
         products.map((product: IProduct) => {
-          const category = categories?.find(
-            (cat) => cat.id === product.CategoryId,
-          );
+          const category = categories?.find((cat) => cat.id === product.CategoryId);
           if (!category) return null;
 
           const trimmedProductTitle = getTrimmedTitle(product.title);
