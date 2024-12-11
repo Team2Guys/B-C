@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper';
+import React from 'react';
 import localFont from 'next/font/local';
 import 'app/globals.css';
 import { Providers } from './Providers';
