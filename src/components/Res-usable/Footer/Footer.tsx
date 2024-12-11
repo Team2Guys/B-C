@@ -210,6 +210,7 @@ const Footer: React.FC = () => {
                     ))}
                 </div>
 
+
                 <div className="flex flex-col gap-4 pl-2 col-span-12 md:col-span-5 mt-5 md:mt-0">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
                     {footerLinks.map((category, index) => (
