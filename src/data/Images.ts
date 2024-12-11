@@ -326,28 +326,28 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Kids Prints Curtains',
         altText: 'Kids Prints Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Kids room curtains/b.jpg',
+          '/assets/images/optimized-images/curtains/Kids room curtains/kids.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Made to measure Chiffon Curtains',
         altText: 'Made to measure Chiffon Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Kids room curtains/c.jpg',
+          '/assets/images/optimized-images/curtains/Kids room curtains/chiffon.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Tab Top Curtains',
         altText: 'Tab Top Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Kids room curtains/b.jpg',
+          '/assets/images/optimized-images/curtains/Kids room curtains/black.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Kids room curtains/b.jpg',
+          '/assets/images/optimized-images/curtains/Kids room curtains/black.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
@@ -625,21 +625,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Full Height Shutters',
         altText: 'Full Height Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Living Room Shutters/Full-height-shutters.webp',
+          '/assets/images/optimized-images/shutters/living/full-height.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Living Room Shutters/Bay-window-shutters.webp',
+          '/assets/images/optimized-images/shutters/living/Bay-window-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
         product_name: 'Tier On Tier Shutters',
         altText: 'Tier On Tier Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Living Room Shutters/Tier-on-Tier-shutters.webp',
+          '/assets/images/optimized-images/shutters/living/Tier-on-Tier-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
     ],
