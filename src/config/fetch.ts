@@ -13,9 +13,8 @@ const headers = {
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
   console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`, "productscommercial");
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
-  );
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`);
+  console.log(response, "productscommercial")
   return response.data;
 };
 
