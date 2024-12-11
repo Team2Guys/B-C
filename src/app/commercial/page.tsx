@@ -26,11 +26,11 @@ const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
 
-  const { data: products, isLoading, } = useQuery<IProduct[]>({ queryKey: ['products'], queryFn: fetchProducts, });
+  const { data: products,  isLoading, } = useQuery<IProduct[]>({ queryKey: ['products'], queryFn: fetchProducts, });
 
-  const { data: categories, isLoading: categoryLoading, } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
+  const { data: categories,  isLoading: categoryLoading, } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
 
-  const { data: subCategories,  } = useQuery<ICategory[]>({
+  const { data: subCategories, } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
   });
