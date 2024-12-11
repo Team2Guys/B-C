@@ -1,7 +1,7 @@
 import Card from 'components/Res-usable/Cards/card';
 import Container from 'components/Res-usable/Container/Container';
 import { useQuery } from '@tanstack/react-query';
-import { fetchCategories, fetchSubCategories } from 'config/fetch';
+import { fetchCategories} from 'config/fetch';
 import { ICategory } from 'types/types';
 import { links } from 'components/Res-usable/header/Header';
 
