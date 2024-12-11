@@ -13,12 +13,10 @@ import { useQueryClient } from '@tanstack/react-query';
 import {
   FacebookShareButton,
   PinterestShareButton,
-  WhatsappIcon,
   WhatsappShareButton
 } from "react-share";
 import { toast } from 'react-toastify';
 type CommentType = 'parent' | 'nested';
-type SelectedComment = { id: any; type: CommentType };
 interface CommentsProps {
   data: any;
 }
@@ -37,7 +35,6 @@ function Comments({ data }: CommentsProps) {
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setloading] = useState(false);
-  const [selectedComment, setSelectedComment] = useState<SelectedComment | null>(null);
   const [shareURL, setShareURL] = useState('');
   const [commentId, setcommentId] = useState('');
   const queryClient = useQueryClient();
@@ -98,7 +95,7 @@ function Comments({ data }: CommentsProps) {
 
       try {
         setloading(true)
-        let response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${endpoint}/${id}`, formData)
+        await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${endpoint}/${id}`, formData)
         if (isModalOpen) {
           setIsModalOpen(false)
         }
@@ -111,23 +108,18 @@ function Comments({ data }: CommentsProps) {
         setloading(false)
 
       }
-
-
-
       setFormData({ name: '', email: '', description: '' });
     }
   };
   const handleReplyClick = (commentId: string, type: CommentType) => {
     setFormData({ name: '', email: '', description: '' });
-
-    setSelectedComment({ id: commentId, type });
+    console.log(type,"type")
     setcommentId(commentId)
     setIsModalOpen(true);
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    setSelectedComment(null);
   };
 
 

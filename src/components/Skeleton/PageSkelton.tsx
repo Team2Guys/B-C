@@ -1,6 +1,4 @@
-import { Skeleton } from 'antd';
-import Container from 'components/Res-usable/Container/Container';
-
+import React from 'react';
 const PageSkelton = ({ header }: { header?: boolean }) => {
   return (
     <div>

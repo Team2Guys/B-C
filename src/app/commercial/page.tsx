@@ -1,6 +1,4 @@
 'use client';
-import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/bg_commercial.png';
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
@@ -15,27 +13,24 @@ import {
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
-import AllProducts from 'components/Product/All-Products/Products';
 import { useEffect, useState } from 'react';
 import ProductCard from 'components/ui/Product-Card';
 import {
   commercialPagesItems,
   generateSlug,
   officeBlindsItems,
-  staticCommercialMegaMenuItems,
 } from 'data/data';
 import VideoBanner from 'components/video-banner/video-banner';
-import { ChangedProductUrl } from 'data/urls';
 
 const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
 
-  const { data: products, error, isLoading, } = useQuery<IProduct[]>({ queryKey: ['products'], queryFn: fetchProducts, });
+  const { data: products,  isLoading, } = useQuery<IProduct[]>({ queryKey: ['products'], queryFn: fetchProducts, });
 
-  const { data: categories, error: categoryError, isLoading: categoryLoading, } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
+  const { data: categories,  isLoading: categoryLoading, } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
 
-  const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
+  const { data: subCategories, } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
   });

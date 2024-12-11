@@ -1,6 +1,5 @@
 'use client';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
 import React, { useRef, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { ISelectedPage } from 'types/types';
@@ -21,8 +20,6 @@ const VideoBanner: React.FC<BannerProps> = ({
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const router = useRouter();
-  const pathname = usePathname();
 
   const handleVideoClick = () => {
     if (videoRef.current) {
@@ -43,14 +40,7 @@ const VideoBanner: React.FC<BannerProps> = ({
   if (!selectedPage) {
     return null;
   }
-  const handleNavigation = (event: React.MouseEvent, path: string) => {
-    event.stopPropagation();
-    if (event.ctrlKey || event.metaKey) {
-      window.open(path, '_blank');
-    } else {
-      router.push(path);
-    }
-  };
+ 
   return (
     <div
       className={`relative w-full ${colorSlider ? 'h-full' : 'h-full py-2 2xl:h-[681px]'}  overflow-hidden ${className}`}

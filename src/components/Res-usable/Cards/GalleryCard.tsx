@@ -1,12 +1,9 @@
 'use client';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { IoSearch } from 'react-icons/io5';
-import { Image, Modal } from 'antd';
-import { GalleryItems } from 'types/interfaces';
-import { generateSlug } from 'data/data';
+import { Image } from 'antd';
 import { IProduct } from 'types/types';
-import { useRouter } from 'next/navigation';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
 interface GalleryProps {
@@ -20,23 +17,6 @@ const GalleryCard: React.FC<GalleryProps> = ({
   relativeProducts,
   parent,
 }) => {
-  const router = useRouter();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-  const handleNavigation = (event: any, path: string) => {
-    if (event.ctrlKey || event.metaKey) {
-      window.open(path, '_blank');
-    } else {
-      router.push(path);
-    }
-  };
   const getPath = (arr: IProduct)=> {
     const slug = ChangedProductUrl_handler(arr.title);
     const basePath =

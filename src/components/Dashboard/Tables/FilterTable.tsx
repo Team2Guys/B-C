@@ -7,7 +7,6 @@ import { Input, Space, Table } from 'antd';
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import Highlighter from 'react-highlight-words';
 import { Button } from 'components/ui/button';
-import { Color } from 'antd/es/color-picker';
 import { IAppointments } from 'types/types';
 
 type DataIndex = keyof IAppointments;

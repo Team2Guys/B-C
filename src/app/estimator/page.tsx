@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import {Modal } from 'antd';
+import { Modal } from 'antd';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategories, fetchProducts } from 'config/fetch';
 import { ICategory, IProduct } from 'types/types';
@@ -11,14 +11,13 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { Button } from 'components/ui/button';
-import {generateSlug} from 'data/data';
+import {generateSlug } from 'data/data';
 import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
 import { useRouter } from 'next/navigation';
 import Input from 'components/Common/regularInputs';
 import EstimatorTabs from 'components/estimator-tab';
 
 const Estimator: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
   const [activeProduct, setActiveProduct] = useState<IProduct | null>(null);
 
@@ -29,16 +28,9 @@ const Estimator: React.FC = () => {
   const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
   const route = useRouter();
 
-  const description = selectedProduct?.description || '';
-
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
-  };
-
   const {
     data: categories,
     error: categoriesError,
-    isLoading: isLoadingCategories,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,

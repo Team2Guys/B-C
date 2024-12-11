@@ -15,8 +15,6 @@ import { GrCodeSandbox, GrUserAdmin } from 'react-icons/gr';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { TfiShoppingCartFull } from 'react-icons/tfi';
-import { TbGardenCartOff } from 'react-icons/tb';
-import { FaBarsStaggered } from 'react-icons/fa6';
 
 interface SidebarProps {
   sidebarOpen: boolean;

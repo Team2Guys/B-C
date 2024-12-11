@@ -2,7 +2,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import { testimonials } from 'data/data';
 import Image from 'next/image';
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';

@@ -1,9 +1,8 @@
-import { FC } from 'react';
-import CustomButton from '../Button/Button';
+
+import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ICategory } from 'types/types';
-import { generateSlug } from 'data/data';
 
 interface CardProps {
   data: ICategory;

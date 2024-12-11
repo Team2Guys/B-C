@@ -3,7 +3,6 @@ import Image from 'next/image';
 import React from 'react';
 import { Allproduct } from 'types/interfaces';
 import Link from 'next/link';
-import { generateSlug } from 'data/data';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchSubCategories } from 'config/fetch';
@@ -17,8 +16,6 @@ interface FeatureCardProps {
 const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
   const {
     data: categories,
-    error: categoryError,
-    isLoading,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchSubCategories,

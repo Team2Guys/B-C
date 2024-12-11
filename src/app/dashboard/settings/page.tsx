@@ -61,7 +61,7 @@ const Settings = () => {
 
       if (loggedInUser) {
         let { fullname, posterImageUrl, ...extractedData } = loggedInUser;
-        console.log(extractedData, 'extractedData');
+        console.log(fullname,posterImageUrl, 'fullname');
 
         if (profilePhoto && profilePhoto.length > 0) {
           initialFormData = {

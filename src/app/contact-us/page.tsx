@@ -1,84 +1,16 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import TopHero from 'components/ui/top-hero';
-import { relativeProducts } from 'data/data';
 import second from '../../../public/assets/images/contact-us/contactUs.webp';
 import Container from 'components/Res-usable/Container/Container';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { MdEmail } from 'react-icons/md';
 import { IoCall, IoLocationSharp } from 'react-icons/io5';
 import Link from 'next/link';
-import { useQuery } from '@tanstack/react-query';
-import { IProduct } from 'types/types';
-import { fetchProducts } from 'config/fetch';
 import BookAppointment from 'components/Book-appointment/BookAppointment';
 import { usePathname } from 'next/navigation';
 
 const ProductUs: React.FC = () => {
-  const [formData, SetFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
 
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const {
-    data: products,
-    error: producterror,
-    isLoading,
-  } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    SetFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  const validate = () => {
-    let isValid = true;
-    const newErrors = {
-      name: '',
-      email: '',
-      message: '',
-    };
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Full Name is required.';
-      isValid = false;
-    } else if (/\d/.test(formData.name)) {
-      newErrors.name = 'Full Name cannot contain numbers.';
-      isValid = false;
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required.';
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid.';
-      isValid = false;
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required.';
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
-  const handelSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validate()) {
-      console.log('Form Data:', formData);
-    }
-  };
   const pathName = usePathname();
   return (
     <>
