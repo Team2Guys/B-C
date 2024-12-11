@@ -10,6 +10,7 @@ import { generateSlug } from 'data/data';
 import { ChangedProductUrl, urls } from 'data/urls';
 import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
 import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
