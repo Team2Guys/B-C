@@ -1,7 +1,7 @@
 import Card from 'components/Res-usable/Cards/card';
 import Container from 'components/Res-usable/Container/Container';
 import { useQuery } from '@tanstack/react-query';
-import { fetchSubCategories } from 'config/fetch';
+import { fetchCategories, fetchSubCategories } from 'config/fetch';
 import { ICategory } from 'types/types';
 import { links } from 'components/Res-usable/header/Header';
 
@@ -12,7 +12,7 @@ const HomeCard = () => {
     isLoading,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
-    queryFn: fetchSubCategories,
+    queryFn: fetchCategories,
   });
 
   const customOrder = ['Blinds', 'Curtains', 'Shutters'];
@@ -49,19 +49,20 @@ const HomeCard = () => {
       </div>
     );
 
+    console.log(sortedCategories, "home")
   return (
     <Container className="py-12">
       <div className="flex justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
           {sortedCategories &&
             sortedCategories
-              .filter((data) => data.title !== 'Commercial')
-              .map((data: ICategory, index: number) => {
-                const filtered = links.filter(
-                  (item) => item.label === data.title,
-                );
+              .filter((cat) => cat.title !== 'Commercial')
+              .map((cat: ICategory, index: number) => {
+                const filtered = links.find((item) => item.label === cat.title,);
+                console.log(filtered, "home")
+
                 return (
-                  <Card key={index} data={data} href={filtered[0]?.href} />
+                  <Card key={index} data={cat} href={filtered?.href} />
                 );
               })}
         </div>
