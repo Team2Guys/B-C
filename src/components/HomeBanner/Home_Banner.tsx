@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { BannerProps } from 'types/interfaces';
-const Banner: React.FC<BannerProps> = ({ data }) => {
+const Banner: React.FC<BannerProps> = () => {
   const route = useRouter();
   return (
     <div className="grid grid-cols-12 items-center bg-[#F6EFE9] py-2 sm:py-0">

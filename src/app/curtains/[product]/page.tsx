@@ -1,7 +1,6 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
 import NotFound from 'app/not-found';
-import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { AiOutlineUser } from 'react-icons/ai';
-import { HeadingH3, HeadingH6 } from 'components/Common/Heading';
+import { HeadingH6 } from 'components/Common/Heading';
 import { message, Modal, Rate } from 'antd';
 import { IoIosSend } from 'react-icons/io';
 import feedback from '../../../../public/images/review.png';

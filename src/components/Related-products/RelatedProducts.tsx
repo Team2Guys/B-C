@@ -19,8 +19,6 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
 
   const {
     data: categoriesList = [],
-    error,
-    isLoading,
   } = useQuery<ICategory[], Error>({
     queryKey: ['category'],
     queryFn: fetchCategories,

@@ -1,4 +1,3 @@
-import CustomButton from 'components/Res-usable/Button/Button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from 'lib/utils';
-import { usePathname, useRouter } from 'next/navigation';
 import { IProduct } from 'types/types';
 import Image from 'next/image';
 import Container from '../Container/Container';
@@ -26,16 +25,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   sliderData,
   className,
   href,
-  onClick,
 }) => {
-  const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeProduct, setactiveProduct] = useState<IProduct | undefined>();
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const [timeoutId, setTimeoutId] = useState<any | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLAnchorElement>(null);
-  const route = useRouter();
-
+ 
   const handleMouseEnter = () => {
     if (timeoutId) {
       clearTimeout(timeoutId);
@@ -111,7 +107,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     },
   ];
 
-  const distributeProducts = (arr: any[], columns: number) => {
+  const distributeProducts = () => {
     const styles = megaMenubyStyle.map((item) =>
       generateSlug(item.productName),
     );
@@ -137,11 +133,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     return result;
   };
 
-  const distributedProducts = distributeProducts(
-    sliderData,
-    MegaMenu_Headings.length,
-  );
-  let currentLocation = window.location;
+  const distributedProducts = distributeProducts();
 
   console.log(title, 'distributedProducts');
   console.log(title, 'itemName');

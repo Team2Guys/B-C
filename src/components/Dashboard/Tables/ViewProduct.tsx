@@ -4,7 +4,6 @@ import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import { FaRegEye } from 'react-icons/fa';
 import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
@@ -13,7 +12,6 @@ import Cookies from 'js-cookie';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories } from 'config/fetch';
-import { revalidatePath } from 'next/cache';
 import revalidateTag from 'components/ServerActons/ServerAction';
 import { ChangedProductUrl_handler } from 'data/urls';
 
@@ -37,7 +35,6 @@ const ViewProduct: React.FC<CategoryProps> = ({
   setselecteMenu,
   setEditProduct,
 }) => {
-  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const admin_token = Cookies.get('2guysAdminToken');
@@ -51,8 +48,6 @@ const ViewProduct: React.FC<CategoryProps> = ({
 
   const {
     data: categories,
-    error: categoriesError,
-    isLoading: isLoadingCategories,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,

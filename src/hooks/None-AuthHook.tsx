@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Loader from 'components/Loader/Loader';
 import Cookies from 'js-cookie';
-import axios from 'axios';
-import { loggedInAdminAction } from 'redux/slices/AdminsSlice';
 
 
 function ProtectedRoute(WrappedComponent: any) {

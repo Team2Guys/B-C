@@ -1,13 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { ChangedProductUrl_handler, CommercialUrl, predefinedPaths, urls } from 'data/urls';
+import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React from 'react';
 import { ICategory, IProduct } from 'types/types';
-import { string } from 'yup';
 
 interface ProductCardDataProps {
   products: IProduct[];
@@ -17,14 +15,10 @@ interface ProductCardDataProps {
 
 const ProductCard: React.FC<ProductCardDataProps> = ({
   products,
-  categoryType,
   isSizeSmall,
 }) => {
-  const route = useRouter();
   const {
     data: categories,
-    error: categoryError,
-    isLoading: categoryLoading,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchSubCategories,
@@ -33,9 +27,6 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
   const getTrimmedTitle = (title: string) => {
     return title.replace(/^Made to measure\s+/i, '');
   };
-
-
-  console.log(products,"filtered" )
 
 
   const getPath =  (product: IProduct, parent: string)=> {
