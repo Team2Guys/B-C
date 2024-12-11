@@ -10,8 +10,9 @@ import { CategoriesType } from 'types/interfaces';
 
 const AddCategory = () => {
   const [menuType, setMenuType] = useState<string>('Categories');
-  const [editCategory, seteditCategory] = useState<CategoriesType | undefined | null>();
-
+  const [editCategory, seteditCategory] = useState<
+    CategoriesType | undefined | null
+  >();
 
   return (
     <DefaultLayout>

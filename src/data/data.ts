@@ -2480,10 +2480,24 @@ export const categorydata = [
   },
 ];
 
-export const relativeProductsDescription = [
-  {
-    url: '/made-to-measure-blinds',
-    description:
-      'Explore our collection, each piece a showcase of exceptional window blinds design.',
+//RelatedProductsDta
+export const RelatedProductsdata =[
+  { url:"/automated-blinds",
+    para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
   },
-];
+  { url:"/automated-curtains",
+    para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
+  },
+  { url:"/made-to-measure-blinds",
+    para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
+  },
+  { url:"/made-to-measure-curtains",
+    para: "For quality curtain installation in Dubai, check out our services designed to make your living spaces more beautiful.",
+  },
+  { url:"/shutters-range",
+    para: "Explore our range of Interior & Exterior Shutters, designed for both style and durability.",
+  },
+  { url:"/commercial",
+    para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
+  },
+]
