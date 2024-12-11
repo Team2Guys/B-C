@@ -50,6 +50,9 @@ const ProductUs: React.FC = () => {
                 for high level overviews. Iterative <br /> approaches to
                 corporate strategy foster
               </p>
+              <div className='block sm:hidden'>
+                <BookAppointment />
+                </div>
             </div>
             <div className="lg:mt-8 mt-4 lg:pl-12">
               <p className="md:text-xl font-bold">Contact Info :</p>
@@ -95,6 +98,7 @@ const ProductUs: React.FC = () => {
               />
             </div>
           </div>
+          <BookAppointment className=' hidden sm:block'  />
 
           {/* <form
             onSubmit={handelSubmit}
@@ -171,7 +175,6 @@ const ProductUs: React.FC = () => {
               />
             </div>
           </form> */}
-          <BookAppointment />
         </section>
       </Container>
     </>

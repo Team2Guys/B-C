@@ -43,9 +43,10 @@ interface ContactMethods {
 
 interface AppointmentProps {
   singlePage?: boolean;
+  className?: string;
 }
 
-const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
+const BookAppointment: React.FC<AppointmentProps> = ({ singlePage,className }) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const PostAppointments = async (appointmentData: IAppointments) => {
@@ -277,7 +278,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
 
   return (
     <div
-      className={`bg-white  text-left text-black ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
+      className={`bg-white  text-left text-black ${className} ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
     >
       {!singlePage && (
         <h3 className="font-bold text-lg text-center tracking-[5px]">
@@ -498,7 +499,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             <div className=" p-2 bg-white rounded-md">
               <h2 className="text-11 font-light mb-3">Tell us what you need:</h2>
 
-              <div className="flex flex-row gap-4">
+              <div className="flex flex-row flex-wrap sm:flex-nowrap gap-2 sm:gap-4">
                 <div>
                   <label className="flex items-center text-11 text-[#898989]">
                     <input
@@ -537,7 +538,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
             </div>
             <div className="p-2 rounded-md">
               <h2 className="text-11 font-light mb-3">How shall we contact you?</h2>
-              <div className="flex flex-row gap-2 mt-2">
+              <div className="flex flex-wrap sm:flex-nowrap flex-row gap-2 mt-2">
                 <label className="flex items-center text-11 text-[#898989]">
 
                   <input
@@ -656,7 +657,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
         <div className="text-center mt-4">
           <button
             type="submit"
-            className="w-fit bg-[#A9B4A4] text-white py-2 px-14 rounded"
+            className="w-fit bg-[#A9B4A4] text-white py-2 px-8 sm:px-14 rounded"
             disabled={loading}
           >
             {loading ? <Loader /> : 'Submit Request'}
