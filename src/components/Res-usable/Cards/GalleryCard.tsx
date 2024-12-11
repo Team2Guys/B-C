@@ -51,9 +51,8 @@ const GalleryCard: React.FC<GalleryProps> = ({
           className=" rounded-xl"
           preview={{
             mask: (
-              <div>
-                <IoSearch style={{ color: 'white', fontSize: '30px' }} />
-              </div>
+                    <IoSearch style={{ color: 'white', fontSize: '30px' }} />
+            
             ),
           }}
         />
@@ -66,12 +65,14 @@ const GalleryCard: React.FC<GalleryProps> = ({
           >
             {card.title}
           </span>
+
           <Link 
             href={getPath(card)}
             className={`border border-primary text-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14 text-nowrap ${relativeProducts ? 'block' : 'hidden'}`}
           >
             View More
           </Link>
+
         </Link>
       </div>
     </>
