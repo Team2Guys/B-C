@@ -12,10 +12,9 @@ const headers = {
 };
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
-  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`);
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
-  );
+  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`, "productscommercial");
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`);
+  console.log(response, "productscommercial")
   return response.data;
 };
 
@@ -127,7 +126,7 @@ export const getAllAdmins = async () => {
     );
     const admins = await response.json();
     return admins;
-  } catch (err) {
-    throw err;
+  } catch (err:any) {
+    throw new Error(err.message || JSON.stringify(err));
   }
 };
