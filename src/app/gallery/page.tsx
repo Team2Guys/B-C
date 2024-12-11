@@ -133,7 +133,7 @@ const GalleryPage = () => {
           {filteredProducts && filteredProducts.length > 0 && (
             <>
               <span
-                className={`mx-1 w-16 h-14 flex justify-center items-center font-medium cursor-pointer ${
+                className={`mx-1 w-16 h-8 md:h-14 flex justify-center items-center font-medium cursor-pointer ${
                   currentPage === 1
                     ? 'opacity-0'
                     : 'hover:bg-btnclr hover:text-white opacity-100'
@@ -150,7 +150,7 @@ const GalleryPage = () => {
               {Array.from({ length: totalPages }, (_, page) => (
                 <button
                   key={page + 1}
-                  className={`mx-1 w-16 h-14 flex justify-center rounded-sm items-center font-medium transition ${
+                  className={`mx-1 w-16 h-8 md:h-14 flex justify-center rounded-sm items-center font-medium transition ${
                     currentPage === page + 1
                       ? 'bg-btnclr text-white'
                       : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
@@ -164,7 +164,7 @@ const GalleryPage = () => {
               ))}
 
               <span
-                className={`mx-1 w-16 h-14 flex justify-center items-center font-medium cursor-pointer ${
+                className={`mx-1 w-16 h-8 md:h-14 flex justify-center items-center font-medium cursor-pointer ${
                   currentPage === totalPages
                     ? 'opacity-0'
                     : 'hover:bg-btnclr hover:text-white opacity-100'

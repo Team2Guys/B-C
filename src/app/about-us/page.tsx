@@ -4,7 +4,6 @@ import bgBreadcrum from '../../../public/assets/images/Breadcrum/d.jpg';
 import Container from 'components/Res-usable/Container/Container';
 import aboutUsImg from '../../../public/assets/images/Group2003.png';
 import CountUp from 'react-countup';
-
 import {
   AboutUsPara,
   aboutUsReviewData,
@@ -32,12 +31,12 @@ const AboutUsPage = () => {
         >
         </div>
         <div>
-          <h4 className="font-semibold mb-6 text-paralight">
+          <h4 className="font-semibold mb-6 text-paralight text-center sm:text-start">
             {AboutUsPara.subheading}
           </h4>
           {AboutUsPara.heading.map((item, index) => (
             <h2
-              className={`text-28 xs:text-36 lg:text-5xl leading-snug lg:leading-snug ${item == 'WELCOME TO' ? 'font-normal' : 'font-bold text-wrap'}`}
+              className={`text-28 xs:text-36 lg:text-5xl leading-snug lg:leading-snug text-center sm:text-start ${item == 'WELCOME TO' ? 'font-normal' : 'font-bold text-wrap'}`}
               key={index}
             >
               {item}
@@ -62,14 +61,14 @@ const AboutUsPage = () => {
           </div>
         </div>
       </Container>
-      <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 xs:px-2 px-6 py-10 md:px-10">
+      <Container className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-20 xs:px-2 px-6 py-10 md:px-10">
         <div>
-          <h4 className="font-semibold xs:mb-6 text-paralight xs:text-base text-12">
+          <h4 className="font-semibold xs:mb-6 text-paralight xs:text-base text-12 text-center sm:text-start">
             {UsHistoryPara.subheading}
           </h4>
           {UsHistoryPara.heading.map((item, index) => (
             <h2
-              className={`text-22 xs:text-36 lg:text-5xl leading-snug lg:leading-snug font-bold text-wrap`}
+              className={`text-22 xs:text-36 lg:text-5xl leading-snug lg:leading-snug font-bold text-wrap text-center sm:text-start`}
               key={index}
             >
               {item}
@@ -83,18 +82,23 @@ const AboutUsPage = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-row gap-0 relative items-center w-[85%] mx-auto md:w-full">
-          <div className="me-14 h-5/6 border-dashed border border-btnclr"></div>
+        <div className="flex flex-row gap-0 relative items-center sm::w-[85%] mx-auto w-full">
+          <div className="me-4 sm:me-14 h-5/6 border-dashed border border-btnclr hidden sm:block"></div>
           <div className="flex flex-col">
             {OurHistoryData.map((item) => (
+              <>
+               <div className="flex sm:hidden justify-center items-center w-16 xs:w-20 h-16 xs:h-20 rounded-full bg-btnclr text-white font-semibold">
+                    {item.year}
+                  </div>
               <div className="relative" key={item.id}>
-                <div className="absolute top-1/2 -left-14 -translate-y-1/2 flex items-center">
+                <div className="absolute top-1/2 -left-14 -translate-y-1/2 sm:flex items-center hidden">
+                
                   <div className="border-dashed border border-btnclr w-4"></div>
                   <div className="flex justify-center items-center w-16 xs:w-20 h-16 xs:h-20 rounded-full bg-btnclr text-white font-semibold">
                     {item.year}
                   </div>
                 </div>
-                <div className="bg-transparent hover:bg-white p-8 xs:pt-10 pb-8 ps-12 xs:ps-16 pe-6 xs:pe-10 rounded-bl-[30px] rounded-tr-[30px]">
+                <div className="bg-transparent hover:bg-white p-3 sm:p-8 xs:pt-10 pb-8 ps-2 sm:ps-16 pe-6 xs:pe-10 rounded-bl-[30px] rounded-tr-[30px]">
                   <h3 className="text-18 xs:text-20 sm:text-24 leading-8 font-bold">
                     {item.heading}
                   </h3>
@@ -103,10 +107,11 @@ const AboutUsPage = () => {
                   </p>
                 </div>
               </div>
+            </>
             ))}
           </div>
         </div>
-      </Container>
+        </Container>
     </div>
   );
 };

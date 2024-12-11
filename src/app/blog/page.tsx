@@ -73,7 +73,7 @@ const Blog: React.FC = () => {
 
       <div className=' lg:max-w-[90%] 2xl:max-w-screen-2xl mx-auto px-2  overflow-hidden mt-10'>
       <form className="relative w-max border border-secondary rounded-xl" onSubmit={(e)=>e.preventDefault()}>
-        <input type="search" className="peer cursor-pointer relative z-10 h-9 w-9 rounded-xl  bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:pl-12 focus:pr-4"
+        <input type="search" className="peer cursor-pointer relative z-10 h-9 sm:w-9 rounded-xl  bg-transparent pl-12 outline-none  sm:focus:w-full focus:cursor-text sm:focus:pl-12 sm:focus:pr-4"
          placeholder='Search Here...'
          value={searchTerm}
          onChange={handleSearch}
