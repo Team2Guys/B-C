@@ -625,7 +625,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Full Height Shutters',
         altText: 'Full Height Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/Living Room Shutters/full-height-shutters.webp',
+          '/assets/images/optimized-images/shutters/Living Room Shutters/Full-height-shutters.webp',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
