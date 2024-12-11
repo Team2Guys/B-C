@@ -6,7 +6,7 @@ import { ICategory } from 'types/types';
 
 interface CardProps {
   data: ICategory;
-  href?: string;
+  href?: string | any;
 }
 const truncateText = (text: string, wordLimit: number) => {
   const words = text.split(' ');
