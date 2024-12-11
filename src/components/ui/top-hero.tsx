@@ -6,12 +6,9 @@ import { FaAngleRight, FaHome } from 'react-icons/fa';
 import { UpdateShutterTitle } from './menu-card';
 import { ICategory } from 'types/types';
 import { colorData, TopHeroLink } from 'data/data';
-import { Skeleton } from 'antd';
 import { usePathname } from 'next/navigation';
 import { BreakCrum_conent_pages } from 'data/data';
-import { ITopHeroLink } from 'types/interfaces';
-import { useQuery } from '@tanstack/react-query';
-import { fetchCategories, fetchSubCategories } from 'config/fetch';
+
 
 interface TopHeroProps {
   title: string | any;

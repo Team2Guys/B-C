@@ -2,7 +2,6 @@
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import React, { useEffect, useState } from 'react';
-import FilterTable from 'components/Dashboard/Tables/FilterTable';
 import { appointmentColumns } from 'data/table';
 import { useQuery } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
@@ -22,8 +21,6 @@ const Appointments = () => {
 
   const {
     data: appointments,
-    error: appointmentsError,
-    isLoading,
   } = useQuery<IAppointments[]>({
     queryKey: ['appointments', token],
     queryFn: () => fetchAppointments(token),

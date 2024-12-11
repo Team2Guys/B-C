@@ -10,73 +10,62 @@ import Container from 'components/Res-usable/Container/Container';
 import { useQuery } from '@tanstack/react-query';
 import { IProduct } from 'types/types';
 import { usePathname } from 'next/navigation';
-import { MotorisedPageProps } from 'types/types';
+import {MoterisedContent } from 'data/data';
 
-const MotorisedPage: React.FC<MotorisedPageProps> = ({
-  title,
-  heroImage,
-  infoTitle,
-  infoSubtitle,
-  infoDescription,
-  infoImage,
-  measureTitle,
-  measureTitle1,
-  measureDescription,
-  measureDescription1,
-  chooseUsItems,
-  motorization,
-  additionalDescription,
-  additionalDescription2,
-  additionalDescription3,
-  additionalImage,
-  chooseustitle,
-  chooseustitle1,
-}) => {
+const MotorisedPage = () => {
   const pathName = usePathname();
   const { data: products, error } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: () => fetch('/api/products').then((res) => res.json()),
   });
-
+  
   if (error instanceof Error) {
     return <div>Error: {error.message}</div>;
   }
+  const content = MoterisedContent.find(
+    (item) => item.maintitle === pathName
+  );
 
+  if (!content) {
+    return "";
+  }
+  const { Data } = content;
+  const pageData = Data[0];
   return (
     <>
-      <TopHero title={title} image={heroImage} pagename={pathName} />
+      <TopHero title={pageData.title} image={pageData.heroImage} pagename={pathName} />
       <MotorisedInfo
-        title={infoTitle}
-        subtitle={infoSubtitle}
-        description={infoDescription}
-        image={infoImage}
+        title={pageData.infoTitle}
+        subtitle={pageData.infoSubtitle}
+        description={pageData.infoDescription}
+        image={pageData.infoImage}
       />
       <div className="bg-light text-center py-10 mt-20 mb-20">
-        <Measure title={measureTitle} description={measureDescription} />
+        <Measure title={pageData.measureTitle} description={pageData.measureDescription} />
       </div>
       <ChooseUs
-        title={chooseustitle}
+        title={pageData.chooseustitle}
         gridClass="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4"
         boxClass="bg-white"
-        items={chooseUsItems}
+        items={pageData.chooseUsItems}
       />
-      <Measure className="mt-20" title={measureTitle1} description={measureDescription1} />
+      <Measure className="mt-20" title={pageData.measureTitle1} description={pageData.measureDescription1} />
       <div className="bg-white text-center py-10 mt-20">
         <ChooseUs
-          title={chooseustitle1}
+          title={pageData.chooseustitle1}
           gridClass="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-5 gap-4"
           boxClass="bg-secondary flex justify-center items-center"
-          items={motorization}
+          items={pageData.motorization}
         />
       </div>
-      {additionalDescription && additionalImage && (
+      {pageData.additionalDescription && pageData.additionalImage && (
         <MotorisedInfo
           className="flex-row-reverse"
           decClass="text-18 md:text-30 font-semibold text-start"
-          description={additionalDescription}
-          image={additionalImage}
-          description2={additionalDescription2}
-          description3={additionalDescription3}
+          description={pageData.additionalDescription}
+          image={pageData.additionalImage}
+          description2={pageData.additionalDescription2}
+          description3={pageData.additionalDescription3}
         />
       )}
       <BookNowBanner  />
