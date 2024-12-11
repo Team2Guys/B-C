@@ -113,18 +113,18 @@ const Header = () => {
               {links.map((link, index) => {
                 let filteredSubCategories =
                   subCategories?.filter(
-                    (subcategory) => subcategory.CategoryId === link.id,
+                    (subcategory: any) => subcategory.CategoryId === link.id,
                   ) || [];
 
                 let filteredProducts =
                   products?.filter(
-                    (product) => product.CategoryId === link.id,
+                    (product : IProduct) => product.CategoryId === link.id,
                   ) || [];
 
                 let combinedSliderData: any[] = [];
 
                 if (link.id === 2) {
-                  const actualProducts = filteredProducts.filter((product) =>
+                  const actualProducts = filteredProducts.filter((product: IProduct) =>
                     blindMegaMenuItems.some(
                       (menuItem) =>
                         menuItem.productName === generateSlug(product.title),
@@ -137,7 +137,7 @@ const Header = () => {
                   ];
                 }
                 if (link.id === 9) {
-                  const actualProducts = filteredProducts.filter((product) =>
+                  const actualProducts = filteredProducts.filter((product: IProduct) =>
                     shutterMegaMenuItems.some(
                       (menuItem) =>
                         menuItem.productName === generateSlug(product.title),
@@ -150,7 +150,7 @@ const Header = () => {
                   ];
                 }
                 if (link.id === 5) {
-                  const actualProducts = filteredProducts.filter((product) =>
+                  const actualProducts = filteredProducts.filter((product: IProduct) =>
                     curtainMegaMenuItems.some(
                       (menuItem) =>
                         menuItem.productName === generateSlug(product.title),
@@ -164,7 +164,7 @@ const Header = () => {
                 }
                 if (link.id === 12) {
                   const actualProducts =
-                    products?.filter((product) =>
+                    products?.filter((product: IProduct) =>
                       commercialMegaMenuItems.some(
                         (menuItem) =>
                           menuItem.productName === generateSlug(product.title),
@@ -247,18 +247,18 @@ const Header = () => {
                     {links.map((link, index) => {
                       let filteredSubCategories =
                         subCategories?.filter(
-                          (subcategory) => subcategory.CategoryId === link.id,
+                          (subcategory: any) => subcategory.CategoryId === link.id,
                         ) || [];
 
                       let filteredProducts =
                         products?.filter(
-                          (product) => product.CategoryId === link.id,
+                          (product: IProduct) => product.CategoryId === link.id,
                         ) || [];
 
                       let combinedSliderData: any[] = [];
 
                       if (link.id === 2) {
-                        const actualProducts = filteredProducts.filter((product) =>
+                        const actualProducts = filteredProducts.filter((product: IProduct) =>
                           blindMegaMenuItems.some(
                             (menuItem) =>
                               menuItem.productName === generateSlug(product.title),
@@ -271,7 +271,7 @@ const Header = () => {
                         ];
                       }
                       if (link.id === 9) {
-                        const actualProducts = filteredProducts.filter((product) =>
+                        const actualProducts = filteredProducts.filter((product: IProduct) =>
                           shutterMegaMenuItems.some(
                             (menuItem) =>
                               menuItem.productName === generateSlug(product.title),
@@ -284,7 +284,7 @@ const Header = () => {
                         ];
                       }
                       if (link.id === 5) {
-                        const actualProducts = filteredProducts.filter((product) =>
+                        const actualProducts = filteredProducts.filter((product: IProduct) =>
                           curtainMegaMenuItems.some(
                             (menuItem) =>
                               menuItem.productName === generateSlug(product.title),
@@ -298,7 +298,7 @@ const Header = () => {
                       }
                       if (link.id === 12) {
                         const actualProducts =
-                          products?.filter((product) =>
+                          products?.filter((product: IProduct) =>
                             commercialMegaMenuItems.some(
                               (menuItem) =>
                                 menuItem.productName === generateSlug(product.title),
