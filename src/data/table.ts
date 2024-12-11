@@ -1,4 +1,4 @@
-import { formatDate, formatDateTime } from 'config';
+import { formatDateTime } from 'config';
 
 export const ordercolumns = [
   {
@@ -35,19 +35,24 @@ export const ordercolumns = [
 
 export const appointmentColumns = [
   {
+    title: 'ID',
+    dataIndex: 'id',
+    width: 60,
+  },
+  {
     title: 'Name',
     dataIndex: 'name',
-    width: 150,
+    width: 100,
   },
   {
     title: 'Area',
     dataIndex: 'area',
-    width: 200,
+    width: 100,
   },
   {
     title: 'Email',
     dataIndex: 'email',
-    width: 200,
+    width: 150,
   },
   {
     title: 'Phone Number',
@@ -57,39 +62,38 @@ export const appointmentColumns = [
   {
     title: 'WhatsApp Number',
     dataIndex: 'whatsapp_number',
-    width: 170,
-  },
-  {
-    title: 'User Query',
-    dataIndex: 'user_query',
-    width: 200,
+    width: 120,
   },
   {
     title: 'Preferred Contact Method',
     dataIndex: 'prefered_contact_method',
-    width: 200,
+    width: 100,
   },
   {
     title: 'Windows',
     dataIndex: 'windows',
-    width: 200,
+    width: 100,
   },
   {
     title: 'Product Type',
     dataIndex: 'product_type',
-    width: 200,
+    width: 150,
   },
   {
     title: 'How User Found Us',
     dataIndex: 'how_user_find_us',
-    width: 200,
+    width: 100,
+  },
+  {
+    title: 'User Query',
+    dataIndex: 'user_query',
+    width: 100,
   },
 
   {
     title: 'Preferred Date',
     dataIndex: 'prefered_Date',
-    key: 'prefered_Date',
-    width: 250,
+    width: 100,
   },
 ];
 
@@ -114,6 +118,7 @@ export const columns = [
     dataIndex: 'title',
     key: 'title',
   },
+
   {
     title: 'Created At',
     dataIndex: 'createdAt',

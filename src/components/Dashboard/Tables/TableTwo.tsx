@@ -5,14 +5,13 @@ import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
-import Loader from 'components/Loader/Loader';
 import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
-import { CategoriesType } from 'types/interfaces';
 import { formatDate } from 'config';
 import Cookies from 'js-cookie';
 import TableSkeleton from './TableSkelton';
+import { CategoriesType } from 'types/interfaces';
 interface Product {
   _id: string;
   name: string;
@@ -23,28 +22,25 @@ interface Product {
 
 interface CategoryProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
-  seteditCategory?: React.Dispatch<
-    SetStateAction<CategoriesType | undefined | null>
-  >;
+  seteditCategory?: React.Dispatch<SetStateAction<CategoriesType |  undefined | null>>;
   editCategory?: CategoriesType | undefined | null;
 }
 
 const TableTwo = ({
   setMenuType,
   seteditCategory,
-  editCategory,
 }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
-  let token = admin_token ? admin_token : super_admin_token;
+  const token = admin_token ? admin_token : super_admin_token;
 
   const [category, setCategory] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-
+  console.log(toggleColorMode,"toggleColorMode")
   const canAddCategory =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canAddCategory : true);
@@ -105,7 +101,7 @@ const TableTwo = ({
 
   const handleDelete = async (key: any) => {
     try {
-      const response = await axios.delete(
+       await axios.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/deleteCategory/${key}`,
         {
           headers: {

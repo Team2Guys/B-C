@@ -9,7 +9,6 @@ import {
   WhatsAppInfo,
   EmailInfo,
 } from 'data/data';
-import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { IoLogoPinterest } from 'react-icons/io5';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { CiFacebook } from 'react-icons/ci';
@@ -22,13 +21,10 @@ import {
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
-import FooterItem from 'components/FooterItem';
 import { updateProductTitle } from 'components/ui/menu-card';
 import { ChangedProductUrl_handler, getProduct, predefinedPaths, urls } from 'data/urls';
-import { useRouter } from 'next/navigation';
 
 const Footer: React.FC = () => {
-  const route = useRouter();
   const { data: products } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
@@ -213,6 +209,7 @@ const Footer: React.FC = () => {
                       </div>
                     ))}
                 </div>
+
 
                 <div className="flex flex-col gap-4 pl-2 col-span-12 md:col-span-5 mt-5 md:mt-0">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">

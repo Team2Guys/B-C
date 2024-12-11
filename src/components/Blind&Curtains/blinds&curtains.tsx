@@ -1,4 +1,4 @@
-// src/app/page.tsx
+'use client'
 import { NextPage } from 'next';
 import { BlindsAndCurtainstData } from 'data/data';
 import Container from 'components/Res-usable/Container/Container';

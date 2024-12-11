@@ -50,11 +50,7 @@ const Page = () => {
     return <NotFound />;
   }
 
-  const relatedProducts = products?.filter(
-    (prod) => prod.SubCategoryId === filteredSubCategory?.id,
-  );
 
-  console.log(subproduct, 'subproduct');
   const filteredProduct = products?.find(
     (prod) => generateSlug(prod.title) === ChangedProductUrl(subproduct as string) && Cateories.some((item: number) => item == prod.CategoryId),
   );

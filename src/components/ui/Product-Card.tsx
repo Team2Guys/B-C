@@ -1,33 +1,27 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchSubCategories } from 'config/fetch';
+import { fetchCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { ChangedProductUrl_handler, CommercialUrl, predefinedPaths, urls } from 'data/urls';
+import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React from 'react';
-import { ICategory, IProduct } from 'types/types';
-import { string } from 'yup';
+import { ICategory } from 'types/types';
 
 interface ProductCardDataProps {
-  products: IProduct[];
+  products: any[];
   categoryType?: string;
   isSizeSmall?: boolean;
 }
 
 const ProductCard: React.FC<ProductCardDataProps> = ({
   products,
-  categoryType,
   isSizeSmall,
 }) => {
-  const route = useRouter();
   const {
     data: categories,
-    error: categoryError,
-    isLoading: categoryLoading,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
-    queryFn: fetchSubCategories,
+    queryFn: fetchCategories
   });
 
   const getTrimmedTitle = (title: string) => {
@@ -35,10 +29,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
   };
 
 
-  console.log(products,"filtered" )
-
-
-  const getPath =  (product: IProduct, parent: string)=> {
+  const getPath =  (product: any, parent: string)=> {
     const slug = ChangedProductUrl_handler(product.title);
     const basePath =
       product.href && parent
@@ -61,13 +52,17 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
     return path;
   };
 
+
+
+
   return (
     <div
       className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${isSizeSmall && 'lg:grid-cols-4'} gap-5 p-1 md:p-0 mt-5`}
     >
       {products &&
-        products.map((product: IProduct) => {
-          const category = categories?.find((cat) => cat.id === product.CategoryId);
+        products.map((product: any) => {
+          const category = categories?.find((cat) => cat.id == product.CategoryId);
+          console.log(category, "productscommercial",categories )
           if (!category) return null;
 
           const trimmedProductTitle = getTrimmedTitle(product.title);

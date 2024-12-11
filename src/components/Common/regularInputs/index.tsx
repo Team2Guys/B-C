@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({
   id,
   checked,
   className,
-}): JSX.Element => {
+})=> {
   const [inputType, setInputType] = useState(type);
 
   const togglePasswordVisibility = () => {
