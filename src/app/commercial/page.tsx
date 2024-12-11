@@ -33,7 +33,7 @@ const CommercialPage = () => {
   
   });
 
-  const { data: categories,  isLoading: categoryLoading,isError } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
+  const { data: categories,  isLoading: categoryLoading} = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
 
   const { data: subCategories, } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],

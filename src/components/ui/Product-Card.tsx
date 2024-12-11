@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchCategories, fetchSubCategories } from 'config/fetch';
+import { fetchCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { ICategory, IProduct } from 'types/types';
+import { ICategory } from 'types/types';
 
 interface ProductCardDataProps {
   products: any[];
