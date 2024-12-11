@@ -13,7 +13,7 @@ import {
   fetchSubCategories,
 } from 'config/fetch';
 import TopHero from 'components/ui/top-hero';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { ByRoomCommercialProduct, generateSlug } from 'data/data';
@@ -32,10 +32,10 @@ const CommercialByRoom = ({
   category,
 }: ICategoryPage) => {
   const pathname = usePathname();
+  console.log(category,"category")
   const [isNotFound, setIsNotFound] = useState(false);
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
-  const [productCategory, setProductCategory] = useState<string>('');
 
   const {
     data: products,
@@ -68,28 +68,19 @@ const CommercialByRoom = ({
   }, [pathname]);
 
   const filterProducts = () => {
-    const filterSubCat = subcategories?.find(
-      (subCat) => subCat.title === title,
-    );
-    const filterCat = categories?.find(
-      (cat) => cat.id === filterSubCat?.CategoryId,
-    );
-    setProductCategory(filterCat?.title || '');
-
     const matchingRoom = ByRoomCommercialProduct.find(
       (room) => room.title === title,
     );
 
-    let p: IProduct[] = [];
+    let productdata: IProduct[] = [];
     if (matchingRoom) {
       //@ts-expect-error
-      p = products?.filter((product) =>
+      productdata = products?.filter((product) =>
         matchingRoom.productsTitles.includes(generateSlug(product.title)),
       );
     }
 
-    setProductCategory(filterCat?.title || '');
-    setFilteredProducts(p);
+    setFilteredProducts(productdata);
   };
 
   useEffect(() => {

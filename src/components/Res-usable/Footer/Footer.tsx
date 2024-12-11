@@ -9,7 +9,6 @@ import {
   WhatsAppInfo,
   EmailInfo,
 } from 'data/data';
-import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { IoLogoPinterest } from 'react-icons/io5';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { CiFacebook } from 'react-icons/ci';
@@ -22,13 +21,10 @@ import {
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
-import FooterItem from 'components/FooterItem';
 import { updateProductTitle } from 'components/ui/menu-card';
 import { ChangedProductUrl_handler, getProduct, predefinedPaths, urls } from 'data/urls';
-import { useRouter } from 'next/navigation';
 
 const Footer: React.FC = () => {
-  const route = useRouter();
   const { data: products } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
@@ -63,12 +59,19 @@ const Footer: React.FC = () => {
     'Bold Colours',
     'Grey',
   ];
-  const handleNavigation = (event: any, path: string) => {
-    if (event.ctrlKey || event.metaKey) {
-      window.open(path, '_blank');
-    } else {
-      route.push(path);
-    }
+  const generatePath = (product: IProduct, parent: string) => {
+    const slug = ChangedProductUrl_handler(product.title);
+    const basePath = product.href ? `${window.origin}/${product.href}` : `/${slug}`;
+
+    return (
+      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+      (slug === 'hotels-restaurants-blinds-curtains'
+        ? basePath
+        : `/${parent === 'shutters' ? `${parent}-range` : parent}${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
+          ? '/roller-blinds'
+          : ''
+        }/${slug}`)
+    );
   };
   const ChangedProductUrl = (title: string): string => {
     let products = urls.find((url: { productName: string, Url: string }) => {
@@ -122,116 +125,91 @@ const Footer: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-12 lg:justify-items-center">
                 <div className='grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full'>
 
-                {categories
-                  ?.filter((category) => category.title !== 'Commercial')
-                  .sort((a, b) => {
-                    const order = ['Blinds', 'Curtains', 'Shutters'];
-                    return order.indexOf(a.title) - order.indexOf(b.title);
-                  })
-                  .map((category) => (
-                    <div className="pl-2" key={category.id}>
-                      <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
-                        {category.title}
-                      </h3>
-                      <ul className="space-y-2 mt-4">
-                        {subcategories
-                          ?.filter(
-                            (subcategory) =>
-                              subcategory.CategoryId === category.id,
-                          )
-                          .map((subcategory) => {
-                            const filteredCategory = categories?.find(
-                              (cat) => cat.id === subcategory.CategoryId,
-                            );
-                            return (
-                              <li key={subcategory.id}>
-                                {filteredCategory?.title.toLowerCase() ===
-                                'shutters' ? (
-                                  <>
-                                    {filterArray.some((substring) =>
-                                      subcategory.title.includes(substring),
-                                    ) ? (
-                                      ''
-                                    ) : (
-                                      <Link
-                                        className="text-sm font-medium"
-                                        href={`/shutters-range/${ChangedProductUrl(subcategory.title)}`}
-                                      >
-                                        {subcategory.title}
-                                      </Link>
-                                    )}
-                                  </>
-                                ) : (
-                                  <>
-                                    {getProduct.some((substring) =>
-                                      subcategory.title.includes(substring),
-                                    ) && (
-                                      <Link
-                                        className="text-sm font-medium"
-                                        href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
-                                      >
-                                        {subcategory.title}
-                                      </Link>
-                                    )}
-                                  </>
-                                )}
-                              </li>
-                            );
-                          })}
+                  {categories
+                    ?.filter((category) => category.title !== 'Commercial')
+                    .sort((a, b) => {
+                      const order = ['Blinds', 'Curtains', 'Shutters'];
+                      return order.indexOf(a.title) - order.indexOf(b.title);
+                    })
+                    .map((category) => (
+                      <div className="pl-2" key={category.id}>
+                        <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
+                          {category.title}
+                        </h3>
+                        <ul className="space-y-2 mt-4">
+                          {subcategories
+                            ?.filter(
+                              (subcategory) =>
+                                subcategory.CategoryId === category.id,
+                            )
+                            .map((subcategory) => {
+                              const filteredCategory = categories?.find(
+                                (cat) => cat.id === subcategory.CategoryId,
+                              );
+                              return (
+                                <li key={subcategory.id}>
+                                  {filteredCategory?.title.toLowerCase() ===
+                                    'shutters' ? (
+                                    <>
+                                      {filterArray.some((substring) =>
+                                        subcategory.title.includes(substring),
+                                      ) ? (
+                                        ''
+                                      ) : (
+                                        <Link
+                                          className="text-sm font-medium"
+                                          href={`/shutters-range/${ChangedProductUrl(subcategory.title)}`}
+                                        >
+                                          {subcategory.title}
+                                        </Link>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <>
+                                      {getProduct.some((substring) =>
+                                        subcategory.title.includes(substring),
+                                      ) && (
+                                          <Link
+                                            className="text-sm font-medium"
+                                            href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
+                                          >
+                                            {subcategory.title}
+                                          </Link>
+                                        )}
+                                    </>
+                                  )}
+                                </li>
+                              );
+                            })}
 
-                        {products
-                          ?.filter(
-                            (product) => product.CategoryId === category.id,
-                          )
-                          .map((product) => {
-                            const filteredCategory = categories?.find(
-                              (cat) => cat.id === product.CategoryId,
-                            );
-                            const parent = generateSlug(
-                              filteredCategory?.title || '',
-                            );
-                            return (
-                              <li key={product.id}>
-                                {getProduct.some((substring) =>
-                                  product.title.includes(substring),
-                                ) && (
-                                  <div
-                                    className="text-14 font-medium cursor-pointer"
-                                    onClick={(event) => {
-                                      const slug = ChangedProductUrl_handler(product.title);
-                                      const basePath = product.href
-                                        ? `${window.origin}/${product.href}`
-                                        : `/${slug}`;
-                        
-                                      const path =
-                                        predefinedPaths[slug as keyof typeof predefinedPaths] ||
-                                        (slug === "hotels-restaurants-blinds-curtains"
-                                          ? basePath
-                                          : `/${parent === "shutters" ? `${parent}-range` : parent}${
-                                              [
-                                                "dimout-roller-blinds",
-                                                "sunscreen-roller-blinds",
-                                                "blackout-roller-blinds",
-                                              ].includes(slug)
-                                                ? "/roller-blinds"
-                                                : ""
-                                            }/${slug}`);
-                        
-                                      handleNavigation(event, path);
-                                    }}
-                                  >
-                                    {product.title == 'Motorised blinds'
-                                      ? 'Motorised blinds'
-                                      : updateProductTitle(product.title)}
-                                  </div>
-                                )}
-                              </li>
-                            );
-                          })}
-                      </ul>
-                    </div>
-                  ))}
+                          {products
+                            ?.filter((product) => product.CategoryId === category.id)
+                            .map((product) => {
+                              const filteredCategory = categories?.find(
+                                (cat) => cat.id === product.CategoryId
+                              );
+                              const parent = generateSlug(filteredCategory?.title || '');
+                              const path = generatePath(product, parent);
+
+                              return (
+                                <li key={product.id}>
+                                  {getProduct.some((substring) =>
+                                    product.title.includes(substring)
+                                  ) && (
+                                      <Link href={path} className="text-14 font-medium cursor-pointer">
+                                        {product.title === 'Motorised blinds'
+                                          ? 'Motorised blinds'
+                                          : updateProductTitle(product.title)}
+                                      </Link>
+                                    )}
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      </div>
+                    ))}
                 </div>
+
 
                 <div className="flex flex-col gap-4 pl-2 col-span-12 md:col-span-5 mt-5 md:mt-0">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">

@@ -1,5 +1,4 @@
-import { Skeleton } from 'antd';
-
+import React from 'react';
 const ProductSkeleton = () => {
   return (
     <div className=" p-6 rounded-lg   mx-auto flex space-x-6 animate-pulse">

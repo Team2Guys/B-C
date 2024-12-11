@@ -7,7 +7,6 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Support from 'components/Res-usable/support/support';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import { Button } from 'components/ui/button';
-import { LiaSearchPlusSolid } from 'react-icons/lia';
 import { useQuery } from '@tanstack/react-query';
 
 import {
@@ -34,8 +33,6 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   const ProductName = getCategoryFromUrl(params.name);
   const pathName = usePathname();
   const [selectedSize, setSelectedSize] = useState<TsizePresets>(initialSize);
-  const [sizePresets, setSizePresets] =
-    useState<TsizePresets[]>(initialSizePresets);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [detail, setdetail] = useState<IProduct[]>([]);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -45,9 +42,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   const handleSizeChange = (width: number, height: number) => {
     setSelectedSize({ width, height });
   };
-  const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
-  };
+
 
   const handleClickOutside = (event: MouseEvent) => {
     if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
@@ -175,7 +170,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
                     <div>
                       <span className="text-gray-700">Presets</span>
                       <div className="grid grid-cols-2 gap-2 mt-1">
-                        {sizePresets.map(
+                        {initialSizePresets.map(
                           (preset: TsizePresets, index: number) => (
                             <button
                               key={index}

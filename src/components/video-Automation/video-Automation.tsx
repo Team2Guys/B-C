@@ -1,6 +1,5 @@
 'use client';
 import { Button } from 'components/ui/button';
-import { generateSlug } from 'data/data';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 

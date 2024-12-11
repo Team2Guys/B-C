@@ -8,17 +8,14 @@ import {
   Form,
   ErrorMessage,
   Field,
-  FormikValues,
   FormikTouched,
 } from 'formik';
 
-import SelectGroupTwo from 'components/Dashboard/SelectGroup/SelectGroupTwo';
 import Imageupload from 'components/ImageUpload/Imageupload';
 import { RxCross2 } from 'react-icons/rx';
 import Image from 'next/image';
 import { ImageRemoveHandler } from 'utils/helperFunctions';
 import { FormValues, ADDPRODUCTFORMPROPS } from 'types/interfaces';
-import Toaster from 'components/Toaster/Toaster';
 import axios from 'axios';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import Loader from 'components/Loader/Loader';
@@ -31,15 +28,13 @@ import {
 } from 'data/data';
 import { Checkbox } from 'antd';
 import { useQuery } from '@tanstack/react-query';
-import { ICategory, ISUBCATEGORY } from 'types/types';
+import { ICategory } from 'types/types';
 import { fetchCategories, fetchSubCategories } from 'config/fetch';
 import showToast from 'components/Toaster/Toaster';
-import { revalidatePath } from 'next/cache';
 import revalidateTag from 'components/ServerActons/ServerAction';
 
 const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   EditInitialValues,
-  EditProductValue,
   setselecteMenu,
   setEditProduct,
 }) => {
@@ -61,11 +56,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
   const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<number[]>([]);
   const [previousSelectedCategories, setpreviousSelectedCategories] = useState<number[]>([]);
-
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
-
+ console.log(setVariationOption,"setVariationOption")
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
@@ -86,7 +80,16 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         } = EditInitialValues as any;
         imageUrls ? setImagesUrl(imageUrls) : null;
         hoverImage ? sethoverImage([hoverImage]) : null;
-        console.log('FROM USE LAYEFFECT');
+        console.log(posterImageUrl,
+          imageUrls,
+          _id,
+          createdAt,
+          updatedAt,
+          __v,
+          hoverImage,
+          category,
+          subCategory,
+          ...EditInitialProductValues);
         console.log(EditInitialValues);
         if (category) {
           const catArr = [];
@@ -116,8 +119,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setError(null);
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
       let hoverImageUrl = hoverImage && hoverImage[0];
-      let createdAt = Date.now();
-
       if (!posterImageUrl || !(imagesUrl.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
       }
@@ -160,7 +161,26 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         name,
         ...finalValues
       } = newValues;
-
+      console.log( categories,
+        subcategories,
+        code,
+        modelDetails,
+        purchasePrice,
+        reviews,
+        sizes,
+        starRating,
+        variantStockQuantities,
+        discountPrice,
+        totalStockQuantity,
+        spacification,
+        stock,
+        salePrice,
+        Meta_Description,
+        hoverImage,
+        newhoverImage,
+        id,
+        name,
+        ...finalValues)
       let updatedvalue = {
         ...finalValues,
         category: { connect: { id: selectedCategoryIds[0] } },
@@ -190,7 +210,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       let method: 'post' | 'put' = updateFlag ? 'put' : 'post';
 console.log(updatedvalue, "updatedvalue")
 
-      let response = await axios[method](
+      await axios[method](
         `${process.env.NEXT_PUBLIC_BASE_URL}${url}`,
         updatedvalue,
         {
@@ -261,7 +281,6 @@ console.log(updatedvalue, "updatedvalue")
 
   const {
     data: categoriesList = [],
-    error,
     isLoading,
   } = useQuery<ICategory[], Error>({
     queryKey: ['categories'],
@@ -270,8 +289,6 @@ console.log(updatedvalue, "updatedvalue")
 
   const {
     data: subCategoriesList = [],
-    error: subError,
-    isLoading: subLoading,
   } = useQuery<ICategory[], Error>({
     queryKey: ['subcategories'],
     queryFn: fetchSubCategories,
@@ -555,6 +572,7 @@ console.log(updatedvalue, "updatedvalue")
                                   onChange={(e) => {
                                     const checked = e.target.checked;
                                     setSelectedCategoryIds((prev) => {
+                                      console.log(prev)
                                       if (checked) {
                                         return [category.id];
                                       } else {

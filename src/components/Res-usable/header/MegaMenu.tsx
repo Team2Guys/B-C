@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from 'lib/utils';
-import { usePathname, useRouter } from 'next/navigation';
 import { IProduct } from 'types/types';
 import Image from 'next/image';
 import Container from '../Container/Container';
@@ -11,6 +10,7 @@ import {
   megaMenuDynamic,
 } from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
+import Link from 'next/link';
 
 interface MegaMenuProps {
   title: string;
@@ -25,16 +25,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   sliderData,
   className,
   href,
-  onClick,
 }) => {
-  const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeProduct, setactiveProduct] = useState<IProduct | undefined>();
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const [timeoutId, setTimeoutId] = useState<any | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const route = useRouter();
-
+  const buttonRef = useRef<HTMLAnchorElement>(null);
+ 
   const handleMouseEnter = () => {
     if (timeoutId) {
       clearTimeout(timeoutId);
@@ -83,25 +80,19 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     };
   }, []);
 
-  const handleClick = (event: React.MouseEvent) => {
-    const slug = href;
-    const path = `${window.origin}/${slug}`;
+  const generatePath = (item: any, parent: string) => {
+    const slug = ChangedProductUrl_handler(item.title);
+    const basePath = item.href ? `${window.origin}/${item.href}` : `/${slug}`;
 
-    if (event.ctrlKey || event.metaKey) {
-      window.open(path, '_blank');
-    } else {
-      route.push(path);
-    }
-
-    setIsOpen((prev) => !prev);
-  };
-
-  const handleNavigation = (event: any, path: string) => {
-    if (event.ctrlKey || event.metaKey) {
-      window.open(path, '_blank');
-    } else {
-      route.push(path);
-    }
+    return (
+      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+      (slug === 'hotels-restaurants-blinds-curtains'
+        ? basePath
+        : `/${parent === 'shutters' ? `${parent}-range` : parent}${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
+          ? '/roller-blinds'
+          : ''
+        }/${slug}`)
+    );
   };
 
   const MegaMenu_Headings = [
@@ -116,7 +107,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     },
   ];
 
-  const distributeProducts = (arr: any[], columns: number) => {
+  const distributeProducts = () => {
     const styles = megaMenubyStyle.map((item) =>
       generateSlug(item.productName),
     );
@@ -142,11 +133,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     return result;
   };
 
-  const distributedProducts = distributeProducts(
-    sliderData,
-    MegaMenu_Headings.length,
-  );
-  let currentLocation = window.location;
+  const distributedProducts = distributeProducts();
 
   console.log(title, 'distributedProducts');
   console.log(title, 'itemName');
@@ -157,8 +144,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button
-        onClick={(event) => handleClick(event)}
+      <Link href={`${window.origin}${href}`}
         ref={buttonRef}
         className={cn(
           'px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200',
@@ -166,7 +152,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         )}
       >
         {title}
-      </button>
+      </Link>
 
       {isOpen && (
         <div
@@ -185,7 +171,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               {MegaMenu_Headings.map((item, index) => {
                 const parent = generateSlug(title);
                 const itemName = item.name;
-                console.log(itemName, "item.title")
 
                 return (
                   <div key={index} className="flex flex-col gap-5 w-full">
@@ -205,29 +190,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     </p>
                     {distributedProducts[index]?.map(
                       (item: any, index: number) => {
-                        console.log(item.href, "item")
+                        const path = generatePath(item, parent);
                         return (
                           <>
                             {' '}
-                            <p
+                            <Link href={path}
                               key={index}
                               onMouseEnter={() => setactiveProduct(item)}
-                              onClick={(event) => {
-                                const slug = ChangedProductUrl_handler(item.title);
-                                const basePath = item.href ? `${window.origin}/${item.href}` : `/${slug}`;
-
-                                const path =
-                                  predefinedPaths[slug as keyof typeof predefinedPaths] ||
-                                  (slug === 'hotels-restaurants-blinds-curtains'
-                                    ? basePath
-                                    : `/${parent === 'shutters' ? `${parent}-range` : parent}${['dimout-roller-blinds', 'sunscreen-roller-blinds','blackout-roller-blinds'].includes(slug)
-                                      ? '/roller-blinds'
-                                      : ''
-                                    }/${slug}`);
-
-                                handleNavigation(event, path);
-                                setIsOpen(false);
-                              }}
                               className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
                             >
                               {
@@ -239,7 +208,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                   ? item.title.replace('Shutters', '') 
                                   : item.title
                               }
-                            </p>
+                            </Link>
                           </>
                         );
                       },

@@ -1,5 +1,5 @@
 'use client';
-import React, { SetStateAction, useState } from 'react';
+import React, { SetStateAction } from 'react';
 import { MdOutlineCategory } from 'react-icons/md';
 
 interface PROPS {
@@ -18,10 +18,7 @@ const SelectGroupTwo: React.FC<PROPS> = ({
   value,
   changeHandler,
   isOptionSelected,
-  setSelectedOption,
-  changeTextColor,
   Categories,
-  selectedOption,
 }) => {
   return (
     <div>

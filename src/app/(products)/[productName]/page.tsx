@@ -40,8 +40,6 @@ const Products = () => {
 
   const {
     data: products,
-    error: productError,
-    isLoading: productLoading,
   } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
@@ -49,16 +47,12 @@ const Products = () => {
 
   const {
     data: categories,
-    error: categoryError,
-    isLoading: categoryLoading,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
   const {
     data: subCategories,
-    error: subCateERROR,
-    isLoading: isLoadingSubCategories,
   } = useQuery<ICategory[]>({
     queryKey: ['fetchSubCategories'],
     queryFn: fetchSubCategories,

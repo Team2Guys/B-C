@@ -2,9 +2,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import {
-  formatDate,
   formatDateMonth,
-  formatDateTime,
   removeImagesFromContent,
 } from 'config';
 import { generateSlug } from 'data/data';

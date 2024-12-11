@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Container from '../Container/Container';
 import { supportItems } from 'data/data';
 import { FaStar } from 'react-icons/fa';
 
