@@ -1,4 +1,5 @@
 'use client';
+
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
@@ -26,15 +27,18 @@ const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
 
-  const { data: products,  isLoading, } = useQuery<IProduct[]>({ queryKey: ['products'], queryFn: fetchProducts, });
+  const { data: products,  isLoading:prodloading, } = useQuery<any[]>({
+     queryKey: ['products'], 
+    queryFn: fetchProducts,
+  
+  });
 
-  const { data: categories,  isLoading: categoryLoading, } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
+  const { data: categories,  isLoading: categoryLoading} = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
 
   const { data: subCategories, } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
   });
-
 
   useEffect(() => {
     if (products && subCategories) {
@@ -43,16 +47,13 @@ const CommercialPage = () => {
 
       const filtered = products.filter((product) => commercialPagesItems.some((prod: string) => prod === generateSlug(product.title)));
 
-      console.log(matchingSubCategoryTitles, "filtered")
-
       setFilteredProducts(filtered);
       let arry = [...filtered, ...matchingSubCategoryTitles]
-      console.log(arry, "filtered")
       setmixProdCategeries(arry);
     }
   }, [products, subCategories]);
 
-  if (isLoading || categoryLoading) {
+  if (prodloading || categoryLoading) {
     return <div></div>;
   }
   

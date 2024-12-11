@@ -13,6 +13,7 @@ interface BathroomCategoryProps {
   subCategory?: string;
 }
 
+
 const BathroomCategory = ({
   filteredProducts,
   isLoading,
