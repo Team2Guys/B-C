@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from 'lib/utils';
-import { usePathname, useRouter } from 'next/navigation';
 import { IProduct } from 'types/types';
 import Image from 'next/image';
 import Container from '../Container/Container';
@@ -19,7 +18,7 @@ interface MegaMenuProps {
   title: string;
   sliderData: any[];
   className?: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined;
   href?: string;
 }
 
@@ -27,16 +26,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   title,
   sliderData,
   className,
-  href,
   onClick,
+  href,
 }) => {
-  const pathURL = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeProduct, setactiveProduct] = useState<IProduct | undefined>();
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const [timeoutId, setTimeoutId] = useState<any | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLAnchorElement>(null);
-  const route = useRouter();
   const { Panel } = Collapse;
 
   const handleMouseEnter = () => {
@@ -138,7 +135,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <Link href={href || '#'}
+        <Link href={href || ''}
           ref={buttonRef}
           className={cn(
             'px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200',
@@ -163,7 +160,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     {products.map((product, idx) => {
                       const path = generatePath(product, title.toLowerCase());
                       return (
-                        <Link href={path} key={idx} className="text-15 capitalize">
+                        <Link href={path} key={idx} onMouseEnter={() => setactiveProduct(product)} className="text-15 capitalize border-b-[3px] border-white w-fit hover:border-b-secondary">
                           {product.title}
                         </Link>
                       );
@@ -200,7 +197,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               <ul className="space-y-2">
                 {products.map((product: IProduct, idx) => (
                   <li key={idx}>
-                    <Link href={generatePath(product, title.toLowerCase())} className='focus:text-black' onClick={onClick}>{product.title}</Link>
+                    <Link href={generatePath(product, title.toLowerCase())} className={`focus:text-black hover:text-black border-b-2 border-transparent hover:border-b-secondary`} onClick={onClick}>{product.title}</Link>
                   </li>
                 ))}
               </ul>

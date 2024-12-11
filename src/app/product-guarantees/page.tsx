@@ -16,7 +16,6 @@ const ProductGuarantees = () => {
   const {
     data: products,
     error,
-    isLoading,
   } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,

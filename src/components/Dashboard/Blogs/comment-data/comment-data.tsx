@@ -1,7 +1,7 @@
 "use client"
 import axios from "axios";
 import showToast from "components/Toaster/Toaster";
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 interface IComment {
   id: number;
   name: string;

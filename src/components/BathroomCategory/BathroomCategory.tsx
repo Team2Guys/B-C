@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { ICategory, IProduct } from 'types/types';
+import { IProduct } from 'types/types';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Link from 'next/link';
 import { Categories_wise_Images } from 'data/Images';
-import { useQuery } from '@tanstack/react-query';
-import { fetchSubCategories } from 'config/fetch';
 import { usePathname } from 'next/navigation';
 
 interface BathroomCategoryProps {
@@ -14,6 +12,7 @@ interface BathroomCategoryProps {
   categoryTitle?: string;
   subCategory?: string;
 }
+
 
 const BathroomCategory = ({
   filteredProducts,
@@ -75,19 +74,6 @@ const BathroomCategory = ({
 
     return product;
   };
-
-  const {
-    data: subCategories,
-    error: subCateERROR,
-    isLoading: isLoadingSubCategories,
-  } = useQuery<ICategory[]>({
-    queryKey: ['fetchSubCategories'],
-    queryFn: fetchSubCategories,
-  });
-
-  if (!isLoadingSubCategories) {
-    console.log('----------- subCategories --------------');
-  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 px-2">

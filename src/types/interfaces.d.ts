@@ -44,10 +44,9 @@ export interface Category {
   description?: string;
 }
 
-interface CategoriesType {
+export interface CategoriesType extends Category {
   posterImageUrl: IMAGE_INTERFACE;
 }
-export interface CategoriesType extends Category {}
 
 interface CloudinaryImage {
   public_id: string | undefined;
@@ -110,25 +109,7 @@ interface sizes {
   sizesDetails?: string;
 }
 
-interface Image {
-  imageUrl: string;
-  public_id: string;
-}
-
-interface Product {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  posterImage: Image;
-  imageUrls: Image[];
-  CategoryId: number;
-  SubCategoryId: number | null;
-  createdAt: string; // Consider using Date if you want to handle this as a Date object
-  updatedAt: string | null;
-}
-
-export default PRODUCTS_TYPES;
+export default interface PRODUCTS_TYPES extends Product {}
 
 export interface ADDPRODUCTFORMPROPS {
   setselecteMenu: any;
@@ -186,7 +167,7 @@ export interface BlindsAndCurtainsTypes {
 
 export interface SocialDataType {
   href: string;
-  icon: ReactNode;
+  icon: any;
   alt: string;
 }
 export interface FeatureProductData {
@@ -235,14 +216,14 @@ export type BannerProps = {
 
 export interface GalleryItems {
   id: number;
-  imageUrl: string | StaticImageData;
+  imageUrl: string | any;
   title: string;
   category: string;
 }
 
 export interface ProductItems {
   id: number;
-  imageUrl: string | StaticImageData;
+  imageUrl: string | any;
   title: string;
   discription: string;
   category: string;
@@ -330,8 +311,8 @@ export interface BlogInfo {
   title: string;
   content: string;
   comment?: commentprops[];
-  createdAt?: date;
-  updatedAt?: date;
+  createdAt?: any;
+  updatedAt?: any;
 }
 interface commentprops {
   status?: string;
@@ -353,7 +334,7 @@ export interface CommentDataType {
   id: number;
   userName: string;
   comment: string;
-  createdAt: data;
+  createdAt: any;
   replyId?: number;
 }
 

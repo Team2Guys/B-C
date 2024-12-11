@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
-import { Allproduct, BlogInfo, BlogProps } from 'types/interfaces';
+import { IAppointments, ICategory, IRECORDS } from 'types/types';
+import { Allproduct, BlogInfo } from 'types/interfaces';
 import Cookies from 'js-cookie';
 
 const superAdmintoken = Cookies.get('superAdminToken');
@@ -12,10 +12,9 @@ const headers = {
 };
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
-  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`);
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
-  );
+  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`, "productscommercial");
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`);
+  console.log(response, "productscommercial")
   return response.data;
 };
 
@@ -68,9 +67,7 @@ export const adminRecords = async (
   }
 };
 
-export const fetchAppointments = async (
-  token: string,
-): Promise<IAppointments[]> => {
+export const fetchAppointments = async (): Promise<IAppointments[]> => {
   try {
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/getAllappointments`,
@@ -108,6 +105,7 @@ export const PostAppointments = async (p0: {
   };
   other: string;
 }): Promise<IAppointments[]> => {
+  console.log(p0,"p0")
   const response = await axios.post(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
   );
@@ -128,7 +126,7 @@ export const getAllAdmins = async () => {
     );
     const admins = await response.json();
     return admins;
-  } catch (err) {
-    throw err;
+  } catch (err:any) {
+    throw new Error(err.message || JSON.stringify(err));
   }
 };

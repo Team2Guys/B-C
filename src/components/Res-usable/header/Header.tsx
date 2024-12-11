@@ -11,7 +11,6 @@ import SocialLink from '../social-link/social-link';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import {
-  fetchCategories,
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
@@ -43,9 +42,6 @@ const Header = () => {
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
     undefined,
   );
-  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
-    null,
-  );
   const path = usePathname();
   const { Panel } = Collapse;
   const handleLinkClick = () => {
@@ -57,23 +53,12 @@ const Header = () => {
     setDrawerOpen(false);
   };
 
-  const handleCategoryClick = (categoryId: number | null) => {
-    setSelectedCategoryId(categoryId);
-  };
 
-  const {
-    data: categories,
-    error: categoriesError,
-    isLoading: isLoadingCategories,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
+
 
   const {
     data: products,
     error: productsError,
-    isLoading: isLoadingProducts,
   } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
@@ -81,21 +66,12 @@ const Header = () => {
 
   const {
     data: subCategories,
-    error: subCateERROR,
-    isLoading: isLoadingSubCategories,
   } = useQuery<ICategory[]>({
     queryKey: ['fetchSubCategories'],
     queryFn: fetchSubCategories,
   });
-
-  if (categoriesError instanceof Error)
-    return <div>Error: {categoriesError.message}</div>;
   if (productsError instanceof Error)
     return <div>Error: {productsError.message}</div>;
-
-  const filteredProducts = selectedCategoryId
-    ? products?.filter((product) => product.CategoryId === selectedCategoryId)
-    : products;
 
   return (
     <>
@@ -213,7 +189,9 @@ const Header = () => {
 
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
+
                     onClick={handleCloseDrawer}
+
                     key={link.id}
                     title={link.label || ''}
                     sliderData={combinedSliderData}
@@ -256,16 +234,16 @@ const Header = () => {
                 setOpen={setDrawerOpen}
                 selectedLabel={selectedLabel}
               >
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-2">
                   <Link
-                    className={`px-3 py-2 rounded-md text-14 hover:text-black font-medium ${path === '/' ? 'font-bold text-black-500' : ''
+                    className={`py-0 text-14 hover:text-black border-b-2 border-white hover:border-b-secondary w-fit font-medium ${path === '/' ? 'border-b-secondary' : ''
                       }`}
                     onClick={handleCloseDrawer}
                     href="/"
                   >
                     Home
                   </Link>
-                  <Collapse bordered={false} expandIcon={({ isActive }) => isActive ? <IoMdArrowDropup size={20} /> : <IoMdArrowDropdown size={20} />} className='custom-collapse border-0 bg-transparent flex flex-col'>
+                  <Collapse bordered={false} expandIcon={({ isActive }) => isActive ? <IoMdArrowDropup size={20} /> : <IoMdArrowDropdown size={20} />} className='custom-collapse border-0 bg-transparent flex flex-col gap-2'>
                     {links.map((link, index) => {
                       let filteredSubCategories =
                         subCategories?.filter(
@@ -344,7 +322,9 @@ const Header = () => {
                         !isBlogPath && path?.includes(generateSlug(link.label));
 
                       return combinedSliderData.length > 0 ? (
-                        <Panel key={index}  header={<Link href={link.href} onClick={handleCloseDrawer} className='border-2 border-transparent hover:border-main'>{link.label}</Link>} className='custom-panel px-3 py-2'>
+                        <Panel key={index} header={<Link href={link.href} onClick={handleCloseDrawer} className={`border-b-2 border-transparent hover:text-black ${isBlogActive || isActive
+                          ? 'border-b-secondary'
+                          : 'hover:border-b-secondary'}`}>{link.label}</Link>} className='custom-panel py-0'>
                           <MegaMenu
                             onClick={handleCloseDrawer}
                             key={link.id}
@@ -353,17 +333,17 @@ const Header = () => {
                             href={link.href}
                             className={
                               isBlogActive || isActive
-                                ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                                : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
+                                ? 'border-b-secondary'
+                                : 'hover:border-b-secondary'
                             }
                           />
                         </Panel>
                       ) : (
                         <Link
                           key={index}
-                          className={`px-3 py-2 rounded-md text-14 border-2 border-transparent hover:border-main font-medium ${isBlogActive || isActive
-                            ? 'font-bold text-black-500'
-                            : ''
+                          className={`w-fit text-14 border-b-2 border-white hover:text-black font-medium ${isBlogActive || isActive
+                            ? 'border-b-secondary'
+                            : 'hover:border-b-secondary'
                             }`}
                           onClick={handleCloseDrawer}
                           href={link.href}

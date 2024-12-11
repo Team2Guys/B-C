@@ -34,20 +34,13 @@ const FormLayout = ({
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
-let token = admin_token ? admin_token: super_admin_token
+  let token = admin_token ? admin_token: super_admin_token
 
-  let CategoryName =
-    editCategory && editCategory.title
-      ? { name: editCategory.title, description: editCategory.description }
-      : null;
+  let CategoryName = editCategory && editCategory.title? { name: editCategory.title, description: editCategory.description }: null;
   let CategorImageUrl = editCategory && editCategory.posterImage;
-  const [posterimageUrl, setposterimageUrl] = useState<
-    any[] | null | undefined
-  >(CategorImageUrl ? [CategorImageUrl] : null);
+  const [posterimageUrl, setposterimageUrl] = useState<any[] | null | undefined>(CategorImageUrl ? [CategorImageUrl] : null);
   const [loading, setloading] = useState<boolean>(false);
-  const [editCategoryName, setEditCategoryName] = useState<
-    editCategoryNameType | null | undefined
-  >(CategoryName);
+  const [editCategoryName, setEditCategoryName] = useState<editCategoryNameType | null | undefined>(CategoryName);
 
   const onSubmit = async (values: Category, { resetForm }: any) => {
     try {
@@ -59,8 +52,8 @@ let token = admin_token ? admin_token: super_admin_token
         title: values.name,
         posterImage: posterImageUrl,
       };
-
-      let updateFlag = editCategoryName ? true : false;
+      console.log(name,"name")
+      let updateFlag = CategoryName ? true : false;
       let addProductUrl = updateFlag
         ? `/api/categories/updateCategory/${editCategory.id} `
         : null;
@@ -102,6 +95,8 @@ let token = admin_token ? admin_token: super_admin_token
     }
   };
 
+  console.log(setEditCategoryName, "setEditCategoryName")
+
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
       try {
@@ -120,7 +115,15 @@ let token = admin_token ? admin_token: super_admin_token
         } = editCategory as any;
 
         console.log('Reach add product now edit');
-        console.log(editCategory);
+        console.log(editCategory, posterImage,
+          imageUrls,
+          _id,
+          createdAt,
+          updatedAt,
+          CategoryId,
+          SubCategoryId,
+          __v,
+          ...EditInitialProductValues);
         // imageUrls ? setImagesUrl(imageUrls) : null;
         // posterImage ? setposterimageUrl([posterImage]) : null;
 

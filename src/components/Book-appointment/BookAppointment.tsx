@@ -1,14 +1,12 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
-import { City } from 'country-state-city';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
-import Image from 'next/image';
 
 interface ProductOptions {
   shutters?: boolean;
@@ -57,21 +55,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     );
     return response.data;
   };
-  const [uaeCities, setUaeCities] = useState<
-    Array<{ value: string; label: string }>
-  >([]);
-
-  useEffect(() => {
-    const fetchCities = async () => {
-      const cities = await City.getCitiesOfCountry('AE');
-      if (cities) {
-        setUaeCities(
-          cities.map((city) => ({ value: city.name, label: city.name })),
-        );
-      }
-    };
-    fetchCities();
-  }, []);
 
   const getInitialSelectedOptions = (): ProductOptions => {
     if (singlePage) {
@@ -163,22 +146,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const timeHandler = (date: Date) => {
-    let time = new Date(date);
-
-    let hours = time.getHours();
-    let minutes = time.getMinutes();
-
-    let ampm = hours >= 12 ? 'PM' : 'AM';
-
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    let minutesStr = minutes < 10 ? '0' + minutes : minutes;
-
-    let formattedTime = hours + ':' + minutesStr + ' ' + ampm;
-    return formattedTime;
-  };
-
   const handleDateChange = (date: Date | null) => {
     if (date) {
       const today = new Date();
@@ -192,11 +159,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     }
   };
 
-  const handletimeChange = (date: Date | null) => {
-    if (date) {
-      setFormData({ ...formData, prefered_time: date.toISOString() });
-    }
-  };
 
   const validate = () => {
     let isValid = true;
@@ -254,7 +216,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
           prefered_time,
           ...withoutproductoption
         } = formData;
-
+        console.log(  productoption, prefered_contact_method, prefered_time,withoutproductoption)
         let productTypeArray: any = Object.keys(formData.productoption)
           .map((item) => {
             const key = item as keyof ProductOptions;
@@ -287,10 +249,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     }
   };
 
-  const windowOptions = [
-    { value: 'window1', label: 'Window 1' },
-    { value: 'window2', label: 'Window 2' },
-  ];
   const preferTimeOptions = [
     { value: 'am', label: 'AM' },
     { value: 'pm', label: 'PM' },
@@ -307,11 +265,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage }) => {
     { value: 'Others', label: 'Others' },
   ];
 
-  const queryOptions = [
-    { value: 'productinquiry', label: 'Product Inquiry' },
-    { value: 'support', label: 'Support' },
-    { value: 'feedback', label: 'Feedback' },
-  ];
 
   const handleInputChange = (e: any) => {
     const value = e.target.value;
