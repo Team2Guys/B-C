@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IAppointments, ICategory, IRECORDS } from 'types/types';
+import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
 import { Allproduct, BlogInfo } from 'types/interfaces';
 import Cookies from 'js-cookie';
 
@@ -11,8 +11,8 @@ const headers = {
   Authorization: `Bearer ${Finaltoken}`,
 };
 
-export const fetchProducts = async (): Promise<Allproduct[]> => {
-  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`);
+export const fetchProducts = async (): Promise<IProduct[]> => {
+  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`, "productscommercial");
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
   );
