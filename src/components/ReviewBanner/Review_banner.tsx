@@ -3,9 +3,6 @@ import React from 'react';
 import Slider, { SliderSettings } from 'react-slick';
 
 import { FcGoogle } from 'react-icons/fc';
-import { TRSlide } from 'types/interfaces';
-import { PiQuotesFill } from 'react-icons/pi';
-import { Divider } from 'antd';
 import { RatingSlider, slides } from 'data/data';
 import Image from 'next/image';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
@@ -13,7 +10,7 @@ import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
 
 function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props;
+  const {  onClick } = props;
   return (
     <div
       className={
@@ -27,7 +24,7 @@ function SampleNextArrow(props: any) {
 }
 
 function SamplePrevArrow(props: any) {
-  const { className, style, onClick } = props;
+  const {  onClick } = props;
   return (
     <div
       className={

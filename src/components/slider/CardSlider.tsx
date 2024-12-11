@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // Import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import { IProduct } from 'types/types';
 import MenuCard from 'components/ui/menu-card';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
@@ -35,7 +35,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
   breakpoints,
 }) => {
   const route = useRouter();
-
+ console.log(onClick,"onClick")
   return (
     <div className="px-4">
       <Swiper

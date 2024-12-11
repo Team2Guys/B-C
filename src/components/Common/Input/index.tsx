@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   value,
   Icons,
-}: InputProps): JSX.Element => {
+}: InputProps) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {

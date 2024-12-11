@@ -23,7 +23,7 @@ const Appointments = () => {
     data: appointments,
   } = useQuery<IAppointments[]>({
     queryKey: ['appointments', token],
-    queryFn: () => fetchAppointments(token),
+    queryFn: () => fetchAppointments(),
     enabled: !!token,
   });
 

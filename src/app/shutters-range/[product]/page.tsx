@@ -3,17 +3,16 @@
 import { useQuery } from '@tanstack/react-query';
 import NotFound from 'app/not-found';
 import ShuttersByColor from 'components/ByColor/ShuttersByColor';
-import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
-import { Cateories, colorData, generateSlug } from 'data/data';
+import {  colorData, generateSlug } from 'data/data';
 import { ChangedProductUrl, CommercialUrl, urls } from 'data/urls';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { IColorData } from 'types/interfaces';
-import { ICategory, ISUBCATEGORY, IProduct } from 'types/types';
+import { ICategory, IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const [colorPage, setColorPage] = useState<IColorData | undefined>();

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import whyUsImg from '../../../../public/assets/images/Rectangle811da.png';
 import React from 'react';
 import { ProductItems } from 'types/interfaces';
 import Link from 'next/link';
