@@ -44,7 +44,7 @@ export interface Category {
   description?: string;
 }
 
-interface CategoriesType {
+export interface CategoriesType {
   posterImageUrl: IMAGE_INTERFACE;
 }
 
