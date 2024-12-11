@@ -1,3 +1,4 @@
+import React from 'react';
 declare module 'react-slick' {
     import { Component } from 'react';
   
