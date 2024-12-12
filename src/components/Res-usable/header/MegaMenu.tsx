@@ -113,7 +113,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     },
   ];
 
-  const Desk_topdistributeProducts = (arr: any[], columns: number) => {
+  const Desk_topdistributeProducts = () => {
     const styles = megaMenubyStyle.map((item) =>generateSlug(item.productName),);
     const dynamics = megaMenuDynamic.map((item) =>generateSlug(item.productName),
     );
@@ -159,10 +159,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     return result;
   };
 
-  const DeskdistributedProducts = Desk_topdistributeProducts(
-    sliderData,
-    MegaMenu_Headings.length,
-  );
+  const DeskdistributedProducts = Desk_topdistributeProducts();
 
   const distributedProducts = distributeProducts(3,
   );
