@@ -136,7 +136,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     return result;
   };
 
-  const distributeProducts = (arr: any[], columns: number) => {
+  const distributeProducts = (columns: number) => {
     const styles = megaMenubyStyle.map((item) =>
       generateSlug(item.productName),
     );
@@ -164,9 +164,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     MegaMenu_Headings.length,
   );
 
-  const distributedProducts = distributeProducts(
-    sliderData,
-    3,
+  const distributedProducts = distributeProducts(3,
   );
 
 
