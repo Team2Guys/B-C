@@ -1,7 +1,10 @@
 "use client"
 import axios from "axios";
+import { useAppSelector } from "components/Others/HelperRedux";
 import showToast from "components/Toaster/Toaster";
 import React,{ useState, useEffect } from "react";
+
+
 interface IComment {
   id: number;
   name: string;
@@ -11,6 +14,10 @@ interface IComment {
 }
 
 const Comments = ({ currentComments }: { currentComments: any[] }) => {
+  const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
+  const canEditBlog =loggedInUser &&(loggedInUser.role == 'Admin' ? loggedInUser.canEditBlog : true);
+
+
   const [searchTerm, setSearchTerm] = useState("");
   const [comments, setComments] = useState(currentComments);
 
@@ -157,16 +164,16 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                         </p>
                         <div className="flex gap-4 mb-4">
                           <button
-                            className={`text-white px-4 py-1 rounded ${comment.status === 'APPROVED' ? 'bg-gray-400': 'bg-green-600 '}`}
+                            className={`text-white px-4 py-1 rounded ${ !canEditBlog || comment.status === 'APPROVED' ? 'bg-gray-400': 'bg-green-600 '}`}
                             onClick={() => handleApprove(comment.id, 'comment', comment, item)} 
-                            disabled={comment.status === 'APPROVED'}
+                            disabled={!canEditBlog || comment.status === 'APPROVED'}
                           >
                             Approve
                           </button>
                           <button
-                            className={`text-white px-4 py-1 rounded ${comment.status === 'REJECTED' ? 'bg-gray-400': 'bg-red-600 '}`}
+                            className={`text-white px-4 py-1 rounded ${ !canEditBlog ||comment.status === 'REJECTED'  ? 'bg-gray-400': 'bg-red-600 '}`}
                             onClick={() => handleReject(comment.id, 'comment', comment)}
-                            disabled={comment.status === 'REJECTED'}
+                            disabled={!canEditBlog || comment.status === 'REJECTED'}
                           >
                             Reject
                           </button>
