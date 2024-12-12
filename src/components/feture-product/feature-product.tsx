@@ -8,7 +8,6 @@ import { ICategory, IProduct } from 'types/types';
 import { fetchCategories, fetchProducts } from 'config/fetch';
 
 const FeatureProduct: React.FC = () => {
-  // Fetch categories
   const {
     data: categories,
     error: categoriesError,
@@ -18,7 +17,6 @@ const FeatureProduct: React.FC = () => {
     queryFn: fetchCategories,
   });
 
-  // Fetch products
   const {
     data: products,
     error: productsError,
@@ -27,7 +25,7 @@ const FeatureProduct: React.FC = () => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-  console.log(products)
+  console.log(products);
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(8);
   const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutters', 'Commercial'];
@@ -58,26 +56,22 @@ const FeatureProduct: React.FC = () => {
   if (isLoadingCategories || isLoadingProducts)
     return (
       <div>
-      <Container className="py-12">
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
-            {[...Array(3)].map((_, index) => (
-              <div className='' key={index}>
+        <Container className="py-12">
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
+              {[...Array(3)].map((_, index) => (
+                <div className="" key={index}>
                   <div className="h-6 bg-gray-300 rounded mb-2"></div>
-                <div
-                
-                className="max-w-md rounded lg:m-4 m-2 animate-pulse"
-                >
-                <div className="bg-gray-300 lg:w-[460px] xl:w-[350px] md:w-[400px] sm:w-full lg:h-[400px] md:h-[300px] sm:h-auto rounded-3xl"></div>
-                <div className="px-2 py-4">
+                  <div className="max-w-md rounded lg:m-4 m-2 animate-pulse">
+                    <div className="bg-gray-300 lg:w-[460px] xl:w-[350px] md:w-[400px] sm:w-full lg:h-[400px] md:h-[300px] sm:h-auto rounded-3xl"></div>
+                    <div className="px-2 py-4"></div>
+                  </div>
                 </div>
-              </div>
-                </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </Container>
-    </div>
+        </Container>
+      </div>
     );
 
   // Error handling
@@ -89,34 +83,38 @@ const FeatureProduct: React.FC = () => {
   return (
     <Container className="mt-20">
       <div className="text-center">
-        <h1 className="text-26 md:text-32 font-bold">Elegant & Functional Window Coverings</h1>
-        <p className="text-16 font-normal text-primary">We deliver on our promises, every single time </p>
-        <hr className="border-2 border-primary w-28 mx-auto" />
+        <h1 className="text-26 md:text-32 font-bold">
+          Elegant & Functional Window Coverings
+        </h1>
+        <p className="text-16 font-normal text-primary">
+          We deliver on our promises, every single time{' '}
+        </p>
+        <hr className="border-2 border-primary w-28 mx-auto mt-3 md:mt-0" />
       </div>
 
       <div className="mt-10">
         <div className="overflow-x-auto border">
-        <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap min-w-[470px]">
-          {categoryOrder.map((categoryTitle) => {
-            const category = categoryMap?.[categoryTitle];
-            return (
-              <Button
-                key={categoryTitle}
-                variant={'feature'}
-                className={` ${activeCategory?.id === category?.id ? 'bg-secondary text-white' : 'text-black'} px-4 py-6`}
-                onClick={() => {
-                  if (categoryTitle === 'All') {
-                    handleShowAll();
-                  } else {
-                    setActiveCategory(category ?? null);
-                  }
-                }}
-              >
-                {categoryTitle}
-              </Button>
-            );
-          })}
-        </div>
+          <div className="flex lg:gap-10  gap-1 md:gap-3 justify-center whitespace-nowrap md:min-w-[470px] mb-3">
+            {categoryOrder.map((categoryTitle) => {
+              const category = categoryMap?.[categoryTitle];
+              return (
+                <Button
+                  key={categoryTitle}
+                  variant={'feature'}
+                  className={` ${activeCategory?.id === category?.id ? 'bg-secondary text-white' : 'text-black'} py-1  md:py-2 px-[.35rem] md:px-4 rounded !text-[12px] md:!text-[16px]`}
+                  onClick={() => {
+                    if (categoryTitle === 'All') {
+                      handleShowAll();
+                    } else {
+                      setActiveCategory(category ?? null);
+                    }
+                  }}
+                >
+                  {categoryTitle}
+                </Button>
+              );
+            })}
+          </div>
         </div>
         <div className="mt-5">
           <FeatureCard products={visibleProducts || []} />

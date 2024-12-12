@@ -21,18 +21,12 @@ const GalleryPage = () => {
   );
   const [currentPage, setCurrentPage] = useState(1);
 
-  const {
-    data: categories,
-    error: categoriesError,
-  } = useQuery<ICategory[]>({
+  const { data: categories, error: categoriesError } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
 
-  const {
-    data: products,
-    error: productsError,
-  } = useQuery<IProduct[]>({
+  const { data: products, error: productsError } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
@@ -75,9 +69,9 @@ const GalleryPage = () => {
         </div>
 
         <div className="overflow-x-auto">
-          <div className="flex justify-center min-w-fit mx-auto">
+          <div className="flex justify-center min-w-fit mx-auto  pb-5  ">
             <div
-              className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === null ? 'bg-secondary text-white' : ''}`}
+              className={`py-2 px-2 rounded cursor-pointer !text-[12px] md:!text-[16px] ${selectedCategoryId === null ? 'bg-secondary text-white' : ''}`}
               onClick={() => handleCategoryClick(null)}
             >
               All
@@ -95,7 +89,7 @@ const GalleryPage = () => {
                 })
                 .map((category: ICategory, index: number) => (
                   <div
-                    className={`py-2 px-4 rounded cursor-pointer ${selectedCategoryId === category.id ? 'bg-secondary text-white' : ''}`}
+                    className={`py-2 px-[.35rem] md:px-4 rounded !text-[12px] md:!text-[16px] cursor-pointer ${selectedCategoryId === category.id ? 'bg-secondary text-white' : ''}`}
                     key={index}
                     onClick={() => handleCategoryClick(category.id!)}
                   >
