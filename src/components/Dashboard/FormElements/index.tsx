@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Formik,
   FieldArray,
@@ -114,6 +114,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     CategoryHandler();
   }, []);
 
+  console.log(setVariationOption, "setVariationOption")
   const onSubmit = async (values: any, { resetForm }: any) => {
     try {
       setError(null);
