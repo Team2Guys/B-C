@@ -150,6 +150,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
                     card={item}
                     key={item.id}
                     relativeProducts={true}
+                    detailHide={true}
                     parent={filteredCategory?.title.toLowerCase()}
                   />
                 );

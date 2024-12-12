@@ -10,11 +10,13 @@ interface GalleryProps {
   card: IProduct;
   relativeProducts?: boolean;
   parent?: string;
+  detailHide?:boolean;
 }
 
 const GalleryCard: React.FC<GalleryProps> = ({
   card,
   relativeProducts,
+  detailHide,
   parent,
 }) => {
   const getPath = (arr: IProduct)=> {
@@ -58,7 +60,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
         />
         <Link
           href={getPath(card)}
-          className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+          className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide? "hidden":""} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
         >
           <span
             className={`text-black text-start text-primary cursor-pointer ${relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'}`}
