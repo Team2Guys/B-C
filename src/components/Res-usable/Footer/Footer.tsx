@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
       <div className="bg-primary text-white py-10">
         <div className="max-w-screen-2xl mx-auto px-2">
           <div className="lg:flex border-b-2 px-2">
-            <div className="mb-4 md:col-span-1 lg:w-2/12">
+            <div className="mb-4 md:col-span-1 lg:w-2/12 flex flex-col items-center sm:items-start">
               <Link href={'/'}>
                 <Image
                   src={'/assets/images/whitelogo.png'}
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
                   height={200}
                 />
               </Link>
-              <p className="text-sm text-white text-wrap">
+              <p className="text-sm text-white text-center sm:text-start">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
