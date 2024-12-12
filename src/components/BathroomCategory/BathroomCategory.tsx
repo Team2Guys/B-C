@@ -100,7 +100,6 @@ const BathroomCategory = ({
                 className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full "
                 key={index}
               >
-                <div className="space-y-2 w-full">
                   <Image
                     className="w-full h-full md:h-[374px] rounded-md object-cover"
                     src={
@@ -115,7 +114,6 @@ const BathroomCategory = ({
                   <h2 className="font-bold text-base sm:text-xl md:text-2xl text-center">
                     {arr.title}
                   </h2>
-                </div>
                 {product_Images && (
                   <p
                     className="leading-7 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal"
@@ -126,7 +124,7 @@ const BathroomCategory = ({
                 )}
                 <Link
                   href={getPath(arr, parent)}
-                  className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center"
+                  className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center mx-auto"
                 >
                   View Our {arr.title}
                 </Link>

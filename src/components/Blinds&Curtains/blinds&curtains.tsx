@@ -21,7 +21,7 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
         />
         </div>
         <div className='col-span-12 md:col-span-5 lg:col-span-7 2xl:col-span-6 flex flex-col justify-between px-4 md:px-0'>
-        <h2 className="lg:text-[39px] md:text-3xl text-2xl font-bold !leading-[50px] ">
+        <h2 className="lg:text-[39px] md:text-3xl text-2xl font-bold max-sm:!leading-8 !leading-[50px] text-center sm:text-start ">
             {data.heading}
           </h2>
           <div>
