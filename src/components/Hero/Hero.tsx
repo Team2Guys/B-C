@@ -4,50 +4,21 @@ import CustomSlider from 'components/slider/Slider';
 import { heroSlider } from 'data/data';
 import Image from 'next/image';
 import SliderModal from './SliderModal';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 function Hero() {
   const [showModel, setshowModel] = useState<string>('');
-  const [isMobile, setIsMobile] = useState<boolean>(false);
- console.log(isMobile,"isMobile")
-  useEffect(() => {
-    const checkScreenSize = () => {
-      if (typeof window !== 'undefined') {
-        setIsMobile(window.innerWidth <= 768);
-      }
-    };
-
-    checkScreenSize();
-
-    window.addEventListener('resize', checkScreenSize);
-
-    const handleClick = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      const id = target.id;
-      console.log('Document clicked', id);
-      if (id !== 'modalHandler') {
-        setshowModel('');
-      }
-    };
-
-    document.addEventListener('click', handleClick);
-
-    return () => {
-      document.removeEventListener('click', handleClick);
-      window.removeEventListener('resize', checkScreenSize);
-    };
-  }, []);
 
   return (
     <Container>
-      <CustomSlider className="Hero-slider z-40 mb-10 lg:mb-3 md:mb-5 md:pt-10 md:pb-5">
+      <CustomSlider className="Hero-slider z-40 mb-0 lg:mb-3 sm:mb-5 md:pt-10 md:pb-5">
         {heroSlider.map((item: any) => {
           return (
             <div key={item.id}>
-              <div className=" flex flex-wrap md:flex-nowrap  lg:px-0 px-4">
-                <div className=" left-side w-full md:w-1/2 flex flex-col justify-center gap-1">
-                  <div className="w-full flex items-center gap-2 lg:mt-0 mt-5">
+              <div className=" flex flex-wrap md:flex-nowrap lg:px-0 px-4">
+                <div className="h-full w-full md:w-1/2 flex flex-col justify-center gap-1">
+                  <div className="w-full flex items-center justify-center md:justify-start gap-2 lg:mt-0 mt-5">
                     <svg
                       width="34"
                       height="2"
@@ -68,23 +39,23 @@ function Hero() {
                       Blinds & Curtains Dubai
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold text-25 md:text-[27px] lg:text-[33px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[45px] lg:leading-[60px]">
+                  <h1 className="text-black font-extrabold text-25 md:text-[27px] lg:text-[33px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[45px] lg:leading-[60px] text-center md:text-start">
                     {/* Custom Window <br />
                     Blinds & Curtains */}
-                    {item.heading}<br/>
+                    {item.heading}<br />
                     {item.subheading}
                   </h1>
-                  <p className="font-normal text-14 mt-0 md:mt-5 mb-5">
+                  <p className="font-normal text-14 mt-0 md:mt-5 mb-2 md:mb-5 text-center md:text-start">
                     {/* Lorem Ipsum is simply dummy text of the <br className='hidden md:block' /> and
                     typesetting industry. */}
                     {item.content}
                   </p>
-                  <Link className='uppercase bg-white text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-12 w-fit' href={'/request-appointment'}>
-                      Book A Free Home Design Visit
+                  <Link className='uppercase bg-white hidden md:block mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-12 w-fit' href={'/request-appointment'}>
+                    Book A Free Home Design Visit
                   </Link>
                 </div>
 
-                <div className="rigt-side w-full md:w-1/2 flex flex-col  justify-center border !z-50">
+                <div className="h-full w-full md:w-1/2 flex flex-col gap-3 sm:gap-5 md:gap-0 justify-center border !z-50">
                   <div className="relative">
                     {showModel == '1_model' && (
                       <SliderModal
@@ -126,6 +97,9 @@ function Hero() {
                       />
                     )}
                   </div>
+                  <Link className='uppercase bg-white md:hidden mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-4 sm:mb-8 w-fit' href={'/request-appointment'}>
+                    Book A Free Home Design Visit
+                  </Link>
                 </div>
               </div>
             </div>

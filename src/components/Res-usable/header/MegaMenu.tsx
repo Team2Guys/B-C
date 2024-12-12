@@ -11,12 +11,14 @@ import {
 } from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Link from 'next/link';
+import { Collapse } from 'antd';
+import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 
 interface MegaMenuProps {
   title: string;
   sliderData: any[];
   className?: string;
-  onClick?: (product: IProduct) => void;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined;
   href?: string;
 }
 
@@ -24,6 +26,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   title,
   sliderData,
   className,
+  onClick,
   href,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -31,7 +34,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const [timeoutId, setTimeoutId] = useState<any | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLAnchorElement>(null);
- 
+  const { Panel } = Collapse;
+
   const handleMouseEnter = () => {
     if (timeoutId) {
       clearTimeout(timeoutId);
@@ -95,19 +99,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     );
   };
 
-  const MegaMenu_Headings = [
-    {
-      name: 'By Style',
-    },
-    {
-      name: 'By Room',
-    },
-    {
-      name: 'dynamic',
-    },
-  ];
-
-  const distributeProducts = () => {
+  const distributeProducts = (arr: any[], columns: number) => {
     const styles = megaMenubyStyle.map((item) =>
       generateSlug(item.productName),
     );
@@ -115,146 +107,105 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       generateSlug(item.productName),
     );
     const rooms = megaMenubyRoom.map((item) => generateSlug(item.productName));
-    const result = [[], [], []];
+    const result: IProduct[][] = Array.from({ length: columns }, () => []);
 
     sliderData.forEach((product) => {
       const slug = generateSlug(product.title);
       if (styles.includes(slug)) {
-        //@ts-expect-error
         result[0].push(product);
       } else if (rooms.includes(slug)) {
-        //@ts-expect-error
         result[1].push(product);
       } else if (dynamics.includes(slug)) {
-        //@ts-expect-error
         result[2].push(product);
       }
     });
     return result;
   };
 
-  const distributedProducts = distributeProducts();
-
-  console.log(title, 'distributedProducts');
-  console.log(title, 'itemName');
+  const distributedProducts = distributeProducts(
+    sliderData,
+    3,
+  );
 
   return (
-    <div
-      className=""
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <Link href={`${window.origin}${href}`}
-        ref={buttonRef}
-        className={cn(
-          'px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200',
-          className,
-        )}
+    <>
+      {/* Desktop View */}
+      <div
+        className="hidden lg:block"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        {title}
-      </Link>
-
-      {isOpen && (
-        <div
-          ref={menuRef}
-          className="border-t-8 border-secondary absolute bg-white w-full left-1/2 max-w-[98%] -translate-x-1/2  py-4 space-y-4 transition-transform transform z-50"
+        <Link href={href || ''}
+          ref={buttonRef}
+          className={cn(
+            'px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200',
+            className,
+          )}
         >
-          <Container>
-            {/* <div className="flex justify-between px-8">
-            <p className="text-primary text-16 font-medium">{title}</p>
-            <Link onClick={() => setIsOpen(false)} href={`${href}`}>
-              View All
-            </Link>
-          </div> */}
+          {title}
+        </Link>
 
-            <div className="grid grid-cols-4 h-full gap-5 w-full">
-              {MegaMenu_Headings.map((item, index) => {
-                const parent = generateSlug(title);
-                const itemName = item.name;
-
-                return (
+        {isOpen && (
+          <div
+            ref={menuRef}
+            className="border-t-8 border-secondary absolute bg-white w-full left-1/2 max-w-[98%] -translate-x-1/2 py-4 space-y-4 transition-transform transform z-50"
+          >
+            <Container>
+              <div className="grid grid-cols-4 h-full gap-5 w-full">
+                {distributedProducts.map((products, index) => (
                   <div key={index} className="flex flex-col gap-5 w-full">
-                    <p className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
-                      {/* {title + ' ' + item.name} */}
-                      <div />
-                      {title}{' '}
-                      {item.name === 'dynamic'
-                        ? parent === 'blinds'
-                          ? 'By Function'
-                          : parent === 'curtains'
-                            ? 'By Fabrics'
-                            : parent === 'shutters'
-                              ? 'By Colour'
-                              : 'By Function'
-                        : item.name}
+                    <p className="font-bold text-lg border-b-[3px] border-secondary w-fit">
+                      {title} {['By Style', 'By Room', 'Dynamic'][index]}
                     </p>
-                    {distributedProducts[index]?.map(
-                      (item: any, index: number) => {
-                        const path = generatePath(item, parent);
-                        return (
-                          <>
-                            {' '}
-                            <Link href={path}
-                              key={index}
-                              onMouseEnter={() => setactiveProduct(item)}
-                              className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
-                            >
-                              {
-                                (title == 'Blinds' && (itemName == 'By Room' || itemName == 'dynamic')) 
-                                  ? item.title.replace('Blinds', '') 
-                                  : (title == 'Curtains' && itemName == 'By Room') 
-                                  ? item.title.replace('Curtains', '') 
-                                  : (title == 'Shutters' && (itemName == 'By Room' || itemName == 'dynamic')) 
-                                  ? item.title.replace('Shutters', '') 
-                                  : item.title
-                              }
-                            </Link>
-                          </>
-                        );
-                      },
-                    )}
+                    {products.map((product, idx) => {
+                      const path = generatePath(product, title.toLowerCase());
+                      return (
+                        <Link href={path} key={idx} onMouseEnter={() => setactiveProduct(product)} className="text-15 capitalize border-b-[3px] border-white w-fit hover:border-b-secondary">
+                          {product.title}
+                        </Link>
+                      );
+                    })}
                   </div>
-                );
-              })}
-
-              <div className="relative h-fit">
-                <Image
-                  src={activeProduct?.posterImage.imageUrl}
-                  alt={activeProduct?.title || 'posterImage'}
-                  width={500}
-                  height={500}
-                  className="bg-contain h-[250px] lg:h-[300px]"
-                />
-                <p className="absolute bottom-0 z-999 w-full bg-white opacity-80 font-semibold lg:font-bold text-16 lg:text-xl whitespace-normal text-center py-3">
-                  {activeProduct?.title}
-                </p>
+                ))}
+                <div className="relative h-fit">
+                  <Image
+                    src={activeProduct?.posterImage.imageUrl || ''}
+                    alt={activeProduct?.title || 'posterImage'}
+                    width={500}
+                    height={500}
+                    className="bg-contain h-[250px] lg:h-[300px]"
+                  />
+                  <p className="absolute bottom-0 z-999 w-full bg-white opacity-80 font-semibold lg:font-bold text-16 lg:text-xl text-center py-3">
+                    {activeProduct?.title}
+                  </p>
+                </div>
               </div>
-            </div>
-          </Container>
+            </Container>
+          </div>
+        )}
+      </div>
 
-          {/* <CardSlider
-            title={title}
-            sliderItems={sliderData}
-            setIsOpen={setIsOpen}
-            buttonClass="rounded-full h-6 w-6 ml-2 bg-primary text-center shadow bg-white hover:bg-primary hover:text-white"
-            breakpoints={{
-              640: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 6,
-                spaceBetween: 30,
-              },
-              1024: {
-                slidesPerView: 8,
-                spaceBetween: 30,
-              },
-            }}
-          /> */}
-        </div>
-      )}
-    </div>
+      {/* Mobile View */}
+      <div className="lg:hidden">
+        <Collapse bordered={false} expandIcon={({ isActive }) => isActive ? <IoMdArrowDropup size={20} /> : <IoMdArrowDropdown size={20} />} className='bg-transparent'>
+          {distributedProducts.map((products, index) => (
+            <Panel
+              header={`${title} ${['By Style', 'By Room', 'Dynamic'][index]}`}
+              key={index}
+              className='custom-panel py-2'
+            >
+              <ul className="space-y-2">
+                {products.map((product: IProduct, idx) => (
+                  <li key={idx}>
+                    <Link href={generatePath(product, title.toLowerCase())} className={`focus:text-black hover:text-black border-b-2 border-transparent hover:border-b-secondary`} onClick={onClick}>{product.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </Panel>
+          ))}
+        </Collapse>
+      </div>
+    </>
   );
 };
 
