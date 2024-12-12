@@ -16,19 +16,19 @@ const Support = () => {
         >
           <div
             className={`w-full h-full rounded-tl-3xl py-4 rounded-br-3xl xs:py-5 md:py-10 space-y-3 md:space-y-5 flex flex-col justify-center items-center px-2 md:px-5 duration-700
-              ${hoveredIndex === null && index === 0 ? 'bg-white' : 'bg-transparent group-hover:bg-white'}
+              ${hoveredIndex === null && index === 0 ? 'bg-white' : ' bg-white sm:bg-transparent group-hover:bg-white'}
               ${hoveredIndex === index ? 'bg-white' : ''}
             `}
           >
             <div
               className={`shadow-md rounded-full flex justify-center items-center h-12 w-12 text-secondary duration-700
-                ${hoveredIndex === null && index === 0 ? 'bg-secondary text-white' : 'bg-white group-hover:bg-secondary group-hover:text-white'}
-                ${hoveredIndex === index ? 'bg-secondary text-white' : ''}
+                ${hoveredIndex === null && index === 0 ? 'bg-secondary text-white' : 'bg-secondary sm:bg-white group-hover:bg-secondary group-hover:text-white'}
+                ${hoveredIndex === index ? 'bg-secondary text-white' : ' max-sm:text-white'}
               `}
             >
               <FaStar size={25} />
             </div>
-            <h2 className="font-bold xs:text-20 md:text-18 lg:text-center lg:text-16">{item.title}</h2>
+            <h2 className="font-bold xs:text-20 md:text-18 text-center lg:text-16">{item.title}</h2>
             <p className="text-12 md:text-14 text-center">{item.description}</p>
           </div>
         </div>

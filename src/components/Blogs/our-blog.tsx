@@ -69,7 +69,7 @@ const OurBlog = ({
                   </span>
                 </div>
                 <h3
-                  className="text-20 font-bold cursor-pointer"
+                  className="text-20 font-bold cursor-pointer text-center sm:text-start"
                   onClick={() => {
                     route.push(`/blog/${generateSlug(blog.title)}`);
                   }}
@@ -94,7 +94,7 @@ const OurBlog = ({
               </div>
                 <Link
                   href={`/blog/${generateSlug(blog.title)}`}
-                  className={`text-primary text-18 underline font-bold`}
+                  className={`text-primary text-18 underline font-bold text-center sm:text-start`}
                 >
                   Read More
                 </Link>

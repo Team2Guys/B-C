@@ -47,10 +47,10 @@ const TopHero: React.FC<TopHeroProps> = ({
 
   return (
     <div
-      className="relative text-center text-black custom-breadcrum h-80 flex items-center justify-center bg-cover bg-center"
+      className="relative text-center text-black custom-breadcrum h-80 flex items-center justify-center md:bg-cover  bg-center"
       style={{
         backgroundImage: `url(${image.src})`,
-        backgroundPosition: backgroundposition ? backgroundposition : 'left center',
+        backgroundPosition: backgroundposition,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
