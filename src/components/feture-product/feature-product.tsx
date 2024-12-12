@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import FeatureCard from 'components/ui/feature-card';
@@ -30,7 +30,7 @@ const FeatureProduct: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState<number>(8);
   const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutters', 'Commercial'];
   const categoryMap = categories?.reduce(
-    (acc, category) => {
+    (acc: any, category: ICategory) => {
       acc[category?.title] = category;
       return acc;
     },
@@ -45,13 +45,38 @@ const FeatureProduct: React.FC = () => {
   const visibleProducts = filteredProducts?.slice(0, visibleCount);
 
   const handleViewMore = () => {
-    setVisibleCount((prevCount) => prevCount + 8);
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 767) {
+      setVisibleCount((prevCount) => prevCount + 8);
+    } else if (screenWidth > 439) {
+      setVisibleCount((prevCount) => prevCount + 4);
+    } else {
+      setVisibleCount((prevCount) => prevCount + 3);
+    }
   };
 
   const handleShowAll = () => {
     setActiveCategory(null);
-    setVisibleCount(8);
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 767) {
+      setVisibleCount(8);
+    } else if (screenWidth > 439) {
+      setVisibleCount(4);
+    } else {
+      setVisibleCount(3);
+    }
   };
+
+  useEffect(() => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 767) {
+      setVisibleCount(8);
+    } else if (screenWidth > 439) {
+      setVisibleCount(4);
+    } else {
+      setVisibleCount(3);
+    }
+  },[]);
 
   if (isLoadingCategories || isLoadingProducts)
     return (
