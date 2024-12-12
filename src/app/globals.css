@@ -208,10 +208,29 @@ html {
 }
 .Hero-slider .slick-dots {
   bottom: 4px !important;
-  left: -35px !important;
+  /* left: -35px !important; */
 }
-
-.Hero-slider .slick-dots li button:before {
+.custom-collapse .ant-collapse-content-box {
+ padding-bottom: 0px !important;
+}
+.custom-collapse .ant-collapse-header {
+  padding: 0 !important;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+.custom-collapse .ant-collapse-header .ant-collapse-header-text {
+  width: fit-content;
+  margin: 0 !important;
+}
+.custom-collapse .ant-collapse-header .ant-collapse-expand-icon{
+  order: 2 !important;
+  padding: 0 !important;
+}
+.custom-panel {
+  border-bottom: 0px !important;
+}
+ li button:before {
   font-size: 19px !important;
   color: #fff !important;
   opacity: .5;
@@ -305,12 +324,14 @@ html {
 .react-tel-input .selected-flag {
   padding: 0 0 0 4px !important;
 } */
+@media (max-width: 640px) {
+  .Hero-slider:not(.custom-color-silder) .slick-dots {
+    display: none !important;
+  }
+}
 @media (max-width: 600px) {
   .happy_customer .slider-container .slick-dots li button:before {
     top: 0px;
-  }
-  .Hero-slider:not(.custom-color-silder) .slick-dots {
-    display: none !important;
   }
 }
 

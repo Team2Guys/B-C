@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
   return (
     <>
       <div
-        className="max-w-md rounded  lg:m-4 m-2 group cursor-pointer"
+        className="max-w-md rounded  lg:m-4 m-2 group cursor-pointer text-center sm:text-start"
         onClick={() => route.push(`${href}`)}
       >
         <div>
@@ -36,7 +36,7 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
             {truncateText(data.description || '', 30)}
           </p>
         </div>
-        <div className=" w-fit flex flex-col justify-center items-center text-sm">
+        <div className=" w-fit flex flex-col justify-center items-center text-sm mx-auto">
           <button
             className="font-bold font-sans rounded-none group-hover:rounded-full px-3 py-1 group-hover:border-gray-300 group-hover:bg-white"
             onClick={() => route.push('/products')}

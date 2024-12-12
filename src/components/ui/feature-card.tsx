@@ -47,7 +47,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 max-w-screen-2xl mx-auto px-2">
       {products.map((product) => {
-        const filtered = categories?.find((cat) => {
+        const filtered = categories?.find((cat: ICategory) => {
           return cat.id === product.CategoryId;
         });
         const parent = filtered?.title.toLowerCase();
@@ -69,7 +69,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
             <Image
               width={450}
               height={450}
-              className=" md:w-full h-[300px] 2xl:h-[350px] rounded-xl"
+              className="w-full h-[300px] 2xl:h-[350px] rounded-xl"
               src={product.posterImage.imageUrl}
               alt={product.title}
             />

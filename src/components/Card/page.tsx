@@ -17,7 +17,7 @@ const HomeCard = () => {
 
   const customOrder = ['Blinds', 'Curtains', 'Shutters'];
 
-  const sortedCategories = categories?.sort((a, b) => {
+  const sortedCategories = categories?.sort((a: ICategory, b: ICategory) => {
     const indexA = customOrder.indexOf(a.title);
     const indexB = customOrder.indexOf(b.title);
     return indexA - indexB;
@@ -56,11 +56,9 @@ const HomeCard = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
           {sortedCategories &&
             sortedCategories
-              .filter((cat) => cat.title !== 'Commercial')
+              .filter((cat: ICategory) => cat.title !== 'Commercial')
               .map((cat: ICategory, index: number) => {
                 const filtered = links.find((item) => item.label === cat.title,);
-                console.log(filtered, "home")
-
                 return (
                   <Card key={index} data={cat} href={filtered?.href} />
                 );
