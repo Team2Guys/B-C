@@ -112,6 +112,11 @@ export const urls = [
     Url: 'made-to-measure-sheer-curtains',
     errorUrl: '/curtains/sheer-curtains',
   },
+  {
+    productName: 'Tracked Shutters',
+    Url: 'tracked-window-shutters',
+    errorUrl: '/shutters-range/tracked-shutters',
+  },
   // {
   //   productName: 'Solid Panel Shutters',
   //   Url: 'solid-panel-shutters-plantation-shutters-dubai',
@@ -147,6 +152,7 @@ export const urls = [
     Url: '/roller-blinds/blackout-roller-blinds',
     errorUrl: '/blinds/blackout-roller-blinds',
   },
+ 
 ];
 
 
@@ -224,7 +230,7 @@ export const getProduct = [
   'Tab Top Curtains',
   'Full Height Shutters',
   'Bay Window Shutters',
-  'Tracked Window Shutters',
+  'Tracked Shutters',
   'Special Shape Shutters',
   'Tier On Tier Shutters',
   'Solid Panel Shutters',
