@@ -22,7 +22,12 @@ import {
   fetchSubCategories,
 } from 'config/fetch';
 import { updateProductTitle } from 'components/ui/menu-card';
-import { ChangedProductUrl_handler, getProduct, predefinedPaths, urls } from 'data/urls';
+import {
+  ChangedProductUrl_handler,
+  getProduct,
+  predefinedPaths,
+  urls,
+} from 'data/urls';
 
 const Footer: React.FC = () => {
   const { data: products } = useQuery<IProduct[]>({
@@ -61,20 +66,27 @@ const Footer: React.FC = () => {
   ];
   const generatePath = (product: IProduct, parent: string) => {
     const slug = ChangedProductUrl_handler(product.title);
-    const basePath = product.href ? `${window.origin}/${product.href}` : `/${slug}`;
+    const basePath = product.href
+      ? `${window.origin}/${product.href}`
+      : `/${slug}`;
 
     return (
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
-        : `/${parent === 'shutters' ? `${parent}-range` : parent}${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
-          ? '/roller-blinds'
-          : ''
-        }/${slug}`)
+        : `/${parent === 'shutters' ? `${parent}-range` : parent}${
+            [
+              'dimout-roller-blinds',
+              'sunscreen-roller-blinds',
+              'blackout-roller-blinds',
+            ].includes(slug)
+              ? '/roller-blinds'
+              : ''
+          }/${slug}`)
     );
   };
   const ChangedProductUrl = (title: string): string => {
-    let products = urls.find((url: { productName: string, Url: string }) => {
+    let products = urls.find((url: { productName: string; Url: string }) => {
       return url.productName === title;
     });
 
@@ -85,11 +97,11 @@ const Footer: React.FC = () => {
       <div className="bg-primary text-white py-10">
         <div className="max-w-screen-2xl mx-auto px-2">
           <div className="lg:flex border-b-2 px-2">
-            <div className="mb-4 md:col-span-1 lg:w-2/12">
-              <Link href={'/'}>
+            <div className="mb-4 md:col-span-1 lg:w-2/12                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ">
+              <Link href={'/'} className="bg-red-400">
                 <Image
                   src={'/assets/images/whitelogo.png'}
-                  className="w-auto h-auto lg:w-24 lg:h-20"
+                  className="w-auto h-auto lg:w-24 lg:h-20 "
                   alt="Logo"
                   width={200}
                   height={200}
@@ -123,8 +135,7 @@ const Footer: React.FC = () => {
 
             <div className=" py-5 w-full lg:w-5/6 space-y-0">
               <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-12 lg:justify-items-center">
-                <div className='grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full'>
-
+                <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full">
                   {categories
                     ?.filter((category) => category.title !== 'Commercial')
                     .sort((a, b) => {
@@ -149,7 +160,7 @@ const Footer: React.FC = () => {
                               return (
                                 <li key={subcategory.id}>
                                   {filteredCategory?.title.toLowerCase() ===
-                                    'shutters' ? (
+                                  'shutters' ? (
                                     <>
                                       {filterArray.some((substring) =>
                                         subcategory.title.includes(substring),
@@ -169,13 +180,13 @@ const Footer: React.FC = () => {
                                       {getProduct.some((substring) =>
                                         subcategory.title.includes(substring),
                                       ) && (
-                                          <Link
-                                            className="text-sm font-medium"
-                                            href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
-                                          >
-                                            {subcategory.title}
-                                          </Link>
-                                        )}
+                                        <Link
+                                          className="text-sm font-medium"
+                                          href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
+                                        >
+                                          {subcategory.title}
+                                        </Link>
+                                      )}
                                     </>
                                   )}
                                 </li>
@@ -183,25 +194,32 @@ const Footer: React.FC = () => {
                             })}
 
                           {products
-                            ?.filter((product) => product.CategoryId === category.id)
+                            ?.filter(
+                              (product) => product.CategoryId === category.id,
+                            )
                             .map((product) => {
                               const filteredCategory = categories?.find(
-                                (cat) => cat.id === product.CategoryId
+                                (cat) => cat.id === product.CategoryId,
                               );
-                              const parent = generateSlug(filteredCategory?.title || '');
+                              const parent = generateSlug(
+                                filteredCategory?.title || '',
+                              );
                               const path = generatePath(product, parent);
 
                               return (
                                 <li key={product.id}>
                                   {getProduct.some((substring) =>
-                                    product.title.includes(substring)
+                                    product.title.includes(substring),
                                   ) && (
-                                      <Link href={path} className="text-14 font-medium cursor-pointer">
-                                        {product.title === 'Motorised blinds'
-                                          ? 'Motorised blinds'
-                                          : updateProductTitle(product.title)}
-                                      </Link>
-                                    )}
+                                    <Link
+                                      href={path}
+                                      className="text-14 font-medium cursor-pointer"
+                                    >
+                                      {product.title === 'Motorised blinds'
+                                        ? 'Motorised blinds'
+                                        : updateProductTitle(product.title)}
+                                    </Link>
+                                  )}
                                 </li>
                               );
                             })}
@@ -209,7 +227,6 @@ const Footer: React.FC = () => {
                       </div>
                     ))}
                 </div>
-
 
                 <div className="flex flex-col gap-4 pl-2 col-span-12 md:col-span-5 mt-5 md:mt-0">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
