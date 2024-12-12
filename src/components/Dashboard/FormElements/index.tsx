@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Formik,
   FieldArray,
@@ -59,8 +59,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
- console.log(setVariationOption,"setVariationOption")
-  useLayoutEffect(() => {
+  
+  useEffect(() => {
     const CategoryHandler = async () => {
       try {
         if (EditInitialValues.id === undefined) return;
@@ -89,7 +89,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
           hoverImage,
           category,
           subCategory,
-          ...EditInitialProductValues);
+        EditInitialProductValues);
         console.log(EditInitialValues);
         if (category) {
           const catArr = [];
@@ -114,6 +114,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     CategoryHandler();
   }, []);
 
+  console.log(setVariationOption, "setVariationOption")
   const onSubmit = async (values: any, { resetForm }: any) => {
     try {
       setError(null);
@@ -161,7 +162,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         name,
         ...finalValues
       } = newValues;
-      console.log( categories,
+
+      console.log(
+         categories,
         subcategories,
         code,
         modelDetails,
@@ -180,10 +183,11 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         newhoverImage,
         id,
         name,
-        ...finalValues)
+      finalValues)
+      
       let updatedvalue = {
         ...finalValues,
-        category: { connect: { id: selectedCategoryIds[0] } },
+        category:  { connect: { id: selectedCategoryIds[0] } },
       };
 
       if (selectedSubcategoryIds.length > 0) {
@@ -208,8 +212,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       }
 
       let method: 'post' | 'put' = updateFlag ? 'put' : 'post';
-console.log(updatedvalue, "updatedvalue")
-
       await axios[method](
         `${process.env.NEXT_PUBLIC_BASE_URL}${url}`,
         updatedvalue,
