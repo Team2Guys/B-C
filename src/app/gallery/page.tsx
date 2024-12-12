@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import Container from 'components/Res-usable/Container/Container';
-import { GoArrowRight, GoArrowLeft } from 'react-icons/go';
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
@@ -126,25 +125,12 @@ const GalleryPage = () => {
         <div className="flex justify-center items-center mt-20 w-full">
           {filteredProducts && filteredProducts.length > 0 && (
             <>
-              <span
-                className={`mx-1 w-16 h-14 flex justify-center items-center font-medium cursor-pointer ${
-                  currentPage === 1
-                    ? 'opacity-0'
-                    : 'hover:bg-btnclr hover:text-white opacity-100'
-                }`}
-                onClick={() =>
-                  setCurrentPage(
-                    currentPage > 1 ? currentPage - 1 : currentPage,
-                  )
-                }
-              >
-                <GoArrowLeft size={25} />
-              </span>
+       
 
               {Array.from({ length: totalPages }, (_, page) => (
                 <button
                   key={page + 1}
-                  className={`mx-1 w-16 h-14 flex justify-center rounded-sm items-center font-medium transition ${
+                  className={`mx-1 w-16 h-8 md:h-14 flex justify-center rounded-sm items-center font-medium transition ${
                     currentPage === page + 1
                       ? 'bg-btnclr text-white'
                       : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
@@ -157,20 +143,7 @@ const GalleryPage = () => {
                 </button>
               ))}
 
-              <span
-                className={`mx-1 w-16 h-14 flex justify-center items-center font-medium cursor-pointer ${
-                  currentPage === totalPages
-                    ? 'opacity-0'
-                    : 'hover:bg-btnclr hover:text-white opacity-100'
-                }`}
-                onClick={() =>
-                  setCurrentPage(
-                    currentPage < totalPages ? currentPage + 1 : currentPage,
-                  )
-                }
-              >
-                <GoArrowRight size={25} />
-              </span>
+             
             </>
           )}
         </div>

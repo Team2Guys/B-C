@@ -5,7 +5,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Pagination,Autoplay  } from 'swiper/modules';
 import { FaStar } from 'react-icons/fa';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css/pagination';
@@ -30,8 +30,13 @@ function Testimonial() {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        modules={[Pagination,Autoplay]}
         className="mySwiper"
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false, 
+          pauseOnMouseEnter:true,
+        }}
         breakpoints={{
           320: {
             slidesPerView: 1,
