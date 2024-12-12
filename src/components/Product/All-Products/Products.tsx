@@ -117,16 +117,49 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     if (productContainerRef.current) {
       productContainerRef.current.scrollIntoView({ behavior: 'smooth' });
 
-      // Calculate the position to scroll to (subtracting 100 pixels)
       const offset = 200; // Adjust this value as needed
       const top =
         productContainerRef.current.getBoundingClientRect().top +
-        window.scrollY -
-        offset;
+        window.scrollY - offset;
 
       window.scrollTo({ top, behavior: 'smooth' });
     }
   };
+
+  const getVisiblePages = (currentPage: number, totalPages: number) => {
+    const visiblePages: (number | string)[] = [];
+  
+    if (totalPages <= 4) {
+      // Show all pages if total pages are 4 or fewer
+      for (let i = 1; i <= totalPages; i++) {
+        visiblePages.push(i);
+      }
+    } else {
+      visiblePages.push(1); // Always show the first page
+  
+      if (currentPage > 3) {
+        visiblePages.push('...'); // Add dots if skipping pages
+      }
+  
+      const start = Math.max(2, currentPage - 1);
+      const end = Math.min(totalPages - 1, currentPage + 1);
+  
+      for (let i = start; i <= end; i++) {
+        visiblePages.push(i);
+      }
+  
+      if (currentPage < totalPages - 2) {
+        visiblePages.push('...'); // Add dots if skipping pages
+      }
+  
+      visiblePages.push(totalPages); // Always show the last page
+    }
+  
+    return visiblePages;
+  };
+  
+
+  const visiblePages = getVisiblePages(currentPage, totalPages);
 
   useEffect(() => {
     const mainCategory = categorydata.find(
@@ -197,35 +230,48 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex md:justify-center mt-10 lg:space-x-3 overflow-x-auto ">
-            <Button
-              variant={'secondary'}
-              className="w-[55px] h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              <FaArrowLeft size={16} />
-            </Button>
-
-            {Array.from({ length: totalPages }, (_, index) => (
-              <Button
-                key={index}
-                className={`w-[55px] h-[55px] text-16 ${currentPage === index + 1 ? 'bg-secondary text-white' : 'bg-transparent text-black'}`}
-                onClick={() => handlePageChange(index + 1)}
-              >
-                {index + 1}
-              </Button>
-            ))}
-
-            <Button
-              variant={'secondary'}
-              className="w-[55px] h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              <FaArrowRight size={16} />
-            </Button>
-          </div>
+           <div className="flex md:justify-center items-center mt-10 lg:space-x-3 overflow-hidden">
+           <Button
+             variant={'secondary'}
+             className=" w-14 sm:w-[55px] h-8 sm:h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
+             onClick={() => handlePageChange(currentPage - 1)}
+             disabled={currentPage === 1}
+           >
+             <FaArrowLeft size={16} />
+           </Button>
+     
+           {visiblePages.map((page, index) =>
+             typeof page === 'string' ? (
+               <span
+                 key={`dots-${index}`}
+                 className="w-10 sm:w-[55px] h-8 sm:h-[55px] flex items-center justify-center text-16"
+               >
+                 ...
+               </span>
+             ) : (
+               <Button
+                 key={page}
+                 className={`w-10 sm:w-[55px] h-8 sm:h-[55px] text-16 ${
+                   currentPage === page
+                     ? 'bg-secondary text-white'
+                     : 'bg-transparent text-black'
+                 }`}
+                 onClick={() => handlePageChange(page)}
+               >
+                 {page}
+               </Button>
+             ),
+           )}
+     
+           <Button
+             variant={'secondary'}
+             className="w-14 sm:w-[55px] h-8 sm:h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
+             onClick={() => handlePageChange(currentPage + 1)}
+             disabled={currentPage === totalPages}
+           >
+             <FaArrowRight size={16} />
+           </Button>
+         </div>
         )}
       </div>
     </Container>
