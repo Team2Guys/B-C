@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import Container from 'components/Res-usable/Container/Container';
-import { GoArrowRight, GoArrowLeft } from 'react-icons/go';
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
