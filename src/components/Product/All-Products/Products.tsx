@@ -130,12 +130,13 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
 
   useEffect(() => {
     const mainCategory = categorydata.find(
-      (category) => category.category.toLowerCase() === categoryType.toLowerCase()
+      (category) =>
+        category.category.toLowerCase() === categoryType.toLowerCase(),
     );
 
     if (mainCategory) {
       const categoryContent = mainCategory.types.find(
-        (type) => type.type.toLowerCase() === activeCategory.toLowerCase()
+        (type) => type.type.toLowerCase() === activeCategory.toLowerCase(),
       );
 
       if (categoryContent) {
@@ -151,12 +152,10 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     }
   }, [activeCategory, categoryType]);
 
-
-
   return (
     <Container className="mt-10 md:mt-16">
       <div className="mt-10">
-        <div className="flex lg:gap-10 gap-3 justify-center whitespace-nowrap overflow-x-auto ">
+        <div className="flex lg:gap-10 gap-1 md:gap-3 md:justify-center whitespace-nowrap overflow-x-auto ">
           {categories.map((category) => {
             const parent = generateSlug(categoryType);
             return (
@@ -191,14 +190,14 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
             {content.subtitle}
           </p>
         </div>
-            {/* categorydata */}
+        {/* categorydata */}
         <div ref={productContainerRef} className="my-2" />
         <div className="" id="productContainer">
           <ProductCard products={visibleProducts} isSizeSmall={true} />
         </div>
 
         {totalPages > 1 && (
-          <div className="flex justify-center mt-10 lg:space-x-3">
+          <div className="flex md:justify-center mt-10 lg:space-x-3 overflow-x-auto ">
             <Button
               variant={'secondary'}
               className="w-[55px] h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"

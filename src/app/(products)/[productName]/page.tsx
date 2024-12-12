@@ -31,29 +31,26 @@ const Products = () => {
     subheading2: string;
     subheadingContent: {
       content: string;
-    }[];} | null>(null);
+    }[];
+  } | null>(null);
   const pathname = usePathname();
   const title = matchingLink ? matchingLink.label : productName;
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
 
-  const productNameString = Array.isArray(productName)? productName[0] : productName;
+  const productNameString = Array.isArray(productName)
+    ? productName[0]
+    : productName;
 
-  const {
-    data: products,
-  } = useQuery<IProduct[]>({
+  const { data: products } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
 
-  const {
-    data: categories,
-  } = useQuery<ICategory[]>({
+  const { data: categories } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
-  const {
-    data: subCategories,
-  } = useQuery<ICategory[]>({
+  const { data: subCategories } = useQuery<ICategory[]>({
     queryKey: ['fetchSubCategories'],
     queryFn: fetchSubCategories,
   });
@@ -69,13 +66,6 @@ const Products = () => {
       const filterCat = categories?.find(
         (cat) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
       );
-      console.log('>>>>>>>>> <<<<<<<<<<<');
-      console.log('categories');
-      console.log(categories);
-      console.log('subCategories');
-      console.log(subCategories);
-      console.log('filterCat');
-      console.log(filterCat);
 
       if (filterCat) {
         const filteredProducts =
@@ -104,7 +94,11 @@ const Products = () => {
 
   return (
     <>
-      <VideoBanner title={`${title}`} selectedPage={selectedPage} showButton={true} />
+      <VideoBanner
+        title={`${title}`}
+        selectedPage={selectedPage}
+        showButton={true}
+      />
       <Info selectedPage={selectedPage} />
       <AllProducts products={filteredProducts} categoryType={`${title}`} />
       <Container className="mt-20 mb-20">
