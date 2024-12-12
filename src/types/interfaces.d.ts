@@ -44,7 +44,9 @@ export interface Category {
   description?: string;
 }
 
-export interface CategoriesType extends Category { posterImageUrl: IMAGE_INTERFACE;}
+export interface CategoriesType extends Category {
+  posterImageUrl: IMAGE_INTERFACE;
+}
 
 interface CloudinaryImage {
   public_id: string | undefined;
@@ -107,8 +109,7 @@ interface sizes {
   sizesDetails?: string;
 }
 
-
-export default interface PRODUCTS_TYPES extends Product{}
+export default interface PRODUCTS_TYPES extends Product {}
 
 export interface ADDPRODUCTFORMPROPS {
   setselecteMenu: any;
