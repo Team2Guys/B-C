@@ -128,6 +128,11 @@ export const urls = [
     errorUrl: '/curtains/chiffon-curtains',
   },
   {
+    productName: 'Linen Curtains',
+    Url: 'made-to-measure-linen-curtains',
+    errorUrl: '/curtains/chiffon-curtains',
+  },
+  {
     productName: 'Theatre Curtains',
     Url: 'stage-and-theatre-curtains',
     errorUrl: '/curtains/theatre-curtains',
