@@ -1,22 +1,21 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
+// import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import Container from 'components/Res-usable/Container/Container';
 import Support from 'components/Res-usable/support/support';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import {
-  fetchCategories,
   fetchProducts,
 } from 'config/fetch';
 import { ByColorContent, colorData } from 'data/data';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { ICategory, IProduct } from 'types/types';
+import { IProduct } from 'types/types';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
 import TopHero from 'components/ui/top-hero';
-import { Categories_wise_Images } from 'data/Images';
+// import { Categories_wise_Images } from 'data/Images';
 import { IColorData } from 'types/interfaces';
 import ThumbImage from 'components/Detail/ThumbImage/ThumbImage';
 interface ShuttersByColorProps {
@@ -47,12 +46,12 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title,subCategory }) 
     queryFn: fetchProducts,
   });
 
-  const {
-    data: categoriesList = [],
-  } = useQuery<ICategory[], Error>({
-    queryKey: ['category'],
-    queryFn: fetchCategories,
-  });
+  // const {
+  //   data: categoriesList = [],
+  // } = useQuery<ICategory[], Error>({
+  //   queryKey: ['category'],
+  //   queryFn: fetchCategories,
+  // });
 
   const getColorHex = (path: string) => {
     const colorMatch = colorData.find((color) => color.url === path);
