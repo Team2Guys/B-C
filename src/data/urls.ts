@@ -98,6 +98,11 @@ export const urls = [
     errorUrl: '/blinds/roller-blinds/sunscreentransparent-blinds',
   },
   {
+    productName: 'Dimout Blinds',
+    Url: 'dimout-roller-blinds',
+    errorUrl: '/blinds/roller-blinds/dimout-blinds',
+  },
+  {
     productName: 'Blackout Curtains',
     Url: 'blackout-curtains-dubai',
     errorUrl: '/curtains/blackout-curtains',
