@@ -64,7 +64,9 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
           const category = categories?.find((cat) => cat.id == product.CategoryId);
           console.log(category, "productscommercial",categories )
           if (!category) return null;
-
+          if (["Hotels & Restaurants , blinds & curtains"].includes(product.title)) {
+            return null;
+          }
           const trimmedProductTitle = getTrimmedTitle(product.title);
           const parent = generateSlug(category?.title);
 

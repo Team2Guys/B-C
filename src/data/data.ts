@@ -1180,8 +1180,8 @@ export const blindMegaMenuItems = [
   { productName: 'blackout-blinds' },
   // { productName: 'outdoor' },
   { productName: 'motorised-blinds' },
-  { productName: 'dimout-blindssemi-transparent' },
-  { productName: 'sunscreentransparent' },
+  { productName: 'dimout-blinds' },
+  { productName: 'sunscreentransparent-blinds' },
 ];
 
 export const curtainMegaMenuItems = [
@@ -1546,7 +1546,7 @@ export const megaMenubyRoom = [
 ];
 
 export const megaMenuDynamic = [
-  { productName: 'sunscreentransparent' },
+  { productName: 'sunscreentransparent-blinds' },
   { productName: 'blackout-blinds' },
   { productName: 'stripes-curtains' },
   { productName: 'geometric-curtains' },
@@ -1561,7 +1561,7 @@ export const megaMenuDynamic = [
   { productName: 'outdoor' },
   // { productName: 'outdoor-blinds' },
   { productName: 'motorised-blinds' },
-  { productName: 'dimout-blindssemi-transparent' },
+  { productName: 'dimout-blinds' },
 
   { productName: 'white-shutters' },
   { productName: 'light-woods-shutters' },

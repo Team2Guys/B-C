@@ -255,7 +255,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                   predefinedPaths[slug as keyof typeof predefinedPaths] ||
                                   (slug === 'hotels-restaurants-blinds-curtains'
                                     ? basePath
-                                    : `/${parent === 'shutters' ? `${parent}-range` : parent}${['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
+                                    : `/${parent === 'shutters' ? `${parent}-range` : parent}${['dimout-blinds', 'sunscreen-roller-blinds'].includes(slug)
                                       ? '/roller-blinds'
                                       : ''
                                     }/${slug}`);
@@ -266,7 +266,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                               className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
                             >
                               {
-                                (title == 'Blinds' && (itemName == 'By Room' || itemName == 'dynamic')) 
+                                (title == 'Blinds' && (itemName == 'By Room')) 
                                   ? item.title.replace('Blinds', '') 
                                   : (title == 'Curtains' && itemName == 'By Room') 
                                   ? item.title.replace('Curtains', '') 
