@@ -105,7 +105,7 @@ const CommercialPage = () => {
           <ProductDetailPage title={`${filteredProduct?.title}`} />
         )
       ) : (
-        <ShuttersByColor title={colorPage.name} />
+        <ShuttersByColor title={colorPage.name} subCategory={`${filteredSubCategory?.title}`} />
       )}
     </>
   );

@@ -117,6 +117,17 @@ export const urls = [
     Url: 'tracked-window-shutters',
     errorUrl: '/shutters-range/tracked-shutters',
   },
+  {
+    productName: 'Hotel Curtains',
+    Url: 'hotel-curtains-dubai',
+    errorUrl: '/curtains/hotel-curtains',
+  },
+  {
+    productName: 'Skylight blinds',
+    Url: 'skylight-blinds-dubai',
+    errorUrl: '/blinds/skylight-blinds',
+  },
+  
   // {
   //   productName: 'Solid Panel Shutters',
   //   Url: 'solid-panel-shutters-plantation-shutters-dubai',
@@ -152,12 +163,13 @@ export const urls = [
     Url: '/roller-blinds/blackout-roller-blinds',
     errorUrl: '/blinds/blackout-roller-blinds',
   },
- 
+  
 ];
 
 
 export const predefinedPaths = {
   'offices-blinds': '/commercial',
+  'officestudy-blinds': '/commercial',
   theatre: '/curtains/stage-and-theatre-curtains',
   hospitals: '/curtains/hospital-curtains',
   // restaurants: '/hotels-restaurants-blinds-curtains',
@@ -177,7 +189,7 @@ export const ChangedProductUrl = (title: string): string => {
 };
 
 export const ChangedProductUrl_handler = (title: string): string => {
-  console.log(title, 'title');
+  // console.log(title, 'title');
 
   let products = urls.find((url: { productName: string; Url: string }) => {
     return url.productName === title;
