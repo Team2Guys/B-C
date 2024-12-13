@@ -36,7 +36,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title,subCategory }) 
   const [loadingFilteredProducts, setLoadingFilteredProducts] = useState<boolean>(false);
   const [relaiveProducts, setRelaiveProducts] = useState<IProduct[]>([]);
   const [colorImages, setcolorImages] = useState<IColorData>();
-  const [showAll, setShowAll] = useState(false);
+  // const [showAll, setShowAll] = useState(false);
   const pathname = usePathname();
   const route = useRouter();
   const {
@@ -77,9 +77,9 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title,subCategory }) 
     }
   }, [pathname]);
 
-  const handleShowMore = () => {
-    setShowAll(true);
-  };
+  // const handleShowMore = () => {
+  //   setShowAll(true);
+  // };
 console.log(subCategory,"subCategory")
   useEffect(() => {
     if (products) {
