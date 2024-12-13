@@ -32,7 +32,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title,subCategory }) 
       content: string;
     }[];
   } | null>(null);
-  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
+  // const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [loadingFilteredProducts, setLoadingFilteredProducts] = useState<boolean>(false);
   const [relaiveProducts, setRelaiveProducts] = useState<IProduct[]>([]);
   const [colorImages, setcolorImages] = useState<IColorData>();
@@ -140,7 +140,7 @@ console.log(subCategory,"subCategory")
       </div>
       <Container className="mb-5 mt-10">
 
-        {loadingFilteredProducts ? filteredProducts.length > 0 ? (
+        {loadingFilteredProducts ? colorImages ? (
           <>
             <div className="text-center space-y-4">
               <h2 className="text-3xl">
@@ -173,7 +173,7 @@ console.log(subCategory,"subCategory")
           <p className="text-18 font-medium">No Products found😢</p>
         ) : <CardSkeleton />}
 
-        {!showAll && filteredProducts.length > 6 && (
+        {!showAll && (
           <div className="text-center">
             <button
               onClick={handleShowMore}
