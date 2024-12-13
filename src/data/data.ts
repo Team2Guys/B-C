@@ -2129,42 +2129,127 @@ export const colorData: IColorData[] = [
     name: 'Off White Shutters',
     color: 'FAF9EF',
     url: '/shutters-range/off-white-shutters',
+    imageUrls:[
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Off-white/Off white tier on tier shutters.webp',
+        altText: 'Off White Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Off-white/Off white tracked window shutters.webp',
+        altText: 'Off White Shutters'
+      },
+    ]
   },
   {
     id: 2,
     name: 'White Shutters',
     color: 'FFFFFF',
     url: '/shutters-range/white-shutters',
+    imageUrls:[
+      {
+        imageUrl: '/assets/images/optimized-images/Color/White-shutters/White cafe style shutters.webp',
+        altText: 'White Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/White-shutters/White Cafe style Shutters (2).webp',
+        altText: 'White Shutters'
+      },
+    ]
   },
   {
     id: 3,
     name: 'Black Shutters',
     color: '000000',
     url: '/shutters-range/black-shutters',
+    imageUrls:[
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters.jpg',
+        altText: 'Black Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters-.jpg',
+        altText: 'Black Shutters'
+      },
+    ]
   },
   {
     id: 4,
     name: 'Grey Shutters',
     color: '808080',
     url: '/shutters-range/grey-shutters',
+    imageUrls:[
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Grey-color/Grey color Bifold shutters.webp',
+        altText: 'Grey Shutters'
+      },
+      
+    ]
   },
   {
     id: 5,
     name: 'Dark Woods Shutters',
     color: '815438',
     url: '/shutters-range/dark-woods-shutters',
+    imageUrls:[
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Dark-wood/Full-height-shutters-(-Dark-wood).jpg',
+        altText: 'Dark Woods Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Dark-wood/Special shaped shutters ( Dark wood).webp',
+        altText: 'Dark Woods Shutters'
+      },
+    ]
   },
   {
     id: 6,
     name: 'Light Woods Shutters',
     color: 'deb887',
     url: '/shutters-range/light-woods-shutters',
+    imageUrls:[
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Light-wood/Light wood bay window shutters.jpg',
+        altText: 'Light Woods Shutters'
+      },
+      
+    ]
   },
   {
     id: 7,
     name: 'Bold Colour Shutters',
     color: '8f1601',
     url: '/shutters-range/bold-colours-shutters',
+    imageUrls:[
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters (1).webp',
+        altText: 'Bold Colour Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters (2).webp',
+        altText: 'Bold Colour Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters.webp',
+        altText: 'Bold Colour Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (1).webp',
+        altText: 'Bold Colour Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (2).webp',
+        altText: 'Bold Colour Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (3).webp',
+        altText: 'Bold Colour Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (4).webp',
+        altText: 'Bold Colour Shutters'
+      },
+      
+    ]
   },
 ];
 

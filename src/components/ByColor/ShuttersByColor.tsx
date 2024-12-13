@@ -16,10 +16,14 @@ import React, { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
 import TopHero from 'components/ui/top-hero';
+import { Categories_wise_Images } from 'data/Images';
+import { IColorData } from 'types/interfaces';
+import ThumbImage from 'components/Detail/ThumbImage/ThumbImage';
 interface ShuttersByColorProps {
   title: string;
+  subCategory?: string;
 }
-const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
+const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title,subCategory }) => {
   const [selectedPage, setSelectedPage] = useState<{
     heading: string;
     paragraph: string;
@@ -32,11 +36,10 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [loadingFilteredProducts, setLoadingFilteredProducts] = useState<boolean>(false);
   const [relaiveProducts, setRelaiveProducts] = useState<IProduct[]>([]);
+  const [colorImages, setcolorImages] = useState<IColorData>();
   const [showAll, setShowAll] = useState(false);
-  // const [pathname, setpathname] = useState<string>("");
   const pathname = usePathname();
   const route = useRouter();
-  // const title = generateSlug(pathname).replaceAll('-',' ');
   const {
     data: products,
   } = useQuery<IProduct[]>({
@@ -50,21 +53,27 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
     queryKey: ['category'],
     queryFn: fetchCategories,
   });
-  const getColorHex = (path: string): string | null => {
+
+  const getColorHex = (path: string) => {
     const colorMatch = colorData.find((color) => color.url === path);
-    return colorMatch ? colorMatch.color : null;
+    console.log(colorMatch,"Shutter-Color")
+    return colorMatch ? colorMatch : null;
   };
+
 
   useEffect(() => {
     setLoadingFilteredProducts(false)
     const selectedColorHex = getColorHex(pathname);
+    console.log(selectedColorHex,"selectedColorHex")
+
     if (selectedColorHex && products) {
       console.log('Debuge 1');
       const filteredByColor = products.filter((prod) =>
-        prod.colors?.some((color) => color.colorName === selectedColorHex),
+        prod.colors?.some((color) => color.colorName === selectedColorHex.color),
       );
       console.log('Debuge 2');
       console.log(filteredByColor);
+      setcolorImages(selectedColorHex);
       setFilteredProducts(filteredByColor);
       setLoadingFilteredProducts(true)
     }
@@ -73,7 +82,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
   const handleShowMore = () => {
     setShowAll(true);
   };
-
+console.log(subCategory,"subCategory")
   useEffect(() => {
     if (products) {
       const filterprod = products.filter((prod) => prod.CategoryId === 9);
@@ -96,6 +105,9 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
       route.push(path);
     }
   };
+
+
+
   return (
     <>
       <TopHero
@@ -140,21 +152,24 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
                 {selectedPage?.paragraph}
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
-              {filteredProducts.map((item) => {
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-10">
+              {/* {filteredProducts.map((item) => {
                 const filteredCategory = categoriesList.find(
                   (cat) => cat.id === item?.CategoryId,
-                );
-                return (
-                  <GalleryCard
+                  
+                  );
+                  return (
+                    <GalleryCard
                     card={item}
+                    product_Images={colorImages}
                     key={item.id}
                     relativeProducts={true}
-                    detailHide={true}
+                    detailHide={false}
                     parent={filteredCategory?.title.toLowerCase()}
-                  />
-                );
-              })}
+                    />
+                    );
+                    })} */}
+            <ThumbImage card={colorImages} />
             </div>
           </>) : (
           <p className="text-18 font-medium">No Products found😢</p>

@@ -2,18 +2,19 @@
 import { Image } from 'antd';
 import React from 'react'
 import { IoSearch } from 'react-icons/io5'
-import { IProduct } from 'types/types';
 interface GalleryProps {
-    card: IProduct;
+    card: any;
   }
   
 const ThumbImage:React.FC<GalleryProps>= ({card}) => {
     console.log(card , "cardcardcard")
   return (
     <>
+      <Image.PreviewGroup preview={{onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),}}>
     {
-       card?.imageUrls && card?.imageUrls.map((array,index)=>(
+       card?.imageUrls && card?.imageUrls.map((array:any,index:number)=>(
             <div className="!rounded-lg  transition-shadow duration-300 group" key={index}>
+
             <Image
               src={array.imageUrl}
               alt={array.altText || "Image"}
@@ -25,10 +26,11 @@ const ThumbImage:React.FC<GalleryProps>= ({card}) => {
                   </div>
                 )
               }}
-            />
+              />
           </div>
         ))
-    }
+      }
+      </Image.PreviewGroup>
    
   </>
   )
