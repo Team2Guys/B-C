@@ -222,7 +222,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               {MegaMenu_Headings.map((item, index) => {
                 const parent = generateSlug(title);
                 const itemName = item.name;
-                console.log(itemName, "item.title")
 
                 return (
                   <div key={index} className="flex flex-col gap-5 w-full">
@@ -242,7 +241,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     </p>
                     {DeskdistributedProducts[index]?.map(
                       (item: any, index: number) => {
-                        console.log(item.href, "item")
                         return (
                           <>
                             {' '}
