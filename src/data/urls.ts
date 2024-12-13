@@ -130,7 +130,7 @@ export const urls = [
   {
     productName: 'Linen Curtains',
     Url: 'made-to-measure-linen-curtains',
-    errorUrl: '/curtains/chiffon-curtains',
+    errorUrl: '/curtains/linen-curtains',
   },
   {
     productName: 'Theatre Curtains',
