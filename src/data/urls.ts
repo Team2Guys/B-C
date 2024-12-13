@@ -93,14 +93,9 @@ export const urls = [
     errorUrl: '/blinds/honeycomb-blinds',
   },
   {
-    productName: 'Sunscreen/Transparent',
+    productName: 'Sunscreen/Transparent Blinds',
     Url: 'sunscreen-roller-blinds',
-    errorUrl: '/blinds/roller-blinds/sunscreentransparent',
-  },
-  {
-    productName: 'Dimout Blinds/Semi Transparent',
-    Url: 'dimout-roller-blinds',
-    errorUrl: '/blinds/roller-blinds/dimout-blindssemi-transparent',
+    errorUrl: '/blinds/roller-blinds/sunscreentransparent-blinds',
   },
   {
     productName: 'Blackout Curtains',
@@ -127,27 +122,17 @@ export const urls = [
     Url: 'skylight-blinds-dubai',
     errorUrl: '/blinds/skylight-blinds',
   },
-  
-  // {
-  //   productName: 'Solid Panel Shutters',
-  //   Url: 'solid-panel-shutters-plantation-shutters-dubai',
-  //   errorUrl: '/shutters-range/solid-panel-shutters',
-  // },
-  // {
-  //   productName: 'Special Shape Shutters',
-  //   Url: 'special-shape-shutters-wooden-shutters',
-  //   errorUrl: '/shutters-range/special-shape-shutters',
-  // },
+  {
+    productName: 'Chiffon Curtains',
+    Url: 'made-to-measure-chiffon-curtains',
+    errorUrl: '/curtains/chiffon-curtains',
+  },
   {
     productName: 'Theatre Curtains',
     Url: 'stage-and-theatre-curtains',
     errorUrl: '/curtains/theatre-curtains',
   },
-  {
-    productName: 'Dimout Blinds/Semi Transparent',
-    Url: 'roller-blinds/dimout-roller-blinds',
-    errorUrl: '/blinds/dimout-blindssemi-transparent',
-  },
+ 
   {
     productName: 'Ripplefold/Wave Curtains',
     Url: 'wave-curtains',
@@ -168,8 +153,8 @@ export const urls = [
 
 
 export const predefinedPaths = {
+  'office-blinds': '/commercial',
   'offices-blinds': '/commercial',
-  'officestudy-blinds': '/commercial',
   theatre: '/curtains/stage-and-theatre-curtains',
   hospitals: '/curtains/hospital-curtains',
   // restaurants: '/hotels-restaurants-blinds-curtains',

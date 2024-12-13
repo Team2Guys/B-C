@@ -51,8 +51,12 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
       (cat) => cat.id === filterSubCat?.CategoryId,
     );
 
+    const excludedTitles = ["Hotels & Restaurants , blinds & curtains"];
+
     const filtered = products?.filter(
-      (product) => product.CategoryId === filterCat?.id,
+      (product) =>
+        product.CategoryId === filterCat?.id &&
+        !excludedTitles.includes(product.title)
     );
 
     setFilteredProducts(filtered || []);
