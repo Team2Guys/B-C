@@ -366,5 +366,10 @@ export interface IColorData {
   url: string;
   color: string;
   name: string;
-  imageUrls?: any
+  imageUrls?: ColorData[];
+}
+
+interface ColorData{
+  imageUrl:string;
+  altText:string;
 }
