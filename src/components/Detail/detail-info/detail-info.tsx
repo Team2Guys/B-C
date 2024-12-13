@@ -53,7 +53,7 @@ const DetailInfo: React.FC<detailprops> = ({
           className='md:h-[526.24px] w-full rounded-3xl object-cover'
             width={455}
             height={420}
-            src={image.imageUrl}
+            src={image?.imageUrl}
             alt={image?.altText || "Image"}
           />
         </div>

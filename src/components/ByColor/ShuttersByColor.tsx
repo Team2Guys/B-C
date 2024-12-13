@@ -36,7 +36,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title,subCategory }) 
   const [loadingFilteredProducts, setLoadingFilteredProducts] = useState<boolean>(false);
   const [relaiveProducts, setRelaiveProducts] = useState<IProduct[]>([]);
   const [colorImages, setcolorImages] = useState<IColorData>();
-  const [showAll, setShowAll] = useState(false);
+  // const [showAll, setShowAll] = useState(false);
   const pathname = usePathname();
   const route = useRouter();
   const {
@@ -77,9 +77,9 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title,subCategory }) 
     }
   }, [pathname]);
 
-  const handleShowMore = () => {
-    setShowAll(true);
-  };
+  // const handleShowMore = () => {
+  //   setShowAll(true);
+  // };
 console.log(subCategory,"subCategory")
   useEffect(() => {
     if (products) {
@@ -173,7 +173,7 @@ console.log(subCategory,"subCategory")
           <p className="text-18 font-medium">No Products found😢</p>
         ) : <CardSkeleton />}
 
-        {!showAll && (
+        {/* {!showAll && filteredProducts.length > 6 && (
           <div className="text-center">
             <button
               onClick={handleShowMore}
@@ -182,7 +182,7 @@ console.log(subCategory,"subCategory")
               Show More
             </button>
           </div>
-        )}
+        )} */}
       </Container>
       <Container className="my-20">
         <RelatedProducts products={relaiveProducts || []} limit={4} />

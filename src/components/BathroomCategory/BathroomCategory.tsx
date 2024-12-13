@@ -33,7 +33,7 @@ const BathroomCategory = ({
 
     const path =
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
-      (slug === 'hotels-restaurants'
+      (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
         : `/${
             (parent ? parent === 'Shutters' : categoryTitle === 'Shutters')
