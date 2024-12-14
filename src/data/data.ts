@@ -2586,3 +2586,6 @@ export const RelatedProductsdata =[
     para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
   },
 ]
+
+
+export const  HiddenProducts_list =["Hotels & Restaurants , blinds & curtains","Study Room Blinds" ]
