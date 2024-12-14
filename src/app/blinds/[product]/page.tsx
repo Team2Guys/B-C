@@ -42,6 +42,8 @@ const CommercialPage = () => {
       }
     }
   }, [path]);
+
+  
   if (isNotFound) {
     return <NotFound />;
   }
