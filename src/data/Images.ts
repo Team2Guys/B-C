@@ -1224,7 +1224,7 @@ export const RollerBlindsPage: IRollerBlinds[] = [
     Product: [
       {
         product_name: 'Sunscreen/Transparent Blinds',
-        altText: 'Sunscreen/Transparent Sunscreen/Transparent Blinds',
+        altText: 'Sunscreen/Transparent Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Roller/Sunscreen.jpg',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
