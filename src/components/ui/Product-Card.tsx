@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategories } from 'config/fetch';
-import { generateSlug, HiddenProducts_list } from 'data/data';
+import { generateSlug} from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Image from 'next/image';
 import Link from 'next/link';
