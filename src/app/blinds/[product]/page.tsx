@@ -7,8 +7,8 @@ import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { ChangedProductUrl, urls } from 'data/urls';
-import { useParams, usePathname } from 'next/navigation';
+import { ChangedProductUrl, CommercialUrl, urls } from 'data/urls';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
@@ -16,6 +16,7 @@ const CommercialPage = () => {
   const { product } = useParams();
   const path = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
+  const router = useRouter()
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
@@ -45,9 +46,21 @@ const CommercialPage = () => {
     return <NotFound />;
   }
 
+  const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
+    return( prod.urlName == String(product)?.toLowerCase())
+      })
+    
+      if(redirected_product){
+        router.push(redirected_product.Redirect);
+      }
+
+
   const filteredSubCategory = subCategories?.find((sub) => {
     let title = ChangedProductUrl(product as string);
-    let title_flag = title === generateSlug(sub.title);
+    console.log(title, "filteredSubCategory")
+    let sub_ = generateSlug(sub.title)
+    let title_flag = title == generateSlug(sub.title);
+    console.log(title_flag, "filteredSubCategory", sub_)
     return (
       title_flag && Cateories.some((item: number) => item == sub.CategoryId)
     );
@@ -59,14 +72,18 @@ const CommercialPage = () => {
       Cateories.some((item: number) => item == prod.CategoryId),
   );
 
+
   if (subLoading || prodLoading) {
     return <PageSkelton />;
   }
+
+  console.log(filteredSubCategory, "filteredSubCategory")
 
   if (!filteredSubCategory && !filteredProduct) {
     return <NotFound />;
   }
 
+  console.log(filteredSubCategory, "filteredSubCategory")
   return (
     <>
       {filteredSubCategory ? (

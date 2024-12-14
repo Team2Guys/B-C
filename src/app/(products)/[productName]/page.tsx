@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Info from 'components/Product/Info';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { categoriesContent, generateSlug } from 'data/data';
+import { categoriesContent, generateSlug, HiddenProducts_list } from 'data/data';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
@@ -100,7 +100,7 @@ const Products = () => {
         showButton={true}
       />
       <Info selectedPage={selectedPage} />
-      <AllProducts products={filteredProducts} categoryType={`${title}`} />
+      <AllProducts products={filteredProducts.filter((prod)=>!HiddenProducts_list.includes(prod.title))} categoryType={`${title}`} />
       <Container className="mt-20 mb-20">
         <RelatedProducts products={filteredProducts || []} limit={4} />
       </Container>
