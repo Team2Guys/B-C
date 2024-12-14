@@ -255,7 +255,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                   predefinedPaths[slug as keyof typeof predefinedPaths] ||
                                   (slug === 'hotels-restaurants-blinds-curtains'
                                     ? basePath
-                                    : `/${parent === 'shutters' ? `${parent}-range` : parent}${['dimout-blinds', 'sunscreen-roller-blinds'].includes(slug)
+                                    : `/${parent === 'shutters' ? `${parent}-range` : parent}${['dimout-roller-blinds', 'sunscreen-roller-blinds'].includes(slug)
                                       ? '/roller-blinds'
                                       : ''
                                     }/${slug}`);

@@ -36,8 +36,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
         ? `${window.origin}/${product.href}`
         : `/${slug}`;
 
-    const path =
-      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+    const path =predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
         : `/${

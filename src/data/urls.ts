@@ -61,8 +61,8 @@ export const urls = [
     Url: 'black-shutters',
   },
   {
-    productName: 'Dark Woods Shutters',
-    Url: 'dark-woods-shutters',
+    productName: 'Dark Wood Shutters',
+    Url: 'dark-wood-shutters',
   },
   {
     productName: 'Bold Colours Shutters',
@@ -96,6 +96,11 @@ export const urls = [
     productName: 'Sunscreen/Transparent Blinds',
     Url: 'sunscreen-roller-blinds',
     errorUrl: '/blinds/roller-blinds/sunscreentransparent-blinds',
+  },
+  {
+    productName: 'Dimout Blinds',
+    Url: 'dimout-roller-blinds',
+    errorUrl: '/blinds/roller-blinds/dimout-blinds',
   },
   {
     productName: 'Blackout Curtains',
@@ -160,6 +165,7 @@ export const urls = [
 export const predefinedPaths = {
   'office-blinds': '/commercial',
   'offices-blinds': '/commercial',
+  "study-room-blinds" : '/commercial',
   theatre: '/curtains/stage-and-theatre-curtains',
   hospitals: '/curtains/hospital-curtains',
   // restaurants: '/hotels-restaurants-blinds-curtains',
@@ -167,6 +173,7 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
+  skylight : '/blinds/skylight-blinds-dubai'
 };
 
 export const ChangedProductUrl = (title: string): string => {
