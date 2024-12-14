@@ -139,16 +139,9 @@ const RoomProducts = ({
         pagename={pathname}
       />
       <Container className="my-12">
-        <div className="flex flex-col justify-center items-center space-y-4 px-2">
-          <h2 className="text-xl sm:text-30 font-bold border border-b-[#A9B4A4] text-center">
-            {categoryName ? categoryName : title}
-          </h2>
-          <p
-            className="font-normal text-xs sm:text-16 leading-7 sm:leading-9 text-center text-[#666768]"
-            dangerouslySetInnerHTML={{ __html: description }}
-          ></p>
-        </div>
         <BathroomCategory
+          categoryName={categoryName ? categoryName : title}
+          description={description}
           filteredProducts={filteredProducts}
           isLoading={isLoading}
           categoryTitle={productCategory}
