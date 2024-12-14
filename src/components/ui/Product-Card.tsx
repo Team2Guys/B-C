@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategories } from 'config/fetch';
-import { generateSlug } from 'data/data';
+import { generateSlug} from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -53,7 +53,6 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
 
 
 
-
   return (
     <div
       className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${isSizeSmall && 'lg:grid-cols-4'} gap-5 p-1 md:p-0 mt-5`}
@@ -63,9 +62,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
           const category = categories?.find((cat) => cat.id == product.CategoryId);
           console.log(category, "productscommercial",categories )
           if (!category) return null;
-          if (["Hotels & Restaurants , blinds & curtains"].includes(product.title)) {
-            return null;
-          }
+       
           const trimmedProductTitle = getTrimmedTitle(product.title);
           const parent = generateSlug(category?.title);
 
