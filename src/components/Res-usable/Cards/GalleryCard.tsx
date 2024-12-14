@@ -10,12 +10,16 @@ interface GalleryProps {
   card: IProduct;
   relativeProducts?: boolean;
   parent?: string;
+  detailHide?:boolean;
+  product_Images?:any;
 }
 
 const GalleryCard: React.FC<GalleryProps> = ({
   card,
   relativeProducts,
+  detailHide,
   parent,
+  product_Images,
 }) => {
   const getPath = (arr: IProduct)=> {
     const slug = ChangedProductUrl_handler(arr.title);
@@ -39,26 +43,24 @@ const GalleryCard: React.FC<GalleryProps> = ({
           }/${slug}`);
     return path;
   };
-
+console.log(product_Images)
   return (
     <>
       <div className=" relative rounded-lg  transition-shadow duration-300 group">
         <Image
-          src={card?.posterImage?.imageUrl}
+        src={
+          product_Images
+            ? product_Images.Imagesurl
+            : card.posterImage.imageUrl
+        }
           alt={card.title}
           height={300}
           width={'100%'}
           className=" rounded-xl"
-          preview={{
-            mask: (
-                    <IoSearch style={{ color: 'white', fontSize: '30px' }} />
-            
-            ),
-          }}
-        />
+          preview={{mask: (<IoSearch style={{ color: 'white', fontSize: '30px' }} /> )}}/>
         <Link
           href={getPath(card)}
-          className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+          className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide? "hidden":""} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
         >
           <span
             className={`text-black text-start text-primary cursor-pointer ${relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'}`}

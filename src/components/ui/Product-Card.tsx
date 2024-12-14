@@ -36,8 +36,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
         ? `${window.origin}/${product.href}`
         : `/${slug}`;
 
-    const path =
-      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+    const path =predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
         : `/${
@@ -64,7 +63,9 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
           const category = categories?.find((cat) => cat.id == product.CategoryId);
           console.log(category, "productscommercial",categories )
           if (!category) return null;
-
+          if (["Hotels & Restaurants , blinds & curtains"].includes(product.title)) {
+            return null;
+          }
           const trimmedProductTitle = getTrimmedTitle(product.title);
           const parent = generateSlug(category?.title);
 
