@@ -16,8 +16,8 @@ function Hero() {
         {heroSlider.map((item: any) => {
           return (
             <div key={item.id}>
-              <div className=" flex flex-wrap md:flex-nowrap lg:px-0 px-4">
-                <div className="h-full w-full md:w-1/2 flex flex-col justify-center gap-1">
+              <div className=" flex flex-wrap md:flex-nowrap lg:px-0 px-4 lg:h-110 h-full">
+                <div className="h-full w-full md:w-1/2 flex flex-col lg:justify-start justify-center gap-1  ">
                   <div className="w-full flex items-center justify-center md:justify-start gap-2 lg:mt-0 mt-5">
                     <svg
                       width="34"
@@ -55,7 +55,7 @@ function Hero() {
                   </Link>
                 </div>
 
-                <div className="h-full w-full md:w-1/2 flex flex-col gap-3 sm:gap-5 md:gap-0 justify-center border !z-50">
+                <div className="h-full w-full md:w-1/2 flex flex-col gap-3 sm:gap-5 md:gap-0 lg:justify-start justify-center !z-50 ">
                   <div className="relative">
                     {showModel == '1_model' && (
                       <SliderModal
