@@ -24,18 +24,26 @@ export const urls = [
   {
     productName: 'Zipline Outdoor Blinds',
     Url: 'zipline-blinds',
+    errorUrl: 'zipline-outdoor-blinds',
+
   },
   {
     productName: 'Ripplefold/Wave Curtains',
     Url: 'wave-curtains',
+    errorUrl: 'ripplefold/wave-curtains',
+
   },
   {
     productName: 'Kids Prints Curtains',
     Url: 'curtain-prints-for-kids',
+    errorUrl: 'kids-prints-curtains',
+
   },
   {
     productName: 'Double Pinch Pleat Curtains',
     Url: 'double-pleat-curtains',
+    errorUrl: 'double-pleat-pleat-curtains',
+
   },
  
   {
@@ -43,35 +51,7 @@ export const urls = [
     Url: 'office-window-curtains',
     errorUrl: 'office-curtains',
   },
-  {
-    productName: 'Staircase Shutters',
-    Url: 'staircase-shutters',
-  },
-  {
-    productName: 'White Shutters',
-    Url: 'white-shutters',
-  },
-  {
-    productName: 'Off White Shutters',
-    Url: 'off-white-shutters',
-  },
 
-  {
-    productName: 'Black Shutters',
-    Url: 'black-shutters',
-  },
-  {
-    productName: 'Dark Woods Shutters',
-    Url: 'dark-woods-shutters',
-  },
-  {
-    productName: 'Bold Colours Shutters',
-    Url: 'bold-colours-shutters',
-  },
-  {
-    productName: 'Grey Shutters',
-    Url: 'grey-shutters',
-  },
   {
     productName: 'Bedroom Curtains',
     Url: 'made-to-measure-bed-room-curtains',
@@ -165,6 +145,7 @@ export const urls = [
 export const predefinedPaths = {
   'office-blinds': '/commercial',
   'offices-blinds': '/commercial',
+  // "study-room-blinds" : '/commercial',
   theatre: '/curtains/stage-and-theatre-curtains',
   hospitals: '/curtains/hospital-curtains',
   // restaurants: '/hotels-restaurants-blinds-curtains',
@@ -172,6 +153,7 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
+  skylight : '/blinds/skylight-blinds-dubai'
 };
 
 export const ChangedProductUrl = (title: string): string => {
@@ -179,7 +161,6 @@ export const ChangedProductUrl = (title: string): string => {
     return url.Url === title;
   });
   let flag = products ? generateSlug(products.productName) : title;
-  console.log(flag, 'title', title);
   return flag;
 };
 
@@ -204,6 +185,7 @@ export const CommercialUrl=[
   {urlName:"gym", Redirect:"/curtains/gym-curtains"},
   {urlName:"theatre", Redirect:"/curtains/stage-and-theatre-curtains"},
   {urlName:"wooden-aluminium-blinds", Redirect:"/blinds/wooden-venetian"},
+  {urlName:"study-room-blinds", Redirect:"/commercial"},
 ]
 
 export const getProduct = [
