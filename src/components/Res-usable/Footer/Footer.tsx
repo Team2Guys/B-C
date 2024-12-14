@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
         ? basePath
         : `/${parent === 'shutters' ? `${parent}-range` : parent}${
             [
-              'dimout-blinds',
+              'dimout-roller-blinds',
               'sunscreen-roller-blinds',
               'blackout-roller-blinds',
             ].includes(slug)
