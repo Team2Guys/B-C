@@ -1564,10 +1564,10 @@ export const megaMenuDynamic = [
   { productName: 'dimout-blindssemi-transparent' },
 
   { productName: 'white-shutters' },
-  { productName: 'light-woods-shutters' },
+  { productName: 'light-wood-shutters' },
   { productName: 'off-white-shutters' },
   { productName: 'black-shutters' },
-  { productName: 'dark-woods-shutters' },
+  { productName: 'dark-wood-shutters' },
   { productName: 'bold-colours-shutters' },
   { productName: 'grey-shutters' },
 
@@ -1671,9 +1671,9 @@ export const extendedDynamic = [
 
   { productName: 'offwhite-shutters' },
   { productName: 'white-shutters' },
-  { productName: 'light-woods-shutters' },
+  { productName: 'light-wood-shutters' },
   { productName: 'black-shutters' },
-  { productName: 'dark-woods-shutters' },
+  { productName: 'dark-wood-shutters' },
   { productName: 'bold-colours-shutters' },
   { productName: 'grey-shutters' },
 ];
@@ -2150,15 +2150,15 @@ export const colorData: IColorData[] = [
   },
   {
     id: 5,
-    name: 'Dark Woods Shutters',
+    name: 'Dark Wood Shutters',
     color: '815438',
-    url: '/shutters-range/dark-woods-shutters',
+    url: '/shutters-range/dark-wood-shutters',
   },
   {
     id: 6,
-    name: 'Light Woods Shutters',
+    name: 'Light Wood Shutters',
     color: 'deb887',
-    url: '/shutters-range/light-woods-shutters',
+    url: '/shutters-range/light-wood-shutters',
   },
   {
     id: 7,
@@ -2218,7 +2218,7 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/dark-woods-shutters',
+    slug: '/shutters-range/dark-wood-shutters',
     content: {
       heading: 'Dark Woods Colour Shutters',
       paragraph:
@@ -2266,7 +2266,7 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/light-woods-shutters',
+    slug: '/shutters-range/light-wood-shutters',
     content: {
       heading: 'Light Woods Shutters',
       paragraph:
