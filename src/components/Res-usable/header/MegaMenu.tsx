@@ -222,7 +222,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               {MegaMenu_Headings.map((item, index) => {
                 const parent = generateSlug(title);
                 const itemName = item.name;
-                console.log(itemName, "item.title")
 
                 return (
                   <div key={index} className="flex flex-col gap-5 w-full">
@@ -242,7 +241,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     </p>
                     {DeskdistributedProducts[index]?.map(
                       (item: any, index: number) => {
-                        console.log(item.href, "item")
                         return (
                           <>
                             {' '}
@@ -268,7 +266,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                               className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
                             >
                               {
-                                (title == 'Blinds' && (itemName == 'By Room' || itemName == 'dynamic')) 
+                                (title == 'Blinds' && (itemName == 'By Room')) 
                                   ? item.title.replace('Blinds', '') 
                                   : (title == 'Curtains' && itemName == 'By Room') 
                                   ? item.title.replace('Curtains', '') 

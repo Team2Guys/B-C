@@ -61,8 +61,8 @@ export const urls = [
     Url: 'black-shutters',
   },
   {
-    productName: 'Dark Woods Shutters',
-    Url: 'dark-woods-shutters',
+    productName: 'Dark Wood Shutters',
+    Url: 'dark-wood-shutters',
   },
   {
     productName: 'Bold Colours Shutters',
@@ -93,14 +93,14 @@ export const urls = [
     errorUrl: '/blinds/honeycomb-blinds',
   },
   {
-    productName: 'Sunscreen/Transparent',
+    productName: 'Sunscreen/Transparent Blinds',
     Url: 'sunscreen-roller-blinds',
-    errorUrl: '/blinds/roller-blinds/sunscreentransparent',
+    errorUrl: '/blinds/roller-blinds/sunscreentransparent-blinds',
   },
   {
-    productName: 'Dimout Blinds/Semi Transparent',
+    productName: 'Dimout Blinds',
     Url: 'dimout-roller-blinds',
-    errorUrl: '/blinds/roller-blinds/dimout-blindssemi-transparent',
+    errorUrl: '/blinds/roller-blinds/dimout-blinds',
   },
   {
     productName: 'Blackout Curtains',
@@ -117,26 +117,32 @@ export const urls = [
     Url: 'tracked-window-shutters',
     errorUrl: '/shutters-range/tracked-shutters',
   },
-  // {
-  //   productName: 'Solid Panel Shutters',
-  //   Url: 'solid-panel-shutters-plantation-shutters-dubai',
-  //   errorUrl: '/shutters-range/solid-panel-shutters',
-  // },
-  // {
-  //   productName: 'Special Shape Shutters',
-  //   Url: 'special-shape-shutters-wooden-shutters',
-  //   errorUrl: '/shutters-range/special-shape-shutters',
-  // },
+  {
+    productName: 'Hotel Curtains',
+    Url: 'hotel-curtains-dubai',
+    errorUrl: '/curtains/hotel-curtains',
+  },
+  {
+    productName: 'Skylight blinds',
+    Url: 'skylight-blinds-dubai',
+    errorUrl: '/blinds/skylight-blinds',
+  },
+  {
+    productName: 'Chiffon Curtains',
+    Url: 'made-to-measure-chiffon-curtains',
+    errorUrl: '/curtains/chiffon-curtains',
+  },
+  {
+    productName: 'Linen Curtains',
+    Url: 'made-to-measure-linen-curtains',
+    errorUrl: '/curtains/linen-curtains',
+  },
   {
     productName: 'Theatre Curtains',
     Url: 'stage-and-theatre-curtains',
     errorUrl: '/curtains/theatre-curtains',
   },
-  {
-    productName: 'Dimout Blinds/Semi Transparent',
-    Url: 'roller-blinds/dimout-roller-blinds',
-    errorUrl: '/blinds/dimout-blindssemi-transparent',
-  },
+ 
   {
     productName: 'Ripplefold/Wave Curtains',
     Url: 'wave-curtains',
@@ -152,12 +158,14 @@ export const urls = [
     Url: '/roller-blinds/blackout-roller-blinds',
     errorUrl: '/blinds/blackout-roller-blinds',
   },
- 
+  
 ];
 
 
 export const predefinedPaths = {
+  'office-blinds': '/commercial',
   'offices-blinds': '/commercial',
+  "study-room-blinds" : '/commercial',
   theatre: '/curtains/stage-and-theatre-curtains',
   hospitals: '/curtains/hospital-curtains',
   // restaurants: '/hotels-restaurants-blinds-curtains',
@@ -165,6 +173,7 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
+  skylight : '/blinds/skylight-blinds-dubai'
 };
 
 export const ChangedProductUrl = (title: string): string => {
@@ -177,7 +186,7 @@ export const ChangedProductUrl = (title: string): string => {
 };
 
 export const ChangedProductUrl_handler = (title: string): string => {
-  console.log(title, 'title');
+  // console.log(title, 'title');
 
   let products = urls.find((url: { productName: string; Url: string }) => {
     return url.productName === title;
