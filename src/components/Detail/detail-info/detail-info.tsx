@@ -31,7 +31,7 @@ const DetailInfo: React.FC<detailprops> = ({
     const route = useRouter();
   return (
     <Container className="mt-10 md:mt-20 border-b-2 pb-20 border-[#6F747F]">
-    <div className={`flex flex-wrap lg:flex-nowrap lg:gap-20 ${className}`}>
+    <div className={`flex flex-wrap lg:flex-nowrap lg:gap-20 ${className} items-center`}>
       <div className="w-full xl:w-5/12">
         <div className="space-y-4">
           <h1 className="text-24 sm:text-32 md:text-[41px] font-medium">{heading ? heading : `What are ${title}`} </h1>

@@ -213,7 +213,7 @@ const Footer: React.FC = () => {
                                   ) && (
                                     <Link
                                       href={path}
-                                      className="text-14 font-medium cursor-pointer"
+                                      className="text-sm font-medium cursor-pointer"
                                     >
                                       {product.title === 'Motorised blinds'
                                         ? 'Motorised blinds'
@@ -239,7 +239,7 @@ const Footer: React.FC = () => {
                           {category.links.map((link, index) => (
                             <li key={index}>
                               <Link
-                                className="text-14 font-medium"
+                                className="text-sm font-medium"
                                 href={link.href}
                               >
                                 {link.text}
@@ -256,33 +256,33 @@ const Footer: React.FC = () => {
                       </h3>
                       <ul className="space-y-4 mt-4 text-sm lg:w-[100%]">
                         <li className="flex gap-2 flex-wrap">
-                          <p className="text-12 font-normal">Email:</p>
+                          <p className="text-sm font-medium">Email:</p>
                           <Link
                             href={`mailto:${EmailInfo.email}`}
                             target="_blank"
-                            className="text-12 font-normal text-nowrap"
+                            className="text-sm font-medium text-nowrap"
                           >
                             {EmailInfo.email}
                           </Link>
                         </li>
                         <li className="flex gap-2 flex-wrap">
-                          <p className="text-12 font-normal w-fit">
+                          <p className="text-sm font-medium w-fit">
                             Phone Number:
                           </p>
                           <Link
                             href={`tel:${phoneNumberInfo.number.replaceAll(' ', '')}`}
                             target="_blank"
-                            className="text-12 font-normal text-nowrap"
+                            className="text-sm font-medium text-nowrap"
                           >
                             {phoneNumberInfo.number}
                           </Link>
                         </li>
                         <li className="flex gap-2 flex-wrap">
-                          <p className="text-12 font-normal ">WhatsApp:</p>
+                          <p className="text-sm font-medium ">WhatsApp:</p>
                           <Link
                             href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ', '')}`}
                             target="_blank"
-                            className="text-12 font-normal"
+                            className="text-sm font-medium"
                           >
                             {WhatsAppInfo.number}
                           </Link>
@@ -290,7 +290,7 @@ const Footer: React.FC = () => {
                         <li>
                           <Link
                             target="_blank"
-                            className="text-12 font-normal w-full"
+                            className="text-sm font-medium w-full"
                             href={
                               'https://www.google.com/maps/place/Two+Guys+-+Blinds+%26+Curtains+Dubai/@25.1177196,55.2331055,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?entry=tts&g_ep=EgoyMDI0MDkxOC4xKgBIAVAD'
                             }

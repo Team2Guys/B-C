@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategories } from 'config/fetch';
-import { generateSlug} from 'data/data';
+import { generateSlug } from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { ICategory } from 'types/types';
 
 interface ProductCardDataProps {
@@ -17,6 +17,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
   products,
   isSizeSmall,
 }) => {
+  const [scrollEnabled, setScrollEnabled] = useState(false);
   const {
     data: categories,
   } = useQuery<ICategory[]>({
@@ -29,28 +30,33 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
   };
 
 
-  const getPath =  (product: any, parent: string)=> {
+  const getPath = (product: any, parent: string) => {
     const slug = ChangedProductUrl_handler(product.title);
     const basePath =
       product.href && parent
         ? `${window.origin}/${product.href}`
         : `/${slug}`;
 
-    const path =predefinedPaths[slug as keyof typeof predefinedPaths] ||
+    const path = predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
-        : `/${
-            parent?.toLowerCase() === 'shutters'
-              ? `${parent.toLowerCase()}-range`
-              : parent?.toLowerCase()
-          }${
-            ['dimout-roller-blinds', 'sunscreen-roller-blinds','blackout-roller-blinds'].includes(slug)
-              ? '/roller-blinds'
-              : ''
-          }/${slug}`);
+        : `/${parent?.toLowerCase() === 'shutters'
+          ? `${parent.toLowerCase()}-range`
+          : parent?.toLowerCase()
+        }${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
+          ? '/roller-blinds'
+          : ''
+        }/${slug}`);
     return path;
   };
 
+
+  const handleEnableScroll = () => {
+    setScrollEnabled(true);
+  };
+  const handledisableScroll = () => {
+    setScrollEnabled(false);
+  };
 
 
   return (
@@ -60,9 +66,9 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
       {products &&
         products.map((product: any) => {
           const category = categories?.find((cat) => cat.id == product.CategoryId);
-          console.log(category, "productscommercial",categories )
+          console.log(category, "productscommercial", categories)
           if (!category) return null;
-       
+
           const trimmedProductTitle = getTrimmedTitle(product.title);
           const parent = generateSlug(category?.title);
 
@@ -80,7 +86,15 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               />
               <div className="text-center space-y-3">
                 <h1 className="text-17 font-semibold">{trimmedProductTitle}</h1>
-                <p className="text-15 font-light md:w-[80%] mx-auto auto max-h-16 overflow-y-auto custom-scrollbar" dangerouslySetInnerHTML={{ __html : product.short_description || product.description }}></p>
+                <p
+                  className={`text-15 font-light md:w-[80%] mx-auto max-h-16 ${scrollEnabled ? 'custom-scrollbar' : 'overflow-hidden'
+                    }`}
+                  dangerouslySetInnerHTML={{
+                    __html: product.short_description || product.description,
+                  }}
+                  onClick={handleEnableScroll}
+                  onMouseLeave={handledisableScroll}
+                ></p>
               </div>
               <div className="pt-5">
                 <Link
