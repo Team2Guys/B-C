@@ -1,17 +1,11 @@
 'use client';
-import { useQuery } from '@tanstack/react-query';
 import NotFound from 'app/not-found';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
-import PageSkelton from 'components/Skeleton/PageSkelton';
-import { fetchProducts, fetchSubCategories } from 'config/fetch';
-import { generateSlug } from 'data/data';
-import { ChangedProductUrl, CommercialUrl, urls } from 'data/urls';
-import { useParams, usePathname, useRouter } from 'next/navigation';
+import {CommercialUrl, urls } from 'data/urls';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { PRODUCS_PROPS } from 'types/interfaces';
-import { ICategory, IProduct } from 'types/types';
-
 const CommercialPage = ({filteredProduct, filteredSubCategory,product}:PRODUCS_PROPS) => {
   
   const path = usePathname();
