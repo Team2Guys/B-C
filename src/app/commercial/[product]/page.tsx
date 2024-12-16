@@ -1,14 +1,14 @@
 'use client';
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import NotFound from 'app/not-found';
+// import NotFound from 'app/not-found';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { ChangedProductUrl, CommercialUrl, urls } from 'data/urls';
-import { useParams, usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { ChangedProductUrl, CommercialUrl } from 'data/urls';
+import { useParams, useRouter } from 'next/navigation';
 import { ICategory, IProduct } from 'types/types';
 
 
