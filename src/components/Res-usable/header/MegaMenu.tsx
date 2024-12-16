@@ -13,7 +13,6 @@ import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Link from 'next/link';
 import { Collapse } from 'antd';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
-import { useRouter } from 'next/navigation';
 
 interface MegaMenuProps {
   title: string;
@@ -36,7 +35,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLAnchorElement | any>(null);
   const { Panel } = Collapse;
-  const route =useRouter()
 
   const handleMouseEnter = () => {
     if (timeoutId) {
@@ -164,29 +162,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const distributedProducts = distributeProducts(3,
   );
 
-
-
-  const handleNavigation = (event: any, path: string) => {
-    if (event.ctrlKey || event.metaKey) {
-      window.open(path, '_blank');
-    } else {
-      route.push(path);
-    }
-  };
-
-  const handleClick = (event: React.MouseEvent) => {
-    const slug = href;
-    const path = `${window.origin}/${slug}`;
-
-    if (event.ctrlKey || event.metaKey) {
-      window.open(path, '_blank');
-    } else {
-      route.push(path);
-    }
-
-    setIsOpen((prev) => !prev);
-  };
-
   return (
     <>
     <div
@@ -194,16 +169,15 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button
-        onClick={(event) => handleClick(event)}
-        ref={buttonRef}
-        className={cn(
-          'px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200',
-          className,
-        )}
-      >
-        {title}
-      </button>
+      <Link href={href || ''}
+          ref={buttonRef}
+          className={cn(
+            'px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200',
+            className,
+          )}
+        >
+          {title}
+        </Link>
 
       {isOpen && (
         <div
@@ -222,7 +196,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               {MegaMenu_Headings.map((item, index) => {
                 const parent = generateSlug(title);
                 const itemName = item.name;
-
                 return (
                   <div key={index} className="flex flex-col gap-5 w-full">
                     <p className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
@@ -241,28 +214,13 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     </p>
                     {DeskdistributedProducts[index]?.map(
                       (item: any, index: number) => {
+                        const path = generatePath(item, title.toLowerCase());
                         return (
                           <>
                             {' '}
-                            <p
+                            <Link href={path}
                               key={index}
                               onMouseEnter={() => setactiveProduct(item)}
-                              onClick={(event) => {
-                                const slug = ChangedProductUrl_handler(item.title);
-                                const basePath = item.href ? `${window.origin}/${item.href}` : `/${slug}`;
-
-                                const path =
-                                  predefinedPaths[slug as keyof typeof predefinedPaths] ||
-                                  (slug === 'hotels-restaurants-blinds-curtains'
-                                    ? basePath
-                                    : `/${parent === 'shutters' ? `${parent}-range` : parent}${['dimout-blinds', 'sunscreen-roller-blinds'].includes(slug)
-                                      ? '/roller-blinds'
-                                      : ''
-                                    }/${slug}`);
-
-                                handleNavigation(event, path);
-                                setIsOpen(false);
-                              }}
                               className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
                             >
                               {
@@ -274,7 +232,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                   ? item.title.replace('Shutters', '') 
                                   : item.title
                               }
-                            </p>
+                            </Link>
                           </>
                         );
                       },
@@ -307,21 +265,33 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       {/* Mobile View */}
       <div className="lg:hidden">
         <Collapse bordered={false} expandIcon={({ isActive }) => isActive ? <IoMdArrowDropup size={20} /> : <IoMdArrowDropdown size={20} />} className='bg-transparent'>
-          {distributedProducts.map((products, index) => (
-            <Panel
-              header={`${title} ${['By Style', 'By Room', 'Dynamic'][index]}`}
-              key={index}
-              className='custom-panel py-2'
-            >
-              <ul className="space-y-2">
-                {products.map((product: IProduct, idx) => (
-                  <li key={idx}>
-                    <Link href={generatePath(product, title.toLowerCase())} className={`focus:text-black hover:text-black border-b-2 border-transparent hover:border-b-secondary`} onClick={onClick}>{product.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </Panel>
-          ))}
+          {distributedProducts.map((products, index) => {
+              let header_type = ['By Style', 'By Room', 'Dynamic'][index]
+           return (
+            <Panel header={`${title} ${header_type}`}
+            key={index}
+            className='custom-panel py-2'
+          >
+            <ul className="space-y-2">
+              {products.map((product: IProduct, idx) => (
+                <li key={idx}>
+                  <Link href={generatePath(product, title.toLowerCase())} className={`focus:text-black hover:text-black border-b-2 border-transparent hover:border-b-secondary`} onClick={onClick}> 
+                  {
+                    (title == 'Blinds' && (header_type == 'By Room')) 
+                      ? product.title.replace('Blinds', '') 
+                      : (title == 'Curtains' && header_type == 'By Room') 
+                      ? product.title.replace('Curtains', '') 
+                      : (title == 'Shutters' && (header_type == 'By Room' || header_type == 'dynamic')) 
+                      ? product.title.replace('Shutters', '') 
+                      : product.title
+                   }
+                  
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Panel>
+           )})}
         </Collapse>
       </div>
     </>
