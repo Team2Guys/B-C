@@ -1093,6 +1093,10 @@ export const AddproductsinitialValues: FormValues = {
   heading: '',
   Sub_Heading: '',
   Sub_Heading_description: '',
+  Meta_Title: "",
+  Meta_description:"",
+  Canonical_Tag:"",
+  Images_Alt_Text:""
 };
 
 export const options = [
@@ -1130,6 +1134,11 @@ export const subcategoryInitialValues: ISUBCATEGORY = {
   title: '',
   description: '',
   CategoryId: undefined,
+  Meta_Title: "",
+  Meta_description:"",
+  Canonical_Tag:"",
+  Images_Alt_Text:""
+
 };
 
 export const intitalValues = {
