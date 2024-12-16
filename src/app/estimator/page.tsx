@@ -234,7 +234,7 @@ const Estimator: React.FC = () => {
                   AED{' '}
                   {calculatedPrice
                     ? calculatedPrice.toFixed(2)
-                    : activeProduct.price}
+                    : '0'}
                 </p>
               )}
 

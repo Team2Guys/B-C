@@ -23,6 +23,7 @@ import Cookies from 'js-cookie';
 interface editCategoryNameType {
   title: string;
   description: string;
+  short_description?: string;
   CategoryId: undefined;
 }
 
@@ -47,6 +48,7 @@ const FormLayout = ({
       ? {
           title: editCategory.title,
           description: editCategory.description,
+          short_description: editCategory.short_description,
           CategoryId: editCategory.CategoryId || undefined,
         }
       : null;
@@ -244,6 +246,27 @@ const FormLayout = ({
                         {formik.touched.title && formik.errors.title ? (
                           <div className="text-red-500 text-sm">
                             {formik.errors.title}
+                          </div>
+                        ) : null}
+                      </div>
+                      <div>
+                        <label className=" block py-4 px-2 text-sm font-medium text-black dark:text-white">
+                          Category Short Description
+                        </label>
+                        <textarea
+                          name="short_description"
+                          onChange={formik.handleChange}
+                          value={formik.values.short_description}
+                          placeholder="Short Description"
+                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                            formik.touched.short_description && formik.errors.short_description
+                              ? 'border-red-500'
+                              : ''
+                          }`}
+                        />
+                        {formik.touched.short_description && formik.errors.short_description ? (
+                          <div className="text-red-500 text-sm">
+                            {formik.errors.short_description}
                           </div>
                         ) : null}
                       </div>
