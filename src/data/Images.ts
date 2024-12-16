@@ -398,34 +398,35 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Conservatory Curtains',
+    static_Title:"Perfect Window Dressing For Your Conservatory",
     Product: [
       {
         product_name: 'Motorised curtains',
         altText: 'Motorised curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Conservatory curtains/motorised-curtains-for-conservatory.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'These are ideal for managing the intense light that streams through glass walls and roofs. Options like pleated curtains are ideal for sloped conservatory roofs. Our motorised curtains, such as <b>blackout electric curtains</b>, provide ultimate convenience for light control, especially for large or high windows. So you can hire our team of 50 for made-to-measure motorised curtains and <a target="_blank" style="text-decoration: underline" href="/made-to-measure-blinds">blinds</a>, which can be controlled via remote or smart home systems.',
       },
       {
         product_name: 'Natural Fabric Curtains',
         altText: 'Made to Measure Linen Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains//Conservatory curtains/Eyelet-curtains-for-conservatory.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'We offer made-to-measure conservatory curtains made of natural fabrics such as linen, cotton, or hemp. These curtains are available in various designs and natural tones; they can complement any decor theme. Our <a target="_blank" style="text-decoration: underline" href="/curtains/wave-curtains">Wave Curtains</a> are popular for their clean lines and elegant minimalist design; these are a modern favorite for conservatories. Our curtains for conservatory windows, with the right fabric choice, shield your space from external views without blocking out the light.',
       },
       {
         product_name: 'Eyelet Curtains',
         altText: 'Eyelet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Conservatory curtains/Eyelet-curtains-for-conservatory.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Eyelet curtains are contemporary window treatments that are prominent by metal rings at the top and allow them to slide smoothly with a curtain rod. This design is easy to install and operate. While our <b>white pinch pleat curtains</b> provide a formal, luxurious look, making them an excellent choice for conservatories. We offer <a target="_blank" style="text-decoration: underline" href="/made-to-measure-curtains">Custom made window curtains</a> to fit unique window dimensions, design preferences, and specific functional needs.',
       },
       {
         product_name: 'Pencil Pleat Curtains',
         altText: 'Pencil Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Conservatory curtains/pencil pleat curtains for conservatory.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'These curtains are named for their neat, tightly gathered folds at the top, which resemble pencils. The pleated design creates adjustable fullness using curtain header tape. Our <b>thermal pencil pleat curtains</b> are designed to provide excellent insulation. These curtains are made with thermal linings that help to regulate indoor temperatures. You can choose from a variety of fabric options, such as <a target="_blank" style="text-decoration: underline" href="/curtains/made-to-measure-linen-curtains">Linen Curtains</a> that add texture and softness to interiors.',
       },
     ],
   },
@@ -535,34 +536,35 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Staircase Curtains',
+    static_Title:"From an afterthought to a stylish addition",
     Product: [
       {
         product_name: 'Double Pinch Pleat Curtains',
         altText: 'Double Pinch Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Staircase curtains/d.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: "For a slightly less formal and elegant look. Our <b>two pinch pleat curtains</b> feature a simple design with two folds, creating a neat and modern look. These curtains are perfect for minimalist and contemporary spaces. Our double pinch pleat curtains can be customised to suit any room's style. You have to select our <a target='_blank' style='text-decoration: underline' href='/curtains/eyelet-curtains'>Eyelet Curtains</a> for a more casual and modern aesthetics with their metal rings and smooth folds, these curtains bring a sleek and functional design to any setting.",
       },
       {
         product_name: 'Stripes Curtains',
         altText: 'Stripes Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Staircase curtains/s.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our striped curtains create a visual appearance, particularly black and white striped curtains. We offer a variety of fabrics, such as heavier velvet for a dramatic, luxurious appeal and lightweight fabrics like cotton or linen for a casual vibe. If you have irregular-shaped tall windows, then our <a target="_blank" style="text-decoration: underline" href="/made-to-measure-curtains">custom made curtains</a> are designed to fit your specific measurements. Let our team of 50 help you maintain perfection from start to finish.',
       },
       {
         product_name: 'Goblet Pleat Curtains',
         altText: 'Goblet Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Staircase curtains/s.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our globlet-style curtains add grandeur to your staircase. These curtains add cup-like pleats at the top. This luxurious style is ideal for creating a refined ambiance, especially in homes with high ceilings or dramatic staircases. For a lightweight and airy aesthetic, <a target="_blank" style="text-decoration: underline" href="/curtains/made-to-measure-chiffon-curtains">Chiffon Curtains</a> are a perfect choice, and when these curtains are layered with sheer and opaque fabrics, they highlight the specific style.',
       },
       {
         product_name: 'Patterned Curtains',
         altText: 'Patterned Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Staircase curtains/s.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: "A staircase window provides a view of the outside. A pattern curtain can bridge the design gap between floors and contribute cohesion to a home's overall theme. Our <b>patterned blackout curtains</b> turn a staircase with tall windows into a dramatic focal point. We offer a variety of materials, from luxurious velvet to breezy linen; our <b>velvet curtains</b> are opulent and classic. These curtains are ideal because of their stylish architectural design.",
       },
     ],
   },
@@ -766,34 +768,35 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 12,
     sub_Category: 'Indoor',
+    static_Title:"Commercial Indoor Window Treatments",
     Product: [
       {
         product_name: 'Day/Night Blinds',
         altText: 'Day/Night Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Indoor/Day-night-blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'These indoor blinds have two layers of fabric: one that is sheer (allowing light in) and another that is solid (blocking light). When we adjust these layers into your indoor window, they differ in the level of light and privacy. Our <b>electric day-night blinds</b> with motorised mechanisms allow you to adjust remotely. You can operate them using a remote control, wall switch, or through smartphone apps.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Indoor/Bay-window.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Bay windows are a unique architectural feature with three or more window panels. The central panel is usually fixed, while the side panels are angled (commonly at 30°, 45°, or 90°) or movable. We offer <b>bay window shutter for unique interiors</b> that are customised and designed to match the unique angles and dimensions of bay windows. We offer a variety of shutter materials for your bay windows, such as wood, composite, PVC, and vinyl. ',
       },
       {
         product_name: 'Motorised blinds',
         altText: 'Motorised blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Indoor/Bay-window.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our indoor motorised blinds are window coverings that allow you to control blinds with a remote, smartphone app, or even voice commands. These are used to integrate smart homes. These are used for daily operations. We also provide manual controls for emergencies or power outages. We offer window coverings with a variety of fabrics, colours, or patterns, such as customisable <b>motorised roller blinds</b>. You can control these blinds by using remote, Alexa, or Google Home.',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Indoor/blackout-curtains.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Indoor blackout curtains are heavy, opaque types of window coverings. Unlike regular curtains, they are lined or woven with special materials to block light.  Blackout curtains, unlike off-the-shelf curtains, block up almost 99% of external light to create a dark and peaceful atmosphere. Our <b>blackout roller curtains also have</b> a floor-to-ceiling design. These curtains are perfect for media rooms, where complete darkness is needed for more focus and clarity.',
       },
     ],
   },
@@ -806,164 +809,133 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Skylight/Solid-panel.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'We offer a skylight solid panel shutter solution for overhead windows. Our skylight blinds are an excellent choice for homeowners and businesses seeking privacy. These shutters are window coverings with high-quality materials that allow for complete blockage of sunlight when closed, creating a darker, more intimate setting. Our <b>paneled shutters</b> are applicable for bedrooms, living rooms, dining rooms, home offices, and commercial spaces. Our team of 50 is here to help you maintain perfection from beginning to end.',
       },
       {
         product_name: 'Tab Top Curtains',
         altText: 'Tab Top Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Skylight/Solid-panel.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'We at Blinds and Curtains offer skylight tab-top curtains that cover overhead windows. We offer various fabrics for skylight curtains, including <b>tab-top blackout curtains</b>. These blackout options are perfect for bedrooms or living rooms and create a cosy and dark environment for better sleep. Our blackout curtains are also used for commercial spaces, such as ideal for conference rooms, lobbies, or any area with skylights. So take advantage of this and install through our professional team of installers.',
       },
       {
         product_name: 'Pleated Blinds',
         altText: 'Pleated Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Skylight/Pleated-Blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Skylight pleated blinds are designed for skylights and angled windows. These blinds can be customised to fit perfectly. Their snug installation guarantees no light leakage around the edges. Most of the <b>skylight pleated blinds</b> come with motorised controls or telescopic rods for hassle-free adjustment. These integrate with smart home systems and operate via remote control, smartphone, or voice commands. Our blinds are suitable for both residential and commercial applications.',
       },
       {
-        product_name: 'Dimout Blinds/Semi Transparent',
-        altText: 'Dimout Blinds/Semi Transparent',
+        product_name: 'Dimout Blinds',
+        altText: 'Dimout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Skylight/Dimout-blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Skylight dimout roller blinds are specialised window coverings to fit overhead or slanted windows. These blinds have a “dimout" feature and the ability to soften and filter sunlight without completely blocking it. Our blinds are creating a soothing and well-lit ambiance. These blinds are custom fit and have various skylight sizes and shapes. We offer skylight roller blinds with high-quality, fade-resistant fabrics. These blinds are built to daily use and prolonged exposure to sunlight.',
       },
     ],
   },
   {
     Category_id: 12,
     sub_Category: 'Balcony',
+    static_Title:"Premium Commercial Balcony Window Treatments",
     Product: [
       {
         product_name: 'Blackout Blinds',
         altText: 'Blackout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Balcony/Blackout-blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'We have the biggest and best collection of blackout blinds in Dubai, which are made to fit your style and needs. Our balcony blinds are super affordable and come in cool designs that look great in any home or outdoor space. These <b>roller blinds for balconies</b> don’t just block light—they also help keep your space cool by stopping heat. Plus, they give you privacy so you can enjoy your balcony peacefully.',
       },
       {
         product_name: 'Roman Blinds',
         altText: 'Roman Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Balcony/Roman-Blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our Balcony Roman Blinds are a great way to make your outdoor space look awesome and feel cosy. They fit flat against windows, so they look super neat and match any style. You can get <b>automatic balcony blinds</b> made just for your space so they fit perfectly. They’re great for giving you privacy while still keeping things comfy. You can hang out on your balcony or patio without anyone looking in. ',
       },
       {
         product_name: 'Outdoor Shutters',
         altText: 'Outdoor Shutters',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Balcony/Outdoor-Shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Outdoor balcony shutters are a great way to make your balcony, terrace, or patio better. They help keep you comfy by blocking things like strong sun, heavy rain, and even snow so you can enjoy your outdoor space all year long. These shutters also make your space look nicer and give you more privacy. We have lots of options for <b>outdoor balcony shutters</b>, with different designs to match your style and outdoor space.',
       },
       {
         product_name: 'Eyelet Curtains',
         altText: 'Eyelet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Balcony/Eyelet-curtains.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Balcony eyelet curtains are great for everyday use because they look nice and work really well. They give you privacy and shade while making your balcony or patio look modern and cool. These <b>outdoor balcony curtains</b> are made from different materials, like waterproof ones that last a long time or soft, light ones that feel ventilated. There are many colours and designs to choose from, so you can find the perfect ones to match your style.',
       },
     ],
   },
   {
     Category_id: 12,
     sub_Category: 'Pergola',
+    static_Title:"Pergola  Window Treatments",
     Product: [
       {
         product_name: 'Sheer Curtains',
         altText: 'Sheer Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Pergola/Sheer-Curtains-for-Pergola.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Pergola sheer curtains are a great way to make your outdoor space look nice and feel cosy. These light and airy curtains let sunlight come through while giving you privacy. They’re perfect for patios, gardens, or decks. Sheer curtains also help block strong sunlight and reduce glare, making outdoor space more comfortable. Plus, they come in many colours, patterns, and styles.',
       },
       {
         product_name: 'Aluminium Blinds',
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Pergola/Aluminium-Blinds-for-Pergola.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Pergola Aluminium blinds are a great mix of style and usefulness, made to fit any outdoor space. Our outdoor blinds for pergolas are built from strong, high-quality materials that last a long time. They’re designed for Dubai’s tough weather, so they resist mildew, mold, and dust, making them easy to care for. These blinds are perfect if you want to make your outdoor area look nicer or add more shade and privacy.',
       },
       {
         product_name: 'Bi Fold Shutters',
         altText: 'Bi Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Pergola/Blackout-curtains-for-Pergola.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Pergola Bi-Fold shutters make your outdoor space look great and work even better. These sliding shutters for pergolas can slide open or closed so that you can use them differently. You can attach them to walls or leave them free-standing, making your outdoor area more flexible. They protect you from bad weather like heavy rain, strong wind, and hot sunlight, keeping you comfy all year.',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Pergola/Blackout-curtains-for-Pergola.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Pergola blackout curtains are great for making your outdoor space calm and comfy. Whether you want shade, privacy, or a cool relaxing place, these curtains do the job! They’re made from high-quality materials, so they’re strong and look nice with any pergola. These curtains block sunlight to keep things cool and even help reduce noise. Perfect for quiet afternoons or fun hangouts, they’re useful and stylish for your backyard.',
       },
     ],
   },
   {
     Category_id: 12,
     sub_Category: 'Outdoor',
+    static_Title:"Commercial Outdoor Window Treatments",
     Product: [
       {
-        product_name: 'Sunscreen/Transparent',
-        altText: 'Sunscreen/Transparent',
+        product_name: 'Sunscreen/Transparent Blinds',
+        altText: 'Sunscreen/Transparent Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Outdoor/Sunscreen-blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Outdoor sunscreen blinds are perfect if you want to enjoy your outdoor space without getting sunburnt. These sunscreen window blinds are great if you want sunlight but don’t want your furniture to fade or your room to get too hot. Waterproof outdoor blinds are special because of their fabric. It’s made to block UV rays but still lets you see outside. So you can enjoy the view and stay cool at the same time.',
       },
       {
         product_name: 'Aluminium Blinds',
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Outdoor/Aluminium-blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Outdoor aluminum blinds are a great way to make your outdoor space look cool and work better. They look modern and help block out sunlight and heat, keeping your space cooler and more comfy. Made from strong aluminum, they can handle bad weather and stay in good shape for long. They’re also really easy to take care of, so you don’t have to spend much time cleaning or fixing them.',
       },
       {
         product_name: 'Full Height Shutters',
         altText: 'Full Height Shutters',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Outdoor/Full-height-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Outdoor full-height shutters are best for diners, cafes, and restaurants. These outside window shutters are easy to use and allow you to control how much light and heat comes inside, keeping everything cool. They’re great for privacy, so people can eat without anyone looking. Outdoor shutters come in aluminum, wood, PVC, or steel. You can choose a design that matches your building or brand,  making them cool-looking and useful for any business.',
       },
       {
         product_name: 'Ripplefold/Wave Curtains',
         altText: 'Ripplefold/Wave Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Outdoor/Ripplefold-curtains.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
-      },
-    ],
-  },
-  {
-    Category_id: 12,
-    sub_Category: 'Outdoor',
-    Product: [
-      {
-        product_name: 'Sunscreen/Transparent',
-        altText: 'Sunscreen/Transparent',
-        Imagesurl:
-          '/assets/images/optimized-images/commerical/Outdoor/Sunscreen-blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
-      },
-      {
-        product_name: 'Aluminium Blinds',
-        altText: 'Aluminium Blinds',
-        Imagesurl:
-          '/assets/images/optimized-images/commerical/Outdoor/Aluminium-blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
-      },
-      {
-        product_name: 'Full Height Shutters',
-        altText: 'Full Height Shutters',
-        Imagesurl:
-          '/assets/images/optimized-images/commerical/Outdoor/Full-height-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
-      },
-      {
-        product_name: 'Ripplefold/Wave Curtains',
-        altText: 'Ripplefold/Wave Curtains',
-        Imagesurl:
-          '/assets/images/optimized-images/commerical/Outdoor/Ripplefold-curtains.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Outdoor wave curtains give a very sleek look. Wave curtains are a fabulous way to cover your windows without using regular pleats or eyelets. They have a soft, flowing look and slide smoothly on a track, keeping their wave shape the whole time. They’re great for big windows or sliding glass doors because they let in lots of natural light and don’t make the space feel crowded. ',
       },
     ],
   },
@@ -981,13 +953,13 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Motorised curtains',
         altText: 'Motorised curtains',
         Imagesurl: '/assets/images/optimized-images/commerical/hospital/b.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our hospital curtains are designed to provide a barrier between patient areas and offer confidentiality and comfort. Our motorised curtains operated without physical contact, promoting a cleaner, more hygienic environment. Our <b>curtains in hospitals</b> come in a wide variety of styles, from elegant drapes to modern sheers. For high-quality hospital room curtains, consider consulting with us at <a target="_blank" style="text-decoration: underline" href="/">Blinds and Curtains Dubai</a>, who offer a range of customisable options to meet specific healthcare needs.',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl: '/assets/images/optimized-images/commerical/hospital/b.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'We provide curtains that are perfect for bedrooms or any area where privacy is essential, such as <b>curtains in hospital</b> rooms, to offer a peaceful environment free from external distractions. Our blackout curtains improved patients comfort. Ou hospital window blinds with sheer curtains create a calming environment conducive to rest and recovery. Our window coverings are crafted from durable, easy-to-clean fabrics, offering low maintenance for hospital windows.',
       },
       {
         product_name: 'Plain Curtains',
@@ -1000,95 +972,105 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'School Blinds',
+    static_Title:"Made To Measure School Window Coverings",
     Product: [
       {
         product_name: 'Roman Blinds',
         altText: 'Roman Blinds',
         Imagesurl:
-          '/assets/images/optimized-images/commerical/School Blinds/Aluminium School blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+          '/assets/images/optimized-images/commerical/School Blinds/Roman School Blinds.webp',
+        desc: 'Our roman blinds are custom fit to any school windows, from small classrooms to large auditorium or library windows, perfect fit for every space. We offer <b>roman blinds & Curtains</b> designed with good safety features and child-safe mechanisms and are equipped with safety cords or spring-loaded systems to prevent accidents, making them ideal for schools with younger children. We also offer <a target="_blank" style="text-decoration: underline" href="/blinds/roller-blinds">roller blinds</a> that roll up into a sleek, minimal casing, saving space and ensuring a clutter-free appearance in class.',
       },
       {
         product_name: 'Day/Night Blinds',
         altText: 'Day/Night Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Day Night School Blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our <b>day-night roller blinds</b> offer practical solutions for school environments. These roller blinds improve focus and reduce screen glare during lessons. Our blinds combine with a sheer fabric for diffusing natural light and a blackout layer for complete darkness. These blinds offer flexibility for diverse school needs, such as presentations, exams, or relaxation zones. Our <a target="_blank" style="text-decoration: underline" href="/blinds/pleated-blinds">pleated blinds</a> are made from robust, fade-resistant fabrics and are custom fit for small or uniquely shaped windows.',
       },
       {
-        product_name: 'Dimout Blinds/Semi Transparent',
-        altText: 'Blackout Curtains',
+        product_name: 'Dimout Blinds',
+        altText: 'Dimout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Dimout school blinds.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'We offer blinds that are available in solid colors, subtle patterns, or textured fabrics for a custom fit look. Our  <b>semi-transparent window blinds</b>  are perfect for large windows and sliding doors, offering smooth, adjustable light control. These blinds can be motorised for a sleek, tech-savvy touch. <a target="_blank" style="text-decoration: underline" href="/blinds/motorised-blinds">Motorised blinds</a> bring a modern touch; with a simple remote control or smartphone app, you can effortlessly adjust your blinds.',
+      },
+      {
+        product_name: 'Aluminium Blinds',
+        altText: 'Aluminium Blinds',
+        Imagesurl:
+          '/assets/images/optimized-images/commerical/School Blinds/Aluminium School blinds.webp',
+        desc: 'Our <b>School Aluminium blinds</b> are crafted from lightweight yet sturdy aluminum; these blinds resist wear, tear, and corrosion, guaranteeing long-lasting performance. These are made from fire-resistant materials, offering an extra layer of safety in schools. We are also offering metal <a target="_blank" style="text-decoration: underline" href="/blinds/wooden-venetian">venetian blinds</a> that combine practicality with modern design. Their durability, ease of use, and stylish appearance make them functional and appealing additions to classrooms, libraries, and administrative offices.',
       },
     ],
   },
   {
     Category_id: 5,
     sub_Category: 'Gym Curtains',
+    static_Title:"Curtains for Gym",
     Product: [
       {
         product_name: 'Motorised curtains',
         altText: 'Motorised curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Motorised gym curtains.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Gym curtains are used for multiple purposes. These are ideal for creating<b>divider curtains for gyms</b>ivider curtains for gyms in large open spaces and dividing areas for different activities like aerobics, yoga, or weightlifting. We at <a target="_blank" style="text-decoration: underline" href="/">Blinds and Curtains Dubai</a> offer a variety of fabrics, colors, and patterns that are designed to run silently for minimal disruption. Our motorised blackout curtains can be used to divide large gym areas, offering complete privacy and blocking out light when needed, as well as our sheer motorised curtains, which are perfect for spaces like gyms or living areas, offering a soft, filtered light while maintaining privacy.',
       },
       {
-        product_name: 'Made to Measure Linen Curtains',
-        altText: 'Made to Measure Linen Curtains',
+        product_name: 'Linen Curtains',
+        altText: 'Linen Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Linen curtains for gym.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Linen curtains are lightweight, breathable fabrics that offer proper airflow, maintaining a fresh and comfortable workout environment. These curtains durability makes them suitable for high-traffic areas like gyms, while their soft texture adds a subtle, inviting aesthetic. We offer <b>gymnastic curtains</b> to section off training areas or as window treatments; they deliver a stylish and practical solution that is custom fit to dynamic fitness environments. These curtains are perfect for dividing spaces or softening gym interiors.',
       },
       {
         product_name: 'Velvet Curtains',
         altText: 'Velvet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Velvet Curtains for gym.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Velvet curtains bring a luxurious touch to gym spaces. These curtains are available in various rich colors and textures; they complement modern or classic gym interiors Our <b>home gym curtains</b> not only provide privacy but also create a focused and distraction-free environment by blocking external noise and controlling light. Every workout feels personal and effective.Our velvet curtains are perfect for stylish spaces; these curtains improve your fitness area with unmatched sophistication.',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Blackout gym curtains.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our curtains play a vital role in gyms, especially in gyms hosting multimedia presentations or fitness workshops. Blackout <b>curtains for gyms</b> are ideal for both home and commercial gyms and invaluable as they optimise visibility for screens and projectors. Durability and easy maintenance of blackout curtains make them a long-lasting investment. These curtains withstand the rigors of frequent use. Our curtains are available in a variety of styles and colors that compliment modern gym interiors.',
       },
     ],
   },
   {
     Category_id: 5,
     sub_Category: 'Theatre Curtains',
+    static_Title:"Made To Measure Theatre, Stage & Backdrop Curtains ",
     Product: [
       {
         product_name: 'Pinch Pleat Curtains',
         altText: 'Pinch Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Motorised gym curtains.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our pinch pleat curtains for theaters contain custom fit pleats that create a sophisticated, structured appearance, which is ideal for dramatic settings. These curtains are crafted in luxurious fabrics like <b>velvet stage curtains</b>; they exude elegance while delivering excellent sound absorption and light-blocking capabilities, essential for immersive performances. These curtains are available in a variety of colors and textures; pinch pleat curtains can be customised to suit the artistic vision of any stage.',
       },
       {
         product_name: 'Stripes Curtains',
         altText: 'Stripes Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Linen curtains for gym.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Striped curtains are a stylish choice for theatre stages, with eye-catching patterns. These curtains add a bold and dynamic aesthetic to theatre stages, making them a distinctive choice for performance spaces. The clean lines and vibrant patterns of our theatre curtains create a visual fascination that enhances the backdrop for various productions. When crafted as <b>white stage curtains</b>, they deliver a crisp, modern look while maintaining versatility to suit diverse themes and lighting effects.',
       },
       {
         product_name: 'Textured Curtains',
         altText: 'Textured Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Velvet Curtains for gym.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Theatre curtains also have some unique textures. We offer curtains that interact beautifully with stage lighting, creating a mesmerizing visual effect.Textured curtains are available in custom sizes and patterns to express their unique identity. Their versatility extends to various stage styles, from classical operas to contemporary plays. Our textured <b>blue curtains</b> add an artistic dimension to stage design. These curtains are crafted from fire-retardant materials, guaranteeing safety while maintaining elegance.',
       },
       {
         product_name: 'Ripplefold/Wave Curtains',
         altText: 'Ripplefold/Wave Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Blackout gym curtains.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our curtains are a modern, versatile choice for theatres. If you choose our Ripplefold or wave curtains, it offers a sleek, uniform look. We offer curtains that are available in rich fabrics, like <b>red velvet stage curtains</b>, that are perfect for both dramatic presentations and multi-functional spaces. Our ripplefold curtains create a professional and immersive atmosphere. They are easy to maintain, durable, and can be customised to fit large theatre stages or smaller performance areas.',
       },
     ],
   },
