@@ -26,6 +26,7 @@ model SubCategories {
   posterImage Json
   description String?
   createdAt   DateTime   @default(now())
+   short_description String?
 }
 
 model products {
