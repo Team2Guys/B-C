@@ -1,4 +1,5 @@
 import React, { FormEventHandler, SetStateAction } from 'react';
+import { ICategory, IProduct } from './types';
 
 React.FormEvent<HTMLFormElement>;
 export interface USRPROPS {
@@ -383,6 +384,9 @@ interface ColorData{
 }
 
 
+export type meta_props = {
+  params: { product: string }
+}
 
 
 export interface PRODUCS_PROPS {
@@ -393,9 +397,5 @@ export interface PRODUCS_PROPS {
 
 }
 
-
-export type meta_props = {
-  params: { product: string }
-}
 
 
