@@ -95,7 +95,12 @@ export interface IRECORDS {
 export interface ISUBCATEGORY {
   title: string;
   description: string;
+  short_description?: string;
   CategoryId: number | undefined;
+  Meta_Title?: string;
+  Meta_Description?: string;
+  Canonical_Tag?: string;
+  Images_Alt_Text?: string;
 }
 
 export interface IAppointments {

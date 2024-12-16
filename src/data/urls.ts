@@ -233,4 +233,3 @@ export const getProduct = [
   'Outdoor Shutters',
   'Staircase Shutters'
 ];
-

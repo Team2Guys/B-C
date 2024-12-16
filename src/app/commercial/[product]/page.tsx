@@ -28,19 +28,21 @@ const router =   useRouter();
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-
-  const filteredSubCategory = subCategories?.find((sub) => generateSlug(sub.title) === ChangedProductUrl(product as string),
+  
+  const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
+    return( prod.urlName == String(product)?.toLowerCase())
+      })
+    
+    
+    
+      if(redirected_product){
+        router.push(redirected_product.Redirect);
+      }
+  const filteredSubCategory = subCategories?.find(
+    (sub) => generateSlug(sub.title) === ChangedProductUrl(product as string),
   );
 
-  const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
-return( prod.urlName == String(product)?.toLowerCase())
-  })
 
-
-
-  if(redirected_product){
-    router.push(redirected_product.Redirect);
-  }
 
   const filteredProduct = products?.find(
     (prod) =>
@@ -66,7 +68,7 @@ return( prod.urlName == String(product)?.toLowerCase())
     return <PageSkelton />;
   }
 
-  if (isNotFound) {
+  if (isNotFound || (!filteredProduct && !filteredSubCategory)) {
     return <NotFound />;
   }
 
