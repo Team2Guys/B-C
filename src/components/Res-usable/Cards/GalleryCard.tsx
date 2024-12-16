@@ -1,7 +1,6 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import { IoSearch } from 'react-icons/io5';
 // import { Image } from 'antd';
 import Image from 'next/image';
 import { IProduct } from 'types/types';

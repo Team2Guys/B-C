@@ -2,12 +2,11 @@ import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
 import productimf from '../../../public/assets/images/product/product1.png';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { IInfo } from 'types/types';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 
 const Info = (selectedPage: IInfo) => {
-  const route = useRouter();
+  // const route = useRouter();
   if (!selectedPage.selectedPage) {
     return <PageSkelton header={true} />;
   }

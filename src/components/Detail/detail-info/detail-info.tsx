@@ -1,7 +1,6 @@
 import Container from 'components/Res-usable/Container/Container'
 import { Button } from 'components/ui/button';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import React from 'react'
 import { POSTER_iMAGE } from 'types/types';
 
@@ -28,7 +27,7 @@ const DetailInfo: React.FC<detailprops> = ({
     heading
   }) => {
 
-    const route = useRouter();
+    // const route = useRouter();
   return (
     <Container className="mt-10 md:mt-20 border-b-2 pb-20 border-[#6F747F]">
     <div className={`flex flex-wrap lg:flex-nowrap lg:gap-20 ${className} items-center`}>
