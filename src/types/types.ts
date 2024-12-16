@@ -88,6 +88,7 @@ export interface IRECORDS {
 export interface ISUBCATEGORY {
   title: string;
   description: string;
+  short_description?: string;
   CategoryId: number | undefined;
 }
 
