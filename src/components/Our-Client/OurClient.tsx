@@ -9,7 +9,7 @@ import { Autoplay,  } from 'swiper/modules';
 const OurClient = () => {
   return (
     <>
-      <div className="lg:pt-20 lg:pb-10 pt-16 pb-10 max-w-screen-2xl mx-auto">
+      <div className=" pb-5 pt-4 max-w-screen-2xl mx-auto">
         <h2 className="text-center font-semibold text-xl uppercase tracking-widest">
           our clients
         </h2>

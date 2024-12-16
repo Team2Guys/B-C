@@ -42,6 +42,10 @@ export interface Product {
 export interface Category {
   name?: string;
   description?: string;
+  Meta_Title?: string;
+  Meta_description?: string;
+  Canonical_Tag?: string;
+  Images_Alt_Text?: string;
 }
 
 export interface CategoriesType extends Category {

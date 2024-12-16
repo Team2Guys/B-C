@@ -2429,7 +2429,7 @@ export const ByRoomCommercialProduct = [
       'aluminium-blinds',
       'ripplefoldwave-curtains',
       'full-height-shutters',
-      'sunscreentransparent',
+      'sunscreentransparent-blinds',
     ],
   },
 ];
