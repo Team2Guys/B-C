@@ -5,7 +5,7 @@ const Measure = ({ title, description, className }: any) => {
   return (
     <Container className={`space-y-4 text-center  ${className}`}>
       <h1 className=" text-20 md:text-30 font-medium">{title}</h1>
-      <p className="text-12 md:text-16">{description}</p>
+      <p className="text-12 md:text-16" dangerouslySetInnerHTML={{ __html: description }}></p>
     </Container>
   );
 };
