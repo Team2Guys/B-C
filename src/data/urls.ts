@@ -138,7 +138,6 @@ export const urls = [
     Url: '/roller-blinds/blackout-roller-blinds',
     errorUrl: '/blinds/blackout-roller-blinds',
   },
-  
 ];
 
 
@@ -153,7 +152,9 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
-  skylight : '/blinds/skylight-blinds-dubai'
+  skylight : '/blinds/skylight-blinds-dubai',
+  balcony: '/balcony-blinds-and-curtains',
+
 };
 
 export const ChangedProductUrl = (title: string): string => {
