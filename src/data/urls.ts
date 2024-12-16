@@ -186,6 +186,7 @@ export const CommercialUrl=[
   {urlName:"theatre", Redirect:"/curtains/stage-and-theatre-curtains"},
   {urlName:"wooden-aluminium-blinds", Redirect:"/blinds/wooden-venetian"},
   {urlName:"study-room-blinds", Redirect:"/commercial"},
+  {urlName:"aric-blinds", Redirect:"/"},
 ]
 
 export const getProduct = [
