@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
-import { Allproduct, BlogInfo, Product } from 'types/interfaces';
+import { Allproduct, BlogInfo} from 'types/interfaces';
 import Cookies from 'js-cookie';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';

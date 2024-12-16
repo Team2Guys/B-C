@@ -78,9 +78,11 @@ export interface IProduct {
     },
   ];
   Sub_Heading?: string;
+  Sub_Heading_description?:string
   Meta_Title?: string;
   Canonical_Tag?: string;
   Meta_description?: string;
+  
 }
 
 export interface IRECORDS {
