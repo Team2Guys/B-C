@@ -2,12 +2,11 @@ import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
 import productimf from '../../../public/assets/images/product/product1.png';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { IInfo } from 'types/types';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 
 const Info = (selectedPage: IInfo) => {
-  const route = useRouter();
+  // const route = useRouter();
   if (!selectedPage.selectedPage) {
     return <PageSkelton header={true} />;
   }
@@ -34,7 +33,7 @@ const Info = (selectedPage: IInfo) => {
           <div className=" pt-5 text-center md:text-start">
             <button
               onClick={() => {
-                route.push('/request-appointment');
+                window.open('/request-appointment', '_blank');
               }}
               className="px-4 py-3 rounded-md bg-secondary text-white font-medium"
             >

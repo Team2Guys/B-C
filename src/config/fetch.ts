@@ -1,7 +1,9 @@
 import axios from 'axios';
-import { IAppointments, ICategory, IRECORDS } from 'types/types';
-import { Allproduct, BlogInfo } from 'types/interfaces';
+import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
+import { Allproduct, BlogInfo} from 'types/interfaces';
 import Cookies from 'js-cookie';
+import { generateSlug } from 'data/data';
+import { ChangedProductUrl } from 'data/urls';
 
 const superAdmintoken = Cookies.get('superAdminToken');
 const token = Cookies.get('2guysAdminToken');
@@ -14,7 +16,6 @@ const headers = {
 export const fetchProducts = async (): Promise<Allproduct[]> => {
   console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`, "productscommercial");
   const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`);
-  console.log(response, "productscommercial")
   return response.data;
 };
 
@@ -130,3 +131,29 @@ export const getAllAdmins = async () => {
     throw new Error(err.message || JSON.stringify(err));
   }
 };
+
+
+export const filtereCategory = ( categories: ICategory[],product: string,Cateories: number[]): ICategory | undefined => {
+  return categories?.find((sub) => {
+    const title = ChangedProductUrl(product as string);
+    const title_flag = title === generateSlug(sub.title);
+    return (
+      title_flag && Cateories.some((item: number) => item === sub.CategoryId)
+    );
+  });
+};
+
+
+
+export const filterProd = ( prod: Allproduct[],product: string,Cateories: number[]): IProduct | undefined => {
+  return prod?.find((sub) => {
+    const title = ChangedProductUrl(product as string);
+    const title_flag = title === generateSlug(sub.title);
+    return (
+      title_flag && Cateories.some((item: number) => item === sub.CategoryId)
+    );
+  });
+};
+
+ 
+
