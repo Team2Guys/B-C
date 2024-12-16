@@ -69,7 +69,7 @@ function CustomSlider({
       <SamplePrevArrow />
     ) : undefined,
     focusOnSelect: true,
-    autoplay: false,
+    autoplay: true,
     speed: 1000,
     autoplaySpeed: 6000,
     cssEase: 'linear',
