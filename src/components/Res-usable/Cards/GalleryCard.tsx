@@ -1,8 +1,8 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import { IoSearch } from 'react-icons/io5';
-import { Image } from 'antd';
+// import { Image } from 'antd';
+import Image from 'next/image';
 import { IProduct } from 'types/types';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
@@ -54,10 +54,11 @@ console.log(product_Images)
             : card.posterImage.imageUrl
         }
           alt={card.title}
-          height={300}
-          width={'100%'}
-          className=" rounded-xl"
-          preview={{mask: (<IoSearch style={{ color: 'white', fontSize: '30px' }} /> )}}/>
+          height={800}
+          width={800}
+          className=" rounded-xl h-80 w-[100%] object-cover"
+          // preview={{mask: (<IoSearch style={{ color: 'white', fontSize: '30px' }} /> )}}
+          />
         <div
           
           className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide? "block":""} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}

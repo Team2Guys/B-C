@@ -1,7 +1,6 @@
 import Container from 'components/Res-usable/Container/Container'
 import { Button } from 'components/ui/button';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import React from 'react'
 import { POSTER_iMAGE } from 'types/types';
 
@@ -28,7 +27,7 @@ const DetailInfo: React.FC<detailprops> = ({
     heading
   }) => {
 
-    const route = useRouter();
+    // const route = useRouter();
   return (
     <Container className="mt-10 md:mt-20 border-b-2 pb-20 border-[#6F747F]">
     <div className={`flex flex-wrap lg:flex-nowrap lg:gap-20 ${className} items-center`}>
@@ -41,7 +40,7 @@ const DetailInfo: React.FC<detailprops> = ({
           <div className="space-y-3 md:space-y-10">
           <p className="text-12 md:text-16 leading-6 md:leading-8" dangerouslySetInnerHTML={{ __html: description }}></p>
           </div>
-          <Button onClick={()=>{route.push("/request-appointment")}} className='py-6 px-10' variant={"secondary"}>
+          <Button onClick={() => {window.open('/request-appointment', '_blank');}} className="py-6 px-10" variant="secondary">
           Book An Appointment Now
           </Button>
         </div>
