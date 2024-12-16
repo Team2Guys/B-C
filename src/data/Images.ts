@@ -606,162 +606,168 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 9,
     sub_Category: 'Staircase Shutters',
+    static_Title:"Upgrade Your Staircase with Classiness",
     Product: [
       {
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Solid wooden window shutters</b> are popular because of their durability. They are a timeless addition to any staircase and can be easily customised to match existing woodwork in your home. Solid panel shutters provide maximum privacy, light control, and insulation.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>External shutters for bay windows</b> help increase your staircase&apos;s architectural interest. These shutters are designed for bay windows and add a touch of elegance and charm to any home. With our range of materials and designs, you can create a customised look that complements your staircase perfectly.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Shutters for shaped windows</b> are a great choice for staircase windows with unique shapes. These shutters are made to measure, ensuring a perfect fit for any window shape and size. Our range of special-shaped shutters includes angled, arched, circular, and triangular shutters.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Living Room Shutters',
+    static_Title:"Premium Window Shutters For Your Living Room",
     Product: [
       {
         product_name: 'Full Height Shutters',
         altText: 'Full Height Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/living/full-height.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our <b>full-height window shutters</b> offer complete coverage from top to bottom, making them ideal for larger windows and sliding doors. They provide maximum privacy and light control while adding insulation to your home.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/living/Bay-window-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Window shutters for bay windows</b> add charm and elegance to any living room. Their unique design allows for a perfect fit around bay window frames, giving your space a polished look. They are available in various colors and finishes to match your interior decor.',
       },
       {
         product_name: 'Tier On Tier Shutters',
         altText: 'Tier On Tier Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/living/Tier-on-Tier-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Tier-on-tier solid shutters</b> are an excellent choice for living room windows. They have two panels you can open separately, so you can control light and privacy however you want. This makes them perfect for keeping your space private while letting in natural light.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Dining Room Shutters',
+    static_Title:"Upgrade Your Dining Experience With Plantation Shutters in Dubai",
     Product: [
       {
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Wood panel window shutters</b> are excellent for complete light control and privacy. They don’t have any gaps or slats, so they completely cover your dining room windows. These shutters are perfect for formal dining rooms where you want a more classic and traditional style. They come in different wood finishes that match your dining room decor.',
       },
       {
         product_name: 'Bi Fold Shutters',
         altText: 'Bi Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Bifold window shutters</b> are an excellent option for large dining room windows. They allow you to easily fold the shutters to one side and open up your space, creating a smooth connection between your indoor and outdoor dining area. These shutters are also perfect for smaller spaces as they don&apos;t occupy much room. Plus, their sleek design adds a touch of modernity to any dining area',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Use our <b>shaped window shutters</b> to give your dining room a one-of-a-kind look. If your dining room has unusually shaped windows, these are tailor-made to adjust any size or form. In addition to improving the aesthetics of your dining room, the custom fit ensures optimal light control and privacy.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Bedroom Shutters',
+    static_Title:"Bedroom shutters by Blinds and Curtains",
     Product: [
       {
         product_name: 'Tracked Shutters',
         altText: 'Tracked Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bedroom/Tracked-Shutters.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Sliding bypass shutters patio doors</b> are popular for bedrooms with patio doors. They operate on a track, allowing you to slide them open or closed, giving you easy access to your outdoor space. These shutters also provide excellent insulation, making your bedroom more energy-efficient and reducing noise from outside. Plus, they add a modern touch to any bedroom design.',
       },
       {
         product_name: 'Bi Fold Shutters',
         altText: 'Bi Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bedroom/Tracked-Shutters.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Bifold interior shutters</b> are about style and functionality. They allow you to control the light in your bedroom, and when opened, they fold up neatly out of the way. This feature is perfect if you have limited space in your bedroom or want a clean, minimalist look. Bi-fold shutters are also easy to maintain and can be customised to fit any window size.',
       },
       {
         product_name: 'Tier On Tier Shutters',
         altText: 'Tier On Tier Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bedroom/Tier-on-Tier-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Tier-on-tier interior shutters</b> are super practical and stylish. They have top and bottom panels that you can open or close separately, so you can control light and privacy however you want. This is handy if your bedroom faces a busy street or has many windows. You can close the bottom for privacy but let sunlight in through the top. Plus, they look great with any bedroom design.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Kitchen Shutters',
+    static_Title:"Premium Kitchen Shutters - A Clean Solution",
     Product: [
       {
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/kitchen/Solid-panel-shutter.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Solid wood shutters</b> are an excellent choice for kitchens that need more privacy and better light control than cafe-style shutters. Since they have solid panels with no gaps, so they’re perfect for blocking light and noise. Plus, they can make your kitchen look even better by adding a stylish touch.',
       },
       {
         product_name: 'Cafe Style Shutters',
         altText: 'Cafe Style Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/kitchen/Special-Shape-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'These <b>wooden cafe shutters</b> are a popular choice for kitchens. They offer an elegant and classic look while also providing privacy and light control. They are usually installed on the lower half of the window, allowing natural light to still enter through the top half.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/kitchen/Special-Shape-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Shaped shutters</b> are a great way to cover those odd-shaped windows in your kitchen or other cool spots in your home. We can make custom shutters that fit perfectly, whether an arch, triangle, circle or something else. They’re not just a great fit—they also make your space look stylish and put-together. Plus, with lots of materials and finishes to pick from, you can make your home look better while keeping your privacy and controlling the light.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Bathroom Shutters',
+    static_Title:"Premium Bathroom Shutters for Ultimate Privacy and Style",
     Product: [
       {
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bathroom/Solid-panel-shutter.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Solid wooden window shutters</b> give your bathroom a warm and cosy feel. They’re great for controlling light levels while giving you good outside visibility. Our solid panel shutters are made from high-quality wood, making them durable and long-lasting. ',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bathroom/Bay-window-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Interior bay window shutters</b> are a perfect way to improve your bathroom by bringing in more natural light while maintaining privacy. Our bay window shutters are created to fit a variety of window shapes and sizes, making them a versatile option for any bathroom. They come in various colours and materials, allowing you to select the perfect style to complement your decor.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bathroom/Special-shaped-shutters.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: '<b>Special shutters</b> are great for bathrooms with unique window shapes, such as arches, circles, or other odd sizes. They’re made to fit your window perfectly, giving it a tidy and modern look. These unique shutters help control light, keep your privacy, and make your bathroom look stylish. Plus, they’re made to last and can endure bathroom humidity without losing their nice appearance.',
       },
     ],
   },

@@ -1618,7 +1618,7 @@ export const extendedByStyle = [
   { productName: 'solid-panel-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'outdoor-shutters' },
-  { productName: 'staircase-shutters' },
+  // { productName: 'staircase-shutters' },
   { productName: 'cafe-style-shutters' },
 ];
 
@@ -1772,26 +1772,18 @@ export const categoriesContent = [
     content: {
       heading: 'Made to Measure Curtains',
       paragraph:
-        'Our made-to-measure curtains are the perfect solution to give your home a fresh new look. With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor. Whether you’re looking for blackout curtains to keep the light out or sheer curtains to let the light in, we have the perfect solution for you. Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time. With our expert advice and guidance, you can create a stunning look that will transform your home.',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        '1000s of colour and style choices—voiles, velvets, silks, and plain textured fabrics. Get curtains installed in your Dubai home or office, with free consultation, quick installation, and 5-year warranty.',
+      subheading1: 'Custom Window Curtains ',
+      subheading2: 'More than 6 Styles + 2000 Different Materials & Colours',
       posterImage: '/assets/images/Curtain/landing/landing.webp',
       subheadingContent: [
         {
           content:
-            'Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time.',
+            'When it comes to curtains, there is no such thing as "standard." We offer ripple folds to create smooth, flowing elegance, pinch pleats to provide refinement, and eyelets to add simplicity without sacrificing style. With fabrics that do more-like blackout for better sleep or textures that add warmth-you&apos;ll see we&apos;re more than providing a standard curtains service. As with our <a href="/blinds/blackout-blinds" target="_blank" style="text-decoration: underline">blackout blinds</a> and <a href="/blinds/roller-blinds/sunscreen-roller-blinds" style="text-decoration: underline">sunscreen blinds</a>, our curtains make sure you sleep soundly.',
         },
         {
           content:
-            'With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor.',
-        },
-        {
-          content:
-            'Our team of experts are on hand to provide advice and guidance on the best curtains for your home.',
-        },
-        {
-          content:
-            'We use only the highest quality materials to ensure that your curtains are durable and long-lasting.',
+            'As the most reliable <a href="/" target="_blank" style="text-decoration: underline">window covering company in Dubai</a> with 700+ 5-star reviews on google, we are not here just to sell; we are here to help you in making the right choice. Our team is committed to listening to your needs and understanding your space honestly and without pressure. Our expert installers make, measure, and install curtains with care, so you get the finest. Keeping these high standards means making customers feel appreciated and valued. ',
         },
       ],
     },
@@ -1799,29 +1791,17 @@ export const categoriesContent = [
   {
     slug: 'shutters-range',
     content: {
-      heading: 'Made to Measure Curtains',
+      heading: 'Made to Measure shutters',
       paragraph:
-        'Our made-to-measure curtains are the perfect solution to give your home a fresh new look. With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor. Whether you’re looking for blackout curtains to keep the light out or sheer curtains to let the light in, we have the perfect solution for you. Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time. With our expert advice and guidance, you can create a stunning look that will transform your home.',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        'We offer custom made window shutters that fit any window. Make your home more stylish with our versatile made-to-measure shutters, including stylish window plantation shutters.',
+      subheading1: 'Custom Window Shutters',
+      subheading2: 'Wide range of stains and paints',
       posterImage: '/assets/images/Shutters/landing/landing.webp',
 
       subheadingContent: [
         {
           content:
-            'Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time.',
-        },
-        {
-          content:
-            'With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor.',
-        },
-        {
-          content:
-            'Our team of experts are on hand to provide advice and guidance on the best curtains for your home.',
-        },
-        {
-          content:
-            'We use only the highest quality materials to ensure that your curtains are durable and long-lasting.',
+            'Our made-to-measure shutters are custom-designed window coverings that fit your windows&apos; exact dimensions and style. We make sure our custom made shutters match the size and shape of your unique windows; this includes unique shapes like arches, circles, or bay windows. Shutters are available in a variety of stunning colors, like white, <a href="/shutters-range/off-white-shutters" target="_blank" style="text-decoration: underline">off-white</a>, black, bold shades, grey, and dark wood, with premium materials such as wood, faux wood, vinyl, and composite. Our shutters are built for longevity. We crafted these shutters with reinforced hinges and quality finishes to resist wear and tear. These easy-to-clean shutters are less likely to harbor allergens. We provide free uninstall and reinstallation services and have a committed staff of 50 experts. We&apos;re not only here to make sales. We are here to help you, from the initial meeting to the last installation. ',
         },
       ],
     },
@@ -2257,15 +2237,15 @@ export const ByColorContent = [
   {
     slug: '/shutters-range/off-white-shutters',
     content: {
-      heading: 'Off White Colour Shutters',
+      heading: 'Off White Shutters: A Classic Choice',
       paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        'Off white exterior shutters balance warmth and brightness, creating a cosy yet airy, inviting, and comfy vibe. With excellent light and privacy control, these off white plantation shutters let you tweak the ambiance to match your mood. The off-white colour fits in with any style, whether you like things simple or fancy. This makes <a href="/shutters-range" target="_blank" style="text-decoration: underline">window shutters</a> a favorite for people who like classic designs and want lasting <a href="/" target="_blank" style="text-decoration: underline">window treatment</a>.',
+      subheading1: '',
+      subheading2: '',
       subheadingContent: [
         {
           content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+            '',
         },
       ],
     },
@@ -2273,15 +2253,15 @@ export const ByColorContent = [
   {
     slug: '/shutters-range/white-shutters',
     content: {
-      heading: 'White Colour Shutters',
+      heading: 'Aesthetically Beautiful Pure White Shutters',
       paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        'Pure white shutters offer a classic and timeless <a href="/" target="_blank" style="text-decoration: underline">window treatment</a> that gives any room a hint of elegance.  Whether in <a href="/shutters-range/living-room-shutters" target="_blank" style="text-decoration: underline">living rooms</a>, bedrooms, or kitchens, pure white wooden shutters bring a sense of openness and airiness, making them a favourite among homeowners and interior designers',
+      subheading1: '',
+      subheading2: '',
       subheadingContent: [
         {
           content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+            '',
         },
       ],
     },
@@ -2289,15 +2269,15 @@ export const ByColorContent = [
   {
     slug: '/shutters-range/black-shutters',
     content: {
-      heading: 'Black Colour Shutters',
+      heading: 'Black Shutters - Bold and Sophisticated',
       paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        'Black shutters are a great pick if you&apos;re going for a bold, sophisticated look. Black plantation shutters make a statement and work as a versatile backdrop for other design elements in the room. They also provide excellent light and privacy control, just like off-white plantation shutters. At <a href="/" target="_blank" style="text-decoration: underline">Blinds and Curtains Dubai</a>, we&apos;ve got a great selection of <a href="/shutters-range" target="_blank" style="text-decoration: underline">black window shutters</a> to elevate your home&apos;s interior design.',
+      subheading1: '',
+      subheading2: '',
       subheadingContent: [
         {
           content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+            '',
         },
       ],
     },
@@ -2305,15 +2285,15 @@ export const ByColorContent = [
   {
     slug: '/shutters-range/dark-wood-shutters',
     content: {
-      heading: 'Dark Woods Colour Shutters',
+      heading: 'Dark Wood Shutters - Rustic and Timeless',
       paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        'Dark Wood Shutters are a classic choice that warms any room with their timeless appeal. The wood grain adds <a href="/curtains/textured-curtains" target="_blank" style="text-decoration: underline">texture</a> and depth, making these shutters stand out as both functional and decorative pieces. We offer a variety of dark wood shutters at <a href="/" target="_blank" style="text-decoration: underline">Blinds and Curtains Dubai</a>, so you can find the perfect fit for your home.',
+      subheading1: '',
+      subheading2: '',
       subheadingContent: [
         {
           content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+            '',
         },
       ],
     },
@@ -2321,15 +2301,15 @@ export const ByColorContent = [
   {
     slug: '/shutters-range/bold-colours-shutters',
     content: {
-      heading: 'Bold Colour Shutters',
+      heading: 'Bold Colours Shutters - Express Yourself',
       paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        'If you want to give your home some style, try bold colour shutters. Whether you like bright colors like red and blue or more calm colours like olive green and taupe, these <a href="/shutters-range" target="_blank" style="text-decoration: underline">shutters</a> can change the look of your space. Bold colour wooden shutters are great for adding colour to neutral rooms or matching existing colour schemes.Our team at <a href="/" target="_blank" style="text-decoration: underline">Blinds and Curtains Dubai</a> thoughtfully selected each colour and material for shutters to give you both style and durability.',
+      subheading1: '',
+      subheading2: '',
       subheadingContent: [
         {
           content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+            '',
         },
       ],
     },
@@ -2337,15 +2317,15 @@ export const ByColorContent = [
   {
     slug: '/shutters-range/grey-shutters',
     content: {
-      heading: 'Grey Colour Shutters',
+      heading: 'Grey Shutters - A Modern Touch',
       paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        'These grey window shutters aren&apos;t just good-looking—they&apos;re also super durable and low maintenance. At <a href="/" target="_blank" style="text-decoration: underline">Blinds and Curtains Dubai</a>, we&apos;ve got a wide range of grey shutters, all made with quality materials and a keen eye for detail. Whether you want a calming vibe in the <a href="/shutters-range/bedroom-shutters" target="_blank" style="text-decoration: underline">bedroom</a> or a modern touch in the living room, our grey shutters give you plenty of options to suit your taste.',
+      subheading1: '',
+      subheading2: '',
       subheadingContent: [
         {
           content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+            '',
         },
       ],
     },
@@ -2353,15 +2333,15 @@ export const ByColorContent = [
   {
     slug: '/shutters-range/light-wood-shutters',
     content: {
-      heading: 'Light Woods Shutters',
+      heading: 'Light Wood Shutters -  Versatile and Chic',
       paragraph:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        'Light wood shutters are a fantastic way to brighten your space and create a welcoming vibe. Like <a href="/shutters-range/dark-wood-shutters" target="_blank" style="text-decoration: underline">darker shutters</a>, they offer great insulation and light control while adding a chic touch to your home’s interior. At Blinds and Curtains Dubai, we’ve got a wide <a href="/shutters-range" target="_blank" style="text-decoration: underline">shutters range</a> of light wood shutters in different styles and finishes to match your style. At Blinds and Curtains Dubai, our expert team can help you install light wood exterior shutters to give your home a fresh, updated look.',
+      subheading1: '',
+      subheading2: '',
       subheadingContent: [
         {
           content:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..',
+            '',
         },
       ],
     },
@@ -2510,27 +2490,27 @@ export const categorydata = [
     types: [
       {
         type: 'ALL',
-        title: 'Explore Popular Made to Measure Blind Options',
+        title: 'Explore Popular Made to Measure Curtain Options',
         subtitle:
-          'Our bespoke Curtain are designed to meet your needs. Various types of window Curtain are available in a variety of materials and colours, so you can create an ambience to suit your style.',
+          'Want to see your dream come to life in stunning detail? Our professional curtain installation team is always available to answer questions and help with any curtain challenge you have.',
       },
       {
         type: 'By Style',
-        title: 'Style Your Space',
+        title: 'Perfect for Any Taste & Every Window',
         subtitle:
-          'Pick Curtain that match the vibe of your room, from minimalist to modern.',
+          'Choose curtains that fit your personal style and enhance your space.',
       },
       {
         type: 'By Room',
-        title: 'Curtain for Every Room',
+        title: 'Curtains for Any Room',
         subtitle:
-          'Find Curtain crafted to enhance the look and feel of each specific space in your home.',
+          'Find the perfect curtains for each area of your home, from the living room to the bedroom',
       },
       {
         type: 'dynamic',
-        title: 'Curtain for Every Room',
+        title: 'Explore Our Rich Fabric Collection',
         subtitle:
-          'Find Curtain crafted to enhance the look and feel of each specific space in your home.',
+          'Discover curtains in a variety of fabrics, from sheer to velvet for every window.',
       },
     ],
   },
@@ -2539,27 +2519,27 @@ export const categorydata = [
     types: [
       {
         type: 'ALL',
-        title: 'Explore Popular Made to Measure shutters Options',
+        title: 'View Our Entire Selection',
         subtitle:
-          'Our bespoke shutters are designed to meet your needs. Various types of window shutters are available in a variety of materials and colours, so you can create an ambience to suit your style.',
+          'Explore our comprehensive range of shutters, suited for every preference and window style.',
       },
       {
         type: 'By Style',
-        title: 'Style Your Space',
+        title: 'Shutters that bring a sense of style',
         subtitle:
-          'Pick shutters that match the vibe of your room, from minimalist to modern.',
+          'Choose shutters that echo your personal style, from classic to contemporary designs.',
       },
       {
         type: 'By Room',
-        title: 'shutters for Every Room',
+        title: 'Custom Shutters for Every Room',
         subtitle:
-          'Find shutters crafted to enhance the look and feel of each specific space in your home.',
+          'Find the perfect shutters for each area of your home, enhancing both aesthetics and function.',
       },
       {
         type: 'dynamic',
-        title: 'shutters for Every Room',
+        title: 'Choose from Over 50 Shades',
         subtitle:
-          'Find shutters crafted to enhance the look and feel of each specific space in your home.',
+          'Choose from a wide selection of shutter colours to perfectly complement any room&apos;s decor.',
       },
     ],
   },

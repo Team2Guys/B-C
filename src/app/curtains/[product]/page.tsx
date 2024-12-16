@@ -6,8 +6,8 @@ import RoomProducts from 'components/RoomProducts/room-product';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
-import { ChangedProductUrl, urls } from 'data/urls';
-import { useParams, usePathname } from 'next/navigation';
+import { ChangedProductUrl, CommercialUrl, urls } from 'data/urls';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
@@ -16,6 +16,8 @@ const CommercialPage = () => {
   const Cateories = [5];
   const path = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
+  const router = useRouter()
+
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
@@ -27,15 +29,27 @@ const CommercialPage = () => {
     queryFn: fetchProducts,
   });
 
-  const filteredSubCategory = subCategories?.find(
-    (sub) =>
-      generateSlug(sub.title) === ChangedProductUrl(product as string) &&
-      Cateories.some((item: number) => item == sub.CategoryId),
+  const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
+    return( prod.urlName == String(product)?.toLowerCase())
+      })
+    
+      if(redirected_product){
+        router.push(redirected_product.Redirect);
+      }
+
+
+  const filteredSubCategory = subCategories?.find((sub) => {
+    return  generateSlug(sub.title) === ChangedProductUrl(product as string) && Cateories.some((item: number) => item == sub.CategoryId)
+  }
+      
   );
-  const filteredProduct = products?.find(
-    (prod) =>
-      generateSlug(prod.title) === ChangedProductUrl(product as string) &&
-      Cateories.some((item: number) => item == prod.CategoryId),
+  const filteredProduct = products?.find((prod) =>
+  {
+    console.log(prod.title, "title")
+
+    return generateSlug(prod.title) === ChangedProductUrl(product as string) && Cateories.some((item: number) => item == prod.CategoryId)
+  }
+      
   );
   useEffect(() => {
     if (path) {
@@ -52,7 +66,7 @@ const CommercialPage = () => {
   if (isNotFound) {
     return <NotFound />;
   }
-  console.log(filteredSubCategory, 'title');
+  console.log(filteredProduct, 'title');
   if (subLoading || prodLoading) {
     return <PageSkelton />;
   }
