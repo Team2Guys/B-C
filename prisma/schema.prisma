@@ -8,25 +8,33 @@ datasource db {
 }
 
 model Categories {
-  id            Int             @id @default(autoincrement())
-  title         String          @unique
-  products      products[]      @relation("CategoryToProducts")
-  posterImage   Json
-  subCategories SubCategories[] @relation("CategoryToSubCategories")
-  description   String?
-  createdAt     DateTime        @default(now())
+  id              Int             @id @default(autoincrement())
+  title           String          @unique
+  products        products[]      @relation("CategoryToProducts")
+  posterImage     Json
+  subCategories   SubCategories[] @relation("CategoryToSubCategories")
+  description     String?
+  createdAt       DateTime        @default(now())
+  Images_Alt_Text String?
+  Meta_Title      String?
+  Canonical_Tag   String?
+  Meta_description String?
 }
 
 model SubCategories {
-  id          Int        @id @default(autoincrement())
-  title       String
-  CategoryId  Int
-  category    Categories @relation("CategoryToSubCategories", fields: [CategoryId], references: [id])
-  products    products[] @relation("SubCategoryToProducts")
-  posterImage Json
-  description String?
-  createdAt   DateTime   @default(now())
-   short_description String?
+  id                Int        @id @default(autoincrement())
+  title             String
+  CategoryId        Int
+  category          Categories @relation("CategoryToSubCategories", fields: [CategoryId], references: [id])
+  products          products[] @relation("SubCategoryToProducts")
+  posterImage       Json
+  description       String?
+  createdAt         DateTime   @default(now())
+  short_description String?
+  Images_Alt_Text   String?
+  Meta_Title        String?
+  Canonical_Tag     String?
+    Meta_description String?
 }
 
 model products {
