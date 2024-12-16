@@ -15,7 +15,7 @@ const DetailProduct: React.FC<detailprops> = ({
 }) => {
   const modifiedProducts = {
     ...products,
-    imageUrls: products.imageUrls.slice(0, 4),
+    imageUrls: products?.imageUrls?.slice(0, 4),
   };
   console.log(products, 'productsproducts');
   return (

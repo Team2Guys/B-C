@@ -3,13 +3,11 @@ import Products_Categories from './Pro_Cat'
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { IProduct } from 'types/types';
+import { meta_props } from 'types/interfaces';
 const Cateories = [2];
 
-type Props = {
-  params: { product: string }
-}
 
-export async function generateMetadata({ params}: Props): Promise<Metadata> {
+export async function generateMetadata({ params}: meta_props): Promise<Metadata> {
   const {product} =  params
 
   const [products, categories] = await Promise.all([fetchProducts(), fetchSubCategories()]);
@@ -38,7 +36,7 @@ let Product = filteredProduct as IProduct
   let description =  Product?.Meta_description || filteredSubCategory?.Meta_description ||   "Welcome to blindsandcurtains"
    let url = `${fullUrl}/blinds/${product}`
 
-   console.log(Product, "")
+
   return {
     title: title,
     description: description,
