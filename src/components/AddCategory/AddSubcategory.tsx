@@ -26,7 +26,7 @@ interface editCategoryNameType {
   short_description?: string;
   CategoryId: undefined;
   Meta_Title?: string;
-  Meta_Description?: string;
+  Meta_description?: string;
   Canonical_Tag?: string;
   Images_Alt_Text?: string;
 }
@@ -380,9 +380,9 @@ const FormLayout = ({
                           Meta Description
                         </label>
                         <textarea
-                          name="Meta_Description"
+                          name="Meta_description"
                           onChange={formik.handleChange}
-                          value={formik.values.Meta_Description}
+                          value={formik.values.Meta_description}
                           placeholder="Meta Description"
                           className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
                             formik.errors.description
@@ -390,10 +390,10 @@ const FormLayout = ({
                             : ''
                             }`}
                         />
-                        {formik.touched.Meta_Description &&
-                          formik.errors.Meta_Description ? (
+                        {formik.touched.Meta_description &&
+                          formik.errors.Meta_description ? (
                           <div className="text-red text-sm">
-                            {formik.errors.Meta_Description as String}
+                            {formik.errors.Meta_description as String}
                           </div>
                         ) : null}
                       </div>

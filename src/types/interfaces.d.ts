@@ -101,6 +101,10 @@ export interface FormValues {
   heading?: string;
   Sub_Heading?: string;
   Sub_Heading_description?: string;
+  Meta_Title?: string;
+  Canonical_Tag?: string;
+  Meta_description?: string;
+  Images_Alt_Text?:string
 }
 
 interface Color {
