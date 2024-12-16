@@ -26,6 +26,7 @@ export interface PrivacyPolicyItem {
 interface PosterImage {
   imageUrl: string;
   public_id: string;
+  altText? :string
 }
 
 export interface ICategory {
@@ -37,6 +38,10 @@ export interface ICategory {
   posterImage: PosterImage;
   products: [];
   createdAt: Date;
+  Meta_Title?: string;
+  Canonical_Tag?: string;
+  Meta_description?: string;
+
 }
 
 export interface Image {
@@ -73,7 +78,11 @@ export interface IProduct {
     },
   ];
   Sub_Heading?: string;
-  Sub_Heading_description?: string;
+  Sub_Heading_description?:string
+  Meta_Title?: string;
+  Canonical_Tag?: string;
+  Meta_description?: string;
+  
 }
 
 export interface IRECORDS {
@@ -90,6 +99,10 @@ export interface ISUBCATEGORY {
   description: string;
   short_description?: string;
   CategoryId: number | undefined;
+  Meta_Title?: string;
+  Meta_Description?: string;
+  Canonical_Tag?: string;
+  Images_Alt_Text?: string;
 }
 
 export interface IAppointments {

@@ -72,7 +72,7 @@ const router =   useRouter();
     return <NotFound />;
   }
 
-  console.log(filteredProduct, "filteredProduct"
+  console.log(filteredProduct, "filteredProduct" , filteredSubCategory
   )
   return (
     <>

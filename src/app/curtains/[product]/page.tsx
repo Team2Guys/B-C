@@ -1,98 +1,72 @@
-'use client';
-import { useQuery } from '@tanstack/react-query';
-import NotFound from 'app/not-found';
-import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
-import RoomProducts from 'components/RoomProducts/room-product';
-import PageSkelton from 'components/Skeleton/PageSkelton';
-import { fetchProducts, fetchSubCategories } from 'config/fetch';
-import { generateSlug } from 'data/data';
-import { ChangedProductUrl, CommercialUrl, urls } from 'data/urls';
-import { useParams, usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { ICategory, IProduct } from 'types/types';
 
-const CommercialPage = () => {
-  const { product } = useParams();
-  const Cateories = [5];
-  const path = usePathname();
-  const [isNotFound, setIsNotFound] = useState(false);
-  const router = useRouter()
+import { IProduct } from 'types/types';
+import Curtain from './Curtain'
+import { fetchProducts, fetchSubCategories, filtereCategory, filterProd } from 'config/fetch';
+import { headers } from 'next/headers';
+import { Metadata } from 'next';
+import { meta_props } from 'types/interfaces';
+const Cateories = [5];
 
 
-  const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
-    queryKey: ['sub-categories'],
-    queryFn: fetchSubCategories,
-  });
+export async function generateMetadata({ params}: meta_props): Promise<Metadata> {
+  const {product} =  params
 
-  const { data: products, isLoading: prodLoading } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
+  const [products, categories] = await Promise.all([fetchProducts(), fetchSubCategories()]);
 
-  const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
-    return( prod.urlName == String(product)?.toLowerCase())
-      })
-    
-      if(redirected_product){
-        router.push(redirected_product.Redirect);
-      }
+  const filteredProduct = filterProd(products, product, Cateories)
+  const filteredSubCategory = filtereCategory(categories, product, Cateories);
 
+  const headersList = headers();
+  const domain = headersList.get('x-forwarded-host') || headersList.get('host') || ''; 
+  const protocol = headersList.get('x-forwarded-proto') || 'https';
+  const pathname = headersList.get('x-invoke-path') || '/';
 
-  const filteredSubCategory = subCategories?.find((sub) => {
-    return  generateSlug(sub.title) === ChangedProductUrl(product as string) && Cateories.some((item: number) => item == sub.CategoryId)
+  const fullUrl = `${protocol}://${domain}${pathname}`;
+  
+let Product = filteredProduct as IProduct
+
+  let ImageUrl = Product?.posterImage?.imageUrl || filteredSubCategory?.posterImage?.imageUrl ||  "blindsandcurtains";
+  let alt = Product?.posterImage.altText ||  filteredSubCategory?.posterImage?.altText || "blindsandcurtains";
+
+  let NewImage = [
+    {
+      url: ImageUrl, 
+      alt: alt}
+  ];
+  let title =  Product?.Meta_Title || filteredSubCategory?.Meta_Title ||   "blindsandcurtains"
+  let description =  Product?.Meta_description || filteredSubCategory?.Meta_description ||   "Welcome to blindsandcurtains"
+   let url = `${fullUrl}/blinds/${product}`
+
+   console.log(Product, "")
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: url,
+      images: NewImage,
+    },
+    alternates: {
+      canonical: Product?.Canonical_Tag || filteredSubCategory?.Canonical_Tag||  url , 
+    },
   }
-      
-  );
-  const filteredProduct = products?.find((prod) =>
-  {
-    console.log(prod.title, "title")
 
-    return generateSlug(prod.title) === ChangedProductUrl(product as string) && Cateories.some((item: number) => item == prod.CategoryId)
-  }
-      
-  );
-  useEffect(() => {
-    if (path) {
-      const matchingUrl = urls.find((url) => url.errorUrl === path);
-      console.log(path,"pathnamepathname")
-      if (matchingUrl) {
-        console.log(matchingUrl, "matchingUrl");
-        setIsNotFound(true);
-      } else {
-        setIsNotFound(false);
-      }
-    }
-  }, [path]);
-  if (isNotFound) {
-    return <NotFound />;
-  }
-  console.log(filteredProduct, 'title');
-  if (subLoading || prodLoading) {
-    return <PageSkelton />;
-  }
-  if (!filteredSubCategory && !filteredProduct) {
-    return <NotFound />;
-  }
+
+}
+
+
+const CommercialPage = async({ params }: { params: { product: string } }) => {
+  const {product} =  params
+  const [products, categories] = await Promise.all([fetchProducts(), fetchSubCategories()]);
+
+  const filteredProduct = filterProd(products, product, Cateories)
+  const filteredSubCategory = filtereCategory(categories, product, Cateories);
+
+
 
   return (
-    <>
-      {filteredSubCategory ? (
-        <>
-          <RoomProducts
-            title={`${filteredSubCategory.title}`}
-            description={`${filteredSubCategory.description}`}
-            category={`${filteredSubCategory.category.title}`}
-            relatedProducts={filteredSubCategory?.products || []}
-          />
-          {/* <CategoryPage
-            title={`${filteredSubCategory.title}`}
-            relatedProducts={filteredSubCategory?.products || []}
-          /> */}
-        </>
-      ) : (
-        <ProductDetailPage title={`${filteredProduct?.title}`} />
-      )}
-    </>
+<Curtain  filteredProduct={filteredProduct} filteredSubCategory={filteredSubCategory} product={product}/>
   );
 };
 
