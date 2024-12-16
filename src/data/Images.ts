@@ -953,7 +953,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Sheer Curtains',
         altText: 'Sheer Curtains',
         Imagesurl: '/assets/images/optimized-images/commerical/hospital/s.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'We offer lightweight sheer curtains that allow natural light to gently filter into a hospital room to create a soft, airy ambiance. Our <b>cubicle curtains</b> are used to separate the rooms of patient spaces that guarantee privacy during consultations, treatment, or rest. These curtains allow hospitals to provide individual care in shared spaces; our curtains are crucial for maintaining confidentiality and offering comfort to patients. So get a free installation. We are trusted, with over 700+ 5* reviews.',
       },
       {
         product_name: 'Motorised curtains',
@@ -971,7 +971,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Plain Curtains',
         altText: 'Plain Curtains',
         Imagesurl: '/assets/images/optimized-images/commerical/hospital/p.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Our curtains are available in neutral shades; these <b>plain curtains</b> can complement the sterile and professional atmosphere of a hospital or clinic. We offer <b>curtains in clinic</b> rooms with patient privacy during examinations and treatments. These curtains act as partitions, offering a sense of security and confidentiality in shared spaces. Our curtains are made up of hygienic, easy-to-maintain fabrics that need regular cleaning in hospitals and clinics, reducing the risk of infections.',
       },
     ],
   },
