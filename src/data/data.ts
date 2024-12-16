@@ -1618,7 +1618,7 @@ export const extendedByStyle = [
   { productName: 'solid-panel-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'outdoor-shutters' },
-  { productName: 'staircase-shutters' },
+  // { productName: 'staircase-shutters' },
   { productName: 'cafe-style-shutters' },
 ];
 
@@ -1791,29 +1791,17 @@ export const categoriesContent = [
   {
     slug: 'shutters-range',
     content: {
-      heading: 'Made to Measure Curtains',
+      heading: 'Made to Measure shutters',
       paragraph:
-        'Our made-to-measure curtains are the perfect solution to give your home a fresh new look. With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor. Whether you’re looking for blackout curtains to keep the light out or sheer curtains to let the light in, we have the perfect solution for you. Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time. With our expert advice and guidance, you can create a stunning look that will transform your home.',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
+        'We offer custom made window shutters that fit any window. Make your home more stylish with our versatile made-to-measure shutters, including stylish window plantation shutters.',
+      subheading1: 'Custom Window Shutters',
+      subheading2: 'Wide range of stains and paints',
       posterImage: '/assets/images/Shutters/landing/landing.webp',
 
       subheadingContent: [
         {
           content:
-            'Our made-to-measure curtains are custom-made to fit your windows perfectly, ensuring a professional finish every time.',
-        },
-        {
-          content:
-            'With a range of styles, colors, and fabrics to choose from, you can create a unique look that complements your home décor.',
-        },
-        {
-          content:
-            'Our team of experts are on hand to provide advice and guidance on the best curtains for your home.',
-        },
-        {
-          content:
-            'We use only the highest quality materials to ensure that your curtains are durable and long-lasting.',
+            'Our made-to-measure shutters are custom-designed window coverings that fit your windows&apos; exact dimensions and style. We make sure our custom made shutters match the size and shape of your unique windows; this includes unique shapes like arches, circles, or bay windows. Shutters are available in a variety of stunning colors, like white, <a href="/shutters-range/off-white-shutters" target="_blank" style="text-decoration: underline">off-white</a>, black, bold shades, grey, and dark wood, with premium materials such as wood, faux wood, vinyl, and composite. Our shutters are built for longevity. We crafted these shutters with reinforced hinges and quality finishes to resist wear and tear. These easy-to-clean shutters are less likely to harbor allergens. We provide free uninstall and reinstallation services and have a committed staff of 50 experts. We&apos;re not only here to make sales. We are here to help you, from the initial meeting to the last installation. ',
         },
       ],
     },
@@ -2531,27 +2519,27 @@ export const categorydata = [
     types: [
       {
         type: 'ALL',
-        title: 'Explore Popular Made to Measure shutters Options',
+        title: 'View Our Entire Selection',
         subtitle:
-          'Our bespoke shutters are designed to meet your needs. Various types of window shutters are available in a variety of materials and colours, so you can create an ambience to suit your style.',
+          'Explore our comprehensive range of shutters, suited for every preference and window style.',
       },
       {
         type: 'By Style',
-        title: 'Style Your Space',
+        title: 'Shutters that bring a sense of style',
         subtitle:
-          'Pick shutters that match the vibe of your room, from minimalist to modern.',
+          'Choose shutters that echo your personal style, from classic to contemporary designs.',
       },
       {
         type: 'By Room',
-        title: 'shutters for Every Room',
+        title: 'Custom Shutters for Every Room',
         subtitle:
-          'Find shutters crafted to enhance the look and feel of each specific space in your home.',
+          'Find the perfect shutters for each area of your home, enhancing both aesthetics and function.',
       },
       {
         type: 'dynamic',
-        title: 'shutters for Every Room',
+        title: 'Choose from Over 50 Shades',
         subtitle:
-          'Find shutters crafted to enhance the look and feel of each specific space in your home.',
+          'Choose from a wide selection of shutter colours to perfectly complement any room&apos;s decor.',
       },
     ],
   },
