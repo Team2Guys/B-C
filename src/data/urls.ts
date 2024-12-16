@@ -138,11 +138,6 @@ export const urls = [
     Url: '/roller-blinds/blackout-roller-blinds',
     errorUrl: '/blinds/blackout-roller-blinds',
   },
-  // {
-  //   productName: 'balcony',
-  //   Url: '/balcony-blinds-and-curtains',
-  //   errorUrl: '/blinds/blackout-roller-blinds',
-  // },
 ];
 
 
@@ -192,7 +187,6 @@ export const CommercialUrl=[
   {urlName:"theatre", Redirect:"/curtains/stage-and-theatre-curtains"},
   {urlName:"wooden-aluminium-blinds", Redirect:"/blinds/wooden-venetian"},
   {urlName:"study-room-blinds", Redirect:"/commercial"},
-  // {urlName:"balcony", Redirect:"/balcony-blinds-and-curtains"},
   {urlName:"aric-blinds", Redirect:"/"},
 ]
 
