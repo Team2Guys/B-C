@@ -29,8 +29,7 @@ const router =   useRouter();
     queryFn: fetchProducts,
   });
 
-  const filteredSubCategory = subCategories?.find(
-    (sub) => generateSlug(sub.title) === ChangedProductUrl(product as string),
+  const filteredSubCategory = subCategories?.find((sub) => generateSlug(sub.title) === ChangedProductUrl(product as string),
   );
 
   const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
@@ -67,11 +66,11 @@ return( prod.urlName == String(product)?.toLowerCase())
     return <PageSkelton />;
   }
 
-  if (isNotFound || !filteredProduct) {
+  if (isNotFound) {
     return <NotFound />;
   }
 
-  console.log(filteredProduct, "filteredProduct"
+  console.log(filteredProduct, "filteredProduct" , filteredSubCategory
   )
   return (
     <>
