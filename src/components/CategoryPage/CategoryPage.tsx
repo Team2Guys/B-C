@@ -96,12 +96,12 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
           return (
             <div
               key={index}
-              className={`flex flex-col gap-4 justify-between mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
+              className={`flex flex-col gap-4 items-center justify-between mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
             >
               <div className="w-full md:w-1/2">
                 {product_Images && (
                   <Image
-                    className="w-full h-full md:h-[600px]"
+                    className="w-full h-full md:h-[600px] rounded-xl"
                     src={product_Images.Imagesurl}
                     height={500}
                     width={500}
