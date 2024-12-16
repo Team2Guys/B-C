@@ -138,7 +138,11 @@ export const urls = [
     Url: '/roller-blinds/blackout-roller-blinds',
     errorUrl: '/blinds/blackout-roller-blinds',
   },
-  
+  // {
+  //   productName: 'balcony',
+  //   Url: '/balcony-blinds-and-curtains',
+  //   errorUrl: '/blinds/blackout-roller-blinds',
+  // },
 ];
 
 
@@ -153,7 +157,9 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
-  skylight : '/blinds/skylight-blinds-dubai'
+  skylight : '/blinds/skylight-blinds-dubai',
+  balcony: '/balcony-blinds-and-curtains',
+
 };
 
 export const ChangedProductUrl = (title: string): string => {
@@ -186,6 +192,7 @@ export const CommercialUrl=[
   {urlName:"theatre", Redirect:"/curtains/stage-and-theatre-curtains"},
   {urlName:"wooden-aluminium-blinds", Redirect:"/blinds/wooden-venetian"},
   {urlName:"study-room-blinds", Redirect:"/commercial"},
+  // {urlName:"balcony", Redirect:"/balcony-blinds-and-curtains"},
   {urlName:"aric-blinds", Redirect:"/"},
 ]
 
