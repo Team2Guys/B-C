@@ -100,7 +100,7 @@ export interface ISUBCATEGORY {
   short_description?: string;
   CategoryId: number | undefined;
   Meta_Title?: string;
-  Meta_Description?: string;
+  Meta_description?: string;
   Canonical_Tag?: string;
   Images_Alt_Text?: string;
 }

@@ -10,6 +10,7 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import { useParams, usePathname } from 'next/navigation';
 import AllProducts from 'components/Product/All-Products/Products';
 import { useQuery } from '@tanstack/react-query';
+import NotFound from 'app/not-found';
 import { ICategory, IProduct } from 'types/types';
 import {
   fetchCategories,
@@ -36,6 +37,7 @@ const Products = () => {
   const pathname = usePathname();
   const title = matchingLink ? matchingLink.label : productName;
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+  const [isNotFound, setIsNotFound] = useState(false);
 
   const productNameString = Array.isArray(productName)
     ? productName[0]
@@ -60,29 +62,34 @@ const Products = () => {
       const matchingLink = links.find((link) =>
         productNameString.includes(link.href.replace(/^\//, '')),
       );
-
+  
       const selectedProductName = matchingLink ? matchingLink.label : '';
-
+  
       const filterCat = categories?.find(
         (cat) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
       );
-
+  
       if (filterCat) {
         const filteredProducts =
           products.filter((product) => product.CategoryId === filterCat.id) ||
           [];
-
+  
         const filteredSubCategories =
           subCategories?.filter(
             (subCat) => subCat.CategoryId === filterCat.id,
           ) || [];
-
+  
         const filteredItems = [...filteredProducts, ...filteredSubCategories];
         setFilteredProducts(filteredItems);
+        if (filteredItems.length > 0) {
+          setIsNotFound(false);
+          return;
+        }
       }
+      setIsNotFound(true);
     }
   }, [products, categories, subCategories, productNameString]);
-
+  
   useEffect(() => {
     const selectedPage = categoriesContent.find(
       (page) => page.slug === generateSlug(pathname),
@@ -91,6 +98,10 @@ const Products = () => {
       setSelectedPage(selectedPage.content);
     }
   }, [pathname]);
+
+   if (isNotFound ) {
+      return <NotFound />;
+    }
 
   return (
     <>

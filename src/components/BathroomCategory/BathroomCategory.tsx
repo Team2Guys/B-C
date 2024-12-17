@@ -58,8 +58,7 @@ const BathroomCategory = ({
     for (let category of Categories_wise_Images) {
       if (!pathname.includes('commercial')) {
         if (
-          category.Category_id === arr.CategoryId &&
-          category.sub_Category === subCategory
+        category.sub_Category === subCategory
         ) {
           product = category.Product.find(
             (value) => value.product_name === arr.title.trim(),
@@ -68,8 +67,8 @@ const BathroomCategory = ({
         }
       } else {
         if (category.sub_Category === subCategory) {
-          product = category.Product.find(
-            (value) => value.product_name === arr.title.trim(),
+          product = category.Product.find((value) => value.product_name == arr.title.trim(),
+          console.log( "product")
           );
           break;
         }
@@ -84,6 +83,8 @@ const BathroomCategory = ({
   );
   const static_Title = currentCategory?.static_Title;
   
+
+  console.log(subCategory, "product_Images")
   return (
     <>
       <div className="flex flex-col justify-center items-center space-y-4 px-2">
@@ -110,7 +111,7 @@ const BathroomCategory = ({
           filteredProducts.map((arr: IProduct, index: number) => {
             const parent = arr.category?.title;
             let product_Images = prod_finder_handler(arr);
-            
+              console.log(product_Images, "product_Images =");
             return (
               <div
               className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full "
