@@ -14,9 +14,19 @@ const headers = {
 };
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
-  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`, "productscommercial");
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`);
-  return response.data;
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
+    {
+      next: { tags: ['products'] },
+    }
+  );
+  if (!response.ok) {
+    throw new Error('Failed to fetch products');
+  }
+  
+  const products = await response.json();
+
+  return products;
 };
 
 export const fetchBlogs = async (): Promise<BlogInfo[]> => {

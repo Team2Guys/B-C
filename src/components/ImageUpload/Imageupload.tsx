@@ -31,7 +31,7 @@ const UploadFile = ({
     if (setposterimageUrl || sethoverImage) {
       file = e.dataTransfer.files[0];
     }
-
+console.log(files, "files")
     try {
       const response = await uploadPhotosToBackend(file ? [file] : files);
       setImagesUrl && setImagesUrl((prev) => [...prev, response]);
@@ -51,12 +51,8 @@ const UploadFile = ({
     try {
       const response = await uploadPhotosToBackend(files);
       setImagesUrl && setImagesUrl((prev) => [...prev, response]);
-      //@ts-ignore
       setposterimageUrl && setposterimageUrl([response]);
       sethoverImage && sethoverImage([response]);
-      console.log('Debuge 1');
-      console.log(response);
-      console.log('Photos uploaded successfully');
     } catch (error) {
       console.error('Failed to upload photos:', error);
     }

@@ -221,7 +221,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
           },
         },
       );
-      revalidateTag('calculatePrices');
+      revalidateTag('products');
 
       showToast(
         'success',
@@ -319,9 +319,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       </p>
       <Formik
         enableReinitialize
-        initialValues={
-          productInitialValue ? productInitialValue : AddproductsinitialValues
-        }
+        initialValues={productInitialValue ? productInitialValue : AddproductsinitialValues}
         validationSchema={AddProductvalidationSchema}
         onSubmit={onSubmit}
       >
