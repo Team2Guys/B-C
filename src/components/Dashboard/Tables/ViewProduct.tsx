@@ -70,12 +70,9 @@ const ViewProduct: React.FC<CategoryProps> = ({
     if (Categories) {
       console.log(Categories, 'Categories');
 
-      const filtered = Categories.sort(
-        (a: Product, b: Product) =>
+      const filtered = Categories?.sort((a: Product, b: Product) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-      ).filter((product: Product) =>
-        product.title.toLowerCase().includes(lowercasedSearchTerm),
-      );
+      ).filter((product: Product) =>product.title.toLowerCase().includes(lowercasedSearchTerm));
 
       setFilteredProducts(filtered);
     }
@@ -99,7 +96,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
           headers: { Authorization: `Bearer ${token}` },
         },
       );
-      revalidateTag('calculatePrices');
+      revalidateTag('products');
 
       notification.success({
         message: 'Product Deleted',

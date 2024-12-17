@@ -1547,11 +1547,11 @@ export const megaMenubyRoom = [
   { productName: 'staircase-curtains' },
   { productName: 'conservatory-curtains' },
 
-  { productName: 'outdoor' },
-  { productName: 'indoor' },
+  { productName: 'outdoor-blinds-and-curtains' },
+  { productName: 'indoor-blinds-and-curtains' },
   { productName: 'skylight' },
-  { productName: 'balcony' },
-  { productName: 'pergola' },
+  { productName: 'balcony-blinds-and-curtains' },
+  { productName: 'pergola-curtains' },
 ];
 
 export const megaMenuDynamic = [
@@ -2170,6 +2170,19 @@ export const colorData: IColorData[] = [
         imageUrl: '/assets/images/optimized-images/Color/Grey-color/Grey color Bifold shutters.webp',
         altText: 'Grey Shutters'
       },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (1).webp',
+        altText: 'Grey Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (2).webp',
+        altText: 'Grey Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (3).webp',
+        altText: 'Grey Shutters'
+      },
+      
       
     ]
   },
@@ -2197,6 +2210,18 @@ export const colorData: IColorData[] = [
     imageUrls:[
       {
         imageUrl: '/assets/images/optimized-images/Color/Light-wood/Light wood bay window shutters.jpg',
+        altText: 'Light Woods Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (1).webp',
+        altText: 'Light Woods Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (2).webp',
+        altText: 'Light Woods Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (3).webp',
         altText: 'Light Woods Shutters'
       },
       
@@ -2379,11 +2404,11 @@ export const specificTitles = [
   'Staircase Shutters',
   'Dining Room Shutters',
   'Bedroom Shutters',
-  'Indoor',
+  'Indoor Blinds And Curtains',
   'Skylight',
-  'Balcony',
-  'Pergola',
-  'Outdoor',
+  'Balcony Blinds And Curtains',
+  'Pergola Curtains',
+  'Outdoor Blinds And Curtains',
 ];
 export const officeBlindsItems = [
   'Office Blinds',
@@ -2397,7 +2422,7 @@ export const officeBlindsItems = [
 ];
 export const ByRoomCommercialProduct = [
   {
-    title: 'Indoor',
+    title: 'Indoor Blinds And Curtains',
     productsTitles: [
       'motorised-blinds',
       'blackout-curtains',
@@ -2415,7 +2440,7 @@ export const ByRoomCommercialProduct = [
     ],
   },
   {
-    title: 'Balcony',
+    title: 'Balcony Blinds And Curtains',
     productsTitles: [
       'blackout-blinds',
       'outdoor-shutters',
@@ -2424,7 +2449,7 @@ export const ByRoomCommercialProduct = [
     ],
   },
   {
-    title: 'Pergola',
+    title: 'Pergola Curtains',
     productsTitles: [
       'sheer-curtains',
       'blackout-curtains',
@@ -2433,7 +2458,7 @@ export const ByRoomCommercialProduct = [
     ],
   },
   {
-    title: 'Outdoor',
+    title: 'Outdoor Blinds And Curtains',
     productsTitles: [
       'aluminium-blinds',
       'ripplefoldwave-curtains',

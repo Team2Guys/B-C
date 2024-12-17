@@ -229,7 +229,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                   : (title == 'Curtains' && itemName == 'By Room') 
                                   ? item.title.replace('Curtains', '') 
                                   : (title == 'Shutters' && (itemName == 'By Room' || itemName == 'dynamic')) 
-                                  ? item.title.replace('Shutters', '') 
+                                  ? item.title.replace('Shutters', '')
+                                  : (title == 'Commercial' && (itemName == 'By Room' || itemName == 'dynamic')) 
+                                  ? item.title.replace(/Blinds And Curtains|Curtains/g, '')
                                   : item.title
                               }
                             </Link>
