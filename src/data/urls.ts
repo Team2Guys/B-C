@@ -140,6 +140,11 @@ export const urls = [
     errorUrl: '/commercial/skylight-blinds',
   },
   {
+    productName: 'Skylight Blinds',
+    Url: 'skylight-blinds-dubai',
+    errorUrl: '/blinds/skylight-blinds',
+  },
+  {
     productName: 'Outdoor Blinds And Curtains',
     Url: 'outdoor',
     errorUrl: '/commercial/outdoor-blinds-and-curtains',
