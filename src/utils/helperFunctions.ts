@@ -21,7 +21,7 @@ export const uploadPhotosToBackend = async (files: File[]): Promise<any[]> => {
       console.log('hello from files');
       formData.append('file', file);
     }
-
+console.log(formData, "formData")
     const response: AxiosResponse<any> = await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/file-upload`,formData,{
         headers: {
