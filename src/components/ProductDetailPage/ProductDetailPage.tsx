@@ -13,7 +13,7 @@ import { usePathname } from 'next/navigation';
 
 interface IProductDetail {
   title: string;
-  allprod: IProduct[];
+  allprod?: IProduct[];
 }
 const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
   // const {
@@ -27,7 +27,7 @@ const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
 
   const pathName = usePathname();
 
-  const filterProduct = allprod.find((product) => {
+  const filterProduct = allprod?.find((product) => {
     return product.title === title;
   });
 
