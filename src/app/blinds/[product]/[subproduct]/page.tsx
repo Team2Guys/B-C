@@ -13,7 +13,7 @@ import { ICategory, IProduct } from 'types/types';
 
 const Page = () => {
   const { subproduct } = useParams();
-  const path = usePathname()
+  const path = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
 
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
@@ -37,9 +37,9 @@ const Page = () => {
   useEffect(() => {
     if (path) {
       const matchingUrl = urls.find((url) => url.errorUrl === path);
-      console.log(path,"pathnamepathname")
+      console.log(path, 'pathnamepathname');
       if (matchingUrl) {
-        console.log(matchingUrl, "matchingUrl");
+        console.log(matchingUrl, 'matchingUrl');
         setIsNotFound(true);
       } else {
         setIsNotFound(false);
@@ -50,19 +50,20 @@ const Page = () => {
     return <NotFound />;
   }
 
-
   const filteredProduct = products?.find(
-    (prod) => generateSlug(prod.title) === ChangedProductUrl(subproduct as string) && Cateories.some((item: number) => item == prod.CategoryId),
+    (prod) =>
+      generateSlug(prod.title) === ChangedProductUrl(subproduct as string) &&
+      Cateories.some((item: number) => item == prod.CategoryId),
   );
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;
   }
-  if (!filteredSubCategory && !filteredProduct || isNotFound) {
+  if ((!filteredSubCategory && !filteredProduct) || isNotFound) {
     return <NotFound />;
   }
 
-  return ( 
+  return (
     <>
       {filteredSubCategory ? (
         <>
@@ -78,7 +79,10 @@ const Page = () => {
           /> */}
         </>
       ) : (
-        <ProductDetailPage title={`${filteredProduct?.title}`} />
+        <ProductDetailPage
+          title={`${filteredProduct?.title}`}
+          allprod={products}
+        />
       )}
 
       {/* {filteredSubCategory  ? "": 
