@@ -102,11 +102,7 @@ export const urls = [
     Url: 'hotel-curtains-dubai',
     errorUrl: '/curtains/hotel-curtains',
   },
-  {
-    productName: 'Skylight blinds',
-    Url: 'skylight-blinds-dubai',
-    errorUrl: '/blinds/skylight-blinds',
-  },
+
   {
     productName: 'Chiffon Curtains',
     Url: 'made-to-measure-chiffon-curtains',
@@ -138,7 +134,16 @@ export const urls = [
     Url: '/roller-blinds/blackout-roller-blinds',
     errorUrl: '/blinds/blackout-roller-blinds',
   },
-  
+  {
+    productName: 'Skylight Blinds',
+    Url: 'skylight-blinds-dubai',
+    errorUrl: '/commercial/skylight',
+  },
+  {
+    productName: 'Skylight Blinds',
+    Url: 'skylight-blinds-dubai',
+    errorUrl: '/commercial/skylight-blinds',
+  },
 ];
 
 
@@ -153,7 +158,9 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
-  skylight : '/blinds/skylight-blinds-dubai'
+  skylight : '/blinds/skylight-blinds-dubai',
+  balcony: '/balcony-blinds-and-curtains',
+
 };
 
 export const ChangedProductUrl = (title: string): string => {
