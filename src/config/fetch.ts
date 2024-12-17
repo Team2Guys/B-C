@@ -25,7 +25,6 @@ export const fetchProducts = async (): Promise<Allproduct[]> => {
   }
   
   const products = await response.json();
-
   return products;
 };
 

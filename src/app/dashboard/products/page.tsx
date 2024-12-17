@@ -4,8 +4,7 @@ import Product from './Product';
 import { fetchProducts } from 'config/fetch';
 
 const Produc_page = async () => {
-let products = fetchProducts()
-
+let products = await fetchProducts()
   return (
     <DefaultLayout>
       <Product products={products} />
