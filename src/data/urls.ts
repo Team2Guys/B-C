@@ -144,6 +144,21 @@ export const urls = [
     Url: 'skylight-blinds-dubai',
     errorUrl: '/commercial/skylight-blinds',
   },
+  {
+    productName: 'Outdoor Blinds And Curtains',
+    Url: 'outdoor',
+    errorUrl: '/commercial/outdoor-blinds-and-curtains',
+  },
+  {
+    productName: 'Indoor Blinds And Curtains',
+    Url: 'indoor',
+    errorUrl: '/commercial/indoor-blinds-and-curtains',
+  },
+  {
+    productName: 'Pergola Curtains',
+    Url: 'pergola',
+    errorUrl: '/commercial/pergola-curtains',
+  },
 ];
 
 
@@ -159,7 +174,7 @@ export const predefinedPaths = {
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
   skylight : '/blinds/skylight-blinds-dubai',
-  balcony: '/balcony-blinds-and-curtains',
+  'balcony-blinds-and-curtains': '/balcony-blinds-and-curtains',
 
 };
 
