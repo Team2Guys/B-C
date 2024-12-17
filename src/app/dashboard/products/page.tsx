@@ -1,18 +1,10 @@
 
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import Product from './Product';
+import { fetchProducts } from 'config/fetch';
 
 const Produc_page = async () => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`
-  );
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch products');
-  }
-
-  const products = await response.json();
-
+let products = await fetchProducts()
   return (
     <DefaultLayout>
       <Product products={products} />

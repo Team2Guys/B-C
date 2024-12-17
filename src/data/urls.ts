@@ -24,32 +24,32 @@ export const urls = [
   {
     productName: 'Zipline Outdoor Blinds',
     Url: 'zipline-blinds',
-    errorUrl: 'zipline-outdoor-blinds',
+    errorUrl: '/curtains/zipline-outdoor-blinds',
 
   },
   {
     productName: 'Ripplefold/Wave Curtains',
     Url: 'wave-curtains',
-    errorUrl: 'ripplefold/wave-curtains',
+    errorUrl: '/curtains/ripplefoldwave-curtains',
 
   },
   {
     productName: 'Kids Prints Curtains',
     Url: 'curtain-prints-for-kids',
-    errorUrl: 'kids-prints-curtains',
+    errorUrl: '/curtains/kids-prints-curtains',
 
   },
   {
     productName: 'Double Pinch Pleat Curtains',
     Url: 'double-pleat-curtains',
-    errorUrl: 'double-pleat-pleat-curtains',
+    errorUrl: '/curtains/double-pleat-pleat-curtains',
 
   },
  
   {
     productName: 'Office Curtains',
     Url: 'office-window-curtains',
-    errorUrl: 'office-curtains',
+    errorUrl: '/curtains/office-curtains',
   },
 
   {
@@ -120,11 +120,6 @@ export const urls = [
   },
  
   {
-    productName: 'Ripplefold/Wave Curtains',
-    Url: 'wave-curtains',
-    errorUrl: '/curtains/ripplefoldwave-curtains',
-  },
-  {
     productName: 'hotels-restaurants',
     Url: 'hotels-restaurants-blinds-curtains',
     errorUrl: '/hotels-restaurants',
@@ -144,6 +139,21 @@ export const urls = [
     Url: 'skylight-blinds-dubai',
     errorUrl: '/commercial/skylight-blinds',
   },
+  {
+    productName: 'Outdoor Blinds And Curtains',
+    Url: 'outdoor',
+    errorUrl: '/commercial/outdoor-blinds-and-curtains',
+  },
+  {
+    productName: 'Indoor Blinds And Curtains',
+    Url: 'indoor',
+    errorUrl: '/commercial/indoor-blinds-and-curtains',
+  },
+  {
+    productName: 'Pergola Curtains',
+    Url: 'pergola',
+    errorUrl: '/commercial/pergola-curtains',
+  },
 ];
 
 
@@ -159,7 +169,7 @@ export const predefinedPaths = {
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
   skylight : '/blinds/skylight-blinds-dubai',
-  balcony: '/balcony-blinds-and-curtains',
+  'balcony-blinds-and-curtains': '/balcony-blinds-and-curtains',
 
 };
 
