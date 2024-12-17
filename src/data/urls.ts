@@ -49,7 +49,7 @@ export const urls = [
   {
     productName: 'Office Curtains',
     Url: 'office-window-curtains',
-    errorUrl: 'office-curtains',
+    errorUrl: '/curtains/office-curtains',
   },
 
   {
