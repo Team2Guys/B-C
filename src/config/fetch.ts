@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
-import { Allproduct, BlogInfo} from 'types/interfaces';
+import { Allproduct, BlogInfo } from 'types/interfaces';
 import Cookies from 'js-cookie';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
@@ -14,8 +14,10 @@ const headers = {
 };
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
-  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`, "productscommercial");
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`);
+  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`, 'productscommercial');
+  const response = await axios.get(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
+  );
   return response.data;
 };
 
@@ -106,7 +108,7 @@ export const PostAppointments = async (p0: {
   };
   other: string;
 }): Promise<IAppointments[]> => {
-  console.log(p0,"p0")
+  console.log(p0, 'p0');
   const response = await axios.post(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
   );
@@ -121,19 +123,24 @@ export const getAllAdmins = async () => {
     }
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/get_all_admin`,
-      { headers: {
-        Authorization: `Bearer ${token}`,
-      }},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
     );
     const admins = await response.json();
     return admins;
-  } catch (err:any) {
+  } catch (err: any) {
     throw new Error(err.message || JSON.stringify(err));
   }
 };
 
-
-export const filtereCategory = ( categories: ICategory[],product: string,Cateories: number[]): ICategory | undefined => {
+export const filtereCategory = (
+  categories: ICategory[],
+  product: string,
+  Cateories: number[],
+): ICategory | undefined => {
   return categories?.find((sub) => {
     const title = ChangedProductUrl(product as string);
     const title_flag = title === generateSlug(sub.title);
@@ -143,9 +150,11 @@ export const filtereCategory = ( categories: ICategory[],product: string,Cateori
   });
 };
 
-
-
-export const filterProd = ( prod: Allproduct[],product: string,Cateories: number[]): IProduct | undefined => {
+export const filterProd = (
+  prod: Allproduct[],
+  product: string,
+  Cateories: number[],
+): IProduct | undefined => {
   return prod?.find((sub) => {
     const title = ChangedProductUrl(product as string);
     const title_flag = title === generateSlug(sub.title);
@@ -154,6 +163,3 @@ export const filterProd = ( prod: Allproduct[],product: string,Cateories: number
     );
   });
 };
-
- 
-
