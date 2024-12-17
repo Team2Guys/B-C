@@ -13,7 +13,7 @@ import { ICategory } from 'types/types';
 const CommercialPage = () => {
   const [isNotFound, setIsNotFound] = useState(false);
   const path = usePathname();
-  let product = "Balcony"
+  let product = "Balcony Blinds And Curtains"
  
 
 const router =   useRouter();

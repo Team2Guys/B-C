@@ -773,7 +773,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   },
   {
     Category_id: 12,
-    sub_Category: 'Indoor',
+    sub_Category: 'Indoor Blinds And Curtains',
     static_Title:"Commercial Indoor Window Treatments",
     Product: [
       {
@@ -842,7 +842,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   },
   {
     Category_id: 12,
-    sub_Category: 'Balcony',
+    sub_Category: 'Balcony Blinds And Curtains',
     static_Title:"Premium Commercial Balcony Window Treatments",
     Product: [
       {
@@ -877,7 +877,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   },
   {
     Category_id: 12,
-    sub_Category: 'Pergola',
+    sub_Category: 'Pergola Curtains',
     static_Title:"Pergola  Window Treatments",
     Product: [
       {
@@ -912,7 +912,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   },
   {
     Category_id: 12,
-    sub_Category: 'Outdoor',
+    sub_Category: 'Outdoor Blinds And Curtains',
     static_Title:"Commercial Outdoor Window Treatments",
     Product: [
       {
