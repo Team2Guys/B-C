@@ -5,9 +5,18 @@ import FormElements from 'components/Dashboard/FormElements';
 import ViewProduct from 'components/Dashboard/Tables/ViewProduct';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
 import { useState } from 'react';
+import { IProduct } from 'types/types';
 
+interface Product extends IProduct {
+  id: number;
+  title: string;
+  category: string;
+  posterImage: { imageUrl: string };
+  createdAt: string;
+  CategoryId: number;
+}
 interface PRODUCTS_PROPS {
-  products: any
+  products: Product[]
 }
 
 const Products = ({ products }: PRODUCTS_PROPS) => {
@@ -49,7 +58,7 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
 
   };
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
-
+  console.log(products, "Product")
   return (
     <>
       <Breadcrumb pageName={productFlag ? 'Products' : 'Add Products'} />
