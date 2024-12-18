@@ -38,10 +38,9 @@ export interface Product {
   spacification: { specsDetails: string }[];
   discountPrice: string;
   category: string;
-  Images_Alt_Text?:string
-  Meta_Title?:string
-  Canonical_Tag?:string
-
+  Images_Alt_Text?: string;
+  Meta_Title?: string;
+  Canonical_Tag?: string;
 }
 
 export interface Category {
@@ -104,7 +103,7 @@ export interface FormValues {
   Meta_Title?: string;
   Canonical_Tag?: string;
   Meta_description?: string;
-  Images_Alt_Text?:string
+  Images_Alt_Text?: string;
 }
 
 interface Color {
@@ -382,23 +381,20 @@ export interface IColorData {
   imageUrls?: ColorData[];
 }
 
-interface ColorData{
-  imageUrl:string;
-  altText:string;
+interface ColorData {
+  imageUrl: string;
+  altText: string;
 }
-
 
 export type meta_props = {
-  params: { product: string }
-}
-
+  params: { product: string };
+};
 
 export interface PRODUCS_PROPS {
-  product:string
-  filteredProduct:IProduct | undefined | null
-  filteredSubCategory:ICategory | undefined | null
-  
-
+  product: string;
+  filteredProduct: IProduct | undefined | null;
+  filteredSubCategory: ICategory | undefined | null;
+  allprod: Allproduct[];
 }
 
 
