@@ -396,3 +396,17 @@ export interface PRODUCS_PROPS {
   filteredSubCategory: ICategory | undefined | null;
   allprod: Allproduct[];
 }
+
+
+
+export interface EsProduct {
+    id:string;
+    title: string;
+    posterImage: { imageUrl: string }[];
+  }
+  
+  export interface EstimatorProps {
+    selectProduct: EsProduct[];
+    setActiveProduct: any;
+    activeProduct: any;
+  }
