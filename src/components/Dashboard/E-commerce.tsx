@@ -49,9 +49,7 @@ const ECommerce: React.FC = () => {
     );
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
-  const canVeiwAdmins =
-    loggedInUser &&
-    (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : true);
+  const canVeiwAdmins =loggedInUser && (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : true);
   const canCheckProfit =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canCheckProfit : true);
@@ -64,9 +62,11 @@ const ECommerce: React.FC = () => {
   const canVeiwTotalCategories =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalCategories : true);
-    const canVeiwTotalBlogs =
+  const canVeiwTotalBlogs =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwTotalBlogs : true);
+
+
   return (
     <>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 2xl:gap-7">
@@ -126,13 +126,13 @@ const ECommerce: React.FC = () => {
             />
           </CardDataStats>
         )}
-        
+
         {!canVeiwTotalBlogs ? null : (
           <CardDataStats
             title="Total Blogs"
-            total={records?.total_Blogs? records?.total_Blogs : ''}
+            total={records?.total_Blogs ? records?.total_Blogs : ''}
           >
-            <FaBloggerB 
+            <FaBloggerB
               size={25}
               className="text-white dark:text-black"
             />

@@ -24,32 +24,32 @@ export const urls = [
   {
     productName: 'Zipline Outdoor Blinds',
     Url: 'zipline-blinds',
-    errorUrl: 'zipline-outdoor-blinds',
+    errorUrl: '/curtains/zipline-outdoor-blinds',
 
   },
   {
     productName: 'Ripplefold/Wave Curtains',
     Url: 'wave-curtains',
-    errorUrl: 'ripplefold/wave-curtains',
+    errorUrl: '/curtains/ripplefoldwave-curtains',
 
   },
   {
     productName: 'Kids Prints Curtains',
     Url: 'curtain-prints-for-kids',
-    errorUrl: 'kids-prints-curtains',
+    errorUrl: '/curtains/kids-prints-curtains',
 
   },
   {
     productName: 'Double Pinch Pleat Curtains',
     Url: 'double-pleat-curtains',
-    errorUrl: 'double-pleat-pleat-curtains',
+    errorUrl: '/curtains/double-pleat-pleat-curtains',
 
   },
  
   {
     productName: 'Office Curtains',
     Url: 'office-window-curtains',
-    errorUrl: 'office-curtains',
+    errorUrl: '/curtains/office-curtains',
   },
 
   {
@@ -120,11 +120,6 @@ export const urls = [
   },
  
   {
-    productName: 'Ripplefold/Wave Curtains',
-    Url: 'wave-curtains',
-    errorUrl: '/curtains/ripplefoldwave-curtains',
-  },
-  {
     productName: 'hotels-restaurants',
     Url: 'hotels-restaurants-blinds-curtains',
     errorUrl: '/hotels-restaurants',
@@ -143,6 +138,11 @@ export const urls = [
     productName: 'Skylight Blinds',
     Url: 'skylight-blinds-dubai',
     errorUrl: '/commercial/skylight-blinds',
+  },
+  {
+    productName: 'Skylight Blinds',
+    Url: 'skylight-blinds-dubai',
+    errorUrl: '/blinds/skylight-blinds',
   },
   {
     productName: 'Outdoor Blinds And Curtains',
