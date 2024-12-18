@@ -2,10 +2,10 @@ import React from 'react';
 
 const EstimatorSkeleton = () => {
   return (
-    <div className="mt-10 lg:max-w-[95%] 2xl:max-w-[90%]">
+    <div className="md:mt-10 lg:max-w-[95%] xl:max-w-screen-2xl mx-auto w-full">
       <div className="flex flex-wrap md:flex-nowrap gap-10">
         <div className="w-full md:w-7/12 animate-pulse">
-          <div className="lg:w-full w-full h-full md:h-[762px] rounded-r-3xl  bg-gray-300 "></div>
+          <div className="lg:w-full w-full h-full md:h-[762px] rounded-3xl  bg-gray-300 "></div>
         </div>
         <div className="flex flex-col space-y-5 w-full md:w-5/12 px-2 md:px-0  ">
           <h2 className="w-[256px] h-[52px] animate-pulse bg-gray-300"></h2>

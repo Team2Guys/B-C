@@ -403,3 +403,14 @@ export interface PRODUCS_PROPS {
 
 
 
+export interface EsProduct {
+    id:string;
+    title: string;
+    posterImage: { imageUrl: string }[];
+  }
+  
+  export interface EstimatorProps {
+    selectProduct: EsProduct[];
+    setActiveProduct: any;
+    activeProduct: any;
+  }
