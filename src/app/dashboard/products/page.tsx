@@ -3,6 +3,7 @@ import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import Product from './Product';
 import { fetchProducts } from 'config/fetch';
 
+
 const Produc_page = async () => {
 let products = await fetchProducts()
   return (
