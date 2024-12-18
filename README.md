@@ -36,3 +36,28 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+ const calculatePrice = (width: number | '', height: number | '') => {
+    if (width && height) {
+      const item = categories?.find((p) => p.id === activeProduct?.CategoryId);
+      let price = 0;
+      if (!item) return null;
+      if (generateSlug(item?.title) === 'curtains') {
+        const step1 = Math.ceil((width * 2.3) / 280);
+        let step2 = height + 25;
+        step2 = step2 / 100;
+        const step3 = step1 * step2;
+        const fabricPrice = step3 * (activeProduct?.price || 0);
+        const productionPrice = width * 3;
+
+        price = productionPrice + fabricPrice;
+      } else {
+        const formula = width * height;
+        price = (formula / 10000) * (activeProduct?.price || 0);
+      }
+      setCalculatedPrice(price);
+    } else {
+      setCalculatedPrice(null);
+    }
+  };
