@@ -12,7 +12,7 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({ selectProduct, setActivePr
   return (
     <div className="container px-0 border rounded-xl bg-white p-2">
       <div className="grid grid-cols-2 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-4 xl:grid-cols-5 sm:justify-items-center sm:gap-4 p-3">
-        {selectProduct.map((product:any, index:number) => (
+        {selectProduct && selectProduct.map((product:any, index:number) => (
           <div
             key={index}
             onClick={() => handleProductSelect(product)}

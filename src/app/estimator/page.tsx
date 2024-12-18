@@ -121,7 +121,7 @@ const Estimator: React.FC = () => {
             Select Product
           </h2>
 
-            <EstimatorProduct selectProduct={filteredProducts} 
+            <EstimatorProduct selectProduct={filteredProducts && filteredProducts} 
               activeProduct={activeProduct}
               setActiveProduct={setActiveProduct}
               />
@@ -186,8 +186,6 @@ const Estimator: React.FC = () => {
           </Button>
         </div>
       </div>
-
-      {/* Modal for the measuring guide */}
       <Modal
         title="How to Measure"
         visible={modalVisible}
@@ -196,7 +194,9 @@ const Estimator: React.FC = () => {
       >
         <Image src={estimateIMG} alt="Measuring Guide" width={1000} height={1000} />
       </Modal>
+      <div className='mt-10 lg:mt-20'>
       <RelatedProducts products={products || []} limit={4} />
+      </div>
       <VideoAutomation />
       <BookNowBanner />
       <Support />
