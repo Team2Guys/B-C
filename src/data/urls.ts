@@ -255,3 +255,17 @@ export const getProduct = [
   'Outdoor Shutters',
   'Staircase Shutters'
 ];
+
+
+export const allowedTitles = [
+    "Roller Blinds",
+    "Roman Blinds",
+    "Vertical Blinds",
+    "Wooden Blinds",
+    "Aluminium Blinds",
+    "Zebra Blinds",
+    "Blackout Curtains",
+    "Sheer Curtains",
+    "Shutters MDF",
+    "Shutters Basswood"
+  ];

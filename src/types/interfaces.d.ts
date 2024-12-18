@@ -406,7 +406,7 @@ export interface EsProduct {
   }
   
   export interface EstimatorProps {
-    selectProduct: EsProduct[];
+    selectProduct?: any;
     setActiveProduct: any;
     activeProduct: any;
   }
