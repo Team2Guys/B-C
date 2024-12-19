@@ -51,8 +51,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       menuRef.current &&
       buttonRef.current &&
       mouseEvent.relatedTarget &&
-      !menuRef.current.contains(mouseEvent.relatedTarget as Node) &&
-      !buttonRef.current.contains(mouseEvent.relatedTarget as Node)
+      !menuRef.current?.contains(mouseEvent.relatedTarget as Node) &&
+      !buttonRef.current?.contains(mouseEvent.relatedTarget as Node)
     ) {
       const newTimeoutId = setTimeout(() => {
         setIsOpen(false);

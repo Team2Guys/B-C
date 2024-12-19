@@ -60,9 +60,9 @@ const DetailInfo: React.FC<detailprops> = ({
           <div className="w-full xl:w-6/12 mt-4 lg:mt-0">
             <div className={`text-end  ${imageClass}`}>
               <Image
-                className="md:h-[526.24px] w-full rounded-3xl object-cover"
-                width={455}
-                height={420}
+                className="h-[300px] md:h-[526.24px] w-full rounded-3xl "
+                width={1000}
+                height={1000}
                 src={image?.imageUrl}
                 alt={image?.altText || 'Image'}
               />
