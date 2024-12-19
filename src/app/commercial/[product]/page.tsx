@@ -11,14 +11,12 @@ import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
-
 const CommercialPage = () => {
   const { product } = useParams();
   const [isNotFound, setIsNotFound] = useState(false);
   const path = usePathname();
 
-
-const router =   useRouter();
+  const router = useRouter();
   const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
     queryFn: fetchSubCategories,
@@ -28,21 +26,19 @@ const router =   useRouter();
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-  
-  const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
-    return( prod.urlName == String(product)?.toLowerCase())
-      })
-    
-    
-    
-      if(redirected_product){
-        router.push(redirected_product.Redirect);
-      }
+
+  const redirected_product = CommercialUrl.find(
+    (prod: { urlName: string; Redirect: string }) => {
+      return prod.urlName == String(product)?.toLowerCase();
+    },
+  );
+
+  if (redirected_product) {
+    router.push(redirected_product.Redirect);
+  }
   const filteredSubCategory = subCategories?.find(
     (sub) => generateSlug(sub.title) === ChangedProductUrl(product as string),
   );
-
-
 
   const filteredProduct = products?.find(
     (prod) =>
@@ -53,16 +49,15 @@ const router =   useRouter();
   useEffect(() => {
     if (path) {
       const matchingUrl = urls.find((url) => url.errorUrl === path);
-      console.log(path,"pathnamepathname")
+      console.log(path, 'pathnamepathname');
       if (matchingUrl) {
-        console.log(matchingUrl, "matchingUrl");
+        console.log(matchingUrl, 'matchingUrl');
         setIsNotFound(true);
       } else {
         setIsNotFound(false);
       }
     }
   }, [path]);
-
 
   if (subLoading || prodLoading) {
     return <PageSkelton />;
@@ -72,8 +67,7 @@ const router =   useRouter();
     return <NotFound />;
   }
 
-  console.log(filteredProduct, "filteredProduct" , filteredSubCategory
-  )
+  console.log(filteredProduct, 'filteredProduct', filteredSubCategory);
   return (
     <>
       {filteredSubCategory ? (
@@ -86,7 +80,10 @@ const router =   useRouter();
           />
         </>
       ) : (
-        <ProductDetailPage title={`${filteredProduct?.title}`} />
+        <ProductDetailPage
+          title={`${filteredProduct?.title}`}
+          allprod={products}
+        />
       )}
     </>
   );

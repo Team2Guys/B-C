@@ -85,7 +85,7 @@ const CommercialPage = async ({ params }: { params: { product: string } }) => {
 
   const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(categories, product, Cateories);
-
+  console.log(filteredProduct, 'filteredProductDebuge');
   return (
     <Curtain
       filteredProduct={filteredProduct}
