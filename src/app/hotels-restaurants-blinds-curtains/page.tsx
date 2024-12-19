@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts } from 'config/fetch';
-import { generateSlug } from 'data/data';
 import { usePathname } from 'next/navigation';
 import { IProduct } from 'types/types';
 
@@ -14,8 +13,12 @@ const CommercialPage = () => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
+
+  const filtereProdcts =["Hotels & Restaurants"]
+
+  console.log(path,"pathpath")
   const filteredProduct = products?.find(
-    (prod) => generateSlug(prod.title) === generateSlug(path),
+    (prod) => filtereProdcts.includes(prod.title)
   );
   if (prodLoading) {
     return <PageSkelton />;
