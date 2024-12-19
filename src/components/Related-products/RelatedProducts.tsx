@@ -39,7 +39,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
       <p className="font-normal text-12 md:text-18 mt-2 lg:mt-4">
         {description || 'Explore our collection, each piece a showcase of exceptional window blinds design.'}
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:mt-20 mt-4 lg:mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:mt-10 mt-4 lg:mb-10">
         {displayedProducts.map((item) => {
           const filteredCategory = categoriesList.find(
             (cat) => cat.id === item?.CategoryId,

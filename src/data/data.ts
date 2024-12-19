@@ -2606,63 +2606,22 @@ export const  HiddenProducts_list =["Hotels & Restaurants , blinds & curtains","
 
 export const estimator_data=[
   {
-    id:"1",
+    id:1,
     title:"Roller Blinds",
-    posterImage:[{imageUrl:"/assets/images/blindcard/blind.png"},],
-    price:"10",
+    posterImage:{imageUrl:"/assets/images/blindcard/curtains.png"},
+    price:10,
   },
+ 
   {
-    id:"2",
-    title:"Roman Blinds",
-    posterImage:[{imageUrl:"/assets/images/blindcard/curtains.png"},],
-    price:"40",
-  },
-  {
-    id:"3",
-    title:"Vertical Blinds",
-    posterImage:[{imageUrl:"/assets/images/blindcard/shutters.png"},],
-    price:"20",
-  },
-  {
-    id:"4",
-    title:"Wooden Blinds",
-    posterImage:[{imageUrl:"/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png"},],
-    price:"100",
-  },
-  {
-    id:"5",
-    title:"Aluminium Blinds",
-    posterImage:[{imageUrl:"/assets/images/dynamic/Rectangle 811da.png"},],
-    price:"200",
-  },
-  {
-    id:"6",
-    title:"Zebra Blinds",
-    posterImage:[{imageUrl:"/assets/images/dynamic/Rectangle 811dds.png"},],
-    price:"15",
-  },
-  {
-    id:"7",
-    title:"Blackout Curtains",
-    posterImage:[{imageUrl:"/assets/images/blindcard/shutters.png"},],
-    price:"20",
-  },
-  {
-    id:"8",
-    title:"Sheer Curtains",
-    posterImage:[{imageUrl:"/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png"},],
-    price:"50",
-  },
-  {
-    id:"9",
+    id:2,
     title:"Shutters MDF",
-    posterImage:[{imageUrl:"/assets/images/blindcard/blind.png"},],
-    price:"25",
+    posterImage:{imageUrl:"/assets/images/dynamic/Rectangle 811dds.png"},
+    price:25,
   },
   {
-    id:"10",
-    title:" Shutters Basswood",
-    posterImage:[{imageUrl:"/assets/images/blindcard/curtains.png"},],
-    price:"20",
+    id:3,
+    title:"Shutters Basswood",
+    posterImage:{imageUrl:"/assets/images/dynamic/Rectangle 811da.png"},
+    price:20,
   },
 ]

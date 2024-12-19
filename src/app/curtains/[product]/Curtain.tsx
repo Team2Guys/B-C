@@ -41,7 +41,6 @@ const CommercialPage = ({
   if (isNotFound || (!filteredSubCategory && !filteredProduct)) {
     return <NotFound />;
   }
-
   return (
     <>
       {filteredSubCategory ? (
