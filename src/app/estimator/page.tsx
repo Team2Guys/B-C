@@ -19,6 +19,7 @@ import UnitSelector from '../../components/estimator-product/UnitSelector';
 import EstimatorProduct from 'components/estimator-product/estimator-product';
 import { allowedTitles } from 'data/urls';
 import { estimator_data } from 'data/data';
+import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
 
 const Estimator: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
@@ -30,18 +31,19 @@ const Estimator: React.FC = () => {
   const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
   const route = useRouter();
 
-  const { data: products } = useQuery<IProduct[]>({
+  const { data: products, isLoading:loading} = useQuery<IProduct[]>({
     queryKey: ['products'],
+
     queryFn: fetchProducts,
   });
 
-  const allProducts = products
-  ? [...products, ...estimator_data]
-  : estimator_data;
+  
+  const filteredFetchedProducts = products
+  ? products.filter((product) => allowedTitles.includes(product.title))
+  : [];
 
-const filteredProducts = allProducts.filter((product) =>
-  allowedTitles.includes(product.title)
-);
+const allProducts = [...estimator_data, ...filteredFetchedProducts];
+
   useEffect(() => {
     if (products && products.length > 0) {
       setActiveProduct(products[0]);
@@ -107,7 +109,9 @@ const filteredProducts = allProducts.filter((product) =>
   };
 
   return (
-    <Container className='md:mt-10'>
+    <>
+    {loading ? <EstimatorSkeleton/> :
+      <Container className='md:mt-10'>
       <div className="grid grid-cols-12 md:gap-10 xl:gap-14 2xl:md:h-[677px] space-y-4 md:space-y-0 md:px-2 xl:px-0">
         <div className="col-span-12 md:col-span-6 mt-2 sm:mt-0">
           <Image
@@ -125,7 +129,7 @@ const filteredProducts = allProducts.filter((product) =>
           </h2>
 
           <EstimatorProduct
-              selectProduct={filteredProducts}
+              selectProduct={allProducts}
               activeProduct={activeProduct}
               setActiveProduct={setActiveProduct}
             />
@@ -206,6 +210,9 @@ const filteredProducts = allProducts.filter((product) =>
       <BookNowBanner />
       <Support />
     </Container>
+    }
+    </>
+
   );
 };
 
