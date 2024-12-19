@@ -6,7 +6,7 @@ import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchProducts } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { usePathname } from 'next/navigation';
-import {  IProduct } from 'types/types';
+import { IProduct } from 'types/types';
 
 const CommercialPage = () => {
   const path = usePathname();
@@ -22,7 +22,10 @@ const CommercialPage = () => {
   }
   return (
     <>
-        <ProductDetailPage title={`${filteredProduct?.title}`} />
+      <ProductDetailPage
+        title={`${filteredProduct?.title}`}
+        allprod={products}
+      />
     </>
   );
 };
