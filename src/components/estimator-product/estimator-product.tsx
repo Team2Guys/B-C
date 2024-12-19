@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { EsProduct, EstimatorProps } from 'types/interfaces';
-import { IProduct } from 'types/types';
 
 const EstimatorProduct: React.FC<EstimatorProps> = ({ selectProduct, setActiveProduct, activeProduct }) => {
   
