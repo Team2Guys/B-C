@@ -2606,22 +2606,19 @@ export const  HiddenProducts_list =["Hotels & Restaurants , blinds & curtains","
 
 export const estimator_data=[
   {
-    id:"1",
     title:"Roller Blinds",
     posterImage:{imageUrl:"/assets/images/blindcard/curtains.png"},
-    price:"10",
+    price:10,
   },
  
   {
-    id:"2",
     title:"Shutters MDF",
     posterImage:{imageUrl:"/assets/images/dynamic/Rectangle 811dds.png"},
-    price:"25",
+    price:25,
   },
   {
-    id:"3",
     title:"Shutters Basswood",
     posterImage:{imageUrl:"/assets/images/dynamic/Rectangle 811da.png"},
-    price:"20",
+    price:20,
   },
 ]
