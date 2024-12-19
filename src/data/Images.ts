@@ -948,6 +948,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Hospital Curtains',
+    static_Title:"Made To Measure Hospital Window Coverings",
     Product: [
       {
         product_name: 'Sheer Curtains',
