@@ -432,6 +432,6 @@ export interface EsProduct {
   
   export interface EstimatorProps {
     selectProduct: EsProduct[];
-    setActiveProduct: any;
-    activeProduct: any;
+    setActiveProduct: React.DispatchM<SetStateAction<EsProduct | null>>;
+    activeProduct: EsProduct | null;
   }
