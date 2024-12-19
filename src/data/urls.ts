@@ -258,14 +258,14 @@ export const getProduct = [
 
 
 export const allowedTitles = [
-    "Roller Blinds",
-    "Roman Blinds",
-    "Vertical Blinds",
-    "Wooden Blinds",
-    "Aluminium Blinds",
-    "Zebra Blinds",
-    "Blackout Curtains",
-    "Sheer Curtains",
-    "Shutters MDF",
-    "Shutters Basswood"
+  "Roman Blinds",
+  "Vertical Blinds",
+  "Wooden Blinds",
+  "Aluminium Blinds",
+  "Zebra Blinds",
+  "Blackout Curtains",
+  "Sheer Curtains",
+  "Shutters MDF",
+  "Roller Blinds",
+  "Shutters Basswood"
   ];

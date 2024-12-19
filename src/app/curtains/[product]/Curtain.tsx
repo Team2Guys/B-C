@@ -38,7 +38,6 @@ const CommercialPage = ({filteredProduct, filteredSubCategory,product}:PRODUCS_P
   if (isNotFound || (!filteredSubCategory && !filteredProduct) ) {
     return <NotFound />;
   }
-
   return (
     <>
       {filteredSubCategory ? (
