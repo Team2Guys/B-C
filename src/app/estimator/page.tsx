@@ -206,11 +206,11 @@ const allProducts = [...estimator_data, ...filteredFetchedProducts];
       <div className='mt-10 lg:mt-20'>
       <RelatedProducts products={products || []} limit={4} />
       </div>
-      <VideoAutomation />
-      <BookNowBanner />
-      <Support />
     </Container>
     }
+    <VideoAutomation />
+    <BookNowBanner />
+    <Support />
     </>
 
   );
