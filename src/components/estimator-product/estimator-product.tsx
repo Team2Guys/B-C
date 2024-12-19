@@ -22,7 +22,7 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({ selectProduct, setActivePr
           >
             <div>
               <Image
-                className={`w-20 h-20 rounded-lg mx-auto border-4 ${
+                className={`w-20 h-20 rounded-2xl mx-auto border-4 ${
                   activeProduct?.id === product.id ? 'border-secondary' : 'border-white'
                 }`}
                 width={200}

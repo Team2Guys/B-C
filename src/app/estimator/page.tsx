@@ -15,9 +15,10 @@ import { useRouter } from 'next/navigation';
 import Input from 'components/Common/regularInputs';
 import Container from 'components/Res-usable/Container/Container';
 import { PiGreaterThan } from "react-icons/pi";
-import UnitSelector from './UnitSelector';
+import UnitSelector from '../../components/estimator-product/UnitSelector';
 import EstimatorProduct from 'components/estimator-product/estimator-product';
 import { allowedTitles } from 'data/urls';
+import { estimator_data } from 'data/data';
 
 const Estimator: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
@@ -34,10 +35,13 @@ const Estimator: React.FC = () => {
     queryFn: fetchProducts,
   });
 
-  const filteredProducts = products?.filter(product =>
-    allowedTitles.includes(product.title)
-  );
+  const allProducts = products
+  ? [...products, ...estimator_data]
+  : estimator_data;
 
+const filteredProducts = allProducts.filter((product) =>
+  allowedTitles.includes(product.title)
+);
   useEffect(() => {
     if (products && products.length > 0) {
       setActiveProduct(products[0]);
@@ -106,9 +110,8 @@ const Estimator: React.FC = () => {
     <Container className='md:mt-10'>
       <div className="grid grid-cols-12 md:gap-10 xl:gap-14 2xl:md:h-[677px] space-y-4 md:space-y-0 md:px-2 xl:px-0">
         <div className="col-span-12 md:col-span-6 mt-2 sm:mt-0">
-          {/* Display the selected product image */}
           <Image
-            src={selectedProduct?.posterImage?.imageUrl || selectedProduct?.posterImage[0].imageUrl}
+            src={selectedProduct?.posterImage?.imageUrl}
             width={1000}
             height={1000}
             alt={selectedProduct?.title || 'Product Image'}
@@ -121,10 +124,11 @@ const Estimator: React.FC = () => {
             Select Product
           </h2>
 
-            <EstimatorProduct selectProduct={filteredProducts && filteredProducts} 
+          <EstimatorProduct
+              selectProduct={filteredProducts}
               activeProduct={activeProduct}
               setActiveProduct={setActiveProduct}
-              />
+            />
 
           <h2 className="lg:text-[30px] lg:font-black text-2xl font-bold capitalize">
             Enter Your Size
@@ -179,8 +183,9 @@ const Estimator: React.FC = () => {
           </p>
 
           <Button
-            onClick={() => route.push('/booknow')}
-            className="w-full md:w-fit mt-4 2xl:w-[240px] h-[50px]"
+          variant={"default"}
+            onClick={() => route.push('/request-appointment')}
+            className="w-full mt-4 h-12 bg-[#BDC9BD] hover:bg-secondary font-semibold !text-18"
           >
             Book Now
           </Button>
