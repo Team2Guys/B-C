@@ -20,6 +20,7 @@ import EstimatorProduct from 'components/estimator-product/estimator-product';
 import { allowedTitles } from 'data/urls';
 import { estimator_data } from 'data/data';
 import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
+import { EsProduct } from 'types/interfaces';
 
 const Estimator: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);

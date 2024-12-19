@@ -1,18 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
-import { EstimatorProps } from 'types/interfaces';
+import { EsProduct, EstimatorProps } from 'types/interfaces';
 import { IProduct } from 'types/types';
 
 const EstimatorProduct: React.FC<EstimatorProps> = ({ selectProduct, setActiveProduct, activeProduct }) => {
   
-  const handleProductSelect = (product: IProduct) => {
+  const handleProductSelect = (product: EsProduct) => {
     setActiveProduct(product);
   };
 
   return (
     <div className="container px-0 border rounded-xl bg-white p-2">
       <div className="grid grid-cols-2 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-4 xl:grid-cols-5 sm:justify-items-center sm:gap-4 p-3">
-        {selectProduct && selectProduct.map((product:any, index:number) => (
+        {selectProduct && selectProduct.map((product:EsProduct, index:number) => (
           <div
             key={index}
             onClick={() => handleProductSelect(product)}
