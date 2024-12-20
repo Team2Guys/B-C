@@ -1069,7 +1069,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Textured Curtains',
         altText: 'Textured Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/commerical/gym/Velvet Curtains for gym.webp',
+          '/assets/images/optimized-images/curtains/theatre-curtains/Textured curtains (2).webp',
         desc: 'Theatre curtains also have some unique textures. We offer curtains that interact beautifully with stage lighting, creating a mesmerizing visual effect.Textured curtains are available in custom sizes and patterns to express their unique identity. Their versatility extends to various stage styles, from classical operas to contemporary plays. Our textured <b>blue curtains</b> add an artistic dimension to stage design. These curtains are crafted from fire-retardant materials, guaranteeing safety while maintaining elegance.',
       },
       {
