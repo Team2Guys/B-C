@@ -118,14 +118,14 @@ const BathroomCategory = ({
               key={index}
               >
                   <Image
-                    className="w-full h-full md:h-[374px] rounded-md object-cover"
+                    className="w-full h-[350px] xsm:h-[400px] xs:h-[500px] sm:h-[350px] md:h-[450px] lg:h-[500px] rounded-md"
                     src={
                       product_Images
                       ? product_Images.Imagesurl
                         : arr.posterImage.imageUrl
                       }
-                      height={800}
-                      width={800}
+                      height={774}
+                      width={1032}
                       alt={product_Images ? product_Images.altText : arr.title}
                       />
                   <h2 className="font-bold text-base sm:text-xl md:text-2xl text-center">

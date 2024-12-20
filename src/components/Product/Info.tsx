@@ -43,9 +43,9 @@ const Info = (selectedPage: IInfo) => {
         </div>
         <div className="flex justify-center md:justify-end mt-5 md:mt-0">
           <Image
-            className="w-auto h-auto rounded-xl"
-            width={602}
-            height={400}
+            className="w-auto h-auto rounded-xl object-fill"
+            width={1024}
+            height={768}
             src={
               selectedPage.selectedPage.posterImage
                 ? selectedPage.selectedPage.posterImage
