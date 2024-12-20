@@ -12,7 +12,6 @@ const CommercialPage = ({filteredProduct, filteredSubCategory,product}:PRODUCS_P
   const [isNotFound, setIsNotFound] = useState(false);
   const router = useRouter()
 ;
-
   const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
     return( prod.urlName == String(product)?.toLowerCase())
       })
@@ -21,9 +20,7 @@ const CommercialPage = ({filteredProduct, filteredSubCategory,product}:PRODUCS_P
         router.push(redirected_product.Redirect);
       }
 
-
-
-  useEffect(() => {
+useEffect(() => {
     if (path) {
       const matchingUrl = urls.find((url) => url.errorUrl === path);
       console.log(path,"pathnamepathname")
