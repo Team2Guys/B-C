@@ -3,296 +3,218 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Modal } from 'antd';
 import { useQuery } from '@tanstack/react-query';
-import { fetchCategories, fetchProducts } from 'config/fetch';
-import { ICategory, IProduct } from 'types/types';
+import { fetchProducts } from 'config/fetch';
+import { IProduct } from 'types/types';
 import estimateIMG from '../../../public/assets/images/getestimate.png';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
+// import RelatedProducts from 'components/Related-products/RelatedProducts';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { Button } from 'components/ui/button';
-import {generateSlug } from 'data/data';
-import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
 import { useRouter } from 'next/navigation';
 import Input from 'components/Common/regularInputs';
-import EstimatorTabs from 'components/estimator-tab';
+import Container from 'components/Res-usable/Container/Container';
+import { PiGreaterThan } from "react-icons/pi";
+import UnitSelector from '../../components/estimator-product/UnitSelector';
+import EstimatorProduct from 'components/estimator-product/estimator-product';
+import { allowedTitles } from 'data/urls';
+import { estimator_data } from 'data/data';
+import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
 
 const Estimator: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
   const [activeProduct, setActiveProduct] = useState<IProduct | null>(null);
-
+  const [selectedUnit, setSelectedUnit] = useState<string>("cm");
   const [modalVisible, setModalVisible] = useState(false);
   const [width, setWidth] = useState<number | ''>('');
   const [height, setHeight] = useState<number | ''>('');
-
   const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
   const route = useRouter();
 
-  const {
-    data: categories,
-    error: categoriesError,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
-
-  const {
-    data: products,
-    error: productsError,
-    isLoading: isLoadingProducts,
-  } = useQuery<IProduct[]>({
+  const { data: products, isLoading:loading} = useQuery<IProduct[]>({
     queryKey: ['products'],
+
     queryFn: fetchProducts,
   });
 
-  useEffect(() => {
-    if (categories && products) {
-      const firstCategory = categories.find((category) =>
-        category.title.toLowerCase().includes('blinds'),
-      );
-      console.log(firstCategory, 'firstCategory');
-      if (firstCategory) {
-        const productsInFirstCategory = products.filter(
-          (product) => product.CategoryId === firstCategory.id,
-        );
+  
+  const filteredFetchedProducts = products
+  ? products.filter((product) => allowedTitles.includes(product.title))
+  : [];
 
-        console.log(productsInFirstCategory[0], 'productsInFirstCategory');
-        if (productsInFirstCategory.length > 0) {
-          setActiveProduct(productsInFirstCategory[0]);
-          setSelectedProduct(activeProduct);
-        }
-      }
+const allProducts = [...estimator_data, ...filteredFetchedProducts];
+
+  useEffect(() => {
+    if (products && products.length > 0) {
+      setActiveProduct(products[0]);
+      setSelectedProduct(products[0]);
     }
-  }, [categories, products]);
+  }, [products]);
 
   useEffect(() => {
     calculatePrice(width, height);
     setSelectedProduct(activeProduct);
-    console.log(activeProduct, 'imageUrl');
   }, [activeProduct]);
-
-  if (categoriesError instanceof Error) return <EstimatorSkeleton />;
-  if (productsError instanceof Error) return <EstimatorSkeleton />;
-
-  const categoryIds = new Set<number>([
-    ...(categories?.map((category) => category.id) || []),
-    ...(products?.map((product) => product.CategoryId) || []),
-  ]);
-
-  const productsByCategory = Array.from(categoryIds).reduce(
-    (acc, categoryId) => {
-      acc[categoryId] =
-        products?.filter((product) => product.CategoryId === categoryId) || [];
-      return acc;
-    },
-    {} as Record<number, IProduct[]>,
-  );
 
   const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    setWidth(isNaN(value) ? '' : value);
-    calculatePrice(value, height);
+    if (value >= 0 || isNaN(value)) {
+      setWidth(isNaN(value) ? '' : value);
+      calculatePrice(isNaN(value) ? '' : value, height);
+    }
   };
 
   const handleHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    setHeight(isNaN(value) ? '' : value);
-    calculatePrice(width, value);
-  };
-
-  const calculatePrice = (width: number | '', height: number | '') => {
-    if (width && height) {
-      const item = categories?.find((p) => p.id === activeProduct?.CategoryId);
-      let price = 0;
-      if (!item) return null;
-      if (generateSlug(item?.title) === 'curtains') {
-        const step1 = Math.ceil((width * 2.3) / 280);
-        let step2 = height + 25;
-        step2 = step2 / 100;
-        const step3 = step1 * step2;
-        const fabricPrice = step3 * (activeProduct?.price || 0);
-        const productionPrice = width * 3;
-
-        price = productionPrice + fabricPrice;
-      } else {
-        const formula = width * height;
-        price = (formula / 10000) * (activeProduct?.price || 0);
-      }
-      setCalculatedPrice(price);
-    } else {
-      setCalculatedPrice(null);
+    if (value >= 0 || isNaN(value)) {
+      setHeight(isNaN(value) ? '' : value);
+      calculatePrice(width, isNaN(value) ? '' : value);
     }
   };
 
-  const showModal = () => {
-    setModalVisible(true);
+  const calculatePrice = (width: number | '', height: number | '') => {
+    if (width && height && activeProduct) {
+      let convertedWidth = width;
+      let convertedHeight = height;
+      if (selectedUnit === 'mm') {
+        convertedWidth = width / 10;
+        convertedHeight = height / 10;
+      } else if (selectedUnit === 'inches') {
+        convertedWidth = width * 2.54;
+        convertedHeight = height * 2.54;
+      }
+      const areaInSquareCm = convertedWidth * convertedHeight;
+      const pricePerUnit = activeProduct.price || 0;
+      const price = (areaInSquareCm / 10000) * pricePerUnit;
+      setCalculatedPrice(price);
+    } else {
+      setCalculatedPrice(0);
+    }
   };
 
-  const handleCloseModal = () => {
-    setModalVisible(false);
+  useEffect(() => {
+    calculatePrice(width, height);
+  }, [width, height, activeProduct, selectedUnit]);
+
+  const showModal = () => setModalVisible(true);
+  const handleCloseModal = () => setModalVisible(false);
+
+  const getPlaceholder = (dimension: string) => {
+    const unitPlaceholders: Record<string, string> = {
+      mm: `Enter ${dimension} (mm)`,
+      cm: `Enter ${dimension} (cm)`,
+      inches: `Enter ${dimension} (inches)`,
+    };
+    return unitPlaceholders[selectedUnit] || `Enter ${dimension}`;
   };
 
   return (
     <>
-      {isLoadingProducts || selectedProduct === null ? (
-        <EstimatorSkeleton />
-      ) : (
-        <div className="md:mt-10 lg:max-w-[95%] xl:max-w-screen-2xl mx-auto w-full">
-          <div className="grid grid-cols-12 md:gap-4 space-y-5 md:space-y-0 md:px-2 xl:px-0">
-            <div className=" col-span-12 md:col-span-5 lg:col-span-7">
-              <Image
-                src={selectedProduct?.posterImage?.imageUrl}
-                width={1000}
-                height={1000}
-                alt={selectedProduct?.title || 'Blinds'}
-                className="object-cover lg:w-full w-full h-full md:h-[772px] rounded-r-3xl"
-              />
-            </div>
+    {loading ? <EstimatorSkeleton/> :
+      <Container className='md:mt-10'>
+      <div className="grid grid-cols-12 md:gap-10 xl:gap-14 2xl:md:h-[677px] space-y-4 md:space-y-0 md:px-2 xl:px-0">
+        <div className="col-span-12 md:col-span-6 mt-2 sm:mt-0">
+          <Image
+            src={selectedProduct?.posterImage?.imageUrl}
+            width={1000}
+            height={1000}
+            alt={selectedProduct?.title || 'Product Image'}
+            className="object-cover lg:w-full w-full h-[250px] md:h-[677px] 2xl:md:h-[700px] rounded-3xl"
+          />
+        </div>
 
-            <div className="flex flex-col space-y-5 col-span-12 md:col-span-7 lg:col-span-5 px-2 md:px-0">
-              <h2 className="lg:text-[39px] lg:font-black text-2xl font-bold capitalize">
-                Get Estimate
-              </h2>
+        <div className="flex flex-col space-y-3 col-span-12 md:col-span-6 px-2 md:px-0">
+          <h2 className="lg:text-[30px] lg:font-black text-2xl font-bold capitalize">
+            Select Product
+          </h2>
 
-              <div className=" bg-gray-100 pb-6  rounded-lg shadow-md w-full">
-                <p className="text-lg font-normal mb-2 p-3 rounded-t-md bg-[#f6efe9]">
-                  Enter your Measurements
-                </p>
+          <EstimatorProduct
+              selectProduct={allProducts}
+              activeProduct={activeProduct}
+              setActiveProduct={setActiveProduct}
+            />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 px-5">
-                  <div>
-                    <label
-                      htmlFor="width"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Width (cm)
-                      <span className="text-red-500">*</span>
-                    </label>
-                    <div className="relative flex items-center">
-                      <Input
-                        type="number"
-                        id="height"
-                        className="w-full border border-gray-300 rounded-sm"
-                        placeholder="Example: 1.3"
-                        value={width || ''}
-                        onChange={handleWidthChange}
-                      />
-                      <span className="ml-2">cm</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="height"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Height (cm)
-                      <span className="text-red-500"> *</span>
-                    </label>
-                    <div className="relative flex items-center">
-                      <Input
-                        type="number"
-                        id="weight"
-                        className="w-full border border-gray-300 rounded-sm"
-                        placeholder="Example: 1.3"
-                        value={height || ''}
-                        onChange={handleHeightChange}
-                      />
-                      <span className="ml-2">cm</span>
-                    </div>
-                  </div>
+          <h2 className="lg:text-[30px] lg:font-black text-2xl font-bold capitalize">
+            Enter Your Size
+          </h2>
+          <div className="cursor-pointer text-[#0078D7] w-fit" onClick={showModal}>
+            <span className="text-[#0078D7] text-sm flex items-center gap-2">
+              Measuring Guide <PiGreaterThan className="text-[#0078D7]" />
+            </span>
+          </div>
+          <div className="space-y-2 sm:space-y-0">
+            <UnitSelector selectedUnit={selectedUnit} setSelectedUnit={setSelectedUnit} />
+            <div className="flex flex-wrap gap-4 items-center">
+              <div className="grid grid-cols-2 max-sm:w-full gap-2">
+                <div className="w-full sm:w-fit">
+                  <Input
+                    type="number"
+                    id="width"
+                    className="w-full h-11 rounded-lg md:w-24 2xl:w-full 2xl:h-12 sm:h-9 text-[7px] 2xl:text-sm 2xl:placeholder:text-[10px] placeholder:text-[7px] px-1 2xl:px-2"
+                    placeholder={getPlaceholder('Width')}
+                    value={width || ''}
+                    onChange={handleWidthChange}
+                  />
                 </div>
-
-                <p className="text-red-600 text-sm mb-4 px-5 ">
-                  Note: Blinds with area less than 2 cm2 is considered 2 cm2
-                </p>
-
-                <div
-                  className="flex items-center space-x-2 px-5 cursor-pointer"
-                  onClick={showModal}
-                >
-                  <span className=" font-medium bg-black px-[0.30rem] text-sm text-white rounded-full">
-                    ?
-                  </span>
-                  <p className="text-gray-600 text-sm">Measuring Guide</p>
+                <div className="w-full sm:w-fit">
+                  <Input
+                    type="number"
+                    id="height"
+                    className="w-full h-11 rounded-lg md:w-24 2xl:w-full 2xl:h-12 sm:h-9 text-[7px] 2xl:text-sm 2xl:placeholder:text-[10px] placeholder:text-[7px] px-1 2xl:px-2"
+                    placeholder={getPlaceholder('Height')}
+                    value={height || ''}
+                    onChange={handleHeightChange}
+                  />
                 </div>
               </div>
 
-              <EstimatorTabs
-                categories={categories || []}
-                productsByCategory={productsByCategory}
-                activeProduct={activeProduct}
-                setActiveProduct={setActiveProduct}
-              />
-
-              <p className="lg:text-[15px] px-4 md:px-0">
-                *The displayed price is for the base offer; for upgraded options
-                prices may vary visit to have your custom quotation!
-              </p>
-              {activeProduct && (
-                <p className="lg:text-[35px] text-2xl font-bold text-center px-4 md:px-0">
-                  AED{' '}
-                  {calculatedPrice
-                    ? calculatedPrice.toFixed(2)
-                    : '0'}
-                </p>
-              )}
-
-              <Button
-                onClick={() => {
-                  route.push('/request-appointment');
-                }}
-                className="bg-secondary text-white text-lg md:text-2xl font-bold py-7 px-4 rounded-lg w-full"
-              >
-                Book A Free Appointment
-              </Button>
+              <div className="flex gap-2 items-center">
+                <p className="text-14">Estimated Price:</p>
+                <div className="flex justify-center items-center bg-[#D9D9D9] rounded-full h-[70px] w-[70px] ">
+                  {activeProduct && (
+                    <div className="text-14 font-black text-wrap text-center">
+                      AED {calculatedPrice ? calculatedPrice.toFixed(2) : "0"
+                      // activeProduct.price
+                      }
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-          <div className="estimator1">
-            <Modal
-              className="estimator"
-              open={modalVisible}
-              onCancel={handleCloseModal}
-              footer={null}
-              width="65rem"
-              bodyStyle={{
-                padding: 0,
+          <p className="lg:text-[15px] ">
+            The displayed price is for indication purposes only. <br />
+            Final price may vary according to your actual requirements. <br />
+            All blinds & shutters are charged at a minimum of 1.5m2
+          </p>
 
-                margin: 0,
-                height: '35rem',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: '5px',
-              }}
-              centered
-            >
-              <div
-                style={{
-                  position: 'relative',
-                  padding: 24,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }}
-              ></div>
-              <Image
-                src={estimateIMG}
-                alt="Detailed measuring guide for blinds"
-                layout="fill"
-                // objectFit="contain"
-              />
-            </Modal>
-          </div>
-          <div className="py-10 2xl:max-w-screen-2xl mx-auto px-2 lg:pl-10 ">
-            <RelatedProducts products={products || []} limit={4} />
-          </div>
-          <BookNowBanner />
-          <VideoAutomation />
-          <Support />
+          <Button
+          variant={"default"}
+            onClick={() => route.push('/request-appointment')}
+            className="w-full mt-4 h-12 bg-[#BDC9BD] hover:bg-secondary font-semibold !text-18"
+          >
+            Book Now
+          </Button>
         </div>
-      )}
+      </div>
+      <Modal
+        title="How to Measure"
+        visible={modalVisible}
+        onCancel={handleCloseModal}
+        footer={null}
+      >
+        <Image src={estimateIMG} alt="Measuring Guide" width={1000} height={1000} />
+      </Modal>
+      {/* <div className='mt-10 lg:mt-20'>
+      <RelatedProducts products={products || []} limit={4} />
+      </div> */}
+    </Container>
+    }
+    <VideoAutomation />
+    <BookNowBanner />
+    <Support />
     </>
+
   );
 };
 
