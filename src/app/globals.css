@@ -186,7 +186,7 @@ html {
   color: var(--tabletext);
 }
 .Hero-slider .slick-dots {
-  bottom: 4px !important;
+  bottom: -30px !important;
   /* left: -35px !important; */
 }
 .custom-collapse .ant-collapse-content-box {
