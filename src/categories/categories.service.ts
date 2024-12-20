@@ -76,20 +76,20 @@ export class CategoriesService {
 
 
   async AddsubCategoryHandler(createCategoryDto: Prisma.SubCategoriesCreateInput) {
-    const CreatesubCategoryHandlerWithErrorHandling  = withAsyncErrorHandling(CreatesubCategoryHandler)
-      const [response, error]: any = await CreatesubCategoryHandlerWithErrorHandling(createCategoryDto);
-      if(error){
-        return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
-      }
-        
-     return response
+    const CreatesubCategoryHandlerWithErrorHandling = withAsyncErrorHandling(CreatesubCategoryHandler)
+    const [response, error]: any = await CreatesubCategoryHandlerWithErrorHandling(createCategoryDto);
+    if (error) {
+      return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
+    }
+
+    return response
 
   }
 
 
   async DelsubCategoryhandle(id: number) {
     try {
-      console.log(id, "id", typeof(id))
+      console.log(id, "id", typeof (id))
 
       const category = await this.prisma.subCategories.findUnique({
         where: { id: id },
@@ -112,7 +112,7 @@ export class CategoriesService {
   }
 
 
-  async UpdatesubCategoryhandle(id: number,subCategory_update_data: Prisma.SubCategoriesUpdateInput) {
+  async UpdatesubCategoryhandle(id: number, subCategory_update_data: Prisma.SubCategoriesUpdateInput) {
     try {
 
       const category = await this.prisma.subCategories.findUnique({
@@ -123,7 +123,7 @@ export class CategoriesService {
       console.log(subCategory_update_data, "subCategory_update_data")
       let response = await this.prisma.subCategories.update({
         where: { id: id },
-        data:subCategory_update_data
+        data: subCategory_update_data
       });
       return response;
 
@@ -135,7 +135,7 @@ export class CategoriesService {
 
   async getsubAllCategories() {
     try {
-      let response = this.prisma.subCategories.findMany({include:{products: true, category: true} })
+      let response = this.prisma.subCategories.findMany({ include: { products: true, category: true } })
       return response;
     } catch (error) {
       return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'INTERNAL_SERVER_ERROR')

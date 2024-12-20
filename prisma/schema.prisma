@@ -8,17 +8,18 @@ datasource db {
 }
 
 model Categories {
-  id              Int             @id @default(autoincrement())
-  title           String          @unique
-  products        products[]      @relation("CategoryToProducts")
-  posterImage     Json
-  subCategories   SubCategories[] @relation("CategoryToSubCategories")
-  description     String?
-  createdAt       DateTime        @default(now())
-  Images_Alt_Text String?
-  Meta_Title      String?
-  Canonical_Tag   String?
+  id               Int             @id @default(autoincrement())
+  title            String          @unique
+  products         products[]      @relation("CategoryToProducts")
+  posterImage      Json
+  subCategories    SubCategories[] @relation("CategoryToSubCategories")
+  description      String?
+  createdAt        DateTime        @default(now())
+  Images_Alt_Text  String?
+  Meta_Title       String?
+  Canonical_Tag    String?
   Meta_description String?
+  last_editedBy    String?
 }
 
 model SubCategories {
@@ -34,7 +35,8 @@ model SubCategories {
   Images_Alt_Text   String?
   Meta_Title        String?
   Canonical_Tag     String?
-    Meta_description String?
+  Meta_description  String?
+  last_editedBy     String?
 }
 
 model products {
@@ -60,6 +62,7 @@ model products {
   heading                 String?
   Sub_Heading             String?
   Sub_Heading_description String?
+  last_editedBy           String?
 }
 
 enum contact_method {
@@ -113,26 +116,28 @@ model Admins {
 }
 
 model blogs {
-  id          Int              @id @default(autoincrement())
-  title       String           @unique
-  content     String
-  category    String
-  updatedAt   DateTime?
-  createdAt   DateTime         @default(now())
-  posterImage Json             @default("{}")
-  comments    blogs_comments[] @relation("BlogComments")
+  id            Int              @id @default(autoincrement())
+  title         String           @unique
+  content       String
+  category      String
+  updatedAt     DateTime?
+  createdAt     DateTime         @default(now())
+  posterImage   Json             @default("{}")
+  comments      blogs_comments[] @relation("BlogComments")
+  last_editedBy String?
 }
 
 model blogs_comments {
-  id          Int           @id @default(autoincrement())
-  name        String
-  Email       String
-  description String
-  createdAt   DateTime      @default(now())
-  replies     Json[]
-  blogId      Int
-  blog        blogs         @relation("BlogComments", fields: [blogId], references: [id])
-  status      CommentStatus @default(PENDING)
+  id            Int           @id @default(autoincrement())
+  name          String
+  Email         String
+  description   String
+  createdAt     DateTime      @default(now())
+  replies       Json[]
+  blogId        Int
+  blog          blogs         @relation("BlogComments", fields: [blogId], references: [id])
+  status        CommentStatus @default(PENDING)
+  last_editedBy String?
 }
 
 enum CommentStatus {
