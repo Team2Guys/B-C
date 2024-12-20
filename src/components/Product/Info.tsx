@@ -4,6 +4,7 @@ import productimf from '../../../public/assets/images/product/product1.png';
 import Image from 'next/image';
 import { IInfo } from 'types/types';
 import PageSkelton from 'components/Skeleton/PageSkelton';
+import Link from 'next/link';
 
 const Info = (selectedPage: IInfo) => {
   // const route = useRouter();
@@ -31,14 +32,12 @@ const Info = (selectedPage: IInfo) => {
               ></p>
             ))}
           <div className=" pt-5 text-center md:text-start">
-            <button
-              onClick={() => {
-                window.open('/request-appointment', '_blank');
-              }}
-              className="px-4 py-3 rounded-md bg-secondary text-white font-medium"
+            <Link  href={"/request-appointment"}
+              target='_blank'
+              className="px-4 py-4 rounded-md bg-secondary text-white font-medium"
             >
               Book An Appointment
-            </button>
+            </Link>
           </div>
         </div>
         <div className="flex justify-center md:justify-end mt-5 md:mt-0">
