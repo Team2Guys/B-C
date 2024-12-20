@@ -8,7 +8,7 @@ function Appointment() {
   return (
     <>
       <Divider className="border bg-white !p-0 !m-0 h-1" />
-      <Container className='mt-4'>
+      <Container className=''>
         <div className="xl:flex gap-4 ">
           <Choose />
           <BookAppointment singlePage={false} />

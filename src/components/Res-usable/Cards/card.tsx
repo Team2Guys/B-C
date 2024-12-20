@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ICategory } from 'types/types';
+import Link from 'next/link';
 
 interface CardProps {
   data: ICategory;
@@ -14,12 +15,11 @@ const truncateText = (text: string, wordLimit: number) => {
   return words.slice(0, wordLimit).join(' ') + '...';
 };
 const Card: React.FC<CardProps> = ({ data, href }) => {
-  const route = useRouter();
   return (
     <>
-      <div
+      <Link
         className="max-w-md rounded  lg:m-4 m-2 group cursor-pointer text-center sm:text-start"
-        onClick={() => route.push(`${href}`)}
+        href={`${href}`}
       >
         <div>
           <Image
@@ -37,15 +37,15 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
           </p>
         </div>
         <div className=" w-fit flex flex-col justify-center items-center text-sm mx-auto">
-          <button
+          <Link
             className="font-bold font-sans rounded-none group-hover:rounded-full px-3 py-1 group-hover:border-gray-300 group-hover:bg-white"
-            onClick={() => route.push('/products')}
+            href={`${href}`}
           >
             View {data.title}
-          </button>
+          </Link>
           <hr className="border-b-4 border-b-primary w-24 mt-1" />
         </div>
-      </div>
+      </Link>
     </>
   );
 };
