@@ -12,20 +12,10 @@ import { usePathname } from 'next/navigation';
 import { Image } from 'antd';
 import { IoSearch } from 'react-icons/io5';
 
-interface GalleryProps {
-  card: IProduct;
-  relativeProducts?: boolean;
-  parent?: string;
-  detailHide?:boolean;
-  product_Images?:any;
-  isGalleryPage?: any;
-}
+
 
 const itemsPerPage = 12;
-const GalleryPage: React.FC<GalleryProps> = ({
-  relativeProducts,
-  detailHide,
-}) => {
+const GalleryPage: React.FC = () => {
   const pathName = usePathname();
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
     null,
@@ -117,63 +107,62 @@ const GalleryPage: React.FC<GalleryProps> = ({
           HOME OR OFFICE...
         </p>
 
-        <Image.PreviewGroup preview={{onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),}}>
+        <Image.PreviewGroup preview={{ onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`), }}>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
-          {currentItems &&
-            currentItems.map((product: IProduct) => {
-              if (!product.category) {
-                return null;
-              }
-              return (
-                <>
-                <div className=" relative rounded-lg  transition-shadow duration-300 group">
-                  <Image
-                           src={product.posterImage.imageUrl}
-                           alt={product.posterImage.altText || "Image"}
-                           className=" rounded-xl"
-                           preview={{
-                             mask: (
-                               <div>
-                                 <IoSearch style={{ color: 'white', fontSize: '30px' }} />
-                               </div>
-                             )
-                           }}
-                           />
-          <div
-          
-          className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide? "block":""} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
-        >
-                           
-                     <span
-              className={`text-black text-start text-primary cursor-pointer ${relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'}`}
-            >
-              {product.title}
-            </span>
-            </div>
-            </div>
-                </>
-                        
-              );
-            })}
-        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
+            {currentItems &&
+              currentItems.map((product: any) => {
+                if (!product.category) {
+                  return null;
+                }
+                return (
+                  <>
+                    <div className=" relative rounded-lg  transition-shadow duration-300 group">
+                      <Image
+                        src={product.posterImage.imageUrl}
+                        alt={product.posterImage.altText || "Image"}
+                        className=" rounded-xl"
+                        preview={{
+                          mask: (
+                            <div>
+                              <IoSearch style={{ color: 'white', fontSize: '30px' }} />
+                            </div>
+                          )
+                        }}
+                      />
+                      <div
 
-      </Image.PreviewGroup>
+                        className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
+                      >
+
+                        <span
+                          className={`text-black text-start text-primary cursor-pointer `}
+                        >
+                          {product.title}
+                        </span>
+                      </div>
+                    </div>
+                  </>
+
+                );
+              })}
+          </div>
+
+        </Image.PreviewGroup>
 
 
         <div className="flex justify-center items-center mt-20 w-full">
           {filteredProducts && filteredProducts.length > 0 && (
             <>
-       
+
 
               {Array.from({ length: totalPages }, (_, page) => (
                 <button
                   key={page + 1}
-                  className={`mx-1 w-16 h-8 md:h-14 flex justify-center rounded-sm items-center font-medium transition ${
-                    currentPage === page + 1
-                      ? 'bg-btnclr text-white'
-                      : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
-                  }`}
+                  className={`mx-1 w-16 h-8 md:h-14 flex justify-center rounded-sm items-center font-medium transition ${currentPage === page + 1
+                    ? 'bg-btnclr text-white'
+                    : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
+                    }`}
                   onClick={() => {
                     setCurrentPage(page + 1);
                   }}
@@ -182,7 +171,7 @@ const GalleryPage: React.FC<GalleryProps> = ({
                 </button>
               ))}
 
-             
+
             </>
           )}
         </div>
