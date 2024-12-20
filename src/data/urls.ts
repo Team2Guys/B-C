@@ -173,7 +173,8 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
-  skylight : '/blinds/skylight-blinds-dubai',
+  'skylight' : '/blinds/skylight-blinds-dubai',
+  'skylight-blinds' : '/blinds/skylight-blinds-dubai',
   'balcony-blinds-and-curtains': '/balcony-blinds-and-curtains',
 
 };

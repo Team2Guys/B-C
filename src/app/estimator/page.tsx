@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from 'config/fetch';
 import { IProduct } from 'types/types';
 import estimateIMG from '../../../public/assets/images/getestimate.png';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
+// import RelatedProducts from 'components/Related-products/RelatedProducts';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
@@ -173,7 +173,9 @@ const allProducts = [...estimator_data, ...filteredFetchedProducts];
                 <div className="flex justify-center items-center bg-[#D9D9D9] rounded-full h-[70px] w-[70px] ">
                   {activeProduct && (
                     <div className="text-14 font-black text-wrap text-center">
-                      AED {calculatedPrice ? calculatedPrice.toFixed(2) : activeProduct.price}
+                      AED {calculatedPrice ? calculatedPrice.toFixed(2) : "0"
+                      // activeProduct.price
+                      }
                     </div>
                   )}
                 </div>
@@ -203,9 +205,9 @@ const allProducts = [...estimator_data, ...filteredFetchedProducts];
       >
         <Image src={estimateIMG} alt="Measuring Guide" width={1000} height={1000} />
       </Modal>
-      <div className='mt-10 lg:mt-20'>
+      {/* <div className='mt-10 lg:mt-20'>
       <RelatedProducts products={products || []} limit={4} />
-      </div>
+      </div> */}
     </Container>
     }
     <VideoAutomation />
