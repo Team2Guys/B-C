@@ -57,28 +57,28 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Roman Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Staircase Blinds/r.jpg',
-        desc: 'Roman window blinds are an outstanding choice for staircases, providing an elegant, clean look. When raised, they create sleek folds of fabric, adding texture and dimension to your staircase windows. Roman blinds are available in various materials, ranging from light-filtering to blackout options, allowing you to manage the natural light that flows into your home. Are you looking for options? Check out our range of <a target="_blank" style="text-decoration: underline" href="/blinds/wooden-venetian">wood Venetian blinds.</a>',
+        desc: 'Roman window blinds are an outstanding choice for staircases, providing an elegant, clean look. When raised, they create sleek folds of fabric, adding texture and dimension to your staircase windows. Roman blinds are available in various materials, ranging from light-filtering to blackout options, allowing you to manage the natural light that flows into your home. Are you looking for options? Check out our range of wood Venetian blinds',
       },
       {
         product_name: 'Honeycomb Blinds',
         altText: 'Honeycomb Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Staircase Blinds/c.jpg',
-        desc: 'Double-cell honeycomb blinds provide the perfect combination of style and functionality for window coverings. Their unique design uses two layers of honeycomb-shaped cells to trap air, adding an extra insulation layer to your home. The double-cell structure also minimises outside noise, making spaces like your staircase quieter and more comfortable. Available in a wide range of colours, fabrics, and light-filtering options, our honeycomb <a target="_blank" style="text-decoration: underline" href="/blinds/roller-blinds">roller blinds</a> are designed to complement any décor.',
+        desc: 'Double-cell honeycomb blinds provide the perfect combination of style and functionality for window coverings. Their unique design uses two layers of honeycomb-shaped cells to trap air, adding an extra insulation layer to your home. The double-cell structure also minimises outside noise, making spaces like your staircase quieter and more comfortable. Available in a wide range of colours, fabrics, and light-filtering options, our honeycomb roller blinds are designed to complement any décor.',
       },
       {
         product_name: 'Sunscreen/Transparent Blinds',
         altText: 'Sunscreen/Transparent Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Staircase Blinds/s.jpg',
-        desc: 'Another best choice for staircase coverings is sunscreen blinds for windows. They feature a transparent fabric that reduces glare and filters UV rays, allowing natural light to enter the room; this makes them ideal for staircases, as they provide privacy without compromising privacy without compromising natural light or views. Sunscreen <a target="_blank" style="text-decoration: underline" href="/made-to-measure-blinds">window blinds</a> come in a range of openness levels, from 1% to 10%, determining how much light will be filtered through the fabric. ',
+        desc: 'Another best choice for staircase coverings is sunscreen blinds for windows. They feature a transparent fabric that reduces glare and filters UV rays, allowing natural light to enter the room; this makes them ideal for staircases, as they provide privacy without compromising privacy without compromising natural light or views. Sunscreen window blinds come in a range of openness levels, from 1% to 10%, determining how much light will be filtered through the fabric',
       },
       {
         product_name: 'Aluminium Blinds',
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Staircase Blinds/a.jpg',
-        desc: 'Aluminum Venetian blinds are another excellent choice for staircase windows. You can tilt the slats to adjust the light and privacy the way you like or lift them entirely for a clear view. Available in various colours and finishes, including wood-look options, aluminium blinds add a touch of sophistication to your staircase while providing practical benefits such as insulation and light control. Pair your Venetian blinds with <a target="_blank" style="text-decoration: underline" href="/made-to-measure-curtains">curtains</a> for a complete and stylish look.',
+        desc: 'Aluminum Venetian blinds are another excellent choice for staircase windows. You can tilt the slats to adjust the light and privacy the way you like or lift them entirely for a clear view. Available in various colours and finishes, including wood-look options, aluminium blinds add a touch of sophistication to your staircase while providing practical benefits such as insulation and light control. Pair your Venetian blinds with curtains for a complete and stylish look.',
       },
     ],
   },
@@ -91,59 +91,60 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Skylight blinds',
         altText: 'Skylight blinds dubai',
         Imagesurl: '/assets/images/optimized-images/blinds/Conservatory/s.jpg',
-        desc: '<b>Skylight Thermal Blinds</b> are a popular and practical choice for conservatories, loft conversions, and other spaces with angled or hard-to-reach windows. Our skylight blinds are made to fit just right and help keep your home cosy in the winter and cool in the summer. They also give you more privacy and control over light, setting the perfect vibe. Check out our range of Skylight <a target="_blank" style="text-decoration: underline" href="/blinds/roller-blinds">roller blinds</a> for even more options to suit your needs.',
+        desc: 'Skylight Thermal Blinds are a popular and practical choice for conservatories, loft conversions, and other spaces with angled or hard-to-reach windows. Our skylight blinds are made to fit just right and help keep your home cosy in the winter and cool in the summer. They also give you more privacy and control over light, setting the perfect vibe. Check out our range of Skylight roller blinds for even more options to suit your needs.',
       },
       {
         product_name: 'Vertical Blinds',
         altText: 'Vertical Blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/Conservatory/v.jpg',
-        desc: '<b>Vertical blinds for conservatory windows</b> are great for versatile and practical window coverings. They come with adjustable louvers that let you control light, privacy, energy efficiency, insulation properties, high humidity, and much more. You can install them on flat or angled windows to cover awkward spaces, nooks, and crannies. Our <a target="_blank" style="text-decoration: underline" href="/blinds/roman-blinds">custom roman blinds</a> come in various colors, patterns, and textures. We also offer water-resistant options for high-humidity areas like the conservatory.',
+        desc: 'Vertical blinds for conservatory windows are great for versatile and practical window coverings. They come with adjustable louvers that let you control light, privacy, energy efficiency, insulation properties, high humidity, and much more. You can install them on flat or angled windows to cover awkward spaces, nooks, and crannies. Our custom roman blinds come in various colors, patterns, and textures. We also offer water-resistant options for high-humidity areas like the conservatory.',
       },
       {
         product_name: 'Wooden Blinds',
         altText: 'Wooden Blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/Conservatory/w.jpg',
-        desc: '<b>Conservatory Venetian blinds</b> are a timeless classic that adds grace and sophistication to any room. Conservatory wooden blinds are another classic choice and come in different designs. With their flexible slats, you can easily control the light and privacy you want in your conservatory. Our <a target="_blank" style="text-decoration: underline" href="/blinds/aluminium-venetian-blinds-dubai">aluminum Venetian blinds</a> add warmth and natural beauty to your conservatory, while our aluminum options provide a sleek and modern look.',
+        desc: 'Conservatory Venetian blinds are a timeless classic that adds grace and sophistication to any room. Conservatory wooden blinds are another classic choice and come in different designs. With their flexible slats, you can easily control the light and privacy you want in your conservatory. Our aluminum Venetian blinds add warmth and natural beauty to your conservatory, while our aluminum options provide a sleek and modern look.',
       },
       {
         product_name: 'Dimout Blinds',
         altText: 'Dimout Blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/Conservatory/d.jpg',
-        desc: 'Conservatory dimout blinds are popular for many homeowners because they offer complete light control and privacy. <a target="_blank" style="text-decoration: underline" href="/blinds/blackout-blinds">Blackout blinds</a> are made with a unique fabric that blocks out more light than traditional roller or vertical blinds, making them perfect for bedrooms, home theaters, and other spaces where you want to create a cosy and intimate atmosphere. <b>Automatic conservatory blinds</b> also provide excellent insulation properties, helping to keep your room warm in the winter and cool in the summer.',
+        desc: 'Conservatory dimout blinds are popular for many homeowners because they offer complete light control and privacy. Blackout blinds are made with a unique fabric that blocks out more light than traditional roller or vertical blinds, making them perfect for bedrooms, home theaters, and other spaces where you want to create a cosy and intimate atmosphere. Automatic conservatory blinds also provide excellent insulation properties, helping to keep your room warm in the winter and cool in the summer.',
       },
     ],
   },
   {
     Category_id: 2,
     sub_Category: 'Kids Room Blinds',
+    static_Title:"Custom Made Kid's Room Blinds",
     Product: [
       {
         product_name: 'Sheer Horizon Blinds',
         altText: 'Sheer Horizon Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Blinds for Kids Room/s.webp',
-        desc: "<b>Sheer window coverings</b> are an excellent way to diffuse natural light, soften it, and spread it evenly across the room to create a warm, inviting atmosphere. Our sheer horizon blinds are available in various colours and fabrics, allowing you to customise the look to suit your child's room perfectly. Check out our <a target='_blank' style='text-decoration: underline' href='/blinds/vertical-blinds'>Vertical blinds</a> for more options to complement your space.",
+        desc: "Sheer window coverings are an excellent way to diffuse natural light, soften it, and spread it evenly across the room to create a warm, inviting atmosphere. Our sheer horizon blinds are available in various colours and fabrics, allowing you to customise the look to suit your child's room perfectly. Check out our Vertical blinds for more options to complement your space.",
       },
       {
         product_name: 'Day/Night Blinds',
         altText: 'Day/Night Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Blinds for Kids Room/d.webp',
-        desc: "<b>Day night blinds</b> are a great way to control the amount of natural light in a room. Our day-night blinds or duplex blinds are versatile in design, offering privacy and light control during the day and at night with blackout options. Please choose from our stylish nursery <a target='_blank' style='text-decoration: underline' href='/blinds/roller-blinds'>roller blinds</a> to add a modern touch to your child's room.",
+        desc: "Day night blinds are a great way to control the amount of natural light in a room. Our day-night blinds or duplex blinds are versatile in design, offering privacy and light control during the day and at night with blackout options. Please choose from our stylish nursery roller blinds to add a modern touch to your child's room.",
       },
       {
         product_name: 'Translucent Blinds',
         altText: 'Translucent Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Blinds for Kids Room/t.webp',
-        desc: "<b>Translucent window coverings</b> also help diffuse natural light and provide privacy in your child's room. Depending on the fabric and design chosen, our translucent blinds offer various levels of light control, from sheer to semi-sheer to opaque. Check out our selection of <a target='_blank' style='text-decoration: underline' href='/'>window treatments</a> for nursery options.",
+        desc: "Translucent window coverings also help diffuse natural light and provide privacy in your child's room. Depending on the fabric and design chosen, our translucent blinds offer various levels of light control, from sheer to semi-sheer to opaque. Check out our selection of window treatments for nursery options.",
       },
       {
         product_name: 'Blackout Roller Blinds',
         altText: 'Blackout Roller Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Blinds for Kids Room/b.webp',
-        desc: "<b>Children's blackout roller blinds</b> create a comfortable and dark sleep environment. Our blinds come in different colours, patterns, and designs to suit your child's room. They help create a peaceful and comfy ambience in your child's room. Check out our selection of nursery <a target='_blank' style='text-decoration: underline' href='/blinds/blackout-blinds'>blackout blinds</a> for more options.",
+        desc: "Children's blackout roller blinds create a comfortable and dark sleep environment. Our blinds come in different colours, patterns, and designs to suit your child's room. They help create a peaceful and comfy ambience in your child's room. Check out our selection of nursery blackout blinds for more options.",
       },
     ],
   },
@@ -180,14 +181,14 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'Bathroom Blinds',
-    static_Title:"Made To Measure Bathroom Blinds",
+    static_Title:"Bathroom Window Blinds",
     Product: [
       {
         product_name: 'Blackout Blinds',
         altText: 'Blackout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/b.webp',
-        desc: 'Bathroom <a target="_blank" style="text-decoration: underline" href="/blinds/blackout-blinds">blackout blinds</a> are a must-have if you prefer complete privacy and darkness in your bathroom. They are perfect for bathrooms that face busy streets or have large windows, as they block out light and provide complete privacy. Our <b>bathroom vertical blinds</b> are made with high-quality, durable materials that are moisture resistant, making them ideal for humid environments like the bathroom. Choose from our fabrics, colours, and patterns to find the perfect fit for your bathroom.',
+        desc: 'Bathroom roller blinds are a practical solution that provides privacy while allowing natural light to come in. They are straightforward to operate, even with wet hands. Our custom-made bathroom blinds offer a sleek and streamlined look to your bathroom windows. Choose from our selection of sheer, semi-sheer, or blackout fabrics, depending on the level of privacy you need. Check out our range of Sunscreen Roller Blinds.',
       },
       {
         product_name: 'Vertical Blinds',
@@ -221,25 +222,25 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: '3d blinds',
         altText: '3d blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/dinnng room/3d.jpg',
-        desc: 'To make your dining room stand out, check out these <b>3D blinds for windows</b>. They have cool patterns that look like they pop out, adding a unique style. Plus, they come in many colors and designs so that you can find the perfect match for your decor. In addition to looking great, they help control light and give you privacy. Take a look at our <a target="_blank" style="text-decoration: underline" href="/blinds/wooden-venetian">wooden blinds</a> for a timeless style.',
+        desc: 'To make your dining room stand out, check out these 3D blinds for windows. They have cool patterns that look like they pop out, adding a unique style. Plus, they come in many colors and designs so that you can find the perfect match for your decor. In addition to looking great, they help control light and give you privacy. Take a look at our wooden blinds for a timeless style.',
       },
       {
         product_name: 'Aluminium Blinds',
         altText: 'Aluminium Blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/dinnng room/a.jpg',
-        desc: 'Our <b>aluminium window blinds</b> are stylish and functional for your dining room space. They are available in various sizes, colours, and finishes to fit perfectly with your interior decor. The lightweight but durable material makes them easy to operate while providing privacy and light control. These blinds also offer an added layer of insulation. For a different style option, explore our wide range of <a target="_blank" style="text-decoration: underline" href="/blinds/roman-blinds/">Roman blinds</a>.',
+        desc: 'Our aluminium window blinds are stylish and functional for your dining room space. They are available in various sizes, colours, and finishes to fit perfectly with your interior decor. The lightweight but durable material makes them easy to operate while providing privacy and light control. These blinds also offer an added layer of insulation. For a different style option, explore our wide range of Roman blinds.',
       },
       {
         product_name: 'Zebra Blinds',
         altText: 'Zebra Blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/dinnng room/z.jpg',
-        desc: '<b>Custom-made Zebra blinds</b> are an excellent choice for your dining room. They’re made with solid and sheer fabric stripes, so you can easily control how much light comes in and how much privacy you have. They come in many colours, so you can pick one that matches your room. If you like adjusting light and privacy, <a target="_blank" style="text-decoration: underline" href="/blinds/vertical-blinds">Vertical Blinds</a> are another good option. You can tilt them to get the right light.',
+        desc: 'Custom-made Zebra blinds are an excellent choice for your dining room. They’re made with solid and sheer fabric stripes, so you can easily control how much light comes in and how much privacy you have. They come in many colours, so you can pick one that matches your room. If you like adjusting light and privacy, Vertical Blinds are another good option. You can tilt them to get the right light.',
       },
       {
         product_name: 'Sunscreen/Transparent Blinds',
         altText: 'Sunscreen/Transparent Blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/dinnng room/r.jpg',
-        desc: 'These <b>dining room</b> <a target="_blank" style="text-decoration: underline" href="/blinds/roller-blinds">roller blinds</a> are made from one smooth fabric that rolls up and down easily. They have a clean, simple look without using slats. You can get them in light-filtering or blackout materials, so they’re great for controlling sunlight, keeping your privacy, and adding style to your home. Want more options? Check out our Sunscreen blinds for a mix of style and function to make your room feel right.',
+        desc: 'These dining room roller blinds are made from one smooth fabric that rolls up and down easily. They have a clean, simple look without using slats. You can get them in light-filtering or blackout materials, so they’re great for controlling sunlight, keeping your privacy, and adding style to your home. Want more options? Check out our Sunscreen blinds for a mix of style and function to make your room feel right.',
       },
     ],
   },
@@ -274,7 +275,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Sunscreen/Transparent Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Kitchen Blinds/r.jpg',
-        desc: 'Kitchen roller blinds are a simple way to add colour to your space. They look good, are practical, and are easy to clean, perfect for a busy kitchen. You can choose blackout blinds for more privacy, light-filtering blinds to let in soft light, or sunscreen blinds to cut down glare while keeping the view. Check out our kitchen roller blinds and <b>made-to-measure</b> <a target="_blank" style="text-decoration: underline" href="/blinds/roller-blinds/">roller blinds</a> collection to find the perfect fit.',
+        desc: 'Kitchen roller blinds are a simple way to add colour to your space. They look good, are practical, and are easy to clean, perfect for a busy kitchen. You can choose blackout blinds for more privacy, light-filtering blinds to let in soft light, or sunscreen blinds to cut down glare while keeping the view. Check out our kitchen roller blinds and made-to-measure roller blinds collection to find the perfect fit.',
       },
     ],
   },
@@ -307,7 +308,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Roman Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Living Room Blinds/rb.jpg',
-        desc: 'Roman blinds are also a great addition to the living room. They are available in a diverse range of colours, patterns, and materials. Our collection of Roman blinds for living rooms complements any decor. Pair them with <a href="/made-to-measure-living-room-curtains" style="text-decoration:  underline">living room curtains</a> for a more coordinated and fashionable design. <a href="/blinds/roman-blinds" style="text-decoration:  underline">Roman Blinds</a> enhance the ambience of your room with their cohesive design, improved light control, and privacy.',
+        desc: 'Roman blinds are also a great addition to the living room. They are available in a diverse range of colours, patterns, and materials. Our collection of Roman blinds for living rooms complements any decor. Pair them with living room curtains  for a more coordinated and fashionable design. <a href="/blinds/roman-blinds" style="text-decoration:  underline">Roman Blinds</a> enhance the ambience of your room with their cohesive design, improved light control, and privacy.',
       },
       {
         product_name: 'Vertical Blinds',
@@ -321,7 +322,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Dimout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Living Room Blinds/r.jpg',
-        desc: 'We offer a diverse range of semitransparent roller blinds for your space. Our dimout living room blinds combine functionality, style, and suitability. Whether looking for <a href="/blinds/translucent-blinds" style="text-decoration:  underline">translucent roller blinds</a> to create smooth, filtered light that holds a cosy ambience or <a href="/blinds/roller-blinds/blackout-roller-blinds" style="text-decoration:  underline">blackout roller blinds</a> to give 99% light blockage, we have something for everyone. These dimout blinds are available in various colours, fabrics, and designs; our roller blinds are made to give your space a different look.',
+        desc: 'We offer a diverse range of semi transparent roller blinds for your space. Our dimout living room blinds combine functionality, style, and suitability. Whether looking for translucent roller blinds to create smooth, filtered light that holds a cosy ambience or blackout roller blinds to give 99% light blockage, we have something for everyone. These dimout blinds are available in various colours, fabrics, and designs; our roller blinds are made to give your space a different look.',
       },
     ],
   },
@@ -578,28 +579,28 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Plain Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
-        desc: 'Our dining room plain curtains are made from high-quality fabrics like cotton, linen, polyester, or silk. We offer <b>plain white curtains</b> with lightweight materials like linen for a fresh feel or polyester for easy maintenance. For a luxurious touch, silk adds a soft sheen, and blackout offers a cosy dining atmosphere. While our <a target="_blank" style="text-decoration: underline" href="/curtains/pinch-pleat-curtains">pencil pleat curtains</a> are an elegant addition to both traditional and modern decors.',
+        desc: 'Our dining room plain curtains are made from high-quality fabrics like cotton, linen, polyester, or silk. We offer plain white curtains with lightweight materials like linen for a fresh feel or polyester for easy maintenance. For a luxurious touch, silk adds a soft sheen, and blackout offers a cosy dining atmosphere. While our pencil pleat curtains are an elegant addition to both traditional and modern decors.',
       },
       {
         product_name: 'Ripplefold/Wave Curtains',
         altText: 'Ripplefold/Wave Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Dining Room curtains/Ripple-fold-wave-curtains-for-dining-room.jpg',
-        desc: 'Dining room wave curtains create smooth, ripple-like folds. When we pair these curtains with <a target="_blank" style="text-decoration: underline" href="/curtains/made-to-measure-linen-curtains">Linen Curtains</a>, the result is a relaxed look that can be used for both casual family gatherings as well as formal ones. These curtains are versatile as they are beautiful. <b>Dining room window curtains</b> provide excellent light control and privacy, allowing for easy adjustment to the mood of the room. All of our options have been hand-picked according to what our customers like and adore.',
+        desc: 'Dining room wave curtains create smooth, ripple-like folds. When we pair these curtains with Linen Curtains, the result is a relaxed look that can be used for both casual family gatherings as well as formal ones. These curtains are versatile as they are beautiful. Dining room window curtains provide excellent light control and privacy, allowing for easy adjustment to the mood of the room. All of our options have been hand-picked according to what our customers like and adore.',
       },
       {
         product_name: 'Natural Fabric Curtains',
         altText: 'Natural Fabric Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
-        desc: 'We provide curtains that are crafted from natural fabrics featuring renewable materials like cotton, linen, and hemp. These are sustainable alternatives to synthetic fabrics. We paired our <b>natural material curtains</b> with <a target="_blank" style="text-decoration: underline" href="/curtains/triple-pinch-pleat-curtains">triple French pleat curtains</a>. It balances the causal texture of the fabric with formal styling. Our <b>triple French pleat curtains</b> contain three pleats per panel creating a neat, structured appearance that makes them ideal for formal settings like dining rooms, living rooms, or bedrooms.',
+        desc: 'We provide curtains that are crafted from natural fabrics featuring renewable materials like cotton, linen, and hemp. These are sustainable alternatives to synthetic fabrics. We paired our natural material curtains with triple French pleat curtains. It balances the causal texture of the fabric with formal styling. Our triple French pleat curtains contain three pleats per panel creating a neat, structured appearance that makes them ideal for formal settings like dining rooms, living rooms, or bedrooms.',
       },
       {
         product_name: 'Patterned Curtains',
         altText: 'Patterned Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
-        desc: 'Our dining room patterned curtains create a cosy, luxurious atmosphere, depending on your own taste. We offer creative and unique designs that come in a wide range of styles, from floral and geometric to abstract and stripes. We offer customised options that incorporate <b>simple curtain sewing patterns</b> to be personalised designs that are tailored to your dining room’s size and theme. For a modern or sleek look, we suggest layering <a target="_blank" style="text-decoration: underline" href="/curtains/eyelet-curtains">eyelet Curtains</a> that combine with solid curtains for a richer, more textured feel.',
+        desc: 'Our dining room patterned curtains create a cosy, luxurious atmosphere, depending on your own taste. We offer creative and unique designs that come in a wide range of styles, from floral and geometric to abstract and stripes. We offer customised options that incorporate simple curtain sewing patterns to be personalised designs that are tailored to your dining room’s size and theme. For a modern or sleek look, we suggest layering eyelet curtains that combine with solid curtains for a richer, more textured feel.',
       },
     ],
   },
@@ -979,35 +980,35 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'School Blinds',
-    static_Title:"Made To Measure School Window Coverings",
+    static_Title:"School Blinds, Curtains & Shutters to block sun and heat",
     Product: [
       {
         product_name: 'Roman Blinds',
         altText: 'Roman Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Roman School Blinds.webp',
-        desc: 'Our roman blinds are custom fit to any school windows, from small classrooms to large auditorium or library windows, perfect fit for every space. We offer <b>roman blinds & Curtains</b> designed with good safety features and child-safe mechanisms and are equipped with safety cords or spring-loaded systems to prevent accidents, making them ideal for schools with younger children. We also offer <a target="_blank" style="text-decoration: underline" href="/blinds/roller-blinds">roller blinds</a> that roll up into a sleek, minimal casing, saving space and ensuring a clutter-free appearance in class.',
+        desc: 'Our roman blinds are custom fit to any school windows, from small classrooms to large auditorium or library windows, perfect fit for every space. We offer roman blinds & Curtains designed with good safety features and child-safe mechanisms and are equipped with safety cords or spring-loaded systems to prevent accidents, making them ideal for schools with younger children. We also offer roller blinds that roll up into a sleek, minimal casing, saving space and ensuring a clutter-free appearance in class.',
       },
       {
         product_name: 'Day/Night Blinds',
         altText: 'Day/Night Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Day Night School Blinds.webp',
-        desc: 'Our <b>day-night roller blinds</b> offer practical solutions for school environments. These roller blinds improve focus and reduce screen glare during lessons. Our blinds combine with a sheer fabric for diffusing natural light and a blackout layer for complete darkness. These blinds offer flexibility for diverse school needs, such as presentations, exams, or relaxation zones. Our <a target="_blank" style="text-decoration: underline" href="/blinds/pleated-blinds">pleated blinds</a> are made from robust, fade-resistant fabrics and are custom fit for small or uniquely shaped windows.',
+        desc: 'Our day-night roller blinds offer practical solutions for school environments. These roller blinds improve focus and reduce screen glare during lessons. Our blinds combine with a sheer fabric for diffusing natural light and a blackout layer for complete darkness. These blinds offer flexibility for diverse school needs, such as presentations, exams, or relaxation zones. Our pleated blinds are made from robust, fade-resistant fabrics and are custom fit for small or uniquely shaped windows.',
       },
       {
         product_name: 'Dimout Blinds',
         altText: 'Dimout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Dimout school blinds.webp',
-        desc: 'We offer blinds that are available in solid colors, subtle patterns, or textured fabrics for a custom fit look. Our  <b>semi-transparent window blinds</b>  are perfect for large windows and sliding doors, offering smooth, adjustable light control. These blinds can be motorised for a sleek, tech-savvy touch. <a target="_blank" style="text-decoration: underline" href="/blinds/motorised-blinds">Motorised blinds</a> bring a modern touch; with a simple remote control or smartphone app, you can effortlessly adjust your blinds.',
+        desc: 'We offer blinds that are available in solid colors, subtle patterns, or textured fabrics for a custom fit look. Our  semi-transparent window blinds  are perfect for large windows and sliding doors, offering smooth, adjustable light control. These blinds can be motorised for a sleek, tech-savvy touch. Motorised blinds bring a modern touch; with a simple remote control or smartphone app, you can effortlessly adjust your blinds. ',
       },
       {
         product_name: 'Aluminium Blinds',
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Aluminium School blinds.webp',
-        desc: 'Our <b>School Aluminium blinds</b> are crafted from lightweight yet sturdy aluminum; these blinds resist wear, tear, and corrosion, guaranteeing long-lasting performance. These are made from fire-resistant materials, offering an extra layer of safety in schools. We are also offering metal <a target="_blank" style="text-decoration: underline" href="/blinds/wooden-venetian">venetian blinds</a> that combine practicality with modern design. Their durability, ease of use, and stylish appearance make them functional and appealing additions to classrooms, libraries, and administrative offices.',
+        desc: 'Our  school Aluminium blinds  are crafted from lightweight yet sturdy aluminum; these blinds resist wear, tear, and corrosion, guaranteeing long-lasting performance. These are made from fire-resistant materials, offering an extra layer of safety in schools. We are also offering metal venetian blinds that combine practicality with modern design. Their durability, ease of use, and stylish appearance make them functional and appealing additions to classrooms, libraries, and administrative offices.',
       },
     ],
   },
