@@ -83,6 +83,7 @@ model Appointments {
   other                   String?
   prefered_contact_method String[] @default([])
   prefered_time           String?
+  address                 String?
 }
 
 model Admins {
