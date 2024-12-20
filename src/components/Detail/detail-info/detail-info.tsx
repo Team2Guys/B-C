@@ -1,6 +1,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { POSTER_iMAGE } from 'types/types';
 
@@ -45,15 +46,15 @@ const DetailInfo: React.FC<detailprops> = ({
                   dangerouslySetInnerHTML={{ __html: description }}
                 ></p>
               </div>
-              <Button
-                onClick={() => {
-                  window.open('/request-appointment', '_blank');
-                }}
+              <div className='pt-4'>
+              <Link href={"/request-appointment"}
+                target='_blank' rel="noopener"
                 className="py-6 px-10"
-                variant="secondary"
               >
                 Book An Appointment Now
-              </Button>
+              </Link>
+              </div>
+             
             </div>
           </div>
           <div className="w-full lg:w-1/12 xl:w-0" />
