@@ -171,6 +171,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     >
       <Link href={href || ''}
           ref={buttonRef}
+          onClick={() => setIsOpen(false)}
           className={cn(
             'px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200',
             className,
@@ -220,6 +221,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                             {' '}
                             <Link href={path}
                               key={index}
+                              onClick={() => setIsOpen(false)}
                               onMouseEnter={() => setactiveProduct(item)}
                               className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
                             >
