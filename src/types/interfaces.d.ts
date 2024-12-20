@@ -318,7 +318,8 @@ export interface createAdmin extends ADMINS_PROPS {
 }
 
 export interface BlogInfo {
-  posterImage: string;
+  id?: number;
+  posterImage: any;
   category: string;
   title: string;
   content: string;
@@ -397,41 +398,39 @@ export interface PRODUCS_PROPS {
   allprod: Allproduct[];
 }
 
-
-
 export interface EsProduct {
-     id?:number;
-     title: string;
-     description?: string;
-     price?: number;
-     posterImage?: any;
-     imageUrls?: Image[];
-     CategoryId?: number;
-     SubCategoryId?: number | null;
-     createdAt?: string;
-     updatedAt?: string | null;
-     length?: any;
-     href?: string;
-     category?: any;
-     product_type?: string;
-     subCategory?: [];
-     short_description?: string;
-     heading?: string;
-     colors?: [
-       {
-         colorName?: string;
-         colorCode?: string;
-       },
-     ];
-     Sub_Heading?: string;
-     Sub_Heading_description?:string
-     Meta_Title?: string;
-     Canonical_Tag?: string;
-     Meta_description?: string;
-  }
-  
-  export interface EstimatorProps {
-    selectProduct: EsProduct[];
-    setActiveProduct: React.DispatchM<SetStateAction<EsProduct | null>>;
-    activeProduct: EsProduct | null;
-  }
+  id?: number;
+  title: string;
+  description?: string;
+  price?: number;
+  posterImage?: any;
+  imageUrls?: Image[];
+  CategoryId?: number;
+  SubCategoryId?: number | null;
+  createdAt?: string;
+  updatedAt?: string | null;
+  length?: any;
+  href?: string;
+  category?: any;
+  product_type?: string;
+  subCategory?: [];
+  short_description?: string;
+  heading?: string;
+  colors?: [
+    {
+      colorName?: string;
+      colorCode?: string;
+    },
+  ];
+  Sub_Heading?: string;
+  Sub_Heading_description?: string;
+  Meta_Title?: string;
+  Canonical_Tag?: string;
+  Meta_description?: string;
+}
+
+export interface EstimatorProps {
+  selectProduct: EsProduct[];
+  setActiveProduct: React.DispatchM<SetStateAction<EsProduct | null>>;
+  activeProduct: EsProduct | null;
+}
