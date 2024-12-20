@@ -11,9 +11,27 @@ import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { usePathname } from 'next/navigation';
 import { generateSlug } from 'data/data';
+import { Image } from 'antd';
+import { IoSearch } from 'react-icons/io5';
+
+interface GalleryProps {
+  card: IProduct;
+  relativeProducts?: boolean;
+  parent?: string;
+  detailHide?:boolean;
+  product_Images?:any;
+  isGalleryPage?: any;
+}
 
 const itemsPerPage = 12;
-const GalleryPage = () => {
+const GalleryPage: React.FC<GalleryProps> = ({
+  card,
+  relativeProducts,
+  detailHide,
+  parent,
+  product_Images,
+  isGalleryPage,
+}) => {
   const pathName = usePathname();
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
     null,
@@ -105,6 +123,8 @@ const GalleryPage = () => {
           HOME OR OFFICE...
         </p>
 
+        <Image.PreviewGroup preview={{onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),}}>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
           {currentItems &&
             currentItems.map((product: IProduct) => {
@@ -112,15 +132,40 @@ const GalleryPage = () => {
                 return null;
               }
               return (
-                <GalleryCard
-                  card={product}
-                  key={product.id}
-                  relativeProducts={true}
-                  parent={generateSlug(product?.category.title)}
-                />
+                <>
+                <div className=" relative rounded-lg  transition-shadow duration-300 group">
+                  <Image
+                           src={product.posterImage.imageUrl}
+                           alt={product.posterImage.altText || "Image"}
+                           className=" rounded-xl"
+                           preview={{
+                             mask: (
+                               <div>
+                                 <IoSearch style={{ color: 'white', fontSize: '30px' }} />
+                               </div>
+                             )
+                           }}
+                           />
+          <div
+          
+          className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide? "block":""} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
+        >
+                           
+                     <span
+              className={`text-black text-start text-primary cursor-pointer ${relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'}`}
+            >
+              {product.title}
+            </span>
+            </div>
+            </div>
+                </>
+                        
               );
             })}
         </div>
+
+      </Image.PreviewGroup>
+
 
         <div className="flex justify-center items-center mt-20 w-full">
           {filteredProducts && filteredProducts.length > 0 && (

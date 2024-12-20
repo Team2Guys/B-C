@@ -12,6 +12,7 @@ interface GalleryProps {
   parent?: string;
   detailHide?:boolean;
   product_Images?:any;
+  imagesOnly:boolean,
 }
 
 const GalleryCard: React.FC<GalleryProps> = ({
@@ -20,8 +21,9 @@ const GalleryCard: React.FC<GalleryProps> = ({
   detailHide,
   parent,
   product_Images,
+  imagesOnly, // New Prop
 }) => {
-  const getPath = (arr: IProduct)=> {
+  const getPath = (arr: IProduct) => {
     const slug = ChangedProductUrl_handler(arr.title);
     const basePath =
       arr.href && parent
@@ -37,51 +39,72 @@ const GalleryCard: React.FC<GalleryProps> = ({
               ? `${parent.toLowerCase()}-range`
               : parent?.toLowerCase()
           }${
-            ['dimout-roller-blinds', 'sunscreen-roller-blinds','blackout-roller-blinds'].includes(slug)
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
               ? '/roller-blinds'
               : ''
           }/${slug}`);
     return path;
   };
-console.log(product_Images)
-  return (
-    <>
-      <div className=" relative rounded-lg  transition-shadow duration-300 group">
+
+  if (imagesOnly) {
+    return (
+      <div className="relative rounded-lg transition-shadow duration-300 group">
         <Image
+          src={
+            product_Images
+              ? product_Images.Imagesurl
+              : card.posterImage.imageUrl
+          }
+          alt={card.title}
+          height={800}
+          width={800}
+          className="rounded-xl h-80 w-[100%] object-cover"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative rounded-lg transition-shadow duration-300 group">
+      <Image
         src={
           product_Images
             ? product_Images.Imagesurl
             : card.posterImage.imageUrl
         }
-          alt={card.title}
-          height={800}
-          width={800}
-          className=" rounded-xl h-80 w-[100%] object-cover"
-          // preview={{mask: (<IoSearch style={{ color: 'white', fontSize: '30px' }} /> )}}
-          />
-        <div
-          
-          className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide? "block":""} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
-        >
-          <Link href={getPath(card)}>
+        alt={card.title}
+        height={800}
+        width={800}
+        className="rounded-xl h-80 w-[100%] object-cover"
+      />
+      <div
+        className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${
+          detailHide ? 'block' : ''
+        } ${
+          relativeProducts ? 'justify-between' : 'justify-center'
+        } justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
+      >
+        <Link href={getPath(card)}>
           <span
-            className={`text-black text-start text-primary cursor-pointer ${relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'}`}
+            className={`text-black text-start text-primary cursor-pointer ${
+              relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'
+            }`}
           >
             {card.title}
           </span>
-          </Link>
-
-          <Link 
-            href={getPath(card)}
-            className={`border border-primary text-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14 text-nowrap ${relativeProducts ? 'block' : 'block'}`}
-          >
-            View More
-          </Link>
-
-        </div>
+        </Link>
+        <Link
+          href={getPath(card)}
+          className={`border border-primary text-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14 text-nowrap ${
+            relativeProducts ? 'block' : 'block'
+          }`}
+        >
+          View More
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
+
 
 export default GalleryCard;

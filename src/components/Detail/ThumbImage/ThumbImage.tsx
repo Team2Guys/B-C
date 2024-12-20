@@ -4,10 +4,11 @@ import React from 'react'
 import { IoSearch } from 'react-icons/io5'
 interface GalleryProps {
     card: any;
+    isGalleryPage?: boolean;
   }
   
-const ThumbImage:React.FC<GalleryProps>= ({card}) => {
-    console.log(card , "cardcardcard")
+const ThumbImage:React.FC<GalleryProps>= ({card,isGalleryPage}) => {
+  
   return (
     <>
       <Image.PreviewGroup preview={{onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),}}>
