@@ -19,6 +19,8 @@ export const fetchProducts = async (): Promise<Allproduct[]> => {
     {
       next: { tags: ['products'] },
     },
+
+
   );
   if (!response.ok) {
     throw new Error('Failed to fetch products');
