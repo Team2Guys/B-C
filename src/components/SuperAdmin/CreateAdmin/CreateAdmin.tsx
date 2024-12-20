@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Col, Form, Row } from 'antd';
+import { Col, ConfigProvider, Form, Row } from 'antd';
 
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Checkbox, CheckboxProps } from 'antd';
@@ -230,6 +230,7 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
               sm={{ order: 1, span: 12 }}
               xs={{ order: 1, span: 24 }}
             >
+              <ConfigProvider theme={{ token: { colorPrimary: "#9fac9b" } }}>
               <Checkbox
                 className="custom-checkbox"
                 name={checkbox.name}
@@ -238,6 +239,8 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
               >
                 {checkbox.label}
               </Checkbox>
+              </ConfigProvider>
+              
 
             </Col>
           ))}
