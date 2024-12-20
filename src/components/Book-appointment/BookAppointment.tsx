@@ -7,6 +7,8 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface ProductOptions {
   shutters?: boolean;
@@ -46,16 +48,22 @@ interface AppointmentProps {
   className?: string;
 }
 
-const BookAppointment: React.FC<AppointmentProps> = ({ singlePage,className }) => {
+const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const PostAppointments = async (appointmentData: IAppointments) => {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
-      appointmentData,
-    );
-    return response.data;
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
+        appointmentData
+      );
+      return response.data;
+    } catch (error) {
+
+      throw error;
+    }
   };
+
 
   const getInitialSelectedOptions = (): ProductOptions => {
     if (singlePage) {
@@ -217,7 +225,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage,className }) =
           prefered_time,
           ...withoutproductoption
         } = formData;
-        console.log(  productoption, prefered_contact_method, prefered_time,withoutproductoption)
+        console.log(productoption, prefered_contact_method, prefered_time, withoutproductoption)
         let productTypeArray: any = Object.keys(formData.productoption)
           .map((item) => {
             const key = item as keyof ProductOptions;
@@ -241,9 +249,10 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage,className }) =
           product_type: productTypeArray,
         });
         console.log('response:', response);
+        toast.success('Appointment submitted successfully!');
         setFormData(formInitialValues);
       } catch (error) {
-        console.error('Error submitting appointment:', error);
+        toast.error('Failed to submit the appointment. Please try again.',);
       } finally {
         setLoading(false);
       }
