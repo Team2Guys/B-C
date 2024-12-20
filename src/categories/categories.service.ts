@@ -4,6 +4,7 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { CustomErrorHandler } from '../utils/helperFunctions';
 import { CreateCategoryHandler, CreatesubCategoryHandler, withAsyncErrorHandling } from '../utils/DbHandlers';
 import { Prisma } from '@prisma/client';
+import { REQUEST } from '@nestjs/core';
 
 
 
@@ -16,9 +17,10 @@ export class CategoriesService {
     return 'Hello World!';
   }
 
-  async AddcategoryHandler(createCategoryDto: Prisma.CategoriesCreateInput) {
+  async AddcategoryHandler(createCategoryDto: Prisma.CategoriesCreateInput, req: Request | any) {
     try {
-      return await CreateCategoryHandler(createCategoryDto)
+      const { email } = req.user
+      return await CreateCategoryHandler(createCategoryDto, email)
     } catch (error: any) {
       console.log(error, "err")
       return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
@@ -50,13 +52,15 @@ export class CategoriesService {
     }
   }
 
-  async CategoryUpdateHandler(id: number, updateCategoryDto: Prisma.CategoriesUpdateInput) {
+  async CategoryUpdateHandler(id: number, updateCategoryDto: Prisma.CategoriesUpdateInput,req:Request | any) {
     try {
+      const { email } = req.user
+
       let category = await this.prisma.categories.findUnique({ where: { id: id } })
       if (!category) return CustomErrorHandler("Category not found", "NOT_FOUND")
       const updatedCategory = await this.prisma.categories.update({
         where: { id: id },
-        data: updateCategoryDto,
+        data: {...updateCategoryDto, last_editedBy: email},
       });
       return updatedCategory
     } catch (error) {
@@ -75,9 +79,9 @@ export class CategoriesService {
   }
 
 
-  async AddsubCategoryHandler(createCategoryDto: Prisma.SubCategoriesCreateInput) {
+  async AddsubCategoryHandler(createCategoryDto: Prisma.SubCategoriesCreateInput, req:Request | any) {
     const CreatesubCategoryHandlerWithErrorHandling = withAsyncErrorHandling(CreatesubCategoryHandler)
-    const [response, error]: any = await CreatesubCategoryHandlerWithErrorHandling(createCategoryDto);
+    const [response, error]: any = await CreatesubCategoryHandlerWithErrorHandling(createCategoryDto, req);
     if (error) {
       return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
     }
@@ -112,8 +116,10 @@ export class CategoriesService {
   }
 
 
-  async UpdatesubCategoryhandle(id: number, subCategory_update_data: Prisma.SubCategoriesUpdateInput) {
+  async UpdatesubCategoryhandle(id: number, subCategory_update_data: Prisma.SubCategoriesUpdateInput, req: Request | any) {
     try {
+
+      const { email } = req.user
 
       const category = await this.prisma.subCategories.findUnique({
         where: { id: id },
@@ -123,7 +129,7 @@ export class CategoriesService {
       console.log(subCategory_update_data, "subCategory_update_data")
       let response = await this.prisma.subCategories.update({
         where: { id: id },
-        data: subCategory_update_data
+        data: {...subCategory_update_data, last_editedBy: email}
       });
       return response;
 

@@ -13,16 +13,17 @@ import { NotFoundError } from 'rxjs';
 
 @Injectable()
 export class BlogsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
-  async create(createBlogDto: Prisma.blogsCreateInput) {
+  async create(createBlogDto: Prisma.blogsCreateInput, req: Request | any) {
+    const { email } = req
     let existing_blog = await this.prisma.blogs.findFirst({
       where: { title: createBlogDto.title },
     });
     if (existing_blog)
       return CustomErrorHandler('Blog is Already Exists', 'BAD_REQUEST');
     const blog = await this.prisma.blogs.create({
-      data: createBlogDto,
+      data: { ...createBlogDto, last_editedBy: email },
     });
     return { message: 'blog has been Created', blog };
   }
@@ -50,11 +51,12 @@ export class BlogsService {
     }
   }
 
-  async update(id: number, updateBlogDto: Prisma.blogsUpdateInput) {
+  async update(id: number, updateBlogDto: Prisma.blogsUpdateInput, req: Request | any) {
     try {
+      const { email } = req
       const updated_blog = await this.prisma.blogs.update({
         where: { id: id },
-        data: updateBlogDto,
+        data: { ...updateBlogDto, last_editedBy: email },
       });
 
       if (!updateBlogDto)
@@ -154,8 +156,9 @@ export class BlogsService {
     }
   }
 
-  async updateStatus(id: number, status: string) {
+  async updateStatus(id: number, status: string, req: Request | any) {
     try {
+      const { email } = req
       if (!Object.values(CommentStatus).includes(status as CommentStatus)) {
         throw new Error(
           `Invalid status: ${status}. Valid statuses are ${Object.values(CommentStatus).join(', ')}`,
@@ -171,7 +174,7 @@ export class BlogsService {
 
       const updatedBlog = await this.prisma.blogs_comments.update({
         where: { id },
-        data: { status: status as CommentStatus },
+        data: { status: status as CommentStatus, last_editedBy: email },
       });
 
       return {

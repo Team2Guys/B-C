@@ -12,7 +12,8 @@ export class ProductsService {
         return 'this is hellow from product';
     }
 
-    AddProductHandler = async (createCategoryDto: Prisma.productsCreateInput) => {
+    AddProductHandler = async (createCategoryDto: Prisma.productsCreateInput, req: Request | any) => {
+        const {email}= req
         const { title } = createCategoryDto;
 
         let AlreadyExistedProduct = await this.prisma.products.findUnique({ where: { title: title } })
@@ -21,7 +22,7 @@ export class ProductsService {
 
         try {
             let response = await this.prisma.products.create({
-                data: createCategoryDto,
+                data: {...createCategoryDto, last_editedBy:email},
                 include: {
                     category: true,
                     subCategory: true
@@ -44,9 +45,9 @@ export class ProductsService {
         }
     }
 
-    UpdateProductHandler = async (id: number, updateProduct: Prisma.productsUpdateInput) => {
+    UpdateProductHandler = async (id: number, updateProduct: Prisma.productsUpdateInput, req: Request | any) => {
         try {
-
+            const{email} = req
             let product = await this.prisma.products.findUnique({
                 where: { id: id },
                 include: { subCategory: true },
@@ -60,7 +61,7 @@ export class ProductsService {
 
             let updated_products   = await this.prisma.products.update({
                 where: { id: id },
-                data: updateProduct,
+                data: {...updateProduct, last_editedBy: email},
                 include: { subCategory: true, category: true },
             });
 
@@ -69,10 +70,6 @@ export class ProductsService {
             return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, "INTERNAL_SERVER_ERROR");
         }
     };
-
-
-
-
 
     DeleteProductHanlder = async (id: number) => {
         try {

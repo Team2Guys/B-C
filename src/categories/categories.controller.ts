@@ -14,18 +14,18 @@ export class CategoriesController {
   }
 
   @Post("AddCategory")
-  addCategoryes(@Body() createCategorydto: Prisma.CategoriesCreateInput) {
-    return this.CategoriesService.AddcategoryHandler(createCategorydto)
+  addCategoryes(@Body() createCategorydto: Prisma.CategoriesCreateInput, req:Request) {
+    return this.CategoriesService.AddcategoryHandler(createCategorydto,req)
   }
 
   @Delete("deleteCategory/:id")
-  DeleteCategoryHandler(@Param("id") id: number) {
+  DeleteCategoryHandler(@Param("id") id: number,) {
     return this.CategoriesService.DelCategoryhandle(+id);
   }
   @Put('updateCategory/:id')
-  UpdateCategoryHanlder(@Param('id') id: number, @Body() updateCategoryDto: Prisma.CategoriesUpdateInput) {
+  UpdateCategoryHanlder(@Param('id') id: number, @Body() updateCategoryDto: Prisma.CategoriesUpdateInput, req:Request) {
     console.log(updateCategoryDto,)
-    return this.CategoriesService.CategoryUpdateHandler(+id, updateCategoryDto)
+    return this.CategoriesService.CategoryUpdateHandler(+id, updateCategoryDto,req)
   }
 
 
@@ -37,8 +37,8 @@ export class CategoriesController {
 
   // Sub Categories
   @Post("Addsubcategory")
-  Addsubcategory(@Body() createCategorydto: Prisma.SubCategoriesCreateInput) {
-    return this.CategoriesService.AddsubCategoryHandler(createCategorydto)
+  Addsubcategory(@Body() createCategorydto: Prisma.SubCategoriesCreateInput,req:Request) {
+    return this.CategoriesService.AddsubCategoryHandler(createCategorydto, req)
   }
 
   @Delete("deletesubCategory/:id")
@@ -49,10 +49,10 @@ export class CategoriesController {
 
 
   @Put('updatesubCategory/:id')
-  updatesubCategory(@Param('id') id: number, @Body() subCategory_update_data: Prisma.SubCategoriesUpdateInput) {
+  updatesubCategory(@Param('id') id: number, @Body() subCategory_update_data: Prisma.SubCategoriesUpdateInput, req:Request) {
     let convertedId = typeof (id) == "string" ? parseInt(id) : id
     console.log(subCategory_update_data, "subCategory_update_data")
-    return this.CategoriesService.UpdatesubCategoryhandle(convertedId, subCategory_update_data)
+    return this.CategoriesService.UpdatesubCategoryhandle(convertedId, subCategory_update_data, req)
   }
 
   @Get("get-all-subCategories")

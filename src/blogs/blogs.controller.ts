@@ -18,8 +18,8 @@ export class BlogsController {
   constructor(private readonly blogsService: BlogsService) {}
 
   @Post('/create_blog')
-  create(@Body() createBlogDto: Prisma.blogsCreateInput) {
-    return this.blogsService.create(createBlogDto);
+  create(@Body() createBlogDto: Prisma.blogsCreateInput, req: Request) {
+    return this.blogsService.create(createBlogDto, req);
   }
 
   @Get()
@@ -36,8 +36,9 @@ export class BlogsController {
   update(
     @Param('id') id: string,
     @Body() updateBlogDto: Prisma.blogsUpdateInput,
+    req: Request
   ) {
-    return this.blogsService.update(+id, updateBlogDto);
+    return this.blogsService.update(+id, updateBlogDto, req);
   }
 
   @Delete('delete/:id')
@@ -59,7 +60,8 @@ export class BlogsController {
   async updateStatus(
     @Param('id') id: string,
     @Body() updateStatusDto: UpdateStatusDto,
+    req: Request
   ) {
-    return this.blogsService.updateStatus(+id, updateStatusDto.status);
+    return this.blogsService.updateStatus(+id, updateStatusDto.status, req);
   }
 }

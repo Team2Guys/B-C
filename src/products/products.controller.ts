@@ -14,8 +14,8 @@ export class ProductsController {
 
 
 @Post("AddProduct")
-async CreateProducthandler (@Body() createCategoryDto:Prisma.productsCreateInput) {
-  return this.ProductsService.AddProductHandler(createCategoryDto);
+async CreateProducthandler (@Body() createCategoryDto:Prisma.productsCreateInput, req: Request) {
+  return this.ProductsService.AddProductHandler(createCategoryDto,req);
 }
 
 
@@ -26,8 +26,8 @@ async getAllProducts(){
 
 
 @Put("edit_product/:id")
-async edit_product(@Param("id") id: number, @Body() updated_product:Prisma.productsUpdateInput){
-  return this.ProductsService.UpdateProductHandler(+id, updated_product)
+async edit_product(@Param("id") id: number, @Body() updated_product:Prisma.productsUpdateInput,req: Request){
+  return this.ProductsService.UpdateProductHandler(+id, updated_product,req)
 }
 
 

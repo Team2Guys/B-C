@@ -8,30 +8,30 @@ export class AppointmentService {
     constructor(private prisma: PrismaService) { }
 
 
-gethello(){
-    return 'hellow from appointments'
-}
-
-AddOpointmentHandler (user_data:Prisma.AppointmentsCreateInput){
-try {
-    return this.prisma.appointments.create({
-        data:user_data
-    })
-} catch (error) {
-    return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR')
-}
-
-
-}
-
-getAllPointments (){
-    try {
-        return this.prisma.appointments.findMany();
-        
-    } catch (error) {
-        return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR')
+    gethello() {
+        return 'hellow from appointments'
     }
- }
+
+    AddOpointmentHandler(user_data: Prisma.AppointmentsCreateInput) {
+        try {
+            return this.prisma.appointments.create({
+                data: user_data
+            })
+        } catch (error) {
+            return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR')
+        }
+
+
+    }
+
+    getAllPointments() {
+        try {
+            return this.prisma.appointments.findMany();
+
+        } catch (error) {
+            return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR')
+        }
+    }
 
 
 
