@@ -77,10 +77,7 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: { params: { product: string } }) => {
   const { product } = params;
-  const [products, categories] = await Promise.all([
-    fetchProducts(),
-    fetchSubCategories(),
-  ]);
+  const [products, categories] = await Promise.all([fetchProducts(),fetchSubCategories()]);
 
   const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(categories, product, Cateories);

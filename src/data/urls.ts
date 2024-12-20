@@ -173,7 +173,8 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
-  skylight : '/blinds/skylight-blinds-dubai',
+  'skylight' : '/blinds/skylight-blinds-dubai',
+  'skylight-blinds' : '/blinds/skylight-blinds-dubai',
   'balcony-blinds-and-curtains': '/balcony-blinds-and-curtains',
 
 };
@@ -255,3 +256,17 @@ export const getProduct = [
   'Outdoor Shutters',
   'Staircase Shutters'
 ];
+
+
+export const allowedTitles = [
+  "Roman Blinds",
+  "Vertical Blinds",
+  "Wooden Blinds",
+  "Aluminium Blinds",
+  "Zebra Blinds",
+  "Blackout Curtains",
+  "Sheer Curtains",
+  "Shutters MDF",
+  "Roller Blinds",
+  "Shutters Basswood"
+  ];

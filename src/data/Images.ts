@@ -294,6 +294,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'Living Room Blinds',
+    static_Title:"Customised Dimout and Roman Blinds In the Living Room",
     Product: [
       {
         product_name: 'Wooden Blinds',
@@ -549,7 +550,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Stripes Curtains',
         altText: 'Stripes Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Staircase curtains/s.jpg',
+          '/assets/images/optimized-images/curtains/Staircase curtains/stripe.jpg',
         desc: 'Our striped curtains create a visual appearance, particularly black and white striped curtains. We offer a variety of fabrics, such as heavier velvet for a dramatic, luxurious appeal and lightweight fabrics like cotton or linen for a casual vibe. If you have irregular-shaped tall windows, then our <a target="_blank" style="text-decoration: underline" href="/made-to-measure-curtains">custom made curtains</a> are designed to fit your specific measurements. Let our team of 50 help you maintain perfection from start to finish.',
       },
       {
@@ -577,7 +578,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Plain Curtains',
         altText: 'Plain Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
+          '/assets/images/optimized-images/curtains/Dining Room curtains/plain.webp',
         desc: 'Our dining room plain curtains are made from high-quality fabrics like cotton, linen, polyester, or silk. We offer <b>plain white curtains</b> with lightweight materials like linen for a fresh feel or polyester for easy maintenance. For a luxurious touch, silk adds a soft sheen, and blackout offers a cosy dining atmosphere. While our <a target="_blank" style="text-decoration: underline" href="/curtains/pinch-pleat-curtains">pencil pleat curtains</a> are an elegant addition to both traditional and modern decors.',
       },
       {
@@ -948,6 +949,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Hospital Curtains',
+    static_Title:"Made To Measure Hospital Window Coverings",
     Product: [
       {
         product_name: 'Sheer Curtains',
@@ -978,7 +980,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'School Blinds',
-    static_Title:"Made To Measure School Window Coverings",
+    static_Title:"School Blinds, Curtains & Shutters to block sun and heat",
     Product: [
       {
         product_name: 'Roman Blinds',
