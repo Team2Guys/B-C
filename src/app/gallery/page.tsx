@@ -3,14 +3,12 @@ import React, { useState } from 'react';
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import Container from 'components/Res-usable/Container/Container';
-import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories, fetchProducts } from 'config/fetch';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { usePathname } from 'next/navigation';
-import { generateSlug } from 'data/data';
 import { Image } from 'antd';
 import { IoSearch } from 'react-icons/io5';
 
@@ -25,12 +23,8 @@ interface GalleryProps {
 
 const itemsPerPage = 12;
 const GalleryPage: React.FC<GalleryProps> = ({
-  card,
   relativeProducts,
   detailHide,
-  parent,
-  product_Images,
-  isGalleryPage,
 }) => {
   const pathName = usePathname();
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
