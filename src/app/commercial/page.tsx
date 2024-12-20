@@ -137,6 +137,7 @@ const CommercialPage = () => {
                   key={product.id}
                   relativeProducts={true}
                   parent={parent}
+                  imagesOnly={true}
                 />
               );
             })}
