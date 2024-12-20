@@ -4,10 +4,9 @@ import React from 'react'
 import { IoSearch } from 'react-icons/io5'
 interface GalleryProps {
     card: any;
-    isGalleryPage?: boolean;
   }
   
-const ThumbImage:React.FC<GalleryProps>= ({card,isGalleryPage}) => {
+const ThumbImage:React.FC<GalleryProps>= ({card}) => {
   
   return (
     <>
