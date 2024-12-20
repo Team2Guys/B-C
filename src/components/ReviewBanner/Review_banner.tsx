@@ -62,7 +62,7 @@ export default function Review_banner() {
               </h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10 lg:mb-0 mb-20">
-              <Link href="/" className="w-fit mx-auto">
+              <Link href="https://g.page/r/Cb5WvqhjNT4iEAE/" target='_blank' className="w-fit mx-auto">
                 <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit">
                   <span>
                     <FcGoogle className="lg:text-3xl text-14" />

@@ -35,7 +35,7 @@ export default function RootLayout({
           <PathnameWrapper>
             {children}
             <WhatsIcon />
-            <ToastContainer />
+            <ToastContainer autoClose={3000} />
           </PathnameWrapper>
         </body>
       </html>
