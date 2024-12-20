@@ -300,7 +300,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       (
         <>
           <div className="flex justify-between mb-4 items-center text-black dark:text-white ">
-            <p>Admins</p>
+            <p></p>
             <div>
               <button
                 onClick={() => setselecteMenu('Add Admin')}

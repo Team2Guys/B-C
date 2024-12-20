@@ -12,11 +12,11 @@ function Hero() {
 
   return (
     <Container>
-      <CustomSlider className="Hero-slider z-40 mb-0 lg:mb-3 sm:mb-5 md:pt-10 md:pb-5">
+      <CustomSlider className="Hero-slider z-40 md:pt-10 content-center h-full md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh] max-sm:pb-5">
         {heroSlider.map((item: any) => {
           return (
             <div key={item.id}>
-              <div className=" flex flex-wrap md:flex-nowrap lg:px-0 px-4 lg:h-110 h-full">
+              <div className=" flex flex-wrap md:flex-nowrap lg:px-0 px-4 items-center">
                 <div className="h-full w-full md:w-1/2 flex flex-col lg:justify-start justify-center gap-1  ">
                   <div className="w-full flex items-center justify-center md:justify-start gap-2 lg:mt-0 mt-5">
                     <svg
@@ -51,7 +51,7 @@ function Hero() {
                     typesetting industry. */}
                     {item.content}
                   </p>
-                  <Link className='uppercase bg-white hidden md:block mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-12 w-fit' href={'/request-appointment'}>
+                  <Link className='uppercase bg-white hidden md:block mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4  w-fit' href={'/request-appointment'}>
                     Book A Free Home Design Visit
                   </Link>
                 </div>
@@ -98,7 +98,7 @@ function Hero() {
                       />
                     )}
                   </div>
-                  <Link className='uppercase bg-white md:hidden mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0 mb-4 sm:mb-8 w-fit' href={'/request-appointment'}>
+                  <Link className='uppercase bg-white md:hidden mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0   w-fit' href={'/request-appointment'}>
                     Book A Free Home Design Visit
                   </Link>
                 </div>
