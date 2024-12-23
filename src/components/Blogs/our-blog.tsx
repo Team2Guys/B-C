@@ -1,10 +1,7 @@
 'use client';
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
-import {
-  formatDateMonth,
-  removeImagesFromContent,
-} from 'config';
+import { formatDateMonth, removeImagesFromContent } from 'config';
 import { generateSlug } from 'data/data';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -51,17 +48,13 @@ const OurBlog = ({
                 route.push(`/blog/${generateSlug(blog.title)}`);
               }}
             >
-              <div
-                className={``}
-              >
+              <div className={``}>
                 <Image
                   className={`rounded-3xl md:h-[353.9px] w-full ${className} cursor-pointer`}
                   width={700}
                   height={700}
-                  //@ts-expect-error
                   src={blog.posterImage?.imageUrl}
                   alt="blog"
-                  
                 />
                 <div className="flex items-center gap-4  pt-5">
                   <span className="text-12 font-medium text-[#999999]">
@@ -78,26 +71,24 @@ const OurBlog = ({
                 </h3>
                 <p className="">
                   {filteredContent.length > 160 ? (
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: `${filteredContent.slice(0, 100)}...`,
-                        }}
-                      />
-                    
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: `${filteredContent.slice(0, 100)}...`,
+                      }}
+                    />
                   ) : (
                     <span
                       dangerouslySetInnerHTML={{ __html: filteredContent }}
                     />
                   )}
                 </p>
-
               </div>
-                <Link
-                  href={`/blog/${generateSlug(blog.title)}`}
-                  className={`text-primary text-18 underline font-bold text-center sm:text-start`}
-                >
-                  Read More
-                </Link>
+              <Link
+                href={`/blog/${generateSlug(blog.title)}`}
+                className={`text-primary text-18 underline font-bold text-center sm:text-start`}
+              >
+                Read More
+              </Link>
             </div>
           );
         })}

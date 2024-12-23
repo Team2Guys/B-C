@@ -85,7 +85,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       queryClient.invalidateQueries(['blogs']);
     } catch (error) {
       showToast('warn', 'There was an error deleting the blog😢');
-      
+
     }
   };
 
@@ -96,7 +96,6 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       key: 'posterImageUrl',
       render: (text: any, record: BlogInfo) => (
         <Image
-          //@ts-expect-error
           src={record.posterImage?.imageUrl}
           alt={`Image of ${record.title}`}
           className="rounded-md h-[50px]"
