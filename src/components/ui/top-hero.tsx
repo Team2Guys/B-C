@@ -1,5 +1,5 @@
 'use client';
-import  { StaticImageData } from 'next/image';
+import { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
@@ -7,6 +7,7 @@ import { UpdateShutterTitle } from './menu-card';
 import { colorData, TopHeroLink } from 'data/data';
 import { usePathname } from 'next/navigation';
 import { BreakCrum_conent_pages } from 'data/data';
+import { blogCategoryUrl } from 'data/urls';
 
 interface TopHeroProps {
   title: string | any;
@@ -38,10 +39,11 @@ const TopHero: React.FC<TopHeroProps> = ({
         .map((segment: string) => segment.replaceAll('-', ' '));
 
       setPageName(newPageName);
+      console.log(newPageName, 'pageName')
     }
   }, [pagename]);
 
-  const result = BreakCrum_conent_pages.find((value:any) =>
+  const result = BreakCrum_conent_pages.find((value: any) =>
     value.url.toLowerCase().includes(page.toLowerCase())
   );
 
@@ -69,39 +71,51 @@ const TopHero: React.FC<TopHeroProps> = ({
               const matchedLink = TopHeroLink.find(
                 (heroLink) => heroLink.matchingTitle.toLowerCase() === item.toLowerCase()
               );
-              const matchingPageTitle = TopHeroLink.find((itemTitle) => itemTitle.title.toLowerCase() === item.toLowerCase())
+              const matchingPageTitle = TopHeroLink.find(
+                (itemTitle) => itemTitle.title.toLowerCase() === item.toLowerCase()
+              );
               const matchingColorData = colorData.find((item) => item.url === page);
+              let linkHref = '';
+              let linkText = item;
+              if (matchedLink) {
+                linkHref = `/${item !== 'blog' && pageName.length > 1 && blogCategoryUrl.some((item) => item.name.toLowerCase() === pageName.at(1)?.toLowerCase()) 
+                  ? `blog/${pageName.at(1)?.toLowerCase()}` 
+                  : matchedLink?.title || ''}`;
+              } else if (matchingPageTitle) {
+                linkHref = `/${matchingPageTitle.title.replaceAll(' ', '-')}`;
+                linkText = matchingPageTitle.title;
+              } else if (index === pageName.length - 2) {
+                linkHref = `/${pageName.at(0)?.toLowerCase() === 'blinds' ? 'blinds' :
+                  pageName.at(0)?.toLowerCase() === 'curtains' ? 'curtains' :
+                    pageName.at(0)?.toLowerCase() === 'shutters' ? 'shutters' :
+                      pageName.at(0)?.toLowerCase() === 'commercial' ? 'commercial' :
+                        pageName.at(0)?.toLowerCase() === 'blog' ? 'blog' : ''}${item === "commercial" ? '' : `/${item.replaceAll(' ', '-')}`}`;
+              } else if (matchingColorData) {
+                return (
+                  <>
+                    <Link href="/shutters-range" className="font-bold capitalize">Shutters Range</Link>
+                    <FaAngleRight size={20} />
+                    <h2 className="font-bold capitalize">{item}</h2>
+                  </>
+                );
+              } else {
+                linkText = item === 'request appointment' ? 'Book Appointment' : item;
+              }
               return (
                 <React.Fragment key={index}>
                   <FaAngleRight size={20} />
-                  {matchedLink ? (<Link
-                    href={`/${matchedLink.title}`}
-                    className="font-bold capitalize"
-                  >
-                    {item}
-                  </Link>) : matchingPageTitle ? (<Link
-                    href={`/${matchingPageTitle.title.replaceAll(' ', '-')}`}
-                    className="font-bold capitalize"
-                  >
-                    {matchingPageTitle.title}
-                  </Link>) :
-                    index === (pageName.length - 2) ? (
-                      <Link href={`/${pageName.at(0)?.toLowerCase() === 'blinds' ? 'blinds' : pageName.at(0)?.toLowerCase() === 'curtains' ? 'curtains' : pageName.at(0)?.toLowerCase() === 'shutters' ? 'shutters' : pageName.at(0)?.toLowerCase() === 'commercial' ? 'commercial' : ''}${item === "commercial" ? '' : `/${item.replaceAll(' ', '-')}`} `} className="font-bold capitalize">
-                        {item}
-                      </Link>
-                    ) : matchingColorData ? (<>
-                      <Link href='/shutters-range' className="font-bold capitalize" >Shutters Range</Link>
-                      <FaAngleRight size={20} />
-                      <h2 className="font-bold capitalize">{item}</h2>
-                      </>
-                    ) : (
-                      <h2 className="font-bold capitalize">{item == 'request appointment' ? 'Book Appointment' : item}</h2>
-                    )
-                  }
+                  {linkHref ? (
+                    <Link href={linkHref} className="font-bold capitalize">
+                      {linkText}
+                    </Link>
+                  ) : (
+                    <h2 className="font-bold capitalize">{linkText}</h2>
+                  )}
                 </React.Fragment>
               );
             })
           ) : null}
+
         </div>
       </div>
     </div>

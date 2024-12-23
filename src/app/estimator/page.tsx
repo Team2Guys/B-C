@@ -17,7 +17,7 @@ import Container from 'components/Res-usable/Container/Container';
 import { PiGreaterThan } from "react-icons/pi";
 import UnitSelector from '../../components/estimator-product/UnitSelector';
 import EstimatorProduct from 'components/estimator-product/estimator-product';
-import { allowedTitles } from 'data/urls';
+import { allowedTitles, predefinedOrder } from 'data/urls';
 import { estimator_data } from 'data/data';
 import EstimatorSkeleton from 'components/Skeleton/estimator-skeleton';
 
@@ -42,7 +42,18 @@ const Estimator: React.FC = () => {
   ? products.filter((product) => allowedTitles.includes(product.title))
   : [];
 
-const allProducts = [...estimator_data, ...filteredFetchedProducts];
+  
+  
+  const allProducts = [...estimator_data, ...filteredFetchedProducts];
+  const sortedProducts = allProducts.sort((a, b) => {
+    const aIndex = predefinedOrder.indexOf(a.title);
+    const bIndex = predefinedOrder.indexOf(b.title);
+    if (aIndex === -1 || bIndex === -1) {
+      return aIndex === -1 ? 1 : -1;
+    }
+  
+    return aIndex - bIndex;
+  });
 
   useEffect(() => {
     if (products && products.length > 0) {
@@ -129,7 +140,7 @@ const allProducts = [...estimator_data, ...filteredFetchedProducts];
           </h2>
 
           <EstimatorProduct
-              selectProduct={allProducts}
+              selectProduct={sortedProducts}
               activeProduct={activeProduct}
               setActiveProduct={setActiveProduct}
             />

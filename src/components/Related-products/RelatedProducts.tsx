@@ -26,10 +26,12 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
   const displayedProducts = limit ? products.slice(0, limit) : products;
   useEffect(() => {
     if (pathname) {
-      const matchedProduct = RelatedProductsdata.find((product) => product.url === pathname);
+      const matchedProduct = RelatedProductsdata.find((product) =>
+        pathname.includes(product.name)
+      );
       setDescription(matchedProduct ? matchedProduct.para : null);
     }
-  }, [pathname]);
+  }, [pathname]); 
   return (
     <div className='px-2 md:px-4'>
       <div className="flex items-center gap-1">

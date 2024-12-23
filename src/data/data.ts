@@ -1748,6 +1748,10 @@ export const TopHeroLink: ITopHeroLink[] = [
     matchingTitle: 'shutters',
     title: 'shutters range',
   },
+  {
+    matchingTitle: 'blog',
+    title: 'blog',
+  },
 ];
 
 export const categoriesContent = [
@@ -2578,24 +2582,18 @@ export const categorydata = [
   },
 ];
 
-//RelatedProductsDta
+
 export const RelatedProductsdata =[
-  { url:"/automated-blinds",
+  { name:"blinds",
     para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
   },
-  { url:"/automated-curtains",
+  { name:"curtains",
     para: "For quality curtain installation in Dubai, check out our services designed to make your living spaces more beautiful.",
   },
-  { url:"/made-to-measure-blinds",
-    para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
-  },
-  { url:"/made-to-measure-curtains",
-    para: "For quality curtain installation in Dubai, check out our services designed to make your living spaces more beautiful.",
-  },
-  { url:"/shutters-range",
+  { name:"shutters-range",
     para: "Explore our range of Interior & Exterior Shutters, designed for both style and durability.",
   },
-  { url:"/commercial",
+  { name:"commercial",
     para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
   },
 ]
