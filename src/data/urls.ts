@@ -45,7 +45,7 @@ export const urls = [
     errorUrl: '/curtains/double-pleat-pleat-curtains',
 
   },
- 
+
   {
     productName: 'Office Curtains',
     Url: 'office-window-curtains',
@@ -118,7 +118,7 @@ export const urls = [
     Url: 'stage-and-theatre-curtains',
     errorUrl: '/curtains/theatre-curtains',
   },
- 
+
   {
     productName: 'hotels-restaurants',
     Url: 'hotels-restaurants-blinds-curtains',
@@ -173,8 +173,8 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
-  'skylight' : '/blinds/skylight-blinds-dubai',
-  'skylight-blinds' : '/blinds/skylight-blinds-dubai',
+  'skylight': '/blinds/skylight-blinds-dubai',
+  'skylight-blinds': '/blinds/skylight-blinds-dubai',
   'balcony-blinds-and-curtains': '/balcony-blinds-and-curtains',
 
 };
@@ -199,17 +199,17 @@ export const ChangedProductUrl_handler = (title: string): string => {
 
 
 
-export const CommercialUrl=[
-  {urlName:"hospitals", Redirect:"/curtains/hospital-curtains"},
-  {urlName:"restaurants", Redirect:"/hotels-restaurants-blinds-curtains"},
-  {urlName:"hotels", Redirect:"/hotels-restaurants-blinds-curtains"},
-  {urlName:"offices", Redirect:"/curtains/office-window-curtains"},
-  {urlName:"schools", Redirect:"/blinds/school-blinds"},
-  {urlName:"gym", Redirect:"/curtains/gym-curtains"},
-  {urlName:"theatre", Redirect:"/curtains/stage-and-theatre-curtains"},
-  {urlName:"wooden-aluminium-blinds", Redirect:"/blinds/wooden-venetian"},
-  {urlName:"study-room-blinds", Redirect:"/commercial"},
-  {urlName:"aric-blinds", Redirect:"/"},
+export const CommercialUrl = [
+  { urlName: "hospitals", Redirect: "/curtains/hospital-curtains" },
+  { urlName: "restaurants", Redirect: "/hotels-restaurants-blinds-curtains" },
+  { urlName: "hotels", Redirect: "/hotels-restaurants-blinds-curtains" },
+  { urlName: "offices", Redirect: "/curtains/office-window-curtains" },
+  { urlName: "schools", Redirect: "/blinds/school-blinds" },
+  { urlName: "gym", Redirect: "/curtains/gym-curtains" },
+  { urlName: "theatre", Redirect: "/curtains/stage-and-theatre-curtains" },
+  { urlName: "wooden-aluminium-blinds", Redirect: "/blinds/wooden-venetian" },
+  { urlName: "study-room-blinds", Redirect: "/commercial" },
+  { urlName: "aric-blinds", Redirect: "/" },
 ]
 
 export const getProduct = [
@@ -269,4 +269,11 @@ export const allowedTitles = [
   "Shutters MDF",
   "Roller Blinds",
   "Shutters Basswood"
-  ];
+];
+
+
+export const blogCategoryUrl = [
+  { url: '/blog/blinds'   , name: 'Blinds'},
+  { url: '/blog/curtains' , name: 'Curtains' },
+  { url: '/blog/shutters' , name: 'Shutters' }
+]

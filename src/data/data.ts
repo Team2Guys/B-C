@@ -1748,6 +1748,10 @@ export const TopHeroLink: ITopHeroLink[] = [
     matchingTitle: 'shutters',
     title: 'shutters range',
   },
+  {
+    matchingTitle: 'blog',
+    title: 'blog',
+  },
 ];
 
 export const categoriesContent = [

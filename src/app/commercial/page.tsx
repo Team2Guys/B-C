@@ -3,6 +3,7 @@
 import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
+import { Image as ImageAntd } from 'antd';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Link from 'next/link';
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
@@ -22,18 +23,19 @@ import {
   officeBlindsItems,
 } from 'data/data';
 import VideoBanner from 'components/video-banner/video-banner';
+import { IoSearch } from 'react-icons/io5';
 
 const CommercialPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
 
-  const { data: products,  isLoading:prodloading, } = useQuery<any[]>({
-     queryKey: ['products'], 
+  const { data: products, isLoading: prodloading, } = useQuery<any[]>({
+    queryKey: ['products'],
     queryFn: fetchProducts,
-  
+
   });
 
-  const { data: categories,  isLoading: categoryLoading} = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
+  const { data: categories, isLoading: categoryLoading } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
 
   const { data: subCategories, } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
@@ -56,7 +58,7 @@ const CommercialPage = () => {
   if (prodloading || categoryLoading) {
     return <div></div>;
   }
-  
+
 
   return (
     <div>
@@ -122,27 +124,51 @@ const CommercialPage = () => {
           Find the perfect made-to-measure blinds within our exclusive range.
           There are many shades and stunning patterns to select from
         </p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6 md:px-0">
-          {filteredProducts &&
-            filteredProducts.map((product: IProduct) => {
-              const category = categories?.find(
-                (cat) => cat.id === product.CategoryId,
-              );
-              console.log(category, 'categor');
-              if (!category) return null;
-              const parent = generateSlug(category.title);
-              return (
-                <GalleryCard
-                  card={product}
-                  key={product.id}
-                  relativeProducts={true}
-                  parent={parent}
-                  imagesOnly={true}
-                />
-              );
-            })}
+        <div>
+          {<ImageAntd.PreviewGroup
+            preview={{
+              onChange: (current, prev) => {
+                console.log(`current index: ${current}, prev index: ${prev}`);
+              },
+            }}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
+              {filteredProducts?.map((product) => {
+                // Skip product without a category
+                if (!product.category) return null;
+
+                const { posterImage, title } = product;
+                const altText = posterImage?.altText || "Image";
+
+                return (
+                  <div key={product.id} className="relative rounded-lg transition-shadow duration-300 group">
+                    <ImageAntd
+                      src={posterImage?.imageUrl || '/default-image.jpg'} // Default image for missing data
+                      alt={altText}
+                      className="rounded-xl"
+                      width={500} // Use your preferred width
+                      height={500} // Use your preferred height
+                      preview={{
+                        mask: (
+                          <div>
+                            <IoSearch style={{ color: 'white', fontSize: '30px' }} />
+                          </div>
+                        ),
+                      }}
+                    />
+                    <div
+                      className="absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center justify-center bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <span className="text-black text-start text-primary cursor-pointer">{title}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </ImageAntd.PreviewGroup>
+          }
         </div>
-  
+
       </Container>
       <Container >
         <RelatedProducts products={filteredProducts || []} limit={4} />

@@ -33,7 +33,6 @@ const Info = (selectedPage: IInfo) => {
             ))}
           <div className=" pt-5 text-center md:text-start">
             <Link  href={"/request-appointment"}
-              target='_blank'
               className="px-4 py-4 rounded-md bg-secondary text-white font-medium"
             >
               Book An Appointment
