@@ -207,7 +207,7 @@ const Blog: React.FC = () => {
       )}
 
       <div className="mt-28" />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
