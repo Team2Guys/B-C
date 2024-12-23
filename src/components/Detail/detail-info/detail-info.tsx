@@ -48,7 +48,7 @@ const DetailInfo: React.FC<detailprops> = ({
               <div className='pt-4'>
                 <Link href={"/request-appointment"}
                   target='_blank' rel="noopener"
-                  className="py-6 px-10"
+                  className="px-4 py-4 rounded-md bg-secondary text-white font-medium"
                 >
                   Book An Appointment Now
                 </Link>
