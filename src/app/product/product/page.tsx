@@ -6,7 +6,6 @@ import Container from 'components/Res-usable/Container/Container';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Support from 'components/Res-usable/support/support';
 import VideoAutomation from 'components/video-Automation/video-Automation';
-import { Button } from 'components/ui/button';
 import { LiaSearchPlusSolid } from 'react-icons/lia';
 
 import {
@@ -16,6 +15,7 @@ import {
 import backbanner from '../../../../public/assets/images/aric-blands/aric-header.png';
 import cardImg from '../../../../public/assets/images/aric-blands/aric-blands.png';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 interface TsizePresets {
   width: number;
@@ -133,12 +133,11 @@ const AricBlind: React.FC = () => {
                       onClick={() =>
                         handleSizeChange(preset.width, preset.height)
                       }
-                      className={`border text-12 rounded-none py-1 border-light px-2 text-center ${
-                        selectedSize.width === preset.width &&
-                        selectedSize.height === preset.height
+                      className={`border text-12 rounded-none py-1 border-light px-2 text-center ${selectedSize.width === preset.width &&
+                          selectedSize.height === preset.height
                           ? 'bg-gray-300'
                           : 'bg-white'
-                      }`}
+                        }`}
                     >
                       {preset.width}×{preset.height}
                     </button>
@@ -157,10 +156,12 @@ const AricBlind: React.FC = () => {
               prices may vary (e.g., premium sheer, wavy curtains, automation).
               Book a visit to have your custom quotation!
             </p>
+            <div className='pt-4'>
+              <Link href={"/request-appointment"} className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
+                Book An Appointment Now
+              </Link>
+            </div>
 
-            <Button className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg">
-            Book An Appointment Now
-            </Button>
           </div>
         </div>
       </Container>

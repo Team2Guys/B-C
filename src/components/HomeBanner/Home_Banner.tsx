@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React from 'react';
 import { BannerProps } from 'types/interfaces';
 const Banner: React.FC<BannerProps> = () => {
-  const route = useRouter();
   return (
     <div className="grid grid-cols-12 items-center bg-[#F6EFE9] py-2 sm:py-0">
       <div className="col-span-12 sm:col-span-4 md:col-span-5 2xl:col-span-6">

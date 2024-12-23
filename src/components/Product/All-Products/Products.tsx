@@ -30,8 +30,8 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const [content, setContent] = useState({ title: '', subtitle: '' });
 
   useEffect(() => {
-    const width = window.innerWidth;
     const updateProductsPerPage = () => {
+      const width = window.innerWidth;
       if (width < 768) {
         setProductsPerPage(4);
       } else if (width <= 1024) {
@@ -40,15 +40,15 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         setProductsPerPage(8);
       }
     };
-
+  
     updateProductsPerPage();
-
     window.addEventListener('resize', updateProductsPerPage);
-
+  
     return () => {
       window.removeEventListener('resize', updateProductsPerPage);
     };
   }, []);
+
   const byRoomItems = [...extendedByRoom, ...megaMenubyRoom].flat();
   const ByRoomItems = useMemo(
     () =>
@@ -105,58 +105,65 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     products,
   ]);
 
-  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const visibleProducts = filteredProducts.slice(
-    startIndex,
-    startIndex + productsPerPage,
-  );
+  const totalPages = useMemo(() => {
+    return Math.ceil(filteredProducts.length / productsPerPage);
+  }, [filteredProducts, productsPerPage]);
+  
+  const startIndex = useMemo(() => {
+    return Math.max(0, (currentPage - 1) * productsPerPage);
+  }, [currentPage, productsPerPage]);
+  
+  const visibleProducts = useMemo(() => {
+    return filteredProducts.slice(startIndex, startIndex + productsPerPage);
+  }, [filteredProducts, startIndex, productsPerPage]);
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    if (productContainerRef.current) {
-      productContainerRef.current.scrollIntoView({ behavior: 'smooth' });
-
-      const offset = 200; // Adjust this value as needed
-      const top =
-        productContainerRef.current.getBoundingClientRect().top +
-        window.scrollY - offset;
-
-      window.scrollTo({ top, behavior: 'smooth' });
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      if (productContainerRef.current) {
+        productContainerRef.current.scrollIntoView({ behavior: 'smooth' });
+  
+        const offset = 200;
+        const top =
+          productContainerRef.current.getBoundingClientRect().top +
+          window.scrollY -
+          offset;
+  
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
     }
   };
 
   const getVisiblePages = (currentPage: number, totalPages: number) => {
     const visiblePages: (number | string)[] = [];
-  
-    if (totalPages <= 4) {
-      // Show all pages if total pages are 4 or fewer
-      for (let i = 1; i <= totalPages; i++) {
-        visiblePages.push(i);
-      }
+
+    if (totalPages <= 5) {
+        for (let i = 1; i <= totalPages; i++) {
+            visiblePages.push(i);
+        }
     } else {
-      visiblePages.push(1); // Always show the first page
-  
-      if (currentPage > 3) {
-        visiblePages.push('...'); // Add dots if skipping pages
-      }
-  
-      const start = Math.max(2, currentPage - 1);
-      const end = Math.min(totalPages - 1, currentPage + 1);
-  
-      for (let i = start; i <= end; i++) {
-        visiblePages.push(i);
-      }
-  
-      if (currentPage < totalPages - 2) {
-        visiblePages.push('...'); // Add dots if skipping pages
-      }
-  
-      visiblePages.push(totalPages); // Always show the last page
+        visiblePages.push(1); 
+
+        if (currentPage > 3) {
+            visiblePages.push('...'); 
+        }
+
+        const start = Math.max(2, currentPage - 1);
+        const end = Math.min(totalPages - 1, currentPage + 1);
+
+        for (let i = start; i <= end; i++) {
+            visiblePages.push(i);
+        }
+
+        if (currentPage < totalPages - 2) {
+            visiblePages.push('...'); 
+        }
+
+        visiblePages.push(totalPages);
     }
-  
+
     return visiblePages;
-  };
+};
   
 
   const visiblePages = getVisiblePages(currentPage, totalPages);
