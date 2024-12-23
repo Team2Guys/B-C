@@ -21,7 +21,7 @@ const fetchBlogs = async (): Promise<BlogInfo[]> => {
   }
 };
 
-const Blog = async ({ params }: { params: { slug: string } }) => {
+const Blog = async () => {
   const blogs = await fetchBlogs();
   return (
     <>
