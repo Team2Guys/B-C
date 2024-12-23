@@ -271,6 +271,19 @@ export const allowedTitles = [
   "Shutters Basswood"
 ];
 
+export const predefinedOrder = [
+    'Roller Blinds',
+    'Roman Blinds',
+    'Vertical Blinds',
+    'Wooden Blinds',
+    'Aluminium Blinds',
+    'Zebra Blinds',
+    'Blackout Curtains',
+    'Sheer Curtains',
+    'Shutters MDF',
+    'Shutters Basswood'
+  ];
+
 
 export const blogCategoryUrl = [
   { url: '/blog/blinds'   , name: 'Blinds'},
