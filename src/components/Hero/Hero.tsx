@@ -12,7 +12,7 @@ function Hero() {
 
   return (
     <Container>
-      <CustomSlider className="Hero-slider z-40 md:pt-10 content-center h-full md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh] max-sm:pb-5">
+      <CustomSlider className="Hero-slider z-40 pb-3 xl:pt-0 2xl:pt-10 content-center h-full md:h-[55vh] lg:h-[65vh] xl:h-[80vh] 2xl:h-[84vh] max-sm:pb-5">
         {heroSlider.map((item: any) => {
           return (
             <div key={item.id}>

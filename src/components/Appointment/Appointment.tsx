@@ -7,7 +7,7 @@ import { Divider } from 'antd';
 function Appointment() {
   return (
     <>
-      <Divider className="border bg-white !p-0 !m-0 h-1" />
+      <Divider className="border bg-white !p-0 !m-0 h-1 !mb-3" />
       <Container className=''>
         <div className="xl:flex gap-4 ">
           <Choose />
