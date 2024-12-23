@@ -2582,14 +2582,8 @@ export const categorydata = [
   },
 ];
 
-//RelatedProductsDta
+
 export const RelatedProductsdata =[
-  // { url:"/automated-blinds",
-  //   para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
-  // },
-  // { url:"/automated-curtains",
-  //   para: "For quality curtain installation in Dubai, check out our services designed to make your living spaces more beautiful.",
-  // },
   { name:"blinds",
     para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
   },
