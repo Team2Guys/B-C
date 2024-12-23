@@ -1,7 +1,9 @@
-import { Body, Controller, Delete, Get, Param, Post,Put,UsePipes ,ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post,Put,Req,UsePipes ,ValidationPipe } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import {CreateProductDto} from '../dto/product.dto'
 import { Prisma } from '@prisma/client';
+import { Response ,Request} from 'express';
+
 
 @Controller('products')
 export class ProductsController {
@@ -14,7 +16,7 @@ export class ProductsController {
 
 
 @Post("AddProduct")
-async CreateProducthandler (@Body() createCategoryDto:Prisma.productsCreateInput, req: Request) {
+async CreateProducthandler (@Body() createCategoryDto:Prisma.productsCreateInput,@Req() @Req() req:Request) {
   return this.ProductsService.AddProductHandler(createCategoryDto,req);
 }
 
@@ -26,7 +28,8 @@ async getAllProducts(){
 
 
 @Put("edit_product/:id")
-async edit_product(@Param("id") id: number, @Body() updated_product:Prisma.productsUpdateInput,req: Request){
+async edit_product(@Param("id") id: number, @Body() updated_product:Prisma.productsUpdateInput, @Req() @Req() req:Request){
+  console.log(req, "req")
   return this.ProductsService.UpdateProductHandler(+id, updated_product,req)
 }
 

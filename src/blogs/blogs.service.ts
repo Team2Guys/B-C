@@ -16,7 +16,7 @@ export class BlogsService {
   constructor(private prisma: PrismaService) { }
 
   async create(createBlogDto: Prisma.blogsCreateInput, req: Request | any) {
-    const { email } = req
+    const { email } = req.user
     let existing_blog = await this.prisma.blogs.findFirst({
       where: { title: createBlogDto.title },
     });
@@ -53,7 +53,7 @@ export class BlogsService {
 
   async update(id: number, updateBlogDto: Prisma.blogsUpdateInput, req: Request | any) {
     try {
-      const { email } = req
+      const { email } = req.user
       const updated_blog = await this.prisma.blogs.update({
         where: { id: id },
         data: { ...updateBlogDto, last_editedBy: email },
@@ -158,7 +158,9 @@ export class BlogsService {
 
   async updateStatus(id: number, status: string, req: Request | any) {
     try {
+  console.log(req, "req")
       const { email } = req
+
       if (!Object.values(CommentStatus).includes(status as CommentStatus)) {
         throw new Error(
           `Invalid status: ${status}. Valid statuses are ${Object.values(CommentStatus).join(', ')}`,

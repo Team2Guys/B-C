@@ -44,7 +44,7 @@ export class AdminsController {
     }
 
     @Get('get-admin-handler')
-    get_admin_handler(@Req() req:Request){
+    get_admin_handler(@Req() @Req() req:Request){
     console.log(req, "headers")
       return this.adminsService.getAdminHandler(req)
     }
@@ -60,7 +60,7 @@ export class AdminsController {
 
 
     @Get('getSuperAdminHandler')
-    getSuperAdminHandler(@Req() req:Request){
+    getSuperAdminHandler(@Req() @Req() req:Request){
       return this.adminsService.getSuperAdminHandler(req)
     }
 

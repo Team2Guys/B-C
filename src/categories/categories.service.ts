@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Req } from '@nestjs/common';
 
 import { PrismaService } from '../../prisma/prisma.service';
 import { CustomErrorHandler } from '../utils/helperFunctions';
@@ -52,7 +52,7 @@ export class CategoriesService {
     }
   }
 
-  async CategoryUpdateHandler(id: number, updateCategoryDto: Prisma.CategoriesUpdateInput,req:Request | any) {
+  async CategoryUpdateHandler(id: number, updateCategoryDto: Prisma.CategoriesUpdateInput,@Req() req:Request | any) {
     try {
       const { email } = req.user
 
@@ -79,7 +79,7 @@ export class CategoriesService {
   }
 
 
-  async AddsubCategoryHandler(createCategoryDto: Prisma.SubCategoriesCreateInput, req:Request | any) {
+  async AddsubCategoryHandler(createCategoryDto: Prisma.SubCategoriesCreateInput, @Req() req:Request | any) {
     const CreatesubCategoryHandlerWithErrorHandling = withAsyncErrorHandling(CreatesubCategoryHandler)
     const [response, error]: any = await CreatesubCategoryHandlerWithErrorHandling(createCategoryDto, req);
     if (error) {

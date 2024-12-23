@@ -3,6 +3,8 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { CustomErrorHandler } from '../utils/helperFunctions';
 import { getAllproducts } from '../utils/DbHandlers'
 import { Prisma } from '@prisma/client';
+import { Response ,Request} from 'express';
+
 
 @Injectable()
 export class ProductsService {
@@ -13,7 +15,8 @@ export class ProductsService {
     }
 
     AddProductHandler = async (createCategoryDto: Prisma.productsCreateInput, req: Request | any) => {
-        const {email}= req
+
+        const {email}= req.user
         const { title } = createCategoryDto;
 
         let AlreadyExistedProduct = await this.prisma.products.findUnique({ where: { title: title } })
@@ -47,7 +50,9 @@ export class ProductsService {
 
     UpdateProductHandler = async (id: number, updateProduct: Prisma.productsUpdateInput, req: Request | any) => {
         try {
-            const{email} = req
+            console.log(req, "requ")
+            const { email } = req.user
+            console.log(email, "email")
             let product = await this.prisma.products.findUnique({
                 where: { id: id },
                 include: { subCategory: true },
