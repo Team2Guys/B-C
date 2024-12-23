@@ -15,7 +15,7 @@ import { useParams, usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { BlogInfo } from 'types/interfaces';
 import bgBreadcrum from '../../../../public/assets/images/Blog/blogbackground.png';
-import { FaAngleRight, FaHome } from 'react-icons/fa';
+import { FaAngleRight } from 'react-icons/fa';
 import Link from 'next/link';
 
 const BlogDetail = () => {
@@ -26,7 +26,7 @@ const BlogDetail = () => {
   const [relatedPosts, setRelatedPosts] = useState<BlogInfo[]>([]);
   const [filterCategoryPosts, setfilterCategoryPosts] = useState<BlogInfo[]>([]);
 
-  const { data: blogs, isLoading, error } = useQuery<BlogInfo[]>({
+  const { data: blogs, isLoading } = useQuery<BlogInfo[]>({
     queryKey: ['blogs'],
     queryFn: fetchBlogs,
   });

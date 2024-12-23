@@ -6,12 +6,11 @@ import Image from 'next/image';
 import { Image as ImageAntd } from 'antd';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Link from 'next/link';
-import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import {
-  fetchCategories,
+  // fetchCategories,
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
@@ -34,8 +33,7 @@ const CommercialPage = () => {
     queryFn: fetchProducts,
 
   });
-
-  const { data: categories, isLoading: categoryLoading } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
+  // const { data: categories, isLoading: categoryLoading } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
 
   const { data: subCategories, } = useQuery<ICategory[]>({
     queryKey: ['sub-categories'],
@@ -54,8 +52,8 @@ const CommercialPage = () => {
       setmixProdCategeries(arry);
     }
   }, [products, subCategories]);
-
-  if (prodloading || categoryLoading) {
+  // if (prodloading || categoryLoading) {
+  if (prodloading ) {
     return <div></div>;
   }
 
