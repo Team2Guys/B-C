@@ -12,7 +12,6 @@ interface relativeProps {
   limit?: number;
   className?: string;
 }
-
 const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
   const pathname = usePathname()
   const [description, setDescription] = useState<string | null>(null);

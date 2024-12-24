@@ -16,6 +16,7 @@ import { RxCross2 } from 'react-icons/rx';
 import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Image from 'next/image';
 import MyEditor from './custom-editor';
+import Cookies from 'js-cookie';
 
 interface IAddBlogs {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -31,6 +32,12 @@ const AddBlogs = ({
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(
     EditInitialValues ? [EditInitialValues.posterImage] : [],
   );
+  const token = Cookies.get('2guysAdminToken');
+  const superAdminToken = Cookies.get('superAdminToken');
+  let finalToken = token ? token : superAdminToken;
+  const headers = {
+    authorization: `Bearer ${finalToken}`,
+  };
 
   const blogInitialValues = {
     title: EditInitialValues?.title || '',
@@ -60,16 +67,18 @@ const AddBlogs = ({
       if (EditInitialValues) {
         const updatedAt = new Date();
         const finalValues = { updatedAt, ...values };
-        return axios.patch(
+
+        return axios.put(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/update/${EditInitialValues.id}`,
           finalValues,
-          // { withCredentials: true },
+          { headers },
         );
       }
+
       return axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/create_blog`,
         values,
-        // { withCredentials: true },
+        { headers },
       );
     },
     onSuccess: () => {
