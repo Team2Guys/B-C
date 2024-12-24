@@ -80,7 +80,6 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title,subCategory }) 
   // const handleShowMore = () => {
   //   setShowAll(true);
   // };
-console.log(subCategory,"subCategory")
   useEffect(() => {
     if (products) {
       const filterprod = products.filter((prod) => prod.CategoryId === 9);
