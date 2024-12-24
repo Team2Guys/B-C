@@ -85,7 +85,6 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       queryClient.invalidateQueries(['blogs']);
     } catch (error) {
       showToast('warn', 'There was an error deleting the blog😢');
-
     }
   };
 
@@ -133,6 +132,14 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
           }}
         />
       ),
+    },
+    {
+      title: 'Last Edited By',
+      dataIndex: 'last_editedBy',
+      key: 'time',
+      render: (text: string, record: BlogInfo) => {
+        return <span>{record.last_editedBy}</span>;
+      },
     },
     {
       title: 'Edit',

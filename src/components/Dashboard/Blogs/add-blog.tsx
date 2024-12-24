@@ -11,17 +11,12 @@ import axios from 'axios';
 import showToast from 'components/Toaster/Toaster';
 import Loader from 'components/Loader/Loader';
 import { Button } from 'components/ui/button';
-import {
-  UpdateBlog as IUpdateBlog,
-  UpdateBlog,
-} from 'types/interfaces';
+import { UpdateBlog as IUpdateBlog, UpdateBlog } from 'types/interfaces';
 import { RxCross2 } from 'react-icons/rx';
 import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Image from 'next/image';
 import MyEditor from './custom-editor';
 import Cookies from 'js-cookie';
-
-
 
 interface IAddBlogs {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -40,9 +35,9 @@ const AddBlogs = ({
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
-  const headers= {
+  const headers = {
     authorization: `Bearer ${finalToken}`,
-  }
+  };
 
   const blogInitialValues = {
     title: EditInitialValues?.title || '',
@@ -58,7 +53,6 @@ const AddBlogs = ({
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
-
   });
 
   const addBlogMutation = useMutation({
@@ -69,19 +63,23 @@ const AddBlogs = ({
         throw new Error('No poster image selected');
       }
 
-      
       const values = { ...formData, posterImage };
       if (EditInitialValues) {
         const updatedAt = new Date();
         const finalValues = { updatedAt, ...values };
 
-
         return axios.put(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/update/${EditInitialValues.id}`,finalValues, {headers},);
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/update/${EditInitialValues.id}`,
+          finalValues,
+          { headers },
+        );
       }
 
       return axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/create_blog`,values,{headers});
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/create_blog`,
+        values,
+        { headers },
+      );
     },
     onSuccess: () => {
       setMenuType('Blogs');
@@ -121,7 +119,7 @@ const AddBlogs = ({
           <div className="h-40 w-full bg-gray-400 rounded-md"></div>
           <div className="h-12 w-1/4 bg-gray-400 rounded-md"></div>
         </div>
-      ) :
+      ) : (
         <Formik
           initialValues={blogInitialValues}
           onSubmit={(values, { resetForm }) => {
@@ -209,14 +207,16 @@ const AddBlogs = ({
                     value={values.category}
                     onChange={(value) => setFieldValue('category', value)}
                     notFoundContent={
-                      categoryError ? 'Error loading categories' : 'No categories found'
+                      categoryError
+                        ? 'Error loading categories'
+                        : 'No categories found'
                     }
                     options={[
-                      { value: "", label: "Select Category", disabled: true },
+                      { value: '', label: 'Select Category', disabled: true },
                       ...(categories?.map((category) => ({
                         value: category.title,
                         label: category.title,
-                      })) || [])
+                      })) || []),
                     ]}
                   />
                 )}
@@ -273,16 +273,16 @@ const AddBlogs = ({
                 type="submit"
                 className="text-white bg-primary px-4 py-2 font-semibold rounded-md"
               >
-                {addBlogMutation.isPending ? <Loader color="white" /> : 'Submit'}
+                {addBlogMutation.isPending ? (
+                  <Loader color="white" />
+                ) : (
+                  'Submit'
+                )}
               </Button>
             </Form>
           )}
         </Formik>
-
-      }
-
-
-
+      )}
     </Fragment>
   );
 };
