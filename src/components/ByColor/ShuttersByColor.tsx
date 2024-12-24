@@ -20,9 +20,9 @@ import { IColorData } from 'types/interfaces';
 import ThumbImage from 'components/Detail/ThumbImage/ThumbImage';
 interface ShuttersByColorProps {
   title: string;
-  subCategory?: string;
+  // subCategory?: string;
 }
-const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title,subCategory }) => {
+const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
   const [selectedPage, setSelectedPage] = useState<{
     heading: string;
     paragraph: string;
