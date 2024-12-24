@@ -1,9 +1,9 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider, { SliderSettings } from 'react-slick';
 
 import { FcGoogle } from 'react-icons/fc';
-import { RatingSlider, slides } from 'data/data';
+import { RatingSlider} from 'data/data';
 import Image from 'next/image';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Container from 'components/Res-usable/Container/Container';
@@ -37,7 +37,22 @@ function SamplePrevArrow(props: any) {
   );
 }
 
+interface Review {
+  author_name: string;
+  author_url: string;
+  language: string;
+  original_language: string;
+  profile_photo_url: string;
+  rating: number;
+  relative_time_description: string;
+  text: string;
+  time: number;
+  translated: boolean;
+}
+
+
 export default function Review_banner() {
+      const [reviews, setreviews] = useState<Review[]>([])
   const settings:SliderSettings = {
     dots: false,
     infinite: true,
@@ -49,9 +64,52 @@ export default function Review_banner() {
     // refs: ""
   };
 
+  const fetchReviewsHanlder = async () => {
+    try {
+      let allReviews:any = [];
+      let nextPageToken = null;
+  
+      // Loop to fetch all reviews using pagination
+      do {
+        // Construct the URL with the nextPageToken if it's available
+        const url:string = nextPageToken
+          ? `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}&pagetoken=${nextPageToken}`
+          : `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}`;
+  
+        const res = await fetch(url);
+        const results = await res.json();
+  
+        // Append the current page of reviews to the allReviews array
+        if (results.result && results.result.reviews) {
+          allReviews = allReviews.concat(results.result.reviews);
+        }
+  
+        // If there's a nextPageToken, update it for the next request
+        nextPageToken = results.next_page_token;
+  
+        // Wait a short time before making the next request to allow nextPageToken to become active
+        if (nextPageToken) {
+          console.log('Fetching more reviews...');
+          await new Promise(resolve => setTimeout(resolve, 2000)); // Delay to allow next page to become available
+        }
+  
+      } while (nextPageToken);
+
+      console.log(allReviews,"setreviews")
+      setreviews(allReviews);
+    } catch (error) {
+      console.log(error, "error");
+    }
+  };
+  
+  useEffect(()=>{
+    fetchReviewsHanlder()
+  },[])
+  
+
   return (
     <>
-    
+    <button onClick={fetchReviewsHanlder}>fetchReviewsHanlder</button>
       <Container className=" px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md">
           <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
@@ -85,16 +143,16 @@ export default function Review_banner() {
                 />
 
                 <Slider {...settings}>
-                  {slides.map((slide, index: any) => (
+                  {reviews?.map((slide, index: any) => (
                     <div
                       key={index}
                       className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
                     >
                         
                       <h3 className="text-xl font-semibold text-white">
-                        {slide.title}
+                        {slide.author_name}
                       </h3>
-                      <p className="mt-2 text-white">{slide.content}</p>
+                      <p className="mt-2 text-white">{slide.text}</p>
                     </div>
                   ))}
                 </Slider>
