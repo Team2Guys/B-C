@@ -88,7 +88,7 @@ const CommercialPage = ({
       ) : (
         <ShuttersByColor
           title={colorPage.name}
-          subCategory={`${filteredSubCategory?.title}`}
+          // subCategory={`${filteredSubCategory?.title}`}
         />
       )}
     </>
