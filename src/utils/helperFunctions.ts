@@ -118,7 +118,7 @@ export const Api_handler = async (
 ) => {
   try {
     const config = {
-      headers: { Authorization: `Bearer ${finalToken}`, withCredentials: true },
+      headers: { Authorization: `Bearer ${finalToken}`},
     };
 
     let response;
