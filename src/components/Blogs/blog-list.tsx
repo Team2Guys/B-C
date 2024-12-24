@@ -18,28 +18,25 @@ const BlogCard = ({ blog }: IBlogCard) => {
   const filteredContent = content.replace(/<[^>]*>?/gm, '').slice(0, 310);
 
   return (
-    <div className="flex gap-4 p-4 border-b border-gray-300">
-      <div className="w-1/3">
+    <div className="flex gap-4 p-4 flex-col sm:flex-row border-b items-center border-gray-300">
         <Image
           src={posterImage?.imageUrl}
           alt={title}
           width={100}
           height={100}
-          className="rounded-lg object-cover w-full h-[200px]"
+          className="rounded-lg object-cover w-full sm:w-[160px] h-52 sm:h-[160px]"
         />
-      </div>
-
-      <div className="w-2/3">
+      <div>
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm text-gray-500">Blinds</span>
           <span className="text-sm text-gray-500">
             {formatDateMonth(createdAt)}
           </span>
         </div>
-        <h3 className="text-lg font-bold text-gray-800 hover:underline">
-          <Link href={`/blog/${title}`}>{title}</Link>
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 hover:underline">
+          <Link href={`/blog/${generateSlug(title)}`}>{title}</Link>
         </h3>
-        <div className="text-sm text-gray-600 mt-2">
+        <div className="text-14 sm:text-16 text-gray-600 mt-2">
           {filteredContent}...
           <Link
             href={`/blog/${generateSlug(title)}`}
