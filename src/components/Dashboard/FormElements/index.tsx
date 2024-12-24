@@ -217,7 +217,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         updatedvalue,
         {
           headers: {
-            Authorization: `Bearer ${finalToken}`,
+            authorization: `Bearer ${finalToken}`,
           },
         },
       );
