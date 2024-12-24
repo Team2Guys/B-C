@@ -22,6 +22,7 @@ interface Product extends IProduct {
   posterImage: { imageUrl: string };
   createdAt: string;
   CategoryId: number;
+  last_editedBy?: string;
 }
 
 interface CategoryProps {
@@ -46,9 +47,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
     setSearchTerm(e.target.value);
   };
 
-  const {
-    data: categories,
-  } = useQuery<ICategory[]>({
+  const { data: categories } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
@@ -70,9 +69,12 @@ const ViewProduct: React.FC<CategoryProps> = ({
     if (Categories) {
       console.log(Categories, 'Categories');
 
-      const filtered = Categories?.sort((a: Product, b: Product) =>
+      const filtered = Categories?.sort(
+        (a: Product, b: Product) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-      ).filter((product: Product) =>product.title.toLowerCase().includes(lowercasedSearchTerm));
+      ).filter((product: Product) =>
+        product.title.toLowerCase().includes(lowercasedSearchTerm),
+      );
 
       setFilteredProducts(filtered);
     }
@@ -147,6 +149,14 @@ const ViewProduct: React.FC<CategoryProps> = ({
       render: (text: string, record: Product) => {
         const createdAt = new Date(record.createdAt);
         return <span>{createdAt.toLocaleTimeString()}</span>;
+      },
+    },
+    {
+      title: 'Last Edited By',
+      dataIndex: 'last_editedBy',
+      key: 'time',
+      render: (text: string, record: Product) => {
+        return <span>{record.last_editedBy}</span>;
       },
     },
     {
