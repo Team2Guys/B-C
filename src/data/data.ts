@@ -2165,6 +2165,26 @@ export const colorData: IColorData[] = [
           '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters-.jpg',
         altText: 'Black Shutters',
       },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black shutters (1).webp',
+        altText: 'Black Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black shutters (2).webp',
+        altText: 'Black Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black shutters (3).webp',
+        altText: 'Black Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black shutters (4).webp',
+        altText: 'Black Shutters',
+      },
     ],
   },
   {
