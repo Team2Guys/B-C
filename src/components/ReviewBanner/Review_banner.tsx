@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Slider, { SliderSettings } from 'react-slick';
 
 import { FcGoogle } from 'react-icons/fc';
-import { RatingSlider, slides } from 'data/data';
+import { RatingSlider} from 'data/data';
 import Image from 'next/image';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Container from 'components/Res-usable/Container/Container';
