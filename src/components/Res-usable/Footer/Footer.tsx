@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   footerLinks,
   footerInfo,
@@ -28,32 +28,43 @@ import {
   predefinedPaths,
   urls,
 } from 'data/urls';
+import { Skeleton } from 'components/ui/skeleton';
 
 const Footer: React.FC = () => {
-  const { data: products } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
+  // const { data: products, isLoading } = useQuery<IProduct[]>({
+  //   queryKey: ['products'],
+  //   queryFn: fetchProducts,
+  // });
+
+  // const { data: categories } = useQuery<ICategory[]>({
+  //   queryKey: ['categories'],
+  //   queryFn: fetchCategories,
+  // });
+
+  // const { data: subcategories, isLoading: subCategoriesIsLoading } = useQuery<
+  //   ICategory[]
+  // >({
+  //   queryKey: ['subcategories'],
+  //   queryFn: fetchSubCategories,
+  // });
+  const fetchAllData = async () => {
+    const [products, categories, subcategories] = await Promise.all([
+      fetchProducts(),
+      fetchCategories(),
+      fetchSubCategories(),
+    ]);
+    return { products, categories, subcategories };
+  };
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['allData'],
+    queryFn: fetchAllData,
   });
 
-  const { data: categories, error: categoriesError } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
+  const products: IProduct[] = data?.products || [];
+  const categories: ICategory[] = data?.categories || [];
+  const subcategories = data?.subcategories || [];
 
-  const { data: subcategories, error: subcategoriesError } = useQuery<
-    ICategory[]
-  >({
-    queryKey: ['subcategories'],
-    queryFn: fetchSubCategories,
-  });
-
-  if (categoriesError || subcategoriesError) {
-    return (
-      <div>
-        Error: {categoriesError?.message || subcategoriesError?.message}
-      </div>
-    );
-  }
   const filterArray = [
     'shutters',
     'White',
@@ -136,96 +147,107 @@ const Footer: React.FC = () => {
             <div className=" py-5 w-full lg:w-5/6 space-y-0">
               <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-12 lg:justify-items-center">
                 <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full">
-                  {categories
-                    ?.filter((category) => category.title !== 'Commercial')
-                    .sort((a, b) => {
-                      const order = ['Blinds', 'Curtains', 'Shutters'];
-                      return order.indexOf(a.title) - order.indexOf(b.title);
-                    })
-                    .map((category) => (
-                      <div className="pl-2" key={category.id}>
-                        <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
-                          {category.title}
-                        </h3>
-                        <ul className="space-y-2 mt-4">
-                          {subcategories
-                            ?.filter(
-                              (subcategory) =>
-                                subcategory.CategoryId === category.id,
-                            )
-                            .map((subcategory) => {
-                              const filteredCategory = categories?.find(
-                                (cat) => cat.id === subcategory.CategoryId,
-                              );
-                              return (
-                                <li key={subcategory.id}>
-                                  {filteredCategory?.title.toLowerCase() ===
-                                  'shutters' ? (
-                                    <>
-                                      {filterArray.some((substring) =>
-                                        subcategory.title.includes(substring),
-                                      ) ? (
-                                        ''
-                                      ) : (
-                                        <Link
-                                          className="text-sm font-medium"
-                                          href={`/shutters-range/${ChangedProductUrl(subcategory.title)}`}
-                                        >
-                                          {subcategory.title}
-                                        </Link>
-                                      )}
-                                    </>
-                                  ) : (
-                                    <>
-                                      {getProduct.some((substring) =>
-                                        subcategory.title.includes(substring),
-                                      ) && (
-                                        <Link
-                                          className="text-sm font-medium"
-                                          href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
-                                        >
-                                          {subcategory.title}
-                                        </Link>
-                                      )}
-                                    </>
-                                  )}
-                                </li>
-                              );
-                            })}
+                  {isLoading || isError ? (
+                    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full gap-4">
+                      {Array.from({ length: 42 }).map((_, index) => (
+                        <Skeleton
+                          key={index}
+                          className="w-1/2 h-6 bg-white/25"
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    categories
+                      ?.filter((category) => category.title !== 'Commercial')
+                      .sort((a, b) => {
+                        const order = ['Blinds', 'Curtains', 'Shutters'];
+                        return order.indexOf(a.title) - order.indexOf(b.title);
+                      })
+                      .map((category) => (
+                        <div className="pl-2" key={category.id}>
+                          <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
+                            {category.title}
+                          </h3>
+                          <ul className="space-y-2 mt-4">
+                            {subcategories
+                              ?.filter(
+                                (subcategory) =>
+                                  subcategory.CategoryId === category.id,
+                              )
+                              .map((subcategory) => {
+                                const filteredCategory = categories?.find(
+                                  (cat) => cat.id === subcategory.CategoryId,
+                                );
+                                return (
+                                  <li key={subcategory.id}>
+                                    {filteredCategory?.title.toLowerCase() ===
+                                    'shutters' ? (
+                                      <>
+                                        {filterArray.some((substring) =>
+                                          subcategory.title.includes(substring),
+                                        ) ? (
+                                          ''
+                                        ) : (
+                                          <Link
+                                            className="text-sm font-medium"
+                                            href={`/shutters-range/${ChangedProductUrl(subcategory.title)}`}
+                                          >
+                                            {subcategory.title}
+                                          </Link>
+                                        )}
+                                      </>
+                                    ) : (
+                                      <>
+                                        {getProduct.some((substring) =>
+                                          subcategory.title.includes(substring),
+                                        ) && (
+                                          <Link
+                                            className="text-sm font-medium"
+                                            href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
+                                          >
+                                            {subcategory.title}
+                                          </Link>
+                                        )}
+                                      </>
+                                    )}
+                                  </li>
+                                );
+                              })}
 
-                          {products
-                            ?.filter(
-                              (product) => product.CategoryId === category.id,
-                            )
-                            .map((product) => {
-                              const filteredCategory = categories?.find(
-                                (cat) => cat.id === product.CategoryId,
-                              );
-                              const parent = generateSlug(
-                                filteredCategory?.title || '',
-                              );
-                              const path = generatePath(product, parent);
+                            {products
+                              ?.filter(
+                                (product) => product.CategoryId === category.id,
+                              )
+                              .map((product) => {
+                                const filteredCategory = categories?.find(
+                                  (cat) => cat.id === product.CategoryId,
+                                );
+                                const parent = generateSlug(
+                                  filteredCategory?.title || '',
+                                );
+                                const path = generatePath(product, parent);
 
-                              return (
-                                <li key={product.id}>
-                                  {getProduct.some((substring) =>
-                                    product.title.includes(substring),
-                                  ) && (
-                                    <Link
-                                      href={path}
-                                      className="text-sm font-medium cursor-pointer"
-                                    >
-                                      {product.title === 'Motorised blinds'
-                                        ? 'Motorised blinds'
-                                        : updateProductTitle(product.title)}
-                                    </Link>
-                                  )}
-                                </li>
-                              );
-                            })}
-                        </ul>
-                      </div>
-                    ))}
+                                return (
+                                  <li key={product.id}>
+                                    {getProduct.some((substring) =>
+                                      product.title.includes(substring),
+                                    ) && (
+                                      <Link
+                                        href={path}
+                                        className="text-sm font-medium cursor-pointer"
+                                      >
+                                        {product.title === 'Motorised blinds'
+                                          ? 'Motorised blinds'
+                                          : updateProductTitle(product.title)}
+                                      </Link>
+                                    )}
+                                  </li>
+                                );
+                              })}
+                          </ul>
+                        </div>
+                      ))
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-4 pl-2 col-span-12 md:col-span-5 mt-5 md:mt-0">
