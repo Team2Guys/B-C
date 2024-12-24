@@ -13,6 +13,11 @@ interface relativeProps {
   className?: string;
 }
 
+const DescriptionArray = [{
+  pageName : "blinds"
+
+}]
+
 const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
   const pathname = usePathname()
   const [description, setDescription] = useState<string | null>(null);
@@ -30,6 +35,9 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
       setDescription(matchedProduct ? matchedProduct.para : null);
     }
   }, [pathname]);
+
+
+
   return (
     <div className='px-2 md:px-4'>
       <div className="flex items-center gap-1">
