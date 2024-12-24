@@ -5,9 +5,27 @@ import { AllExceptionsFilter } from './all-exceptions.filter';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
+import { Request, Response, NextFunction } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    if (req.method === 'OPTIONS') {
+      res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+      res.header(
+        'Access-Control-Allow-Methods',
+        'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+      );
+      res.header(
+        'Access-Control-Allow-Headers',
+        'Content-Type, Authorization',
+      );
+      res.status(204).send();
+    } else {
+      next();
+    }
+  })
   app.enableCors({
     origin: [
       'http://localhost:3000',
@@ -15,7 +33,10 @@ async function bootstrap() {
       "http://localhost:3001",
       /\.vercel\.app$/
     ],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+    preflightContinue: false,
+    allowedHeaders: ['Content-Type', 'authorization'],
+    
   })
 
   const { httpAdapter } = app.get(HttpAdapterHost) 

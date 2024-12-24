@@ -9,7 +9,6 @@ import { JwtMiddleware } from '../utils/Authorization';
   controllers: [ProductsController],
   providers: [ProductsService]
 })
-// export class ProductsModule {}
 
 
 export class ProductsModule implements NestModule {

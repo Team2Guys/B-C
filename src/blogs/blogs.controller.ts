@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  Put,
+  Req,
 } from '@nestjs/common';
 import { BlogsService } from './blogs.service';
 import { CreateBlogDto } from './dto/create-blog.dto';
@@ -18,7 +20,7 @@ export class BlogsController {
   constructor(private readonly blogsService: BlogsService) {}
 
   @Post('/create_blog')
-  create(@Body() createBlogDto: Prisma.blogsCreateInput, req: Request) {
+  create(@Body() createBlogDto: Prisma.blogsCreateInput, @Req() req: Request) {
     return this.blogsService.create(createBlogDto, req);
   }
 
@@ -32,11 +34,9 @@ export class BlogsController {
     return this.blogsService.findOne(+id);
   }
 
-  @Patch('update/:id')
-  update(
-    @Param('id') id: string,
-    @Body() updateBlogDto: Prisma.blogsUpdateInput,
-    req: Request
+  @Put('update/:id')
+  update(@Param('id') id: string,@Body() updateBlogDto: Prisma.blogsUpdateInput,
+  @Req() req:Request
   ) {
     return this.blogsService.update(+id, updateBlogDto, req);
   }
@@ -60,7 +60,7 @@ export class BlogsController {
   async updateStatus(
     @Param('id') id: string,
     @Body() updateStatusDto: UpdateStatusDto,
-    req: Request
+    @Req() req:Request
   ) {
     return this.blogsService.updateStatus(+id, updateStatusDto.status, req);
   }
