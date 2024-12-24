@@ -7,6 +7,7 @@ import { BlogInfo } from 'types/interfaces';
 import BlogMain from 'components/Blogs/blog-main';
 import axios, { AxiosResponse } from 'axios';
 import { Suspense } from 'react';
+import PopularBlog from 'components/Blogs/popular-blog';
 
 
 const fetchBlogs = async (): Promise<BlogInfo[]> => {
@@ -31,6 +32,8 @@ const Blog = async () => {
       <div className='mt-5'>
         <Suspense fallback={<PageSkelton/>}>
           <BlogMain blogs={blogs} />
+          <div className='mt-10'>
+          <PopularBlog blogs={blogs} /></div>
         </Suspense>
       </div>
       <div className="mt-28" />

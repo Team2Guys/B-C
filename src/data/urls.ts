@@ -290,3 +290,20 @@ export const blogCategoryUrl = [
   { url: '/blog/curtains' , name: 'Curtains' },
   { url: '/blog/shutters' , name: 'Shutters' }
 ]
+
+export const blogPostUrl = [
+  { url: '/how-to-clean-dusty-curtains' , redirectUrl: '/blog/how-to-clean-dusty-curtains' },
+  { url: '/how-to-install-window-blinds-without-drilling' , redirectUrl: '/blog/how-to-install-window-blinds-without-drilling' },
+  { url: '/guide-to-pulling-up-and-rolling-down-blinds' , redirectUrl: '/blog/guide-to-pulling-up-and-rolling-down-blinds' },
+  { url: '/types-of-popular-roman-blinds' , redirectUrl: '/blog/types-of-popular-roman-blinds' },
+  { url: '/types-of-roller-blinds-a-definitive-guide' , redirectUrl: '/blog/types-of-roller-blinds-a-definitive-guide' },
+  { url: '/can-you-paint-a-roller-blind' , redirectUrl: '/blog/can-you-paint-a-roller-blind' },
+  { url: '/how-to-choose-curtains-for-the-living-room' , redirectUrl: '/blog/how-to-choose-curtains-for-the-living-room' },
+  { url: '/should-curtains-match-the-wall-color' , redirectUrl: '/blog/should-curtains-match-the-wall-color' },
+  { url: '/different-types-of-curtains-for-windows' , redirectUrl: '/blog/different-types-of-curtains-for-windows' },
+  { url: '/blinds-vs-curtains-which-is-energy-efficient' , redirectUrl: '/blog/blinds-vs-curtains-which-is-energy-efficient' },
+  { url: '/lined-vs-unlined-curtains' , redirectUrl: '/blog/lined-vs-unlined-curtains' },
+  { url: '/how-to-cover-entire-wall-with-curtains' , redirectUrl: '/blog/how-to-cover-entire-wall-with-curtains' },
+  { url: '/the-modern-window-treatments-in-dubai' , redirectUrl: '/blog/the-modern-window-treatments-in-dubai' },
+  { url: '/vertical-blinds-for-windows' , redirectUrl: '/blog/vertical-blinds-for-windows' },
+]
