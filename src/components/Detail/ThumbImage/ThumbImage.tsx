@@ -7,7 +7,7 @@ interface GalleryProps {
   }
   
 const ThumbImage:React.FC<GalleryProps>= ({card}) => {
-    console.log(card , "cardcardcard")
+  
   return (
     <>
       <Image.PreviewGroup preview={{onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),}}>

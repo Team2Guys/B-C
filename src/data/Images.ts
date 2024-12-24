@@ -15,7 +15,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'Bedroom Blinds',
-    static_Title:"Bedroom Blinds for a Modern Look",
+    static_Title: 'Bedroom Blinds for a Modern Look',
     Product: [
       {
         product_name: 'Roman Blinds',
@@ -43,14 +43,14 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Blackout Roller Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Blackout-blinds-for-bedroom.jpg',
-        desc: "Bedroom blackout <a target='_blank' style='text-decoration: underline' href='/blinds/blackout-blinds'>roller blinds</a> are super popular because they have a relaxed, minimalist vibe that fits any decor style. Roller blinds come with blackout options, so they can block out unwanted light and help you get a peaceful, uninterrupted night's sleep. These <b>private blinds</b> are super easy to use and available in all sorts of colours and fabrics to find the perfect match for your bedroom vibe.",
+        desc: "Bedroom blackout roller blinds are super popular because they have a relaxed, minimalist vibe that fits any decor style. Roller blinds come with blackout options, so they can block out unwanted light and help you get a peaceful, uninterrupted night's sleep. These private blinds are super easy to use and available in all sorts of colours and fabrics to find the perfect match for your bedroom vibe.",
       },
     ],
   },
   {
     Category_id: 2,
     sub_Category: 'Staircase Blinds',
-    static_Title:"Custom Staircase Blinds",
+    static_Title: 'Custom Staircase Blinds',
     Product: [
       {
         product_name: 'Roman Blinds',
@@ -85,7 +85,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'Conservatory Blinds',
-    static_Title:"Bespoke Conservatory Blinds",
+    static_Title: 'Bespoke Conservatory Blinds',
     Product: [
       {
         product_name: 'Skylight blinds',
@@ -116,7 +116,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'Kids Room Blinds',
-    static_Title:"Custom Made Kid's Room Blinds",
+    static_Title: "Custom Made Kid's Room Blinds",
     Product: [
       {
         product_name: 'Sheer Horizon Blinds',
@@ -181,42 +181,42 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'Bathroom Blinds',
-    static_Title:"Bathroom Window Blinds",
+    static_Title: 'Bathroom Window Blinds',
     Product: [
       {
         product_name: 'Blackout Blinds',
         altText: 'Blackout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/b.webp',
-        desc: 'Bathroom roller blinds are a practical solution that provides privacy while allowing natural light to come in. They are straightforward to operate, even with wet hands. Our custom-made bathroom blinds offer a sleek and streamlined look to your bathroom windows. Choose from our selection of sheer, semi-sheer, or blackout fabrics, depending on the level of privacy you need. Check out our range of Sunscreen Roller Blinds.',
+        desc: 'Bathroom blackout blinds are a must-have if you prefer complete privacy and darkness in your bathroom. They are perfect for bathrooms that face busy streets or have large windows, as they block out light and provide complete privacy. Our bathroom vertical blinds are made with high-quality, durable materials that are moisture resistant, making them ideal for humid environments like the bathroom. Choose from our fabrics, colours, and patterns to find the perfect fit for your bathroom.',
       },
       {
         product_name: 'Vertical Blinds',
         altText: 'Vertical Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/v.webp',
-        desc: '<a target="_blank" style="text-decoration: underline" href="/blinds/vertical-blinds">Vertical blinds</a> are an excellent bathroom option, especially if you have large windows or sliding doors. They give your bathroom a modern and stylish look while being super practical. You can easily adjust the slats to control how much light comes in or ensure privacy when needed. Plus, our <b>bathroom vertical blinds</b> come in many colours, patterns, and materials like PVC and fabric so that you can find the perfect match for your bathroom.',
+        desc: '<a target="_blank" style="text-decoration: underline" href="/blinds/vertical-blinds">Vertical blinds</a> are an excellent bathroom option, especially if you have large windows or sliding doors. They give your bathroom a modern and stylish look while being super practical. You can easily adjust the slats to control how much light comes in or ensure privacy when needed. Plus, our bathroom vertical blinds come in many colours, patterns, and materials like PVC and fabric so that you can find the perfect match for your bathroom.',
       },
       {
         product_name: 'Skylight blinds',
         altText: 'Skylight blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/s.webp',
-        desc: '<b>Skylight thermal blinds</b> are also a practical choice for bathroom privacy. Our range of <a target="_blank" style="text-decoration: underline" href="/blinds/skylight-blinds-dubai">skylight blinds</a> is designed to fit any skylight shape or size, providing complete privacy and light control. These blinds also have thermal properties, helping regulate the bathroom temperature and keeping it comfortable during hot summers or cold winters. Explore our range of colours and materials to find the perfect skylight blind for your bathroom.',
+        desc: 'Skylight thermal blinds are also a practical choice for bathroom privacy. Our range of <a target="_blank" style="text-decoration: underline" href="/blinds/skylight-blinds-dubai">skylight blinds</a> is designed to fit any skylight shape or size, providing complete privacy and light control. These blinds also have thermal properties, helping regulate the bathroom temperature and keeping it comfortable during hot summers or cold winters. Explore our range of colours and materials to find the perfect skylight blind for your bathroom.',
       },
       {
         product_name: 'Sunscreen/Transparent Blinds',
         altText: 'Sunscreen/Transparent Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/r.webp',
-        desc: 'Bathroom roller blinds are a practical solution that provides privacy while allowing natural light to come in. They are straightforward to operate, even with wet hands. Our custom-made <b>bathroom blinds</b> offer a sleek and streamlined look to your bathroom windows. Choose from our selection of sheer, semi-sheer, or blackout fabrics, depending on the level of privacy you need. Check out our range of Sunscreen Roller Blinds.',
+        desc: 'Bathroom roller blinds are a practical solution that provides privacy while allowing natural light to come in. They are straightforward to operate, even with wet hands. Our custom-made bathroom blinds offer a sleek and streamlined look to your bathroom windows. Choose from our selection of sheer, semi-sheer, or blackout fabrics, depending on the level of privacy you need. Check out our range of Sunscreen Roller Blinds.',
       },
     ],
   },
   {
     Category_id: 2,
     sub_Category: 'Dining Room Blinds',
-    static_Title:"Get Customised Blinds For Your Dining Room",
+    static_Title: 'Get Customised Blinds For Your Dining Room',
     Product: [
       {
         product_name: '3d blinds',
@@ -247,21 +247,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'Kitchen Blinds',
-    static_Title:"Custom Made Blinds For the Kitchen",
+    static_Title: 'Custom Made Blinds For the Kitchen',
     Product: [
       {
         product_name: 'Aluminium Blinds',
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Kitchen Blinds/a.jpg',
-        desc: 'Venetian blinds are a timeless and versatile option for kitchen windows, offering both functionality and style. Our collection of <b>kitchen Venetian blinds</b> features materials such as wood, <a target="_blank" style="text-decoration: underline" href="/blinds/aluminium-venetian-blinds-dubai">aluminium venetian blinds</a>, or faux wood, providing options to suit any budget, lifestyle, or aesthetic preference. Kitchen Venetian blinds are a great way to improve the style and usefulness of your kitchen because they last a long time and can be customised.',
+        desc: 'Venetian blinds are a timeless and versatile option for kitchen windows, offering both functionality and style. Our collection of kitchen Venetian blinds features materials such as wood, <a target="_blank" style="text-decoration: underline" href="/blinds/aluminium-venetian-blinds-dubai">aluminium venetian blinds</a>, or faux wood, providing options to suit any budget, lifestyle, or aesthetic preference. Kitchen Venetian blinds are a great way to improve the style and usefulness of your kitchen because they last a long time and can be customised.',
       },
       {
         product_name: 'Wooden Blinds',
         altText: 'Wooden Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Kitchen Blinds/w.jpg',
-        desc: "If you want a more natural feel, check out our range of <b>kitchen wooden blinds</b>. These blinds are made from high-quality wood that gives your room colour and texture while still functional. Our <a target='_blank' style='text-decoration: underline' href='/blinds/wooden-venetian'>wooden blinds</a> come in a range of woods and finishes, so you can pick the one that best suits your kitchen's style. They are long-lasting and aren't damaged by water, making them an excellent choice for kitchens.",
+        desc: "If you want a more natural feel, check out our range of kitchen wooden blinds. These blinds are made from high-quality wood that gives your room colour and texture while still functional. Our <a target='_blank' style='text-decoration: underline' href='/blinds/wooden-venetian'>wooden blinds</a> come in a range of woods and finishes, so you can pick the one that best suits your kitchen's style. They are long-lasting and aren't damaged by water, making them an excellent choice for kitchens.",
       },
       {
         product_name: 'Vertical Blinds',
@@ -295,7 +295,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 2,
     sub_Category: 'Living Room Blinds',
-    static_Title:"Customised Dimout and Roman Blinds In the Living Room",
+    static_Title: 'Customised Dimout and Roman Blinds In the Living Room',
     Product: [
       {
         product_name: 'Wooden Blinds',
@@ -330,140 +330,140 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Kids Room Curtains',
-    static_Title:"Vibrant & Safe for Your Kids",
+    static_Title: 'Vibrant & Safe for Your Kids',
     Product: [
       {
         product_name: 'Kids Prints Curtains',
         altText: 'Kids Prints Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Kids room curtains/kids.webp',
-        desc: "We design our kids' curtains in a creative way. Our kids print curtains are perfect for themed interiors from fairy tales to vehicles to jungle adventures; these curtains can align with any nursery or bedroom theme, adding a personalised touch to the decor. Our print curtains pair beautifully with other window treatments like <a target='_blank' style='text-decoration: underline' href='/curtains/motorised-curtains'>Motorised Curtains</a> or blackout options. Our motorised curtains contain high-quality materials and are under single touch.",
+        desc: "We design our kids' curtains in a creative way. Our kids print curtains are perfect for themed interiors from fairy tales to vehicles to jungle adventures; these curtains can align with any nursery or bedroom theme, adding a personalised touch to the decor. Our print curtains pair beautifully with other window treatments like Motorised Curtains or blackout options. Our motorised curtains contain high-quality materials and are under single touch.",
       },
       {
         product_name: 'Chiffon Curtains',
         altText: 'Chiffon Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Kids room curtains/chiffon.jpg',
-        desc: 'Our kids room curtains are available in pastel colors, fun prints, or neutral tones. We offer <b>Chiffon sheer curtains</b> that blend seamlessly into any nursery, playroom, or child’s bedroom theme. Our <a target="_blank" style="text-decoration: underline" href="/curtains/made-to-measure-sheer-curtains">sheer curtains</a> pair well with other window treatments, such as blackout curtains, for day and night adaptability. These curtains are semi-transparent, which makes smaller rooms feel larger and less confined. We have custom fit options that align with children’s interests and personalities.',
+        desc: 'Our kids room curtains are available in pastel colors, fun prints, or neutral tones. We offer Chiffon sheer curtains that blend seamlessly into any nursery, playroom, or child’s bedroom theme. Our sheer curtains pair well with other window treatments, such as blackout curtains, for day and night adaptability. These curtains are semi-transparent, which makes smaller rooms feel larger and less confined. We have custom fit options that align with children’s interests and personalities.',
       },
       {
         product_name: 'Tab Top Curtains',
         altText: 'Tab Top Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Kids room curtains/black.webp',
-        desc: 'Tab Top Curtains feature fabric loops that are sewn at the top of the curtain panel. These tabs are designed to slide onto a curtain rod to hang in evenly spaced folds. That’s why kids and parents can easily draw them open or close without needing complex mechanisms. Our <a target="_blank" style="text-decoration: underline" href="/made-to-measure-curtains">made-to-measure curtains</a>  have versatile fabrics and patterns, like <b>tab-top linen curtains</b>, that can match a variety of interior design styles and are easy to clean.',
+        desc: 'Tab Top Curtains feature fabric loops that are sewn at the top of the curtain panel. These tabs are designed to slide onto a curtain rod to hang in evenly spaced folds. That’s why kids and parents can easily draw them open or close without needing complex mechanisms. Our made-to-measure curtains  have versatile fabrics and patterns, like tab-top linen curtains, that can match a variety of interior design styles and are easy to clean.',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Kids room curtains/black.webp',
-        desc: "We are offering playful designs and vibrant patterns for your kids' rooms. Our curtains are long-lasting with made-to-measure materials, which is ideal for the hustle and bustle of active kids. We are offering  <b>blackout curtains for children's rooms to</b> block sunlight and prevent children from waking up too early in the morning. Our <a target='_blank' style='text-decoration: underline' href='/curtains/made-to-measure-bed-room-curtains'>bedroom curtains</a> have child-safety options. Our motorised controls guarantee that there are no choking hazards or risks for small children.",
+        desc: "We are offering playful designs and vibrant patterns for your kids' rooms. Our curtains are long-lasting with made-to-measure materials, which is ideal for the hustle and bustle of active kids. We are offering  blackout curtains for children's rooms to block sunlight and prevent children from waking up too early in the morning. Our bedroom curtains have child-safety options. Our motorised controls guarantee that there are no choking hazards or risks for small children.",
       },
     ],
   },
   {
     Category_id: 5,
     sub_Category: 'Bedroom Curtains',
-    static_Title:"Comfort, Made-to-Measure, and Just the Right Look",
+    static_Title: 'Comfort, Made-to-Measure, and Just the Right Look',
     Product: [
       {
         product_name: 'Double Pinch Pleat Curtains',
         altText: 'Double Pinch Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Bedroom Curtains/d.jpg',
-        desc: 'Curtains add modern artistic flair in your bedrooms, with gradient shades transitioning from light to dark. We are creating a dual-layered look with contrasting colors or textures to add depth and dimension to your bedroom window design. Our <b>2 pinch pleat curtains</b> neatly pinched twice and sewn at regular intervals, creating a structured, uniform drape that exudes sophistication. Our <a target="_blank" style="text-decoration: underline" href="/made-to-measure-curtains">window curtains</a> are customised to match your window dimensions for a snug appearance.',
+        desc: 'Curtains add modern artistic flair in your bedrooms, with gradient shades transitioning from light to dark. We are creating a dual-layered look with contrasting colors or textures to add depth and dimension to your bedroom window design. Our 2 pinch pleat curtains neatly pinched twice and sewn at regular intervals, creating a structured, uniform drape that exudes sophistication. Our window curtains are customised to match your window dimensions for a snug appearance.',
       },
       {
         product_name: 'Linen Curtains',
         altText: 'Linen Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Bedroom Curtains/l.jpg',
-        desc: "Window treatments play a vital role in the bedroom's ambience. These curtains have a variety of fabrics, but our linen curtains have a soft texture and subtle weave. Our curtains give a relaxed, organic feel to your bedroom. We offer curtains that are customisable and are available in various lengths, colours, and pleat styles to match the style of your bedroom. When you combine our linen curtains with <a target='_blank' style='text-decoration: underline' href='/curtains/triple-pinch-pleat-curtains'>triple French pleat curtains</a> for a customised and polished look. The structured pleats strike the perfect balance between formal and casual.",
+        desc: "Window treatments play a vital role in the bedroom's ambience. These curtains have a variety of fabrics, but our linen curtains have a soft texture and subtle weave. Our curtains give a relaxed, organic feel to your bedroom. We offer curtains that are customisable and are available in various lengths, colours, and pleat styles to match the style of your bedroom. When you combine our linen curtains with triple french pleat curtains for a customised and polished look. The structured pleats strike the perfect balance between formal and casual.",
       },
       {
         product_name: 'Velvet Curtains',
         altText: 'Velvet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Bedroom Curtains/v.jpg',
-        desc: 'Velvet as a soft, plush fabric offers you a premium feel and appearance. We are also providing you <b>bedroom velvet curtains</b>; their rich texture and deep colours create a dramatic yet cosy ambiance. Our velvet curtains are versatile in design; their light-blocking properties create a restful atmosphere, perfect for relaxation. Pairing velvet with <a target="_blank" style="text-decoration: underline" href="/curtains/made-to-measure-chiffon-curtains">Chiffon Curtains</a> creates a layered look, combining the heaviness of velvet for privacy with the lightness of chiffon for a delicate touch.',
+        desc: 'Velvet as a soft, plush fabric offers you a premium feel and appearance. We are also providing you bedroom velvet curtains; their rich texture and deep colours create a dramatic yet cosy ambiance. Our velvet curtains are versatile in design; their light-blocking properties create a restful atmosphere, perfect for relaxation. Pairing velvet with Chiffon Curtains creates a layered look, combining the heaviness of velvet for privacy with the lightness of chiffon for a delicate touch.',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Bedroom Curtains/d.jpg',
-        desc: 'Bedroom curtains are creating a relaxing and personalised space for you. We have a variety of curtains by fabric and style, such as our blackout curtains that help you to regulate your sleep-wake cycle by blocking out disruptive morning or evening light. We have advanced stitching techniques that complete light coverage, even on irregularly shaped windows. Our blackout <a target="_blank" style="text-decoration: underline" href="/curtains/motorised-curtains">motorised curtains</a> can make your home smart and controlled by Apple HomeKit, Alexa, and Google Home. ',
+        desc: 'Bedroom curtains are creating a relaxing and personalised space for you. We have a variety of curtains by fabric and style, such as our blackout curtains that help you to regulate your sleep-wake cycle by blocking out disruptive morning or evening light. We have advanced stitching techniques that complete light coverage, even on irregularly shaped windows. Our blackout motorised curtains can make your home smart and controlled by Apple HomeKit, Alexa, and Google Home.',
       },
     ],
   },
   {
     Category_id: 5,
     sub_Category: 'Conservatory Curtains',
-    static_Title:"Perfect Window Dressing For Your Conservatory",
+    static_Title: 'Perfect Window Dressing For Your Conservatory',
     Product: [
       {
         product_name: 'Motorised curtains',
         altText: 'Motorised curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Conservatory curtains/motorised-curtains-for-conservatory.jpg',
-        desc: 'These are ideal for managing the intense light that streams through glass walls and roofs. Options like pleated curtains are ideal for sloped conservatory roofs. Our motorised curtains, such as <b>blackout electric curtains</b>, provide ultimate convenience for light control, especially for large or high windows. So you can hire our team of 50 for made-to-measure motorised curtains and <a target="_blank" style="text-decoration: underline" href="/made-to-measure-blinds">blinds</a>, which can be controlled via remote or smart home systems.',
+        desc: 'These are ideal for managing the intense light that streams through glass walls and roofs. Options like pleated curtains are ideal for sloped conservatory roofs. Our motorised curtains, such as blackout electric curtains, provide ultimate convenience for light control, especially for large or high windows. So you can hire our team of 50 for made-to-measure motorised curtains and blinds, which can be controlled via remote or smart home systems.',
       },
       {
         product_name: 'Natural Fabric Curtains',
         altText: 'Made to Measure Linen Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains//Conservatory curtains/Eyelet-curtains-for-conservatory.jpg',
-        desc: 'We offer made-to-measure conservatory curtains made of natural fabrics such as linen, cotton, or hemp. These curtains are available in various designs and natural tones; they can complement any decor theme. Our <a target="_blank" style="text-decoration: underline" href="/curtains/wave-curtains">Wave Curtains</a> are popular for their clean lines and elegant minimalist design; these are a modern favorite for conservatories. Our curtains for conservatory windows, with the right fabric choice, shield your space from external views without blocking out the light.',
+        desc: ' We offer made-to-measure conservatory curtains made of natural fabrics such as linen, cotton, or hemp. These curtains are available in various designs and natural tones; they can complement any decor theme. Our Wave Curtains are popular for their clean lines and elegant minimalist design; these are a modern favorite for conservatories. Our curtains for conservatory windows, with the right fabric choice, shield your space from external views without blocking out the light.',
       },
       {
         product_name: 'Eyelet Curtains',
         altText: 'Eyelet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Conservatory curtains/Eyelet-curtains-for-conservatory.jpg',
-        desc: 'Eyelet curtains are contemporary window treatments that are prominent by metal rings at the top and allow them to slide smoothly with a curtain rod. This design is easy to install and operate. While our <b>white pinch pleat curtains</b> provide a formal, luxurious look, making them an excellent choice for conservatories. We offer <a target="_blank" style="text-decoration: underline" href="/made-to-measure-curtains">Custom made window curtains</a> to fit unique window dimensions, design preferences, and specific functional needs.',
+        desc: 'Eyelet curtains are contemporary window treatments that are prominent by metal rings at the top and allow them to slide smoothly with a curtain rod. This design is easy to install and operate. While our white pinch pleat curtains provide a formal, luxurious look, making them an excellent choice for conservatories. We offer Custom made window curtains to fit unique window dimensions, design preferences, and specific functional needs.',
       },
       {
         product_name: 'Pencil Pleat Curtains',
         altText: 'Pencil Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Conservatory curtains/pencil pleat curtains for conservatory.jpg',
-        desc: 'These curtains are named for their neat, tightly gathered folds at the top, which resemble pencils. The pleated design creates adjustable fullness using curtain header tape. Our <b>thermal pencil pleat curtains</b> are designed to provide excellent insulation. These curtains are made with thermal linings that help to regulate indoor temperatures. You can choose from a variety of fabric options, such as <a target="_blank" style="text-decoration: underline" href="/curtains/made-to-measure-linen-curtains">Linen Curtains</a> that add texture and softness to interiors.',
+        desc: 'These curtains are named for their neat, tightly gathered folds at the top, which resemble pencils. The pleated design creates adjustable fullness using curtain header tape. Our thermal pencil pleat curtains are designed to provide excellent insulation. These curtains are made with thermal linings that help to regulate indoor temperatures. You can choose from a variety of fabric options, such as Linen Curtains that add texture and softness to interiors.',
       },
     ],
   },
   {
     Category_id: 5,
     sub_Category: 'Living Room Curtains',
-    static_Title:"Lounge / Living Room Curtains",
+    static_Title: 'Lounge / Living Room Curtains',
     Product: [
       {
         product_name: 'Geometric Curtains',
         altText: 'Geometric Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Living Room Curtains/m.jpg',
-        desc: 'Whether you’re hosting guests, relaxing with family, or enjoying some alone time, our geometric curtains provide modern minimalism to your interior style. Our <b>geometric curtains for living rooms</b> are available in lightweight or blackout options to match your light control needs. We also offer <a target="_blank" style="text-decoration: underline" href="/curtains/wave-curtains/">Ripplefold Curtains</a> to create a sleek, wave-like drape that enhances the visual appeal. These curtains add energy and a sense of creativity to your space.',
+        desc: 'Whether you’re hosting guests, relaxing with family, or enjoying some alone time, our geometric curtains provide modern minimalism to your interior style. Our geometric curtains for living rooms are available in lightweight or blackout options to match your light control needs. We also offer Ripplefold Curtains to create a sleek, wave-like drape that enhances the visual appeal. These curtains add energy and a sense of creativity to your space.',
       },
       {
         product_name: 'Linen Curtains',
         altText: 'Linen Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Living Room Curtains/p.jpg',
-        desc: 'Our linen curtains are minimalist and add a light, airy feel to the living room, ideal for modern, bohemian, or Scandinavian interiors. We offer soft textures that enhance a cosy yet refined ambiance. Our <b>linen curtains for living rooms</b> complement vibrant living spaces or muted color schemes with custom-fit sheer layers or heavier drapes. Our <a target="_blank" style="text-decoration: underline" href="/curtains/natural-fabric-curtains">natural fabric curtains</a> offer neutral tones, such as beige, soft grey, or off-white, that fit seamlessly into various color palettes and decor styles.',
+        desc: 'Our linen curtains are minimalist and add a light, airy feel to the living room, ideal for modern, bohemian, or Scandinavian interiors. We offer soft textures that enhance a cosy yet refined ambiance. Our linen curtains for living rooms complement vibrant living spaces or muted color schemes with custom-fit sheer layers or heavier drapes. Our natural fabric curtains offer neutral tones, such as beige, soft grey, or off-white, that fit seamlessly into various color palettes and decor styles.',
       },
       {
         product_name: 'Velvet Curtains',
         altText: 'Velvet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Living Room Curtains/m.jpg',
-        desc: "Velvet curtains show a royal vibe, which is ideal for formal living rooms or chic contemporary settings. Our <b>luxury velvet curtains for the living room</b> are versatile in designs. These are available in bold colors like deep burgundy, navy blue, or subtle pastels to suit various interiors. These <a target='_blank' style='text-decoration: underline' href='/curtains/eyelet-curtains'>Eyelet Curtains</a> offer a sleek, minimalist look that enhances velvet's traditional richness. These curtains have layering options and are combined with sheers for depth and functionality.",
+        desc: "Velvet curtains show a royal vibe, which is ideal for formal living rooms or chic contemporary settings. Our luxury velvet curtains for the living room are versatile in designs. These are available in bold colors like deep burgundy, navy blue, or subtle pastels to suit various interiors. These Eyelet Curtains offer a sleek, minimalist look that enhances velvet's traditional richness. These curtains have layering options and are combined with sheers for depth and functionality.",
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Living Room Curtains/p.jpg',
-        desc: 'Relax in a calm and peaceful environment with our <b>living room blackout curtains</b>. They block out unwanted light in your living rooms and are helpful for relaxation. With our shutters, you can easily regulate the temperature of your room, keeping it cool in summer and warm in winter. Experience next-level convenience with our <a target="_blank" style="text-decoration: underline" href="/curtains/motorised-curtains">motorised curtains</a>. With just a push of a button, it is easy to operate the curtain.',
+        desc: 'Relax in a calm and peaceful environment with our living room blackout curtains. They block out unwanted light in your living rooms and are helpful for relaxation. With our shutters, you can easily regulate the temperature of your room, keeping it cool in summer and warm in winter. Experience next-level convenience with our motorised curtains. With just a push of a button, it is easy to operate the curtain.',
       },
     ],
   },
@@ -538,42 +538,42 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Staircase Curtains',
-    static_Title:"From an afterthought to a stylish addition",
+    static_Title: 'From an afterthought to a stylish addition',
     Product: [
       {
         product_name: 'Double Pinch Pleat Curtains',
         altText: 'Double Pinch Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Staircase curtains/d.jpg',
-        desc: "For a slightly less formal and elegant look. Our <b>two pinch pleat curtains</b> feature a simple design with two folds, creating a neat and modern look. These curtains are perfect for minimalist and contemporary spaces. Our double pinch pleat curtains can be customised to suit any room's style. You have to select our <a target='_blank' style='text-decoration: underline' href='/curtains/eyelet-curtains'>Eyelet Curtains</a> for a more casual and modern aesthetics with their metal rings and smooth folds, these curtains bring a sleek and functional design to any setting.",
+        desc: "For a slightly less formal and elegant look. Our two pinch pleat curtains feature a simple design with two folds, creating a neat and modern look. These curtains are perfect for minimalist and contemporary spaces. Our double pinch pleat curtains can be customised to suit any room's style. You have to select our Eyelet curtains for a more casual and modern aesthetics with their metal rings and smooth folds, these curtains bring a sleek and functional design to any setting",
       },
       {
         product_name: 'Stripes Curtains',
         altText: 'Stripes Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Staircase curtains/stripe.jpg',
-        desc: 'Our striped curtains create a visual appearance, particularly black and white striped curtains. We offer a variety of fabrics, such as heavier velvet for a dramatic, luxurious appeal and lightweight fabrics like cotton or linen for a casual vibe. If you have irregular-shaped tall windows, then our <a target="_blank" style="text-decoration: underline" href="/made-to-measure-curtains">custom made curtains</a> are designed to fit your specific measurements. Let our team of 50 help you maintain perfection from start to finish.',
+        desc: 'Our striped curtains create a visual appearance, particularly black and white striped curtains. We offer a variety of fabrics, such as heavier velvet for a dramatic, luxurious appeal and lightweight fabrics like cotton or linen for a casual vibe. If you have irregular-shaped tall windows, then our custom made curtains are designed to fit your specific measurements. Let our team of 50 help you maintain perfection from start to finish.',
       },
       {
         product_name: 'Goblet Pleat Curtains',
         altText: 'Goblet Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Staircase curtains/s.jpg',
-        desc: 'Our globlet-style curtains add grandeur to your staircase. These curtains add cup-like pleats at the top. This luxurious style is ideal for creating a refined ambiance, especially in homes with high ceilings or dramatic staircases. For a lightweight and airy aesthetic, <a target="_blank" style="text-decoration: underline" href="/curtains/made-to-measure-chiffon-curtains">Chiffon Curtains</a> are a perfect choice, and when these curtains are layered with sheer and opaque fabrics, they highlight the specific style.',
+        desc: 'Our globlet-style curtains add grandeur to your staircase. These curtains add cup-like pleats at the top. This luxurious style is ideal for creating a refined ambiance, especially in homes with high ceilings or dramatic staircases. For a lightweight and airy aesthetic, Chiffon Curtains are a perfect choice, and when these curtains are layered with sheer and opaque fabrics, they highlight the specific style.',
       },
       {
         product_name: 'Patterned Curtains',
         altText: 'Patterned Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Staircase curtains/s.jpg',
-        desc: "A staircase window provides a view of the outside. A pattern curtain can bridge the design gap between floors and contribute cohesion to a home's overall theme. Our <b>patterned blackout curtains</b> turn a staircase with tall windows into a dramatic focal point. We offer a variety of materials, from luxurious velvet to breezy linen; our <b>velvet curtains</b> are opulent and classic. These curtains are ideal because of their stylish architectural design.",
+        desc: "A staircase window provides a view of the outside. A pattern curtain can bridge the design gap between floors and contribute cohesion to a home's overall theme. Our patterned blackout curtains turn a staircase with tall windows into a dramatic focal point. We offer a variety of materials, from luxurious velvet to breezy linen; our velvet curtains are opulent and classic. These curtains are ideal because of their stylish architectural design.",
       },
     ],
   },
   {
     Category_id: 5,
     sub_Category: 'Dining Room Curtains',
-    static_Title:"Comfort, Made-to-Measure, and Just the Right Look",
+    static_Title: 'Comfort, Made-to-Measure, and Just the Right Look',
     Product: [
       {
         product_name: 'Plain Curtains',
@@ -608,203 +608,204 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 9,
     sub_Category: 'Staircase Shutters',
-    static_Title:"Upgrade Your Staircase with Classiness",
+    static_Title: 'Upgrade Your Staircase with Classiness',
     Product: [
       {
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
-        desc: '<b>Solid wooden window shutters</b> are popular because of their durability. They are a timeless addition to any staircase and can be easily customised to match existing woodwork in your home. Solid panel shutters provide maximum privacy, light control, and insulation.',
+        desc: 'Solid wooden window shutters are popular because of their durability. They are a timeless addition to any staircase and can be easily customised to match existing woodwork in your home. Solid panel shutters provide maximum privacy, light control, and insulation.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
-        desc: '<b>External shutters for bay windows</b> help increase your staircase&apos;s architectural interest. These shutters are designed for bay windows and add a touch of elegance and charm to any home. With our range of materials and designs, you can create a customised look that complements your staircase perfectly.',
+        desc: 'External shutters for bay windows help increase your staircase&apos;s architectural interest. These shutters are designed for bay windows and add a touch of elegance and charm to any home. With our range of materials and designs, you can create a customised look that complements your staircase perfectly.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
-        desc: '<b>Shutters for shaped windows</b> are a great choice for staircase windows with unique shapes. These shutters are made to measure, ensuring a perfect fit for any window shape and size. Our range of special-shaped shutters includes angled, arched, circular, and triangular shutters.',
+        desc: 'Shutters for shaped windows are a great choice for staircase windows with unique shapes. These shutters are made to measure, ensuring a perfect fit for any window shape and size. Our range of special-shaped shutters includes angled, arched, circular, and triangular shutters.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Living Room Shutters',
-    static_Title:"Premium Window Shutters For Your Living Room",
+    static_Title: 'Premium Window Shutters For Your Living Room',
     Product: [
       {
         product_name: 'Full Height Shutters',
         altText: 'Full Height Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/living/full-height.webp',
-        desc: 'Our <b>full-height window shutters</b> offer complete coverage from top to bottom, making them ideal for larger windows and sliding doors. They provide maximum privacy and light control while adding insulation to your home.',
+        desc: 'Our full-height window shutters offer complete coverage from top to bottom, making them ideal for larger windows and sliding doors. They provide maximum privacy and light control while adding insulation to your home.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/living/Bay-window-shutters.webp',
-        desc: '<b>Window shutters for bay windows</b> add charm and elegance to any living room. Their unique design allows for a perfect fit around bay window frames, giving your space a polished look. They are available in various colors and finishes to match your interior decor.',
+        desc: 'Window shutters for bay windows add charm and elegance to any living room. Their unique design allows for a perfect fit around bay window frames, giving your space a polished look. They are available in various colors and finishes to match your interior decor.',
       },
       {
         product_name: 'Tier On Tier Shutters',
         altText: 'Tier On Tier Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/living/Tier-on-Tier-shutters.webp',
-        desc: '<b>Tier-on-tier solid shutters</b> are an excellent choice for living room windows. They have two panels you can open separately, so you can control light and privacy however you want. This makes them perfect for keeping your space private while letting in natural light.',
+        desc: 'Tier-on-tier solid shutters are an excellent choice for living room windows. They have two panels you can open separately, so you can control light and privacy however you want. This makes them perfect for keeping your space private while letting in natural light.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Dining Room Shutters',
-    static_Title:"Upgrade Your Dining Experience With Plantation Shutters in Dubai",
+    static_Title:
+      'Upgrade Your Dining Experience With Plantation Shutters in Dubai',
     Product: [
       {
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
-        desc: '<b>Wood panel window shutters</b> are excellent for complete light control and privacy. They don’t have any gaps or slats, so they completely cover your dining room windows. These shutters are perfect for formal dining rooms where you want a more classic and traditional style. They come in different wood finishes that match your dining room decor.',
+        desc: 'Wood panel window shutters are excellent for complete light control and privacy. They don’t have any gaps or slats, so they completely cover your dining room windows. These shutters are perfect for formal dining rooms where you want a more classic and traditional style. They come in different wood finishes that match your dining room decor.',
       },
       {
         product_name: 'Bi Fold Shutters',
         altText: 'Bi Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
-        desc: '<b>Bifold window shutters</b> are an excellent option for large dining room windows. They allow you to easily fold the shutters to one side and open up your space, creating a smooth connection between your indoor and outdoor dining area. These shutters are also perfect for smaller spaces as they don&apos;t occupy much room. Plus, their sleek design adds a touch of modernity to any dining area',
+        desc: 'Bifold window shutters are an excellent option for large dining room windows. They allow you to easily fold the shutters to one side and open up your space, creating a smooth connection between your indoor and outdoor dining area. These shutters are also perfect for smaller spaces as they don&apos;t occupy much room. Plus, their sleek design adds a touch of modernity to any dining area',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
-        desc: 'Use our <b>shaped window shutters</b> to give your dining room a one-of-a-kind look. If your dining room has unusually shaped windows, these are tailor-made to adjust any size or form. In addition to improving the aesthetics of your dining room, the custom fit ensures optimal light control and privacy.',
+        desc: 'Use our shaped window shutters to give your dining room a one-of-a-kind look. If your dining room has unusually shaped windows, these are tailor-made to adjust any size or form. In addition to improving the aesthetics of your dining room, the custom fit ensures optimal light control and privacy.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Bedroom Shutters',
-    static_Title:"Bedroom shutters by Blinds and Curtains",
+    static_Title: 'Bedroom shutters by Blinds and Curtains',
     Product: [
       {
         product_name: 'Tracked Shutters',
         altText: 'Tracked Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bedroom/Tracked-Shutters.jpg',
-        desc: '<b>Sliding bypass shutters patio doors</b> are popular for bedrooms with patio doors. They operate on a track, allowing you to slide them open or closed, giving you easy access to your outdoor space. These shutters also provide excellent insulation, making your bedroom more energy-efficient and reducing noise from outside. Plus, they add a modern touch to any bedroom design.',
+        desc: 'Sliding bypass shutters patio doors are popular for bedrooms with patio doors. They operate on a track, allowing you to slide them open or closed, giving you easy access to your outdoor space. These shutters also provide excellent insulation, making your bedroom more energy-efficient and reducing noise from outside. Plus, they add a modern touch to any bedroom design.',
       },
       {
         product_name: 'Bi Fold Shutters',
         altText: 'Bi Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bedroom/Tracked-Shutters.jpg',
-        desc: '<b>Bifold interior shutters</b> are about style and functionality. They allow you to control the light in your bedroom, and when opened, they fold up neatly out of the way. This feature is perfect if you have limited space in your bedroom or want a clean, minimalist look. Bi-fold shutters are also easy to maintain and can be customised to fit any window size.',
+        desc: 'Bifold interior shutters are about style and functionality. They allow you to control the light in your bedroom, and when opened, they fold up neatly out of the way. This feature is perfect if you have limited space in your bedroom or want a clean, minimalist look. Bi-fold shutters are also easy to maintain and can be customised to fit any window size.',
       },
       {
         product_name: 'Tier On Tier Shutters',
         altText: 'Tier On Tier Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bedroom/Tier-on-Tier-shutters.webp',
-        desc: '<b>Tier-on-tier interior shutters</b> are super practical and stylish. They have top and bottom panels that you can open or close separately, so you can control light and privacy however you want. This is handy if your bedroom faces a busy street or has many windows. You can close the bottom for privacy but let sunlight in through the top. Plus, they look great with any bedroom design.',
+        desc: 'Tier-on-tier interior shutters are super practical and stylish. They have top and bottom panels that you can open or close separately, so you can control light and privacy however you want. This is handy if your bedroom faces a busy street or has many windows. You can close the bottom for privacy but let sunlight in through the top. Plus, they look great with any bedroom design.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Kitchen Shutters',
-    static_Title:"Premium Kitchen Shutters - A Clean Solution",
+    static_Title: 'Premium Kitchen Shutters - A Clean Solution',
     Product: [
       {
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/kitchen/Solid-panel-shutter.webp',
-        desc: '<b>Solid wood shutters</b> are an excellent choice for kitchens that need more privacy and better light control than cafe-style shutters. Since they have solid panels with no gaps, so they’re perfect for blocking light and noise. Plus, they can make your kitchen look even better by adding a stylish touch.',
+        desc: 'Solid wood shutters are an excellent choice for kitchens that need more privacy and better light control than cafe-style shutters. Since they have solid panels with no gaps, so they’re perfect for blocking light and noise. Plus, they can make your kitchen look even better by adding a stylish touch.',
       },
       {
         product_name: 'Cafe Style Shutters',
         altText: 'Cafe Style Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/kitchen/Special-Shape-shutters.webp',
-        desc: 'These <b>wooden cafe shutters</b> are a popular choice for kitchens. They offer an elegant and classic look while also providing privacy and light control. They are usually installed on the lower half of the window, allowing natural light to still enter through the top half.',
+        desc: 'These wooden cafe shutters are a popular choice for kitchens. They offer an elegant and classic look while also providing privacy and light control. They are usually installed on the lower half of the window, allowing natural light to still enter through the top half.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/kitchen/Special-Shape-shutters.webp',
-        desc: '<b>Shaped shutters</b> are a great way to cover those odd-shaped windows in your kitchen or other cool spots in your home. We can make custom shutters that fit perfectly, whether an arch, triangle, circle or something else. They’re not just a great fit—they also make your space look stylish and put-together. Plus, with lots of materials and finishes to pick from, you can make your home look better while keeping your privacy and controlling the light.',
+        desc: 'Shaped shutters are a great way to cover those odd-shaped windows in your kitchen or other cool spots in your home. We can make custom shutters that fit perfectly, whether an arch, triangle, circle or something else. They’re not just a great fit—they also make your space look stylish and put-together. Plus, with lots of materials and finishes to pick from, you can make your home look better while keeping your privacy and controlling the light.',
       },
     ],
   },
   {
     Category_id: 9,
     sub_Category: 'Bathroom Shutters',
-    static_Title:"Premium Bathroom Shutters for Ultimate Privacy and Style",
+    static_Title: 'Premium Bathroom Shutters for Ultimate Privacy and Style',
     Product: [
       {
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bathroom/Solid-panel-shutter.webp',
-        desc: '<b>Solid wooden window shutters</b> give your bathroom a warm and cosy feel. They’re great for controlling light levels while giving you good outside visibility. Our solid panel shutters are made from high-quality wood, making them durable and long-lasting. ',
+        desc: 'Solid wooden window shutters give your bathroom a warm and cosy feel. They’re great for controlling light levels while giving you good outside visibility. Our solid panel shutters are made from high-quality wood, making them durable and long-lasting. ',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bathroom/Bay-window-shutters.webp',
-        desc: '<b>Interior bay window shutters</b> are a perfect way to improve your bathroom by bringing in more natural light while maintaining privacy. Our bay window shutters are created to fit a variety of window shapes and sizes, making them a versatile option for any bathroom. They come in various colours and materials, allowing you to select the perfect style to complement your decor.',
+        desc: 'Interior bay window shutters are a perfect way to improve your bathroom by bringing in more natural light while maintaining privacy. Our bay window shutters are created to fit a variety of window shapes and sizes, making them a versatile option for any bathroom. They come in various colours and materials, allowing you to select the perfect style to complement your decor.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bathroom/Special-shaped-shutters.webp',
-        desc: '<b>Special shutters</b> are great for bathrooms with unique window shapes, such as arches, circles, or other odd sizes. They’re made to fit your window perfectly, giving it a tidy and modern look. These unique shutters help control light, keep your privacy, and make your bathroom look stylish. Plus, they’re made to last and can endure bathroom humidity without losing their nice appearance.',
+        desc: 'Special shutters are great for bathrooms with unique window shapes, such as arches, circles, or other odd sizes. They’re made to fit your window perfectly, giving it a tidy and modern look. These unique shutters help control light, keep your privacy, and make your bathroom look stylish. Plus, they’re made to last and can endure bathroom humidity without losing their nice appearance.',
       },
     ],
   },
   {
     Category_id: 12,
     sub_Category: 'Indoor Blinds And Curtains',
-    static_Title:"Commercial Indoor Window Treatments",
+    static_Title: 'Commercial Indoor Window Treatments',
     Product: [
       {
         product_name: 'Day/Night Blinds',
         altText: 'Day/Night Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Indoor/Day-night-blinds.webp',
-        desc: 'These indoor blinds have two layers of fabric: one that is sheer (allowing light in) and another that is solid (blocking light). When we adjust these layers into your indoor window, they differ in the level of light and privacy. Our <b>electric day-night blinds</b> with motorised mechanisms allow you to adjust remotely. You can operate them using a remote control, wall switch, or through smartphone apps.',
+        desc: 'These indoor blinds have two layers of fabric: one that is sheer (allowing light in) and another that is solid (blocking light). When we adjust these layers into your indoor window, they differ in the level of light and privacy. Our electric day-night blinds with motorised mechanisms allow you to adjust remotely. You can operate them using a remote control, wall switch, or through smartphone apps.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Indoor/Bay-window.webp',
-        desc: 'Bay windows are a unique architectural feature with three or more window panels. The central panel is usually fixed, while the side panels are angled (commonly at 30°, 45°, or 90°) or movable. We offer <b>bay window shutter for unique interiors</b> that are customised and designed to match the unique angles and dimensions of bay windows. We offer a variety of shutter materials for your bay windows, such as wood, composite, PVC, and vinyl. ',
+        desc: 'Bay windows are a unique architectural feature with three or more window panels. The central panel is usually fixed, while the side panels are angled (commonly at 30°, 45°, or 90°) or movable. We offer bay window shutter for unique interiors that are customised and designed to match the unique angles and dimensions of bay windows. We offer a variety of shutter materials for your bay windows, such as wood, composite, PVC, and vinyl. ',
       },
       {
         product_name: 'Motorised blinds',
         altText: 'Motorised blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Indoor/Bay-window.webp',
-        desc: 'Our indoor motorised blinds are window coverings that allow you to control blinds with a remote, smartphone app, or even voice commands. These are used to integrate smart homes. These are used for daily operations. We also provide manual controls for emergencies or power outages. We offer window coverings with a variety of fabrics, colours, or patterns, such as customisable <b>motorised roller blinds</b>. You can control these blinds by using remote, Alexa, or Google Home.',
+        desc: 'Our indoor motorised blinds are window coverings that allow you to control blinds with a remote, smartphone app, or even voice commands. These are used to integrate smart homes. These are used for daily operations. We also provide manual controls for emergencies or power outages. We offer window coverings with a variety of fabrics, colours, or patterns, such as customisable motorised roller blinds. You can control these blinds by using remote, Alexa, or Google Home.',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Indoor/blackout-curtains.webp',
-        desc: 'Indoor blackout curtains are heavy, opaque types of window coverings. Unlike regular curtains, they are lined or woven with special materials to block light.  Blackout curtains, unlike off-the-shelf curtains, block up almost 99% of external light to create a dark and peaceful atmosphere. Our <b>blackout roller curtains also have</b> a floor-to-ceiling design. These curtains are perfect for media rooms, where complete darkness is needed for more focus and clarity.',
+        desc: 'Indoor blackout curtains are heavy, opaque types of window coverings. Unlike regular curtains, they are lined or woven with special materials to block light.  Blackout curtains, unlike off-the-shelf curtains, block up almost 99% of external light to create a dark and peaceful atmosphere. Our blackout roller curtains also have a floor-to-ceiling design. These curtains are perfect for media rooms, where complete darkness is needed for more focus and clarity.',
       },
     ],
   },
@@ -817,21 +818,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Solid Panel Shutters',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Skylight/Solid-panel.webp',
-        desc: 'We offer a skylight solid panel shutter solution for overhead windows. Our skylight blinds are an excellent choice for homeowners and businesses seeking privacy. These shutters are window coverings with high-quality materials that allow for complete blockage of sunlight when closed, creating a darker, more intimate setting. Our <b>paneled shutters</b> are applicable for bedrooms, living rooms, dining rooms, home offices, and commercial spaces. Our team of 50 is here to help you maintain perfection from beginning to end.',
+        desc: 'We offer a skylight solid panel shutter solution for overhead windows. Our skylight blinds are an excellent choice for homeowners and businesses seeking privacy. These shutters are window coverings with high-quality materials that allow for complete blockage of sunlight when closed, creating a darker, more intimate setting. Our paneled shutters are applicable for bedrooms, living rooms, dining rooms, home offices, and commercial spaces. Our team of 50 is here to help you maintain perfection from beginning to end.',
       },
       {
         product_name: 'Tab Top Curtains',
         altText: 'Tab Top Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Skylight/Solid-panel.webp',
-        desc: 'We at Blinds and Curtains offer skylight tab-top curtains that cover overhead windows. We offer various fabrics for skylight curtains, including <b>tab-top blackout curtains</b>. These blackout options are perfect for bedrooms or living rooms and create a cosy and dark environment for better sleep. Our blackout curtains are also used for commercial spaces, such as ideal for conference rooms, lobbies, or any area with skylights. So take advantage of this and install through our professional team of installers.',
+        desc: 'We at Blinds and Curtains offer skylight tab-top curtains that cover overhead windows. We offer various fabrics for skylight curtains, including tab-top blackout curtains. These blackout options are perfect for bedrooms or living rooms and create a cosy and dark environment for better sleep. Our blackout curtains are also used for commercial spaces, such as ideal for conference rooms, lobbies, or any area with skylights. So take advantage of this and install through our professional team of installers.',
       },
       {
         product_name: 'Pleated Blinds',
         altText: 'Pleated Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Skylight/Pleated-Blinds.webp',
-        desc: 'Skylight pleated blinds are designed for skylights and angled windows. These blinds can be customised to fit perfectly. Their snug installation guarantees no light leakage around the edges. Most of the <b>skylight pleated blinds</b> come with motorised controls or telescopic rods for hassle-free adjustment. These integrate with smart home systems and operate via remote control, smartphone, or voice commands. Our blinds are suitable for both residential and commercial applications.',
+        desc: 'Skylight pleated blinds are designed for skylights and angled windows. These blinds can be customised to fit perfectly. Their snug installation guarantees no light leakage around the edges. Most of the skylight pleated blinds come with motorised controls or telescopic rods for hassle-free adjustment. These integrate with smart home systems and operate via remote control, smartphone, or voice commands. Our blinds are suitable for both residential and commercial applications.',
       },
       {
         product_name: 'Dimout Blinds',
@@ -845,42 +846,42 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 12,
     sub_Category: 'Balcony Blinds And Curtains',
-    static_Title:"Premium Commercial Balcony Window Treatments",
+    static_Title: 'Premium Commercial Balcony Window Treatments',
     Product: [
       {
         product_name: 'Blackout Blinds',
         altText: 'Blackout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Balcony/Blackout-blinds.webp',
-        desc: 'We have the biggest and best collection of blackout blinds in Dubai, which are made to fit your style and needs. Our balcony blinds are super affordable and come in cool designs that look great in any home or outdoor space. These <b>roller blinds for balconies</b> don’t just block light—they also help keep your space cool by stopping heat. Plus, they give you privacy so you can enjoy your balcony peacefully.',
+        desc: 'We have the biggest and best collection of blackout blinds in Dubai, which are made to fit your style and needs. Our balcony blinds are super affordable and come in cool designs that look great in any home or outdoor space. These roller blinds for balconies don’t just block light—they also help keep your space cool by stopping heat. Plus, they give you privacy so you can enjoy your balcony peacefully.',
       },
       {
         product_name: 'Roman Blinds',
         altText: 'Roman Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Balcony/Roman-Blinds.webp',
-        desc: 'Our Balcony Roman Blinds are a great way to make your outdoor space look awesome and feel cosy. They fit flat against windows, so they look super neat and match any style. You can get <b>automatic balcony blinds</b> made just for your space so they fit perfectly. They’re great for giving you privacy while still keeping things comfy. You can hang out on your balcony or patio without anyone looking in. ',
+        desc: 'Our Balcony Roman Blinds are a great way to make your outdoor space look awesome and feel cosy. They fit flat against windows, so they look super neat and match any style. You can get automatic balcony blinds made just for your space so they fit perfectly. They’re great for giving you privacy while still keeping things comfy. You can hang out on your balcony or patio without anyone looking in. ',
       },
       {
         product_name: 'Outdoor Shutters',
         altText: 'Outdoor Shutters',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Balcony/Outdoor-Shutters.webp',
-        desc: 'Outdoor balcony shutters are a great way to make your balcony, terrace, or patio better. They help keep you comfy by blocking things like strong sun, heavy rain, and even snow so you can enjoy your outdoor space all year long. These shutters also make your space look nicer and give you more privacy. We have lots of options for <b>outdoor balcony shutters</b>, with different designs to match your style and outdoor space.',
+        desc: 'Outdoor balcony shutters are a great way to make your balcony, terrace, or patio better. They help keep you comfy by blocking things like strong sun, heavy rain, and even snow so you can enjoy your outdoor space all year long. These shutters also make your space look nicer and give you more privacy. We have lots of options for outdoor balcony shutters, with different designs to match your style and outdoor space.',
       },
       {
         product_name: 'Eyelet Curtains',
         altText: 'Eyelet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Balcony/Eyelet-curtains.webp',
-        desc: 'Balcony eyelet curtains are great for everyday use because they look nice and work really well. They give you privacy and shade while making your balcony or patio look modern and cool. These <b>outdoor balcony curtains</b> are made from different materials, like waterproof ones that last a long time or soft, light ones that feel ventilated. There are many colours and designs to choose from, so you can find the perfect ones to match your style.',
+        desc: 'Balcony eyelet curtains are great for everyday use because they look nice and work really well. They give you privacy and shade while making your balcony or patio look modern and cool. These outdoor balcony curtains are made from different materials, like waterproof ones that last a long time or soft, light ones that feel ventilated. There are many colours and designs to choose from, so you can find the perfect ones to match your style.',
       },
     ],
   },
   {
     Category_id: 12,
     sub_Category: 'Pergola Curtains',
-    static_Title:"Pergola  Window Treatments",
+    static_Title: 'Pergola  Window Treatments',
     Product: [
       {
         product_name: 'Sheer Curtains',
@@ -915,7 +916,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 12,
     sub_Category: 'Outdoor Blinds And Curtains',
-    static_Title:"Commercial Outdoor Window Treatments",
+    static_Title: 'Commercial Outdoor Window Treatments',
     Product: [
       {
         product_name: 'Sunscreen/Transparent Blinds',
@@ -950,38 +951,38 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Hospital Curtains',
-    static_Title:"Made To Measure Hospital Window Coverings",
+    static_Title: 'Made To Measure Hospital Window Coverings',
     Product: [
       {
         product_name: 'Sheer Curtains',
         altText: 'Sheer Curtains',
         Imagesurl: '/assets/images/optimized-images/commerical/hospital/s.webp',
-        desc: 'We offer lightweight sheer curtains that allow natural light to gently filter into a hospital room to create a soft, airy ambiance. Our <b>cubicle curtains</b> are used to separate the rooms of patient spaces that guarantee privacy during consultations, treatment, or rest. These curtains allow hospitals to provide individual care in shared spaces; our curtains are crucial for maintaining confidentiality and offering comfort to patients. So get a free installation. We are trusted, with over 700+ 5* reviews.',
+        desc: 'We offer lightweight sheer curtains that allow natural light to gently filter into a hospital room to create a soft, airy ambiance. Our cubicle curtains are used to separate the rooms of patient spaces that guarantee privacy during consultations, treatment, or rest. These curtains allow hospitals to provide individual care in shared spaces; our curtains are crucial for maintaining confidentiality and offering comfort to patients. So get a free installation. We are trusted, with over 700+ 5* reviews.',
       },
       {
         product_name: 'Motorised curtains',
         altText: 'Motorised curtains',
         Imagesurl: '/assets/images/optimized-images/commerical/hospital/b.webp',
-        desc: 'Our hospital curtains are designed to provide a barrier between patient areas and offer confidentiality and comfort. Our motorised curtains operated without physical contact, promoting a cleaner, more hygienic environment. Our <b>curtains in hospitals</b> come in a wide variety of styles, from elegant drapes to modern sheers. For high-quality hospital room curtains, consider consulting with us at <a target="_blank" style="text-decoration: underline" href="/">Blinds and Curtains Dubai</a>, who offer a range of customisable options to meet specific healthcare needs.',
+        desc: 'Our hospital curtains are designed to provide a barrier between patient areas and offer confidentiality and comfort. Our motorised curtains operated without physical contact, promoting a cleaner, more hygienic environment. Our curtains in hospitals come in a wide variety of styles, from elegant drapes to modern sheers. For hospital room curtains, consider Blinds and Curtains Dubai, where we offer a range of customisable options to meet specific healthcare needs. ',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl: '/assets/images/optimized-images/commerical/hospital/b.webp',
-        desc: 'We provide curtains that are perfect for bedrooms or any area where privacy is essential, such as <b>curtains in hospital</b> rooms, to offer a peaceful environment free from external distractions. Our blackout curtains improved patients comfort. Ou hospital window blinds with sheer curtains create a calming environment conducive to rest and recovery. Our window coverings are crafted from durable, easy-to-clean fabrics, offering low maintenance for hospital windows.',
+        desc: 'We provide curtains that are perfect for bedrooms or any area where privacy is essential, such as curtains in hospital rooms, to offer a peaceful environment free from external distractions. Our hospital window blinds with sheer curtains create a calming environment conducive to rest and recovery. Our window coverings are crafted from durable, easy-to-clean fabrics, offering low maintenance for hospital windows.',
       },
       {
         product_name: 'Plain Curtains',
         altText: 'Plain Curtains',
         Imagesurl: '/assets/images/optimized-images/commerical/hospital/p.webp',
-        desc: 'Our curtains are available in neutral shades; these <b>plain curtains</b> can complement the sterile and professional atmosphere of a hospital or clinic. We offer <b>curtains in clinic</b> rooms with patient privacy during examinations and treatments. These curtains act as partitions, offering a sense of security and confidentiality in shared spaces. Our curtains are made up of hygienic, easy-to-maintain fabrics that need regular cleaning in hospitals and clinics, reducing the risk of infections.',
+        desc: 'Our curtains are available in neutral shades; these plain curtains can complement the sterile and professional atmosphere of a hospital or clinic. We offer curtains in clinic rooms with patient privacy during examinations and treatments. These curtains act as partitions, offering a sense of security and confidentiality in shared spaces. Our curtains are made up of hygienic, easy-to-maintain fabrics that need regular cleaning in hospitals and clinics, reducing the risk of infections.',
       },
     ],
   },
   {
     Category_id: 2,
     sub_Category: 'School Blinds',
-    static_Title:"School Blinds, Curtains & Shutters to block sun and heat",
+    static_Title: 'School Blinds, Curtains & Shutters to block sun and heat',
     Product: [
       {
         product_name: 'Roman Blinds',
@@ -1016,70 +1017,70 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Gym Curtains',
-    static_Title:"Curtains for Gym",
+    static_Title: 'Curtains for Gym',
     Product: [
       {
         product_name: 'Motorised curtains',
         altText: 'Motorised curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Motorised gym curtains.webp',
-        desc: 'Gym curtains are used for multiple purposes. These are ideal for creating<b>divider curtains for gyms</b>ivider curtains for gyms in large open spaces and dividing areas for different activities like aerobics, yoga, or weightlifting. We at <a target="_blank" style="text-decoration: underline" href="/">Blinds and Curtains Dubai</a> offer a variety of fabrics, colors, and patterns that are designed to run silently for minimal disruption. Our motorised blackout curtains can be used to divide large gym areas, offering complete privacy and blocking out light when needed, as well as our sheer motorised curtains, which are perfect for spaces like gyms or living areas, offering a soft, filtered light while maintaining privacy.',
+        desc: 'Gym curtains are used for multiple purposes. These are ideal for creating divider curtains for gyms in large open spaces and dividing areas for different activities like aerobics, yoga, or weightlifting. We at Blinds and Curtains Dubai offer a variety of fabrics, colors, and patterns that are designed to run silently for minimal disruption. Our motorised blackout curtains can be used to divide large gym areas, offering complete privacy and blocking out light when needed, as well as our sheer motorised curtains, which are perfect for spaces like gyms or living areas, offering a soft, filtered light while maintaining privacy.',
       },
       {
         product_name: 'Linen Curtains',
         altText: 'Linen Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Linen curtains for gym.webp',
-        desc: 'Linen curtains are lightweight, breathable fabrics that offer proper airflow, maintaining a fresh and comfortable workout environment. These curtains durability makes them suitable for high-traffic areas like gyms, while their soft texture adds a subtle, inviting aesthetic. We offer <b>gymnastic curtains</b> to section off training areas or as window treatments; they deliver a stylish and practical solution that is custom fit to dynamic fitness environments. These curtains are perfect for dividing spaces or softening gym interiors.',
+        desc: 'Linen curtains are lightweight, breathable fabrics that offer proper airflow, maintaining a fresh and comfortable workout environment. These curtains durability makes them suitable for high-traffic areas like gyms, while their soft texture adds a subtle, inviting aesthetic. We offer gymnastic curtains to section off training areas or as window treatments; they deliver a stylish and practical solution that is custom fit to dynamic fitness environments. These curtains are perfect for dividing spaces or softening gym interiors.',
       },
       {
         product_name: 'Velvet Curtains',
         altText: 'Velvet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Velvet Curtains for gym.webp',
-        desc: 'Velvet curtains bring a luxurious touch to gym spaces. These curtains are available in various rich colors and textures; they complement modern or classic gym interiors Our <b>home gym curtains</b> not only provide privacy but also create a focused and distraction-free environment by blocking external noise and controlling light. Every workout feels personal and effective.Our velvet curtains are perfect for stylish spaces; these curtains improve your fitness area with unmatched sophistication.',
+        desc: 'Velvet curtains bring a luxurious touch to gym spaces. These curtains are available in various rich colors and textures; they complement modern or classic gym interiors Our home gym curtains not only provide privacy but also create a focused and distraction-free environment by blocking external noise and controlling light. Every workout feels personal and effective.Our velvet curtains are perfect for stylish spaces; these curtains improve your fitness area with unmatched sophistication.',
       },
       {
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Blackout gym curtains.webp',
-        desc: 'Our curtains play a vital role in gyms, especially in gyms hosting multimedia presentations or fitness workshops. Blackout <b>curtains for gyms</b> are ideal for both home and commercial gyms and invaluable as they optimise visibility for screens and projectors. Durability and easy maintenance of blackout curtains make them a long-lasting investment. These curtains withstand the rigors of frequent use. Our curtains are available in a variety of styles and colors that compliment modern gym interiors.',
+        desc: 'Our curtains play a vital role in gyms, especially in gyms hosting multimedia presentations or fitness workshops. Blackout curtains for gyms are ideal for both home and commercial gyms and invaluable as they optimise visibility for screens and projectors. Durability and easy maintenance of blackout curtains make them a long-lasting investment. These curtains withstand the rigors of frequent use. Our curtains are available in a variety of styles and colors that compliment modern gym interiors.',
       },
     ],
   },
   {
     Category_id: 5,
     sub_Category: 'Theatre Curtains',
-    static_Title:"Made To Measure Theatre, Stage & Backdrop Curtains ",
+    static_Title: 'Made To Measure Theatre, Stage & Backdrop Curtains ',
     Product: [
       {
         product_name: 'Pinch Pleat Curtains',
         altText: 'Pinch Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Motorised gym curtains.webp',
-        desc: 'Our pinch pleat curtains for theaters contain custom fit pleats that create a sophisticated, structured appearance, which is ideal for dramatic settings. These curtains are crafted in luxurious fabrics like <b>velvet stage curtains</b>; they exude elegance while delivering excellent sound absorption and light-blocking capabilities, essential for immersive performances. These curtains are available in a variety of colors and textures; pinch pleat curtains can be customised to suit the artistic vision of any stage.',
+        desc: 'Our pinch pleat curtains for theaters contain custom fit pleats that create a sophisticated, structured appearance, which is ideal for dramatic settings. These curtains are crafted in luxurious fabrics like velvet stage curtains; they exude elegance while delivering excellent sound absorption and light-blocking capabilities, essential for immersive performances. These curtains are available in a variety of colors and textures; pinch pleat curtains can be customised to suit the artistic vision of any stage.',
       },
       {
         product_name: 'Stripes Curtains',
         altText: 'Stripes Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Linen curtains for gym.webp',
-        desc: 'Striped curtains are a stylish choice for theatre stages, with eye-catching patterns. These curtains add a bold and dynamic aesthetic to theatre stages, making them a distinctive choice for performance spaces. The clean lines and vibrant patterns of our theatre curtains create a visual fascination that enhances the backdrop for various productions. When crafted as <b>white stage curtains</b>, they deliver a crisp, modern look while maintaining versatility to suit diverse themes and lighting effects.',
+        desc: 'Striped curtains are a stylish choice for theatre stages, with eye-catching patterns. These curtains add a bold and dynamic aesthetic to theatre stages, making them a distinctive choice for performance spaces. The clean lines and vibrant patterns of our theatre curtains create a visual fascination that enhances the backdrop for various productions. When crafted as white stage curtains, they deliver a crisp, modern look while maintaining versatility to suit diverse themes and lighting effects.',
       },
       {
         product_name: 'Textured Curtains',
         altText: 'Textured Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/theatre-curtains/Textured curtains (2).webp',
-        desc: 'Theatre curtains also have some unique textures. We offer curtains that interact beautifully with stage lighting, creating a mesmerizing visual effect.Textured curtains are available in custom sizes and patterns to express their unique identity. Their versatility extends to various stage styles, from classical operas to contemporary plays. Our textured <b>blue curtains</b> add an artistic dimension to stage design. These curtains are crafted from fire-retardant materials, guaranteeing safety while maintaining elegance.',
+        desc: 'Theatre curtains also have some unique textures. We offer curtains that interact beautifully with stage lighting, creating a mesmerizing visual effect.Textured curtains are available in custom sizes and patterns to express their unique identity. Their versatility extends to various stage styles, from classical operas to contemporary plays. Our textured blue curtains add an artistic dimension to stage design. These curtains are crafted from fire-retardant materials, guaranteeing safety while maintaining elegance.',
       },
       {
         product_name: 'Ripplefold/Wave Curtains',
         altText: 'Ripplefold/Wave Curtains',
         Imagesurl:
           '/assets/images/optimized-images/commerical/gym/Blackout gym curtains.webp',
-        desc: 'Our curtains are a modern, versatile choice for theatres. If you choose our Ripplefold or wave curtains, it offers a sleek, uniform look. We offer curtains that are available in rich fabrics, like <b>red velvet stage curtains</b>, that are perfect for both dramatic presentations and multi-functional spaces. Our ripplefold curtains create a professional and immersive atmosphere. They are easy to maintain, durable, and can be customised to fit large theatre stages or smaller performance areas.',
+        desc: 'Our curtains are a modern, versatile choice for theatres. If you choose our Ripplefold or wave curtains, it offers a sleek, uniform look. We offer curtains that are available in rich fabrics, like red velvet stage curtains, that are perfect for both dramatic presentations and multi-functional spaces. Our ripplefold curtains create a professional and immersive atmosphere. They are easy to maintain, durable, and can be customised to fit large theatre stages or smaller performance areas.',
       },
     ],
   },
@@ -1115,8 +1116,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       //   desc: '',
       // },
       {
-        product_name: "Cafe Style Shutters",
-        altText: "Cafe Style Shutters",
+        product_name: 'Cafe Style Shutters',
+        altText: 'Cafe Style Shutters',
         Imagesurl:
           '/assets/images/optimized-images/Color/White-shutters/White cafe style shutters.webp',
         desc: '',
@@ -1135,8 +1136,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         desc: '',
       },
       {
-        product_name: "Tier On Tier Shutters",
-        altText: "Tier On Tier Shutters",
+        product_name: 'Tier On Tier Shutters',
+        altText: 'Tier On Tier Shutters',
         Imagesurl:
           '/assets/images/optimized-images/Color/Off-white/Off white tier on tier shutters.webp',
         desc: '',
@@ -1155,8 +1156,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       //   desc: '',
       // },
       {
-        product_name: "Bay Window Shutters",
-        altText: "Bay Window Shutters",
+        product_name: 'Bay Window Shutters',
+        altText: 'Bay Window Shutters',
         Imagesurl:
           '/assets/images/optimized-images/Color/Light-wood/Light wood bay window shutters.jpg',
         desc: '',
@@ -1175,8 +1176,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       //   desc: '',
       // },
       {
-        product_name: "Bi Fold Shutters",
-        altText: "Bi Fold Shutters",
+        product_name: 'Bi Fold Shutters',
+        altText: 'Bi Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/Color/Grey-color/Grey color Bifold shutters.webp',
         desc: '',
@@ -1194,7 +1195,6 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       //     '/assets/images/optimized-images/Color/Bold-colors/Off white tracked window shutters.webp',
       //   desc: '',
       // },
-      
     ],
   },
   {
