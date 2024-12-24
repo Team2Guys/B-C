@@ -120,9 +120,10 @@ const BathroomCategory = ({
                   <Image
                     className="w-full h-[350px] xsm:h-[400px] xs:h-[500px] sm:h-[350px] md:h-[450px] lg:h-[500px] rounded-md"
                     src={
-                      product_Images
-                      ? product_Images.Imagesurl
-                        : arr.posterImage.imageUrl
+                      // product_Images
+                      // ? product_Images.Imagesurl
+                      //   : 
+                        arr.posterImage.imageUrl
                       }
                       height={774}
                       width={1032}
