@@ -7,7 +7,7 @@ import { categoriesContent, generateSlug, HiddenProducts_list } from 'data/data'
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
-import { useParams, usePathname } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import AllProducts from 'components/Product/All-Products/Products';
 import { useQuery } from '@tanstack/react-query';
 import NotFound from 'app/not-found';
@@ -19,9 +19,11 @@ import {
 } from 'config/fetch';
 import VideoBanner from 'components/video-banner/video-banner';
 import { links } from 'components/Res-usable/header/Header';
+import { blogPostUrl } from 'data/urls';
 
 const Products = () => {
   const { productName } = useParams();
+  const router = useRouter();
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
@@ -57,6 +59,14 @@ const Products = () => {
     queryFn: fetchSubCategories,
   });
 
+useEffect(() => {
+  const matchingUrl = blogPostUrl.find((item) => item.url === pathname);
+  if (matchingUrl) {
+    router.push(matchingUrl.redirectUrl);
+  }
+},[pathname]);
+
+  
   useEffect(() => {
     if (products && categories && productNameString) {
       const matchingLink = links.find((link) =>
