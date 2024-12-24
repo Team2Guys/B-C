@@ -2146,6 +2146,30 @@ export const colorData: IColorData[] = [
         imageUrl: '/assets/images/optimized-images/Color/White-shutters/White Cafe style Shutters (2).webp',
         altText: 'White Shutters'
       },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Full height shutters (2).webp',
+        altText: 'White Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Solid panel shutter for kitchen.webp',
+        altText: 'White Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Cafe-Style-Shutters-2-.webp',
+        altText: 'White Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/White-shutters/BiFold Shutters (3).webp',
+        altText: 'White Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Bay window shutters (2).webp',
+        altText: 'White Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Bay window shutters (3).webp',
+        altText: 'White Shutters'
+      },
     ]
   },
   {
@@ -2155,11 +2179,35 @@ export const colorData: IColorData[] = [
     url: '/shutters-range/black-shutters',
     imageUrls:[
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters.jpg',
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Black shutters (1).webp',
         altText: 'Black Shutters'
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters-.jpg',
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Black shutters (2).webp',
+        altText: 'Black Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Black shutters (3).webp',
+        altText: 'Black Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Black shutters (4).webp',
+        altText: 'Black Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/BiFold Shutters (5).webp',
+        altText: 'Black Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Cold color shutters (1).webp',
+        altText: 'Black Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/full height shutters (2).webp',
+        altText: 'Black Shutters'
+      },
+      {
+        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Tier on Tier Shutters (2).webp',
         altText: 'Black Shutters'
       },
     ]
