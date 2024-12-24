@@ -76,7 +76,7 @@ const FeatureProduct: React.FC = () => {
     } else {
       setVisibleCount(3);
     }
-  },[]);
+  }, []);
 
   if (isLoadingCategories || isLoadingProducts)
     return (
@@ -84,7 +84,7 @@ const FeatureProduct: React.FC = () => {
         <Container className="py-12">
           <div className="flex justify-center">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
-              {[...Array(3)].map((_, index) => (
+              {[...Array(6)].map((_, index) => (
                 <div className="" key={index}>
                   <div className="h-6 bg-gray-300 rounded mb-2"></div>
                   <div className="max-w-md rounded lg:m-4 m-2 animate-pulse">

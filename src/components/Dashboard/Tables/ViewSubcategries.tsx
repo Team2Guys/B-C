@@ -37,11 +37,11 @@ const ViewSubcategries = ({
   const super_admin_token = Cookies.get('superAdminToken');
 
   const token = admin_token ? admin_token : super_admin_token;
-  console.log(editCategory,"editCategory")
+  console.log(editCategory, 'editCategory');
   const [category, setCategory] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
-  console.log(toggleColorMode,"toggleColorMode")
+  console.log(toggleColorMode, 'toggleColorMode');
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
 
@@ -104,7 +104,7 @@ const ViewSubcategries = ({
 
   const handleDelete = async (key: any) => {
     try {
-       await axios.delete(
+      await axios.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/deletesubCategory/${key}`,
         {
           headers: {
@@ -178,6 +178,14 @@ const ViewSubcategries = ({
           createdAt.getMinutes(),
         ).padStart(2, '0')}`;
         return <span>{formattedTime}</span>;
+      },
+    },
+    {
+      title: 'Last Edited By',
+      dataIndex: 'last_editedBy',
+      key: 'time',
+      render: (text: string, record: any) => {
+        return <span>{record.last_editedBy}</span>;
       },
     },
     {
