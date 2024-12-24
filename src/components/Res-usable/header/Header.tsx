@@ -49,19 +49,23 @@ const Header = () => {
   const handleCloseDrawer = () => {
     setDrawerOpen(false);
   };
+  const fetchAllData = async () => {
+    const [products, subCategories] = await Promise.all([
+      fetchProducts(),
+      fetchSubCategories(),
+    ]);
+    return { products, subCategories };
+  };
 
-  const { data: products, error: productsError } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
+  const { data, isLoading } = useQuery({
+    queryKey: ['fetchSubCategories', 'products'],
+    queryFn: fetchAllData,
   });
 
-  const { data: subCategories } = useQuery<ICategory[]>({
-    queryKey: ['fetchSubCategories'],
-    queryFn: fetchSubCategories,
-  });
-  if (productsError instanceof Error)
-    return <div>Error: {productsError.message}</div>;
+  const products: IProduct[] = data?.products || [];
+  const subCategories: ICategory[] = data?.subCategories || [];
 
+  console.log(isLoading, 'isload');
   return (
     <>
       <div className="w-full bg-secondary">
@@ -172,8 +176,6 @@ const Header = () => {
                   ];
                 }
 
-                // const isActive =
-                //   link.href && path?.includes(generateSlug(link.label));
                 const isBlogPath = path.startsWith('/blog');
 
                 const isBlogActive = link.href === '/blog' && isBlogPath;
@@ -199,6 +201,7 @@ const Header = () => {
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                           : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
                     }
+                    loading={isLoading}
                   />
                 ) : (
                   <Link

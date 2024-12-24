@@ -22,14 +22,13 @@ interface Product {
 
 interface CategoryProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
-  seteditCategory?: React.Dispatch<SetStateAction<CategoriesType |  undefined | null>>;
+  seteditCategory?: React.Dispatch<
+    SetStateAction<CategoriesType | undefined | null>
+  >;
   editCategory?: CategoriesType | undefined | null;
 }
 
-const TableTwo = ({
-  setMenuType,
-  seteditCategory,
-}: CategoryProps) => {
+const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
@@ -40,7 +39,7 @@ const TableTwo = ({
   const [colorMode, toggleColorMode] = useColorMode();
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-  console.log(toggleColorMode,"toggleColorMode")
+  console.log(toggleColorMode, 'toggleColorMode');
   const canAddCategory =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canAddCategory : true);
@@ -101,7 +100,7 @@ const TableTwo = ({
 
   const handleDelete = async (key: any) => {
     try {
-       await axios.delete(
+      await axios.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/deleteCategory/${key}`,
         {
           headers: {
@@ -170,6 +169,14 @@ const TableTwo = ({
           createdAt.getMinutes(),
         ).padStart(2, '0')}`;
         return <span>{formattedTime}</span>;
+      },
+    },
+    {
+      title: 'Last Edited By',
+      dataIndex: 'last_editedBy',
+      key: 'time',
+      render: (text: string, record: any) => {
+        return <span>{record.last_editedBy}</span>;
       },
     },
     {
