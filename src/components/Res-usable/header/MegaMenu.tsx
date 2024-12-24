@@ -36,7 +36,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLAnchorElement | any>(null);
   const { Panel } = Collapse;
-  const [isLoading, setLoading] = useState(true);
   const handleMouseEnter = () => {
     if (timeoutId) {
       clearTimeout(timeoutId);
