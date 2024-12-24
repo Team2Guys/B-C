@@ -21,6 +21,7 @@ interface MegaMenuProps {
   className?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined;
   href?: string;
+  loading?: boolean;
 }
 
 const MegaMenu: React.FC<MegaMenuProps> = ({
@@ -29,6 +30,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   className,
   onClick,
   href,
+  loading,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeProduct, setactiveProduct] = useState<IProduct | undefined>();
@@ -169,6 +171,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const DeskdistributedProducts = Desk_topdistributeProducts();
 
   const distributedProducts = distributeProducts(3);
+
   return (
     <>
       <div
@@ -214,7 +217,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                 : 'By Function'
                           : item.name}
                       </p>
-                      {distributedProducts[0].length < 0 ? (
+                      {distributedProducts[0].length == 0 || loading ? (
                         <Fragment>
                           {Array.from({ length: 5 }).map((_, index) => (
                             <Skeleton key={index} className="w-1/2 h-6" />
