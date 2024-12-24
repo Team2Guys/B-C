@@ -326,6 +326,7 @@ export interface BlogInfo {
   comment?: commentprops[];
   createdAt?: any;
   updatedAt?: any;
+  last_editedBy?: string;
 }
 interface commentprops {
   status?: string;
