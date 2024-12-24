@@ -1093,10 +1093,10 @@ export const AddproductsinitialValues: FormValues = {
   heading: '',
   Sub_Heading: '',
   Sub_Heading_description: '',
-  Meta_Title: "",
-  Meta_description:"",
-  Canonical_Tag:"",
-  Images_Alt_Text:""
+  Meta_Title: '',
+  Meta_description: '',
+  Canonical_Tag: '',
+  Images_Alt_Text: '',
 };
 
 export const options = [
@@ -1134,11 +1134,10 @@ export const subcategoryInitialValues: ISUBCATEGORY = {
   title: '',
   description: '',
   CategoryId: undefined,
-  Meta_Title: "",
-  Meta_description:"",
-  Canonical_Tag:"",
-  Images_Alt_Text:""
-
+  Meta_Title: '',
+  Meta_description: '',
+  Canonical_Tag: '',
+  Images_Alt_Text: '',
 };
 
 export const intitalValues = {
@@ -1824,10 +1823,10 @@ export const BreakCrum_conent_pages = [
   },
 ];
 //AutomatedMoterisedData
-export const MoterisedContent=[
+export const MoterisedContent = [
   {
-    maintitle:"/automated-blinds",
-    Data:[
+    maintitle: '/automated-blinds',
+    Data: [
       {
         title: 'Automated Blinds',
         heroImage: bgBreadcrum,
@@ -1877,73 +1876,71 @@ export const MoterisedContent=[
         additionalDescription:
           "There's no hard sell just relaxed and pressure-free consultation",
         additionalImage: moto2,
-        additionalDescription2:
-          `We believe in making your experience as stress-free as possible. Our team members are paid a fair living wage, meaning they are here for you. Rest assured, no one is working on commission here. <a href="/" target="_blank" style="text-decoration:underline">Blinds and Curtains Dubai’s</a> priority is to provide honest, helpful advice that’s best for you—not to push for a sale. If you choose to go with us, congratulations. If not we’ll send you your quotation by email and one follow up call. Then it's up to you to decide.`,
+        additionalDescription2: `We believe in making your experience as stress-free as possible. Our team members are paid a fair living wage, meaning they are here for you. Rest assured, no one is working on commission here. <a href="/" target="_blank" style="text-decoration:underline">Blinds and Curtains Dubai’s</a> priority is to provide honest, helpful advice that’s best for you—not to push for a sale. If you choose to go with us, congratulations. If not we’ll send you your quotation by email and one follow up call. Then it's up to you to decide.`,
         additionalDescription3:
           'We approach every consultation the way we’d like to be treated: with honesty and zero pressure. Contact our friendly team if you would like a no-obligation quote on our home automation window blinds, or fill out the online contact form, and we will get back to you as soon as possible.',
-     
-      }
-    ] 
-     },
-  {
-    maintitle:"/automated-curtains",
-    Data:[
-      {
-    title: 'Automated Curtains',
-    heroImage: bgBreadcrum,
-    infoTitle: 'Automatic Curtains',
-    infoSubtitle: 'Convert your windows into Smart Windows',
-    infoDescription:
-      `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
-    infoImage: moto1,
-    measureTitle: 'Made to Measure Motorised Curtains',
-    measureDescription: `Just say the word, and let your motorisation system do the rest. It's now easier to control auto curtains with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
-    chooseustitle: 'Why Choose Us For Your Motorisation?',
-    chooseustitle1: 'Control your windows anytime, anywhere!',
-    measureTitle1: 'Set Your Own Schedule or Control Remotely',
-    measureDescription1: `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use automatic window curtains so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants, and options like <a href="/curtains/blackout-curtains-dubai" target="_blank" style="text-decoration:underline">blackout curtains</a> for added convenience.`,
-    chooseUsItems: [
-      {
-        image: img1,
-        text: '10 Years warranty on all mechanical parts and labour',
-      },
-      {
-        image: img2,
-        text: '50 experts to make sure perfection is maintained from start-to-finish',
-      },
-      {
-        image: img3,
-        text: `Quality production - we're in it for the long haul`,
-      },
-      {
-        image: img4,
-        text: 'More than 700 5-star reviews prove our reputation as trusted',
       },
     ],
-    motorization: [
-      {
-        text: 'Easily operate with remote. Smartphone, or voice command.',
-      },
-      {
-        text: 'Save money and protect your home from UV rays.',
-      },
-      {
-        text: `It's perfect for people with mobility or accessibility issues.`,
-      },
-      {
-        text: 'You can set it up to block out the sun at specific times.',
-      },
-      {
-        text: 'Adjust the amount of light entering your home to create the perfect ambiance.',
-      },
-    ],
-    additionalDescription: `There's no hard sell just relaxed and pressure-free consultation`,
-    additionalImage: moto2,
-    additionalDescription2: `At <a href="/" target="_blank" style="text-decoration:underline">Blinds and Curtains Dubai</a>, choosing automated curtains should be fun and enjoyable instead of stressful. So we designed our consultations to be relaxed and informative. Our team is here to guide you, not to push you. We take the time to fully understand your needs and provide solutions that genuinely work for your space, whether you're looking for fabrics, modern automated curtains, or light control advice.`,
-    additionalDescription3: `Every home is different, and every customer has a different taste. That's why we listen to you and offer honest, helpful advice during our consultations. There's no hustle, no pressure, and definitely no hard sell.`,
-      }]
   },
-]
+  {
+    maintitle: '/automated-curtains',
+    Data: [
+      {
+        title: 'Automated Curtains',
+        heroImage: bgBreadcrum,
+        infoTitle: 'Automatic Curtains',
+        infoSubtitle: 'Convert your windows into Smart Windows',
+        infoDescription: `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
+        infoImage: moto1,
+        measureTitle: 'Made to Measure Motorised Curtains',
+        measureDescription: `Just say the word, and let your motorisation system do the rest. It's now easier to control auto curtains with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
+        chooseustitle: 'Why Choose Us For Your Motorisation?',
+        chooseustitle1: 'Control your windows anytime, anywhere!',
+        measureTitle1: 'Set Your Own Schedule or Control Remotely',
+        measureDescription1: `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use automatic window curtains so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants, and options like <a href="/curtains/blackout-curtains-dubai" target="_blank" style="text-decoration:underline">blackout curtains</a> for added convenience.`,
+        chooseUsItems: [
+          {
+            image: img1,
+            text: '10 Years warranty on all mechanical parts and labour',
+          },
+          {
+            image: img2,
+            text: '50 experts to make sure perfection is maintained from start-to-finish',
+          },
+          {
+            image: img3,
+            text: `Quality production - we're in it for the long haul`,
+          },
+          {
+            image: img4,
+            text: 'More than 700 5-star reviews prove our reputation as trusted',
+          },
+        ],
+        motorization: [
+          {
+            text: 'Easily operate with remote. Smartphone, or voice command.',
+          },
+          {
+            text: 'Save money and protect your home from UV rays.',
+          },
+          {
+            text: `It's perfect for people with mobility or accessibility issues.`,
+          },
+          {
+            text: 'You can set it up to block out the sun at specific times.',
+          },
+          {
+            text: 'Adjust the amount of light entering your home to create the perfect ambiance.',
+          },
+        ],
+        additionalDescription: `There's no hard sell just relaxed and pressure-free consultation`,
+        additionalImage: moto2,
+        additionalDescription2: `At <a href="/" target="_blank" style="text-decoration:underline">Blinds and Curtains Dubai</a>, choosing automated curtains should be fun and enjoyable instead of stressful. So we designed our consultations to be relaxed and informative. Our team is here to guide you, not to push you. We take the time to fully understand your needs and provide solutions that genuinely work for your space, whether you're looking for fabrics, modern automated curtains, or light control advice.`,
+        additionalDescription3: `Every home is different, and every customer has a different taste. That's why we listen to you and offer honest, helpful advice during our consultations. There's no hustle, no pressure, and definitely no hard sell.`,
+      },
+    ],
+  },
+];
 
 //MoterisedBlindsData
 // export const motorisedPageData = {
@@ -2117,152 +2114,171 @@ export const colorData: IColorData[] = [
     name: 'Off White Shutters',
     color: 'FAF9EF',
     url: '/shutters-range/off-white-shutters',
-    imageUrls:[
+    imageUrls: [
       {
-        imageUrl: '/assets/images/optimized-images/Color/Off-white/Off white tier on tier shutters.webp',
-        altText: 'Off White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Off-white/Off white tier on tier shutters.webp',
+        altText: 'Off White Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Off-white/Off white tracked window shutters.webp',
-        altText: 'Off White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Off-white/Off white tracked window shutters.webp',
+        altText: 'Off White Shutters',
       },
-    ]
+    ],
   },
   {
     id: 2,
     name: 'White Shutters',
     color: 'FFFFFF',
     url: '/shutters-range/white-shutters',
-    imageUrls:[
+    imageUrls: [
       {
-        imageUrl: '/assets/images/optimized-images/Color/White-shutters/White cafe style shutters.webp',
-        altText: 'White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/White-shutters/White cafe style shutters.webp',
+        altText: 'White Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/White-shutters/White Cafe style Shutters (2).webp',
-        altText: 'White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/White-shutters/White Cafe style Shutters (2).webp',
+        altText: 'White Shutters',
       },
-    ]
+    ],
   },
   {
     id: 3,
     name: 'Black Shutters',
     color: '000000',
     url: '/shutters-range/black-shutters',
-    imageUrls:[
+    imageUrls: [
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters.jpg',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters.jpg',
+        altText: 'Black Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters-.jpg',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters-.jpg',
+        altText: 'Black Shutters',
       },
-    ]
+    ],
   },
   {
     id: 4,
     name: 'Grey Shutters',
     color: '808080',
     url: '/shutters-range/grey-shutters',
-    imageUrls:[
+    imageUrls: [
       {
-        imageUrl: '/assets/images/optimized-images/Color/Grey-color/Grey color Bifold shutters.webp',
-        altText: 'Grey Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Grey-color/Grey color Bifold shutters.webp',
+        altText: 'Grey Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (1).webp',
-        altText: 'Grey Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (1).webp',
+        altText: 'Grey Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (2).webp',
-        altText: 'Grey Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (2).webp',
+        altText: 'Grey Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (3).webp',
-        altText: 'Grey Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (3).webp',
+        altText: 'Grey Shutters',
       },
-      
-      
-    ]
+    ],
   },
   {
     id: 5,
     name: 'Dark Wood Shutters',
     color: '815438',
     url: '/shutters-range/dark-wood-shutters',
-    imageUrls:[
+    imageUrls: [
       {
-        imageUrl: '/assets/images/optimized-images/Color/Dark-wood/Full-height-shutters-(-Dark-wood).jpg',
-        altText: 'Dark Woods Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Dark-wood/Full-height-shutters-(-Dark-wood).jpg',
+        altText: 'Dark Woods Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Dark-wood/Special shaped shutters ( Dark wood).webp',
-        altText: 'Dark Woods Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Dark-wood/Special shaped shutters ( Dark wood).webp',
+        altText: 'Dark Woods Shutters',
       },
-    ]
+    ],
   },
   {
     id: 6,
     name: 'Light Wood Shutters',
     color: 'deb887',
     url: '/shutters-range/light-wood-shutters',
-    imageUrls:[
+    imageUrls: [
       {
-        imageUrl: '/assets/images/optimized-images/Color/Light-wood/Light wood bay window shutters.jpg',
-        altText: 'Light Woods Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Light-wood/Light wood bay window shutters.jpg',
+        altText: 'Light Woods Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (1).webp',
-        altText: 'Light Woods Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (1).webp',
+        altText: 'Light Woods Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (2).webp',
-        altText: 'Light Woods Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (2).webp',
+        altText: 'Light Woods Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (3).webp',
-        altText: 'Light Woods Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (3).webp',
+        altText: 'Light Woods Shutters',
       },
-      
-    ]
+    ],
   },
   {
     id: 7,
     name: 'Bold Colour Shutters',
     color: '8f1601',
     url: '/shutters-range/bold-colours-shutters',
-    imageUrls:[
+    imageUrls: [
       {
-        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters (1).webp',
-        altText: 'Bold Colour Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters (1).webp',
+        altText: 'Bold Colour Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters (2).webp',
-        altText: 'Bold Colour Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters (2).webp',
+        altText: 'Bold Colour Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters.webp',
-        altText: 'Bold Colour Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters.webp',
+        altText: 'Bold Colour Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (1).webp',
-        altText: 'Bold Colour Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (1).webp',
+        altText: 'Bold Colour Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (2).webp',
-        altText: 'Bold Colour Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (2).webp',
+        altText: 'Bold Colour Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (3).webp',
-        altText: 'Bold Colour Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (3).webp',
+        altText: 'Bold Colour Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (4).webp',
-        altText: 'Bold Colour Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Bold-colors/Cold color shutters (4).webp',
+        altText: 'Bold Colour Shutters',
       },
-      
-    ]
+    ],
   },
 ];
 
@@ -2277,8 +2293,7 @@ export const ByColorContent = [
       subheading2: '',
       subheadingContent: [
         {
-          content:
-            '',
+          content: '',
         },
       ],
     },
@@ -2293,8 +2308,7 @@ export const ByColorContent = [
       subheading2: '',
       subheadingContent: [
         {
-          content:
-            '',
+          content: '',
         },
       ],
     },
@@ -2309,8 +2323,7 @@ export const ByColorContent = [
       subheading2: '',
       subheadingContent: [
         {
-          content:
-            '',
+          content: '',
         },
       ],
     },
@@ -2325,8 +2338,7 @@ export const ByColorContent = [
       subheading2: '',
       subheadingContent: [
         {
-          content:
-            '',
+          content: '',
         },
       ],
     },
@@ -2341,8 +2353,7 @@ export const ByColorContent = [
       subheading2: '',
       subheadingContent: [
         {
-          content:
-            '',
+          content: '',
         },
       ],
     },
@@ -2357,8 +2368,7 @@ export const ByColorContent = [
       subheading2: '',
       subheadingContent: [
         {
-          content:
-            '',
+          content: '',
         },
       ],
     },
@@ -2373,8 +2383,7 @@ export const ByColorContent = [
       subheading2: '',
       subheadingContent: [
         {
-          content:
-            '',
+          content: '',
         },
       ],
     },
@@ -2579,49 +2588,56 @@ export const categorydata = [
 ];
 
 //RelatedProductsDta
-export const RelatedProductsdata =[
-  { url:"/automated-blinds",
-    para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
-  },
-  { url:"/automated-curtains",
-    para: "For quality curtain installation in Dubai, check out our services designed to make your living spaces more beautiful.",
-  },
-  { url:"/made-to-measure-blinds",
-    para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
-  },
-  { url:"/made-to-measure-curtains",
-    para: "For quality curtain installation in Dubai, check out our services designed to make your living spaces more beautiful.",
-  },
-  { url:"/shutters-range",
-    para: "Explore our range of Interior & Exterior Shutters, designed for both style and durability.",
-  },
-  { url:"/commercial",
-    para: "Explore our collection, each piece a showcase of exceptional window blinds design.",
-  },
-]
-
-
-export const  HiddenProducts_list =["Hotels & Restaurants , blinds & curtains","Study Room Blinds" ]
-
-
-export const estimator_data=[
+export const RelatedProductsdata = [
   {
-    id:1,
-    title:"Roller Blinds",
-    posterImage:{imageUrl:"/assets/images/blindcard/curtains.png"},
-    price:10,
-  },
- 
-  {
-    id:2,
-    title:"Shutters MDF",
-    posterImage:{imageUrl:"/assets/images/dynamic/Rectangle 811dds.png"},
-    price:25,
+    url: '/automated-blinds',
+    para: 'Explore our collection, each piece a showcase of exceptional window blinds design.',
   },
   {
-    id:3,
-    title:"Shutters Basswood",
-    posterImage:{imageUrl:"/assets/images/dynamic/Rectangle 811da.png"},
-    price:20,
+    url: '/automated-curtains',
+    para: 'For quality curtain installation in Dubai, check out our services designed to make your living spaces more beautiful.',
   },
-]
+  {
+    url: '/made-to-measure-blinds',
+    para: 'Explore our collection, each piece a showcase of exceptional window blinds design.',
+  },
+  {
+    url: '/made-to-measure-curtains',
+    para: 'For quality curtain installation in Dubai, check out our services designed to make your living spaces more beautiful.',
+  },
+  {
+    url: '/shutters-range',
+    para: 'Explore our range of Interior & Exterior Shutters, designed for both style and durability.',
+  },
+  {
+    url: '/commercial',
+    para: 'Browse through our selection of high quality commercial window treatments.',
+  },
+];
+
+export const HiddenProducts_list = [
+  'Hotels & Restaurants , blinds & curtains',
+  'Study Room Blinds',
+];
+
+export const estimator_data = [
+  {
+    id: 1,
+    title: 'Roller Blinds',
+    posterImage: { imageUrl: '/assets/images/blindcard/curtains.png' },
+    price: 10,
+  },
+
+  {
+    id: 2,
+    title: 'Shutters MDF',
+    posterImage: { imageUrl: '/assets/images/dynamic/Rectangle 811dds.png' },
+    price: 25,
+  },
+  {
+    id: 3,
+    title: 'Shutters Basswood',
+    posterImage: { imageUrl: '/assets/images/dynamic/Rectangle 811da.png' },
+    price: 20,
+  },
+];
