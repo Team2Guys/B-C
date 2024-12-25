@@ -38,7 +38,7 @@ const RoomProducts = ({
     url: string;
     name: string;
   }>();
-  console.log(category, "category")
+  console.log(category, 'category');
   const {
     data: products,
     error,
@@ -77,7 +77,8 @@ const RoomProducts = ({
     }
   }, [pathname]);
 
-  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>(relatedProducts);
+  const [filteredProducts, setFilteredProducts] =
+    useState<IProduct[]>(relatedProducts);
   const [productCategory, setProductCategory] = useState<string>('');
 
   const filterProducts = () => {
@@ -104,7 +105,9 @@ const RoomProducts = ({
     } else {
       if (title === 'Bedroom Blinds') {
         const updatedProducts = relatedProducts.map((product) => {
-          const updateTitle = subCategoryUrls.find((item) => item.url === generateSlug(product.title));
+          const updateTitle = subCategoryUrls.find(
+            (item) => item.url === generateSlug(product.title),
+          );
           if (updateTitle) {
             setUpdateSubCategoryName(updateTitle);
             return { ...product, title: updateTitle.name };
@@ -127,7 +130,6 @@ const RoomProducts = ({
     return <NotFound />;
   }
 
-
   return (
     <>
       {/* <VideoBanner
@@ -141,7 +143,8 @@ const RoomProducts = ({
       <TopHero
         title={title}
         pageTitle={`Made to Measure ${title}`}
-        image={bgBreadcrum}
+        //@ts-expect-error
+        image={`${category?.bannerImage?.imageUrl || bgBreadcrum.src}`}
         pagename={pathname}
       />
       <Container className="my-12">
