@@ -38,7 +38,7 @@ function Comments({ data }: CommentsProps) {
   const [shareURL, setShareURL] = useState('');
   const [commentId, setcommentId] = useState('');
   const queryClient = useQueryClient();
-
+console.log(data, "data")
 
   useEffect(() => {
     const currentURL = window.location.href;
@@ -53,6 +53,9 @@ function Comments({ data }: CommentsProps) {
     .reverse()
     .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
+    console.log(currentComments, 
+      "currentComments"
+    )
 
 
   const handlePageChange = (pageNumber: number) => {
