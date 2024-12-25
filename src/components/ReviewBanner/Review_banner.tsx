@@ -53,16 +53,16 @@ interface Review {
 
 export default function Review_banner() {
   const [reviews, setReviews] = useState<Review[]>(
-    [{
-    author_name: "TEST",
-    author_url: "TEST",
-    language: "TEST",
-    original_language: "TEST",
-    profile_photo_url: "TEST",
-    rating: 1234,
-    relative_time_description: "relative_time_description"
-  
-  }]
+    [   {
+      author_name: "TEST",
+      author_url: "TEST",
+      language: "TEST",
+      original_language: "TEST",
+      profile_photo_url: "TEST",
+      rating: 5, // Valid rating value
+      relative_time_description: "relative_time_description",
+    },
+]
 )
   const settings: SliderSettings = {
     dots: false,
@@ -92,9 +92,9 @@ export default function Review_banner() {
   //     console.log(error);
   //   }
   // }
-  // useEffect(() => {
-  //   fetchReviewsHandler()
-  // }, [])
+  useEffect(() => {
+    // fetchReviewsHandler()
+  }, [])
 
   console.log(setReviews, 
     'reviews'
@@ -135,7 +135,7 @@ export default function Review_banner() {
                   height={140}
                 />
 
-                {/* <Slider {...settings}>
+                <Slider {...settings}>
                   {reviews.length > 0 && reviews?.map((slide, index: any) => (
                     <div
                       key={index}
@@ -148,7 +148,7 @@ export default function Review_banner() {
                       <p className="mt-2 text-white">{slide.text}</p>
                     </div>
                   ))}
-                </Slider> */}
+                </Slider>
 
 
 
