@@ -346,6 +346,26 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           }
           className="bg-transparent"
         >
+              {
+                title === 'Moterised' ? 
+                <div className='flex justify-between'>
+                <div className='flex flex-col py-2 w-fit'>
+                  {MoterisedData.map((product,index) => (
+                    <Link 
+                      key={index} 
+                      onClick={onClick}
+                      href={product.link}
+                      onMouseEnter={() => setHoveredProduct(product.title || "Automated Blinds")}
+                      className={`focus:text-black hover:text-black border-b-2 border-transparent hover:border-b-secondary`}
+                    >
+                      {product.title}
+                    </Link>
+                  ))}
+                </div>
+          
+              </div>
+                :
+         <>
           {distributedProducts.map((products, index) => {
             let header_type = ['By Style', 'By Room', 'Dynamic'][index];
             return (
@@ -378,6 +398,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               </Panel>
             );
           })}
+         </>
+        }
         </Collapse>
       </div>
     </>
