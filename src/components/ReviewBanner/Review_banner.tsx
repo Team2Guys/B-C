@@ -76,7 +76,9 @@ let response = await fetch(url,{
 })
 let data = await response.json()
 console.log(data, "data")
+setReviews(data)
   }
+  
   catch (error) {
     console.log(error);
   }
