@@ -69,9 +69,7 @@ export default function Review_banner() {
       let locationId = "ChIJ4V0HC41pXz4Rvla-qGM1PiI";
       let url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
 let response = await fetch(url,{
-  headers: {
-    'Authorization': `Bearer 1//04LnAxfMMmgjNCgYIARAAGAQSNwF-L9IrkOlDHXBxCIos1OBLC3kRj9GKFUsSUODnTTeBnGangaFEkHBwX44SgcDVgYCybvYjJLg`
-  }
+
 
 })
 let data = await response.json()
