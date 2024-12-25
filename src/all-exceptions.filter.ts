@@ -11,6 +11,8 @@ type MyResponseObj = {
     message: string | object,
 }
 
+
+
 @Catch()
 export class AllExceptionsFilter extends BaseExceptionFilter {
     private readonly logger = new MyLoggerService(AllExceptionsFilter.name)
