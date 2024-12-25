@@ -13,6 +13,10 @@ interface BathroomCategoryProps {
   subCategory?: string;
   categoryName?:string;
   description?:string | any;
+  updateSubCategoryName?: {
+    url: string;
+    name: string;
+}
 }
 
 
@@ -23,11 +27,12 @@ const BathroomCategory = ({
   subCategory,
   categoryName,
   description,
+  updateSubCategoryName,
 }: BathroomCategoryProps) => {
   const pathname = usePathname();
   const getPath = (arr: IProduct, parent: string) => {
     categoryTitle === 'none' ? (categoryTitle = parent) : categoryTitle;
-    const slug = ChangedProductUrl_handler(arr.title);
+    const slug = ChangedProductUrl_handler(arr.title === updateSubCategoryName?.name ? updateSubCategoryName.url : arr.title);
     const basePath =
       arr.href &&
       typeof categoryTitle &&

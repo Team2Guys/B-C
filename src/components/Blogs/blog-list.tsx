@@ -14,7 +14,7 @@ interface IBlogCard {
 }
 
 const BlogCard = ({ blog }: IBlogCard) => {
-  const { title, content, posterImage, createdAt } = blog;
+  const { title, content, posterImage, createdAt , category } = blog;
   const filteredContent = content.replace(/<[^>]*>?/gm, '').slice(0, 310);
 
   return (
@@ -26,9 +26,9 @@ const BlogCard = ({ blog }: IBlogCard) => {
           height={100}
           className="rounded-lg object-cover w-full sm:w-[160px] h-52 sm:h-[160px]"
         />
-      <div>
+      <div className='grow'>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-gray-500">Blinds</span>
+          <span className="text-sm text-gray-500">{category}</span>
           <span className="text-sm text-gray-500">
             {formatDateMonth(createdAt)}
           </span>
