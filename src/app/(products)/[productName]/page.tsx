@@ -1,133 +1,76 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import Info from 'components/Product/Info';
-import Container from 'components/Res-usable/Container/Container';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { categoriesContent, generateSlug, HiddenProducts_list } from 'data/data';
-import VideoAutomation from 'components/video-Automation/video-Automation';
-import Support from 'components/Res-usable/support/support';
-import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
-import { useParams, usePathname, useRouter } from 'next/navigation';
-import AllProducts from 'components/Product/All-Products/Products';
-import { useQuery } from '@tanstack/react-query';
-import NotFound from 'app/not-found';
-import { ICategory, IProduct } from 'types/types';
-import {
-  fetchCategories,
-  fetchProducts,
-  fetchSubCategories,
-} from 'config/fetch';
-import VideoBanner from 'components/video-banner/video-banner';
-import { links } from 'components/Res-usable/header/Header';
-import { blogPostUrl } from 'data/urls';
+import { fetchCategories, fetchProducts, fetchSubCategories,  } from "config/fetch";
+import Product from "./Product";
+import { ICategory } from "types/types";
+import { headers } from "next/headers";
+import { Metadata } from "next";
+import { links } from "data/header_links";
 
-const Products = () => {
-  const { productName } = useParams();
-  const router = useRouter();
+export async function generateMetadata({ params }: { params: { productName: string } }): Promise<Metadata> {
+  const { productName } = params;
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
-  const [selectedPage, setSelectedPage] = useState<{
-    heading: string;
-    paragraph: string;
-    subheading1: string;
-    subheading2: string;
-    subheadingContent: {
-      content: string;
-    }[];
-  } | null>(null);
-  const pathname = usePathname();
-  const title = matchingLink ? matchingLink.label : productName;
-  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
-  const [isNotFound, setIsNotFound] = useState(false);
+  const [ categories] = await Promise.all([
+    fetchCategories(),
+  ]);
 
-  const productNameString = Array.isArray(productName)
-    ? productName[0]
-    : productName;
+  const filterCategory = categories.find((category) => category.title === matchingLink?.label);
+  const headersList = headers();
+  const domain =
+    headersList.get('x-forwarded-host') || headersList.get('host') || '';
+  const protocol = headersList.get('x-forwarded-proto') || 'https';
+  const pathname = headersList.get('x-invoke-path') || '/';
 
-  const { data: products } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
+  const fullUrl = `${protocol}://${domain}${pathname}`;
 
-  const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
-  const { data: subCategories } = useQuery<ICategory[]>({
-    queryKey: ['fetchSubCategories'],
-    queryFn: fetchSubCategories,
-  });
+  let Category = filterCategory as ICategory;
 
-useEffect(() => {
-  const matchingUrl = blogPostUrl.find((item) => item.url === pathname);
-  if (matchingUrl) {
-    router.push(matchingUrl.redirectUrl);
-  }
-},[pathname]);
+  let ImageUrl =
+    Category?.posterImage.imageUrl ||
+    'blindsandcurtains';
+  let alt =
+    Category?.posterImage.altText ||
+    'blindsandcurtains';
 
-  
-  useEffect(() => {
-    if (products && categories && productNameString) {
-      const matchingLink = links.find((link) =>
-        productNameString.includes(link.href.replace(/^\//, '')),
-      );
-  
-      const selectedProductName = matchingLink ? matchingLink.label : '';
-  
-      const filterCat = categories?.find(
-        (cat) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
-      );
-  
-      if (filterCat) {
-        const filteredProducts =
-          products.filter((product) => product.CategoryId === filterCat.id) ||
-          [];
-  
-        const filteredSubCategories =
-          subCategories?.filter(
-            (subCat) => subCat.CategoryId === filterCat.id,
-          ) || [];
-  
-        const filteredItems = [...filteredProducts, ...filteredSubCategories];
-        setFilteredProducts(filteredItems);
-        if (filteredItems.length > 0) {
-          setIsNotFound(false);
-          return;
-        }
-      }
-      setIsNotFound(true);
-    }
-  }, [products, categories, subCategories, productNameString]);
-  
-  useEffect(() => {
-    const selectedPage = categoriesContent.find(
-      (page) => page.slug === generateSlug(pathname),
-    );
-    if (selectedPage) {
-      setSelectedPage(selectedPage.content);
-    }
-  }, [pathname]);
+  let NewImage = [
+    {
+      url: ImageUrl,
+      alt: alt,
+    },
+  ];
+  let title =
+    Category?.Meta_Title ||
+    'blindsandcurtains';
+  let description =
+    Category?.Meta_description ||
+    'Welcome to blindsandcurtains';
+  let url = `${fullUrl}${productName}`;
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: url,
+      images: NewImage,
+    },
+    alternates: {
+      canonical:
+        Category?.Canonical_Tag || url,
+    },
+  };
+}
 
-   if (isNotFound ) {
-      return <NotFound />;
-    }
-
+const Products = async ({ params }: { params: { productName: string } }) => {
+  const slug = params.productName;
+  const [products, categories, subCategories] = await Promise.all([
+    fetchProducts(),
+    fetchCategories(),
+    fetchSubCategories(),
+  ]);
   return (
     <>
-      <VideoBanner
-        title={`${title}`}
-        selectedPage={selectedPage}
-        showButton={true}
-      />
-      <Info selectedPage={selectedPage} />
-      <AllProducts products={filteredProducts.filter((prod)=>!HiddenProducts_list.includes(prod.title))} categoryType={`${title}`} />
-      <Container className="mt-20 mb-20">
-        <RelatedProducts products={filteredProducts || []} limit={4} />
-      </Container>
-      <BookNowBanner className="mt-20" />
-      <VideoAutomation className=" mt-20" />
-      <Support />
+      <Product productName={slug} products={products} categories={categories} subCategories={subCategories} />
     </>
   );
 };
