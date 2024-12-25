@@ -26,6 +26,7 @@ export const links = [
   { href: '/made-to-measure-blinds', label: 'Blinds', id: 2 },
   { href: '/made-to-measure-curtains', label: 'Curtains', id: 5 },
   { href: '/shutters-range', label: 'Shutters', id: 9 },
+  { href: '#', label: 'Moterised',id: 20},
   { href: '/commercial', label: 'Commercial', id: 12 },
   { href: '/gallery', label: 'Gallery' },
   { href: '/estimator', label: 'Estimator' },
@@ -168,25 +169,30 @@ const Header = () => {
                           menuItem.productName === generateSlug(product.title),
                       ),
                     ) || [];
-
                   combinedSliderData = [
                     // ...staticCommercialMegaMenuItems,
                     ...filteredSubCategories,
                     ...actualProducts,
                   ];
                 }
-
+                if (link.id === 20) {
+                  const actualProducts = commercialMegaMenuItems || [];
+                  combinedSliderData = [
+                    ...filteredSubCategories,
+                    ...actualProducts,
+                  ];
+                }
                 const isBlogPath = path.startsWith('/blog');
-
                 const isBlogActive = link.href === '/blog' && isBlogPath;
-
                 const isActive =
                   !isBlogPath && path?.includes(generateSlug(link.label));
-
                 const isBalconyActive =
                   path?.includes('blinds-and-curtains') ||
                   path?.includes('blinds-curtains');
-
+                  const ismoterised = path.startsWith('/automated-blinds') || path.startsWith('/automated-curtains');
+                  const ismoter =
+                  path?.includes('automated-curtains') ||
+                  path?.includes('automated-blinds');
                 return combinedSliderData.length > 0 ? (
                   <MegaMenu
                     onClick={handleCloseDrawer}
@@ -197,9 +203,11 @@ const Header = () => {
                     className={
                       link.label === 'Commercial' && isBalconyActive
                         ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                        : !isBalconyActive && (isBlogActive || isActive)
+                        : link.label === 'Moterised' && ismoterised
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                          : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
+                          : !isBalconyActive && !ismoter && (isBlogActive || isActive)
+                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                            : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
                     }
                     loading={isLoading}
                   />
@@ -207,9 +215,11 @@ const Header = () => {
                   <Link
                     key={index}
                     className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${
-                      isBlogActive || isActive
+                      link.label === 'Moterised' && ismoterised
                         ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
-                        : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-4'
+                        : isBlogActive || isActive
+                          ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
+                          : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-4'
                     }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
