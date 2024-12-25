@@ -16,16 +16,12 @@ interface Product extends IProduct {
   CategoryId: number;
 }
 interface PRODUCTS_PROPS {
-  products: Product[]
+  products: Product[];
 }
 
 const Products = ({ products }: PRODUCTS_PROPS) => {
-
-
   const [editProduct, setEditProduct] = useState<any | undefined>();
   const [selecteMenu, setselecteMenu] = useState<string>('Add All Products');
-
-
 
   const EditInitialValues: any = {
     id: editProduct?.id,
@@ -55,10 +51,10 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
     heading: editProduct && editProduct.heading,
     Sub_Heading: editProduct && editProduct.Sub_Heading,
     Sub_Heading_description: editProduct && editProduct.Sub_Heading_description,
-
+    bannerImage: editProduct && editProduct.bannerImage,
   };
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
-  console.log(products, "Product")
+  console.log(products, 'Product');
   return (
     <>
       <Breadcrumb pageName={productFlag ? 'Products' : 'Add Products'} />
@@ -75,16 +71,15 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
           setEditProduct={setEditProduct}
           EditProductValue={
             EditInitialValues &&
-              (EditInitialValues.name !== undefined ||
-                EditInitialValues.category !== undefined)
+            (EditInitialValues.name !== undefined ||
+              EditInitialValues.category !== undefined)
               ? EditInitialValues
               : undefined
           }
         />
       )}
     </>
-
   );
 };
 
-export default ProtectedRoute(Products)
+export default ProtectedRoute(Products);
