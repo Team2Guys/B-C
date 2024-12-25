@@ -308,6 +308,10 @@ export const blogPostUrl = [
   { url: '/vertical-blinds-for-windows' , redirectUrl: '/blog/vertical-blinds-for-windows' },
 ]
 
+export const subCategoryUrls = [
+  {url: 'blackout-blinds' , name: 'Blackout/Private Blinds'}
+]
+
 export const customSortingOrder = [
   
   //Blinds By Type
@@ -379,7 +383,6 @@ export const customSortingOrder = [
   'bold-colours-shutters',
   ];
 
-  
 
  export const MoterisedData = [
     {
