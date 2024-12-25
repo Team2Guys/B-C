@@ -75,13 +75,30 @@ export class BlogsService {
     try {
       let existing_blog = await this.prisma.blogs.findUnique({
         where: { id: id },
+        include: { comments: true }
       });
       if (!existing_blog)
         return CustomErrorHandler('No Blog found', 'BAD_REQUEST');
+      console.log(existing_blog, "blo")
+      let commentFlag = existing_blog.comments && existing_blog.comments.length > 0 ? true : false
 
+      const result = await this.prisma.$transaction([
+        ...(commentFlag
+          ? [
+            this.prisma.blogs_comments.deleteMany({
+              where: { blogId: id },
+            }),
+          ]
+          : []),
+        this.prisma.blogs.delete({
+          where: { id },
+        }),
+      ]);
+
+console.log(result, "result")
       return {
         message: 'Blog has been Deleted',
-        blog: await this.prisma.blogs.delete({ where: { id: id } }),
+        blog: result[0],
       };
     } catch (error) {
       return CustomErrorHandler(error.message, 'BAD_REQUEST');
@@ -158,7 +175,7 @@ export class BlogsService {
 
   async updateStatus(id: number, status: string, req: Request | any) {
     try {
-  console.log(req, "req")
+      console.log(req, "req")
       const { email } = req
 
       if (!Object.values(CommentStatus).includes(status as CommentStatus)) {

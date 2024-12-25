@@ -7,6 +7,16 @@ import { loginAdminDto, Super_admin_dto } from './dto/create-admin.dto';
 import { JwtService } from '@nestjs/jwt';
 import * as jwt from 'jsonwebtoken';
 import { Response, Request } from 'express';
+import { google } from 'googleapis';
+import { oauth2 } from 'googleapis/build/src/apis/oauth2';
+// import file from '../../src/keyfile.json '
+// import fs from 'fs';
+// import * as path from 'path';
+// const keyfilePath = path.resolve(__dirname, '../../../keyfile.json');
+// const keyfile = require(keyfilePath);
+
+
+
 @Injectable()
 export class AdminsService {
   constructor(private prisma: PrismaService) { }
@@ -215,9 +225,6 @@ export class AdminsService {
 
     }
   }
-
-
-
   
   // Get record sales
   async getRecords() {
@@ -246,6 +253,40 @@ export class AdminsService {
 
   }
 
+  // Getch Reveiws
+  async getReviews() {
+try {
+
+// console.log(keyfilePath, "keyfile")
+//   const auth = new google.auth.GoogleAuth({
+//     keyFile: keyfilePath as any, 
+//     scopes: ['https://www.googleapis.com/auth/business.manage'],
+//     clientOptions:{email: "blind-curtains@sunny-mountain-343711.iam.gserviceaccount.com",},
+    
+//   });
+
+  
+//   const client = await auth.getClient();
+//   const mybusiness = google.mybusinessaccountmanagement({ version: 'v1', auth: client as any });
+
+//   const result = await mybusiness.accounts.list();
+//   console.log('Accounts:', result.data);
+
+//   let accountId = "011F5D-96EF92-0B0224";
+//   let locationId = "ChIJ4V0HC41pXz4Rvla-qGM1PiI";
+//   let url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
+  // const res:any = await client.request({
+  //   url:url,
+  // });
+  // console.log(res.data)
+  // return res.data.reviews;
+  
+} catch (error) {
+  console.log(error)
+}
+
+
+  }
 
 
 
