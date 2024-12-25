@@ -25,7 +25,12 @@ export class AppointmentService {
         data: user_data,
       });
 
-      await this.sendConfirmationEmail(user_data, newAppointment);
+      await this.sendConfirmationEmail(user_data, null, newAppointment);
+      await this.sendConfirmationEmail(
+        user_data,
+        user_data.email,
+        newAppointment,
+      );
 
       return { message: 'Appointment created successfully🎉', newAppointment };
     } catch (error) {
@@ -43,13 +48,16 @@ export class AppointmentService {
 
   private async sendConfirmationEmail(
     user_data: any,
+    user_mail: string | null,
     appointment: Prisma.AppointmentsCreateInput,
   ) {
     try {
+      const recipients = user_mail
+        ? `${user_mail}`
+        : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL2}`;
       const mailOptions = {
         from: process.env.MAILER_MAIL,
-        // to: `${user_data.email}, ${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL2}`,
-        to: `${user_data.email}, `,
+        to: recipients,
         subject: 'Appointment Confirmation',
         html: `<html lang="en">
 <head>
