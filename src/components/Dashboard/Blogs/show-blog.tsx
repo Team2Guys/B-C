@@ -16,6 +16,7 @@ import Image from 'next/image';
 import { FaRegEye } from 'react-icons/fa';
 import { generateSlug } from 'data/data';
 import { useAppSelector } from 'components/Others/HelperRedux';
+import Cookies from 'js-cookie';
 
 interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -38,6 +39,11 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canEditBlog : true);
 
+
+      const admin_token = Cookies.get('2guysAdminToken');
+      const super_admin_token = Cookies.get('superAdminToken');
+    
+      const token = admin_token ? admin_token : super_admin_token;
   const {
     data: blogs,
     isLoading,
@@ -74,11 +80,16 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       cancelText: 'No',
     });
   };
+  
 
   const handleDelete = async (id: string) => {
     try {
       await axios.delete(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/delete/${id}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/delete/${id}`,{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
       );
       showToast('success', 'The blog has been successfully deleted👍');
       //@ts-expect-error
