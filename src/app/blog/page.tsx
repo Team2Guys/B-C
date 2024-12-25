@@ -9,11 +9,10 @@ import axios, { AxiosResponse } from 'axios';
 import { Suspense } from 'react';
 import PopularBlog from 'components/Blogs/popular-blog';
 
-
 const fetchBlogs = async (): Promise<BlogInfo[]> => {
   try {
     const response: AxiosResponse = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
     );
     return response.data;
   } catch (error) {
@@ -27,13 +26,14 @@ const Blog = async () => {
   return (
     <>
       <Header />
-      <TopHero title="Blogs" image={bgBreadcrum} pagename='blog' />
+      <TopHero title="Blogs" image={bgBreadcrum.src} pagename="blog" />
 
-      <div className='mt-5'>
-        <Suspense fallback={<PageSkelton/>}>
+      <div className="mt-5">
+        <Suspense fallback={<PageSkelton />}>
           <BlogMain blogs={blogs} />
-          <div className='mt-10'>
-          <PopularBlog blogs={blogs} /></div>
+          <div className="mt-10">
+            <PopularBlog blogs={blogs} />
+          </div>
         </Suspense>
       </div>
       <div className="mt-28" />
