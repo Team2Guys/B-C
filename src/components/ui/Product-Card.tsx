@@ -85,7 +85,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
                 alt="img"
               />
               <div className="text-center space-y-3">
-                <h1 className="text-17 font-semibold">{trimmedProductTitle}</h1>
+                <h4 className="text-17 font-semibold">{trimmedProductTitle}</h4>
                 <p
                   className={`text-15 font-light md:w-[80%] mx-auto max-h-16 ${scrollEnabled ? 'custom-scrollbar' : 'overflow-hidden'
                     }`}
