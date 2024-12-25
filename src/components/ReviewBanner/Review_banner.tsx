@@ -52,7 +52,7 @@ interface Review {
 
 
 export default function Review_banner() {
-      const [reviews, setreviews] = useState<Review[]>([])
+      const [reviews, setReviews] = useState<Review[]>([])
   const settings:SliderSettings = {
     dots: false,
     infinite: true,
@@ -61,55 +61,34 @@ export default function Review_banner() {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    // refs: ""
   };
 
-  const fetchReviewsHanlder = async () => {
+  const fetchReviewsHandler = async () => {
     try {
-      let allReviews:any = [];
-      let nextPageToken = null;
-  
-      // Loop to fetch all reviews using pagination
-      do {
-        // Construct the URL with the nextPageToken if it's available
-        const url:string = nextPageToken
-          ? `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}&pagetoken=${nextPageToken}`
-          : `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}`;
-  
-        const res = await fetch(url);
-        const results = await res.json();
-  
-        // Append the current page of reviews to the allReviews array
-        if (results.result && results.result.reviews) {
-          allReviews = allReviews.concat(results.result.reviews);
-        }
-  
-        // If there's a nextPageToken, update it for the next request
-        nextPageToken = results.next_page_token;
-  
-        // Wait a short time before making the next request to allow nextPageToken to become active
-        if (nextPageToken) {
-          console.log('Fetching more reviews...');
-          await new Promise(resolve => setTimeout(resolve, 2000)); // Delay to allow next page to become available
-        }
-  
-      } while (nextPageToken);
+      let accountId = "011F5D-96EF92-0B0224";
+      let locationId = "ChIJ4V0HC41pXz4Rvla-qGM1PiI";
+      let url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
+let response = await fetch(url,{
+  headers: {
+    'Authorization': `Bearer 1//04LnAxfMMmgjNCgYIARAAGAQSNwF-L9IrkOlDHXBxCIos1OBLC3kRj9GKFUsSUODnTTeBnGangaFEkHBwX44SgcDVgYCybvYjJLg`
+  }
 
-      console.log(allReviews,"setreviews")
-      setreviews(allReviews);
-    } catch (error) {
-      console.log(error, "error");
-    }
-  };
-  
+})
+let data = await response.json()
+console.log(data, "data")
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
   useEffect(()=>{
-    fetchReviewsHanlder()
+    fetchReviewsHandler()
   },[])
   
 
   return (
     <>
-    <button onClick={fetchReviewsHanlder}>fetchReviewsHanlder</button>
+    {/* <button onClick={fetchReviewsHandler}>fetchReviewsHanlder</button> */}
       <Container className=" px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md">
           <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
