@@ -52,7 +52,8 @@ interface Review {
 
 
 export default function Review_banner() {
-  const [reviews, setReviews] = useState<Review[]>([{
+  const [reviews, setReviews] = useState<Review[]>(
+    [{
     author_name: "TEST",
     author_url: "TEST",
     language: "TEST",
@@ -61,7 +62,8 @@ export default function Review_banner() {
     rating: 1234,
     relative_time_description: "relative_time_description"
   
-  }])
+  }]
+)
   const settings: SliderSettings = {
     dots: false,
     infinite: true,
@@ -72,28 +74,31 @@ export default function Review_banner() {
     prevArrow: <SamplePrevArrow />,
   };
 
-  const fetchReviewsHandler = async () => {
-    try {
-      let accountId = "011F5D-96EF92-0B0224";
-      let locationId = "ChIJ4V0HC41pXz4Rvla-qGM1PiI";
-      let url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
-      let response = await fetch(url, {
+  // const fetchReviewsHandler = async () => {
+  //   try {
+  //     let accountId = "011F5D-96EF92-0B0224";
+  //     let locationId = "ChIJ4V0HC41pXz4Rvla-qGM1PiI";
+  //     let url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
+  //     let response = await fetch(url, {
 
 
-      })
-      let data = await response.json()
-      console.log(data, "data")
-      setReviews(data)
-    }
+  //     })
+  //     let data = await response.json()
+  //     console.log(data, "data")
+  //     setReviews(data)
+  //   }
 
-    catch (error) {
-      console.log(error);
-    }
-  }
-  useEffect(() => {
-    fetchReviewsHandler()
-  }, [])
+  //   catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+  // useEffect(() => {
+  //   fetchReviewsHandler()
+  // }, [])
 
+  console.log(setReviews, 
+    'reviews'
+  )
 
   return (
     <>
@@ -130,8 +135,8 @@ export default function Review_banner() {
                   height={140}
                 />
 
-                <Slider {...settings}>
-                  {reviews?.map((slide, index: any) => (
+                {/* <Slider {...settings}>
+                  {reviews.length > 0 && reviews?.map((slide, index: any) => (
                     <div
                       key={index}
                       className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
@@ -143,7 +148,7 @@ export default function Review_banner() {
                       <p className="mt-2 text-white">{slide.text}</p>
                     </div>
                   ))}
-                </Slider>
+                </Slider> */}
 
 
 
