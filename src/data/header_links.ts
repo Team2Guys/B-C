@@ -8,5 +8,5 @@ export const links = [
   { href: '/estimator', label: 'Estimator' },
   { href: '/blog', label: 'Blog' },
   { href: '/about-us', label: 'About Us' },
-  { href: '/contact-us', label: 'Contact Us' },
+  { href: '/contact-us', label: 'Contact Us'},
 ];
