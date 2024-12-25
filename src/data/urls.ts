@@ -311,3 +311,88 @@ export const blogPostUrl = [
 export const subCategoryUrls = [
   {url: 'blackout-blinds' , name: 'Blackout/Private Blinds'}
 ]
+
+export const customSortingOrder = [
+  
+  //Blinds By Type
+
+    'roller-blinds',
+    'roman-blinds',
+    'vertical-blinds',
+    'wooden-blinds',
+    'aluminium-blinds',
+    'zebra-blinds',
+    'zipline-outdoor-blinds',
+    'panel-blinds',
+
+  //Blinds By Room
+  
+  'living-room-blinds',
+  'dining-room-blinds',
+  'bedroom-blinds',
+  'kids-room-blinds',
+  'kitchen-blinds',
+  'conservatory-blinds',
+  'staircase-blinds',
+  'study-room-blinds',
+  'bathroom-blinds',
+
+  //Blinds By Funtions
+  'blackout-blinds',
+  'dimout-blinds',
+  'sunscreentransparent-blinds',
+
+  //Curtain By Type
+  'triple-pinch-pleat-curtains',
+  'double-pinch-pleat-curtains',
+  'pencil-pleat-curtains',
+  'ripplefoldwave-curtains',
+  'eyelet-curtains',
+  'tab-top-curtains',
+
+  //Curtain By fabric
+
+  'blackout-curtains',
+  'sheer-curtains',
+  'natural-fabric-curtains',
+  'textured-curtains',
+  'geometric-curtains',
+  'plain-curtains',
+  'stripes-curtains',
+  'kids-prints-curtains',
+  'patterned-curtains',
+
+  //Shutter By Style
+
+  'full-height-shutters',
+  'bi-fold-shutters',
+  'bi-pass-shutters',
+  'solid-panel-shutters',
+  'tier-on-tier-shutters',
+  'cafe-style-shutters',
+  'bay-window-shutters',
+  'outdoor-shutters',
+
+  //Shutter By Color
+
+  'white-shutters',
+  'off-white-shutters',
+  'grey-shutters',
+  'light-wood-shutters',
+  'dark-wood-shutters',
+  'bold-colours-shutters',
+  ];
+
+
+ export const MoterisedData = [
+    {
+      title: "Automated Blinds",
+      link: "/automated-blinds",
+      imageSrc: "/assets/images/blinds/landing/landing.webp",
+    },
+    {
+      title: "Automated Curtains",
+      link: "/automated-curtains",
+      imageSrc: "/assets/images/Curtain/landing/landing.webp",
+    },
+  ];
