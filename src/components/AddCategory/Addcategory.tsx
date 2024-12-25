@@ -38,13 +38,20 @@ const FormLayout = ({
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
-  let token = admin_token ? admin_token : super_admin_token
+  let token = admin_token ? admin_token : super_admin_token;
 
-  let CategoryName = editCategory && editCategory.title ? { name: editCategory.title, description: editCategory.description } : null;
+  let CategoryName =
+    editCategory && editCategory.title
+      ? { name: editCategory.title, description: editCategory.description }
+      : null;
   let CategorImageUrl = editCategory && editCategory.posterImage;
-  const [posterimageUrl, setposterimageUrl] = useState<any[] | null | undefined>(CategorImageUrl ? [CategorImageUrl] : null);
+  const [posterimageUrl, setposterimageUrl] = useState<
+    any[] | null | undefined
+  >(CategorImageUrl ? [CategorImageUrl] : null);
   const [loading, setloading] = useState<boolean>(false);
-  const [editCategoryName, setEditCategoryName] = useState<editCategoryNameType | null | undefined>(CategoryName);
+  const [editCategoryName, setEditCategoryName] = useState<
+    editCategoryNameType | null | undefined
+  >(CategoryName);
 
   const onSubmit = async (values: Category, { resetForm }: any) => {
     try {
@@ -56,13 +63,14 @@ const FormLayout = ({
         title: values.name,
         posterImage: posterImageUrl,
       };
-      console.log(name, "name")
+      console.log(name, 'name');
       let updateFlag = CategoryName ? true : false;
       let addProductUrl = updateFlag
         ? `/api/categories/updateCategory/${editCategory.id} `
         : null;
-      let url = `${process.env.NEXT_PUBLIC_BASE_URL}${updateFlag ? addProductUrl : '/api/categories/AddCategory'
-        }`;
+      let url = `${process.env.NEXT_PUBLIC_BASE_URL}${
+        updateFlag ? addProductUrl : '/api/categories/AddCategory'
+      }`;
       console.log('newValues');
       console.log(newValue);
       let response;
@@ -98,7 +106,7 @@ const FormLayout = ({
     }
   };
 
-  console.log(setEditCategoryName, "setEditCategoryName")
+  console.log(setEditCategoryName, 'setEditCategoryName');
 
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
@@ -118,7 +126,9 @@ const FormLayout = ({
         } = editCategory as any;
 
         console.log('Reach add product now edit');
-        console.log(editCategory, posterImage,
+        console.log(
+          editCategory,
+          posterImage,
           imageUrls,
           _id,
           createdAt,
@@ -126,7 +136,8 @@ const FormLayout = ({
           CategoryId,
           SubCategoryId,
           __v,
-          ...EditInitialProductValues);
+          ...EditInitialProductValues,
+        );
         // imageUrls ? setImagesUrl(imageUrls) : null;
         // posterImage ? setposterimageUrl([posterImage]) : null;
 
@@ -184,8 +195,7 @@ const FormLayout = ({
                           {posterimageUrl.map((item: any, index) => {
                             return (
                               <div key={index}>
-                                <div
-                                  className="relative group rounded-lg overflow-hidden shadow-md bg-white  transform transition-transform duration-300 hover:scale-105">
+                                <div className="relative group rounded-lg overflow-hidden shadow-md bg-white  transform transition-transform duration-300 hover:scale-105">
                                   <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
                                     <RxCross2
                                       className="cursor-pointer text-red-500 hover:text-red-700"
@@ -240,10 +250,11 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.name}
                           placeholder="Title"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
-                            ? 'border-red-500'
-                            : ''
-                            }`}
+                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                            formik.touched.name && formik.errors.name
+                              ? 'border-red-500'
+                              : ''
+                          }`}
                         />
                         {formik.touched.name && formik.errors.name ? (
                           <div className="text-red-500 text-sm">
@@ -261,10 +272,11 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.description}
                           placeholder="Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
-                            ? 'border-red-500'
-                            : ''
-                            }`}
+                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                            formik.touched.name && formik.errors.name
+                              ? 'border-red-500'
+                              : ''
+                          }`}
                         />
                         {formik.touched.name && formik.errors.name ? (
                           <div className="text-red-500 text-sm">
@@ -284,13 +296,15 @@ const FormLayout = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.Meta_Title}
                             placeholder="Meta Title"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Meta_Title && formik.errors.Meta_Title
-                              ? 'border-red-500'
-                              : ''
-                              }`}
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                              formik.touched.Meta_Title &&
+                              formik.errors.Meta_Title
+                                ? 'border-red-500'
+                                : ''
+                            }`}
                           />
                           {formik.touched.Meta_Title &&
-                            formik.errors.Meta_Title ? (
+                          formik.errors.Meta_Title ? (
                             <div className="text-red text-sm">
                               {formik.errors.Meta_Title as String}
                             </div>
@@ -307,21 +321,23 @@ const FormLayout = ({
                             onChange={formik.handleChange}
                             value={formik.values.Canonical_Tag}
                             placeholder="Canonical Tag"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Canonical_Tag && formik.errors.Canonical_Tag
-                              ? 'border-red-500'
-                              : ''
-                              }`}
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                              formik.touched.Canonical_Tag &&
+                              formik.errors.Canonical_Tag
+                                ? 'border-red-500'
+                                : ''
+                            }`}
                           />
 
                           {formik.touched.Canonical_Tag &&
-                            formik.errors.Canonical_Tag ? (
+                          formik.errors.Canonical_Tag ? (
                             <div className="text-red text-sm">
                               {formik.errors.Canonical_Tag as String}
                             </div>
                           ) : null}
                         </div>
                       </div>
-                      <div className='mt-4'>
+                      <div className="mt-4">
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                           Meta Description
                         </label>
@@ -330,14 +346,15 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.Meta_description}
                           placeholder="Meta Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
+                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                            formik.touched.description &&
                             formik.errors.description
-                            ? 'border-red-500'
-                            : ''
-                            }`}
+                              ? 'border-red-500'
+                              : ''
+                          }`}
                         />
                         {formik.touched.Meta_description &&
-                          formik.errors.Meta_description ? (
+                        formik.errors.Meta_description ? (
                           <div className="text-red text-sm">
                             {formik.errors.Meta_description as String}
                           </div>
@@ -356,13 +373,15 @@ const FormLayout = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.Images_Alt_Text}
                             placeholder="Images Alt Text"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Images_Alt_Text && formik.errors.Images_Alt_Text
-                              ? 'border-red-500'
-                              : ''
-                              }`}
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${
+                              formik.touched.Images_Alt_Text &&
+                              formik.errors.Images_Alt_Text
+                                ? 'border-red-500'
+                                : ''
+                            }`}
                           />
                           {formik.touched.Images_Alt_Text &&
-                            formik.errors.Images_Alt_Text ? (
+                          formik.errors.Images_Alt_Text ? (
                             <div className="text-red text-sm">
                               {formik.errors.Images_Alt_Text as String}
                             </div>
