@@ -24,7 +24,6 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { links } from 'data/header_links';
 
 
-
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
@@ -86,16 +85,6 @@ const Header = () => {
 
           <div className="w-3/12 lg:w-9/12 mt-9">
             <div className="hidden lg:flex justify-evenly items-start lg:text-10 text-12 xl:text-16 whitespace-nowrap ">
-              <Link
-                className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${
-                  path === '/'
-                    ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
-                    : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-4'
-                }`}
-                href={'/'}
-              >
-                Home
-              </Link>
               {links.map((link, index) => {
                 let filteredSubCategories =
                   subCategories?.filter(
@@ -237,15 +226,6 @@ const Header = () => {
                 selectedLabel={selectedLabel}
               >
                 <div className="flex flex-col gap-2">
-                  <Link
-                    className={`py-0 text-14 hover:text-black border-b-2 border-white hover:border-b-secondary w-fit font-medium ${
-                      path === '/' ? 'border-b-secondary' : ''
-                    }`}
-                    onClick={handleCloseDrawer}
-                    href="/"
-                  >
-                    Home
-                  </Link>
                   <Collapse
                     bordered={false}
                     expandIcon={({ isActive }) =>
@@ -332,7 +312,13 @@ const Header = () => {
                           ...actualProducts,
                         ];
                       }
-
+                      if (link.id === 20) {
+                        const actualProducts = commercialMegaMenuItems || [];
+                        combinedSliderData = [
+                          ...filteredSubCategories,
+                          ...actualProducts,
+                        ];
+                      }
                       // const isActive =
                       //   link.href && path?.includes(generateSlug(link.label));
                       const isBlogPath = path.startsWith('/blog');
