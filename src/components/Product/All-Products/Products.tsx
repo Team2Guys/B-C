@@ -223,9 +223,9 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         </div>
         <hr className="h-2 mt-5 md:mt-8 border-black" />
         <div className="mt-10 text-center space-y-3">
-          <h1 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
+          <h3 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
             {content.title}
-          </h1>
+          </h3>
           <p className="text-14 md:text-15 font-normal md:w-[65%] mx-auto" dangerouslySetInnerHTML={{ __html: content.subtitle}}></p>
         </div>
         {/* categorydata */}
