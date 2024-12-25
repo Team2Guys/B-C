@@ -20,6 +20,8 @@ model Categories {
   Canonical_Tag    String?
   Meta_description String?
   last_editedBy    String?
+  bannerImage              Json?
+
 }
 
 model SubCategories {
@@ -37,6 +39,8 @@ model SubCategories {
   Canonical_Tag     String?
   Meta_description  String?
   last_editedBy     String?
+  bannerImage              Json?
+
 }
 
 model products {
@@ -63,6 +67,7 @@ model products {
   Sub_Heading             String?
   Sub_Heading_description String?
   last_editedBy           String?
+  bannerImage              Json?
 }
 
 enum contact_method {
