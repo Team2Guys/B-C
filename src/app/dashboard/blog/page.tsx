@@ -7,6 +7,7 @@ import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import {UpdateBlog as IUpdateBlog } from 'types/interfaces';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
 
+
 const AddBlogs = dynamic(() => import('components/Dashboard/Blogs/add-blog'), {
   ssr: false,
 });
@@ -14,6 +15,7 @@ const AddBlogs = dynamic(() => import('components/Dashboard/Blogs/add-blog'), {
 const Blogging = () => {
   const [menuType, setMenuType] = useState('Blogs');
   const [editBlog, setEditBlog] = useState<IUpdateBlog | null>(null);
+
   useEffect(() => {
     console.log('+++++++++ UPDATED VALUES +++++++++++++++++');
     console.log(editBlog);

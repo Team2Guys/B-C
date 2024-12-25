@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAppSelector } from "components/Others/HelperRedux";
 import showToast from "components/Toaster/Toaster";
 import React,{ useState, useEffect } from "react";
+import Cookies from 'js-cookie';
 
 
 interface IComment {
@@ -17,7 +18,12 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
   const canEditBlog =loggedInUser &&(loggedInUser.role == 'Admin' ? loggedInUser.canEditBlog : true);
 
-
+  const token = Cookies.get('2guysAdminToken');
+  const superAdminToken = Cookies.get('superAdminToken');
+  let finalToken = token ? token : superAdminToken;
+  const headers = {
+    authorization: `Bearer ${finalToken}`,
+  };
   const [searchTerm, setSearchTerm] = useState("");
   const [comments, setComments] = useState(currentComments);
 
@@ -40,9 +46,9 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
 
 
     try {
-      const res = await axios.patch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`, {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`, {
         status: 'APPROVED',
-      });
+      },{headers});
       if (res.status === 200) {
 
         showToast('success', "Comment approved successfully🎉");
@@ -78,9 +84,10 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
 
 
     try {
-      const res = await axios.patch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`, {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`, {
         status: 'REJECTED',
-      });
+      },{headers}
+    );
       if (res.status === 200) {
 
         showToast('success', "Comment Status updated successfully🎉");
