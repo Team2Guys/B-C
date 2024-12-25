@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Slider, { SliderSettings } from 'react-slick';
-
 import { FcGoogle } from 'react-icons/fc';
 import { RatingSlider} from 'data/data';
 import Image from 'next/image';
@@ -87,7 +86,7 @@ setReviews(data)
     fetchReviewsHandler()
   },[])
   
-
+  console.log(reviews,"reviewsreviews");
   return (
     <>
     {/* <button onClick={fetchReviewsHandler}>fetchReviewsHanlder</button> */}
@@ -124,7 +123,7 @@ setReviews(data)
                 />
 
                 <Slider {...settings}>
-                  {reviews?.map((slide, index: any) => (
+                  {reviews.length > 0 && reviews?.map((slide, index: any) => (
                     <div
                       key={index}
                       className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
