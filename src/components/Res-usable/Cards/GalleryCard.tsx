@@ -56,7 +56,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
           alt={card.title}
           height={800}
           width={800}
-          className="rounded-xl h-80 w-[100%] object-cover"
+          className="rounded-xl h-56 xs:h-80 w-[100%] object-cover"
         />
       </div>
     );
@@ -73,7 +73,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
         alt={card.title}
         height={800}
         width={800}
-        className="rounded-xl h-80 w-[100%] object-cover"
+        className="rounded-xl h-56 xs:h-80 w-[100%] object-cover"
       />
       <div
         className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide ? 'block' : ''

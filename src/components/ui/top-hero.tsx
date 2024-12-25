@@ -62,7 +62,7 @@ const TopHero: React.FC<TopHeroProps> = ({
         <h1 className="text-xl xs:text-3xl md:text-4xl lg:text-5xl font-black mt-5 uppercase">
           {result ? result.content : UpdateShutterTitle(pageTitle ? pageTitle : pathname)}
         </h1>
-        <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base">
+        <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base flex-wrap">
           <Link href="/" className="flex items-center gap-2 font-bold capitalize">
             <FaHome size={20} /> {home ? home.charAt(0).toUpperCase() + home.slice(1) : 'Home'}
           </Link>
