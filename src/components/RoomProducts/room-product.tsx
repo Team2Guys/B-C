@@ -14,7 +14,7 @@ import {
 } from 'config/fetch';
 import TopHero from 'components/ui/top-hero';
 import { usePathname } from 'next/navigation';
-import { urls } from 'data/urls';
+import { subCategoryUrls, urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { generateSlug, subCategoryName } from 'data/data';
 
@@ -34,7 +34,11 @@ const RoomProducts = ({
   const pathname = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
   const [categoryName, setCategoryName] = useState<string | null>(null);
- console.log(category,"category")
+  const [updateSubCategoryName, setUpdateSubCategoryName] = useState<{
+    url: string;
+    name: string;
+  }>();
+  console.log(category, "category")
   const {
     data: products,
     error,
@@ -65,15 +69,15 @@ const RoomProducts = ({
         setIsNotFound(false);
       }
     }
-    if(title){
+    if (title) {
       const matchingTitle = subCategoryName.find((cat) => cat.name === title);
-      if(matchingTitle){
+      if (matchingTitle) {
         setCategoryName(matchingTitle.alterName);
       }
     }
   }, [pathname]);
 
-  const [filteredProducts, setFilteredProducts] =useState<IProduct[]>(relatedProducts);
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>(relatedProducts);
   const [productCategory, setProductCategory] = useState<string>('');
 
   const filterProducts = () => {
@@ -100,8 +104,10 @@ const RoomProducts = ({
     } else {
       if (title === 'Bedroom Blinds') {
         const updatedProducts = relatedProducts.map((product) => {
-          if (generateSlug(product.title) === 'blackout-blinds') {
-            return { ...product, title: 'Blackout/Private Blinds' };
+          const updateTitle = subCategoryUrls.find((item) => item.url === generateSlug(product.title));
+          if (updateTitle) {
+            setUpdateSubCategoryName(updateTitle);
+            return { ...product, title: updateTitle.name };
           }
           return product;
         });
@@ -121,7 +127,7 @@ const RoomProducts = ({
     return <NotFound />;
   }
 
-  
+
   return (
     <>
       {/* <VideoBanner
@@ -145,7 +151,8 @@ const RoomProducts = ({
           filteredProducts={filteredProducts}
           isLoading={isLoading}
           categoryTitle={productCategory}
-          subCategory ={title}
+          subCategory={title}
+          updateSubCategoryName={updateSubCategoryName}
         />
       </Container>
 
