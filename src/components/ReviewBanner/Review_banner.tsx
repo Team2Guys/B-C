@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import Slider, { SliderSettings } from 'react-slick';
 
 import { FcGoogle } from 'react-icons/fc';
-import { RatingSlider} from 'data/data';
+import { RatingSlider } from 'data/data';
 import Image from 'next/image';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
 
 function SampleNextArrow(props: any) {
-  const {  onClick } = props;
+  const { onClick } = props;
   return (
     <div
       className={
@@ -24,7 +24,7 @@ function SampleNextArrow(props: any) {
 }
 
 function SamplePrevArrow(props: any) {
-  const {  onClick } = props;
+  const { onClick } = props;
   return (
     <div
       className={
@@ -52,8 +52,8 @@ interface Review {
 
 
 export default function Review_banner() {
-      const [reviews, setReviews] = useState<Review[]>([])
-  const settings:SliderSettings = {
+  const [reviews, setReviews] = useState<Review[]>([])
+  const settings: SliderSettings = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -68,27 +68,27 @@ export default function Review_banner() {
       let accountId = "011F5D-96EF92-0B0224";
       let locationId = "ChIJ4V0HC41pXz4Rvla-qGM1PiI";
       let url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
-let response = await fetch(url,{
+      let response = await fetch(url, {
 
 
-})
-let data = await response.json()
-console.log(data, "data")
-setReviews(data)
+      })
+      let data = await response.json()
+      console.log(data, "data")
+      setReviews(data)
+    }
+
+    catch (error) {
+      console.log(error);
+    }
   }
-  
-  catch (error) {
-    console.log(error);
-  }
-}
-  useEffect(()=>{
+  useEffect(() => {
     fetchReviewsHandler()
-  },[])
-  
+  }, [])
+
 
   return (
     <>
-    {/* <button onClick={fetchReviewsHandler}>fetchReviewsHanlder</button> */}
+      {/* <button onClick={fetchReviewsHandler}>fetchReviewsHanlder</button> */}
       <Container className=" px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md">
           <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
@@ -127,7 +127,7 @@ setReviews(data)
                       key={index}
                       className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
                     >
-                        
+
                       <h3 className="text-xl font-semibold text-white">
                         {slide.author_name}
                       </h3>
