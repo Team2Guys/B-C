@@ -164,8 +164,6 @@ export class AdminsService {
     }
   }
 
-
-
   // super_admin
 
   async super_login_admin_handler(super_admin_login: Super_admin_dto, res: Response) {
