@@ -48,6 +48,11 @@ const FormLayout = ({
   const [posterimageUrl, setposterimageUrl] = useState<
     any[] | null | undefined
   >(CategorImageUrl ? [CategorImageUrl] : null);
+
+  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(
+    editCategory && editCategory.bannerImage && [editCategory.bannerImage],
+  );
+
   const [loading, setloading] = useState<boolean>(false);
   const [editCategoryName, setEditCategoryName] = useState<
     editCategoryNameType | null | undefined
@@ -57,11 +62,14 @@ const FormLayout = ({
     try {
       setloading(true);
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
-      if (!posterImageUrl) throw new Error('Please select relevant Images');
+      let posterImage = bannerImageUrl && bannerImageUrl[0];
+      if (!posterImageUrl || !posterImage)
+        throw new Error('Please select relevant Images');
       let { name, ...newValue } = {
         ...values,
         title: values.name,
         posterImage: posterImageUrl,
+        bannerImage: posterImage,
       };
       console.log(name, 'name');
       let updateFlag = CategoryName ? true : false;
@@ -97,6 +105,7 @@ const FormLayout = ({
       );
       updateFlag ? seteditCategory(null) : null;
       setposterimageUrl(null);
+      setBannerImageUrl(null);
 
       resetForm();
       setMenuType('Categories');
@@ -159,6 +168,13 @@ const FormLayout = ({
       i === index ? { ...item, altText: newaltText } : item,
     );
     setposterimageUrl(updatedImagesUrl);
+  };
+  const handlealtTextbannerImageUrl = (index: number, newaltText: string) => {
+    //@ts-expect-error
+    const updatedImagesUrl = bannerImageUrl.map((item, i) =>
+      i === index ? { ...item, altText: newaltText } : item,
+    );
+    setBannerImageUrl(updatedImagesUrl);
   };
   return (
     <>
@@ -236,6 +252,60 @@ const FormLayout = ({
                         </div>
                       ) : (
                         <Imageupload setposterimageUrl={setposterimageUrl} />
+                      )}
+                    </div>
+                    <div className="rounded-sm border border-stroke bg-white  dark:border-strokedark dark:bg-lightdark">
+                      <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                        <h3 className="font-medium text-black dark:text-white">
+                          Banner Images for Blogs
+                        </h3>
+                      </div>
+                      {bannerImageUrl && bannerImageUrl.length > 0 ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+                          {bannerImageUrl.map((item: any, index) => {
+                            return (
+                              <div key={index}>
+                                <div className="relative group rounded-lg overflow-hidden shadow-md bg-white  transform transition-transform duration-300 hover:scale-105">
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                    <RxCross2
+                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      size={17}
+                                      onClick={() => {
+                                        ImageRemoveHandler(
+                                          item.public_id,
+                                          setBannerImageUrl,
+                                        );
+                                      }}
+                                    />
+                                  </div>
+                                  <Image
+                                    key={index}
+                                    className="object-cover w-full h-full"
+                                    width={300}
+                                    height={200}
+                                    src={item.imageUrl}
+                                    alt={`productImage-${index}`}
+                                  />
+                                </div>
+                                <input
+                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark "
+                                  placeholder="altText"
+                                  type="text"
+                                  name="altText"
+                                  value={item.altText}
+                                  onChange={(e) =>
+                                    handlealtTextbannerImageUrl(
+                                      index,
+                                      String(e.target.value),
+                                    )
+                                  }
+                                />
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <Imageupload setposterimageUrl={setBannerImageUrl} />
                       )}
                     </div>
 

@@ -24,10 +24,7 @@ interface ICategoryPage {
 
 const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   const pathname = usePathname();
-  const {
-    data: products,
-    error,
-  } = useQuery<IProduct[]>({
+  const { data: products, error } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
@@ -41,12 +38,10 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     queryFn: fetchCategories,
   });
 
-  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>(relatedProducts);
-
+  const [filteredProducts, setFilteredProducts] =
+    useState<IProduct[]>(relatedProducts);
+  let filterSubCat = subcategories?.find((subCat) => subCat.title === title);
   const filterProducts = () => {
-    const filterSubCat = subcategories?.find(
-      (subCat) => subCat.title === title,
-    );
     const filterCat = categories?.find(
       (cat) => cat.id === filterSubCat?.CategoryId,
     );
@@ -57,7 +52,6 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
     setFilteredProducts(filtered || []);
   };
-
 
   useEffect(() => {
     if (!relatedProducts || relatedProducts.length === 0) {
@@ -86,9 +80,11 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     return product;
   };
 
+  console.log(filterSubCat + 'filterSubCatfilterSubCat');
+
   return (
     <div>
-      <TopHero title={title} pagename={pathname} image={bgBreadcrum} />
+      <TopHero title={title} pagename={pathname} image={bgBreadcrum.src} />
       <Container className="pt-10 pb-14 flex flex-col gap-10 items-center">
         {filteredProducts?.map((product, index) => {
           let product_Images = prod_finder_handler(product);
