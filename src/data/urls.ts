@@ -307,3 +307,7 @@ export const blogPostUrl = [
   { url: '/the-modern-window-treatments-in-dubai' , redirectUrl: '/blog/the-modern-window-treatments-in-dubai' },
   { url: '/vertical-blinds-for-windows' , redirectUrl: '/blog/vertical-blinds-for-windows' },
 ]
+
+export const subCategoryUrls = [
+  {url: 'blackout-blinds' , name: 'Blackout/Private Blinds'}
+]
