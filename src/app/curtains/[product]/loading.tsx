@@ -1,11 +1,10 @@
 "use client"
-
-import PageSkelton from 'components/Skeleton/PageSkelton'
+import SubCategoryPageSkeleton from 'components/Skeleton/SubCategoryPageSkeleton'
 import React from 'react'
 
 function Loading() {
   return (
-    <PageSkelton />
+    <SubCategoryPageSkeleton />
   )
 }
 

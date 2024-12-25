@@ -510,28 +510,28 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Double Pinch Pleat Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Room Curtains/d.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'A structured look with two deep pleats, these curtains offer a stylish look that is perfect as a room divider curtain. The dual pleats enhance the curtain&apos;s body, creating a more attractive look while providing excellent light control and privacy.',
       },
       {
-        product_name: 'Made to measure Chiffon Curtains',
+        product_name: 'Chiffon Curtains',
         altText: 'Made to measure Chiffon Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Room Curtains/p.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'The lightweight chiffon makes these curtains for the room a perfect choice for adding softness to the aesthetics of the room without blocking lighting. By using sheer fabric for the chiffon room curtains, you can add an extra layer of privacy while gently filtering the sunlight at the same time.',
       },
       {
         product_name: 'Pelmet Curtains',
         altText: 'Pelmet Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Room Curtains/c.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Room curtains with pelmets conceal the mounting hardware and provide a neat, tidy look by incorporating stiff pelmets above the curtains. They&apos;re perfect as a divider curtain for room sections, contributing to the aesthetic unity of the space.',
       },
       {
-        product_name: 'Dimout Blinds/Semi Transparent',
-        altText: 'Dimout Blinds/Semi Transparent',
+        product_name: 'Plain Curtains',
+        altText: 'Plain Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Room Curtains/d.webp',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'With a solid color design, plain room darkening curtains have the ability to achieve a minimalistic look that fits the decor and create an ambiance that is intimate and relaxing. They provide a straightforward, effective solution for privacy and light control in any setting.',
       },
     ],
   },
