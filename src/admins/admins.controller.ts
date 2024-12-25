@@ -72,4 +72,10 @@ export class AdminsController {
     }
   
 
+@Post("getReviews")
+getReviews(){
+  return this.adminsService.getReviews()
+
+}
+
 }

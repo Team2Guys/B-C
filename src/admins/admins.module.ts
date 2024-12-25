@@ -6,19 +6,21 @@ import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/c
 import{JwtMiddleware} from '../utils/Authorization'
 
 
-
 @Module({
   imports: [PrismaModule],
   controllers: [AdminsController],
   providers: [AdminsService],
 })
 
-
 export class AdminsModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(JwtMiddleware)
-      .exclude({path: "admins/admin-login", method:RequestMethod.POST},{path: "admins/super_admin_login-login", method:RequestMethod.POST})
+      .exclude({path: "admins/admin-login", method:RequestMethod.POST},
+        {path: "admins/super_admin_login-login", method:RequestMethod.POST},
+        {path: "admins/getReviews", method:RequestMethod.POST}
+      
+      )
       .forRoutes(AdminsController); 
   }
 }
