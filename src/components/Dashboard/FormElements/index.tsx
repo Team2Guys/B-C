@@ -38,10 +38,15 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   setselecteMenu,
   setEditProduct,
 }) => {
+  console.log(EditInitialValues, 'valuesonsubmit0');
   const [imagesUrl, setImagesUrl] = useState<any[]>([]);
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(
     EditInitialValues &&
       EditInitialValues.posterImage && [EditInitialValues.posterImage],
+  );
+  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(
+    EditInitialValues &&
+      EditInitialValues.bannerImage && [EditInitialValues.bannerImage],
   );
   const [productUpdateFlat, setProductUpdateFlat] = useState(false);
   const [hoverImage, sethoverImage] = useState<any[] | null | undefined>(
@@ -125,11 +130,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
   console.log(setVariationOption, 'setVariationOption');
   const onSubmit = async (values: any, { resetForm }: any) => {
+    console.log(values, 'valuesonsubmit');
     try {
       setError(null);
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
+      let bannerImage = bannerImageUrl && bannerImageUrl[0];
       let hoverImageUrl = hoverImage && hoverImage[0];
-      if (!posterImageUrl || !(imagesUrl.length > 0)) {
+      if (!posterImageUrl || !bannerImageUrl || !(imagesUrl.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
       }
 
@@ -137,6 +144,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         ...values,
         title: values.name,
         posterImage: posterImageUrl,
+        bannerImage: bannerImage,
         hoverImage: hoverImageUrl,
         imageUrls: imagesUrl,
         price: values.salePrice,
@@ -241,6 +249,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setloading(false);
       sethoverImage(null);
       setposterimageUrl(null);
+      setBannerImageUrl(null);
+      setposterimageUrl(null);
       setImagesUrl([]);
       setSelectedCategoryIds([]);
       setSelectedSubcategoryIds([]);
@@ -286,6 +296,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       i === index ? { ...item, altText: newaltText } : item,
     );
     setposterimageUrl(updatedImagesUrl);
+  };
+  const handlealtTextbannerImageUrl = (index: number, newaltText: string) => {
+    //@ts-expect-error
+    const updatedImagesUrl = bannerImageUrl.map((item, i) =>
+      i === index ? { ...item, altText: newaltText } : item,
+    );
+    setBannerImageUrl(updatedImagesUrl);
   };
 
   const { data: categoriesList = [], isLoading } = useQuery<ICategory[], Error>(
@@ -1185,6 +1202,67 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                       </div>
                     ) : (
                       <Imageupload sethoverImage={sethoverImage} />
+                    )}
+                  </div>
+
+                  <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
+                    <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                      <h3 className="font-medium text-black dark:text-white">
+                        Banner Image
+                      </h3>
+                    </div>
+                    {bannerImageUrl && bannerImageUrl?.length > 0 ? (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
+                        <div>
+                          {bannerImageUrl.map((item: any, index) => {
+                            return (
+                              <>
+                                <div
+                                  className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
+                                  key={index}
+                                >
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                    <RxCross2
+                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      size={17}
+                                      onClick={() => {
+                                        ImageRemoveHandler(
+                                          item.public_id,
+                                          setBannerImageUrl,
+                                        );
+                                      }}
+                                    />
+                                  </div>
+                                  <Image
+                                    key={index}
+                                    className="object-cover w-full h-full"
+                                    width={300}
+                                    height={400}
+                                    src={item?.imageUrl}
+                                    alt={`productImage-${index}`}
+                                  />
+                                </div>
+
+                                <input
+                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark "
+                                  placeholder="altText"
+                                  type="text"
+                                  name="altText"
+                                  value={item.altText}
+                                  onChange={(e) =>
+                                    handlealtTextbannerImageUrl(
+                                      index,
+                                      String(e.target.value),
+                                    )
+                                  }
+                                />
+                              </>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : (
+                      <Imageupload setposterimageUrl={setBannerImageUrl} />
                     )}
                   </div>
 
