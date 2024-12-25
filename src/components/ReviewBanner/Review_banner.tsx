@@ -43,16 +43,25 @@ interface Review {
   language: string;
   original_language: string;
   profile_photo_url: string;
-  rating: number;
-  relative_time_description: string;
-  text: string;
-  time: number;
-  translated: boolean;
+  rating?: number;
+  relative_time_description?: string;
+  text?: string;
+  time?: number;
+  translated?: boolean;
 }
 
 
 export default function Review_banner() {
-  const [reviews, setReviews] = useState<Review[]>([])
+  const [reviews, setReviews] = useState<Review[]>([{
+    author_name: "TEST",
+    author_url: "TEST",
+    language: "TEST",
+    original_language: "TEST",
+    profile_photo_url: "TEST",
+    rating: 1234,
+    relative_time_description: "relative_time_description"
+  
+  }])
   const settings: SliderSettings = {
     dots: false,
     infinite: true,
