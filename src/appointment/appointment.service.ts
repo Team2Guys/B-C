@@ -105,17 +105,17 @@ export class AppointmentService {
     </div>
     <div>
       <ol>
-        <li><b>Name </b></br>${user_data.name}</li>
-        <li><b>Phone Number</b></br> ${user_data.phone_number}</li>
-        <li><b>WhatsApp No. (If Different)</b></br>${user_data.whatsapp_number}</li>
-        <li><b>Email</b> <a href="mailto:${user_data.email}" target="_blank">${user_data.email}</a></li>
+        <li><b>Name: </b></br>${user_data.name}</li>
+        <li><b>Phone Number: </b></br> ${user_data.phone_number}</li>
+        <li><b>WhatsApp No. (If Different): </b></br>${user_data.whatsapp_number}</li>
+        <li><b>Email: </b> <a href="mailto:${user_data.email}" target="_blank">${user_data.email}</a></li>
         <li><b>Tell us when you are available</b></br> ${new Date(user_data.prefered_Date).toLocaleDateString()} </li>
-        <li><b>Time</b></br>  ${user_data.prefered_time} </li>
-        <li><b>How many windows</b></br>  ${user_data.windows} </li>
-        <li><b>How did you hear about us?</b></br>  ${user_data.how_user_find_us} </li>
-        <li><b>Tell us where you are located</b></br>  ${user_data.area} </li>
-        <li><b>Window Dressing Type</b></br>  ${user_data.product_type} </li>
-        <li><b>Any Other Requirements</b>  ${user_data.user_query} </li>
+        <li><b>Time: </b></br>  ${user_data.prefered_time} </li>
+        <li><b>How many windows: </b></br>  ${user_data.windows} </li>
+        <li><b>How did you hear about us?: </b></br>  ${user_data.how_user_find_us} </li>
+        <li><b>Tell us where you are located: </b></br>  ${user_data.area} </li>
+        <li><b>Window Dressing Type: </b></br>  ${user_data.product_type} </li>
+        <li><b>Any Other Requirements: </b>  ${user_data.user_query} </li>
       </ol>
     </div>
 </body>
