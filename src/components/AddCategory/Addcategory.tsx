@@ -120,6 +120,7 @@ const FormLayout = ({
     }
   };
 
+  console.log(setEditCategoryName, 'setEditCategoryName');
 
   useLayoutEffect(() => {
     const CategoryHandler = async () => {
@@ -325,8 +326,8 @@ const FormLayout = ({
                           value={formik.values.name}
                           placeholder="Title"
                           className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
-                            ? 'border-red-500'
-                            : ''
+                              ? 'border-red-500'
+                              : ''
                             }`}
                         />
                         {formik.touched.name && formik.errors.name ? (
@@ -346,8 +347,8 @@ const FormLayout = ({
                           value={formik.values.description}
                           placeholder="Description"
                           className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
-                            ? 'border-red-500'
-                            : ''
+                              ? 'border-red-500'
+                              : ''
                             }`}
                         />
                         {formik.touched.name && formik.errors.name ? (
@@ -369,9 +370,9 @@ const FormLayout = ({
                             value={formik.values.Meta_Title}
                             placeholder="Meta Title"
                             className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Meta_Title &&
-                              formik.errors.Meta_Title
-                              ? 'border-red-500'
-                              : ''
+                                formik.errors.Meta_Title
+                                ? 'border-red-500'
+                                : ''
                               }`}
                           />
                           {formik.touched.Meta_Title &&
@@ -393,9 +394,9 @@ const FormLayout = ({
                             value={formik.values.Canonical_Tag}
                             placeholder="Canonical Tag"
                             className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Canonical_Tag &&
-                              formik.errors.Canonical_Tag
-                              ? 'border-red-500'
-                              : ''
+                                formik.errors.Canonical_Tag
+                                ? 'border-red-500'
+                                : ''
                               }`}
                           />
 
@@ -417,9 +418,9 @@ const FormLayout = ({
                           value={formik.values.Meta_description}
                           placeholder="Meta Description"
                           className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
-                            formik.errors.description
-                            ? 'border-red-500'
-                            : ''
+                              formik.errors.description
+                              ? 'border-red-500'
+                              : ''
                             }`}
                         />
                         {formik.touched.Meta_description &&
@@ -443,9 +444,9 @@ const FormLayout = ({
                             value={formik.values.Images_Alt_Text}
                             placeholder="Images Alt Text"
                             className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Images_Alt_Text &&
-                              formik.errors.Images_Alt_Text
-                              ? 'border-red-500'
-                              : ''
+                                formik.errors.Images_Alt_Text
+                                ? 'border-red-500'
+                                : ''
                               }`}
                           />
                           {formik.touched.Images_Alt_Text &&
