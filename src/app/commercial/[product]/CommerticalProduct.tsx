@@ -1,21 +1,19 @@
 'use client';
 import NotFound from 'app/not-found';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
-import RoomProducts from 'components/RoomProducts/room-product';
-import { CommercialUrl, urls } from 'data/urls';
+import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
+import { generateSlug } from 'data/data';
+import { ChangedProductUrl, CommercialUrl, urls } from 'data/urls';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { PRODUCS_PROPS } from 'types/interfaces';
+import { ICategory, IProduct } from 'types/types';
 
-const CommercialPage = ({
-  filteredProduct,
-  filteredSubCategory,
-  product,
-  allprod,
-}: PRODUCS_PROPS) => {
-  const path = usePathname();
+const CommercialProduct = ({product , products  , subCategories}: {product: string, products: IProduct[] , subCategories: ICategory[]}) => {
   const [isNotFound, setIsNotFound] = useState(false);
+  const path = usePathname();
+
   const router = useRouter();
+
   const redirected_product = CommercialUrl.find(
     (prod: { urlName: string; Redirect: string }) => {
       return prod.urlName == String(product)?.toLowerCase();
@@ -25,6 +23,15 @@ const CommercialPage = ({
   if (redirected_product) {
     router.push(redirected_product.Redirect);
   }
+  const filteredSubCategory = subCategories?.find(
+    (sub) => generateSlug(sub.title) === ChangedProductUrl(product as string),
+  );
+
+  const filteredProduct = products?.find(
+    (prod) =>
+      generateSlug(prod.title) ===
+      generateSlug(ChangedProductUrl(product as string)),
+  );
 
   useEffect(() => {
     if (path) {
@@ -38,33 +45,29 @@ const CommercialPage = ({
       }
     }
   }, [path]);
-  if (isNotFound || (!filteredSubCategory && !filteredProduct)) {
+
+  if (isNotFound || (!filteredProduct && !filteredSubCategory)) {
     return <NotFound />;
   }
   return (
     <>
       {filteredSubCategory ? (
         <>
-          <RoomProducts
+          <CommercialByRoom
             title={`${filteredSubCategory.title}`}
             description={`${filteredSubCategory.description}`}
             category={`${filteredSubCategory.category.title}`}
-            filteredSubCategory={filteredSubCategory}
             relatedProducts={filteredSubCategory?.products || []}
           />
-          {/* <CategoryPage
-            title={`${filteredSubCategory.title}`}
-            relatedProducts={filteredSubCategory?.products || []}
-          /> */}
         </>
       ) : (
         <ProductDetailPage
-          title={filteredProduct?.title || ''}
-          allprod={allprod}
+          title={`${filteredProduct?.title}`}
+          allprod={products}
         />
       )}
     </>
   );
 };
 
-export default CommercialPage;
+export default CommercialProduct;
