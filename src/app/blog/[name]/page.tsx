@@ -7,7 +7,7 @@ import PageSkelton from 'components/Skeleton/PageSkelton';
 import Comments from 'components/comments/Comments';
 import TopHero from 'components/ui/top-hero';
 import { formatDateMonth } from 'config';
-import { fetchBlogs } from 'config/fetch';
+import { fetchBlogs, fetchCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { blogCategoryUrl } from 'data/urls';
 import Image from 'next/image';
@@ -17,6 +17,7 @@ import { BlogInfo } from 'types/interfaces';
 import bgBreadcrum from '../../../../public/assets/images/Blog/blogbackground.png';
 import { FaAngleRight } from 'react-icons/fa';
 import Link from 'next/link';
+import { ICategory } from 'types/types';
 
 const BlogDetail = () => {
   const { name } = useParams();
@@ -35,6 +36,16 @@ const BlogDetail = () => {
     queryKey: ['blogs'],
     queryFn: fetchBlogs,
   });
+
+  const { data: categories } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
+
+  const category = categories?.find(
+    (category) => category.title === catgoryPage?.name,
+  );
+
   const blog: BlogInfo | undefined = blogs?.find(
     (blog) => generateSlug(blog.title) === name,
   );
@@ -54,7 +65,6 @@ const BlogDetail = () => {
   }, [blog, blogs]);
 
   useEffect(() => {
-    // Initial state setup
     setCatgoryPageSkeleton(false);
     const matches = blogCategoryUrl.find(
       (category) => category.url === pathName,
@@ -85,7 +95,7 @@ const BlogDetail = () => {
           <TopHero
             title={catgoryPage?.name || 'blogs'}
             //@ts-expect-error
-            image={`${blog?.bannerImage?.imageUrl || bgBreadcrum.src}`}
+            image={`${category?.bannerImage?.imageUrl || bgBreadcrum.src}`}
             pagename={pathName}
           />
           <div className="my-5">

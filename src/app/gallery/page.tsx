@@ -12,8 +12,6 @@ import { usePathname } from 'next/navigation';
 import { Image } from 'antd';
 import { IoSearch } from 'react-icons/io5';
 
-
-
 const itemsPerPage = 12;
 const GalleryPage: React.FC = () => {
   const pathName = usePathname();
@@ -56,7 +54,7 @@ const GalleryPage: React.FC = () => {
 
   return (
     <>
-      <TopHero title="GALLERY" image={bgBreadcrum} pagename={pathName} />
+      <TopHero title="GALLERY" image={bgBreadcrum.src} pagename={pathName} />
       <Container className="pt-16 pb-12 px-4 md:px-0">
         <div className="flex justify-between items-center pb-4 mb-6 overflow-hidden md:px-5">
           <h1 className="text-2xl xs:text-3xl font-medium text-gray-800">
@@ -107,8 +105,12 @@ const GalleryPage: React.FC = () => {
           HOME OR OFFICE...
         </p>
 
-        <Image.PreviewGroup preview={{ onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`), }}>
-
+        <Image.PreviewGroup
+          preview={{
+            onChange: (current, prev) =>
+              console.log(`current index: ${current}, prev index: ${prev}`),
+          }}
+        >
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
             {currentItems &&
               currentItems.map((product: any) => {
@@ -120,21 +122,21 @@ const GalleryPage: React.FC = () => {
                     <div className=" relative rounded-lg  transition-shadow duration-300 group">
                       <Image
                         src={product.posterImage.imageUrl}
-                        alt={product.posterImage.altText || "Image"}
+                        alt={product.posterImage.altText || 'Image'}
                         className=" rounded-xl"
                         preview={{
                           mask: (
                             <div>
-                              <IoSearch style={{ color: 'white', fontSize: '30px' }} />
+                              <IoSearch
+                                style={{ color: 'white', fontSize: '30px' }}
+                              />
                             </div>
-                          )
+                          ),
                         }}
                       />
                       <div
-
                         className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
                       >
-
                         <span
                           className={`text-black text-start text-primary cursor-pointer `}
                         >
@@ -143,26 +145,22 @@ const GalleryPage: React.FC = () => {
                       </div>
                     </div>
                   </>
-
                 );
               })}
           </div>
-
         </Image.PreviewGroup>
-
 
         <div className="flex justify-center items-center mt-20 w-full">
           {filteredProducts && filteredProducts.length > 0 && (
             <>
-
-
               {Array.from({ length: totalPages }, (_, page) => (
                 <button
                   key={page + 1}
-                  className={`mx-1 w-16 h-8 md:h-14 flex justify-center rounded-sm items-center font-medium transition ${currentPage === page + 1
-                    ? 'bg-btnclr text-white'
-                    : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
-                    }`}
+                  className={`mx-1 w-16 h-8 md:h-14 flex justify-center rounded-sm items-center font-medium transition ${
+                    currentPage === page + 1
+                      ? 'bg-btnclr text-white'
+                      : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
+                  }`}
                   onClick={() => {
                     setCurrentPage(page + 1);
                   }}
@@ -170,8 +168,6 @@ const GalleryPage: React.FC = () => {
                   {page + 1}
                 </button>
               ))}
-
-
             </>
           )}
         </div>
