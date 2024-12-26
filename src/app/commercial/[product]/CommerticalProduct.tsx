@@ -8,7 +8,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
-const CommercialProduct = ({product , products , categories , subCategories}: {product: string, products: IProduct[] , categories: ICategory[] , subCategories: ICategory[]}) => {
+const CommercialProduct = ({product , products  , subCategories}: {product: string, products: IProduct[] , subCategories: ICategory[]}) => {
   const [isNotFound, setIsNotFound] = useState(false);
   const path = usePathname();
 
