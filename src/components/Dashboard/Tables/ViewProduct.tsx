@@ -15,7 +15,6 @@ import { fetchCategories } from 'config/fetch';
 import revalidateTag from 'components/ServerActons/ServerAction';
 import { ChangedProductUrl_handler } from 'data/urls';
 import TableSkeleton from './TableSkelton';
-import loading from 'app/dashboard/products/loading';
 import useColorMode from 'hooks/useColorMode';
 
 interface Product extends IProduct {
@@ -45,7 +44,9 @@ const ViewProduct: React.FC<CategoryProps> = ({
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
   const [colorMode, toggleColorMode] = useColorMode();
+  console.log(toggleColorMode, 'toggleColorMode');
     const [loading, setLoading] = useState<boolean>(false);
+    console.log(setLoading, 'setLoading');
 
   const token = admin_token || super_admin_token;
 
@@ -53,7 +54,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
     setSearchTerm(e.target.value);
   };
 
-  const { data: categories, isLoading } = useQuery<ICategory[]>({
+  const { data: categories } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });

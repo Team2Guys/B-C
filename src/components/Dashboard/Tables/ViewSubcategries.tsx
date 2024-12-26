@@ -94,7 +94,7 @@ const ViewSubcategries = ({
     CategoryHandler();
   }, []);
 
-  const { data: categories, isLoading } = useQuery<ICategory[]>({
+  const { data: categories } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
