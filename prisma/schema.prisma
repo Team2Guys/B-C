@@ -20,8 +20,7 @@ model Categories {
   Canonical_Tag    String?
   Meta_description String?
   last_editedBy    String?
-  bannerImage              Json?
-
+  bannerImage      Json?
 }
 
 model SubCategories {
@@ -39,8 +38,7 @@ model SubCategories {
   Canonical_Tag     String?
   Meta_description  String?
   last_editedBy     String?
-  bannerImage              Json?
-
+  bannerImage       Json?
 }
 
 model products {
@@ -67,7 +65,7 @@ model products {
   Sub_Heading             String?
   Sub_Heading_description String?
   last_editedBy           String?
-  bannerImage              Json?
+  bannerImage             Json?
 }
 
 enum contact_method {
@@ -121,15 +119,19 @@ model Admins {
 }
 
 model blogs {
-  id            Int              @id @default(autoincrement())
-  title         String           @unique
-  content       String
-  category      String
-  updatedAt     DateTime?
-  createdAt     DateTime         @default(now())
-  posterImage   Json             @default("{}")
-  comments      blogs_comments[] @relation("BlogComments")
-  last_editedBy String?
+  id               Int              @id @default(autoincrement())
+  title            String           @unique
+  content          String
+  category         String
+  updatedAt        DateTime?
+  createdAt        DateTime         @default(now())
+  posterImage      Json             @default("{}")
+  comments         blogs_comments[] @relation("BlogComments")
+  last_editedBy    String?
+  Images_Alt_Text  String?
+  Meta_Title       String?
+  Canonical_Tag    String?
+  Meta_description String?
 }
 
 model blogs_comments {
