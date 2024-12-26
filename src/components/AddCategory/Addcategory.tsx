@@ -56,20 +56,27 @@ const FormLayout = ({
   const [loading, setloading] = useState<boolean>(false);
   const [editCategoryName, setEditCategoryName] = useState<
     editCategoryNameType | null | undefined
-  >(CategoryName);
+  >({
+    ...CategoryName,
+    name: CategoryName?.name || '',
+    description: CategoryName?.description || '',
+    Images_Alt_Text: editCategory?.Images_Alt_Text ?? '',
+    Canonical_Tag: editCategory?.Canonical_Tag ?? '',
+    Meta_Title: editCategory?.Meta_Title ?? '',
+    Meta_description: editCategory?.Meta_description ?? '',
+  });
 
   const onSubmit = async (values: Category, { resetForm }: any) => {
     try {
       setloading(true);
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
-      let posterImage = bannerImageUrl && bannerImageUrl[0];
-      if (!posterImageUrl || !posterImage)
-        throw new Error('Please select relevant Images');
+      let bannerImage = bannerImageUrl && bannerImageUrl[0];
+      if (!posterImageUrl) throw new Error('Please select relevant Images');
       let { name, ...newValue } = {
         ...values,
         title: values.name,
         posterImage: posterImageUrl,
-        bannerImage: posterImage,
+        bannerImage: bannerImage !== undefined ? bannerImage : null,
       };
       console.log(name, 'name');
       let updateFlag = CategoryName ? true : false;

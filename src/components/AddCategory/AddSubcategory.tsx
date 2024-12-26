@@ -54,6 +54,10 @@ const FormLayout = ({
           description: editCategory.description,
           short_description: editCategory.short_description,
           CategoryId: editCategory.CategoryId || undefined,
+          Images_Alt_Text: editCategory?.Images_Alt_Text,
+          Canonical_Tag: editCategory?.Canonical_Tag,
+          Meta_Title: editCategory?.Meta_Title,
+          Meta_description: editCategory?.Meta_description,
         }
       : null;
   let CategorImageUrl = editCategory && editCategory.posterImage;
@@ -81,10 +85,11 @@ const FormLayout = ({
         setloading(false);
         return showToast('warn', 'Make sure Image is selected😴');
       }
+      console.log(bannerImage + 'bannerImage');
       let { CategoryId, ...newValue } = {
         ...values,
         posterImage: posterImageUrl,
-        bannerImage: bannerImage,
+        bannerImage: bannerImage !== undefined ? bannerImage : null,
         category: {
           connect: { id: values.CategoryId },
         },
@@ -135,12 +140,10 @@ const FormLayout = ({
     }
   };
 
-  const { data: categoriesList = [], isLoading } = useQuery<ICategory[], Error>(
-    {
-      queryKey: ['category'],
-      queryFn: fetchCategories,
-    },
-  );
+  const { data: categoriesList = [] } = useQuery<ICategory[], Error>({
+    queryKey: ['category'],
+    queryFn: fetchCategories,
+  });
 
   const handlealtTextposterimageUrl = (index: number, newaltText: string) => {
     //@ts-expect-error
@@ -156,10 +159,6 @@ const FormLayout = ({
     );
     setBannerImageUrl(updatedImagesUrl);
   };
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <>
