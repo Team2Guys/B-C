@@ -16,7 +16,7 @@ import { fetchProducts } from 'config/fetch';
 const MotorisedPage = () => {
   const pathName = usePathname();
   
-  const { data: products, isLoading: prodLoading } = useQuery<IProduct[]>({
+  const { data: products } = useQuery<IProduct[]>({
       queryKey: ['products'],
       queryFn: fetchProducts,
     });
