@@ -45,7 +45,7 @@ const DetailInfo: React.FC<detailprops> = ({
                   dangerouslySetInnerHTML={{ __html: description }}
                 ></p>
               </div>
-              <div className='pt-4'>
+              <div className='pt-4  w-full flex justify-center sm:justify-start'>
                 <Link href={"/request-appointment"}
                   target='_blank' rel="noopener"
                   className="px-4 py-4 rounded-md bg-secondary text-white font-medium"
@@ -60,7 +60,7 @@ const DetailInfo: React.FC<detailprops> = ({
           <div className="w-full xl:w-6/12 mt-4 lg:mt-0">
             <div className={`text-end  ${imageClass}`}>
               <Image
-                className="h-[300px] md:h-[526.24px] w-full rounded-3xl "
+                className="h-56 xs:h-[526.24px] w-full rounded-3xl "
                 width={1000}
                 height={1000}
                 src={image?.imageUrl}
