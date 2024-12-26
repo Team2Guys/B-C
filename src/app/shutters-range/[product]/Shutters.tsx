@@ -65,6 +65,9 @@ const CommercialPage = ({
     return <NotFound />;
   }
 
+  console.log(colorPage, 'colorPage');
+  console.log(filteredSubCategory, 'colorPage1');
+
   return (
     <>
       {!colorPage ? (
@@ -88,7 +91,7 @@ const CommercialPage = ({
       ) : (
         <ShuttersByColor
           title={colorPage.name}
-          // subCategory={`${filteredSubCategory?.title}`}
+          subCategory={filteredSubCategory}
         />
       )}
     </>
