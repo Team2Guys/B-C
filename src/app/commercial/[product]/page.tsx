@@ -1,4 +1,4 @@
-import { fetchCategories, fetchProducts, fetchSubCategories } from "config/fetch";
+import { fetchProducts, fetchSubCategories } from "config/fetch";
 import CommercialProduct from "./CommerticalProduct";
 import { headers } from "next/headers";
 import { ICategory, IProduct } from "types/types";
@@ -8,9 +8,8 @@ import { Metadata } from "next";
 export async function generateMetadata({ params }: { params: { product: string } }): Promise<Metadata> {
   const { product } = params;
 
-  const [products, categories, subCategories] = await Promise.all([
+  const [products, subCategories] = await Promise.all([
     fetchProducts(),
-    fetchCategories(),
     fetchSubCategories(),
   ]);
 
@@ -65,14 +64,13 @@ export async function generateMetadata({ params }: { params: { product: string }
 
 const CommercialPage = async ({ params }: { params: { product: string } }) => {
   const slug = params.product;
-  const [products, categories, subCategories] = await Promise.all([
+  const [products, subCategories] = await Promise.all([
     fetchProducts(),
-    fetchCategories(),
     fetchSubCategories(),
   ]);
   return (
     <>
-      <CommercialProduct product={slug} products={products} categories={categories} subCategories={subCategories} />
+      <CommercialProduct product={slug} products={products} subCategories={subCategories} />
     </>
   );
 };
