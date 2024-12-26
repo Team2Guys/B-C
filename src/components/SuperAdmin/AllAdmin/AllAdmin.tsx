@@ -271,7 +271,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
             />
 
 {isClient ? (
-          delLoading === record._id ? <div><Loader /></div> : (
+          delLoading === record._id ? <div><Loader color="white" /></div> : (
             <RiDeleteBin6Line
               className="cursor-pointer text-red-500"
               size={20}

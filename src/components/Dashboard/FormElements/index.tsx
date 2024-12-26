@@ -584,7 +584,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </label>
                         {isLoading ? (
                           <div>
-                            <Loader />
+                            <Loader color="white" />
                           </div>
                         ) : (
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

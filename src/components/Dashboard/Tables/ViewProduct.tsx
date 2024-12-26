@@ -14,6 +14,9 @@ import { ICategory, IProduct } from 'types/types';
 import { fetchCategories } from 'config/fetch';
 import revalidateTag from 'components/ServerActons/ServerAction';
 import { ChangedProductUrl_handler } from 'data/urls';
+import TableSkeleton from './TableSkelton';
+import loading from 'app/dashboard/products/loading';
+import useColorMode from 'hooks/useColorMode';
 
 interface Product extends IProduct {
   id: number;
@@ -35,11 +38,14 @@ const ViewProduct: React.FC<CategoryProps> = ({
   Categories,
   setselecteMenu,
   setEditProduct,
+  
 }) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
+  const [colorMode, toggleColorMode] = useColorMode();
+    const [loading, setLoading] = useState<boolean>(false);
 
   const token = admin_token || super_admin_token;
 
@@ -47,7 +53,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
     setSearchTerm(e.target.value);
   };
 
-  const { data: categories } = useQuery<ICategory[]>({
+  const { data: categories, isLoading } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
@@ -63,6 +69,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
   const canEditproduct =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canEditProduct : true);
+    
   useEffect(() => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
 
@@ -99,7 +106,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
         },
       );
       revalidateTag('products');
-
+      
       notification.success({
         message: 'Product Deleted',
         description: 'The product has been successfully deleted.',
@@ -216,8 +223,12 @@ const ViewProduct: React.FC<CategoryProps> = ({
   ];
 
   return (
-    <div>
-      <>
+    <div className={colorMode === 'dark' ? 'dark' : ''}>
+      {loading ? (
+        <TableSkeleton rows={10} columns={1} />
+      ) : (
+        <>
+
         <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
           <input
             className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
@@ -228,7 +239,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
           />
           <div>
             <p
-              className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed  text-white rounded-md'} p-2 ${canAddProduct ? '  bg-secondary text-white rounded-md ' : ''}`}
+              className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed !bg-secondary opacity-20 text-gray-900 shadow-sm rounded-md'} p-2 ${canAddProduct ? '  bg-secondary text-white rounded-md ' : ''}`}
               onClick={() => {
                 if (canAddProduct) {
                   setEditProduct(undefined);
@@ -252,6 +263,8 @@ const ViewProduct: React.FC<CategoryProps> = ({
           <p className="text-primary dark:text-white">No products found</p>
         )}
       </>
+      )}
+     
     </div>
   );
 };
