@@ -11,17 +11,16 @@ import { useQuery } from '@tanstack/react-query';
 import { IProduct } from 'types/types';
 import { usePathname } from 'next/navigation';
 import {MoterisedContent } from 'data/data';
+import { fetchProducts } from 'config/fetch';
 
 const MotorisedPage = () => {
   const pathName = usePathname();
-  const { data: products, error } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: () => fetch('/api/products').then((res) => res.json()),
-  });
   
-  if (error instanceof Error) {
-    return <div>Error: {error.message}</div>;
-  }
+  const { data: products } = useQuery<IProduct[]>({
+      queryKey: ['products'],
+      queryFn: fetchProducts,
+    });
+  
   const content = MoterisedContent.find(
     (item) => item.maintitle === pathName
   );
