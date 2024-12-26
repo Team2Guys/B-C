@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import React from 'react';
 import TopHero from 'components/ui/top-hero';
 import MotorisedInfo from 'components/motorised-blinds/motorised-info';
@@ -10,7 +10,7 @@ import Container from 'components/Res-usable/Container/Container';
 import { useQuery } from '@tanstack/react-query';
 import { IProduct } from 'types/types';
 import { usePathname } from 'next/navigation';
-import {MoterisedContent } from 'data/data';
+import { MoterisedContent } from 'data/data';
 import { fetchProducts } from 'config/fetch';
 
 const MotorisedPage = () => {
@@ -28,13 +28,17 @@ const MotorisedPage = () => {
   );
 
   if (!content) {
-    return "";
+    return '';
   }
   const { Data } = content;
   const pageData = Data[0];
   return (
     <>
-      <TopHero title={pageData.title} image={pageData.heroImage} pagename={pathName} />
+      <TopHero
+        title={pageData.title}
+        image={pageData.heroImage}
+        pagename={pathName}
+      />
       <MotorisedInfo
         title={pageData.infoTitle}
         subtitle={pageData.infoSubtitle}
@@ -42,7 +46,10 @@ const MotorisedPage = () => {
         image={pageData.infoImage}
       />
       <div className="bg-light text-center py-10 mt-20 mb-20">
-        <Measure title={pageData.measureTitle} description={pageData.measureDescription} />
+        <Measure
+          title={pageData.measureTitle}
+          description={pageData.measureDescription}
+        />
       </div>
       <ChooseUs
         title={pageData.chooseustitle}
@@ -50,7 +57,11 @@ const MotorisedPage = () => {
         boxClass="bg-white"
         items={pageData.chooseUsItems}
       />
-      <Measure className="mt-20" title={pageData.measureTitle1} description={pageData.measureDescription1} />
+      <Measure
+        className="mt-20"
+        title={pageData.measureTitle1}
+        description={pageData.measureDescription1}
+      />
       <div className="bg-white text-center py-10 mt-20">
         <ChooseUs
           title={pageData.chooseustitle1}
@@ -69,7 +80,7 @@ const MotorisedPage = () => {
           description3={pageData.additionalDescription3}
         />
       )}
-      <BookNowBanner  />
+      <BookNowBanner />
       <Container className="mt-10 md:mt-20">
         <RelatedProducts products={products || []} limit={4} />
       </Container>
