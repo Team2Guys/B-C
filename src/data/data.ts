@@ -1,5 +1,3 @@
-// src/data.ts
-import bgBreadcrum from '../../public/assets/images/Breadcrum/modern.png';
 import moto1 from '../../public/assets/images/MotorisedBlind/montorised1.png';
 import img1 from '../../public/assets/images/MotorisedBlind/guarantee1.png';
 import img2 from '../../public/assets/images/MotorisedBlind/businessmen1.png';
