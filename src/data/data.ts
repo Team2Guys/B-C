@@ -1050,6 +1050,10 @@ export const initialValues: Product = {
 export const categoryInitialValues: Category = {
   name: '',
   description: '',
+  Images_Alt_Text: '',
+  Canonical_Tag: '',
+  Meta_Title: '',
+  Meta_description: '',
 };
 
 export const loginInitialValue = {
