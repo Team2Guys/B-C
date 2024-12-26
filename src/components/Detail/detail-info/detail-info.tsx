@@ -36,7 +36,7 @@ const DetailInfo: React.FC<detailprops> = ({
               <h1 className="text-24 sm:text-32 md:text-[41px] font-medium">
                 {heading ? heading : `What are ${title}`}{' '}
               </h1>
-              <p className="underline underline-offset-8 text-[#6F747F]">
+              <p className="underline underline-offset-8 text-[#6F747F] ">
                 {subtitle}
               </p>
               <div className="space-y-3 md:space-y-10">
