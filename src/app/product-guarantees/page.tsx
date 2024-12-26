@@ -13,17 +13,18 @@ import { usePathname } from 'next/navigation';
 
 const ProductGuarantees = () => {
   const pathName = usePathname();
-  const {
-    data: products,
-    error,
-  } = useQuery<IProduct[]>({
+  const { data: products, error } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
-      <TopHero title="PRODUCT GUARANTEES" image={second} pagename={pathName} />
+      <TopHero
+        title="PRODUCT GUARANTEES"
+        image={second.src}
+        pagename={pathName}
+      />
       <Container className="">
         <div className="lg:py-6 p-3 lg:mt-10 mx-auto">
           <h1 className="lg:text-3xl text-18 sm:text-2xl pb-2 font-bold text-center mb-4 w-fit mx-auto border-b-[1px] border-[#BDC9BD]">
