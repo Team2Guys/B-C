@@ -1,10 +1,9 @@
-"use client"
+"use client";
 import axios from "axios";
 import { useAppSelector } from "components/Others/HelperRedux";
 import showToast from "components/Toaster/Toaster";
-import React,{ useState, useEffect } from "react";
-import Cookies from 'js-cookie';
-
+import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 
 interface IComment {
   id: number;
@@ -16,104 +15,82 @@ interface IComment {
 
 const Comments = ({ currentComments }: { currentComments: any[] }) => {
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-  const canEditBlog =loggedInUser &&(loggedInUser.role == 'Admin' ? loggedInUser.canEditBlog : true);
+  const canEditBlog =
+    loggedInUser && (loggedInUser.role == "Admin" ? loggedInUser.canEditBlog : true);
 
-  const token = Cookies.get('2guysAdminToken');
-  const superAdminToken = Cookies.get('superAdminToken');
-  let finalToken = token ? token : superAdminToken;
+  const token = Cookies.get("2guysAdminToken");
+  const superAdminToken = Cookies.get("superAdminToken");
+  const finalToken = token || superAdminToken;
   const headers = {
     authorization: `Bearer ${finalToken}`,
   };
+
   const [searchTerm, setSearchTerm] = useState("");
   const [comments, setComments] = useState(currentComments);
 
   useEffect(() => {
-    setComments(currentComments.map(item => ({
-      ...item,
-      comments: item.comments.map((comment: IComment) => ({
-        ...comment,
-        status: comment.status || "pending",
-      })),
-
-    })));
+    setComments(
+      currentComments.map((item) => ({
+        ...item,
+        comments: item.comments.map((comment: IComment) => ({
+          ...comment,
+          status: comment.status || "pending",
+        })),
+      }))
+    );
   }, [currentComments]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
-
-  const handleApprove = async (id: number, type: string, comment: any, item: any) => {
-
+  const handleApprove = async (id: number, comment: any, item: any) => {
+    updateCommentStatus(comment.id, item.id, "APPROVED");
 
     try {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`, {
-        status: 'APPROVED',
-      },{headers});
-      if (res.status === 200) {
-
-        showToast('success', "Comment approved successfully🎉");
-        comment.status = 'APPROVED';
-        setComments(prevComments =>
-          prevComments.map(i =>
-            i.id === item.id
-              ? {
-                ...i,
-                comments: i.comments.map((c: IComment) =>
-                  c.id === comment.id ? { ...c, status: 'APPROVED' } : c
-                ),
-              }
-              : i
-          )
-        );
-      }
-      console.log(`Approved ${type} comment with ID: ${id}`, {
-        title: item.title || "No Title",
-        comment: comment.description,
-        status: comment.status,
-        createdAt: comment.createdAt,
-        name: comment.name,
-      });
+       await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`,
+        { status: "APPROVED" },
+        { headers }
+      );
+        showToast("success", "Comment approved successfully 🎉");
+      
     } catch (error) {
       console.error("Error approving the comment:", error);
-      showToast('error', "Facing issue to APPROVED😢");
+      showToast("error", "Failed to approve the comment 😢");
+      updateCommentStatus(comment.id, item.id, "pending");
     }
-
   };
 
-  const handleReject = async (id: number, type: string, comment: any) => {
-
+  const handleReject = async (id: number, comment: any, item: any) => {
+    updateCommentStatus(comment.id, item.id, "REJECTED");
 
     try {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`, {
-        status: 'REJECTED',
-      },{headers}
-    );
-      if (res.status === 200) {
-
-        showToast('success', "Comment Status updated successfully🎉");
-        comment.status = 'REJECTED';
-        setComments(prevComments =>
-          prevComments.map(i =>
-            i.id === comment.id
-              ? {
-                ...i,
-                comments: i.comments.map((c: IComment) =>
-                  c.id === comment.id
-                    ? { ...c, status: 'REJECTED' }
-                    : c
-                ),
-              }
-              : i
-          )
-        );
-      }
-
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`,
+        { status: "REJECTED" },
+        { headers }
+      );
+        showToast("success", "Comment rejected successfully 🎉");
     } catch (error) {
-      console.error("Error approving the comment:", error);
-      showToast('error', "Facing update status😢");
+      console.error("Error rejecting the comment:", error);
+      showToast("error", "Failed to reject the comment 😢");
+      updateCommentStatus(comment.id, item.id, "pending");
     }
+  };
 
-    console.log(`Rejected ${type} comment with ID: ${id}`);
+  const updateCommentStatus = (commentId: number, itemId: number, newStatus: string) => {
+    setComments((prevComments) =>
+      prevComments.map((item) =>
+        item.id === itemId
+          ? {
+              ...item,
+              comments: item.comments.map((comment: IComment) =>
+                comment.id === commentId ? { ...comment, status: newStatus } : comment
+              ),
+            }
+          : item
+      )
+    );
   };
 
   const filterComments = (item: any) => {
@@ -171,15 +148,19 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                         </p>
                         <div className="flex gap-4 mb-4">
                           <button
-                            className={`text-white px-4 py-1 rounded ${ !canEditBlog || comment.status === 'APPROVED' ? 'bg-gray-400': 'bg-green-600 '}`}
-                            onClick={() => handleApprove(comment.id, 'comment', comment, item)} 
+                            className={`text-white px-4 py-1 rounded ${
+                              !canEditBlog || comment.status === 'APPROVED' ? 'bg-gray-400' : 'bg-green-600'
+                            }`}
+                            onClick={() => handleApprove(comment.id, comment, item)}
                             disabled={!canEditBlog || comment.status === 'APPROVED'}
                           >
                             Approve
                           </button>
                           <button
-                            className={`text-white px-4 py-1 rounded ${ !canEditBlog ||comment.status === 'REJECTED'  ? 'bg-gray-400': 'bg-red-600 '}`}
-                            onClick={() => handleReject(comment.id, 'comment', comment)}
+                            className={`text-white px-4 py-1 rounded ${
+                              !canEditBlog || comment.status === 'REJECTED' ? 'bg-gray-400' : 'bg-red-600'
+                            }`}
+                            onClick={() => handleReject(comment.id, comment, item)}
                             disabled={!canEditBlog || comment.status === 'REJECTED'}
                           >
                             Reject

@@ -1,7 +1,6 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
 import { productData, PGuarantees } from 'data/data';
-import second from '../../../public//assets/images/product-guarantees/large.png';
 import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
@@ -10,7 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import { IProduct } from 'types/types';
 import { fetchProducts } from 'config/fetch';
 import { usePathname } from 'next/navigation';
-
+import second from '../../../public//assets/images/product-guarantees/large.png';
 const ProductGuarantees = () => {
   const pathName = usePathname();
   const { data: products, error } = useQuery<IProduct[]>({
