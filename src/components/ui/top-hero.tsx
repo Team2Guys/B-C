@@ -46,17 +46,14 @@ const TopHero: React.FC<TopHeroProps> = ({
     value.url.toLowerCase().includes(page.toLowerCase()),
   );
 
-  console.log('image123123');
   console.log(image);
 
   return (
     <div
-      className="relative text-center text-black custom-breadcrum h-80 flex items-center justify-center md:bg-cover bg-center"
+      className="relative text-center text-black custom-breadcrum h-[260px] xs:h-[300px] md:h-[380px] lg:h-[450px] 2xl:h-[500px] flex items-center justify-center bg-no-repeat w-full  bg-cover"
       style={{
         backgroundImage: `url(${image})`,
         backgroundPosition: backgroundposition,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
       }}
     >
       <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
@@ -66,7 +63,7 @@ const TopHero: React.FC<TopHeroProps> = ({
             ? result.content
             : UpdateShutterTitle(pageTitle ? pageTitle : pathname)}
         </h1>
-        <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base">
+        <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base flex-wrap">
           <Link
             href="/"
             className="flex items-center gap-2 font-bold capitalize"
