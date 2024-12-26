@@ -16,10 +16,12 @@ import { fetchProducts } from 'config/fetch';
 const MotorisedPage = () => {
   const pathName = usePathname();
   
-  const { data: products } = useQuery<IProduct[]>({
-      queryKey: ['products'],
-      queryFn: fetchProducts,
-    });
+  const { data: products, error } = useQuery<IProduct[]>({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+  });
+  
+  if (error) return <div>Error: {error.message}</div>;
   
   const content = MoterisedContent.find(
     (item) => item.maintitle === pathName
