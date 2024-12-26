@@ -144,7 +144,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         ...values,
         title: values.name,
         posterImage: posterImageUrl,
-        bannerImage: bannerImage,
+        bannerImage: bannerImage !== undefined ? bannerImage : null,
         hoverImage: hoverImageUrl,
         imageUrls: imagesUrl,
         price: values.salePrice,
@@ -256,6 +256,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setSelectedSubcategoryIds([]);
 
       updateFlag ? setEditProduct && setEditProduct(undefined) : null;
+      setselecteMenu('Add All Products');
     } catch (err: any) {
       if (err.response && err.response.data && err.response.data.message) {
         setError(err.response.data.message);
