@@ -388,11 +388,11 @@ export const customSortingOrder = [
     {
       title: "Automated Blinds",
       link: "/automated-blinds",
-      imageSrc: "/assets/images/blinds/landing/landing.webp",
+      imageSrc: "assets/images/Blinds/landing/landing.webp",
     },
     {
       title: "Automated Curtains",
       link: "/automated-curtains",
-      imageSrc: "/assets/images/Curtain/landing/landing.webp",
+      imageSrc: "assets/images/Curtain/landing/landing.webp",
     },
   ];
