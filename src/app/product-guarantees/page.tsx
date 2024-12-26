@@ -1,7 +1,6 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
 import { productData, PGuarantees } from 'data/data';
-import second from '../../../public//assets/images/product-guarantees/large.png';
 import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
@@ -23,7 +22,7 @@ const ProductGuarantees = () => {
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
-      <TopHero title="PRODUCT GUARANTEES" image={second} pagename={pathName} />
+      <TopHero title="PRODUCT GUARANTEES" image={'assets/images/product-guarantees/large.png'} pagename={pathName} />
       <Container className="">
         <div className="lg:py-6 p-3 lg:mt-10 mx-auto">
           <h1 className="lg:text-3xl text-18 sm:text-2xl pb-2 font-bold text-center mb-4 w-fit mx-auto border-b-[1px] border-[#BDC9BD]">
