@@ -55,12 +55,12 @@ export const appointmentColumns = [
     width: 150,
   },
   {
-    title: 'Phone Number',
+    title: 'Phone #',
     dataIndex: 'phone_number',
     width: 150,
   },
   {
-    title: 'WhatsApp Number',
+    title: 'WhatsApp #',
     dataIndex: 'whatsapp_number',
     width: 120,
   },

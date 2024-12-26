@@ -207,7 +207,7 @@ const Review: React.FC<ReviewProps> = ({
                   disabled={loading}
                 >
                   {loading ? (
-                    <Loader color="#fff" />
+                   <Loader color="white" />
                   ) : (
                     <>
                       <IoIosSend size={25} /> Submit Review

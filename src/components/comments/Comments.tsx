@@ -192,7 +192,7 @@ console.log(data, "data")
               type="submit"
               className="px-6 py-3 text-white bg-primary rounded-3xl text-16 sm:text-18 font-medium"
             >
-              {(loading && !isModalOpen) ? <Loader /> : "Post Comment"}
+              {(loading && !isModalOpen) ? <Loader color="white" /> : "Post Comment"}
             </button>
           </div>
         </form>
@@ -319,7 +319,7 @@ console.log(data, "data")
               type="submit"
               className="px-6 py-3 text-white bg-primary rounded-3xl text-16 sm:text-18 font-medium"
             >
-              {loading && isModalOpen ? <Loader /> : "Post Reply"}
+              {loading && isModalOpen ? <Loader color="white" /> : "Post Reply"}
 
             </button>
           </div>
