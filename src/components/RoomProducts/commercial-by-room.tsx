@@ -32,7 +32,7 @@ const CommercialByRoom = ({
   category,
 }: ICategoryPage) => {
   const pathname = usePathname();
-  console.log(category,"category")
+  console.log(category, 'category');
   const [isNotFound, setIsNotFound] = useState(false);
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
@@ -96,13 +96,13 @@ const CommercialByRoom = ({
       <TopHero
         title={title}
         pageTitle={`Made to Measure ${title}`}
-        image={bgBreadcrum}
+        image={bgBreadcrum.src}
         pagename={pathname}
       />
       <Container className="my-12">
         <BathroomCategory
-        categoryName={title}
-        description={description}
+          categoryName={title}
+          description={description}
           filteredProducts={filteredProducts}
           isLoading={isLoading}
           categoryTitle="none"
