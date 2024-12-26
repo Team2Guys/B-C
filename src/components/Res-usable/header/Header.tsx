@@ -55,7 +55,6 @@ const Header = () => {
   const products: IProduct[] = data?.products || [];
   const subCategories: ICategory[] = data?.subCategories || [];
 
-  console.log(isLoading, 'isload');
   return (
     <>
       <div className="w-full bg-secondary">
