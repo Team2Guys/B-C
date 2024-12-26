@@ -238,7 +238,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                             width={500}
                             height={500}
                             className="bg-contain h-[250px] lg:h-[300px]"
-                            src={product.imageSrc || '/assets/images/blinds/landing/landing.webp'}
+                            src={product.imageSrc ? product.imageSrc : '/assets/images/Blinds/landing/landing.webp'}
                             alt={product.title}
                           />
                           <p className="absolute bottom-0 z-999 w-full bg-white opacity-80 font-semibold lg:font-bold text-16 lg:text-xl whitespace-normal text-center py-3">
