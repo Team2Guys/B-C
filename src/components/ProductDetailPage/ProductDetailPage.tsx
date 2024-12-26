@@ -16,14 +16,6 @@ interface IProductDetail {
   allprod?: IProduct[];
 }
 const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
-  // const {
-  //   data: products,
-  //   error,
-  //   isLoading,
-  // } = useQuery<IProduct[]>({
-  //   queryKey: ['products'],
-  //   queryFn: fetchProducts,
-  // });
 
   const pathName = usePathname();
 
@@ -76,7 +68,7 @@ const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
         <CardSkeleton />
       ) : (
         <Container className="mt-10 md:mt-20">
-          <RelatedProducts products={relatedProducts || []} limit={4} />
+          <RelatedProducts products={relatedProducts || []} limit={4} title={title} />
         </Container>
       )}
       <BookNowBanner className="mt-20" />
