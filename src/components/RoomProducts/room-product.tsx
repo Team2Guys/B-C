@@ -23,6 +23,7 @@ interface ICategoryPage {
   relatedProducts: IProduct[];
   description: string;
   category: string;
+  filteredSubCategory?: any;
 }
 
 const RoomProducts = ({
@@ -30,6 +31,7 @@ const RoomProducts = ({
   relatedProducts,
   description,
   category,
+  filteredSubCategory,
 }: ICategoryPage) => {
   const pathname = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
@@ -143,8 +145,7 @@ const RoomProducts = ({
       <TopHero
         title={title}
         pageTitle={`Made to Measure ${title}`}
-        //@ts-expect-error
-        image={`${category?.bannerImage?.imageUrl || bgBreadcrum.src}`}
+        image={`${filteredSubCategory?.bannerImage?.imageUrl || bgBreadcrum.src}`}
         pagename={pathname}
       />
       <Container className="my-12">
