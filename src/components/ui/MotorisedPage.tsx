@@ -68,7 +68,7 @@ const MotorisedPage = () => {
         />
       )}
       <BookNowBanner  />
-      <Container className="mt-20">
+      <Container className="mt-10 md:mt-20">
         <RelatedProducts products={products || []} limit={4} />
       </Container>
     </>
