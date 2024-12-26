@@ -136,7 +136,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
       let bannerImage = bannerImageUrl && bannerImageUrl[0];
       let hoverImageUrl = hoverImage && hoverImage[0];
-      if (!posterImageUrl || !bannerImageUrl || !(imagesUrl.length > 0)) {
+      if (!posterImageUrl || !(imagesUrl.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
       }
 
