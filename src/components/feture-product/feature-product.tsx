@@ -6,6 +6,8 @@ import FeatureCard from 'components/ui/feature-card';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories, fetchProducts } from 'config/fetch';
+import Featureskeleton from './skeleton';
+
 
 const FeatureProduct: React.FC = () => {
   const {
@@ -16,6 +18,7 @@ const FeatureProduct: React.FC = () => {
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
+  
 
   const {
     data: products,
@@ -80,30 +83,14 @@ const FeatureProduct: React.FC = () => {
 
   if (isLoadingCategories || isLoadingProducts)
     return (
-      <div>
-        <Container className="py-12">
-          <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
-              {[...Array(6)].map((_, index) => (
-                <div className="" key={index}>
-                  <div className="h-6 bg-gray-300 rounded mb-2"></div>
-                  <div className="max-w-md rounded lg:m-4 m-2 animate-pulse">
-                    <div className="bg-gray-300 lg:w-[460px] xl:w-[350px] md:w-[400px] sm:w-full lg:h-[400px] md:h-[300px] sm:h-auto rounded-3xl"></div>
-                    <div className="px-2 py-4"></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </div>
+     <Featureskeleton/>
     );
 
-  // Error handling
-  if (categoriesError instanceof Error)
-    return <div>Error: {categoriesError.message}</div>;
-  if (productsError instanceof Error)
-    return <div>Error: {productsError.message}</div>;
+// Error handling
+if (categoriesError instanceof Error)
+  return <div>Error: {categoriesError.message}</div>;
+if (productsError instanceof Error)
+  return <div>Error: {productsError.message}</div>;
 
   return (
     <Container className="mt-20">
