@@ -13,7 +13,8 @@ import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories } from 'config/fetch';
 import revalidateTag from 'components/ServerActons/ServerAction';
-import { ChangedProductUrl_handler } from 'data/urls';
+import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
+import Link from 'next/link';
 
 interface Product extends IProduct {
   id: number;
@@ -114,6 +115,34 @@ const ViewProduct: React.FC<CategoryProps> = ({
     }
   };
 
+  const getPath = (product: IProduct, parent: string | undefined) => {
+    const slug = ChangedProductUrl_handler(product.title);
+    
+    // Determine the base path based on the product and parent
+    const basePath =
+      product.href && parent
+        ? `${window.origin}/${product.href}`
+        : `/${slug}`;
+    
+    // Predefined paths or custom logic
+    const path =
+      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+      (slug === 'hotels-restaurants-blinds-curtains'
+        ? basePath
+        : `/${parent?.toLowerCase() === 'shutters'
+          ? `${parent.toLowerCase()}-range`
+          : parent?.toLowerCase() || ''}${[
+            'dimout-roller-blinds',
+            'sunscreen-roller-blinds',
+            'blackout-roller-blinds',
+          ].includes(slug)
+            ? '/roller-blinds'
+            : ''
+          }/${slug}`);
+    
+    return path;
+  };
+
   const columns = [
     {
       title: 'Image',
@@ -167,17 +196,12 @@ const ViewProduct: React.FC<CategoryProps> = ({
         if (category === undefined) return null;
         const parent = generateSlug(category?.title);
         return (
+          <Link href={getPath(record, parent)} target="_blank">
           <FaRegEye
             className="cursor-pointer"
-            onClick={() => {
-              const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${
-                // generateSlug(record.title)
-                ChangedProductUrl_handler(record.title)
-              }
-              `;
-              window.open(url, '_blank');
-            }}
           />
+          </Link>
+          
         );
       },
     },

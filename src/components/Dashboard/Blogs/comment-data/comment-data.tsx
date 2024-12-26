@@ -24,7 +24,7 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
   const headers = {
     authorization: `Bearer ${finalToken}`,
   };
-
+  const [disabledButtons, setDisabledButtons] = useState<{ [key: number]: boolean }>({});
   const [searchTerm, setSearchTerm] = useState("");
   const [comments, setComments] = useState(currentComments);
 
@@ -45,24 +45,29 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
   };
   const handleApprove = async (id: number, comment: any, item: any) => {
     updateCommentStatus(comment.id, item.id, "APPROVED");
+    setDisabledButtons((prev) => ({ ...prev, [comment.id]: true }));
 
     try {
-       await axios.post(
+      await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/comment/status/${comment.id}`,
         { status: "APPROVED" },
         { headers }
       );
-        showToast("success", "Comment approved successfully 🎉");
-      
+      showToast("success", "Comment approved successfully 🎉");
     } catch (error) {
       console.error("Error approving the comment:", error);
       showToast("error", "Failed to approve the comment 😢");
       updateCommentStatus(comment.id, item.id, "pending");
+    } finally {
+      setTimeout(() => {
+        setDisabledButtons((prev) => ({ ...prev, [comment.id]: false }));
+      }, 2000); // Re-enable after 2 seconds
     }
   };
 
   const handleReject = async (id: number, comment: any, item: any) => {
     updateCommentStatus(comment.id, item.id, "REJECTED");
+    setDisabledButtons((prev) => ({ ...prev, [comment.id]: true }));
 
     try {
       await axios.post(
@@ -70,13 +75,18 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
         { status: "REJECTED" },
         { headers }
       );
-        showToast("success", "Comment rejected successfully 🎉");
+      showToast("success", "Comment rejected successfully 🎉");
     } catch (error) {
       console.error("Error rejecting the comment:", error);
       showToast("error", "Failed to reject the comment 😢");
       updateCommentStatus(comment.id, item.id, "pending");
+    } finally {
+      setTimeout(() => {
+        setDisabledButtons((prev) => ({ ...prev, [comment.id]: false }));
+      }, 2000); // Re-enable after 2 seconds
     }
   };
+
 
   const updateCommentStatus = (commentId: number, itemId: number, newStatus: string) => {
     setComments((prevComments) =>
@@ -148,20 +158,28 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                         </p>
                         <div className="flex gap-4 mb-4">
                           <button
-                            className={`text-white px-4 py-1 rounded ${
-                              !canEditBlog || comment.status === 'APPROVED' ? 'bg-gray-400' : 'bg-green-600'
-                            }`}
+                           className={`text-white px-4 py-1 rounded ${
+                            disabledButtons[comment.id]
+                              ? "bg-gray-400"
+                              : !canEditBlog || comment.status === "APPROVED"
+                              ? "bg-gray-400"
+                              : "bg-green-600"
+                          }`}
                             onClick={() => handleApprove(comment.id, comment, item)}
-                            disabled={!canEditBlog || comment.status === 'APPROVED'}
+                            disabled={!canEditBlog || comment.status === 'APPROVED' || disabledButtons[comment.id]}
                           >
                             Approve
                           </button>
                           <button
-                            className={`text-white px-4 py-1 rounded ${
-                              !canEditBlog || comment.status === 'REJECTED' ? 'bg-gray-400' : 'bg-red-600'
+                             className={`text-white px-4 py-1 rounded ${
+                              disabledButtons[comment.id]
+                                ? "bg-gray-400"
+                                : !canEditBlog || comment.status === "REJECTED"
+                                ? "bg-gray-400"
+                                : "bg-red-600"
                             }`}
                             onClick={() => handleReject(comment.id, comment, item)}
-                            disabled={!canEditBlog || comment.status === 'REJECTED'}
+                            disabled={!canEditBlog || comment.status === 'REJECTED' || disabledButtons[comment.id]}
                           >
                             Reject
                           </button>
