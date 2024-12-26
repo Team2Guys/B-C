@@ -29,18 +29,18 @@ const HomeCard = () => {
       <div>
         <Container className="py-12">
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3 w-full">
               {[...Array(3)].map((_, index) => (
                 <div
                   key={index}
                   className="max-w-md rounded lg:m-4 m-2 animate-pulse"
                 >
-                  <div className="bg-gray-300 lg:w-[460px] md:w-[400px] sm:w-full lg:h-[400px] md:h-[300px] sm:h-auto rounded-3xl"></div>
+                  <div className="bg-gray-300 w-full lg:h-[400px] md:h-[300px] sm:h-auto rounded-3xl"></div>
                   <div className="px-2 py-4">
                     <div className="h-6 bg-gray-300 rounded mb-2"></div>
                     <div className="h-4 bg-gray-300 rounded"></div>
                   </div>
-                  <div className="h-8 bg-gray-300 rounded w-1/2 mt-4"></div>
+                  <div className="h-8 bg-gray-300 rounded w-1/2 mt-4 mx-auto"></div>
                 </div>
               ))}
             </div>

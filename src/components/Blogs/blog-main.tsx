@@ -6,16 +6,20 @@ import Link from 'next/link'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { usePathname } from 'next/navigation'
 import { BlogInfo } from 'types/interfaces'
+import BlogSkeleton from 'components/Skeleton/blog-skeleton'
 
 const BlogMain = ({ blogs }: { blogs: BlogInfo[] }) => {
     const pathName = usePathname();
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [searchTerm, setSearchTerm] = useState<string>('');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const popularPostRef = useRef<HTMLDivElement>(null);
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value.toLowerCase());
         setCurrentPage(1); // Reset to first page on search
+        setIsLoading(true); // Start loading
+        setTimeout(() => setIsLoading(false), 500);
     };
 
     const filteredBlogs = blogs.filter(
@@ -54,10 +58,15 @@ const BlogMain = ({ blogs }: { blogs: BlogInfo[] }) => {
     return (
         <>
             <Container className="flex px-2">
-                {filteredBlogs.length === 0 ? (<p className='w-3/4 mt-5'>No Blog found</p>) : (<div ref={popularPostRef} className="w-3/4">
-                    {/* <OurBlog Blogdata={currentBlogs || []} /> */}
+            {isLoading ? (
+                 <BlogSkeleton/>
+            ) : filteredBlogs.length === 0 ? (
+                <p className="w-3/4 mt-5">No Blog Found</p>
+            ) : (
+                <>
+                <div ref={popularPostRef} className="w-3/4">
                     <BlogList blogs={currentBlogs} />
-                </div>)}
+                </div>
                 <div className="w-1/3 xs:w-1/4 px-2 mt-4 sm:mt-14 flex flex-col gap-4 items-center">
                     <form
                         className="relative w-full rounded-xl px-2 sm:px-4"
@@ -100,6 +109,8 @@ const BlogMain = ({ blogs }: { blogs: BlogInfo[] }) => {
                         ))}
                     </div>
                 </div>
+                </>
+        )}
             </Container>
             {totalBlogs > blogsPerPage && (
                 <div className="flex justify-center mt-8 space-x-2">
