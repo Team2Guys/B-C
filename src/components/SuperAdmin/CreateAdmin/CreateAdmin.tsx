@@ -291,7 +291,7 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
               className="bg-primary  text-white w-full"
               onClick={handleSubmit}
             >
-              {loading ? <Loader color="White" /> : 'Add Admin'}
+              {loading ? <Loader color="#fff" /> : 'Add Admin'}
             </Button>
           </Col>
         </Row>

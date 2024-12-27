@@ -4,7 +4,7 @@ import Container from 'components/Res-usable/Container/Container';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCategories} from 'config/fetch';
 import { ICategory } from 'types/types';
-import { links } from 'components/Res-usable/header/Header';
+import { links } from 'data/header_links';
 
 const HomeCard = () => {
   const {

@@ -1,7 +1,6 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
 import React from 'react';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import DetailInfo from 'components/Detail/detail-info/detail-info';
 import DetailProduct from 'components/Detail/detail-product/detail-product';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
@@ -10,20 +9,13 @@ import Container from 'components/Res-usable/Container/Container';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
 import { usePathname } from 'next/navigation';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 
 interface IProductDetail {
   title: string;
   allprod?: IProduct[];
 }
 const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
-  // const {
-  //   data: products,
-  //   error,
-  //   isLoading,
-  // } = useQuery<IProduct[]>({
-  //   queryKey: ['products'],
-  //   queryFn: fetchProducts,
-  // });
 
   const pathName = usePathname();
 
@@ -45,7 +37,8 @@ const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
       <TopHero
         title={title}
         pageTitle={`Made to Measure ${trimmedProductTitle}`}
-        image={bgBreadcrum}
+        //@ts-expect-error
+        image={`${filterProduct?.bannerImage?.imageUrl || bgBreadcrum.src}`}
         pagename={pathName}
       />
       <DetailInfo
@@ -75,7 +68,7 @@ const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
         <CardSkeleton />
       ) : (
         <Container className="mt-10 md:mt-20">
-          <RelatedProducts products={relatedProducts || []} limit={4} />
+          <RelatedProducts products={relatedProducts || []} limit={4} title={title} />
         </Container>
       )}
       <BookNowBanner className="mt-20" />

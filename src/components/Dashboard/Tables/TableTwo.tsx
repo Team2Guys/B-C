@@ -212,7 +212,7 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
       {loading ? (
-        <TableSkeleton rows={5} columns={5} />
+        <TableSkeleton rows={10} columns={1} />
       ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
@@ -246,7 +246,7 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
           </div>
           {filteredProducts.length > 0 ? (
             <Table
-              className="overflow-x-scroll lg:overflow-auto"
+              className="overflow-x-scroll lg:overflow-auto w-full"
               dataSource={filteredProducts}
               columns={columns}
               pagination={false}

@@ -11,7 +11,6 @@ const Info = (selectedPage: IInfo) => {
   if (!selectedPage.selectedPage) {
     return <PageSkelton header={true} />;
   }
-  console.log(selectedPage.selectedPage, 'selectedPage');
   return (
     <Container className="mt-10 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2">

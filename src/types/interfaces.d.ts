@@ -335,6 +335,10 @@ interface commentprops {
 }
 export interface UpdateBlog extends BlogInfo {
   id: string;
+  Images_Alt_Text: '';
+  Canonical_Tag: '';
+  Meta_Title: '';
+  Meta_description: '';
 }
 export interface BlogProps {
   className?: string;

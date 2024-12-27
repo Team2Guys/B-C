@@ -13,6 +13,10 @@ interface BathroomCategoryProps {
   subCategory?: string;
   categoryName?:string;
   description?:string | any;
+  updateSubCategoryName?: {
+    url: string;
+    name: string;
+}
 }
 
 
@@ -23,11 +27,12 @@ const BathroomCategory = ({
   subCategory,
   categoryName,
   description,
+  updateSubCategoryName,
 }: BathroomCategoryProps) => {
   const pathname = usePathname();
   const getPath = (arr: IProduct, parent: string) => {
     categoryTitle === 'none' ? (categoryTitle = parent) : categoryTitle;
-    const slug = ChangedProductUrl_handler(arr.title);
+    const slug = ChangedProductUrl_handler(arr.title === updateSubCategoryName?.name ? updateSubCategoryName.url : arr.title);
     const basePath =
       arr.href &&
       typeof categoryTitle &&
@@ -95,7 +100,7 @@ const BathroomCategory = ({
         </div>
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 px-2">
       {isLoading
-        ? Array.from({ length: 6 }).map((_, index) => (
+        ? Array.from({ length: 4 }).map((_, index) => (
           <div
           key={index}
           className="flex flex-col items-center justify-between sm:items-start space-y-2 w-full animate-pulse"
@@ -128,6 +133,7 @@ const BathroomCategory = ({
                       height={774}
                       width={1032}
                       alt={product_Images ? product_Images.altText : arr.title}
+                      loading="lazy"
                       />
                   <h2 className="font-bold text-base sm:text-xl md:text-2xl text-center">
                     {arr.title}
