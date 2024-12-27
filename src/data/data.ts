@@ -2667,20 +2667,20 @@ export const estimator_data = [
   {
     id: 1,
     title: 'Roller Blinds',
-    posterImage: { imageUrl: '/assets/images/blindcard/curtains.png' },
+    posterImage: { imageUrl: '/assets/images/estimator/roller.webp' },
     price: 10,
   },
 
   {
     id: 2,
     title: 'Shutters MDF',
-    posterImage: { imageUrl: '/assets/images/dynamic/Rectangle 811dds.png' },
+    posterImage: { imageUrl: '/assets/images/estimator/white1.webp' },
     price: 25,
   },
   {
     id: 3,
     title: 'Shutters Basswood',
-    posterImage: { imageUrl: '/assets/images/dynamic/Rectangle 811da.png' },
+    posterImage: { imageUrl: '/assets/images/estimator/white2.webp' },
     price: 20,
   },
 ];
