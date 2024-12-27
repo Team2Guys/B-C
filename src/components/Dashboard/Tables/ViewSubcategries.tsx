@@ -18,15 +18,15 @@ import { fetchCategories } from 'config/fetch';
 import { ICategory } from 'types/types';
 import { useQuery } from '@tanstack/react-query';
 
-interface Product {
-  id: string;
-  name: string;
-  title: string;
-  category: string;
-  posterImageUrl: string;
-  createdAt: string;
-  CategoryId: number;
-}
+// interface ICategory {
+//   id: string;
+//   name: string;
+//   title: string;
+//   category: string;
+//   posterImageUrl: string;
+//   createdAt: string;
+//   CategoryId: number;
+// }
 
 interface CategoryProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
