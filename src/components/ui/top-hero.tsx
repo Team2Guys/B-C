@@ -13,7 +13,6 @@ interface TopHeroProps {
   image: any;
   home?: string;
   pagename?: string;
-  backgroundposition?: string;
   pageTitle?: string;
 }
 
@@ -22,7 +21,6 @@ const TopHero: React.FC<TopHeroProps> = ({
   image,
   home,
   pagename,
-  backgroundposition,
   pageTitle,
 }) => {
   const [pageName, setPageName] = useState<string[]>([]);
@@ -50,14 +48,15 @@ const TopHero: React.FC<TopHeroProps> = ({
 
   return (
     <div
-      className="relative text-center text-black custom-breadcrum h-[260px] xs:h-[300px] md:h-[380px] lg:h-[450px] 2xl:h-[500px] flex items-center justify-center bg-no-repeat w-full  bg-cover"
+      className="relative      
+      flex items-center text-center justify-center bg-no-repeat w-full  border-black xs:h-[280px]  md:h-[280px] lg:h-[400px] 2xl:h-[500px] bg-center bg-cover xl:bg-custom-size"
       style={{
         backgroundImage: `url(${image})`,
-        backgroundPosition: backgroundposition,
+        backgroundOrigin: 'content-box',
       }}
     >
-      <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
-      <div className="relative z-20 py-14 md:py-24">
+      {/* <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div> */}
+      <div className="relative z-20 py-6 sm:py-14 md:py-24">
         <h1 className="text-xl xs:text-3xl md:text-4xl lg:text-5xl font-black mt-5 uppercase">
           {result
             ? result.content
