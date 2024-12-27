@@ -12,14 +12,12 @@ const BlogMain = ({ blogs }: { blogs: BlogInfo[] }) => {
     const pathName = usePathname();
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [searchTerm, setSearchTerm] = useState<string>('');
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const popularPostRef = useRef<HTMLDivElement>(null);
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value.toLowerCase());
-        setCurrentPage(1); // Reset to first page on search
-        setIsLoading(true); // Start loading
-        setTimeout(() => setIsLoading(false), 500);
+        setCurrentPage(1); 
     };
 
     const filteredBlogs = blogs.filter(
