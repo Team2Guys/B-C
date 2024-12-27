@@ -3,10 +3,8 @@ import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/d.jpg';
 import Container from 'components/Res-usable/Container/Container';
 import aboutUsImg from '../../../public/assets/images/Group2003.png';
-import CountUp from 'react-countup';
 import {
   AboutUsPara,
-  aboutUsReviewData,
   OurHistoryData,
   UsHistoryPara,
 } from 'data/data';
@@ -46,7 +44,7 @@ const AboutUsPage = () => {
               {item}
             </p>
           ))}
-          <div className="flex justify-between gap-5 mt-6">
+          {/* <div className="flex justify-between gap-5 mt-6">
             {aboutUsReviewData.map((item) => (
               <div key={item.id}>
                 <span className="font-bold text-3xl xs:text-4xl sm:text-5xl text-primary">
@@ -61,12 +59,12 @@ const AboutUsPage = () => {
                 </p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </Container>
       <Container className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-20 xs:px-2 px-6 py-10 md:px-10">
         <div>
-          <h4 className="font-semibold xs:mb-6 text-paralight xs:text-base text-12 text-center sm:text-start">
+          {/* <h4 className="font-semibold xs:mb-6 text-paralight xs:text-base text-12 text-center sm:text-start">
             {UsHistoryPara.subheading}
           </h4>
           {UsHistoryPara.heading.map((item, index) => (
@@ -76,12 +74,10 @@ const AboutUsPage = () => {
             >
               {item}
             </h2>
-          ))}
+          ))} */}
           <div className="mt-5 pe-4">
             {UsHistoryPara.paragraph.map((item, index) => (
-              <p key={index} className="leading-6 text-paralight">
-                {item}
-              </p>
+              <p key={index} className="leading-6 text-paralight mb-4" dangerouslySetInnerHTML={{ __html : item}}></p>
             ))}
           </div>
         </div>
@@ -100,10 +96,8 @@ const AboutUsPage = () => {
                       {item.year}
                     </div>
                   </div>
-                  <div className="bg-transparent hover:bg-white p-3 sm:p-8 xs:pt-10 pb-8 ps-2 sm:ps-16 pe-6 xs:pe-10 rounded-bl-[30px] rounded-tr-[30px]">
-                    <h3 className="text-18 xs:text-20 sm:text-24 leading-8 font-bold">
-                      {item.heading}
-                    </h3>
+                  <div className="bg-transparent hover:bg-white p-3 sm:p-6 xs:pt-10 pb-8 ps-2 sm:ps-16 pe-6 xs:pe-10 rounded-bl-[30px] rounded-tr-[30px]">
+                    <h3 className="text-18 xs:text-20 sm:text-24 leading-8 font-bold" dangerouslySetInnerHTML={{ __html : item.heading}}></h3>
                     <p className="text-paralight font-normal leading-6 mt-2 text-12 xs:text-14 sm:text-normal">
                       {item.discription}
                     </p>
