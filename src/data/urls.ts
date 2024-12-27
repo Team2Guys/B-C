@@ -159,6 +159,7 @@ export const urls = [
     Url: 'pergola',
     errorUrl: '/commercial/pergola-curtains',
   },
+
 ];
 
 
@@ -176,7 +177,6 @@ export const predefinedPaths = {
   'skylight': '/blinds/skylight-blinds-dubai',
   'skylight-blinds': '/blinds/skylight-blinds-dubai',
   'balcony-blinds-and-curtains': '/balcony-blinds-and-curtains',
-
 };
 
 export const ChangedProductUrl = (title: string): string => {
@@ -210,6 +210,7 @@ export const CommercialUrl = [
   { urlName: "wooden-aluminium-blinds", Redirect: "/blinds/wooden-venetian" },
   { urlName: "study-room-blinds", Redirect: "/commercial" },
   { urlName: "aric-blinds", Redirect: "/" },
+  { urlName: "outdoor-blinds", Redirect: "/commercial/outdoor" },
 ]
 
 export const getProduct = [
