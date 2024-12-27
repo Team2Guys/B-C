@@ -223,9 +223,9 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         </div>
         <hr className="h-2 mt-5 md:mt-8 border-black" />
         <div className="mt-10 text-center space-y-3">
-          <h1 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
+          <h3 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
             {content.title}
-          </h1>
+          </h3>
           <p className="text-14 md:text-15 font-normal md:w-[65%] mx-auto" dangerouslySetInnerHTML={{ __html: content.subtitle}}></p>
         </div>
         {/* categorydata */}
@@ -235,7 +235,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         </div>
 
         {totalPages > 1 && (
-           <div className="flex md:justify-center items-center mt-10 lg:space-x-3 overflow-hidden">
+           <div className="flex md:justify-center items-center mt-10 lg:space-x-3 overflow-hidden justify-center">
            <Button
              variant={'secondary'}
              className=" w-14 sm:w-[55px] h-8 sm:h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"

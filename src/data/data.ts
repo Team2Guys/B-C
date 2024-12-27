@@ -1,5 +1,3 @@
-// src/data.ts
-import bgBreadcrum from '../../public/assets/images/Breadcrum/modern.png';
 import moto1 from '../../public/assets/images/MotorisedBlind/montorised1.png';
 import img1 from '../../public/assets/images/MotorisedBlind/guarantee1.png';
 import img2 from '../../public/assets/images/MotorisedBlind/businessmen1.png';
@@ -1052,6 +1050,10 @@ export const initialValues: Product = {
 export const categoryInitialValues: Category = {
   name: '',
   description: '',
+  Images_Alt_Text: '',
+  Canonical_Tag: '',
+  Meta_Title: '',
+  Meta_description: '',
 };
 
 export const loginInitialValue = {
@@ -1826,18 +1828,18 @@ export const BreakCrum_conent_pages = [
     content: 'Made to Measure Roller Blinds',
   },
 ];
-//AutomatedMoterisedData
+
 export const MoterisedContent = [
   {
     maintitle: '/automated-blinds',
     Data: [
       {
         title: 'Automated Blinds',
-        heroImage: bgBreadcrum,
+        heroImage: 'assets/images/Breadcrum/modern.png',
         infoTitle: 'Automated Blinds',
         infoSubtitle: 'Convert your windows into Smart Windows ',
         infoDescription:
-          'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These motorised blinds give you the option to control your <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">window covering</a> with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer <a href="/blinds/motorised-blinds" target="_blank" style="text-decoration:underline">remote control blinds</a> that are smooth, reliable, and long-lasting. Whether you want simple automated or fully connected, we’ve got the right custom smart blinds for you​.',
+          'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These motorised blinds give you the option to control your <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">window covering</a> with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer <a href="/blinds/motorised-blinds" target="_blank" style="text-decoration:underline">remote control blinds</a> that are smooth, reliable, and long-lasting. Whether you want simple automated or fully connected, we’ve got the right custom smart blinds for you.',
         infoImage: moto1,
         measureTitle: '“Hey Alexa, lower my Blinds”',
         measureDescription:
@@ -1891,7 +1893,7 @@ export const MoterisedContent = [
     Data: [
       {
         title: 'Automated Curtains',
-        heroImage: bgBreadcrum,
+        heroImage: 'assets/images/Breadcrum/modern.png',
         infoTitle: 'Automatic Curtains',
         infoSubtitle: 'Convert your windows into Smart Windows',
         infoDescription: `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
@@ -2665,20 +2667,22 @@ export const estimator_data = [
   {
     id: 1,
     title: 'Roller Blinds',
-    posterImage: { imageUrl: '/assets/images/blindcard/curtains.png' },
+    posterImage: { imageUrl: '/assets/images/estimator/roller.webp' },
     price: 10,
   },
 
   {
     id: 2,
     title: 'Shutters MDF',
-    posterImage: { imageUrl: '/assets/images/dynamic/Rectangle 811dds.png' },
+    posterImage: { imageUrl: '/assets/images/estimator/white1.webp' },
     price: 25,
   },
   {
     id: 3,
     title: 'Shutters Basswood',
-    posterImage: { imageUrl: '/assets/images/dynamic/Rectangle 811da.png' },
+    posterImage: { imageUrl: '/assets/images/estimator/white2.webp' },
     price: 20,
   },
 ];
+
+
