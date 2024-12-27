@@ -13,8 +13,22 @@ import { bannerData } from 'data/data';
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blinds and Curtains in Dubai  | Get A Free Quote Today',
-  description: 'If you are looking for custom blinds and curtains in Dubai, we offer the best blinds and curtains for your home, buisness or any other space. Get a free quote today.',
+  title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
+  description: 'If you are looking for blinds in dubai, or maybe curtains in Dubai, look no further. Our ZERO pressure appointment guarantee will ensure you are.....',
+  openGraph: {
+    title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
+    description: 'If you are looking for blinds in dubai, or maybe curtains in Dubai, look no further. Our ZERO pressure appointment guarantee will ensure you are.....',
+    url: 'https://b-c-eight.vercel.app',
+    images: [
+      {
+        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        alt: 'blindsandcurtains',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://b-c-eight.vercel.app',
+  },
 }
 
 export default function Home() {

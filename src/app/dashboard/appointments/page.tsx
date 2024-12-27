@@ -2,18 +2,72 @@
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import React, { useEffect, useState } from 'react';
-import { appointmentColumns } from 'data/table';
 import { useQuery } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
 import { fetchAppointments } from 'config/fetch';
-import { IAppointments } from 'types/types';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
-import { Table } from 'antd';
-
+import { Modal, Table } from 'antd';
+import { TbScanEye } from 'react-icons/tb';
+import { IAppointments } from 'types/types';
 
 const Appointments = () => {
+   const appointmentColumns = [
+    {
+      title: 'ID',
+      dataIndex: 'id',
+      width: 60,
+    },
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      width: 100,
+    },
+    {
+      title: 'Area',
+      dataIndex: 'area',
+      width: 100,
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      width: 150,
+    },
+    {
+      title: 'Phone #',
+      dataIndex: 'phone_number',
+      width: 150,
+    },
+    {
+      title: 'WhatsApp #',
+      dataIndex: 'whatsapp_number',
+      width: 120,
+    },
+    {
+      title: 'More Details',
+      width:100,
+      render: (_:IAppointments, record:IAppointments) => (
+        <TbScanEye
+          onClick={() => handleShowDetails(record)}
+          className="text-30  cursor-pointer "          
+        />
+      ),
+    },
+  ];
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filteredAppointments, setFilteredAppointments] = useState<IAppointments[]>([]);
+  
+  const [selectedAppointment, setSelectedAppointment] = useState<IAppointments | null>(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleShowDetails = (record:IAppointments) => {
+    setSelectedAppointment(record);
+    setIsModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+    setSelectedAppointment(null);
+  };
 
   const admin = Cookies.get('2guysAdminToken') || '';
   const super_admin = Cookies.get('superAdminToken') || '';
@@ -81,6 +135,8 @@ const Appointments = () => {
   }, [searchTerm, appointments]);
   
 
+  
+
 
   return (
     <>
@@ -102,10 +158,58 @@ const Appointments = () => {
               dataSource={filteredAppointments}  
               columns={appointmentColumns}
               pagination={false}
+              className='group'
             />
           )
         }
+         {isModalVisible && selectedAppointment && (
+        <Modal
+        title={
+          <div className="flex items-center space-x-3">
+            <div className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
+              {selectedAppointment.name[0]}
+            </div>
+            <span className="text-lg font-bold">
+             {selectedAppointment.name}
+            </span>
+          </div>
+        }
+          visible={isModalVisible}
+          onCancel={handleCloseModal}
+          onOk={handleCloseModal}
+          footer={null}
+        >
+          <div className="space-y-4">
+         <div className="flex items-start">
+           <span className="w-1/3 font-semibold">Preferred Contact Method:</span>
+           <span className="w-2/3">{selectedAppointment.prefered_contact_method}</span>
+         </div>
+         <div className="flex items-start">
+           <span className="w-1/3 font-semibold">Windows:</span>
+           <span className="w-2/3">{selectedAppointment.windows}</span>
+         </div>
+         <div className="flex items-start">
+           <span className="w-1/3 font-semibold">Product Type:</span>
+           <span className="w-2/3">{selectedAppointment.product_type}</span>
+         </div>
+         <div className="flex items-start">
+           <span className="w-1/3 font-semibold">How User Found Us:</span>
+           <span className="w-2/3">{selectedAppointment.how_user_find_us}</span>
+         </div>
+         <div className="flex items-start">
+           <span className="w-1/3 font-semibold">User Query:</span>
+           <span className="w-2/3">{selectedAppointment.user_query}</span>
+         </div>
+         <div className="flex items-start">
+           <span className="w-1/3 font-semibold">Preferred Date:</span>
+           <span className="w-2/3">{selectedAppointment.prefered_Date}</span>
+         </div>
+       </div>
+        </Modal>
+      )}
       </DefaultLayout>
+      
+      
     </>
   );
 };

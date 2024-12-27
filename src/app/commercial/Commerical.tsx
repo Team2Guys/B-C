@@ -7,13 +7,7 @@ import { Image as ImageAntd } from 'antd';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Link from 'next/link';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
-import {
-  // fetchCategories,
-  fetchProducts,
-  fetchSubCategories,
-} from 'config/fetch';
 import { useEffect, useState } from 'react';
 import ProductCard from 'components/ui/Product-Card';
 import {
@@ -24,21 +18,9 @@ import {
 import VideoBanner from 'components/video-banner/video-banner';
 import { IoSearch } from 'react-icons/io5';
 
-const Commercial = () => {
+const Commercial = ({ products , subCategories}: { products: IProduct[] , subCategories: ICategory[]}) => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
-
-  const { data: products, isLoading: prodloading, } = useQuery<any[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-
-  });
-  // const { data: categories, isLoading: categoryLoading } = useQuery<ICategory[]>({ queryKey: ['categories'], queryFn: fetchCategories });
-
-  const { data: subCategories, } = useQuery<ICategory[]>({
-    queryKey: ['sub-categories'],
-    queryFn: fetchSubCategories,
-  });
 
   useEffect(() => {
     if (products && subCategories) {
@@ -52,15 +34,9 @@ const Commercial = () => {
       setmixProdCategeries(arry);
     }
   }, [products, subCategories]);
-  // if (prodloading || categoryLoading) {
-  if (prodloading ) {
-    return <div></div>;
-  }
-
-
+ 
   return (
     <div>
-      {/* title="" image={bgBreadcrum} /> */}
       <VideoBanner title={`Commercial`} />
       <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4">
         <div className="w-full md:w-1/2">
@@ -141,11 +117,11 @@ const Commercial = () => {
                 return (
                   <div key={product.id} className="relative rounded-lg transition-shadow duration-300 group">
                     <ImageAntd
-                      src={posterImage?.imageUrl || '/default-image.jpg'} // Default image for missing data
+                      src={posterImage?.imageUrl || '/default-image.jpg'}
                       alt={altText}
                       className="rounded-xl"
-                      width={500} // Use your preferred width
-                      height={500} // Use your preferred height
+                      width={500} 
+                      height={500} 
                       preview={{
                         mask: (
                           <div>

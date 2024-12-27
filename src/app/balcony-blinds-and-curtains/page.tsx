@@ -1,58 +1,70 @@
-'use client';
-import { useQuery } from '@tanstack/react-query';
 import NotFound from 'app/not-found';
 import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
-import PageSkelton from 'components/Skeleton/PageSkelton';
 import { fetchSubCategories } from 'config/fetch';
-import {  CommercialUrl, urls } from 'data/urls';
-import {  usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { ICategory } from 'types/types';
 
 
-const CommercialPage = () => {
-  const [isNotFound, setIsNotFound] = useState(false);
-  const path = usePathname();
+export async function generateMetadata(): Promise<Metadata> {
+  const headersList = headers();
+  let product = "Balcony Blinds And Curtains"
+  const subCategories:ICategory[] = await fetchSubCategories();
+  const filteredCatgory = subCategories.find((c) => c.title === product);
+  const domain =
+    headersList.get('x-forwarded-host') || headersList.get('host') || '';
+  const protocol = headersList.get('x-forwarded-proto') || 'https';
+  const pathname = headersList.get('x-invoke-path') || '/';
+
+  const fullUrl = `${protocol}://${domain}${pathname}`;
+
+  let ImageUrl =
+  filteredCatgory?.posterImage.imageUrl ||
+    'blindsandcurtains';
+  let alt =
+  filteredCatgory?.posterImage.altText ||
+    'blindsandcurtains';
+
+  let NewImage = [
+    {
+      url: ImageUrl,
+      alt: alt,
+    },
+  ];
+  let title =
+  filteredCatgory?.Meta_Title ||
+    'blindsandcurtains';
+    console.log(title,'title')
+  let description =
+  filteredCatgory?.Meta_description ||
+    'Welcome to blindsandcurtains';
+  let url = `${fullUrl}balcony-blinds-and-curtains`;
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: url,
+      images: NewImage,
+    },
+    alternates: {
+      canonical:
+      filteredCatgory?.Canonical_Tag || url,
+    },
+  };
+}
+
+const CommercialPage = async () => {
   let product = "Balcony Blinds And Curtains"
  
-
-const router =   useRouter();
-  const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
-    queryKey: ['sub-categories'],
-    queryFn: fetchSubCategories,
-  });
-  
-  const redirected_product = CommercialUrl.find((prod:{urlName:string, Redirect: string})=>{
-    return( prod.urlName == String(product)?.toLowerCase())
-      })
-    
-      if(redirected_product){
-        router.push(redirected_product.Redirect);
-      }
+ const subCategories = await fetchSubCategories();
 
 
   const filteredSubCategory = subCategories?.find((sub) => sub.title === product,
   );
 
-  useEffect(() => {
-    if (path) {
-      const matchingUrl = urls.find((url) => url.errorUrl === path);
-      console.log(path,"pathnamepathname")
-      if (matchingUrl) {
-        console.log(matchingUrl, "matchingUrl");
-        setIsNotFound(true);
-      } else {
-        setIsNotFound(false);
-      }
-    }
-  }, [path]);
-
-
-  if (subLoading) {
-    return <PageSkelton />;
-  }
-
-  if (isNotFound || (!filteredSubCategory)) {
+  if (!filteredSubCategory) {
     return <NotFound />;
   }
 
