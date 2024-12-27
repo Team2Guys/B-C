@@ -181,7 +181,7 @@ const Header = () => {
                     className={
                       link.label === 'Commercial' && isBalconyActive
                         ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                        : link.label === 'Moterised' && ismoterised
+                        : link.label === 'Motorised' && ismoterised
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                           : !isBalconyActive && !ismoter && (isBlogActive || isActive)
                             ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
@@ -193,7 +193,7 @@ const Header = () => {
                   <Link
                     key={index}
                     className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${
-                      link.label === 'Moterised' && ismoterised
+                      link.label === 'Motorised' && ismoterised
                         ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                         : isBlogActive || isActive
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
