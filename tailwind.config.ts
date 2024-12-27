@@ -21,7 +21,9 @@ const config = {
       fontFamily: {
         gotham: ['var(--font-gotham)', 'sans-serif'],
       },
-
+      backgroundSize: {
+        'custom-size': '100% 500px',
+      },
       backgroundImage:{
         hero: "url('/assets/images/bg-hero.png')",
         men: "url('/assets/images/static/menimage.png')",
