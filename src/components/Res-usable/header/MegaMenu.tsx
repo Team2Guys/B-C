@@ -213,7 +213,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           >
             <Container>
               {
-                title === 'Moterised' ? 
+                title === 'Motorised' ? 
                 <div className='flex justify-between'>
                 <div className='flex flex-col gap-4 w-fit'>
                   {MoterisedData.map((product,index) => (
@@ -347,7 +347,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           className="bg-transparent"
         >
               {
-                title === 'Moterised' ? 
+                title === 'Motorised' ? 
                 <div className='flex justify-between'>
                 <div className='flex flex-col py-2 w-fit'>
                   {MoterisedData.map((product,index) => (
