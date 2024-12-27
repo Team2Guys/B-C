@@ -364,7 +364,7 @@ const Settings = () => {
                       type="submit"
                       disabled={loading}
                     >
-                     {loading ? <Loader color="white" /> :  "Save"}
+                     {loading ? <Loader color="#fff" /> :  "Save"}
                     </Button>
                   </div>
                 </form>
