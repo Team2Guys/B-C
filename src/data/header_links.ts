@@ -10,3 +10,9 @@ export const links = [
   { href: '/about-us', label: 'About Us' },
   { href: '/contact-us', label: 'Contact Us'},
 ];
+
+export const blogLinks = [
+  { href: 'blinds', label: 'Blinds', id: 2 },
+  { href: 'curtains', label: 'Curtains', id: 5 },
+  { href: 'shutters', label: 'Shutters', id: 9 },
+];
