@@ -13,7 +13,6 @@ interface TopHeroProps {
   image: any;
   home?: string;
   pagename?: string;
-  backgroundposition?: string;
   pageTitle?: string;
 }
 
@@ -22,7 +21,6 @@ const TopHero: React.FC<TopHeroProps> = ({
   image,
   home,
   pagename,
-  backgroundposition,
   pageTitle,
 }) => {
   const [pageName, setPageName] = useState<string[]>([]);
@@ -55,7 +53,6 @@ const TopHero: React.FC<TopHeroProps> = ({
       style={{
         backgroundImage: `url(${image})`,
         backgroundOrigin: 'content-box',
-        // aspectRatio:"5/3"
       }}
     >
       {/* <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div> */}
