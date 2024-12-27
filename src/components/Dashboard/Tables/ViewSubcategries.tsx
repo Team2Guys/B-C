@@ -18,16 +18,6 @@ import { fetchCategories } from 'config/fetch';
 import { ICategory } from 'types/types';
 import { useQuery } from '@tanstack/react-query';
 
-// interface ICategory {
-//   id: string;
-//   name: string;
-//   title: string;
-//   category: string;
-//   posterImageUrl: string;
-//   createdAt: string;
-//   CategoryId: number;
-// }
-
 interface CategoryProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
   seteditCategory?: React.Dispatch<
@@ -195,7 +185,7 @@ const ViewSubcategries = ({
         return <span>{record.last_editedBy}</span>;
       },
     },
-       {
+    {
           title: 'Preview',
           key: 'Preview',
           render: (text: string, record: ICategory) => {
@@ -216,7 +206,7 @@ const ViewSubcategries = ({
               />
             );
           },
-        },
+    },
     {
       title: 'Edit',
       key: 'Edit',
