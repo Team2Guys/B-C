@@ -43,6 +43,19 @@ export const generateSlug = (text: string) => {
     .replace(/[^\w\-]+/g, '')
     .replace(/\-\-+/g, '-');
 };
+
+export const reverseSlug = (slug: string): string => {
+  if (!slug) return '';
+
+  return slug
+    .toString()
+    .replace(/-/g, ' ')                  // Replace hyphens with spaces
+    .replace(/\s+/g, ' ')                 // Condense multiple spaces into a single space
+    .replace(/^\s+|\s+$/g, '')            // Trim any leading/trailing spaces
+    .replace(/\b\w/g, (match) => match.toUpperCase()); // Capitalize the first letter of each word
+};
+
+
 /* eslint-enable no-useless-escape */
 
 export const cardData: CardTypes[] = [
@@ -2683,20 +2696,20 @@ export const estimator_data = [
   {
     id: 1,
     title: 'Roller Blinds',
-    posterImage: { imageUrl: '/assets/images/blindcard/curtains.png' },
+    posterImage: { imageUrl: '/assets/images/estimator/roller.webp' },
     price: 10,
   },
 
   {
     id: 2,
     title: 'Shutters MDF',
-    posterImage: { imageUrl: '/assets/images/dynamic/Rectangle 811dds.png' },
+    posterImage: { imageUrl: '/assets/images/estimator/white1.webp' },
     price: 25,
   },
   {
     id: 3,
     title: 'Shutters Basswood',
-    posterImage: { imageUrl: '/assets/images/dynamic/Rectangle 811da.png' },
+    posterImage: { imageUrl: '/assets/images/estimator/white2.webp' },
     price: 20,
   },
 ];

@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { supportItems } from 'data/data';
 import { FaStar } from 'react-icons/fa';

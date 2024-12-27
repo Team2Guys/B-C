@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
+import {Client} from "@googlemaps/google-maps-services-js";
 
 function SampleNextArrow(props: any) {
   const { onClick } = props;
@@ -35,6 +36,8 @@ function SamplePrevArrow(props: any) {
     </div>
   );
 }
+
+const client = new Client({});
 
 interface Review {
   author_name: string;

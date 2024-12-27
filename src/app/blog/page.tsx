@@ -8,6 +8,7 @@ import BlogMain from 'components/Blogs/blog-main';
 import axios, { AxiosResponse } from 'axios';
 import { Suspense } from 'react';
 import PopularBlog from 'components/Blogs/popular-blog';
+import { Metadata } from 'next';
 
 const fetchBlogs = async (): Promise<BlogInfo[]> => {
   try {
@@ -20,6 +21,27 @@ const fetchBlogs = async (): Promise<BlogInfo[]> => {
     return [];
   }
 };
+
+
+export const metadata: Metadata = {
+  title: 'blindsandcurtains',
+  description: 'Welcome to blogs of blindsandcurtains',
+  openGraph: {
+    title: 'blindsandcurtains',
+    description: 'Welcome to blogs of blindsandcurtains',
+    url: 'https://b-c-eight.vercel.app/blog',
+    images: [
+      {
+        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        alt: 'blindsandcurtains',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://b-c-eight.vercel.app/blog',
+  },
+};
+
 
 const Blog = async () => {
   const blogs = await fetchBlogs();
