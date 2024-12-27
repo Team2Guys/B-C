@@ -1,5 +1,4 @@
 'use client';
-import { useQuery } from '@tanstack/react-query';
 import BlogMain from 'components/Blogs/blog-main';
 import OurBlog from 'components/Blogs/our-blog';
 import Container from 'components/Res-usable/Container/Container';
@@ -7,7 +6,6 @@ import PageSkelton from 'components/Skeleton/PageSkelton';
 import Comments from 'components/comments/Comments';
 import TopHero from 'components/ui/top-hero';
 import { formatDateMonth } from 'config';
-import { fetchBlogs, fetchCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { blogCategoryUrl } from 'data/urls';
 import Image from 'next/image';
@@ -21,7 +19,7 @@ import { ICategory } from 'types/types';
 import { blogLinks } from 'data/header_links';
 import NotFound from 'app/not-found';
 
-const Blog = () => {
+const Blog = ({ blogs , categories }: { blogs: BlogInfo[] , categories:ICategory[] }) => {
   const { name } = useParams();
   const pathName = usePathname();
   const [catgoryPage, setCatgoryPage] = useState<{
@@ -33,16 +31,6 @@ const Blog = () => {
   const [filterCategoryPosts, setfilterCategoryPosts] = useState<BlogInfo[]>(
     [],
   );
-
-  const { data: blogs, isLoading } = useQuery<BlogInfo[]>({
-    queryKey: ['blogs'],
-    queryFn: fetchBlogs,
-  });
-
-  const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
 
   const category = categories?.find(
     (category) => category.title === catgoryPage?.name,
@@ -96,13 +84,12 @@ const Blog = () => {
 
   return (
     <>
-      {isLoading || !catgoryPageSkeleton ? (
+      {!catgoryPageSkeleton ? (
         <PageSkelton />
       ) : catgoryPage ? (
         <>
           <TopHero
             title={catgoryPage?.name || 'blogs'}
-            //@ts-expect-error
             image={`${category?.bannerImage?.imageUrl || bgBreadcrum.src}`}
             pagename={pathName}
           />

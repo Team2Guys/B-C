@@ -8,7 +8,6 @@ import BlogMain from 'components/Blogs/blog-main';
 import axios, { AxiosResponse } from 'axios';
 import { Suspense } from 'react';
 import PopularBlog from 'components/Blogs/popular-blog';
-import { headers } from 'next/headers';
 import { Metadata } from 'next';
 
 const fetchBlogs = async (): Promise<BlogInfo[]> => {
@@ -24,41 +23,24 @@ const fetchBlogs = async (): Promise<BlogInfo[]> => {
 };
 
 
-export async function generateMetadata(): Promise<Metadata> {
-  const headersList = headers();
-  const domain =
-    headersList.get('x-forwarded-host') || headersList.get('host') || '';
-  const protocol = headersList.get('x-forwarded-proto') || 'https';
-  const pathname = headersList.get('x-invoke-path') || '/';
-
-  const fullUrl = `${protocol}://${domain}${pathname}`;
-
-  let ImageUrl = 'blindsandcurtains';
-  let alt = 'blindsandcurtains';
-
-  let NewImage = [
-    {
-      url: ImageUrl,
-      alt: alt,
-    },
-  ];
-  let title = 'blindsandcurtains';
-  let description = 'Welcome to blindsandcurtains';
-  let url = `${fullUrl}blog`;
-  return {
-    title: 'title',
-    description: 'description',
-    openGraph: {
-      title: title,
-      description: description,
-      url: url,
-      images: NewImage,
-    },
-    alternates: {
-      canonical: 'test',
-    },
-  };
-}
+export const metadata: Metadata = {
+  title: 'blindsandcurtains',
+  description: 'Welcome to blogs of blindsandcurtains',
+  openGraph: {
+    title: 'blindsandcurtains',
+    description: 'Welcome to blogs of blindsandcurtains',
+    url: 'https://b-c-eight.vercel.app/blog',
+    images: [
+      {
+        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        alt: 'blindsandcurtains',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://b-c-eight.vercel.app/blog',
+  },
+};
 
 
 const Blog = async () => {

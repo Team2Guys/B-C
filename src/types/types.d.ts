@@ -36,6 +36,7 @@ export interface ICategory {
   id: number;
   category: any;
   posterImage: PosterImage;
+  bannerImage?: PosterImage;
   products: [];
   createdAt: Date;
   Meta_Title?: string;

@@ -10,9 +10,7 @@ import { Metadata } from "next";
 export async function generateMetadata({ params }: { params: { subproduct: string } }): Promise<Metadata> {
   const { subproduct } = params;
   const Cateories = [2];
-  const [products] = await Promise.all([
-    fetchProducts(),
-  ]);
+  const products = await fetchProducts();
 
   const filteredProduct = products?.find(
     (prod) =>

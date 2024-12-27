@@ -1,7 +1,7 @@
 import { ICategory } from "types/types";
 import Blog from "./Blog";
 import { headers } from "next/headers";
-import { fetchCategories } from "config/fetch";
+import { fetchBlogs, fetchCategories } from "config/fetch";
 import { blogLinks } from "data/header_links";
 import { Metadata } from "next";
 
@@ -9,9 +9,7 @@ export async function generateMetadata({ params }: { params: { name: string } })
   const { name } = params;
   const matchingLink = blogLinks.find((link) =>
       link.href === name);
-  const [ categories] = await Promise.all([
-    fetchCategories(),
-  ]);
+  const categories = await fetchCategories();
 
 
   const filterCategory = categories.find((category) => category.title === matchingLink?.label);
@@ -60,10 +58,13 @@ export async function generateMetadata({ params }: { params: { name: string } })
     },
   };
 }
-const BlogDetail = () => {
-
+const BlogDetail = async () => {
+  const [ categories , blogs] = await Promise.all([
+    fetchCategories(),
+    fetchBlogs()
+  ]);
   return (
-    <Blog />
+    <Blog categories={categories} blogs={blogs} />
   );
 };
 
