@@ -88,9 +88,9 @@ export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
   heading: 'We offer window treatments for homes or offices in Dubai',
   paragraph: [
-    `Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and shutters. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function. Blinds and Curtains Dubai has the largest selection of custom blinds in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).
+    `Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and <a href="/shutters-range" target="_blank" style="text-decoration: underline">shutters</a>. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function. Blinds and Curtains Dubai has the largest selection of <a href="/made-to-measure-blinds" target="_blank" style="text-decoration: underline">custom blinds</a> in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).
 
-As a trusted window treatment company, we bring style and functionality to every room. Whether you’re looking for custom blinds, or blackout curtains we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure curtains to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.`,
+As a trusted window treatment company, we bring style and functionality to every room. Whether you’re looking for custom blinds, or <a href="/curtains/blackout-curtains-dubai" target="_blank" style="text-decoration:underline">blackout curtains</a> we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure <a href="/made-to-measure-curtains" target="_blank" style="text-decoration: underline">curtains</a> to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.`,
   ],
   buttonText: 'Read More',
 };
@@ -1804,9 +1804,10 @@ export const categoriesContent = [
       subheading2: 'More than 6 Styles + 2000 Different Materials & Colours',
       posterImage: '/assets/images/Curtain/landing/landing.webp',
       subheadingContent: [
+        
         {
           content:
-            'When it comes to curtains, there is no such thing as "standard." We offer ripple folds to create smooth, flowing elegance, pinch pleats to provide refinement, and eyelets to add simplicity without sacrificing style. With fabrics that do more-like blackout for better sleep or textures that add warmth-you&apos;ll see we&apos;re more than providing a standard curtains service. As with our <a href="/blinds/blackout-blinds" target="_blank" style="text-decoration: underline">blackout blinds</a> and <a href="/blinds/roller-blinds/sunscreen-roller-blinds" style="text-decoration: underline">sunscreen blinds</a>, our curtains make sure you sleep soundly.',
+            "When it comes to curtains, there is no such thing as 'standard. We offer <a href='/curtains/made-to-measure-sheer-curtains' style='text-decoration: underline'>sheer curtains</a> to create smooth, flowing elegance, pinch pleats to provide refinement, and eyelets to add simplicity without sacrificing style. With fabrics that do more-like <a href='/curtains/blackout-curtains-dubai' style='text-decoration: underline'>blackout curtains</a> for better sleep or textures that add warmth-you'll see we're more than providing a standard curtains service. ",
         },
         {
           content:
@@ -1828,7 +1829,7 @@ export const categoriesContent = [
       subheadingContent: [
         {
           content:
-            'Our made-to-measure shutters are custom-designed window coverings that fit your windows&apos; exact dimensions and style. We make sure our custom made shutters match the size and shape of your unique windows; this includes unique shapes like arches, circles, or bay windows. Shutters are available in a variety of stunning colors, like white, <a href="/shutters-range/off-white-shutters" target="_blank" style="text-decoration: underline">off-white</a>, black, bold shades, grey, and dark wood, with premium materials such as wood, faux wood, vinyl, and composite. Our shutters are built for longevity. We crafted these shutters with reinforced hinges and quality finishes to resist wear and tear. These easy-to-clean shutters are less likely to harbor allergens. We provide free uninstall and reinstallation services and have a committed staff of 50 experts. We&apos;re not only here to make sales. We are here to help you, from the initial meeting to the last installation. ',
+            'Our made-to-measure shutters are custom-designed <a href="/" target="_blank" style="text-decoration: underline">window coverings</a> that fit your windows&apos; exact dimensions and style. We make sure our custom made shutters match the size and shape of your unique windows; this includes unique shapes like arches, circles, or bay windows. Shutters are available in a variety of stunning colors, like white, <a href="/shutters-range/off-white-shutters" target="_blank" style="text-decoration: underline">off-white</a>, black, bold shades, grey, and <a href="/shutters-range/dark-wood-shutters" target="_blank" style="text-decoration: underline">dark wood</a>, with premium materials such as wood, faux wood, vinyl, and composite. Our shutters are built for longevity. We crafted these shutters with reinforced hinges and quality finishes to resist wear and tear. These easy-to-clean shutters are less likely to harbor allergens. We provide free uninstall and reinstallation services and have a committed staff of 50 experts. We&apos;re not only here to make sales. We are here to help you, from the initial meeting to the last installation. ',
         },
       ],
     },
@@ -2383,7 +2384,7 @@ export const ByColorContent = [
     content: {
       heading: 'Black Shutters - Bold and Sophisticated',
       paragraph:
-        'Black shutters are a great pick if you&apos;re going for a bold, sophisticated look. Black plantation shutters make a statement and work as a versatile backdrop for other design elements in the room. They also provide excellent light and privacy control, just like off-white plantation shutters. At <a href="/" target="_blank" style="text-decoration: underline">Blinds and Curtains Dubai</a>, we&apos;ve got a great selection of <a href="/shutters-range" target="_blank" style="text-decoration: underline">black window shutters</a> to elevate your home&apos;s interior design.',
+        'Black shutters are a great pick if you&apos;re going for a bold, sophisticated look. Black plantation shutters make a statement and work as a versatile backdrop for other design elements in the room. They also provide excellent light and privacy control, just like off-white plantation shutters. At <a href="/" target="_blank" style="text-decoration: underline">Blinds and Curtains Dubai</a>, we&apos;ve got a great selection of black <a href="/shutters-range" target="_blank" style="text-decoration: underline">window shutters</a> to elevate your home&apos;s interior design.',
       subheading1: '',
       subheading2: '',
       subheadingContent: [
@@ -2605,7 +2606,7 @@ export const categorydata = [
         type: 'By Style',
         title: 'Perfect for Any Taste & Every Window',
         subtitle:
-          'Choose curtains that fit your personal style and enhance your space.',
+          'Choose affordable custom curtains that fit your personal style and enhance your space.',
       },
       {
         type: 'By Room',
@@ -2615,9 +2616,9 @@ export const categorydata = [
       },
       {
         type: 'dynamic',
-        title: 'Explore Our Rich Fabric Collection',
+        title: 'Explore Our Bespoke Curtains Collection',
         subtitle:
-          'Discover curtains in a variety of fabrics, from sheer to velvet for every window.',
+          'Discover bespoke curtains in a variety of fabrics, from sheer to velvet for every window.',
       },
     ],
   },

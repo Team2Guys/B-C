@@ -504,6 +504,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Room Curtains',
+    static_Title:"Thousands of Fabric Choices for Room Curtains",
     Product: [
       {
         product_name: 'Double Pinch Pleat Curtains',
@@ -1052,7 +1053,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Theatre Curtains',
-    static_Title: 'Made To Measure Theatre, Stage & Backdrop Curtains ',
+    static_Title: 'Theatre, Stage & Backdrop Curtains',
     Product: [
       {
         product_name: 'Pinch Pleat Curtains',
