@@ -585,7 +585,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </label>
                         {isLoading ? (
                           <div>
-                            <Loader color="white" />
+                            <Loader color="#fff" />
                           </div>
                         ) : (
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1346,7 +1346,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                 type="submit"
                 className="px-10 py-2 mt-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white"
               >
-                {loading ? <Loader color="white" /> : 'Submit'}
+                {loading ? <Loader color="#fff" /> : 'Submit'}
               </button>
             </Form>
           );

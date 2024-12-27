@@ -100,7 +100,7 @@ const ViewSubcategries = ({
   });
 
   // Filter products based on search term
-  const filteredProducts: Product[] =
+  const filteredProducts: ICategory[] =
     category?.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
     ) || [];
@@ -173,7 +173,7 @@ const ViewSubcategries = ({
       title: 'Date',
       dataIndex: 'createdAt',
       key: 'date',
-      render: (text: any, record: Product) => {
+      render: (text: any, record: ICategory) => {
         const createdAt = new Date(record.createdAt);
         return <span>{createdAt.toLocaleDateString()}</span>;
       },
@@ -182,7 +182,7 @@ const ViewSubcategries = ({
       title: 'Time',
       dataIndex: 'createdAt',
       key: 'time',
-      render: (text: string, record: Product) => {
+      render: (text: string, record: ICategory) => {
         const createdAt = new Date(record.createdAt);
         return <span>{createdAt.toLocaleTimeString()}</span>;
       },
@@ -198,7 +198,7 @@ const ViewSubcategries = ({
        {
           title: 'Preview',
           key: 'Preview',
-          render: (text: string, record: Product) => {
+          render: (text: string, record: ICategory) => {
             const category = categories?.find((i) => i.id === record.CategoryId);
             if (category === undefined) return null;
             const parent = generateSlug(category?.title);

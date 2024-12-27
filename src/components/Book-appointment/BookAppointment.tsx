@@ -669,7 +669,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
             className="w-fit bg-[#A9B4A4] text-white py-2 px-8 sm:px-14 rounded"
             disabled={loading}
           >
-            {loading ? <Loader color="white" /> : 'Submit Request'}
+            {loading ? <Loader color="#fff" /> : 'Submit Request'}
           </button>
         </div>
       </form>
