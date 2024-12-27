@@ -335,7 +335,7 @@ const AddBlogs = ({
                 className="text-white bg-primary px-4 py-2 font-semibold rounded-md"
               >
                 {addBlogMutation.isPending ? (
-                  <Loader color="white" />
+                  <Loader color="#fff" />
                 ) : (
                   'Submit'
                 )}
