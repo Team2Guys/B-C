@@ -38,7 +38,8 @@ function SamplePrevArrow(props: any) {
 }
 
 const client = new Client({});
-
+console.log(client, "client"
+)
 interface Review {
   author_name: string;
   author_url: string;
