@@ -56,7 +56,7 @@ function UserprotectedRoute(WrappedComponent: any) {
             justifyContent: 'center',
           }}
         >
-          <Loader color="white" />
+          <Loader color="#fff" />
         </div>
       );
     } else {
