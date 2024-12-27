@@ -6,9 +6,7 @@ import Container from 'components/Res-usable/Container/Container';
 import Support from 'components/Res-usable/support/support';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
-import {
-  fetchProducts,
-} from 'config/fetch';
+import { fetchProducts } from 'config/fetch';
 import { ByColorContent, colorData } from 'data/data';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -20,9 +18,12 @@ import { IColorData } from 'types/interfaces';
 import ThumbImage from 'components/Detail/ThumbImage/ThumbImage';
 interface ShuttersByColorProps {
   title: string;
-  // subCategory?: string;
+  subCategory?: any;
 }
-const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
+const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
+  title,
+  subCategory,
+}) => {
   const [selectedPage, setSelectedPage] = useState<{
     heading: string;
     paragraph: string;
@@ -33,15 +34,14 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
     }[];
   } | null>(null);
   // const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
-  const [loadingFilteredProducts, setLoadingFilteredProducts] = useState<boolean>(false);
+  const [loadingFilteredProducts, setLoadingFilteredProducts] =
+    useState<boolean>(false);
   const [relaiveProducts, setRelaiveProducts] = useState<IProduct[]>([]);
   const [colorImages, setcolorImages] = useState<IColorData>();
   // const [showAll, setShowAll] = useState(false);
   const pathname = usePathname();
   const route = useRouter();
-  const {
-    data: products,
-  } = useQuery<IProduct[]>({
+  const { data: products } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
@@ -55,15 +55,14 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
 
   const getColorHex = (path: string) => {
     const colorMatch = colorData.find((color) => color.url === path);
-    console.log(colorMatch,"Shutter-Color")
+    console.log(colorMatch, 'Shutter-Color');
     return colorMatch ? colorMatch : null;
   };
 
-
   useEffect(() => {
-    setLoadingFilteredProducts(false)
+    setLoadingFilteredProducts(false);
     const selectedColorHex = getColorHex(pathname);
-    console.log(selectedColorHex,"selectedColorHex")
+    console.log(selectedColorHex, 'selectedColorHex');
 
     if (selectedColorHex) {
       /* Later usage filter product by color */
@@ -73,7 +72,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
       // console.log(filteredByColor);
       setcolorImages(selectedColorHex);
       // setFilteredProducts(filteredByColor);
-      setLoadingFilteredProducts(true)
+      setLoadingFilteredProducts(true);
     }
   }, [pathname]);
 
@@ -103,14 +102,12 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
     }
   };
 
-
-
   return (
     <>
       <TopHero
         title={title}
         pageTitle={`${title}`}
-        image={bgBreadcrum}
+        image={`${subCategory?.bannerImage?.imageUrl || bgBreadcrum.src}`}
         pagename={title}
       />
 
@@ -121,7 +118,8 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
           </div>
           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4 py-10">
             {colorData.map((item, index) => (
-              <div onClick={(event) => handleNavigation( event,item.url)}
+              <div
+                onClick={(event) => handleNavigation(event, item.url)}
                 className="flex-col items-center gap-2 cursor-pointer color-box-wrapper"
                 key={`${item.color}-${index}`}
               >
@@ -138,17 +136,25 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
         </Container>
       </div>
       <Container className="mb-5 mt-10">
-
-        {loadingFilteredProducts ? colorImages ? (
-          <>
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl">
-                <span className="font-bold">{selectedPage?.heading || title}</span> By Colour
-              </h2>
-              <p className="font-normal text-xs sm:text-16 leading-7 sm:leading-9 text-center text-black" dangerouslySetInnerHTML={{ __html: selectedPage ? selectedPage?.paragraph : ''}}></p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-10">
-              {/* {filteredProducts.map((item) => {
+        {loadingFilteredProducts ? (
+          colorImages ? (
+            <>
+              <div className="text-center space-y-4">
+                <h2 className="text-3xl">
+                  <span className="font-bold">
+                    {selectedPage?.heading || title}
+                  </span>{' '}
+                  By Colour
+                </h2>
+                <p
+                  className="font-normal text-xs sm:text-16 leading-7 sm:leading-9 text-center text-black"
+                  dangerouslySetInnerHTML={{
+                    __html: selectedPage ? selectedPage?.paragraph : '',
+                  }}
+                ></p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-10">
+                {/* {filteredProducts.map((item) => {
                 const filteredCategory = categoriesList.find(
                   (cat) => cat.id === item?.CategoryId,
                   
@@ -164,11 +170,15 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({ title }) => {
                     />
                     );
                     })} */}
-            <ThumbImage card={colorImages} />
-            </div>
-          </>) : (
-          <p className="text-18 font-medium">No Products found😢</p>
-        ) : <CardSkeleton />}
+                <ThumbImage card={colorImages} />
+              </div>
+            </>
+          ) : (
+            <p className="text-18 font-medium">No Products found😢</p>
+          )
+        ) : (
+          <CardSkeleton />
+        )}
 
         {/* {!showAll && filteredProducts.length > 6 && (
           <div className="text-center">

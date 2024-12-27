@@ -43,6 +43,10 @@ const AddBlogs = ({
     title: EditInitialValues?.title || '',
     category: EditInitialValues?.category || '',
     content: EditInitialValues?.content || '',
+    Images_Alt_Text: EditInitialValues?.Images_Alt_Text || '',
+    Canonical_Tag: EditInitialValues?.Canonical_Tag || '',
+    Meta_Title: EditInitialValues?.Meta_Title || '',
+    Meta_description: EditInitialValues?.Meta_description || '',
   };
   const queryClient = useQueryClient();
 
@@ -188,7 +192,7 @@ const AddBlogs = ({
                   type="text"
                   name="title"
                   placeholder="Title"
-                  value={values.title} // Added value prop
+                  value={values.title}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   onChange={(e) => setFieldValue('title', e.target.value)}
                 />
@@ -267,6 +271,63 @@ const AddBlogs = ({
             }}
           /> */}
               <MyEditor setFieldValue={setFieldValue} values={values} />
+              <div>
+                <label className=" block text-16 font-medium text-black dark:text-white">
+                  Meta Title
+                </label>
+                <input
+                  type="text"
+                  name="Meta_Title"
+                  placeholder="Enter Meta Title"
+                  value={values.Meta_Title}
+                  className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  onChange={(e) => setFieldValue('Meta_Title', e.target.value)}
+                />
+              </div>
+              <div>
+                <label className=" block text-16 font-medium text-black dark:text-white">
+                  Canonical Tag
+                </label>
+                <input
+                  type="text"
+                  name="Canonical_Tag"
+                  placeholder="Enter Canonical Tag"
+                  value={values.Canonical_Tag}
+                  className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  onChange={(e) =>
+                    setFieldValue('Canonical_Tag', e.target.value)
+                  }
+                />
+              </div>
+              <div>
+                <label className=" block text-16 font-medium text-black dark:text-white">
+                  Meta Description
+                </label>
+                <textarea
+                  name="Meta_description"
+                  placeholder="Enter Meta Description"
+                  value={values.Meta_description}
+                  className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  onChange={(e) =>
+                    setFieldValue('Meta_description', e.target.value)
+                  }
+                />
+              </div>
+              <div>
+                <label className=" block text-16 font-medium text-black dark:text-white">
+                  Image ALT text
+                </label>
+                <input
+                  type="text"
+                  name="Images_Alt_Text"
+                  placeholder="Enter Image ALT text"
+                  value={values.Images_Alt_Text}
+                  className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  onChange={(e) =>
+                    setFieldValue('Images_Alt_Text', e.target.value)
+                  }
+                />
+              </div>
 
               <Button
                 disabled={addBlogMutation.isPending ? true : false}
@@ -274,7 +335,7 @@ const AddBlogs = ({
                 className="text-white bg-primary px-4 py-2 font-semibold rounded-md"
               >
                 {addBlogMutation.isPending ? (
-                  <Loader color="white" />
+                  <Loader color="#fff" />
                 ) : (
                   'Submit'
                 )}

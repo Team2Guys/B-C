@@ -136,7 +136,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
       let bannerImage = bannerImageUrl && bannerImageUrl[0];
       let hoverImageUrl = hoverImage && hoverImage[0];
-      if (!posterImageUrl || !bannerImageUrl || !(imagesUrl.length > 0)) {
+      if (!posterImageUrl || !(imagesUrl.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
       }
 
@@ -144,7 +144,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         ...values,
         title: values.name,
         posterImage: posterImageUrl,
-        bannerImage: bannerImage,
+        bannerImage: bannerImage !== undefined ? bannerImage : null,
         hoverImage: hoverImageUrl,
         imageUrls: imagesUrl,
         price: values.salePrice,
@@ -256,6 +256,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setSelectedSubcategoryIds([]);
 
       updateFlag ? setEditProduct && setEditProduct(undefined) : null;
+      setselecteMenu('Add All Products');
     } catch (err: any) {
       if (err.response && err.response.data && err.response.data.message) {
         setError(err.response.data.message);
@@ -584,7 +585,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </label>
                         {isLoading ? (
                           <div>
-                            <Loader />
+                            <Loader color="#fff" />
                           </div>
                         ) : (
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1345,7 +1346,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                 type="submit"
                 className="px-10 py-2 mt-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white"
               >
-                {loading ? <Loader color="white" /> : 'Submit'}
+                {loading ? <Loader color="#fff" /> : 'Submit'}
               </button>
             </Form>
           );

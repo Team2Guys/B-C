@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/endering.png';
 import TopHero from 'components/ui/top-hero';
@@ -10,7 +10,11 @@ const AppointmentPage = () => {
   const pathName = usePathname();
   return (
     <div>
-      <TopHero title="appointment" image={bgBreadcrum} pagename={pathName} />
+      <TopHero
+        title="appointment"
+        image={bgBreadcrum.src}
+        pagename={pathName}
+      />
       <Container className="lg:pt-16 pt-5 lg:pb-10 pb-5">
         <h3 className="font-bold lg:text-33 text-center lg:p-2 p-3 text-16 text-white tracking-[5px] bg-primary w-fit px-2 mx-auto rounded-md">
           BOOK YOUR FREE APPOINTMENT
