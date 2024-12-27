@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
   footerLinks,
   footerInfo,
@@ -8,6 +8,7 @@ import {
   phoneNumberInfo,
   WhatsAppInfo,
   EmailInfo,
+  footerData,
 } from 'data/data';
 import { IoLogoPinterest } from 'react-icons/io5';
 import { AiOutlineInstagram } from 'react-icons/ai';
@@ -21,32 +22,10 @@ import {
   fetchProducts,
   fetchSubCategories,
 } from 'config/fetch';
-import { updateProductTitle } from 'components/ui/menu-card';
-import {
-  ChangedProductUrl_handler,
-  getProduct,
-  predefinedPaths,
-  urls,
-} from 'data/urls';
+import { ChangedProductUrl_handler, predefinedPaths, urls } from 'data/urls';
 import { Skeleton } from 'components/ui/skeleton';
 
 const Footer: React.FC = () => {
-  // const { data: products, isLoading } = useQuery<IProduct[]>({
-  //   queryKey: ['products'],
-  //   queryFn: fetchProducts,
-  // });
-
-  // const { data: categories } = useQuery<ICategory[]>({
-  //   queryKey: ['categories'],
-  //   queryFn: fetchCategories,
-  // });
-
-  // const { data: subcategories, isLoading: subCategoriesIsLoading } = useQuery<
-  //   ICategory[]
-  // >({
-  //   queryKey: ['subcategories'],
-  //   queryFn: fetchSubCategories,
-  // });
   const fetchAllData = async () => {
     const [products, categories, subcategories] = await Promise.all([
       fetchProducts(),
@@ -65,16 +44,16 @@ const Footer: React.FC = () => {
   const categories: ICategory[] = data?.categories || [];
   const subcategories = data?.subcategories || [];
 
-  const filterArray = [
-    'shutters',
-    'White',
-    'Off White',
-    'Black',
-    'Dark Woods',
-    'Light Woods',
-    'Bold Colours',
-    'Grey',
-  ];
+  // const filterArray = [
+  //   'shutters',
+  //   'White',
+  //   'Off White',
+  //   'Black',
+  //   'Dark Woods',
+  //   'Light Woods',
+  //   'Bold Colours',
+  //   'Grey',
+  // ];
   const generatePath = (product: IProduct, parent: string) => {
     const slug = ChangedProductUrl_handler(product.title);
     const basePath = product.href
@@ -148,8 +127,8 @@ const Footer: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-12 lg:justify-items-center">
                 <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full">
                   {isLoading || isError ? (
-                    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full gap-4">
-                      {Array.from({ length: 42 }).map((_, index) => (
+                    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full gap-5">
+                      {Array.from({ length: 27 }).map((_, index) => (
                         <Skeleton
                           key={index}
                           className="w-1/2 h-6 bg-white/25"
@@ -157,96 +136,70 @@ const Footer: React.FC = () => {
                       ))}
                     </div>
                   ) : (
-                    categories
-                      ?.filter((category) => category.title !== 'Commercial')
-                      .sort((a, b) => {
-                        const order = ['Blinds', 'Curtains', 'Shutters'];
-                        return order.indexOf(a.title) - order.indexOf(b.title);
-                      })
-                      .map((category) => (
-                        <div className="pl-2" key={category.id}>
-                          <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
-                            {category.title}
-                          </h3>
-                          <ul className="space-y-2 mt-4">
-                            {subcategories
-                              ?.filter(
-                                (subcategory) =>
-                                  subcategory.CategoryId === category.id,
-                              )
-                              .map((subcategory) => {
-                                const filteredCategory = categories?.find(
-                                  (cat) => cat.id === subcategory.CategoryId,
-                                );
-                                return (
-                                  <li key={subcategory.id}>
-                                    {filteredCategory?.title.toLowerCase() ===
-                                    'shutters' ? (
-                                      <>
-                                        {filterArray.some((substring) =>
-                                          subcategory.title.includes(substring),
-                                        ) ? (
-                                          ''
-                                        ) : (
-                                          <Link
-                                            className="text-sm font-medium"
-                                            href={`/shutters-range/${ChangedProductUrl(subcategory.title)}`}
-                                          >
-                                            {subcategory.title}
-                                          </Link>
-                                        )}
-                                      </>
-                                    ) : (
-                                      <>
-                                        {getProduct.some((substring) =>
-                                          subcategory.title.includes(substring),
-                                        ) && (
-                                          <Link
-                                            className="text-sm font-medium"
-                                            href={`/${filteredCategory?.title.toLowerCase()}/${ChangedProductUrl(subcategory.title)}`}
-                                          >
-                                            {subcategory.title}
-                                          </Link>
-                                        )}
-                                      </>
-                                    )}
-                                  </li>
-                                );
-                              })}
+                    footerData.map((category) => (
+                      <div className="pl-2" key={category.title}>
+                        <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
+                          {category.title}
+                        </h3>
+                        <ul className="space-y-2 mt-4">
+                          {category.items.map((item) => {
+                            const matchingSubcategory = subcategories?.find(
+                              (subcategory) =>
+                                subcategory.title === item &&
+                                subcategory.CategoryId ===
+                                  categories.find(
+                                    (cat) =>
+                                      generateSlug(cat.title) ===
+                                      generateSlug(category.title),
+                                  )?.id,
+                            );
 
-                            {products
-                              ?.filter(
-                                (product) => product.CategoryId === category.id,
-                              )
-                              .map((product) => {
-                                const filteredCategory = categories?.find(
-                                  (cat) => cat.id === product.CategoryId,
-                                );
-                                const parent = generateSlug(
-                                  filteredCategory?.title || '',
-                                );
-                                const path = generatePath(product, parent);
+                            const matchingProduct = products?.find(
+                              (product) =>
+                                product.title === item &&
+                                product.CategoryId ===
+                                  categories.find(
+                                    (cat) => cat.title === category.title,
+                                  )?.id,
+                            );
 
-                                return (
-                                  <li key={product.id}>
-                                    {getProduct.some((substring) =>
-                                      product.title.includes(substring),
-                                    ) && (
-                                      <Link
-                                        href={path}
-                                        className="text-sm font-medium cursor-pointer"
-                                      >
-                                        {product.title === 'Motorised blinds'
-                                          ? 'Motorised blinds'
-                                          : updateProductTitle(product.title)}
-                                      </Link>
-                                    )}
+                            return (
+                              <React.Fragment key={item}>
+                                {matchingSubcategory && (
+                                  <li>
+                                    <Link
+                                      className="text-sm font-medium"
+                                      href={`/${category.title.toLowerCase()}/${ChangedProductUrl(
+                                        matchingSubcategory.title,
+                                      )}`}
+                                    >
+                                      {matchingSubcategory.title}
+                                    </Link>
                                   </li>
-                                );
-                              })}
-                          </ul>
-                        </div>
-                      ))
+                                )}
+
+                                {matchingProduct && (
+                                  <li>
+                                    <Link
+                                      className="text-sm font-medium"
+                                      href={generatePath(
+                                        matchingProduct,
+                                        generateSlug(category.title),
+                                      )}
+                                    >
+                                      {/* {updateProductTitle(
+                                        matchingProduct.title,
+                                      )}{' '} */}
+                                      {matchingProduct.title}
+                                    </Link>
+                                  </li>
+                                )}
+                              </React.Fragment>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    ))
                   )}
                 </div>
 
@@ -327,8 +280,7 @@ const Footer: React.FC = () => {
                   <div className="overflow-hidden grow">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14450.034204416814!2d55.2256!3d25.1275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sTwo%20Guys%20-%20Blinds%20%26%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1727335871755!5m2!1sen!2sus"
-                      className="w-full h-full min-h-60"
-                      // style={{ position: 'relative', left: '-52px' }}
+                      className="w-full h-full min-h-30"
                       loading="lazy"
                     ></iframe>
                   </div>

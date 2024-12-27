@@ -25,13 +25,12 @@ export async function generateMetadata({
   const filteredSubCategory = filtereCategory(categories, product, Cateories);
 
   const headersList = headers();
-  const domain =
-    headersList.get('x-forwarded-host') || headersList.get('host') || '';
+  const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
-
+console.log(fullUrl, "fullurl")
   let Product = filteredProduct as IProduct;
 
   let ImageUrl =
