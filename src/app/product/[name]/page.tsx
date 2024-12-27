@@ -43,7 +43,6 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
     setSelectedSize({ width, height });
   };
 
-
   const handleClickOutside = (event: MouseEvent) => {
     if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
       setIsPopupOpen(false);
@@ -93,7 +92,7 @@ const Detailpage = ({ params }: { params: Allproduct }) => {
   if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
-      <TopHero title={ProductName} image={backbanner} pagename={pathName} />
+      <TopHero title={ProductName} image={backbanner.src} pagename={pathName} />
       {detail &&
         detail.map((array, index) => (
           <>

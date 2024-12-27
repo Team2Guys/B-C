@@ -11,10 +11,12 @@ interface relativeProps {
   products: IProduct[];
   limit?: number;
   className?: string;
+  title?: string;
 }
-const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
+const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title }) => {
   const pathname = usePathname()
   const [description, setDescription] = useState<string | null>(null);
+  const [selectedProducts, setSelectedProducts] = useState<IProduct[]>([]);
 
   const {
     data: categoriesList = [],
@@ -22,7 +24,6 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
     queryKey: ['category'],
     queryFn: fetchCategories,
   });
-  const displayedProducts = limit ? products.slice(0, limit) : products;
   useEffect(() => {
     if (pathname) {
       const matchedProduct = RelatedProductsdata.find((product) =>
@@ -30,7 +31,29 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
       );
       setDescription(matchedProduct ? matchedProduct.para : null);
     }
-  }, [pathname]); 
+  }, [pathname]);
+  useEffect(() => {
+    const getRandomUniqueProducts = (products: IProduct[], limit: number, title: string | undefined) => {
+      const uniqueProducts: IProduct[] = [];
+      const titlesSet: Set<string> = new Set();
+
+      while (uniqueProducts.length < limit && products.length > 0) {
+        const randomIndex = Math.floor(Math.random() * products.length);
+        const selectedProduct = products[randomIndex];
+        if (!titlesSet.has(selectedProduct.title) && selectedProduct.title !== title) {
+          uniqueProducts.push(selectedProduct);
+          titlesSet.add(selectedProduct.title);
+        }
+        products = products.filter((product, index) => product && index !== randomIndex);
+      }
+
+      return uniqueProducts;
+    };
+    const safeLimit = limit ?? 4; 
+    const randomProducts = getRandomUniqueProducts([...products], safeLimit, title);
+    setSelectedProducts(randomProducts);
+  }, [products, limit, title]);
+
   return (
     <div className='px-2 md:px-4'>
       <div className="flex items-center gap-1">
@@ -41,7 +64,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit }) => {
         {description || 'Explore our collection, each piece a showcase of exceptional window blinds design.'}
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:mt-10 mt-4 lg:mb-10">
-        {displayedProducts.map((item) => {
+        {selectedProducts.map((item) => {
           const filteredCategory = categoriesList.find(
             (cat) => cat.id === item?.CategoryId,
           );
