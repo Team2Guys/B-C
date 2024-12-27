@@ -32,7 +32,7 @@ const BlogSkeleton = () => {
 
                 {/* Category List Placeholder */}
                 <div className="w-full bg-gray-400 rounded-md py-3 animate-pulse space-y-3 p-2">
-                    {Array.from({ length: 4 }).map((_, index) => (
+                    {Array.from({ length: 3 }).map((_, index) => (
                         <div
                             key={index}
                             className="h-8 bg-gray-300 rounded-md w-full animate-pulse"
