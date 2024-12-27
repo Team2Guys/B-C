@@ -3,28 +3,32 @@ import CommercialProduct from "./CommerticalProduct";
 import { headers } from "next/headers";
 import { ICategory, IProduct } from "types/types";
 import { Metadata } from "next";
+import { urls } from "data/urls";
+import { reverseSlug } from "data/data";
 
 
 export async function generateMetadata({ params }: { params: { product: string } }): Promise<Metadata> {
   const { product } = params;
-
   const [products, subCategories] = await Promise.all([
     fetchProducts(),
     fetchSubCategories(),
   ]);
-
-  const filterSubCategory = subCategories.find((subcategory) => subcategory.title === product);
-  const filterproduct = products.find((prod) => prod.title === product);
+  const matchingLinks = urls.find((link) => link.Url === product)
+  const filterSubCategory = subCategories.find((subcategory) => {
+    const comparisonValue = matchingLinks?.productName || reverseSlug(product);
+    return subcategory.title === comparisonValue;
+  });
+  const filterproduct = products.find((prod) => {
+    const comparisonValue = matchingLinks?.productName || reverseSlug(product);
+    return prod.title === comparisonValue;
+  });
   const headersList = headers();
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
   const pathname = headersList.get('x-invoke-path') || '/';
-
   const fullUrl = `${protocol}://${domain}${pathname}`;
-
   let SubCategory = filterSubCategory ? filterSubCategory as ICategory : filterproduct as IProduct;
-
   let ImageUrl =
   SubCategory?.posterImage.imageUrl ||
     'blindsandcurtains';
@@ -44,7 +48,7 @@ export async function generateMetadata({ params }: { params: { product: string }
   let description =
   SubCategory?.Meta_description ||
     'Welcome to blindsandcurtains';
-  let url = `${fullUrl}${product}`;
+  let url = `${fullUrl}commerical/${product}`;
   return {
     title: title,
     description: description,
