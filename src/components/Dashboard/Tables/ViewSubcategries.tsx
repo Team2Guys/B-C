@@ -8,17 +8,25 @@ import axios from 'axios';
 import { LiaEdit } from 'react-icons/lia';
 import { CategoriesType } from 'types/interfaces';
 import useColorMode from 'hooks/useColorMode';
+import { ChangedProductUrl_handler } from 'data/urls';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import TableSkeleton from './TableSkelton';
 import Cookies from 'js-cookie';
+import { FaRegEye } from 'react-icons/fa';
+import { generateSlug } from 'data/data';
+import { fetchCategories } from 'config/fetch';
+import { ICategory } from 'types/types';
+import { useQuery } from '@tanstack/react-query';
 
-interface Product {
-  id: string;
-  name: string;
-  category: string;
-  posterImageUrl: string;
-  createdAt: string;
-}
+// interface ICategory {
+//   id: string;
+//   name: string;
+//   title: string;
+//   category: string;
+//   posterImageUrl: string;
+//   createdAt: string;
+//   CategoryId: number;
+// }
 
 interface CategoryProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -86,8 +94,13 @@ const ViewSubcategries = ({
     CategoryHandler();
   }, []);
 
+  const { data: categories } = useQuery<ICategory[]>({
+    queryKey: ['categories'],
+    queryFn: fetchCategories,
+  });
+
   // Filter products based on search term
-  const filteredProducts: Product[] =
+  const filteredProducts: ICategory[] =
     category?.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
     ) || [];
@@ -160,24 +173,18 @@ const ViewSubcategries = ({
       title: 'Date',
       dataIndex: 'createdAt',
       key: 'date',
-      render: (text: any, record: any) => {
+      render: (text: any, record: ICategory) => {
         const createdAt = new Date(record.createdAt);
-        const formattedDate = `${createdAt.getFullYear()}-${String(createdAt.getMonth() + 1).padStart(2, '0')}-${String(
-          createdAt.getDate(),
-        ).padStart(2, '0')}`;
-        return <span>{formattedDate}</span>;
+        return <span>{createdAt.toLocaleDateString()}</span>;
       },
     },
     {
       title: 'Time',
       dataIndex: 'createdAt',
       key: 'time',
-      render: (text: any, record: any) => {
+      render: (text: string, record: ICategory) => {
         const createdAt = new Date(record.createdAt);
-        const formattedTime = `${String(createdAt.getHours()).padStart(2, '0')}:${String(
-          createdAt.getMinutes(),
-        ).padStart(2, '0')}`;
-        return <span>{formattedTime}</span>;
+        return <span>{createdAt.toLocaleTimeString()}</span>;
       },
     },
     {
@@ -188,12 +195,34 @@ const ViewSubcategries = ({
         return <span>{record.last_editedBy}</span>;
       },
     },
+       {
+          title: 'Preview',
+          key: 'Preview',
+          render: (text: string, record: ICategory) => {
+            const category = categories?.find((i) => i.id === record.CategoryId);
+            if (category === undefined) return null;
+            const parent = generateSlug(category?.title);
+            return (
+              <FaRegEye
+                className="cursor-pointer"
+                onClick={() => {
+                  const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${
+                    // generateSlug(record.title)
+                    ChangedProductUrl_handler(record.title)
+                  }
+                  `;
+                  window.open(url, '_blank');
+                }}
+              />
+            );
+          },
+        },
     {
       title: 'Edit',
       key: 'Edit',
       render: (text: any, record: any) => (
         <LiaEdit
-          className={`cursor-pointer ${canEditCategory && 'text-black dark:text-white'} ${!canEditCategory && 'cursor-not-allowed text-slate-300'}`}
+          className={`cursor-pointer ${canEditCategory && 'text-black dark:text-white'} ${!canEditCategory && 'cursor-not-allowed text-black dark:text-slate-300'}`}
           size={20}
           onClick={() => handleEdit(record)}
         />
@@ -205,7 +234,7 @@ const ViewSubcategries = ({
       render: (text: any, record: any) => (
         <RiDeleteBin6Line
           className={`cursor-pointer ${canDeleteCategory && 'text-red'} ${
-            !canDeleteCategory && 'cursor-not-allowed text-slate-300'
+            !canDeleteCategory && 'cursor-not-allowed text-black dark:text-slate-300'
           }`}
           // className="cursor-pointer text-red-500"
           size={20}
@@ -222,7 +251,7 @@ const ViewSubcategries = ({
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
       {loading ? (
-        <TableSkeleton rows={5} columns={5} />
+        <TableSkeleton rows={10} columns={1} />
       ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
@@ -236,11 +265,11 @@ const ViewSubcategries = ({
             <div>
               <p
                 className={`${
-                  canAddCategory && 'cursor-pointer'
+                  canAddCategory && 'cursor-pointer w-full xsm:text-12 xsm:px-2 py-2 lg:text-16'
                 } lg:p-2 md:p-2 ${
-                  canAddCategory && ' bg-secondary text-white rounded-md   '
+                  canAddCategory && ' bg-secondary text-white rounded-md w-full '
                 } flex justify-center ${
-                  !canAddCategory && 'cursor-not-allowed '
+                  !canAddCategory && 'cursor-not-allowed w-full'
                 }`}
                 onClick={() => {
                   seteditCategory && seteditCategory(null);
@@ -256,7 +285,7 @@ const ViewSubcategries = ({
 
           {filteredProducts.length > 0 ? (
             <Table
-              className="overflow-x-scroll lg:overflow-auto"
+              className="overflow-x-scroll lg:overflow-auto w-full"
               dataSource={filteredProducts}
               columns={columns}
               pagination={false}

@@ -433,3 +433,9 @@ html {
 .ant-modal-mask {
   background-color: rgba(0, 0, 0, 0.842) !important;
 }
+.ant-checkbox-inner{
+  border-color: #cdb7aa !important;
+}
+:where(.css-dev-only-do-not-override-1c0na6j).ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #cdb7aa !important;
+}

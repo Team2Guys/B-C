@@ -372,7 +372,8 @@ const FormLayout = ({
                               key={category.id}
                               className="flex items-center space-x-2"
                             >
-                              <Checkbox
+                              <Checkbox 
+                              className="accent-green-500"
                                 name="CategoryId"
                                 checked={
                                   formik.values.CategoryId === category.id
@@ -509,7 +510,7 @@ const FormLayout = ({
                   type="submit"
                   className="mt-4 px-8 py-2 bg-primary text-white rounded"
                 >
-                  {loading ? <Loader /> : 'Submit'}
+                  {loading ? <Loader color="#fff" /> : 'Submit'}
                 </button>
               </div>
             </Form>
