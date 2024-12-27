@@ -222,7 +222,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
             className="border-t-8 border-secondary absolute bg-white w-full left-1/2 max-w-[98%] -translate-x-1/2  py-4 space-y-4 transition-transform transform z-50"
           >
             <Container>
-              {title === 'Moterised' ? (
+              {title === 'Motorised' ? (
                 <div className="flex justify-between">
                   <div className="flex flex-col gap-4 w-fit">
                     {MoterisedData.map((product, index) => (
