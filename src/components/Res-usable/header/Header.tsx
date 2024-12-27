@@ -23,7 +23,6 @@ import { Collapse } from 'antd';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { links } from 'data/header_links';
 
-
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
@@ -39,6 +38,7 @@ const Header = () => {
   const handleCloseDrawer = () => {
     setDrawerOpen(false);
   };
+
   const fetchAllData = async () => {
     const [products, subCategories] = await Promise.all([
       fetchProducts(),
@@ -167,8 +167,10 @@ const Header = () => {
                 const isBalconyActive =
                   path?.includes('blinds-and-curtains') ||
                   path?.includes('blinds-curtains');
-                  const ismoterised = path.startsWith('/automated-blinds') || path.startsWith('/automated-curtains');
-                  const ismoter =
+                const ismoterised =
+                  path.startsWith('/automated-blinds') ||
+                  path.startsWith('/automated-curtains');
+                const ismoter =
                   path?.includes('automated-curtains') ||
                   path?.includes('automated-blinds');
                 return combinedSliderData.length > 0 ? (
@@ -183,7 +185,9 @@ const Header = () => {
                         ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                         : link.label === 'Motorised' && ismoterised
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                          : !isBalconyActive && !ismoter && (isBlogActive || isActive)
+                          : !isBalconyActive &&
+                              !ismoter &&
+                              (isBlogActive || isActive)
                             ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                             : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
                     }
@@ -318,8 +322,7 @@ const Header = () => {
                           ...actualProducts,
                         ];
                       }
-                      // const isActive =
-                      //   link.href && path?.includes(generateSlug(link.label));
+
                       const isBlogPath = path.startsWith('/blog');
 
                       const isBlogActive = link.href === '/blog' && isBlogPath;
