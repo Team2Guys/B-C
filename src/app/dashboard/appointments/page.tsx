@@ -69,7 +69,7 @@ const Appointments = () => {
           appointment.windows?.toLowerCase().includes(lowercasedSearchTerm) ||
           appointment.how_user_find_us?.toLowerCase().includes(lowercasedSearchTerm) ||
           appointment.user_query?.toLowerCase().includes(lowercasedSearchTerm) ||
-          appointment.prefered_Date.toLowerCase().includes(lowercasedSearchTerm)
+          appointment.prefered_Date.toLowerCase().includes(lowercasedSearchTerm) 
         );
 
       const sortedFilteredAppointments = filtered.sort(
