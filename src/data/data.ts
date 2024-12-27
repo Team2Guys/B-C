@@ -49,12 +49,11 @@ export const reverseSlug = (slug: string): string => {
 
   return slug
     .toString()
-    .replace(/-/g, ' ')                  // Replace hyphens with spaces
-    .replace(/\s+/g, ' ')                 // Condense multiple spaces into a single space
-    .replace(/^\s+|\s+$/g, '')            // Trim any leading/trailing spaces
+    .replace(/-/g, ' ') // Replace hyphens with spaces
+    .replace(/\s+/g, ' ') // Condense multiple spaces into a single space
+    .replace(/^\s+|\s+$/g, '') // Trim any leading/trailing spaces
     .replace(/\b\w/g, (match) => match.toUpperCase()); // Capitalize the first letter of each word
 };
-
 
 /* eslint-enable no-useless-escape */
 
@@ -1625,6 +1624,7 @@ export const extendedByStyle = [
 
   { productName: 'eyelet-curtains' },
   { productName: 'pinch-pleat-curtains' },
+  { productName: 'motorised-curtains' },
   // { productName: 'sheer-curtains' },
   { productName: 'goblet-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
@@ -1638,6 +1638,7 @@ export const extendedByStyle = [
 
   { productName: 'full-height-shutters' },
   { productName: 'bay-window-shutters' },
+  { productName: 'tracked-shutters' },
   { productName: 'special-shape-shutters' },
   // { productName: 'tier-on-tier-shutters' },
   { productName: 'solid-panel-shutters' },
@@ -1657,6 +1658,8 @@ export const extendedByRoom = [
   { productName: 'bedroom-blinds' },
   { productName: 'office-blinds' },
   { productName: 'bathroom-blinds' },
+  { productName: 'school-blinds' },
+  { productName: 'offices-blinds' },
 
   { productName: 'bedroom-curtains' },
   { productName: 'living-room-curtains' },
