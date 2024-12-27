@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
 
+
 const superAdmintoken = Cookies.get('superAdminToken');
 const token = Cookies.get('2guysAdminToken');
 let Finaltoken = superAdmintoken ? superAdmintoken : token;

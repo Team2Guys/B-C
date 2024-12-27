@@ -1,3 +1,4 @@
+'use client'
 import Card from 'components/Res-usable/Cards/card';
 import Container from 'components/Res-usable/Container/Container';
 import { useQuery } from '@tanstack/react-query';
