@@ -1,10 +1,12 @@
+import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
 
 const BlogSkeleton = () => {
     return (
         <>
+        <Container className="flex px-2 max-sm:flex-wrap max-sm:flex-col-reverse">
             {/* Main Content Skeleton */}
-            <div className="w-3/4">
+            <div className="w-full sm:w-3/4">
                 <div className="flex flex-col gap-4">
                     {Array.from({ length: 5 }).map((_, index) => (
                         <div
@@ -26,7 +28,7 @@ const BlogSkeleton = () => {
             </div>
 
             {/* Sidebar Skeleton */}
-            <div className="w-1/3 xs:w-1/4 px-2 mt-4 sm:mt-14 flex flex-col gap-4 items-center">
+            <div className="w-full sm:w-1/4 px-2 mt-4 sm:mt-14 flex flex-col gap-4 items-center">
                 {/* Search Bar Placeholder */}
                 <div className="h-10 bg-gray-300 rounded-md w-full animate-pulse"></div>
 
@@ -40,6 +42,9 @@ const BlogSkeleton = () => {
                     ))}
                 </div>
             </div>
+             
+
+             </Container>
         </>
     );
 };
