@@ -29,7 +29,6 @@ let products = await fetchProducts()
     },
   ];
 
-  console.log(filteredProduct, "filteredProduct")
 
   let title =Product?.Meta_Title || 'blindsandcurtains';
   let description =Product?.Meta_description ||'Welcome to blindsandcurtains';
