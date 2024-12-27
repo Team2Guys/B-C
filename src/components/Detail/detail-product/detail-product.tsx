@@ -17,7 +17,6 @@ const DetailProduct: React.FC<detailprops> = ({
     ...products,
     imageUrls: products?.imageUrls?.slice(0, 4),
   };
-  console.log(products, 'productsproducts');
   return (
     <Container className="mt-10">
       <div className="text-center max-w-screen-lg mx-auto space-y-3">

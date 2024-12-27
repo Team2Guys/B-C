@@ -166,7 +166,8 @@ const Header = () => {
                   !isBlogPath && path?.includes(generateSlug(link.label));
                 const isBalconyActive =
                   path?.includes('blinds-and-curtains') ||
-                  path?.includes('blinds-curtains');
+                  path?.includes('blinds-curtains') ||
+                  path?.includes('printed-blinds');
                 const ismoterised =
                   path.startsWith('/automated-blinds') ||
                   path.startsWith('/automated-curtains');

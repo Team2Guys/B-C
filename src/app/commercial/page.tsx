@@ -1,15 +1,13 @@
 import { ICategory } from "types/types";
 import Commercial from "./Commerical";
-import { fetchCategories } from "config/fetch";
+import { fetchCategories, fetchProducts, fetchSubCategories } from "config/fetch";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 
 
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = headers();
-  const [categories] = await Promise.all([
-      fetchCategories()
-    ]);
+  const categories = await fetchCategories();
   const filteredCatgory = categories.find((c) => c.id === 12);
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
@@ -57,10 +55,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 
-const CommercialPage = () => {
-
+const CommercialPage = async () => {
+  const [products , subCategories ] = await Promise.all([
+    fetchProducts(),
+    fetchSubCategories()
+  ]);
   return (
-    <Commercial />
+    <Commercial products={products} subCategories={subCategories} />
   );
 };
 
