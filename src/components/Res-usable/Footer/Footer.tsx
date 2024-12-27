@@ -127,8 +127,8 @@ const Footer: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-12 lg:justify-items-center">
                 <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full">
                   {isLoading || isError ? (
-                    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full gap-4">
-                      {Array.from({ length: 42 }).map((_, index) => (
+                    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full gap-5">
+                      {Array.from({ length: 27 }).map((_, index) => (
                         <Skeleton
                           key={index}
                           className="w-1/2 h-6 bg-white/25"
