@@ -1168,14 +1168,15 @@ export const intitalValues = {
 export const blindMegaMenuItems = [
   { productName: 'vertical-blinds' },
   { productName: 'zipline-outdoor-blinds' },
-  { productName: 'honeycomb-blinds' },
+  // { productName: 'honeycomb-blinds' },
   { productName: 'panel-blinds' },
   { productName: 'aluminium-blinds' },
   // { productName: 'wood-venetian' },
-  { productName: 'daynight-blinds' },
+  // { productName: 'daynight-blinds' },
   { productName: 'wooden-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
+  { productName: 'zebra-blinds' },
 
   { productName: 'staircase' },
   { productName: 'vertical' },
@@ -1189,7 +1190,7 @@ export const blindMegaMenuItems = [
 
   { productName: 'blackout-blinds' },
   // { productName: 'outdoor' },
-  { productName: 'motorised-blinds' },
+  // { productName: 'motorised-blinds' },
   { productName: 'dimout-blinds' },
   { productName: 'sunscreentransparent-blinds' },
 ];
@@ -1217,7 +1218,7 @@ export const curtainMegaMenuItems = [
   { productName: 'textured-curtains' },
   { productName: 'kids-prints-curtains' },
   { productName: 'natural-fabric-curtains' },
-  { productName: 'patterned-curtains' },
+  // { productName: 'patterned-curtains' },
   { productName: 'plain-curtains' },
   { productName: 'sheer-curtains' },
   { productName: 'blackout-curtains' },
@@ -1481,11 +1482,12 @@ export const megaMenubyStyle = [
   { productName: 'aluminium-blinds' },
   // { productName: 'wood-venetian' },
   { productName: 'daynight-blinds' },
+  { productName: 'zebra-blinds' },
   { productName: 'wooden-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
 
-  { productName: 'special-shape-shutters' },
+  // { productName: 'special-shape-shutters' },
   { productName: 'outdoor-shutters' },
   { productName: 'solid-panel-shutters' },
   { productName: 'cafe-style-shutters' },
@@ -1493,12 +1495,12 @@ export const megaMenubyStyle = [
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'full-height-shutters' },
-  { productName: 'tracked-shutters' },
+  // { productName: 'tracked-shutters' },
 
   { productName: 'pencil-pleat-curtains' },
   { productName: 'ripplefoldwave-curtains' },
   { productName: 'tab-top-curtains' },
-  { productName: 'motorised-curtains' },
+  // { productName: 'motorised-curtains' },
   { productName: 'eyelet-curtains' },
   { productName: 'double-pinch-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
@@ -1535,7 +1537,7 @@ export const megaMenubyRoom = [
   { productName: 'conservatory-blinds' },
   { productName: 'staircase-blinds' },
   { productName: 'bedroom-blinds' },
-  { productName: 'offices-blinds' },
+  { productName: 'office-blinds' },
   // { productName: 'school-blinds' },
   { productName: 'study-room-Blinds' },
   { productName: 'dining-room-blinds' },
@@ -1576,7 +1578,7 @@ export const megaMenuDynamic = [
   { productName: 'white-shutters' },
   { productName: 'light-wood-shutters' },
   { productName: 'off-white-shutters' },
-  { productName: 'black-shutters' },
+  // { productName: 'black-shutters' },
   { productName: 'dark-wood-shutters' },
   { productName: 'bold-colours-shutters' },
   { productName: 'grey-shutters' },
@@ -1640,7 +1642,7 @@ export const extendedByRoom = [
   { productName: 'staircase-blinds' },
   { productName: 'door-blinds' },
   { productName: 'bedroom-blinds' },
-  { productName: 'offices-blinds' },
+  { productName: 'office-blinds' },
   { productName: 'bathroom-blinds' },
 
   { productName: 'bedroom-curtains' },
@@ -2150,30 +2152,36 @@ export const colorData: IColorData[] = [
         altText: 'White Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Full height shutters (2).webp',
-        altText: 'White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/White-shutters/Full height shutters (2).webp',
+        altText: 'White Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Solid panel shutter for kitchen.webp',
-        altText: 'White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/White-shutters/Solid panel shutter for kitchen.webp',
+        altText: 'White Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Cafe-Style-Shutters-2-.webp',
-        altText: 'White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/White-shutters/Cafe-Style-Shutters-2-.webp',
+        altText: 'White Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/White-shutters/BiFold Shutters (3).webp',
-        altText: 'White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/White-shutters/BiFold Shutters (3).webp',
+        altText: 'White Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Bay window shutters (2).webp',
-        altText: 'White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/White-shutters/Bay window shutters (2).webp',
+        altText: 'White Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/White-shutters/Bay window shutters (3).webp',
-        altText: 'White Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/White-shutters/Bay window shutters (3).webp',
+        altText: 'White Shutters',
       },
-    ]
+    ],
   },
   {
     id: 3,
@@ -2182,36 +2190,44 @@ export const colorData: IColorData[] = [
     url: '/shutters-range/black-shutters',
     imageUrls: [
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Black shutters (1).webp',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black shutters (1).webp',
+        altText: 'Black Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Black shutters (2).webp',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black shutters (2).webp',
+        altText: 'Black Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Black shutters (3).webp',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black shutters (3).webp',
+        altText: 'Black Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Black shutters (4).webp',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black shutters (4).webp',
+        altText: 'Black Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/BiFold Shutters (5).webp',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/BiFold Shutters (5).webp',
+        altText: 'Black Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Cold color shutters (1).webp',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Cold color shutters (1).webp',
+        altText: 'Black Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/full height shutters (2).webp',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/full height shutters (2).webp',
+        altText: 'Black Shutters',
       },
       {
-        imageUrl: '/assets/images/optimized-images/Color/Black-shutters/Tier on Tier Shutters (2).webp',
-        altText: 'Black Shutters'
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Tier on Tier Shutters (2).webp',
+        altText: 'Black Shutters',
       },
     ],
   },
@@ -2685,4 +2701,50 @@ export const estimator_data = [
   },
 ];
 
-
+export const footerData = [
+  {
+    title: 'Blinds',
+    items: [
+      'Roller Blinds',
+      'Roman Blinds',
+      'Vertical Blinds',
+      'Wooden Blinds',
+      'Aluminium Blinds',
+      'Zebra Blinds',
+      'Zipline Outdoor Blinds',
+      'Panel Blinds',
+      'Blackout Blinds',
+      'Motorised blinds',
+    ],
+  },
+  {
+    title: 'Curtains',
+    items: [
+      'Triple Pinch Pleat Curtains',
+      'Double Pinch Pleat Curtains',
+      'Pencil Pleat Curtains',
+      'Ripplefold/Wave Curtains',
+      'Eyelet Curtains',
+      'Tab Top Curtains',
+      'Blackout Curtains',
+      'Motorised curtains',
+      'Sheer Curtains',
+      'Textured Curtains',
+    ],
+  },
+  {
+    title: 'Shutters',
+    items: [
+      'Full Height Shutters',
+      'Bi Fold Shutters',
+      'Solid Panel Shutters',
+      'Tier On Tier Shutters',
+      'Cafe Style Shutters',
+      'Bay Window Shutters',
+      'Outdoor Shutters',
+      'Tracked Shutters',
+      'Special Shape Shutters',
+      'Black Shutters',
+    ],
+  },
+];
