@@ -1,98 +1,93 @@
-'use client';
-import { useQuery } from '@tanstack/react-query';
-import NotFound from 'app/not-found';
-import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
-import RoomProducts from 'components/RoomProducts/room-product';
-import PageSkelton from 'components/Skeleton/PageSkelton';
-import { fetchProducts, fetchSubCategories } from 'config/fetch';
-import { generateSlug } from 'data/data';
-import { ChangedProductUrl, urls } from 'data/urls';
-import { useParams, usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { ICategory, IProduct } from 'types/types';
+import { fetchProducts, fetchSubCategories } from "config/fetch";
+import SubProduct from "./Subproduct";
+import { ChangedProductUrl } from "data/urls";
+import { generateSlug } from "data/data";
+import { IProduct } from "types/types";
+import { headers } from "next/headers";
+import { Metadata } from "next";
 
-const Page = () => {
-  const { subproduct } = useParams();
-  const path = usePathname();
-  const [isNotFound, setIsNotFound] = useState(false);
 
-  const { data: subCategories, isLoading: subLoading } = useQuery<ICategory[]>({
-    queryKey: ['sub-categories'],
-    queryFn: fetchSubCategories,
-  });
-
-  const { data: products, isLoading: prodLoading } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
+export async function generateMetadata({ params }: { params: { subproduct: string } }): Promise<Metadata> {
+  const { subproduct } = params;
   const Cateories = [2];
-
-  const filteredSubCategory = subCategories?.find((sub) => {
-    let title = ChangedProductUrl(subproduct as string);
-    let title_flag = title === generateSlug(sub.title);
-    return (
-      title_flag && Cateories.some((item: number) => item == sub.CategoryId)
-    );
-  });
-  useEffect(() => {
-    if (path) {
-      const matchingUrl = urls.find((url) => url.errorUrl === path);
-      console.log(path, 'pathnamepathname');
-      if (matchingUrl) {
-        console.log(matchingUrl, 'matchingUrl');
-        setIsNotFound(true);
-      } else {
-        setIsNotFound(false);
-      }
-    }
-  }, [path]);
-  if (isNotFound) {
-    return <NotFound />;
-  }
+  const products = await fetchProducts();
 
   const filteredProduct = products?.find(
     (prod) =>
       generateSlug(prod.title) === ChangedProductUrl(subproduct as string) &&
       Cateories.some((item: number) => item == prod.CategoryId),
   );
+  const headersList = headers();
+  const domain =
+    headersList.get('x-forwarded-host') || headersList.get('host') || '';
+  const protocol = headersList.get('x-forwarded-proto') || 'https';
+  const pathname = headersList.get('x-invoke-path') || '/';
 
-  if (subLoading || prodLoading) {
-    return <PageSkelton />;
-  }
-  if ((!filteredSubCategory && !filteredProduct) || isNotFound) {
-    return <NotFound />;
-  }
+  const fullUrl = `${protocol}://${domain}${pathname}`;
 
+  let Product = filteredProduct as IProduct;
+
+  let ImageUrl =
+  Product?.posterImage.imageUrl ||
+    'blindsandcurtains';
+  let alt =
+  Product?.posterImage.altText ||
+    'blindsandcurtains';
+
+  let NewImage = [
+    {
+      url: ImageUrl,
+      alt: alt,
+    },
+  ];
+  let title =
+  Product?.Meta_Title ||
+    'blindsandcurtains';
+  let description =
+  Product?.Meta_description ||
+    'Welcome to blindsandcurtains';
+  let url = `${fullUrl}${subproduct}`;
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: url,
+      images: NewImage,
+    },
+    alternates: {
+      canonical:
+      Product?.Canonical_Tag || url,
+    },
+  };
+}
+
+
+const Page = async ({ params }: { params: { subproduct: string } }) => {
+  const slug = params.subproduct;
+  const [products, subCategories] = await Promise.all([
+    fetchProducts(),
+    fetchSubCategories(),
+  ]);
+  const Cateories = [2];
+
+  const filteredSubCategory = subCategories?.find((sub) => {
+    let title = ChangedProductUrl(slug as string);
+    let title_flag = title === generateSlug(sub.title);
+    return (
+      title_flag && Cateories.some((item: number) => item == sub.CategoryId)
+    );
+  });
+
+  const filteredProduct = products?.find(
+    (prod) =>
+      generateSlug(prod.title) === ChangedProductUrl(slug as string) &&
+      Cateories.some((item: number) => item == prod.CategoryId),
+  );
   return (
     <>
-      {filteredSubCategory ? (
-        <>
-          <RoomProducts
-            title={`${filteredSubCategory.title}`}
-            description={`${filteredSubCategory.description}`}
-            category={`${filteredSubCategory.category.title}`}
-            relatedProducts={filteredSubCategory?.products || []}
-          />
-          {/* <CategoryPage
-            title={`${filteredSubCategory.title}`}
-            relatedProducts={relatedProducts || []}
-          /> */}
-        </>
-      ) : (
-        <ProductDetailPage
-          title={`${filteredProduct?.title}`}
-          allprod={products}
-        />
-      )}
-
-      {/* {filteredSubCategory  ? "": 
-            <>
-            <VideoAutomation />
-            <Container>
-              <Support/>
-            </Container>
-            </>
-            } */}
+      <SubProduct products={products} filteredProduct={filteredProduct} filteredSubCategory={filteredSubCategory} />
     </>
   );
 };

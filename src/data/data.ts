@@ -43,6 +43,19 @@ export const generateSlug = (text: string) => {
     .replace(/[^\w\-]+/g, '')
     .replace(/\-\-+/g, '-');
 };
+
+export const reverseSlug = (slug: string): string => {
+  if (!slug) return '';
+
+  return slug
+    .toString()
+    .replace(/-/g, ' ')                  // Replace hyphens with spaces
+    .replace(/\s+/g, ' ')                 // Condense multiple spaces into a single space
+    .replace(/^\s+|\s+$/g, '')            // Trim any leading/trailing spaces
+    .replace(/\b\w/g, (match) => match.toUpperCase()); // Capitalize the first letter of each word
+};
+
+
 /* eslint-enable no-useless-escape */
 
 export const cardData: CardTypes[] = [
