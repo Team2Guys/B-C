@@ -40,10 +40,10 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         setProductsPerPage(8);
       }
     };
-  
+
     updateProductsPerPage();
     window.addEventListener('resize', updateProductsPerPage);
-  
+
     return () => {
       window.removeEventListener('resize', updateProductsPerPage);
     };
@@ -108,11 +108,11 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const totalPages = useMemo(() => {
     return Math.ceil(filteredProducts.length / productsPerPage);
   }, [filteredProducts, productsPerPage]);
-  
+
   const startIndex = useMemo(() => {
     return Math.max(0, (currentPage - 1) * productsPerPage);
   }, [currentPage, productsPerPage]);
-  
+
   const visibleProducts = useMemo(() => {
     return filteredProducts.slice(startIndex, startIndex + productsPerPage);
   }, [filteredProducts, startIndex, productsPerPage]);
@@ -122,13 +122,13 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
       setCurrentPage(page);
       if (productContainerRef.current) {
         productContainerRef.current.scrollIntoView({ behavior: 'smooth' });
-  
+
         const offset = 200;
         const top =
           productContainerRef.current.getBoundingClientRect().top +
           window.scrollY -
           offset;
-  
+
         window.scrollTo({ top, behavior: 'smooth' });
       }
     }
@@ -138,33 +138,32 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     const visiblePages: (number | string)[] = [];
 
     if (totalPages <= 5) {
-        for (let i = 1; i <= totalPages; i++) {
-            visiblePages.push(i);
-        }
+      for (let i = 1; i <= totalPages; i++) {
+        visiblePages.push(i);
+      }
     } else {
-        visiblePages.push(1); 
+      visiblePages.push(1);
 
-        if (currentPage > 3) {
-            visiblePages.push('...'); 
-        }
+      if (currentPage > 3) {
+        visiblePages.push('...');
+      }
 
-        const start = Math.max(2, currentPage - 1);
-        const end = Math.min(totalPages - 1, currentPage + 1);
+      const start = Math.max(2, currentPage - 1);
+      const end = Math.min(totalPages - 1, currentPage + 1);
 
-        for (let i = start; i <= end; i++) {
-            visiblePages.push(i);
-        }
+      for (let i = start; i <= end; i++) {
+        visiblePages.push(i);
+      }
 
-        if (currentPage < totalPages - 2) {
-            visiblePages.push('...'); 
-        }
+      if (currentPage < totalPages - 2) {
+        visiblePages.push('...');
+      }
 
-        visiblePages.push(totalPages);
+      visiblePages.push(totalPages);
     }
 
     return visiblePages;
-};
-  
+  };
 
   const visiblePages = getVisiblePages(currentPage, totalPages);
 
@@ -210,13 +209,17 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
               >
                 {category === 'dynamic'
                   ? parent === 'blinds'
-                    ? 'By Function'
+                    ? 'By Material'
                     : parent === 'curtains'
-                      ? 'By Fabrics'
+                      ? 'By Fabric Type'
                       : parent === 'shutters'
                         ? 'By Colour'
                         : 'By Design'
-                  : category}
+                  : category === 'By Style'
+                    ? parent === 'blinds'
+                      ? 'By Type'
+                      : 'By Style'
+                    : category}
               </Button>
             );
           })}
@@ -226,7 +229,10 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
           <h3 className="text-[#231F20] text-20 md:text-24 lg:text-[36px] font-semibold uppercase">
             {content.title}
           </h3>
-          <p className="text-14 md:text-15 font-normal md:w-[65%] mx-auto" dangerouslySetInnerHTML={{ __html: content.subtitle}}></p>
+          <p
+            className="text-14 md:text-15 font-normal md:w-[65%] mx-auto"
+            dangerouslySetInnerHTML={{ __html: content.subtitle }}
+          ></p>
         </div>
         {/* categorydata */}
         <div ref={productContainerRef} className="my-2" />
@@ -235,48 +241,48 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
         </div>
 
         {totalPages > 1 && (
-           <div className="flex md:justify-center items-center mt-10 lg:space-x-3 overflow-hidden justify-center">
-           <Button
-             variant={'secondary'}
-             className=" w-14 sm:w-[55px] h-8 sm:h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
-             onClick={() => handlePageChange(currentPage - 1)}
-             disabled={currentPage === 1}
-           >
-             <FaArrowLeft size={16} />
-           </Button>
-     
-           {visiblePages.map((page, index) =>
-             typeof page === 'string' ? (
-               <span
-                 key={`dots-${index}`}
-                 className="w-10 sm:w-[55px] h-8 sm:h-[55px] flex items-center justify-center text-16"
-               >
-                 ...
-               </span>
-             ) : (
-               <Button
-                 key={page}
-                 className={`w-10 sm:w-[55px] h-8 sm:h-[55px] text-16 ${
-                   currentPage === page
-                     ? 'bg-secondary text-white'
-                     : 'bg-transparent text-black'
-                 }`}
-                 onClick={() => handlePageChange(page)}
-               >
-                 {page}
-               </Button>
-             ),
-           )}
-     
-           <Button
-             variant={'secondary'}
-             className="w-14 sm:w-[55px] h-8 sm:h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
-             onClick={() => handlePageChange(currentPage + 1)}
-             disabled={currentPage === totalPages}
-           >
-             <FaArrowRight size={16} />
-           </Button>
-         </div>
+          <div className="flex md:justify-center items-center mt-10 lg:space-x-3 overflow-hidden justify-center">
+            <Button
+              variant={'secondary'}
+              className=" w-14 sm:w-[55px] h-8 sm:h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              <FaArrowLeft size={16} />
+            </Button>
+
+            {visiblePages.map((page, index) =>
+              typeof page === 'string' ? (
+                <span
+                  key={`dots-${index}`}
+                  className="w-10 sm:w-[55px] h-8 sm:h-[55px] flex items-center justify-center text-16"
+                >
+                  ...
+                </span>
+              ) : (
+                <Button
+                  key={page}
+                  className={`w-10 sm:w-[55px] h-8 sm:h-[55px] text-16 ${
+                    currentPage === page
+                      ? 'bg-secondary text-white'
+                      : 'bg-transparent text-black'
+                  }`}
+                  onClick={() => handlePageChange(page)}
+                >
+                  {page}
+                </Button>
+              ),
+            )}
+
+            <Button
+              variant={'secondary'}
+              className="w-14 sm:w-[55px] h-8 sm:h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              <FaArrowRight size={16} />
+            </Button>
+          </div>
         )}
       </div>
     </Container>
