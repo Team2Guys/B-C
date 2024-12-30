@@ -8,19 +8,17 @@ import axios from 'axios';
 import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
-import { formatDate } from 'config';
 import Cookies from 'js-cookie';
 import TableSkeleton from './TableSkelton';
 import { Categories_Types, CategoriesType } from 'types/interfaces';
-import { ICategory } from 'types/types';
-interface Product {
-  _id: string;
-  name: string;
-  category: string;
-  posterImageUrl: { imageUrl: string };
-  createdAt: string;
-  columns:string;
-}
+// interface Product {
+//   _id: string;
+//   name: string;
+//   category: string;
+//   posterImageUrl: { imageUrl: string };
+//   createdAt: string;
+//   columns:string;
+// }
 
 interface CategoryProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -139,7 +137,7 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
       key: 'posterImageUrl',
       render: (text: any, record: CategoriesType) => (
         <Image
-          src={record.posterImage?.imageUrl}
+          src={record.posterImage?.imageUrl || ''}
           alt={`Image of ${record.name}`}
           width={50}
           height={50}

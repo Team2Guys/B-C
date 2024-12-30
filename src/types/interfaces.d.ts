@@ -57,11 +57,11 @@ export interface CategoriesType extends Category {
   createdAt:string;
   last_editedBy:string;
   id: string ;
-  posterImage?:{    
-    imageUrl:string;
-  } | StaticImport;
+  posterImage?: postimage;
 }
-
+ interface postimage{
+  imageUrl:string
+ }
 interface CloudinaryImage {
   public_id: string | undefined;
   imageUrl: string | undefined;
