@@ -22,7 +22,6 @@ const fetchBlogs = async (): Promise<BlogInfo[]> => {
   }
 };
 
-
 export const metadata: Metadata = {
   title: 'blindsandcurtains',
   description: 'Welcome to blogs of blindsandcurtains',
@@ -41,7 +40,6 @@ export const metadata: Metadata = {
     canonical: 'https://b-c-eight.vercel.app/blog',
   },
 };
-
 
 const Blog = async () => {
   const blogs = await fetchBlogs();

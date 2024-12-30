@@ -16,10 +16,16 @@ import bgBreadcrum from '../../../../public/assets/images/Blog/blogbackground.pn
 import { FaAngleRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { ICategory } from 'types/types';
-import { blogLinks } from 'data/header_links';
-import NotFound from 'app/not-found';
+// import { blogLinks } from 'data/header_links';
+// import NotFound from 'app/not-found';
 
-const Blog = ({ blogs , categories }: { blogs: BlogInfo[] , categories:ICategory[] }) => {
+const Blog = ({
+  blogs,
+  categories,
+}: {
+  blogs: BlogInfo[];
+  categories: ICategory[];
+}) => {
   const { name } = useParams();
   const pathName = usePathname();
   const [catgoryPage, setCatgoryPage] = useState<{
@@ -39,6 +45,8 @@ const Blog = ({ blogs , categories }: { blogs: BlogInfo[] , categories:ICategory
   const blog: BlogInfo | undefined = blogs?.find(
     (blog) => generateSlug(blog.title) === name,
   );
+  console.log('=================== BLOG TO IDR HAIN =====================');
+  console.log(blog);
 
   useEffect(() => {
     if (blog && blogs) {
@@ -76,11 +84,10 @@ const Blog = ({ blogs , categories }: { blogs: BlogInfo[] , categories:ICategory
     }
   }, [blogs, catgoryPage]);
 
-  const matchingLink = blogLinks.find((link) =>
-    link.href === name);
-  if (!matchingLink){
-    return <NotFound/>
-  }
+  // const matchingLink = blogLinks.find((link) => link.href === name);
+  // if (!matchingLink) {
+  //   return <NotFound />;
+  // }
 
   return (
     <>
