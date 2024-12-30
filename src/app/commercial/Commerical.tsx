@@ -17,8 +17,11 @@ import {
 } from 'data/data';
 import VideoBanner from 'components/video-banner/video-banner';
 import { IoSearch } from 'react-icons/io5';
+import CardSkeleton from 'components/Skeleton/card-skeleton';
 
 const Commercial = ({ products , subCategories}: { products: IProduct[] , subCategories: ICategory[]}) => {
+  const [isLoading, setLoading] = useState(true);
+
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
 
@@ -33,8 +36,9 @@ const Commercial = ({ products , subCategories}: { products: IProduct[] , subCat
       );
 
       setFilteredProducts(filtered);
-      const combinedArray = [...filtered, ...matchingSubCategoryTitles];
-      setmixProdCategeries(combinedArray);
+      setLoading(false);
+      let arry = [...filtered, ...matchingSubCategoryTitles]
+      setmixProdCategeries(arry);
     }
   }, [products, subCategories]);
 
@@ -110,7 +114,8 @@ const Commercial = ({ products , subCategories}: { products: IProduct[] , subCat
               },
             }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 xs:mt-16 mt-5 md:px-4">
+            {isLoading ? (<CardSkeleton isSizeSmall/>):(
+            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
               {filteredProducts?.map((product) => {
                 // Skip product without a category
                 if (!product.category) return null;
@@ -123,7 +128,7 @@ const Commercial = ({ products , subCategories}: { products: IProduct[] , subCat
                     <ImageAntd
                       src={posterImage?.imageUrl || '/default-image.jpg'}
                       alt={altText}
-                      className="rounded-xl"
+                      className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px]"
                       width={500} 
                       height={500} 
                       preview={{
@@ -142,7 +147,7 @@ const Commercial = ({ products , subCategories}: { products: IProduct[] , subCat
                   </div>
                 );
               })}
-            </div>
+            </div>)}
           </ImageAntd.PreviewGroup>
           }
         </div>
