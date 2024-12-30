@@ -313,35 +313,6 @@ export const subCategoryUrls = [
   {url: 'blackout-blinds' , name: 'Blackout/Private Blinds'}
 ]
 
-export const byTypeItems = [
-  'roller-blinds',
-  'roman-blinds',
-  'vertical-blinds',
-  'wooden-blinds',
-  'aluminium-blinds',
-  'zebra-blinds',
-  'zipline-outdoor-blinds',
-  'panel-blinds',
-];
-
-export const byRoomItems = [
-  'living-room-blinds',
-  'dining-room-blinds',
-  'bedroom-blinds',
-  'kids-room-blinds',
-  'kitchen-blinds',
-  'conservatory-blinds',
-  'staircase-blinds',
-  'study-room-blinds',
-  'bathroom-blinds',
-];
-
-export const byFunctionItems = [
-  'blackout-blinds',
-  'dimout-blinds',
-  'sunscreentransparent-blinds',
-];
-
 
 export const customSortingOrder = [
   
