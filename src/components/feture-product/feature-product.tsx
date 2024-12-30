@@ -7,8 +7,8 @@ import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
 import { fetchCategories, fetchProducts } from 'config/fetch';
 import Featureskeleton from './skeleton';
-
-
+import { generateSlug } from 'data/data';
+import { allProductsOrder, customSortingOrder } from 'data/urls';
 const FeatureProduct: React.FC = () => {
   const {
     data: categories,
@@ -18,8 +18,6 @@ const FeatureProduct: React.FC = () => {
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
-  
-
   const {
     data: products,
     error: productsError,
@@ -28,7 +26,6 @@ const FeatureProduct: React.FC = () => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-  console.log(products);
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(8);
   const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutters', 'Commercial'];
@@ -39,13 +36,39 @@ const FeatureProduct: React.FC = () => {
     },
     {} as Record<string, ICategory>,
   );
-
-  const filteredProducts = products?.filter(
-    (product: IProduct) =>
-      !activeCategory || product.CategoryId === activeCategory.id,
-  );
-
-  const visibleProducts = filteredProducts?.slice(0, visibleCount);
+  const filteredProducts = products?.filter((product: IProduct) => {
+    if (!activeCategory) {
+      return true;
+    }
+    return product.CategoryId === activeCategory?.id;
+  });
+  
+  const sortingOrder =
+    activeCategory?.title === 'Blinds' || activeCategory?.title === 'Curtains'
+      ? customSortingOrder
+      : activeCategory === null
+      ? allProductsOrder
+      : [];
+  const sortedProducts = (() => {
+    if (sortingOrder.length > 0) {
+      const sorted = filteredProducts?.filter((product) =>
+        sortingOrder.includes(generateSlug(product.title))
+      );
+      const unsorted = filteredProducts?.filter(
+        (product) => !sortingOrder.includes(generateSlug(product.title))
+      );
+      return [
+        ...(sorted || []).sort((a, b) => {
+          const indexA = sortingOrder.indexOf(generateSlug(a.title));
+          const indexB = sortingOrder.indexOf(generateSlug(b.title));
+          return indexA - indexB;
+        }),
+        ...(unsorted || []),
+      ];
+    }
+    return filteredProducts;
+  })();
+  const visibleProducts = sortedProducts?.slice(0, visibleCount);
 
   const handleViewMore = () => {
     const screenWidth = window.innerWidth;
@@ -82,15 +105,11 @@ const FeatureProduct: React.FC = () => {
   }, []);
 
   if (isLoadingCategories || isLoadingProducts)
-    return (
-     <Featureskeleton/>
-    );
-
-// Error handling
-if (categoriesError instanceof Error)
-  return <div>Error: {categoriesError.message}</div>;
-if (productsError instanceof Error)
-  return <div>Error: {productsError.message}</div>;
+    return <Featureskeleton />;
+  if (categoriesError instanceof Error)
+    return <div>Error: {categoriesError.message}</div>;
+  if (productsError instanceof Error)
+    return <div>Error: {productsError.message}</div>;
 
   return (
     <Container className="mt-20">
@@ -103,7 +122,6 @@ if (productsError instanceof Error)
         </p>
         <hr className="border-2 border-primary w-28 mx-auto mt-3 md:mt-0" />
       </div>
-
       <div className="mt-10">
         <div className="overflow-x-auto border">
           <div className="flex lg:gap-10  gap-1 md:gap-3 justify-center whitespace-nowrap md:min-w-[470px] mb-3">
@@ -131,7 +149,6 @@ if (productsError instanceof Error)
         <div className="mt-5">
           <FeatureCard products={visibleProducts || []} />
         </div>
-
         {visibleCount < (filteredProducts?.length || 0) && (
           <div className="flex justify-center mt-10">
             <Button
@@ -147,5 +164,4 @@ if (productsError instanceof Error)
     </Container>
   );
 };
-
 export default FeatureProduct;

@@ -313,6 +313,7 @@ export const subCategoryUrls = [
   {url: 'blackout-blinds' , name: 'Blackout/Private Blinds'}
 ]
 
+
 export const customSortingOrder = [
   
   //Blinds By Type
@@ -351,6 +352,15 @@ export const customSortingOrder = [
   'eyelet-curtains',
   'tab-top-curtains',
 
+  //Curtain By Room
+  'kids-room-curtains',
+  'living-room-curtains',
+  'bedroom-curtains',
+  'dining-room-curtains',
+  'kitchen-curtains',
+  'staircase-curtains',
+  'conservatory-curtains',
+  
   //Curtain By fabric
 
   'blackout-curtains',
@@ -373,6 +383,14 @@ export const customSortingOrder = [
   'cafe-style-shutters',
   'bay-window-shutters',
   'outdoor-shutters',
+  
+  //Shutter By Room
+  'living-room-shutters',
+  'bedroom-shutters',
+  'bathroom-shutters',
+  'dining-room-shutters',
+  'kitchen-shutters',
+  'staircase-shutters',
 
   //Shutter By Color
 
@@ -396,4 +414,23 @@ export const customSortingOrder = [
       link: "/automated-curtains",
       imageSrc: "assets/images/Curtain/landing/landing.webp",
     },
+  ];
+
+  export const allProductsOrder = [
+    'roller-blinds',
+    'roman-blinds',
+    'vertical-blinds',
+    'wooden-blinds',
+    'aluminium-blinds',
+
+    'triple-pinch-pleat-curtains',
+    'double-pinch-pleat-curtains',
+    'pencil-pleat-curtains',
+    'ripplefoldwave-curtains',
+
+    'full-height-shutters',
+    'bi-fold-shutters',
+    'bi-pass-shutters',
+    'solid-panel-shutters',
+
   ];
