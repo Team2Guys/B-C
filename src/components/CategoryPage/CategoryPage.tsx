@@ -16,6 +16,7 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import { RollerBlindsPage } from 'data/Images';
+import { generateSlug } from 'data/data';
 
 interface ICategoryPage {
   title: string;
@@ -125,10 +126,19 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
 
                 <div className="mt-10">
                   <Link
-                    href={`/request-appointment`}
+                     href={`/blinds/roller-blinds/${
+                      generateSlug(
+                        product.title === 'Sunscreen/Transparent Blinds'
+                          ? 'sunscreen-roller-blinds'
+                          : product.title
+                      )
+                    }`}
                     className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
                   >
-                    Book An Appointment Now
+                    View Our{' '}
+                      {product.title === 'Sunscreen/Transparent Blinds'
+                        ? 'Sunscreen Blinds'
+                        : product.title}
                   </Link>
                 </div>
               </div>

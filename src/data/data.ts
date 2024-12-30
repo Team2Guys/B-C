@@ -1315,6 +1315,7 @@ export const staticCommercialMegaMenuItems: IProduct[] = [
 ];
 
 export const commercialPagesItems = [
+  'offices-blinds',
   'hotels-restaurants',
   'printed-blinds',
   'school-blinds',
@@ -1322,11 +1323,25 @@ export const commercialPagesItems = [
   'vertical-blinds',
   'aluminium-blinds',
   'wooden-blinds',
-  'blackout-roller-blinds',
+  'blackout-blinds',
   'motorised-blinds',
   'panel-blinds',
   'roman-blinds',
 ];
+export const staticDescriptions: Record<string, string> = {
+  'offices-blinds': 'Our blinds are available in roller, vertical, and Venetian designs. These office blinds for windows offer corporate logos for brand identity.',
+  'hotels-restaurants': 'Hotel blinds with blackout, sheer, and layered options are suitable for luxury hotel window treatments. We offer sophisticated looks for hotel guests.',
+  'printed-blinds': 'Printed blinds offer dual-layer fabric combining translucent and opaque stripes. These printed zebra blinds provide a modern, artistic look  for residential or commercial spaces.',
+  'school-blinds': 'Our durable roller and vertical blinds provide bright, engaging colors to school window coverings. These blinds improve the focus of students on the whiteboard by regulating classroom light.',
+  'sunscreentransparent': 'Sunscreen Roller Blinds offer Light-filtering fabrics. These transparent blinds provide a clear view of the outdoors offices, hotels, and homes with large windows.',
+  'vertical-blinds': 'Our vertical blinds are  perfect for office and home use. These are a combination of vertical blinds and layered curtains which adds an extra layer of insulation.',
+  'aluminium-blinds': 'Our horizontal or vertical blinds offer metallic finish. These lightweight aluminum blinds for windows are suitable for modern kitchens, bathrooms, and offices.',
+  'wooden-blinds': 'We Offer natural wood blinds that are available in various stains and finishes. These Wood panel window blinds complement classic and modern interior.',
+  'blackout-blinds': 'Roller, Roman, and pleated blackout blinds are custom fit to any window size. These Custom blackout blinds are ideal for restful sleep or focused work.',
+  'motorised-blinds': 'We offer roller, Venetian, and vertical designs for our custom electric blinds. These motorised blinds provide remote or device-controlled convenience.',
+  'panel-blinds': 'Panel blinds offer large fabric panels that slide smoothly. These Panel blinds for windows are perfect for wide windows and sliding doors. ',
+  'roman-blinds': 'For classic or modern look our roman blinds offer custom fit fabric folds. These office blinds for windows provide blackout and translucent options.',
+};
 
 export const items = [
   {

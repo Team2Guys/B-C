@@ -14,8 +14,7 @@ const OurClient = () => {
           our clients
         </h2>
         <p className="text-center text-sm tracking-widest lg:w-2/5 mx-auto px-10 pt-3">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
+          Our goal is to do one thing and do it pretty well. That's why we offer the most reliable products on the market.
         </p>
       </div>
       <div className="bg-white">
