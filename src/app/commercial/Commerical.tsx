@@ -13,7 +13,6 @@ import ProductCard from 'components/ui/Product-Card';
 import {
   commercialPagesItems,
   generateSlug,
-  officeBlindsItems,
   staticDescriptions,
 } from 'data/data';
 import VideoBanner from 'components/video-banner/video-banner';
@@ -115,8 +114,8 @@ const Commercial = ({ products , subCategories}: { products: IProduct[] , subCat
               {filteredProducts?.map((product) => {
                 // Skip product without a category
                 if (!product.category) return null;
-
-                const { posterImage, title } = product;
+                // use title { posterImage, title } = product; 
+                const { posterImage } = product;
                 const altText = posterImage?.altText || "Image";
 
                 return (
