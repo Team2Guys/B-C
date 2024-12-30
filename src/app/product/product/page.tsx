@@ -161,7 +161,7 @@ const AricBlind: React.FC = () => {
                 href={'/request-appointment'}
                 className="bg-secondary  text-white text-2xl font-bold py-7 px-4 rounded-lg"
               >
-                Book An Appointment Now
+                BOOK A FREE APPOINTMENT
               </Link>
             </div>
           </div>

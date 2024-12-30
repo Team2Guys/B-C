@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import CardSkeleton from 'components/Skeleton/card-skeleton';
 import { fetchCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
@@ -11,20 +12,27 @@ interface ProductCardDataProps {
   products: any[];
   categoryType?: string;
   isSizeSmall?: boolean;
+  renderDescription?: (title: string) => string;
 }
 
 const ProductCard: React.FC<ProductCardDataProps> = ({
   products,
   isSizeSmall,
+  renderDescription,
 }) => {
   const [scrollEnabled, setScrollEnabled] = useState(false);
   const {
     data: categories,
+    isLoading: isLoadingCategories,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
     queryFn: fetchCategories
   });
 
+  if (isLoadingCategories)
+    return (
+     <CardSkeleton isSizeSmall={isSizeSmall}/>
+    );
   const getTrimmedTitle = (title: string) => {
     return title.replace(/^Made to measure\s+/i, '');
   };
@@ -61,7 +69,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
 
   return (
     <div
-      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${isSizeSmall && 'lg:grid-cols-4'} gap-5 p-1 md:p-0 mt-5`}
+      className={`grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 ${isSizeSmall && 'xl:grid-cols-4'} gap-5 p-1 md:p-0 mt-5`}
     >
       {products &&
         products.map((product: any) => {
@@ -78,7 +86,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               key={product.id}
             >
               <Image
-                className={`w-full ${isSizeSmall ? 'lg:h-[264px]' : 'lg:h-[364px]'} rounded-xl`}
+                className={`w-full ${isSizeSmall ? 'lg:h-[264px] sm:h-[264px] md:h-[280px] h-[240px]' : 'lg:h-[364px] sm:h-[264px] md:h-[280px] h-[240px]'} rounded-xl`}
                 width={600}
                 height={600}
                 src={product?.posterImage?.imageUrl}
@@ -87,10 +95,13 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               <div className="text-center space-y-3">
                 <h4 className="text-17 font-semibold">{trimmedProductTitle}</h4>
                 <p
-                  className={`text-15 font-light md:w-[80%] mx-auto max-h-16 ${scrollEnabled ? 'custom-scrollbar' : 'overflow-hidden'
-                    }`}
+                  className={`text-15 font-light md:w-[80%] mx-auto max-h-16 ${
+                    scrollEnabled ? 'custom-scrollbar' : 'overflow-hidden'
+                  }`}
                   dangerouslySetInnerHTML={{
-                    __html: product.short_description || product.description,
+                    __html: renderDescription
+                      ? renderDescription(product.title)
+                      : product.short_description || product.description,
                   }}
                   onClick={handleEnableScroll}
                   onMouseLeave={handledisableScroll}
