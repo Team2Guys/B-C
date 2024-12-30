@@ -3,24 +3,27 @@ import React from 'react';
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import CommentsData from 'components/Dashboard/Blogs/comment-data/comment-data';
-import PageSkelton from 'components/Skeleton/PageSkelton';
 import { BlogInfo } from 'types/interfaces';
 import { useQuery } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
+import HorizontalcardSkelton from 'components/Skeleton/HorizontalcardSkelton';
 
 const Comment = () => {
   const {
     data: blogs,
     isLoading,
-    error,
   } = useQuery<BlogInfo[]>({
     queryKey: ['blogs'],
     queryFn: fetchBlogs,
   });
 
-  if (error || isLoading) {
-    return <PageSkelton />;
+  if (isLoading) {
+    return (
+      <DefaultLayout>
+        <HorizontalcardSkelton rows={10} columns={1} />
+      </DefaultLayout>
+    );
   }
  
   if (!blogs) {

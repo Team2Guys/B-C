@@ -54,7 +54,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
   });
 
   if (isLoading) {
-    return <TableSkeleton rows={8} columns={5} />;
+    return <TableSkeleton rows={10} columns={1} />;
   }
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
