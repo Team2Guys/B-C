@@ -1,18 +1,18 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-// import { Image } from 'antd';
 import Image from 'next/image';
 import { IProduct } from 'types/types';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
 interface GalleryProps {
-  card: IProduct;
+  card?: IProduct;
   relativeProducts?: boolean;
   parent?: string;
   detailHide?: boolean;
   product_Images?: any;
-  imagesOnly?: boolean,
+  imagesOnly?: boolean;
+  isLoading?: boolean;
 }
 
 const GalleryCard: React.FC<GalleryProps> = ({
@@ -21,7 +21,8 @@ const GalleryCard: React.FC<GalleryProps> = ({
   detailHide,
   parent,
   product_Images,
-  imagesOnly, // New Prop
+  imagesOnly,
+  isLoading, // New Prop
 }) => {
   const getPath = (arr: IProduct) => {
     const slug = ChangedProductUrl_handler(arr.title);
@@ -51,14 +52,20 @@ const GalleryCard: React.FC<GalleryProps> = ({
           src={
             product_Images
               ? product_Images.Imagesurl
-              : card.posterImage.imageUrl
+              : card?.posterImage?.imageUrl || '/default-image.jpg'
           }
-          alt={card.title}
+          alt={card?.title || 'Image'}
           height={800}
           width={800}
           className="rounded-xl h-56 xs:h-80 w-[100%] object-cover"
         />
       </div>
+    );
+  }
+
+   if (!isLoading) {
+    return (
+        <div>abc</div>
     );
   }
 
@@ -68,9 +75,9 @@ const GalleryCard: React.FC<GalleryProps> = ({
         src={
           product_Images
             ? product_Images.Imagesurl
-            : card.posterImage.imageUrl
+            : card?.posterImage?.imageUrl || '/default-image.jpg'
         }
-        alt={card.title}
+        alt={card?.title || 'Image'}
         height={800}
         width={800}
         className="rounded-xl h-56 xs:h-80 w-[100%] object-cover"
@@ -80,25 +87,28 @@ const GalleryCard: React.FC<GalleryProps> = ({
           } ${relativeProducts ? 'justify-between' : 'justify-center'
           } justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
       >
-        <Link href={getPath(card)}>
-          <span
-            className={`text-black text-start text-primary cursor-pointer ${relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'
-              }`}
-          >
-            {card.title}
-          </span>
-        </Link>
-        <Link
-          href={getPath(card)}
-          className={`border border-primary text-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14 text-nowrap ${relativeProducts ? 'block' : 'block'
-            }`}
-        >
-          View More
-        </Link>
+        {card && (
+          <>
+            <Link href={getPath(card)}>
+              <span
+                className={`text-black text-start text-primary cursor-pointer ${relativeProducts ? 'text-12 font-light' : 'text-sm font-medium'
+                  }`}
+              >
+                {card.title}
+              </span>
+            </Link>
+            <Link
+              href={getPath(card)}
+              className={`border border-primary text-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14 text-nowrap ${relativeProducts ? 'block' : 'block'
+                }`}
+            >
+              View More
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
 };
-
 
 export default GalleryCard;
