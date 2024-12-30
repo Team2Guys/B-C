@@ -54,6 +54,12 @@ export interface Category {
 
 export interface CategoriesType extends Category {
   posterImageUrl: IMAGE_INTERFACE;
+  createdAt:string;
+  last_editedBy:string;
+  id: string ;
+  posterImage?:{    
+    imageUrl:string;
+  } | StaticImport;
 }
 
 interface CloudinaryImage {
@@ -140,6 +146,9 @@ export interface Categories_Types {
   createdAt: string;
   updatedAt: string;
   __v: any;
+  last_editedBy:string;
+  id:string;
+  dataSource:string;
 }
 
 interface Image {
