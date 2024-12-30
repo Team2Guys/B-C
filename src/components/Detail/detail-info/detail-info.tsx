@@ -50,7 +50,7 @@ const DetailInfo: React.FC<detailprops> = ({
                   target='_blank' rel="noopener"
                   className="px-4 py-4 rounded-md bg-secondary text-white font-medium"
                 >
-                  Book An Appointment Now
+                  BOOK A FREE APPOINTMENT
                 </Link>
               </div>
 

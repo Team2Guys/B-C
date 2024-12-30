@@ -11,11 +11,13 @@ interface ProductCardDataProps {
   products: any[];
   categoryType?: string;
   isSizeSmall?: boolean;
+  renderDescription?: (title: string) => string;
 }
 
 const ProductCard: React.FC<ProductCardDataProps> = ({
   products,
   isSizeSmall,
+  renderDescription,
 }) => {
   const [scrollEnabled, setScrollEnabled] = useState(false);
   const {
@@ -87,10 +89,13 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               <div className="text-center space-y-3">
                 <h4 className="text-17 font-semibold">{trimmedProductTitle}</h4>
                 <p
-                  className={`text-15 font-light md:w-[80%] mx-auto max-h-16 ${scrollEnabled ? 'custom-scrollbar' : 'overflow-hidden'
-                    }`}
+                  className={`text-15 font-light md:w-[80%] mx-auto max-h-16 ${
+                    scrollEnabled ? 'custom-scrollbar' : 'overflow-hidden'
+                  }`}
                   dangerouslySetInnerHTML={{
-                    __html: product.short_description || product.description,
+                    __html: renderDescription
+                      ? renderDescription(product.title)
+                      : product.short_description || product.description,
                   }}
                   onClick={handleEnableScroll}
                   onMouseLeave={handledisableScroll}
