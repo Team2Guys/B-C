@@ -1,14 +1,16 @@
 'use client';
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
 import { fetchAppointments } from 'config/fetch';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
 import { Modal, Table } from 'antd';
+import useColorMode from 'hooks/useColorMode';
 import { TbScanEye } from 'react-icons/tb';
 import { IAppointments } from 'types/types';
+import TableSkeleton from 'components/Dashboard/Tables/TableSkelton';
 
 const Appointments = () => {
    const appointmentColumns = [
@@ -58,6 +60,9 @@ const Appointments = () => {
   
   const [selectedAppointment, setSelectedAppointment] = useState<IAppointments | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
+const [loading, setLoading] = useState<boolean>(false);
+  const [colorMode, toggleColorMode] = useColorMode();
+  console.log(toggleColorMode, 'toggleColorMode');
 
   const handleShowDetails = (record:IAppointments) => {
     setSelectedAppointment(record);
@@ -75,6 +80,7 @@ const Appointments = () => {
 
   const {
     data: appointments,
+    isLoading,
   } = useQuery<IAppointments[]>({
     queryKey: ['appointments', token],
     queryFn: () => fetchAppointments(),
@@ -102,7 +108,6 @@ const Appointments = () => {
   
     return `${formattedDate} / ${formattedTime}`;
   }
-  
   
 
   useEffect(() => {
@@ -139,9 +144,15 @@ const Appointments = () => {
 
 
   return (
+   
     <>
       <DefaultLayout>
-        <Breadcrumb pageName={'View Appointments'} />
+      <div className={colorMode === 'dark' ? 'dark' : ''}>
+      {isLoading ? (
+        <TableSkeleton rows={10} columns={1} />
+      ) : (
+     <>
+     <Breadcrumb pageName={'View Appointments'} />
         <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white pt-4">
           <input
             className="peer lg:p-3 p-2 block outline-none border rounded-md border-gray-200 dark:bg-white dark:bg-transparent dark:border-white text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none dark:text-black"
@@ -207,10 +218,14 @@ const Appointments = () => {
        </div>
         </Modal>
       )}
+     </>
+      )}
+    </div>
       </DefaultLayout>
       
       
     </>
+    
   );
 };
 

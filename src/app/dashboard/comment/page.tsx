@@ -8,6 +8,7 @@ import { BlogInfo } from 'types/interfaces';
 import { useQuery } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
+import HorizontalcardSkelton from 'components/Skeleton/HorizontalcardSkelton';
 
 const Comment = () => {
   const {
@@ -19,8 +20,12 @@ const Comment = () => {
     queryFn: fetchBlogs,
   });
 
-  if (error || isLoading) {
-    return <PageSkelton />;
+  if (isLoading) {
+    return (
+      <DefaultLayout>
+        <HorizontalcardSkelton rows={10} columns={1} />
+      </DefaultLayout>
+    );
   }
  
   if (!blogs) {

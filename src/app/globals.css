@@ -431,7 +431,7 @@ html {
 }
 
 .ant-modal-mask {
-  background-color: rgba(0, 0, 0, 0.842) !important;
+  background-color: rgb(0 0 0 / 18%) !important;
 }
 .ant-checkbox-inner{
   border-color: #cdb7aa !important;
