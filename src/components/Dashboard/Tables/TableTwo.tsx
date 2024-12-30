@@ -8,17 +8,17 @@ import axios from 'axios';
 import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
-import { formatDate } from 'config';
 import Cookies from 'js-cookie';
 import TableSkeleton from './TableSkelton';
-import { CategoriesType } from 'types/interfaces';
-interface Product {
-  _id: string;
-  name: string;
-  category: string;
-  posterImageUrl: { imageUrl: string };
-  createdAt: string;
-}
+import { Categories_Types, CategoriesType } from 'types/interfaces';
+// interface Product {
+//   _id: string;
+//   name: string;
+//   category: string;
+//   posterImageUrl: { imageUrl: string };
+//   createdAt: string;
+//   columns:string;
+// }
 
 interface CategoryProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -83,7 +83,7 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
   }, []);
 
   // Filter products based on search term
-  const filteredProducts: Product[] =
+  const filteredProducts: Categories_Types[] =
     category?.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
     ) || [];
@@ -130,14 +130,14 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
     }
   };
 
-  const columns = [
+  const columns =  [
     {
       title: 'Image',
       dataIndex: 'posterImageUrl',
       key: 'posterImageUrl',
-      render: (text: any, record: any) => (
+      render: (text: any, record: CategoriesType) => (
         <Image
-          src={record.posterImage?.imageUrl}
+          src={record.posterImage?.imageUrl || ''}
           alt={`Image of ${record.name}`}
           width={50}
           height={50}
@@ -153,36 +153,31 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
       title: 'Date',
       dataIndex: 'createdAt',
       key: 'date',
-      render: (text: any, record: any) => {
-        const createdAt = new Date(record.createdAt);
-
-        return <span>{formatDate(`${createdAt}`)}</span>;
-      },
+        render: (text: any, record: CategoriesType) => {
+              const createdAt = new Date(record.createdAt);
+              return <span>{createdAt.toLocaleDateString()}</span>;
+       },
     },
     {
       title: 'Time',
       dataIndex: 'createdAt',
       key: 'time',
-      render: (text: any, record: any) => {
+      render: (text: string, record: CategoriesType) => {
         const createdAt = new Date(record.createdAt);
-        const formattedTime = `${String(createdAt.getHours()).padStart(2, '0')}:${String(
-          createdAt.getMinutes(),
-        ).padStart(2, '0')}`;
-        return <span>{formattedTime}</span>;
-      },
-    },
+        return <span>{createdAt.toLocaleTimeString()}</span>;
+    }},
     {
       title: 'Last Edited By',
       dataIndex: 'last_editedBy',
       key: 'time',
-      render: (text: string, record: any) => {
+      render: (text: string, record: CategoriesType) => {
         return <span>{record.last_editedBy}</span>;
       },
     },
     {
       title: 'Edit',
       key: 'Edit',
-      render: (text: any, record: any) => (
+      render: (text: any, record: CategoriesType) => (
         <LiaEdit
           className={`cursor-pointer ${canEditCategory && 'text-black dark:text-white'} ${!canEditCategory && 'cursor-not-allowed text-slate-300'}`}
           size={20}
@@ -193,7 +188,7 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
     {
       title: 'Action',
       key: 'action',
-      render: (text: any, record: any) => (
+      render: (text: any, record: CategoriesType) => (
         <RiDeleteBin6Line
           className={`cursor-pointer ${canDeleteCategory && 'text-red'} ${
             !canDeleteCategory && 'cursor-not-allowed text-slate-300'
