@@ -16,8 +16,8 @@ import bgBreadcrum from '../../../../public/assets/images/Blog/blogbackground.pn
 import { FaAngleRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { ICategory } from 'types/types';
-import { blogLinks } from 'data/header_links';
-import NotFound from 'app/not-found';
+// import { blogLinks } from 'data/header_links';
+// import NotFound from 'app/not-found';
 
 const Blog = ({
   blogs,
