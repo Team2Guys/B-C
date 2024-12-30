@@ -1,7 +1,7 @@
 'use client';
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
 import { fetchAppointments } from 'config/fetch';
@@ -60,7 +60,6 @@ const Appointments = () => {
   
   const [selectedAppointment, setSelectedAppointment] = useState<IAppointments | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
-const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
   console.log(toggleColorMode, 'toggleColorMode');
 
