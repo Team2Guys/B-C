@@ -3,7 +3,6 @@ import React from 'react';
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import CommentsData from 'components/Dashboard/Blogs/comment-data/comment-data';
-import PageSkelton from 'components/Skeleton/PageSkelton';
 import { BlogInfo } from 'types/interfaces';
 import { useQuery } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
@@ -14,7 +13,6 @@ const Comment = () => {
   const {
     data: blogs,
     isLoading,
-    error,
   } = useQuery<BlogInfo[]>({
     queryKey: ['blogs'],
     queryFn: fetchBlogs,
