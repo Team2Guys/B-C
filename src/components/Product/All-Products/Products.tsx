@@ -12,6 +12,7 @@ import {
   megaMenubyStyle,
   megaMenuDynamic,
 } from 'data/data';
+import { customSortingOrder } from 'data/urls';
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { IProduct } from 'types/types';
@@ -29,7 +30,8 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const productContainerRef = useRef<HTMLDivElement | null>(null);
   const [content, setContent] = useState({ title: '', subtitle: '' });
 
-  useEffect(() => {
+   // Update the number of products per page based on window width
+   useEffect(() => {
     const updateProductsPerPage = () => {
       const width = window.innerWidth;
       if (width < 768) {
@@ -49,27 +51,27 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     };
   }, []);
 
+  // Combine categories with products
   const byRoomItems = [...extendedByRoom, ...megaMenubyRoom].flat();
   const ByRoomItems = useMemo(
     () =>
       products.filter((product) =>
         byRoomItems.some(
-          (item) => item.productName === generateSlug(product.title),
-        ),
+          (item) => item.productName === generateSlug(product.title)
+        )
       ),
-    [products, byRoomItems],
+    [products, byRoomItems]
   );
 
   const byStyleItems = [...extendedByStyle, ...megaMenubyStyle].flat();
-
   const ByStyleItems = useMemo(
     () =>
       products.filter((product) =>
         byStyleItems.some(
-          (item) => item.productName === generateSlug(product.title),
-        ),
+          (item) => item.productName === generateSlug(product.title)
+        )
       ),
-    [products, byStyleItems],
+    [products, byStyleItems]
   );
 
   const byDynamic = [...extendedDynamic, ...megaMenuDynamic].flat();
@@ -77,32 +79,58 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     () =>
       products.filter((product) =>
         byDynamic.some(
-          (item) => item.productName === generateSlug(product.title),
-        ),
+          (item) => item.productName === generateSlug(product.title)
+        )
       ),
-    [products, byDynamic],
+    [products, byDynamic]
   );
+
+  // Sorting function to sort products based on customSortingOrder
+  const sortProducts = (products: IProduct[], sortingOrder: string[]) => {
+    const sorted = products.filter((product) =>
+      sortingOrder.includes(generateSlug(product.title))
+    );
+    const unsorted = products.filter(
+      (product) => !sortingOrder.includes(generateSlug(product.title))
+    );
+
+    return [
+      ...sorted.sort((a, b) => {
+        const indexA = sortingOrder.indexOf(generateSlug(a.title));
+        const indexB = sortingOrder.indexOf(generateSlug(b.title));
+        return indexA - indexB;
+      }),
+      ...unsorted,
+    ];
+  };
 
   const filteredProducts: IProduct[] = useMemo(() => {
     switch (activeCategory) {
-      case 'All':
-        return products;
-      case 'By Room':
-        return ByRoomItems;
-      case 'By Style':
-        return ByStyleItems;
-      case 'dynamic':
-        return ByDynamicItems;
+      case 'All': {
+        const sorted = sortProducts(products, customSortingOrder);
+        return sorted;
+      }
+      case 'By Room': {
+        const filtered = ByRoomItems;
+        return sortProducts(filtered, customSortingOrder);
+      }
+      case 'By Style': {
+        const filtered = ByStyleItems;
+        return sortProducts(filtered, customSortingOrder);
+      }
+      case 'dynamic': {
+        const filtered = ByDynamicItems;
+        return sortProducts(filtered, customSortingOrder);
+      }
       default:
         return products;
     }
   }, [
     activeCategory,
+    products,
     ByRoomItems,
     ByStyleItems,
-    ByStyleItems,
     ByDynamicItems,
-    products,
   ]);
 
   const totalPages = useMemo(() => {
@@ -166,16 +194,14 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   };
 
   const visiblePages = getVisiblePages(currentPage, totalPages);
-
   useEffect(() => {
     const mainCategory = categorydata.find(
-      (category) =>
-        category.category.toLowerCase() === categoryType.toLowerCase(),
+      (category) => category.category.toLowerCase() === categoryType.toLowerCase()
     );
 
     if (mainCategory) {
       const categoryContent = mainCategory.types.find(
-        (type) => type.type.toLowerCase() === activeCategory.toLowerCase(),
+        (type) => type.type.toLowerCase() === activeCategory.toLowerCase()
       );
 
       if (categoryContent) {
