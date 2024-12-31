@@ -17,7 +17,6 @@ const CommercialPage = ({
   const path = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
   const router = useRouter();
-
   useEffect(() => {
     if (path) {
       const matchingUrl = urls.find((url) => url.errorUrl === path);
@@ -58,6 +57,7 @@ const CommercialPage = ({
               description={`${filteredSubCategory.description}`}
               category={`${filteredSubCategory.category.title}`}
               relatedProducts={filteredSubCategory?.products || []}
+              filteredSubCategory={filteredSubCategory}
             />
           )}
         </>
