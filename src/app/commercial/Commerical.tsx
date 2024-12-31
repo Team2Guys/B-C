@@ -19,7 +19,13 @@ import VideoBanner from 'components/video-banner/video-banner';
 import { IoSearch } from 'react-icons/io5';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
 
-const Commercial = ({ products , subCategories}: { products: IProduct[] , subCategories: ICategory[]}) => {
+const Commercial = ({
+  products,
+  subCategories,
+}: {
+  products: IProduct[];
+  subCategories: ICategory[];
+}) => {
   const [isLoading, setLoading] = useState(true);
 
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
@@ -28,37 +34,96 @@ const Commercial = ({ products , subCategories}: { products: IProduct[] , subCat
   useEffect(() => {
     if (products && subCategories) {
       const matchingSubCategoryTitles = subCategories.filter((subCategory) =>
-        commercialPagesItems.some((prod: string) => prod === generateSlug(subCategory.title))
+        commercialPagesItems.some(
+          (prod: string) => prod === generateSlug(subCategory.title),
+        ),
       );
 
       const filtered = products.filter((product) =>
-        commercialPagesItems.some((prod: string) => prod === generateSlug(product.title))
+        commercialPagesItems.some(
+          (prod: string) => prod === generateSlug(product.title),
+        ),
       );
 
       setFilteredProducts(filtered);
       setLoading(false);
-      let arry = [...filtered, ...matchingSubCategoryTitles]
+      let arry = [...filtered, ...matchingSubCategoryTitles];
       setmixProdCategeries(arry);
     }
   }, [products, subCategories]);
 
   const renderDescription = (title: string) => {
     const slug = generateSlug(title);
-    return staticDescriptions[slug] || `Dynamic description fetched for ${title}`;
+    return (
+      staticDescriptions[slug] || `Dynamic description fetched for ${title}`
+    );
   };
- 
+
   return (
     <div>
       <VideoBanner title={`Commercial`} />
       <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4">
         <div className="w-full md:w-1/2">
-          <h3 className="font-bold text-xl xs:text-2xl tracking-wider">
+          <h1 className="font-bold text-xl xs:text-2xl tracking-wider">
             Commercial Office Blinds
             <br />
             <span className="font-medium">Why Us in Dubai, UAE?</span>
-          </h3>
+          </h1>
           <p className="text-14 xs:text-18 md:leading-8 mt-4 text-lightdark">
-          We offer custom-made options for commercial office blinds. These blinds can fit to windows of any size and shape, including large floor-to-ceiling glass panels that are commonly found in modern offices. Made-to-measure options of our office blinds offer low maintenance with durable and dust-resistant materials that can be easily cleaned with a quick wipe, making them practical for busy office environments. We provide modern <Link className='underline' target='_blank' href={"/blinds/duplex-blinds"}>motorised duplex blinds</Link> for ease of use, allowing employees to adjust lighting with a remote or smart device. Our <Link className='underline' target='_blank' href={"/made-to-measure-blinds"}>blinds</Link> with translucent or sheer options reduce glare during training sessions or projector-based activities.<br/> Our <Link className='underline' target='_blank' href={"/blinds/wooden-venetian"}>Venetian blinds</Link> with horizontal slats are used for managerial or executive offices, boardrooms, IT and technical offices, training rooms, etc., making them suitable for various work environments. You can enjoy our free site visits and installation processes for <Link className='underline' target='_blank' href={"/curtains/office-window-curtains"}>office curtains</Link> and blinds. We are also trusted by office owners with over 700+ 5-star reviews. Our professional team perfectly fit office <Link className='underline' target='_blank' href={"/blinds/roller-blinds"}>roller blinds</Link> to your windows for optimal performance. 
+            We offer custom-made options for commercial office blinds. These
+            blinds can fit to windows of any size and shape, including large
+            floor-to-ceiling glass panels that are commonly found in modern
+            offices. Made-to-measure options of our office blinds offer low
+            maintenance with durable and dust-resistant materials that can be
+            easily cleaned with a quick wipe, making them practical for busy
+            office environments. We provide modern{' '}
+            <Link
+              className="underline"
+              target="_blank"
+              href={'/blinds/duplex-blinds'}
+            >
+              motorised duplex blinds
+            </Link>{' '}
+            for ease of use, allowing employees to adjust lighting with a remote
+            or smart device. Our{' '}
+            <Link
+              className="underline"
+              target="_blank"
+              href={'/made-to-measure-blinds'}
+            >
+              blinds
+            </Link>{' '}
+            with translucent or sheer options reduce glare during training
+            sessions or projector-based activities.
+            <br /> Our{' '}
+            <Link
+              className="underline"
+              target="_blank"
+              href={'/blinds/wooden-venetian'}
+            >
+              Venetian blinds
+            </Link>{' '}
+            with horizontal slats are used for managerial or executive offices,
+            boardrooms, IT and technical offices, training rooms, etc., making
+            them suitable for various work environments. You can enjoy our free
+            site visits and installation processes for{' '}
+            <Link
+              className="underline"
+              target="_blank"
+              href={'/curtains/office-window-curtains'}
+            >
+              office curtains
+            </Link>{' '}
+            and blinds. We are also trusted by office owners with over 700+
+            5-star reviews. Our professional team perfectly fit office{' '}
+            <Link
+              className="underline"
+              target="_blank"
+              href={'/blinds/roller-blinds'}
+            >
+              roller blinds
+            </Link>{' '}
+            to your windows for optimal performance.
           </p>
 
           {/* <ul className="text-14 xs:text-18 md:leading-8 text-lightdark list-disc list-inside ps-2">
@@ -86,14 +151,18 @@ const Commercial = ({ products , subCategories}: { products: IProduct[] , subCat
       <div className="w-full border-t-[1px] border-borderclr"></div>
       <Container className="text-center py-10">
         <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal">
-        Thousands of Fabric and Colour Options
+          Thousands of Fabric and Colour Options
         </h2>
         <p className="mt-3 text-14 md:leading-7">
-        Explore a variety of textures and patterns, perfect for any project or taste,
+          Explore a variety of textures and patterns, perfect for any project or
+          taste,
           <br />
           all at competitive prices.
         </p>
-        <ProductCard products={mixProdCategeries || []} renderDescription={renderDescription} />
+        <ProductCard
+          products={mixProdCategeries || []}
+          renderDescription={renderDescription}
+        />
       </Container>
       <BookNowBanner />
       <Container className="text-center py-10">
@@ -107,53 +176,61 @@ const Commercial = ({ products , subCategories}: { products: IProduct[] , subCat
           There are many shades and stunning patterns to select from
         </p> */}
         <div>
-          {<ImageAntd.PreviewGroup
-            preview={{
-              onChange: (current, prev) => {
-                console.log(`current index: ${current}, prev index: ${prev}`);
-              },
-            }}
-          >
-            {isLoading ? (<CardSkeleton isSizeSmall/>):(
-            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
-              {filteredProducts?.map((product) => {
-                // Skip product without a category
-                if (!product.category) return null;
-                // use title { posterImage, title } = product; 
-                const { posterImage } = product;
-                const altText = posterImage?.altText || "Image";
+          {
+            <ImageAntd.PreviewGroup
+              preview={{
+                onChange: (current, prev) => {
+                  console.log(`current index: ${current}, prev index: ${prev}`);
+                },
+              }}
+            >
+              {isLoading ? (
+                <CardSkeleton isSizeSmall />
+              ) : (
+                <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
+                  {filteredProducts?.map((product) => {
+                    // Skip product without a category
+                    if (!product.category) return null;
+                    // use title { posterImage, title } = product;
+                    const { posterImage } = product;
+                    const altText = posterImage?.altText || 'Image';
 
-                return (
-                  <div key={product.id} className="relative rounded-lg transition-shadow duration-300 group">
-                    <ImageAntd
-                      src={posterImage?.imageUrl || '/default-image.jpg'}
-                      alt={altText}
-                      className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px]"
-                      width={500} 
-                      height={500} 
-                      preview={{
-                        mask: (
-                          <div>
-                            <IoSearch style={{ color: 'white', fontSize: '30px' }} />
-                          </div>
-                        ),
-                      }}
-                    />
-                    {/* <div
+                    return (
+                      <div
+                        key={product.id}
+                        className="relative rounded-lg transition-shadow duration-300 group"
+                      >
+                        <ImageAntd
+                          src={posterImage?.imageUrl || '/default-image.jpg'}
+                          alt={altText}
+                          className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px]"
+                          width={500}
+                          height={500}
+                          preview={{
+                            mask: (
+                              <div>
+                                <IoSearch
+                                  style={{ color: 'white', fontSize: '30px' }}
+                                />
+                              </div>
+                            ),
+                          }}
+                        />
+                        {/* <div
                       className="absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center justify-center bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     >
                       <span className="text-black text-start text-primary cursor-pointer">{title}</span>
                     </div> */}
-                  </div>
-                );
-              })}
-            </div>)}
-          </ImageAntd.PreviewGroup>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </ImageAntd.PreviewGroup>
           }
         </div>
-
       </Container>
-      <Container >
+      <Container>
         <RelatedProducts products={filteredProducts || []} limit={4} />
       </Container>
     </div>
