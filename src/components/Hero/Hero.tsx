@@ -40,7 +40,7 @@ function Hero() {
                       Blinds & Curtains Dubai
                     </h5>
                   </div>
-                  <h1 className="text-black font-extrabold text-25 md:text-[27px] lg:text-[33px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[45px] lg:leading-[60px] text-center md:text-start">
+                  <h1 className="text-black font-extrabold text-25 md:text-[27px] lg:text-[33px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] cursor-text md:leading-[45px] lg:leading-[60px] text-center md:text-start">
                     {/* Custom Window <br />
                     Blinds & Curtains */}
                     {item.heading}
@@ -48,8 +48,6 @@ function Hero() {
                     {item.subheading}
                   </h1>
                   <p className="font-normal text-14 mt-0 md:mt-5 mb-2 md:mb-5 text-center md:text-start">
-                    {/* Lorem Ipsum is simply dummy text of the <br className='hidden md:block' /> and
-                    typesetting industry. */}
                     {item.content}
                   </p>
                   <Link
