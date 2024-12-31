@@ -55,7 +55,7 @@ const TopHero: React.FC<TopHeroProps> = ({
         backgroundOrigin: 'content-box',
       }}
     >
-      {/* <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div> */}
+      <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
       <div className="relative z-20 py-6 sm:py-14 md:py-24">
         <h1 className="text-xl xs:text-3xl md:text-4xl lg:text-5xl font-black mt-5 uppercase">
           {result
