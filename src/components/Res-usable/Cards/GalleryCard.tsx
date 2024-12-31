@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { IProduct } from 'types/types';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
-
+import RelatedProductSkeleton from 'components/Skeleton/Related-product';
 interface GalleryProps {
   card?: IProduct;
   relativeProducts?: boolean;
@@ -22,7 +22,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
   parent,
   product_Images,
   imagesOnly,
-  isLoading, // New Prop
+  isLoading
 }) => {
   const getPath = (arr: IProduct) => {
     const slug = ChangedProductUrl_handler(arr.title);
@@ -66,12 +66,11 @@ const GalleryCard: React.FC<GalleryProps> = ({
       </div>
     );
   }
-
-  if (isLoading) {
-    return <div>abc</div>;
-  }
-
   return (
+    <>
+      {isLoading ? (
+        <RelatedProductSkeleton />
+      ) : (
     <div className="relative rounded-lg transition-shadow duration-300 group">
       <Image
         src={
@@ -115,7 +114,9 @@ const GalleryCard: React.FC<GalleryProps> = ({
           </>
         )}
       </div>
-    </div>
+    </div> 
+  )}
+  </>
   );
 };
 
