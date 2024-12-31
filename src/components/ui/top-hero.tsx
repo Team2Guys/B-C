@@ -55,7 +55,7 @@ const TopHero: React.FC<TopHeroProps> = ({
         backgroundOrigin: 'content-box',
       }}
     >
-      {/* <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div> */}
+      <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
       <div className="relative z-20 py-6 sm:py-14 md:py-24">
         <h1 className="text-xl xs:text-3xl md:text-4xl lg:text-5xl font-black mt-5 uppercase">
           {result
@@ -67,7 +67,7 @@ const TopHero: React.FC<TopHeroProps> = ({
             href="/"
             className="flex items-center gap-2 font-bold capitalize"
           >
-            <FaHome size={20} />{' '}
+            <FaHome size={20} />
             {home ? home.charAt(0).toUpperCase() + home.slice(1) : 'Home'}
           </Link>
           {pageName
@@ -117,6 +117,7 @@ const TopHero: React.FC<TopHeroProps> = ({
                 } else if (matchingColorData) {
                   return (
                     <>
+                    <FaAngleRight size={20} />
                       <Link
                         href="/shutters-range"
                         className="font-bold capitalize"

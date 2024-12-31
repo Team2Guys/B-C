@@ -15,13 +15,13 @@ const Info = (selectedPage: IInfo) => {
     <Container className="mt-10 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="space-y-4 md:w-[80%] text-start mx-0 flex flex-col px-2 md:px-0">
-          <h1 className="text-18 leading-8 tracking-[3px]  md:tracking-[10px]  md:text-26 font-semibold  text-center md:text-start">
+          <h2 className="text-18 leading-8 tracking-[3px]  md:tracking-[10px]  md:text-26 font-semibold  text-center md:text-start">
             {selectedPage.selectedPage.subheading1} |{' '}
             <span className="font-normal">
               {' '}
               {selectedPage.selectedPage.subheading2}
             </span>
-          </h1>
+          </h2>
           {selectedPage.selectedPage.subheadingContent &&
             selectedPage.selectedPage.subheadingContent.map((item, index) => (
               <p

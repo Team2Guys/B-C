@@ -31,11 +31,12 @@ const DetailInfo: React.FC<detailprops> = ({
         <div
           className={`flex flex-wrap lg:flex-nowrap lg:gap-4 xl:gap-20 ${className} items-center`}
         >
+          
           <div className="w-full xl:w-5/12">
             <div className="space-y-4">
-              <h1 className="text-24 xs:text-center lg:text-start sm:text-32 lg:text-[41px] font-medium">
+              <h2 className="text-24 xs:text-center lg:text-start sm:text-32 lg:text-[41px] font-medium">
                 {heading ? heading : `What are ${title}`}{' '}
-              </h1>
+              </h2>
               <p className="underline underline-offset-8 text-[#6F747F] ">
                 {subtitle}
               </p>
