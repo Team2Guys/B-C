@@ -23,9 +23,9 @@ function Testimonial() {
   
   return (
     <Container className="lg:mt-16 mt-5 py-4 mx-auto happy_customer max-w-screen-2xl">
-      <h1 className="text-center lg:text-30 text-25 font-medium">
+      <h2 className="text-center lg:text-30 text-25 font-medium">
         Our Happy Customers
-      </h1>
+      </h2>
       <Swiper
         pagination={{
           clickable: true,

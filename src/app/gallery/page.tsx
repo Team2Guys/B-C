@@ -58,9 +58,9 @@ const GalleryPage: React.FC = () => {
       <TopHero title="GALLERY" image={bgBreadcrum.src} pagename={pathName} />
       <Container className="pt-16 pb-12 px-4 md:px-0">
         <div className="flex justify-between items-center pb-4 mb-6 overflow-hidden md:px-5">
-          <h1 className="text-2xl xs:text-3xl font-medium text-gray-800">
+          <h2 className="text-2xl xs:text-3xl font-medium text-gray-800">
             GALLERY
-          </h1>
+          </h2>
           <span className="text-gray-400 text-11 xs:text-14">
             Showing {indexOfFirstItem + 1}–
             {Math.min(indexOfLastItem, filteredProducts?.length || 0)} of{' '}

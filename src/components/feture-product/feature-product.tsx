@@ -114,9 +114,9 @@ const FeatureProduct: React.FC = () => {
   return (
     <Container className="mt-20">
       <div className="text-center">
-        <h1 className="text-26 md:text-32 font-bold">
+        <h2 className="text-26 md:text-32 font-bold">
           Elegant & Functional Window Coverings
-        </h1>
+        </h2>
         <p className="text-16 font-normal text-primary">
           We deliver on our promises, every single time{' '}
         </p>
