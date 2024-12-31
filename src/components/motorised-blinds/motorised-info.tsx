@@ -30,7 +30,7 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
       <div className={`flex flex-wrap lg:flex-nowrap lg:gap-4 ${className}`}>
         <div className="w-full lg:w-8/12">
           <div className="space-y-4">
-            <h1 className="text-32 md:text-[41px] font-medium text-center sm:text-start">{title || ""}</h1>
+            <h2 className="text-32 md:text-[41px] font-medium text-center sm:text-start">{title || ""}</h2>
             <p className="underline underline-offset-8 text-[#6F747F] text-center sm:text-start">
               {subtitle || ""}
             </p>
