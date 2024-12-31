@@ -12,6 +12,7 @@ function Hero() {
 
   return (
     <Container>
+      <h1 className="hidden">Blinds & Curtains Dubai</h1>
       <CustomSlider className="Hero-slider z-40 pb-3 xl:pt-0 2xl:pt-10 content-center h-full md:h-[55vh] lg:h-[65vh] xl:h-[80vh] 2xl:h-[84vh] max-sm:pb-5">
         {heroSlider.map((item: any) => {
           return (
@@ -110,7 +111,6 @@ function Hero() {
           );
         })}
       </CustomSlider>
-      <h1 className="hidden">Blinds & Curtains Dubai</h1>
     </Container>
   );
 }
