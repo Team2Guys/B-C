@@ -67,7 +67,7 @@ const TopHero: React.FC<TopHeroProps> = ({
             href="/"
             className="flex items-center gap-2 font-bold capitalize"
           >
-            <FaHome size={20} />{' '}
+            <FaHome size={20} />
             {home ? home.charAt(0).toUpperCase() + home.slice(1) : 'Home'}
           </Link>
           {pageName
@@ -117,6 +117,7 @@ const TopHero: React.FC<TopHeroProps> = ({
                 } else if (matchingColorData) {
                   return (
                     <>
+                    <FaAngleRight size={20} />
                       <Link
                         href="/shutters-range"
                         className="font-bold capitalize"
