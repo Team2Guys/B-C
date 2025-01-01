@@ -1,8 +1,8 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/d.jpg';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/about.jpg';
 import Container from 'components/Res-usable/Container/Container';
-import aboutUsImg from '../../../public/assets/images/Group2003.png';
+import aboutUsImg from '../../../public/assets/images/about.png';
 import {
   AboutUsPara,
   OurHistoryData,
