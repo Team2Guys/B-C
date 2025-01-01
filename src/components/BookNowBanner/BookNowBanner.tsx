@@ -2,7 +2,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import bgBanner from '../../../public/assets/images/commercial-electric-blinds-hero-1_1.png';
+import bgBanner from '../../../public/assets/images/booknow.png';
 import { usePathname } from 'next/navigation';
 import { BooKNowbannerContent } from 'data/data';
 interface BookNowBannerProps {

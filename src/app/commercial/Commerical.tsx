@@ -1,6 +1,6 @@
 'use client';
 
-import whyUsImg from '../../../public/assets/images/Rectangle811da.png';
+import whyUsImg from '../../../public/assets/images/whyus.png';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 import { Image as ImageAntd } from 'antd';

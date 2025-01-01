@@ -18,12 +18,15 @@ import { subCategoryUrls, urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { generateSlug, subCategoryName } from 'data/data';
 
+interface IFilteredSubCategory {
+  bannerImage?: { imageUrl: string }
+}
 interface ICategoryPage {
   title: string;
   relatedProducts: IProduct[];
   description: string;
   category: string;
-  filteredSubCategory?: any;
+  filteredSubCategory?: IFilteredSubCategory;
 }
 
 const RoomProducts = ({
