@@ -33,7 +33,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title }) =>
     }
   }, [pathname]);
   useEffect(() => {
-    const getRandomUniqueProducts = (products: IProduct[], limit: number, title: string | undefined) => {
+      const getRandomUniqueProducts = (products: IProduct[], limit: number, title: string | undefined) => {
       const uniqueProducts: IProduct[] = [];
       const titlesSet: Set<string> = new Set();
 
@@ -60,7 +60,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title }) =>
         <h3 className="lg:text-4xl text-2xl text-nowrap">Related Products</h3>
         <div className="w-full border-t-[1px] border-[#BDC9BD] mt-2"></div>
       </div>
-      <p className="font-normal text-12 md:text-18 mt-2 lg:mt-4">
+      <p className="font-normal text-12 lg:text-18 mt-2 lg:mt-4">
         {description || 'Explore our collection, each piece a showcase of exceptional window blinds design.'}
       </p>
       <div className="grid grid-cols-1 xs:grid-cols-2 md: lg:grid-cols-4 gap-6 lg:mt-10 mt-4 lg:mb-10">

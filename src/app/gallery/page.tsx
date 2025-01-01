@@ -76,14 +76,7 @@ const GalleryPage: React.FC = () => {
             >
               All
             </div>
-            {categories &&
-              categories
-                .sort((a, b) => {
-                  const order = [
-                    'Blinds',
-                    'Curtains',
-                    'Shutters',
-                    'Commercial',
+            {categories && categories.sort((a, b) => {const order = ['Blinds','Curtains','Shutters','Commercial',
                   ];
                   return order.indexOf(a.title) - order.indexOf(b.title);
                 })
@@ -114,7 +107,7 @@ const GalleryPage: React.FC = () => {
               console.log(`current index: ${current}, prev index: ${prev}`),
           }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
             {currentItems &&
               currentItems.map((product: any) => {
                 if (!product.category) {
@@ -122,7 +115,7 @@ const GalleryPage: React.FC = () => {
                 }
                 return (
                   <>
-                    <div className=" relative rounded-lg  transition-shadow duration-300 group">
+                    <div className="relative rounded-lg  transition-shadow duration-300 group">
                       <Image
                         src={product.posterImage.imageUrl}
                         alt={product.posterImage.altText || 'Image'}
