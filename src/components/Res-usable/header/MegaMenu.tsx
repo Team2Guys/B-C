@@ -392,9 +392,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           }
           className="bg-transparent"
         >
-          {title === 'Moterised' ? (
+          {title === 'Motorised' ? (
             <div className="flex justify-between">
-              <div className="flex flex-col py-2 w-fit">
+              <div className="flex flex-col py-2 w-fit space-y-2">
                 {MoterisedData.map((product, index) => (
                   <Link
                     key={index}
