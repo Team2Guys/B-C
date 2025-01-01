@@ -3,11 +3,11 @@ import MotorisedPage from 'components/ui/MotorisedPage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Premium Motorised Blinds | Automated Blinds in Dubai',
-  description: 'Automatic blinds are trending in Dubai, we offer a wide range of electric blinds. Get more information on automatic blinds for windows, give us a call today.',
+  title: 'Premium Automated Blinds in Dubai | Blinds & Curtains Dubai',
+  description: 'Automated blinds are trending in Dubai. Explore our wide range of smart blinds for windows. Contact us today for more information!',
   openGraph: {
-    title: 'Premium Motorised Blinds | Automated Blinds in Dubai',
-    description: 'Automatic blinds are trending in Dubai, we offer a wide range of electric blinds. Get more information on automatic blinds for windows, give us a call today.',
+    title: 'Premium Automated Blinds in Dubai | Blinds & Curtains Dubai',
+    description: 'Automated blinds are trending in Dubai. Explore our wide range of smart blinds for windows. Contact us today for more information!',
     url: 'https://b-c-eight.vercel.app/automated-blinds',
     images: [
       {

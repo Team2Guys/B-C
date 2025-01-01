@@ -108,14 +108,14 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               </div>
               <div className="w-full md:w-1/2 flex flex-col gap-4">
                 <div>
-                  <h3 className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
-                    <div className="tracking-[.6rem] mb-2">
+                  <div className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
+                    <h2 className="tracking-[.6rem] mb-2">
                       Roller Blinds in Dubai, UAE{' '}
-                    </div>
-                    <span className="font-light tracking-[.2rem] ">
+                    </h2>
+                    <h2 className="font-light tracking-[.2rem] ">
                       {product.title}
-                    </span>
-                  </h3>
+                    </h2>
+                  </div>
                   <p
                     className="text-16 xs:text-18 leading-8 mt-4 text-lightdark"
                     dangerouslySetInnerHTML={{
@@ -124,7 +124,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                   ></p>
                 </div>
 
-                <div className="mt-10">
+                <div className="mt-5 sm:mt-10 mx-auto">
                   <Link
                      href={`/blinds/roller-blinds/${
                       generateSlug(
@@ -133,11 +133,11 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                           : product.title
                       )
                     }`}
-                    className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
+                    className="px-6 sm:px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr max-xs:text-14"
                   >
                     View Our{' '}
                       {product.title === 'Sunscreen/Transparent Blinds'
-                        ? 'Sunscreen Blinds'
+                        ? 'Sunscreen Roller Blinds'
                         : product.title}
                   </Link>
                 </div>
