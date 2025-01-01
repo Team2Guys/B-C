@@ -1,65 +1,46 @@
-'use client'
-import React, { useState } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; 
+'use client';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
+import JoditEditor from 'jodit-react';
 
-const MyEditor = ({ values, setFieldValue }: any) => {
-  const modules = {
-    toolbar: [
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      [{ font: [] }],
-      [{ size: [] }], 
-      ['bold', 'italic', 'underline', 'strike'], 
-      [{ color: [] }, { background: [] }],
-      [{ script: 'sub' }, { script: 'super' }],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-      [{ indent: '-1' }, { indent: '+1' }],
-      [{ align: [] }],
-      ['blockquote', 'code-block'],
-      ['link', 'image', 'video', 'formula'],
-      ['clean'],
+const MyEditor = ({ values, setFieldValue, placeholder }: any) => {
+  const editor = useRef(null);
+  const [content, setContent] = useState(values.content || ''); 
+  useEffect(() => {
+    setContent(values.content);
+  }, [values.content]);
+  const config = useMemo(() => ({
+    readonly: false,
+    toolbar: true,
+    height: 400,
+    placeholder: placeholder || 'Start typing...', 
+    uploader: {
+      insertImageAsBase64URI: true,
+    },
+    buttons: [
+      'source', '|',
+      'bold', 'italic', 'underline', 'strikethrough', '|',
+      'superscript', 'subscript', '|',
+      'ul', 'ol', '|',
+      'outdent', 'indent', '|',
+      'font', 'fontsize', 'brush', 'paragraph', '|',
+      'align', '|',
+      'link', 'image', 'video', 'table', '|',
+      'undo', 'redo', '|',
+      'hr', 'eraser', 'fullsize',
     ],
+    toolbarSticky: false,
+  }), [placeholder]);
+  const handleBlur = (newContent: string) => {
+    setContent(newContent);
+    setFieldValue('content', newContent);
   };
-
-  const formats = [
-    'header',
-    'font',
-    'size',
-    'bold',
-    'italic',
-    'underline',
-    'strike',
-    'color',
-    'background',
-    'script',
-    'list',
-    'bullet',
-    'indent',
-    'align',
-    'blockquote',
-    'code',
-    'code-block',
-    'link',
-    'image',
-    'video',
-    'formula',
-    'direction',
-  ];
-
-  const [content, setContent] = useState(values.content);
-
-  const handleChange = (value: any) => {
-    setContent(value);
-    setFieldValue('content', value);
-  };
-
   return (
-    <ReactQuill
+    <JoditEditor
+      ref={editor}
       value={content}
-      onChange={handleChange}
-      modules={modules}
-      formats={formats}
-      theme="snow"
+      config={config}
+      onBlur={handleBlur}
+      onChange={() => {}}
     />
   );
 };
