@@ -88,7 +88,7 @@ const Estimator: React.FC = () => {
       } else if (selectedUnit === 'mm') {
         calculatedPrice = calculatedPrice / 1000000;
       } else if (selectedUnit === 'inches') {
-        calculatedPrice = calculatedPrice / 1150;
+        calculatedPrice = calculatedPrice / 1550;
       }
       const pricePerUnit = activeProduct.price || 0;
       const price = calculatedPrice * pricePerUnit;
