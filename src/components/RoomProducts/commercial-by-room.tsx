@@ -18,11 +18,15 @@ import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { ByRoomCommercialProduct, generateSlug } from 'data/data';
 
+interface IFilteredSubCategory {
+  bannerImage?: { imageUrl: string }
+}
 interface ICategoryPage {
   title: string;
   relatedProducts: IProduct[];
   description: string;
   category: string;
+  filteredSubCategory?: IFilteredSubCategory ;
 }
 
 const CommercialByRoom = ({
@@ -30,6 +34,7 @@ const CommercialByRoom = ({
   relatedProducts,
   description,
   category,
+  filteredSubCategory,
 }: ICategoryPage) => {
   const pathname = usePathname();
   console.log(category, 'category');
@@ -96,7 +101,7 @@ const CommercialByRoom = ({
       <TopHero
         title={title}
         pageTitle={`Made to Measure ${title}`}
-        image={bgBreadcrum.src}
+        image={`${filteredSubCategory?.bannerImage?.imageUrl || bgBreadcrum.src}`}
         pagename={pathname}
       />
       <Container className="my-12">

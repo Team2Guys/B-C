@@ -1,6 +1,6 @@
 import Container from 'components/Res-usable/Container/Container';
 import React from 'react';
-import productimf from '../../../public/assets/images/product/product1.png';
+import productimf from '../../../public/assets/images/Infocomponent.png';
 import Image from 'next/image';
 import { IInfo } from 'types/types';
 import PageSkelton from 'components/Skeleton/PageSkelton';

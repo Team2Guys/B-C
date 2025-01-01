@@ -58,6 +58,7 @@ const CommercialProduct = ({product , products  , subCategories}: {product: stri
             description={`${filteredSubCategory.description}`}
             category={`${filteredSubCategory.category.title}`}
             relatedProducts={filteredSubCategory?.products || []}
+            filteredSubCategory={filteredSubCategory}
           />
         </>
       ) : (

@@ -2,11 +2,10 @@ import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 
-// Define the props for the component
 interface ChooseUsProps {
   title: string;
   gridClass?: string;
-  boxClass?: string; // Optional prop to add additional styles to the box (e.g., 'bg-gray-100')
+  boxClass?: string;
   items: {
     image?: any;
     text: string;
@@ -21,7 +20,7 @@ const ChooseUs: React.FC<ChooseUsProps> = ({
 }) => {
   return (
     <Container className="space-y-4">
-      <h1 className="text-20 md:text-30 font-medium text-center">{title}</h1>
+      <h2 className="text-20 md:text-30 font-medium text-center">{title}</h2>
       <div className={`${gridClass}`}>
         {items.map((item, index) => (
           <div
