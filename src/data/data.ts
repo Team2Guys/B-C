@@ -905,9 +905,9 @@ export const AboutUsPara = {
   subheading: 'About Us',
   heading: ['Our Journey'],
   paragraph: [
-  'Having spent 20 years in the UK retail industry, our Managing Partner, Shiraz, decided it was time for sunnier climes and moved to Dubai in 2014 with his family. The first office was a stunning waste of space on Sheikh Zayed Road, which gave Shiraz a fantastic view of Burj Khalifah, but chewed through his finances like water. School fees were duly paid and a move to a compact but cosy office in Port Saeed was home for the next 2 years.',
-  'Like a lot of business people that move to Dubai, the first 2 years were painfully hard to adjust, but with the drive and ambition to succeed, and with a helping hand from God, things started to turn and the seeds that were laid in 2014 started bearing fruit.',
-  'By 2017, we moved to our first actual showroom in Oud Metha. This is where things started to blow. Blinds and Curtains was now established as a firm favourite with hundreds of customers, most of whom would recommend us to their friends and families and also ended up being our return customers.' 
+    'Having spent 20 years in the UK retail industry, our Managing Partner, Shiraz, decided it was time for sunnier climes and moved to Dubai in 2014 with his family. The first office was a stunning waste of space on Sheikh Zayed Road, which gave Shiraz a fantastic view of Burj Khalifah, but chewed through his finances like water. School fees were duly paid and a move to a compact but cosy office in Port Saeed was home for the next 2 years.',
+    'Like a lot of business people that move to Dubai, the first 2 years were painfully hard to adjust, but with the drive and ambition to succeed, and with a helping hand from God, things started to turn and the seeds that were laid in 2014 started bearing fruit.',
+    'By 2017, we moved to our first actual showroom in Oud Metha. This is where things started to blow. Blinds and Curtains was now established as a firm favourite with hundreds of customers, most of whom would recommend us to their friends and families and also ended up being our return customers.',
   ],
 };
 export const UsHistoryPara = {
@@ -917,7 +917,7 @@ export const UsHistoryPara = {
   paragraph: [
     'This cycle ran successfully for many years but by 2021, with covid out the way, we figured it was time to push the barriers further. We had already introduced flooring, wallpaper and other items to our list of services offered, but the name felt restrictive. It was also around this time that lots of other companies turned up with copycat versions of our name (we guess blindsandcurtains.ae can’t really be expected to be exclusive) and it was quite confusing for our existing customers and quite a few were misled into buying from companies claiming to be us.',
     'With this in mind, we decided on a brand and image change. After weeks of deliberating, Shiraz’s brother Valy, (who had since followed his brother and made the move to Dubai), came up with Two Guys. It was instant love for both brothers and that is the name we trade as today. But with <a href="http://www.blindsandcurtains.ae" target="_blank" style="text-decoration: underline">www.blindsandcurtains.ae</a> having so many loyal customers, it would have been suicidal to wrap up and bury, so the brand is still alive and kicking today, albeit under the Two Guys Home Furnishings brand.',
-    'Today we employ over 60 staff, dedicated to giving our customers the level of satisfaction that the owners themselves would accept (Shiraz literally has OCD). Our staff are trained to give impartial advice, to NEVER be pushy in their sales pitch and to NEVER “up-sell” when not required. Once we have you as a customer, our goal is to keep you for life, so you will find that the service doesn’t end once the final payments have been made. Your journey is a part of our journey, and we believe we have a long way to go before reaching the end of the road.'
+    'Today we employ over 60 staff, dedicated to giving our customers the level of satisfaction that the owners themselves would accept (Shiraz literally has OCD). Our staff are trained to give impartial advice, to NEVER be pushy in their sales pitch and to NEVER “up-sell” when not required. Once we have you as a customer, our goal is to keep you for life, so you will find that the service doesn’t end once the final payments have been made. Your journey is a part of our journey, and we believe we have a long way to go before reaching the end of the road.',
   ],
 };
 
@@ -956,7 +956,8 @@ export const OurHistoryData: OurHistory[] = [
   {
     id: 2,
     year: '2014',
-    heading: '<a href="http://www.blindsandcurtains.ae" target="_blank" style="text-decoration: underline">www.blindsandcurtains.ae</a> is born',
+    heading:
+      '<a href="http://www.blindsandcurtains.ae" target="_blank" style="text-decoration: underline">www.blindsandcurtains.ae</a> is born',
     discription:
       'We entered the online world with blindsandcurtains.ae to expand our reach and redefine the way we interact with our customers.',
   },
@@ -1329,18 +1330,30 @@ export const commercialPagesItems = [
   'roman-blinds',
 ];
 export const staticDescriptions: Record<string, string> = {
-  'offices-blinds': 'Our blinds are available in roller, vertical, and Venetian designs. These office blinds for windows offer corporate logos for brand identity.',
-  'hotels-restaurants': 'Hotel blinds with blackout, sheer, and layered options are suitable for luxury hotel window treatments. We offer sophisticated looks for hotel guests.',
-  'printed-blinds': 'Printed blinds offer dual-layer fabric combining translucent and opaque stripes. These printed zebra blinds provide a modern, artistic look  for residential or commercial spaces.',
-  'school-blinds': 'Our durable roller and vertical blinds provide bright, engaging colors to school window coverings. These blinds improve the focus of students on the whiteboard by regulating classroom light.',
-  'sunscreentransparent': 'Sunscreen Roller Blinds offer Light-filtering fabrics. These transparent blinds provide a clear view of the outdoors offices, hotels, and homes with large windows.',
-  'vertical-blinds': 'Our vertical blinds are  perfect for office and home use. These are a combination of vertical blinds and layered curtains which adds an extra layer of insulation.',
-  'aluminium-blinds': 'Our horizontal or vertical blinds offer metallic finish. These lightweight aluminum blinds for windows are suitable for modern kitchens, bathrooms, and offices.',
-  'wooden-blinds': 'We Offer natural wood blinds that are available in various stains and finishes. These Wood panel window blinds complement classic and modern interior.',
-  'blackout-blinds': 'Roller, Roman, and pleated blackout blinds are custom fit to any window size. These Custom blackout blinds are ideal for restful sleep or focused work.',
-  'motorised-blinds': 'We offer roller, Venetian, and vertical designs for our custom electric blinds. These motorised blinds provide remote or device-controlled convenience.',
-  'panel-blinds': 'Panel blinds offer large fabric panels that slide smoothly. These Panel blinds for windows are perfect for wide windows and sliding doors. ',
-  'roman-blinds': 'For classic or modern look our roman blinds offer custom fit fabric folds. These office blinds for windows provide blackout and translucent options.',
+  'offices-blinds':
+    'Our blinds are available in roller, vertical, and Venetian designs. These office blinds for windows offer corporate logos for brand identity.',
+  'hotels-restaurants':
+    'Hotel blinds with blackout, sheer, and layered options are suitable for luxury hotel window treatments. We offer sophisticated looks for hotel guests.',
+  'printed-blinds':
+    'Printed blinds offer dual-layer fabric combining translucent and opaque stripes. These printed zebra blinds provide a modern, artistic look  for residential or commercial spaces.',
+  'school-blinds':
+    'Our durable roller and vertical blinds provide bright, engaging colors to school window coverings. These blinds improve the focus of students on the whiteboard by regulating classroom light.',
+  sunscreentransparent:
+    'Sunscreen Roller Blinds offer Light-filtering fabrics. These transparent blinds provide a clear view of the outdoors offices, hotels, and homes with large windows.',
+  'vertical-blinds':
+    'Our vertical blinds are  perfect for office and home use. These are a combination of vertical blinds and layered curtains which adds an extra layer of insulation.',
+  'aluminium-blinds':
+    'Our horizontal or vertical blinds offer metallic finish. These lightweight aluminum blinds for windows are suitable for modern kitchens, bathrooms, and offices.',
+  'wooden-blinds':
+    'We Offer natural wood blinds that are available in various stains and finishes. These Wood panel window blinds complement classic and modern interior.',
+  'blackout-blinds':
+    'Roller, Roman, and pleated blackout blinds are custom fit to any window size. These Custom blackout blinds are ideal for restful sleep or focused work.',
+  'motorised-blinds':
+    'We offer roller, Venetian, and vertical designs for our custom electric blinds. These motorised blinds provide remote or device-controlled convenience.',
+  'panel-blinds':
+    'Panel blinds offer large fabric panels that slide smoothly. These Panel blinds for windows are perfect for wide windows and sliding doors. ',
+  'roman-blinds':
+    'For classic or modern look our roman blinds offer custom fit fabric folds. These office blinds for windows provide blackout and translucent options.',
 };
 
 export const items = [
@@ -1838,7 +1851,6 @@ export const categoriesContent = [
       subheading2: 'More than 6 Styles + 2000 Different Materials & Colours',
       posterImage: '/assets/images/Curtain/landing/landing.webp',
       subheadingContent: [
-        
         {
           content:
             "When it comes to curtains, there is no such thing as 'standard. We offer <a href='/curtains/made-to-measure-sheer-curtains' style='text-decoration: underline'>sheer curtains</a> to create smooth, flowing elegance, pinch pleats to provide refinement, and eyelets to add simplicity without sacrificing style. With fabrics that do more-like <a href='/curtains/blackout-curtains-dubai' style='text-decoration: underline'>blackout curtains</a> for better sleep or textures that add warmth-you'll see we're more than providing a standard curtains service. ",
@@ -1884,7 +1896,7 @@ export const MoterisedContent = [
       {
         title: 'Automated Blinds',
         heroImage: 'assets/images/Breadcrum/modern.png',
-        infoTitle: 'Automated Blinds',
+        infoTitle: 'Automatic Blinds with Remote',
         infoSubtitle: 'Convert your windows into Smart Windows ',
         infoDescription:
           'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These motorised blinds give you the option to control your <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">window covering</a> with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer <a href="/blinds/motorised-blinds" target="_blank" style="text-decoration:underline">remote control blinds</a> that are smooth, reliable, and long-lasting. Whether you want simple automated or fully connected, we’ve got the right custom smart blinds for you.',
@@ -1942,7 +1954,7 @@ export const MoterisedContent = [
       {
         title: 'Automated Curtains',
         heroImage: 'assets/images/Breadcrum/modern.png',
-        infoTitle: 'Automatic Curtains',
+        infoTitle: 'Modern Automatic Curtains',
         infoSubtitle: 'Convert your windows into Smart Windows',
         infoDescription: `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
         infoImage: moto1,

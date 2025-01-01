@@ -26,29 +26,30 @@ const DetailInfo: React.FC<detailprops> = ({
   heading,
 }) => {
   return (
-    <Container className="mt-10 md:mt-20 border-b-2 pb-20 border-[#6F747F]">
+    <Container className="mt-10 lg:mt-20 border-b-2 pb-10 md:pb-20 border-[#6F747F]">
       {title ? (
         <div
-          className={`flex flex-wrap lg:flex-nowrap lg:gap-20 ${className} items-center`}
+          className={`flex flex-wrap lg:flex-nowrap lg:gap-4 xl:gap-20 ${className} items-center`}
         >
+          
           <div className="w-full xl:w-5/12">
             <div className="space-y-4">
-              <h1 className="text-24 sm:text-32 md:text-[41px] font-medium">
+              <h2 className="text-24 xs:text-center lg:text-start sm:text-32 lg:text-[41px] font-medium">
                 {heading ? heading : `What are ${title}`}{' '}
-              </h1>
+              </h2>
               <p className="underline underline-offset-8 text-[#6F747F] ">
                 {subtitle}
               </p>
               <div className="space-y-3 md:space-y-10">
                 <p
-                  className="text-12 md:text-16 leading-6 md:leading-8"
+                  className="text-12 md:text-14 lg:text-16 leading-6 md:leading-8"
                   dangerouslySetInnerHTML={{ __html: description }}
                 ></p>
               </div>
-              <div className='pt-4  w-full flex justify-center sm:justify-start'>
+              <div className='pb-2 lg:pb-0 lg:pt-4  w-full flex justify-center lg:justify-start'>
                 <Link href={"/request-appointment"}
                   target='_blank' rel="noopener"
-                  className="px-4 py-4 rounded-md bg-secondary text-white font-medium"
+                  className="text-12 lg:text-16 px-3 py-3 lg:px-4 lg:py-4 rounded-md bg-secondary text-white font-medium"
                 >
                   BOOK A FREE APPOINTMENT
                 </Link>

@@ -143,8 +143,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
                 <h2 className="text-3xl">
                   <span className="font-bold">
                     {selectedPage?.heading || title}
-                  </span>{' '}
-                  By Colour
+                  </span>
                 </h2>
                 <p
                   className="font-normal text-xs sm:text-16 leading-7 sm:leading-9 text-center text-black"
