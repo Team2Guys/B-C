@@ -6,7 +6,6 @@ import img4 from '../../public/assets/images/MotorisedBlind/loyalty-program.png'
 import moto2 from '../../public/assets/images/MotorisedBlind/mons2.png';
 
 import {
-  CardTypes,
   Email,
   IColorData,
   ITopHeroLink,
