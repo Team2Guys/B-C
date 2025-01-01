@@ -1881,20 +1881,20 @@ export const estimator_data = [
     id: 1,
     title: 'Roller Blinds',
     posterImage: { imageUrl: '/assets/images/estimator/roller.webp' },
-    price: 10,
+    price: 100,
   },
 
   {
     id: 2,
     title: 'Shutters MDF',
     posterImage: { imageUrl: '/assets/images/estimator/white1.webp' },
-    price: 25,
+    price: 700,
   },
   {
     id: 3,
     title: 'Shutters Basswood',
     posterImage: { imageUrl: '/assets/images/estimator/white2.webp' },
-    price: 20,
+    price: 900,
   },
 ];
 
