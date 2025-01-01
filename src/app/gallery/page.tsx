@@ -58,9 +58,9 @@ const GalleryPage: React.FC = () => {
       <TopHero title="GALLERY" image={bgBreadcrum.src} pagename={pathName} />
       <Container className="pt-16 pb-12 px-4 md:px-0">
         <div className="flex justify-between items-center pb-4 mb-6 overflow-hidden md:px-5">
-          <h1 className="text-2xl xs:text-3xl font-medium text-gray-800">
+          <h2 className="text-2xl xs:text-3xl font-medium text-gray-800">
             GALLERY
-          </h1>
+          </h2>
           <span className="text-gray-400 text-11 xs:text-14">
             Showing {indexOfFirstItem + 1}–
             {Math.min(indexOfLastItem, filteredProducts?.length || 0)} of{' '}
@@ -76,14 +76,7 @@ const GalleryPage: React.FC = () => {
             >
               All
             </div>
-            {categories &&
-              categories
-                .sort((a, b) => {
-                  const order = [
-                    'Blinds',
-                    'Curtains',
-                    'Shutters',
-                    'Commercial',
+            {categories && categories.sort((a, b) => {const order = ['Blinds','Curtains','Shutters','Commercial',
                   ];
                   return order.indexOf(a.title) - order.indexOf(b.title);
                 })
@@ -114,7 +107,7 @@ const GalleryPage: React.FC = () => {
               console.log(`current index: ${current}, prev index: ${prev}`),
           }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
             {currentItems &&
               currentItems.map((product: any) => {
                 if (!product.category) {
@@ -122,7 +115,7 @@ const GalleryPage: React.FC = () => {
                 }
                 return (
                   <>
-                    <div className=" relative rounded-lg  transition-shadow duration-300 group">
+                    <div className="relative rounded-lg  transition-shadow duration-300 group">
                       <Image
                         src={product.posterImage.imageUrl}
                         alt={product.posterImage.altText || 'Image'}

@@ -59,7 +59,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
       );
       return response.data;
     } catch (error) {
-
       throw error;
     }
   };

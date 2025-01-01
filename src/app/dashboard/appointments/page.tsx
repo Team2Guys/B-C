@@ -112,22 +112,23 @@ const Appointments = () => {
   useEffect(() => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
     if (appointments) {
-     
+      console.log("Appointments before formatting:", appointments);
+
       const filtered = appointments
         .map((appointment: IAppointments) => ({
           ...appointment,
           prefered_Date: formatDate(appointment.prefered_Date), 
         }))
         .filter((appointment: IAppointments) =>
-          appointment.name.toLowerCase().includes(lowercasedSearchTerm) ||
-          appointment.area.toLowerCase().includes(lowercasedSearchTerm) ||
-          appointment.email.toLowerCase().includes(lowercasedSearchTerm) ||
-          appointment.phone_number.toLowerCase().includes(lowercasedSearchTerm) ||
-          appointment.whatsapp_number.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.name?.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.area?.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.email?.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.phone_number?.toLowerCase().includes(lowercasedSearchTerm) ||
+          appointment.whatsapp_number?.toLowerCase().includes(lowercasedSearchTerm) ||
           appointment.windows?.toLowerCase().includes(lowercasedSearchTerm) ||
           appointment.how_user_find_us?.toLowerCase().includes(lowercasedSearchTerm) ||
           appointment.user_query?.toLowerCase().includes(lowercasedSearchTerm) ||
-          appointment.prefered_Date.toLowerCase().includes(lowercasedSearchTerm) 
+          appointment.prefered_Date?.toLowerCase().includes(lowercasedSearchTerm) 
         );
 
       const sortedFilteredAppointments = filtered.sort(

@@ -45,8 +45,6 @@ const Blog = ({
   const blog: BlogInfo | undefined = blogs?.find(
     (blog) => generateSlug(blog.title) === name,
   );
-  console.log('=================== BLOG TO IDR HAIN =====================');
-  console.log(blog);
 
   useEffect(() => {
     if (blog && blogs) {

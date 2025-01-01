@@ -78,6 +78,7 @@ const CommercialPage = ({
               description={`${filteredSubCategory.description}`}
               category={`${filteredSubCategory.category.title}`}
               relatedProducts={filteredSubCategory?.products || []}
+              filteredSubCategory={filteredSubCategory}
             />
           </>
         ) : (

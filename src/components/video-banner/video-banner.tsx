@@ -70,12 +70,12 @@ const VideoBanner: React.FC<BannerProps> = ({
               onClick={handleTextClick}
             >
               <div className="py-2 md:py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
-                <p className="lg:text-[44px] text-25 font-black drop-shadow-lg capitalize">
+                <h2 className="lg:text-[44px] text-25 font-black drop-shadow-lg capitalize">
                   {title}
-                </p>
-                <p className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
+                </h2>
+                <h1 className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
                   {selectedPage?.heading}
-                </p>
+                </h1>
                 <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
                   {selectedPage?.paragraph}
                 </p>
