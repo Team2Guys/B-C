@@ -434,3 +434,9 @@ export const customSortingOrder = [
     'solid-panel-shutters',
 
   ];
+
+  export const customTitles = [
+    { slug: "hotels-restaurants", name: "Hotels & Restaurant Window Coverings" },
+    { slug: "auditoriums", name: "Made To Measure Auditorium Window Coverings" },
+
+  ];
