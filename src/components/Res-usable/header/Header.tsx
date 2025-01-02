@@ -74,8 +74,9 @@ const Header = () => {
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
           <Link href={'/'} className="w-7/12 lg:w-1/12 ">
             <Image
-              width={3500}
-              height={2500}
+              width={300}
+              height={300}
+              loading='lazy'
               src={logo}
               alt="Logo"
               className="w-32 h-full"

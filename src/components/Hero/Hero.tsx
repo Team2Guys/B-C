@@ -78,8 +78,9 @@ function Hero() {
                     </div>
                     <Image
                       className="w-full h-full object-cover"
-                      width={500}
-                      height={500}
+                      loading='lazy'
+                      width={600}
+                      height={600}
                       alt={item.name}
                       src={item.imageUrl}
                     />
