@@ -75,9 +75,9 @@ const AboutUsPage = () => {
               {item}
             </h2>
           ))} */}
-          <div className="mt-5 pe-4">
+          <div className="mt-5 pe-4 flex flex-col gap-4">
             {UsHistoryPara.paragraph.map((item, index) => (
-              <p key={index} className="leading-6 text-paralight mb-4" dangerouslySetInnerHTML={{ __html : item}}></p>
+              <p key={index} className="leading-6 text-paralight mb-4 text-16" dangerouslySetInnerHTML={{ __html : item}}></p>
             ))}
           </div>
         </div>
