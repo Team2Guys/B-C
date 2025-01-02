@@ -323,13 +323,13 @@ export const OurHistoryData: OurHistory[] = [
     discription:
       'Making our own products gave us greater control over quality and design, so we could better meet our customers needs.',
   },
-  {
-    id: 4,
-    year: '2020',
-    heading: 'Had our first AED 500k + order',
-    discription:
-      'A single order exceeding AED 500k signifies the trust and dedication of our clients, as well as the hard work of our team members.',
-  },
+  // {
+  //   id: 4,
+  //   year: '2020',
+  //   heading: 'Had our first AED 500k + order',
+  //   discription:
+  //     'A single order exceeding AED 500k signifies the trust and dedication of our clients, as well as the hard work of our team members.',
+  // },
   {
     id: 4,
     year: '2023 ',
@@ -337,13 +337,13 @@ export const OurHistoryData: OurHistory[] = [
     discription:
       'We moved to Al Quoz as part of our company rebranding, taking advantage of new opportunities to better serve our customers.',
   },
-  {
-    id: 4,
-    year: '2024',
-    heading: 'Opened an office in Islamabad to support our online growth',
-    discription:
-      'We also opened an office in Islamabad to improve our online presence as part of our expansion into new regions.',
-  },
+  // {
+  //   id: 4,
+  //   year: '2024',
+  //   heading: 'Opened an office in Islamabad to support our online growth',
+  //   discription:
+  //     'We also opened an office in Islamabad to improve our online presence as part of our expansion into new regions.',
+  // },
 ];
 
 export const validateForm = (formData: {
@@ -1375,7 +1375,7 @@ export const colorData: IColorData[] = [
       },
       {
         imageUrl:
-          '/assets/images/optimized-images/Color/White-shutters/Bay window shutters (3).webp',
+          '/assets/images/optimized-images/Color/White-shutters/Bay-Window-shutters.webp',
         altText: 'White Shutters',
       },
     ],

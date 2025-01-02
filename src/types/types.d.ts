@@ -1,3 +1,5 @@
+import React, { SetStateAction } from 'react';
+import { CategoriesType } from './interfaces';
 export type BRAND = {
   logo: string;
   name: string;
@@ -42,7 +44,7 @@ export interface ICategory {
   Meta_Title?: string;
   Canonical_Tag?: string;
   Meta_description?: string;
-
+  last_editedBy?: string;
 }
 
 export interface Image {
@@ -157,4 +159,15 @@ export interface MotorisedPageProps {
   additionalDescription3: string;
   chooseustitle: string;
   chooseustitle1: string;
+}
+
+
+export interface CategoryProps {
+  setMenuType: React.Dispatch<SetStateAction<string>>;
+  seteditCategory?: React.Dispatch<
+    SetStateAction<CategoriesType | undefined | null>
+  >;
+  editCategory?: CategoriesType | undefined | null;
+  subCategories?: ICategory[];
+  categories?: ICategory[];
 }
