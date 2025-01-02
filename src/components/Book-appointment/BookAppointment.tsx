@@ -9,6 +9,7 @@ import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import showToast from 'components/Toaster/Toaster';
 
 interface ProductOptions {
   shutters?: boolean;
@@ -58,8 +59,9 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
         appointmentData
       );
       return response.data;
-    } catch (error) {
-      throw error;
+    } catch (error:any) {
+      showToast('error', error.message  || JSON.stringify(error))
+
     }
   };
 
