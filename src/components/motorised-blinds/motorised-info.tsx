@@ -22,7 +22,6 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
   description3,
   image,
   className,
-  imageClass,
   decClass,
 }) => {
   return (
@@ -42,7 +41,7 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
           </div>
         </div>
         <div className="w-full lg:w-4/12 mb-10 mt-4 md:mt-5 lg:mt-0">
-        <div className={`flex justify-center items-center ${imageClass}`} style={{ height: '100%', textAlign: 'center' }}>
+        <div className="flex justify-center items-center text-center">
           <Image
           width={455}
           height={420}

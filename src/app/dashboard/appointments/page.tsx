@@ -2,7 +2,6 @@ import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 import AppointmentsClient from 'components/Appointmentclient';
 
-
 const Appointments =() => {
   return (
     <>
@@ -13,6 +12,5 @@ const Appointments =() => {
     </>
   );
 };
-
 export default Appointments;
 
