@@ -35,14 +35,14 @@ const OurBlog = ({
       ) : null}
 
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-5 "
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-5 sm:mt-10 gap-5 "
         id={id}
       >
         {Blogdata.map((blog, index) => {
           const filteredContent = removeImagesFromContent(blog.content);
           return (
             <div
-              className={`rounded-lg space-y-4 mt-5 flex flex-col justify-between ${className} `}
+              className={`rounded-lg space-y-4 mt-3 flex flex-col justify-between ${className} `}
               key={index}
               onClick={() => {
                 route.push(`/blog/${generateSlug(blog.title)}`);
@@ -85,7 +85,7 @@ const OurBlog = ({
               </div>
               <Link
                 href={`/blog/${generateSlug(blog.title)}`}
-                className={`text-primary text-18 underline font-bold text-center sm:text-start`}
+                className={`text-primary text-18 underline font-bold text-center sm:text-start w-fit`}
               >
                 Read More
               </Link>
