@@ -5,10 +5,8 @@ import Image from 'next/image';
 import axios from 'axios';
 import { Formik, Form } from 'formik';
 import { IoMdArrowRoundBack } from 'react-icons/io';
-import { useQuery } from '@tanstack/react-query';
 import { ICategory, ISUBCATEGORY } from 'types/types';
 import showToast from 'components/Toaster/Toaster';
-import { fetchCategories } from 'config/fetch';
 import Imageupload from 'components/ImageUpload/Imageupload';
 import {
   subcategoryValidationSchema,
@@ -35,12 +33,14 @@ interface editCategoryProps {
   seteditCategory: any;
   editCategory: any;
   setMenuType: React.Dispatch<SetStateAction<string>>;
+  categoriesList?: ICategory[] | undefined;
 }
 
 const FormLayout = ({
   seteditCategory,
   editCategory,
   setMenuType,
+  categoriesList
 }: editCategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
@@ -140,10 +140,6 @@ const FormLayout = ({
     }
   };
 
-  const { data: categoriesList = [] } = useQuery<ICategory[], Error>({
-    queryKey: ['category'],
-    queryFn: fetchCategories,
-  });
 
   const handlealtTextposterimageUrl = (index: number, newaltText: string) => {
     //@ts-expect-error
@@ -367,7 +363,7 @@ const FormLayout = ({
                           Select Parent Category (atleat one)
                         </label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          {categoriesList.map((category) => (
+                          {categoriesList?.map((category) => (
                             <div
                               key={category.id}
                               className="flex items-center space-x-2"
