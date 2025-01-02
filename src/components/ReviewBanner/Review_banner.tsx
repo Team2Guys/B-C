@@ -159,7 +159,7 @@ export default function Review_banner() {
             <div className="bg-primary lg:mt-0 mt-10">
               <div className="container h-auto w-full">
                 <Image
-                  className="absolute lg:-top-4 top-[43%]  xs:top-[41%] sm:top-[43%] lg:bottom-60  lg:right-[13%] lg:translate-x-[15%] 2xl:right-[14%] right-[50%] translate-x-[50%] sm:right-[50%] sm:translate-x-[50%]  z-10 "
+                  className="absolute lg:-top-4 top-[49%]  xs:top-[41%] sm:top-[49%] lg:bottom-60  lg:right-[13%] lg:translate-x-[15%] 2xl:right-[14%] right-[50%] translate-x-[50%] sm:right-[50%] sm:translate-x-[50%]  z-10 "
                   src={RatingSlider.imageUrl}
                   alt=""
                   width={140}
