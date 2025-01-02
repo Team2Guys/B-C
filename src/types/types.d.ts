@@ -1,3 +1,5 @@
+import React, { SetStateAction } from 'react';
+import { CategoriesType } from './interfaces';
 export type BRAND = {
   logo: string;
   name: string;

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -9,7 +9,6 @@ import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
 import Cookies from 'js-cookie';
-import { Categories_Types, CategoriesType } from 'types/interfaces';
 import { CategoryProps, ICategory } from 'types/types';
 
 // interface CategoryProps {
