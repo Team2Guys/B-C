@@ -103,34 +103,35 @@ const Blog = ({
           </div>
         </>
       ) : blog ? (
-        <Container className="mt-10 space-y-4 lg:space-y-8 mb-10 md:mb-20">
-          <div className="flex justify-start items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base">
+        <Container className="mt-10 space-y-4 lg:space-y-8 mb-10 md:mb-10">
+          <div className="flex justify-center sm:justify-start items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base flex-wrap ">
             <Link
               href="/"
-              className="flex items-center gap-2 text-14 xs:text-16 font-bold capitalize"
+              className="flex items-center gap-2 text-12 xs:text-14 font-bold capitalize"
             >
               Home
             </Link>
             <FaAngleRight size={20} />
             <Link
               href={`/blog`}
-              className="flex items-center gap-2 text-14 xs:text-16 font-bold capitalize"
+              className="flex items-center gap-2 text-12 xs:text-14 font-bold capitalize"
             >
               Blog
             </Link>
             <FaAngleRight size={20} />
             <Link
               href={`/blog/${blog?.category.toLowerCase()}`}
-              className="flex items-center gap-2 text-14 xs:text-16 font-bold capitalize"
+              className="flex items-center gap-2 text-12 xs:text-14 font-bold capitalize"
             >
               {blog?.category}
             </Link>
             <FaAngleRight size={20} />
-            <h2 className="flex items-center gap-2 text-14 xs:text-16 font-bold capitalize">
+            <h2 className="flex items-center gap-2 text-12 xs:text-14 font-bold capitalize max-sm:text-center">
               {blog?.title}
             </h2>
+
           </div>
-          <div className="text-28 sm:text-[36px] md:text-[48px] font-bold">
+          <div className="text-24 sm:text-[36px] md:text-[48px] font-bold text-center">
             <h1>{blog?.title}</h1>
           </div>
           <div className="flex gap-8">
@@ -138,9 +139,9 @@ const Blog = ({
               {formatDateMonth(blog?.createdAt)}
             </p>
           </div>
-          <div className="md:h-[650px] object-cover">
+          <div className="">
             <Image
-              className="w-full h-full pb-5 rounded-md md:h-[650px] object-cover"
+              className="w-full rounded-md h-full sm:h-[416px] object-cover "
               width={1000}
               height={608}
               src={blog?.posterImage?.imageUrl}
@@ -153,9 +154,14 @@ const Blog = ({
           <Comments data={blog} />
 
           <div className="mt-10">
-            <h3 className="text-28 md:text-[48px] font-semibold">
+            <div className='flex flex-wrap justify-between items-center'>
+            <h3 className="text-18 xs:text-28 md:text-[48px] font-semibold">
               Related Articles
             </h3>
+            <Link className="text-14 font-semibold rounded-full py-2 px-4 text-white bg-primary xs:text-16 sm:text-18"
+             href={`/blog/${blog?.category.toLowerCase()}`}>See All</Link>
+            </div>
+            
             <OurBlog Blogdata={relatedPosts || []} />
           </div>
         </Container>

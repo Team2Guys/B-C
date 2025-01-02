@@ -15,9 +15,7 @@ const HomeCard = () => {
     queryKey: ['categories'],
     queryFn: fetchCategories,
   });
-
   const customOrder = ['Blinds', 'Curtains', 'Shutters'];
-
   const sortedCategories = categories?.sort((a: ICategory, b: ICategory) => {
     const indexA = customOrder.indexOf(a.title);
     const indexB = customOrder.indexOf(b.title);
@@ -49,8 +47,6 @@ const HomeCard = () => {
         </Container>
       </div>
     );
-
-    console.log(sortedCategories, "home")
   return (
     <Container className="py-12">
       <div className="flex justify-center">

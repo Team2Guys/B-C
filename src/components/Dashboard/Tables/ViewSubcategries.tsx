@@ -1,43 +1,33 @@
 'use client';
 
-import React, { SetStateAction, useLayoutEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
 import { LiaEdit } from 'react-icons/lia';
-import { CategoriesType } from 'types/interfaces';
 import useColorMode from 'hooks/useColorMode';
 import { ChangedProductUrl_handler } from 'data/urls';
 import { useAppSelector } from 'components/Others/HelperRedux';
-import TableSkeleton from './TableSkelton';
 import Cookies from 'js-cookie';
 import { FaRegEye } from 'react-icons/fa';
 import { generateSlug } from 'data/data';
-import { fetchCategories } from 'config/fetch';
-import { ICategory } from 'types/types';
-import { useQuery } from '@tanstack/react-query';
+import { CategoryProps, ICategory } from 'types/types';
 
-interface CategoryProps {
-  setMenuType: React.Dispatch<SetStateAction<string>>;
-  seteditCategory?: React.Dispatch<
-    SetStateAction<CategoriesType | undefined | null>
-  >;
-  editCategory?: CategoriesType | undefined | null;
-}
 
 const ViewSubcategries = ({
   setMenuType,
   seteditCategory,
   editCategory,
+  subCategories,
+  categories
 }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
   const token = admin_token ? admin_token : super_admin_token;
   console.log(editCategory, 'editCategory');
-  const [category, setCategory] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [category, setCategory] = useState<ICategory[] | undefined>(subCategories);
   const [colorMode, toggleColorMode] = useColorMode();
   console.log(toggleColorMode, 'toggleColorMode');
 
@@ -58,36 +48,6 @@ const ViewSubcategries = ({
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
-
-  useLayoutEffect(() => {
-    const CategoryHandler = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
-        );
-        const categories = await response.json();
-
-        const sortedCategories = categories.sort(
-          (a: any, b: any) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-        );
-
-        setCategory(sortedCategories);
-        setLoading(false);
-      } catch (err) {
-        console.log('err', err);
-        setLoading(false);
-      }
-    };
-
-    CategoryHandler();
-  }, []);
-
-  const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
 
   // Filter products based on search term
   const filteredProducts: ICategory[] =
@@ -240,9 +200,6 @@ const ViewSubcategries = ({
 
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
-      {loading ? (
-        <TableSkeleton rows={10} columns={1} />
-      ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
             <input
@@ -287,7 +244,6 @@ const ViewSubcategries = ({
             </p>
           )}
         </>
-      )}
     </div>
   );
 };
