@@ -1,6 +1,6 @@
 'use client';
 
-import React, { SetStateAction, useLayoutEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -9,33 +9,24 @@ import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
 import Cookies from 'js-cookie';
-import TableSkeleton from './TableSkelton';
-import { Categories_Types, CategoriesType } from 'types/interfaces';
-// interface Product {
-//   _id: string;
-//   name: string;
-//   category: string;
-//   posterImageUrl: { imageUrl: string };
-//   createdAt: string;
-//   columns:string;
+import { CategoryProps, ICategory } from 'types/types';
+
+// interface CategoryProps {
+//   setMenuType: React.Dispatch<SetStateAction<string>>;
+//   seteditCategory?: React.Dispatch<
+//     SetStateAction<CategoriesType | undefined | null>
+//   >;
+//   editCategory?: CategoriesType | undefined | null;
+//   cetagories?: ICategory[];
 // }
 
-interface CategoryProps {
-  setMenuType: React.Dispatch<SetStateAction<string>>;
-  seteditCategory?: React.Dispatch<
-    SetStateAction<CategoriesType | undefined | null>
-  >;
-  editCategory?: CategoriesType | undefined | null;
-}
-
-const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
+const TableTwo = ({ setMenuType, seteditCategory , categories }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
   const token = admin_token ? admin_token : super_admin_token;
 
-  const [category, setCategory] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [category, setCategory] = useState<ICategory[] | undefined>(categories);
   const [colorMode, toggleColorMode] = useColorMode();
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
@@ -56,34 +47,9 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
     setSearchTerm(e.target.value);
   };
 
-  // Filter products based on search term
-  useLayoutEffect(() => {
-    const CategoryHandler = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
-        );
-        const categories = await response.json();
-
-        const sortedCategories = categories.sort(
-          (a: any, b: any) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-        );
-
-        setCategory(sortedCategories);
-        setLoading(false);
-      } catch (err) {
-        console.log('err', err);
-        setLoading(false);
-      }
-    };
-
-    CategoryHandler();
-  }, []);
 
   // Filter products based on search term
-  const filteredProducts: Categories_Types[] =
+  const filteredProducts: ICategory[] =
     category?.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
     ) || [];
@@ -135,10 +101,10 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
       title: 'Image',
       dataIndex: 'posterImageUrl',
       key: 'posterImageUrl',
-      render: (text: any, record: CategoriesType) => (
+      render: (text: any, record: ICategory) => (
         <Image
           src={record.posterImage?.imageUrl || ''}
-          alt={`Image of ${record.name}`}
+          alt={`Image of ${record.title}`}
           width={50}
           height={50}
         />
@@ -153,7 +119,7 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
       title: 'Date',
       dataIndex: 'createdAt',
       key: 'date',
-        render: (text: any, record: CategoriesType) => {
+        render: (text: any, record: ICategory) => {
               const createdAt = new Date(record.createdAt);
               return <span>{createdAt.toLocaleDateString()}</span>;
        },
@@ -162,7 +128,7 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
       title: 'Time',
       dataIndex: 'createdAt',
       key: 'time',
-      render: (text: string, record: CategoriesType) => {
+      render: (text: string, record: ICategory) => {
         const createdAt = new Date(record.createdAt);
         return <span>{createdAt.toLocaleTimeString()}</span>;
     }},
@@ -170,14 +136,14 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
       title: 'Last Edited By',
       dataIndex: 'last_editedBy',
       key: 'time',
-      render: (text: string, record: CategoriesType) => {
+      render: (text: string, record: ICategory) => {
         return <span>{record.last_editedBy}</span>;
       },
     },
     {
       title: 'Edit',
       key: 'Edit',
-      render: (text: any, record: CategoriesType) => (
+      render: (text: any, record: ICategory) => (
         <LiaEdit
           className={`cursor-pointer ${canEditCategory && 'text-black dark:text-white'} ${!canEditCategory && 'cursor-not-allowed text-slate-300'}`}
           size={20}
@@ -188,7 +154,7 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
     {
       title: 'Action',
       key: 'action',
-      render: (text: any, record: CategoriesType) => (
+      render: (text: any, record: ICategory) => (
         <RiDeleteBin6Line
           className={`cursor-pointer ${canDeleteCategory && 'text-red'} ${
             !canDeleteCategory && 'cursor-not-allowed text-slate-300'
@@ -206,9 +172,6 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
 
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
-      {loading ? (
-        <TableSkeleton rows={10} columns={1} />
-      ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
             <input
@@ -253,7 +216,6 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
             </p>
           )}
         </>
-      )}
     </div>
   );
 };
