@@ -1,43 +1,33 @@
 'use client';
 
-import React, { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
 import { LiaEdit } from 'react-icons/lia';
-import { CategoriesType } from 'types/interfaces';
 import useColorMode from 'hooks/useColorMode';
 import { ChangedProductUrl_handler } from 'data/urls';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import Cookies from 'js-cookie';
 import { FaRegEye } from 'react-icons/fa';
 import { generateSlug } from 'data/data';
-import { fetchCategories } from 'config/fetch';
-import { ICategory } from 'types/types';
-import { useQuery } from '@tanstack/react-query';
+import { CategoryProps, ICategory } from 'types/types';
 
-interface CategoryProps {
-  setMenuType: React.Dispatch<SetStateAction<string>>;
-  seteditCategory?: React.Dispatch<
-    SetStateAction<CategoriesType | undefined | null>
-  >;
-  editCategory?: CategoriesType | undefined | null;
-  subCategories?: ICategory[];
-}
 
 const ViewSubcategries = ({
   setMenuType,
   seteditCategory,
   editCategory,
-  subCategories
+  subCategories,
+  categories
 }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
   const token = admin_token ? admin_token : super_admin_token;
   console.log(editCategory, 'editCategory');
-  const [category, setCategory] = useState<any[] | undefined>(subCategories);
+  const [category, setCategory] = useState<ICategory[] | undefined>(subCategories);
   const [colorMode, toggleColorMode] = useColorMode();
   console.log(toggleColorMode, 'toggleColorMode');
 
@@ -58,11 +48,6 @@ const ViewSubcategries = ({
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
-
-  const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
 
   // Filter products based on search term
   const filteredProducts: ICategory[] =

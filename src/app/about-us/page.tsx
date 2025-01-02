@@ -62,7 +62,7 @@ const AboutUsPage = () => {
           </div> */}
         </div>
       </Container>
-      <Container className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-20 xs:px-2 px-6 py-10 md:px-10">
+      <Container className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-10 lg:gap-20 xs:px-2 px-6 py-10 md:px-10">
         <div>
           {/* <h4 className="font-semibold xs:mb-6 text-paralight xs:text-base text-12 text-center sm:text-start">
             {UsHistoryPara.subheading}
@@ -82,7 +82,7 @@ const AboutUsPage = () => {
           </div>
         </div>
         <div className="flex flex-row gap-0 relative items-center sm::w-[85%] mx-auto w-full">
-          <div className="me-5 sm:me-14 h-[81%] border border-dashed border-btnclr hidden sm:block  mt-7 xl:mt-5 2xl:mt-3" style={{
+          <div className="me-5 sm:me-14 h-[72%] 2xl:h-[71%] border border-dashed border-btnclr hidden sm:block  mt-7 xl:mt-5 2xl:mt-3" style={{
             borderImage: "repeating-linear-gradient(135deg, #a9b4a4, #a9b4a4 10px, transparent 10px, transparent 20px) 1",
           }}></div>
           <div className="flex flex-col">
