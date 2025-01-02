@@ -98,7 +98,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               <div className="w-full md:w-1/2">
                 {product_Images && (
                   <Image
-                    className="w-full h-full md:h-[600px] rounded-xl"
+                    className="w-full h-[280px] sm:h-[300px] md:h-[600px] rounded-xl"
                     src={product_Images.Imagesurl}
                     height={500}
                     width={500}
@@ -117,7 +117,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                     </h2>
                   </div>
                   <p
-                    className="text-16 xs:text-18 leading-8 mt-4 text-lightdark"
+                    className="text-12 md:text-14 lg:text-16 leading-6 md:leading-8 text-lightdark mt-4"
                     dangerouslySetInnerHTML={{
                       __html: product.description && product.description,
                     }}
