@@ -1,43 +1,16 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
-import ShowBlog from 'components/Dashboard/Blogs/show-blog';
-import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
-import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
-import { UpdateBlog as IUpdateBlog } from 'types/interfaces';
-import ProtectedRoute from 'hooks/AuthHookAdmin';
 
-const AddBlogs = dynamic(() => import('components/Dashboard/Blogs/add-blog'), {
-  ssr: false,
-});
+import { fetchBlogs } from 'config/fetch';
+import Blog from './Blogs'
+import { BlogInfo } from 'types/interfaces';
 
-const Blogging = () => {
-  const [menuType, setMenuType] = useState('Blogs');
-  const [editBlog, setEditBlog] = useState<IUpdateBlog | null>(null);
+const Blogging = async() => {
+let blog = await fetchBlogs()
 
-  useEffect(() => {
-    console.log('+++++++++ UPDATED VALUES +++++++++++++++++');
-    console.log(editBlog);
-  }, [editBlog]);
+const filteredBlog: BlogInfo[] =blog?.sort((a: BlogInfo, b: BlogInfo) =>new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+ 
   return (
-    <DefaultLayout>
-      <Breadcrumb pageName={menuType} />
-      {menuType === 'Blogs' ? (
-        <ShowBlog setMenuType={setMenuType} setEditBlog={setEditBlog} />
-      ) : (
-        <AddBlogs
-          setMenuType={setMenuType}
-          setEditBlog={setEditBlog}
-          EditInitialValues={
-            editBlog &&
-            (editBlog.title !== undefined || editBlog.category !== undefined)
-              ? editBlog
-              : undefined
-          }
-        />
-      )}
-    </DefaultLayout>
+ <Blog blogs ={filteredBlog}/>
   );
 };
 
-export default ProtectedRoute(Blogging);
+export default Blogging;
