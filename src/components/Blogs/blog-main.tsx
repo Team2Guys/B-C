@@ -17,8 +17,11 @@ const BlogMain = ({ blogs }: { blogs: BlogInfo[] }) => {
   const popularPostRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const sortedBlogs = [...blogs].sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
     setTimeout(() => {
-      setFilteredBlogs(blogs);
+      setFilteredBlogs(sortedBlogs);
       setIsLoading(false);
     }, 500);
   }, [blogs]);

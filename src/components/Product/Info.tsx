@@ -38,7 +38,7 @@ const Info = (selectedPage: IInfo) => {
             </Link>
           </div>
         </div>
-        <div className="flex justify-center md:justify-end mt-5 md:mt-0">
+        <div className="flex justify-center md:justify-end mt-14 md:mt-0">
           <Image
             className="w-auto h-auto rounded-xl object-fill"
             width={1024}
