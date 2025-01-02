@@ -49,7 +49,7 @@ const TopHero: React.FC<TopHeroProps> = ({
   return (
     <div
       className="relative      
-      flex items-center text-center justify-center bg-no-repeat w-full  border-black xs:h-[280px]  md:h-[280px] lg:h-[400px] 2xl:h-[500px] bg-center bg-cover xl:bg-custom-size"
+      flex items-center text-center justify-center bg-no-repeat w-full  border-black h-[200px] xs:h-[280px] lg:h-[400px] 2xl:h-[500px] bg-center bg-cover xl:bg-custom-size"
       style={{
         backgroundImage: `url(${image})`,
         backgroundOrigin: 'content-box',

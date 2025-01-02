@@ -1375,7 +1375,7 @@ export const colorData: IColorData[] = [
       },
       {
         imageUrl:
-          '/assets/images/optimized-images/Color/White-shutters/Bay window shutters (3).webp',
+          '/assets/images/optimized-images/Color/White-shutters/Bay-Window-shutters.webp',
         altText: 'White Shutters',
       },
     ],

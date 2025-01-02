@@ -7,9 +7,6 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import { TiSocialFacebook, TiSocialPinterest } from 'react-icons/ti';
 import { useQueryClient } from '@tanstack/react-query';
-
-
-
 import {
   FacebookShareButton,
   PinterestShareButton,
@@ -56,8 +53,6 @@ console.log(data, "data")
     console.log(currentComments, 
       "currentComments"
     )
-
-
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
@@ -150,9 +145,11 @@ console.log(data, "data")
         </div>
       </div>
       <div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col mt-5 space-y-5">
+          <div className='gap-4 border border-[#9D9D9D] rounded-xl p-2 sm:p-4 space-y-4'>
           <div className="flex flex-col sm:flex-row gap-4">
-            <div className='sm:max-w-56 w-full'>
+            <div className='sm:w-1/2 w-full space-y-4'>
+            <div className='w-full'>
               <input
                 type="text"
                 name="name"
@@ -164,7 +161,7 @@ console.log(data, "data")
               />
               {errors.name && <p className="text-red-500 text-14">{errors.name}</p>}
             </div>
-            <div className='sm:max-w-80 w-full'>
+            <div className='w-full'>
               <input
                 type="email"
                 name="email"
@@ -176,6 +173,7 @@ console.log(data, "data")
               />
               {errors.email && <p className="text-red-500 text-14">{errors.email}</p>}
             </div>
+            </div>
           </div>
           <textarea
             name="description"
@@ -184,36 +182,43 @@ console.log(data, "data")
             value={formData.description}
             onChange={handleInputChange}
             className="bg-transparent px-3 py-2 border border-bdrgrey rounded-lg w-full text-bdrgrey text-18"
-            rows={4}
+            rows={6}
           ></textarea>
+          </div>
+       
+       <div className='flex justify-between items-center'>
+       <div>
+       {(currentComments && currentComments.length > 0) &&
+          <p className="text-18 font-normal text-darkgrey">
+          {comments.length} Comments
+        </p>
+         }
+       </div>
           <div className="text-end">
             <button
               disabled={loading && !isModalOpen}
               type="submit"
-              className="px-6 py-3 text-white bg-primary rounded-3xl text-16 sm:text-18 font-medium"
+              className="px-4 py-3 text-white bg-primary rounded-3xl text-16 sm:text-18 font-semibold"
             >
               {(loading && !isModalOpen) ? <Loader color="#fff" /> : "Post Comment"}
             </button>
           </div>
+       </div>
         </form>
 
-        {(currentComments && currentComments.length > 0) &&
-          <p className="text-18 font-normal text-darkgrey mt-2">
-          {comments.length} Comments
-        </p>
-         }
-
       
-        {(currentComments && currentComments.length > 0)  && currentComments.map((item: any) => (
-          <div key={item.id} className="mt-4 leading-8">
+<div className='border-t border-[#EAEAEA] mt-5'>
+{(currentComments && currentComments.length > 0)  && currentComments.map((item: any) => (
+          <div key={item.id} className="leading-8 border-b border-[#EAEAEA] my-4">
             <div className="flex justify-between items-center">
               <h5 className="text-16 font-semibold">{item.name}</h5>
-              <span className="text-darkgrey">  {item?.createdAt ? new Date(item.createdAt).toLocaleString() : ''}
-              </span>
+              <span className="text-darkgrey">
+                {item?.createdAt? new Date(item.createdAt).toLocaleString('en-US', { month: 'long',day: '2-digit', year: 'numeric',}): ''}
+                </span>
             </div>
             <p className="leading-normal text-darkgrey text-18">{item.description}</p>
             <button className="flex items-center gap-1" onClick={() => handleReplyClick(item.id, 'parent')}>
-              <BsReply className="text-red-600" size={18} />
+              <BsReply className="text-[#CDB7AA]" size={18} />
               <span className="font-medium text-16">Reply</span>
             </button>
             {item?.replies.map((nestedItem: any) =>
@@ -229,7 +234,7 @@ console.log(data, "data")
                   {nestedItem.description}
                 </p>
                 <button className="flex items-center gap-1" onClick={() => handleReplyClick(item.id, 'nested')}>
-                  <BsReply className="text-red-600" size={18} />
+                  <BsReply className="text-[#CDB7AA]" size={18} />
                   <span className="font-medium text-16">Reply</span>
                 </button>
               </div>
@@ -237,8 +242,11 @@ console.log(data, "data")
             )}
           </div>
         ))}
+</div>
+      
+        
         {
-          currentComments.length > 0 &&
+          currentComments.length > 2 &&
           <div className="flex justify-center mt-4 gap-2">
           <span
             className={`mx-1 w-16 h-14 flex justify-center items-center font-medium cursor-pointer ${currentPage === 1
