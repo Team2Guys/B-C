@@ -1,6 +1,6 @@
 'use client';
 
-import React, { SetStateAction, useLayoutEffect, useState } from 'react';
+import React, { SetStateAction, useState } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -9,7 +9,6 @@ import { LiaEdit } from 'react-icons/lia';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
 import Cookies from 'js-cookie';
-import TableSkeleton from './TableSkelton';
 import { Categories_Types, CategoriesType } from 'types/interfaces';
 import { ICategory } from 'types/types';
 // interface Product {
@@ -37,7 +36,6 @@ const TableTwo = ({ setMenuType, seteditCategory , cetagories }: CategoryProps) 
   const token = admin_token ? admin_token : super_admin_token;
 
   const [category, setCategory] = useState<any[] | undefined>(cetagories);
-  const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
@@ -183,9 +181,6 @@ const TableTwo = ({ setMenuType, seteditCategory , cetagories }: CategoryProps) 
 
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
-      {loading ? (
-        <TableSkeleton rows={10} columns={1} />
-      ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
             <input
@@ -230,7 +225,6 @@ const TableTwo = ({ setMenuType, seteditCategory , cetagories }: CategoryProps) 
             </p>
           )}
         </>
-      )}
     </div>
   );
 };
