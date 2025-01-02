@@ -24,7 +24,7 @@ const Category = ({cetagories}: {cetagories: ICategory[]}) => {
             setMenuType={setMenuType}
             seteditCategory={seteditCategory}
             editCategory={editCategory}
-            cetagories={cetagories}
+            categories={cetagories}
           />
         </div>
       ) : (

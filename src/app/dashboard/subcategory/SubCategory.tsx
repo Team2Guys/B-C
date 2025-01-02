@@ -25,6 +25,7 @@ const Subcategory = ({subCategories , cetagories}: {subCategories: ICategory[] ,
             seteditCategory={seteditCategory}
             editCategory={editCategory}
             subCategories={subCategories}
+            categories={cetagories}
           />
         </div>
       ) : (
