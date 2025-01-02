@@ -24,19 +24,21 @@ interface CategoryProps {
     SetStateAction<CategoriesType | undefined | null>
   >;
   editCategory?: CategoriesType | undefined | null;
+  subCategories?: ICategory[];
 }
 
 const ViewSubcategries = ({
   setMenuType,
   seteditCategory,
   editCategory,
+  subCategories
 }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
   const token = admin_token ? admin_token : super_admin_token;
   console.log(editCategory, 'editCategory');
-  const [category, setCategory] = useState<any[]>([]);
+  const [category, setCategory] = useState<any[] | undefined>(subCategories);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
   console.log(toggleColorMode, 'toggleColorMode');
@@ -58,31 +60,6 @@ const ViewSubcategries = ({
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
-
-  useLayoutEffect(() => {
-    const CategoryHandler = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
-        );
-        const categories = await response.json();
-
-        const sortedCategories = categories.sort(
-          (a: any, b: any) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-        );
-
-        setCategory(sortedCategories);
-        setLoading(false);
-      } catch (err) {
-        console.log('err', err);
-        setLoading(false);
-      }
-    };
-
-    CategoryHandler();
-  }, []);
 
   const { data: categories } = useQuery<ICategory[]>({
     queryKey: ['categories'],

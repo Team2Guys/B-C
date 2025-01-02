@@ -11,6 +11,7 @@ import useColorMode from 'hooks/useColorMode';
 import Cookies from 'js-cookie';
 import TableSkeleton from './TableSkelton';
 import { Categories_Types, CategoriesType } from 'types/interfaces';
+import { ICategory } from 'types/types';
 // interface Product {
 //   _id: string;
 //   name: string;
@@ -26,15 +27,16 @@ interface CategoryProps {
     SetStateAction<CategoriesType | undefined | null>
   >;
   editCategory?: CategoriesType | undefined | null;
+  cetagories?: ICategory[];
 }
 
-const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
+const TableTwo = ({ setMenuType, seteditCategory , cetagories }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
   const token = admin_token ? admin_token : super_admin_token;
 
-  const [category, setCategory] = useState<any[]>([]);
+  const [category, setCategory] = useState<any[] | undefined>(cetagories);
   const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
 
@@ -56,31 +58,6 @@ const TableTwo = ({ setMenuType, seteditCategory }: CategoryProps) => {
     setSearchTerm(e.target.value);
   };
 
-  // Filter products based on search term
-  useLayoutEffect(() => {
-    const CategoryHandler = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
-        );
-        const categories = await response.json();
-
-        const sortedCategories = categories.sort(
-          (a: any, b: any) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-        );
-
-        setCategory(sortedCategories);
-        setLoading(false);
-      } catch (err) {
-        console.log('err', err);
-        setLoading(false);
-      }
-    };
-
-    CategoryHandler();
-  }, []);
 
   // Filter products based on search term
   const filteredProducts: Categories_Types[] =
