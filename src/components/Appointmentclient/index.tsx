@@ -129,9 +129,10 @@ const AppointmentsClient = () => {
     setFilteredAppointments(filtered);
   }, [searchTerm, appointments]);
 
+
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
-      {isLoading ? (
+      {appointments.length === 0 ? (
         <TableSkeleton rows={10} columns={1} />
       ) : (
         <>
@@ -201,3 +202,74 @@ const AppointmentsClient = () => {
 };
 
 export default ProtectedRoute(AppointmentsClient);
+
+
+// // <div className={colorMode === 'dark' ? 'dark' : ''}>
+// {appointments.length === 0 ? (
+//   <TableSkeleton rows={10} columns={1} />
+// ) : (
+//   <>
+//     <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white pt-4">
+//       <input
+//         className="peer lg:p-3 p-2 block outline-none border rounded-md border-gray-200 dark:bg-white dark:bg-transparent dark:border-white text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none dark:text-black"
+//         type="search"
+//         placeholder="Search..."
+//         value={searchTerm}
+//         onChange={handleSearchChange}
+//       />
+//     </div>
+//     <Table
+//       scroll={{ y: 110 * 5 }}
+//       dataSource={filteredAppointments}
+//       columns={appointmentColumns}
+//       pagination={false}
+//       className="group"
+//     />
+//     {isModalVisible && selectedAppointment && (
+//       <Modal
+//         title={
+//           <div className="flex items-center space-x-3">
+//             <div className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
+//               {selectedAppointment.name[0]}
+//             </div>
+//             <span className="text-lg font-bold">{selectedAppointment.name}</span>
+//           </div>
+//         }
+//         visible={isModalVisible}
+//         onCancel={handleCloseModal}
+//         onOk={handleCloseModal}
+//         footer={null}
+//       >
+//         <div className="space-y-4">
+//           <div className="flex items-start">
+//             <span className="w-1/3 font-semibold">Preferred Contact Method:</span>
+//             <span className="w-2/3">{selectedAppointment.prefered_contact_method}</span>
+//           </div>
+//           <div className="flex items-start">
+//             <span className="w-1/3 font-semibold">Windows:</span>
+//             <span className="w-2/3">{selectedAppointment.windows}</span>
+//           </div>
+//           <div className="flex items-start">
+//             <span className="w-1/3 font-semibold">Product Type:</span>
+//             <span className="w-2/3">{selectedAppointment.product_type}</span>
+//           </div>
+//           <div className="flex items-start">
+//             <span className="w-1/3 font-semibold">How User Found Us:</span>
+//             <span className="w-2/3">{selectedAppointment.how_user_find_us}</span>
+//           </div>
+//           <div className="flex items-start">
+//             <span className="w-1/3 font-semibold">User Query:</span>
+//             <span className="w-2/3">{selectedAppointment.user_query}</span>
+//           </div>
+//           <div className="flex items-start">
+//             <span className="w-1/3 font-semibold">Preferred Date:</span>
+//             <span className="w-2/3">{selectedAppointment.prefered_Date}</span>
+//           </div>
+//         </div>
+//       </Modal>
+//     )}
+//   </>
+// )}
+// </div>
+// );
+// };

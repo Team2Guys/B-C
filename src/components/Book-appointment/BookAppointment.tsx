@@ -9,7 +9,6 @@ import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 interface ProductOptions {
   shutters?: boolean;
   curtains?: boolean;
@@ -20,7 +19,6 @@ interface ProductOptions {
   plantation_bhutters?: boolean;
   others?: boolean;
 }
-
 interface IAppointments {
   name: string;
   phone_number: string;
@@ -62,7 +60,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
       throw error;
     }
   };
-
 
   const getInitialSelectedOptions = (): ProductOptions => {
     if (singlePage) {
