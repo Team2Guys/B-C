@@ -1,6 +1,6 @@
 'use client';
 
-import React, { SetStateAction, useLayoutEffect, useState } from 'react';
+import React, { SetStateAction, useState } from 'react';
 import { Table, notification, Modal } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -10,7 +10,6 @@ import { CategoriesType } from 'types/interfaces';
 import useColorMode from 'hooks/useColorMode';
 import { ChangedProductUrl_handler } from 'data/urls';
 import { useAppSelector } from 'components/Others/HelperRedux';
-import TableSkeleton from './TableSkelton';
 import Cookies from 'js-cookie';
 import { FaRegEye } from 'react-icons/fa';
 import { generateSlug } from 'data/data';
@@ -39,7 +38,6 @@ const ViewSubcategries = ({
   const token = admin_token ? admin_token : super_admin_token;
   console.log(editCategory, 'editCategory');
   const [category, setCategory] = useState<any[] | undefined>(subCategories);
-  const [loading, setLoading] = useState<boolean>(false);
   const [colorMode, toggleColorMode] = useColorMode();
   console.log(toggleColorMode, 'toggleColorMode');
 
@@ -217,9 +215,6 @@ const ViewSubcategries = ({
 
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
-      {loading ? (
-        <TableSkeleton rows={10} columns={1} />
-      ) : (
         <>
           <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
             <input
@@ -264,7 +259,6 @@ const ViewSubcategries = ({
             </p>
           )}
         </>
-      )}
     </div>
   );
 };
