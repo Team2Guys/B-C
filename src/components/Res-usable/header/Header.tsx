@@ -1,5 +1,5 @@
 'use client';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
@@ -20,8 +20,8 @@ import {
 } from 'data/data';
 import { usePathname } from 'next/navigation';
 import { Collapse } from 'antd';
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { links } from 'data/header_links';
+import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
@@ -230,18 +230,20 @@ const Header = () => {
                 open={drawerOpen}
                 setOpen={setDrawerOpen}
                 selectedLabel={selectedLabel}
+                mobileBgColor="#E6E4E5"
+                className="custom-moblie-sheet"
               >
                 <div className="flex flex-col gap-2">
                   <Collapse
                     bordered={false}
                     expandIcon={({ isActive }) =>
                       isActive ? (
-                        <IoMdArrowDropup size={20} />
+                        <Image src={downIcon} alt='up icon' width={8} height={8} className='transform rotate-180' />
                       ) : (
-                        <IoMdArrowDropdown size={20} />
+                        <Image src={downIcon} alt='down icon' width={8} height={8} />
                       )
                     }
-                    className="custom-collapse border-0 bg-transparent flex flex-col gap-2"
+                    className="custom-collapse bg-transparent border-0 flex flex-col gap-1"
                   >
                     {links.map((link, index) => {
                       let filteredSubCategories =
@@ -332,20 +334,20 @@ const Header = () => {
 
                       const isActive =
                         !isBlogPath && path?.includes(generateSlug(link.label));
-
                       return combinedSliderData.length > 0 ? (
                         <Panel
                           key={index}
+
                           header={
                             <Link
                               href={link.href}
                               onClick={handleCloseDrawer}
-                              className={`border-b-2 border-transparent hover:text-black ${isBlogActive || isActive
-                                  ? 'border-b-secondary'
-                                  : 'hover:border-b-secondary'
+                              className={`border-b-2 border-transparent text-16 hover:text-black ${isBlogActive || isActive
+                                  ? 'font-bold text-secondary'
+                                  : 'font-normal'
                                 }`}
                             >
-                              {link.label} {index}
+                              {link.label}
                             </Link>
                           }
                           className="custom-panel py-0"
@@ -366,14 +368,14 @@ const Header = () => {
                       ) : (
                         <Link
                           key={index}
-                          className={`w-fit text-14 border-b-2 border-white hover:text-black font-medium ${isBlogActive || isActive
-                              ? 'border-b-secondary'
-                              : 'hover:border-b-secondary'
+                          className={`text-16 border-b border-[#0000002a] pb-[6px] ${isBlogActive || isActive
+                              ? 'font-bold'
+                              : 'font-normal'
                             }`}
                           onClick={handleCloseDrawer}
                           href={link.href}
                         >
-                          {link.label} {index}
+                          {link.label}
                         </Link>
                       );
                     })}
