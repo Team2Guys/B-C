@@ -15,21 +15,26 @@ import {
   generateSlug,
   staticDescriptions,
 } from 'data/data';
-import VideoBanner from 'components/video-banner/video-banner';
+import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import { IoSearch } from 'react-icons/io5';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
+import TopHero from 'components/ui/top-hero';
+import { usePathname } from 'next/navigation';
 
 const Commercial = ({
   products,
   subCategories,
+  categories
 }: {
   products: IProduct[];
   subCategories: ICategory[];
+  categories: ICategory[];
 }) => {
   const [isLoading, setLoading] = useState(true);
-
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
+  const pathname = usePathname();
+  const filteredCatgory = categories.find((c) => c.id === 12);
 
   useEffect(() => {
     if (products && subCategories) {
@@ -61,7 +66,12 @@ const Commercial = ({
 
   return (
     <div>
-      <VideoBanner title={`Commercial`} />
+    <TopHero
+      title={filteredCatgory?.title}
+      pageTitle={`Made to Measure ${filteredCatgory?.title}`}
+      image={`${filteredCatgory?.bannerImage?.imageUrl || bgBreadcrum.src}`}
+      pagename={pathname}
+      />
       <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4">
         <div className="w-full md:w-1/2">
           <h1 className="font-bold text-xl xs:text-2xl tracking-wider">
