@@ -132,6 +132,7 @@ model blogs {
   Meta_Title       String?
   Canonical_Tag    String?
   Meta_description String?
+  isPublished      Boolean          @default(false)
 }
 
 model blogs_comments {
