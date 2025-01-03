@@ -45,7 +45,7 @@ const MotorisedPage = () => {
         description={pageData.infoDescription}
         image={pageData.infoImage}
       />
-      <div className="bg-light text-center py-10 mt-20 mb-20">
+      <div className="bg-light text-center py-10 mb-5 md:mb-10 md:mt-5">
         <Measure
           title={pageData.measureTitle}
           description={pageData.measureDescription}
@@ -53,7 +53,7 @@ const MotorisedPage = () => {
       </div>
       <ChooseUs
         title={pageData.chooseustitle}
-        gridClass="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4"
+        gridClass="grid grid-cols-2 lg:grid-cols-4 gap-4"
         boxClass="bg-white"
         items={pageData.chooseUsItems}
       />
@@ -62,7 +62,7 @@ const MotorisedPage = () => {
         title={pageData.measureTitle1}
         description={pageData.measureDescription1}
       />
-      <div className="bg-white text-center py-10 mt-20">
+      <div className="bg-white text-center py-10 mt-6 md:mt-9 lg:mt-16">
         <ChooseUs
           title={pageData.chooseustitle1}
           gridClass="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-5 gap-4"
