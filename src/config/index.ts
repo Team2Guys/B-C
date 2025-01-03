@@ -45,6 +45,14 @@ export const formatDateMonth = (dateString: string) => {
   };
   return date.toLocaleDateString(undefined, options);
 };
+export const formatDateMonthShort = (dateString: string) => {
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'short', // Use 'short' for abbreviated month names like Jan, Feb, etc.
+  };
+  return date.toLocaleDateString(undefined, options);
+};
 
 export const removeImagesFromContent = (content: any) => {
   let updatedContent = content.replace(/<figure[^>]*>.*?<\/figure>/g, '');
