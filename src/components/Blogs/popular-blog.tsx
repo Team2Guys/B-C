@@ -16,13 +16,12 @@ function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} custom-blog-arrow absolute !-top-[18px] !right-3 cursor-pointer before:hidden`}
+      className={`${className} custom-blog-arrow absolute !-top-[3px] sm:!-top-[18px] !right-3 cursor-pointer before:hidden`}
       style={{ ...style }}
       onClick={onClick}
     >
       <FaChevronRight
-        size={20}
-        className="text-black"
+        className="text-black text-sm sm:text-xl"
       />
     </div>
   );
@@ -32,13 +31,12 @@ function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} custom-blog-arrow !-top-[18px] !left-auto right-9 cursor-pointer before:hidden`}
+      className={`${className} custom-blog-arrow !-top-[3px] sm:!-top-[18px] !left-auto right-9 cursor-pointer before:hidden`}
       style={{ ...style }}
       onClick={onClick}
     >
       <FaChevronLeft
-        size={20}
-        className="text-black"
+        className="text-black text-sm sm:text-xl"
       />
     </div>
   );
@@ -69,9 +67,9 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         }
       },
@@ -87,7 +85,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
         return (
         <Container className="mt-1 px-2">
           <div className="flex items-center gap-2 border-t border-gray-300 pt-6">
-            <h3 className="text-28 font-semibold">Popular Posts</h3>
+            <h3 className="text-10 sm:text-28 font-semibold">Popular Posts</h3>
             <span className="border-t border-gray-300 grow me-16 mt-1"></span>
           </div>
           <div className="slider-container">
@@ -114,7 +112,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                   const filteredContent = removeImagesFromContent(blog.content);
                   return (
                     <div
-                      className={`rounded-lg space-y-4 mt-5 px-4 flex flex-col justify-between`}
+                      className={`rounded-lg space-y-2 sm:space-y-4 mt-5 px-4 flex flex-col justify-between`}
                       key={index}
                       onClick={() => {
                         route.push(`/blog/${generateSlug(blog.title)}`);
@@ -122,26 +120,27 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                     >
                       <div className={``}>
                         <Image
-                          className={`rounded-3xl h-[353.9px] w-full cursor-pointer`}
+                          className={`rounded-md sm:rounded-3xl h-[140px] sm:h-[353.9px] w-full cursor-pointer`}
                           width={700}
                           height={700}
                           src={blog.posterImage?.imageUrl}
                           alt="blog"
                         />
-                        <div className="flex items-center gap-4 pt-5">
+                        <div className="flex items-center gap-4 pt-2 sm:pt-5">
                           <span className="text-12 font-medium text-[#999999]">
                             {formatDateMonth(blog.createdAt)}
                           </span>
                         </div>
                         <h3
-                          className="text-20 font-bold cursor-pointer text-center sm:text-start"
+                          className="text-13 sm:text-20 font-bold cursor-pointer text-start"
                           onClick={() => {
                             route.push(`/blog/${generateSlug(blog.title)}`);
                           }}
                         >
                           {blog.title}
                         </h3>
-                        <p className="">
+
+                        <p className=" text-10 sm:text-16">
                           {filteredContent.length > 160 ? (
                             <span
                               dangerouslySetInnerHTML={{
@@ -157,7 +156,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                       </div>
                       <Link
                         href={`/blog/${generateSlug(blog.title)}`}
-                        className={`text-primary text-18 underline font-bold text-center sm:text-start`}
+                        className={`text-primary text-12 sm:text-18 underline font-bold text-center sm:text-start`}
                       >
                         Read More
                       </Link>
