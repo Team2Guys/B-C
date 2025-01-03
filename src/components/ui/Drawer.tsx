@@ -10,6 +10,8 @@ interface SheetProps {
   setOpen: (open: boolean) => void;
   selectedLabel?: string; // Add this to manage the currently selected label
   setSelectedLabel?: (label: string | undefined) => void; // Add this to update the selected label
+  mobileBgColor?: string;
+  className?: string;
 }
 
 const Sheet: React.FC<SheetProps> = ({
@@ -20,6 +22,8 @@ const Sheet: React.FC<SheetProps> = ({
   setOpen,
   selectedLabel,
   setSelectedLabel,
+  mobileBgColor,
+  className
 }) => {
   const handleClose = () => {
     setOpen(false);
@@ -36,6 +40,8 @@ const Sheet: React.FC<SheetProps> = ({
         placement="right"
         open={open}
         onClose={handleClose}
+        className={className}
+        style={{ backgroundColor: mobileBgColor }}
       >
         {selectedLabel ? (
           <div>{children}</div>

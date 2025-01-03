@@ -17,7 +17,7 @@ import {
 } from 'data/urls';
 import Link from 'next/link';
 import { Collapse } from 'antd';
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
+import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
 import { Skeleton } from 'components/ui/skeleton';
 
 interface MegaMenuProps {
@@ -385,9 +385,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           bordered={false}
           expandIcon={({ isActive }) =>
             isActive ? (
-              <IoMdArrowDropup size={20} />
+              <Image src={downIcon} alt='up icon' width={8} height={8} className='transform rotate-180' />
             ) : (
-              <IoMdArrowDropdown size={20} />
+              <Image src={downIcon} alt='down icon' width={8} height={8} />
             )
           }
           className="bg-transparent"
@@ -418,14 +418,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                   <Panel
                     header={`${title} ${header_type}`}
                     key={index}
-                    className="custom-panel py-2"
+                    className="custom-panel pt-[6px]"
                   >
                     <ul className="space-y-2">
                       {products.map((product: IProduct, idx) => (
                         <li key={idx}>
                           <Link
                             href={generatePath(product, title.toLowerCase())}
-                            className={`focus:text-black hover:text-black border-b-2 border-transparent hover:border-b-secondary`}
+                            className={`focus:text-black hover:text-black border-b-2 border-transparent text-16 font-normal hover:border-b-secondary`}
                             onClick={onClick}
                           >
                             {title == 'Blinds' && header_type == 'By Room'
