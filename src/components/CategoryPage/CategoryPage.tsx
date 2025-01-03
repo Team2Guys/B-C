@@ -86,7 +86,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
   return (
     <div>
       <TopHero title={title} pagename={pathname} image={bgBreadcrum.src} />
-      <Container className="pt-10 pb-14 flex flex-col gap-10 items-center">
+      <Container className="pt-10 pb-14 flex flex-col gap-3 sm:gap-10 items-center">
         {filteredProducts?.map((product, index) => {
           let product_Images = prod_finder_handler(product);
 
