@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
@@ -176,40 +176,41 @@ const Header = () => {
                   path?.includes('automated-curtains') ||
                   path?.includes('automated-blinds');
                 return combinedSliderData.length > 0 ? (
-                  <MegaMenu
-                    onClick={handleCloseDrawer}
-                    key={link.id}
-                    title={link.label || ''}
-                    sliderData={combinedSliderData}
-                    href={link.href}
-                    className={
-                      link.label === 'Commercial' && isBalconyActive
-                        ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                        : link.label === 'Motorised' && ismoterised
+                  <Fragment key={index} >
+                    <MegaMenu
+                      onClick={handleCloseDrawer}
+                      title={link.label || ''}
+                      sliderData={combinedSliderData}
+                      href={link.href}
+                      className={
+                        link.label === 'Commercial' && isBalconyActive
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                          : !isBalconyActive &&
+                          : link.label === 'Motorised' && ismoterised
+                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                            : !isBalconyActive &&
                               !ismoter &&
                               (isBlogActive || isActive)
-                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                            : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
-                    }
-                    loading={isLoading}
-                  />
+                              ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                              : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
+                      }
+                      loading={isLoading}
+                    />
+                  </Fragment>
                 ) : (
+                  <Fragment key={index} >
                   <Link
-                    key={index}
-                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${
-                      link.label === 'Motorised' && ismoterised
+                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${link.label === 'Motorised' && ismoterised
                         ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                         : isBlogActive || isActive
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                           : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-4'
-                    }`}
+                      }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
                   >
                     {link.label}
                   </Link>
+                  </Fragment>
                 );
               })}
             </div>
@@ -339,20 +340,19 @@ const Header = () => {
                             <Link
                               href={link.href}
                               onClick={handleCloseDrawer}
-                              className={`border-b-2 border-transparent hover:text-black ${
-                                isBlogActive || isActive
+                              className={`border-b-2 border-transparent hover:text-black ${isBlogActive || isActive
                                   ? 'border-b-secondary'
                                   : 'hover:border-b-secondary'
-                              }`}
+                                }`}
                             >
-                              {link.label}
+                              {link.label} {index}
                             </Link>
                           }
                           className="custom-panel py-0"
                         >
                           <MegaMenu
                             onClick={handleCloseDrawer}
-                            key={link.id}
+                            // key={index}
                             title={link.label || ''}
                             sliderData={combinedSliderData}
                             href={link.href}
@@ -366,15 +366,14 @@ const Header = () => {
                       ) : (
                         <Link
                           key={index}
-                          className={`w-fit text-14 border-b-2 border-white hover:text-black font-medium ${
-                            isBlogActive || isActive
+                          className={`w-fit text-14 border-b-2 border-white hover:text-black font-medium ${isBlogActive || isActive
                               ? 'border-b-secondary'
                               : 'hover:border-b-secondary'
-                          }`}
+                            }`}
                           onClick={handleCloseDrawer}
                           href={link.href}
                         >
-                          {link.label}
+                          {link.label} {index}
                         </Link>
                       );
                     })}
