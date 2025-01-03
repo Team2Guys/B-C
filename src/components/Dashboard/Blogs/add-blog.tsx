@@ -217,7 +217,7 @@ const AddBlogs = ({
                     }
                     options={[
                       { value: '', label: 'Select Category', disabled: true },
-                      ...(categories?.map((category) => ({
+                      ...(categories?.filter((category) => category.title !== 'Commercial').map((category) => ({
                         value: category.title,
                         label: category.title,
                       })) || []),
