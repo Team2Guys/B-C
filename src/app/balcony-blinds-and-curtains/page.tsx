@@ -67,8 +67,6 @@ const CommercialPage = async () => {
   if (!filteredSubCategory) {
     return <NotFound />;
   }
-  console.log(filteredSubCategory,"Balcony Balcony ")
-
   return (
     <>
 
