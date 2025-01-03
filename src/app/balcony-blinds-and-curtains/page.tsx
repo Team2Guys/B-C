@@ -67,7 +67,7 @@ const CommercialPage = async () => {
   if (!filteredSubCategory) {
     return <NotFound />;
   }
-  
+  console.log(filteredSubCategory,"Balcony Balcony ")
 
   return (
     <>
@@ -77,6 +77,7 @@ const CommercialPage = async () => {
         description={`${filteredSubCategory?.description}`}
         category={`${filteredSubCategory?.category.title}`}
         relatedProducts={filteredSubCategory?.products || []}
+        filteredSubCategory={filteredSubCategory}
       />
 
     </>
