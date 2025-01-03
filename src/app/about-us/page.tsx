@@ -40,7 +40,7 @@ const AboutUsPage = () => {
             </h2>
           ))}
           {AboutUsPara.paragraph.map((item, index) => (
-            <p key={index} className="mt-5 leading-6 text-paralight">
+            <p key={index} className="mt-2 sm:mt-5 leading-6 text-paralight">
               {item}
             </p>
           ))}
@@ -62,7 +62,7 @@ const AboutUsPage = () => {
           </div> */}
         </div>
       </Container>
-      <Container className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-10 lg:gap-20 xs:px-2 px-6 py-10 md:px-10">
+      <Container className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-10 lg:gap-20 xs:px-2 px-6 sm:py-10 md:px-10">
         <div>
           {/* <h4 className="font-semibold xs:mb-6 text-paralight xs:text-base text-12 text-center sm:text-start">
             {UsHistoryPara.subheading}
@@ -75,7 +75,7 @@ const AboutUsPage = () => {
               {item}
             </h2>
           ))} */}
-          <div className="mt-5 pe-4 flex flex-col gap-4">
+          <div className="mt-5 pe-4 flex flex-col sm:gap-4">
             {UsHistoryPara.paragraph.map((item, index) => (
               <p key={index} className="leading-6 text-paralight mb-4 text-16" dangerouslySetInnerHTML={{ __html: item }}></p>
             ))}
@@ -85,7 +85,7 @@ const AboutUsPage = () => {
           <div className="me-5 sm:me-14 h-[72%] 2xl:h-[71%] border border-dashed border-btnclr hidden sm:block  mt-7 xl:mt-5 2xl:mt-3" style={{
             borderImage: "repeating-linear-gradient(135deg, #a9b4a4, #a9b4a4 10px, transparent 10px, transparent 20px) 1",
           }}></div>
-          <div className="flex flex-col">
+          <div className="flex flex-col max-sm:space-y-5">
             {OurHistoryData.map((item) => (
               <>
                 <div className="relative" key={item.id}>
@@ -97,7 +97,7 @@ const AboutUsPage = () => {
                       {item.year}
                     </div>
                   </div>
-                  <div className="bg-transparent hover:bg-white p-3 sm:p-6 xs:pt-10 pb-8 ps-2 sm:ps-16 pe-6 xs:pe-10 rounded-bl-[30px] rounded-tr-[30px]">
+                  <div className="bg-white sm:bg-transparent hover:bg-white p-3 sm:p-6 xs:pt-10 pb-8 ps-2 sm:ps-16 pe-6 xs:pe-10 rounded-bl-[30px] rounded-tr-[30px]">
                     <h3 className="text-18 xs:text-20 sm:text-24 leading-8 font-bold" dangerouslySetInnerHTML={{ __html: item.heading }}></h3>
                     <p className="text-paralight font-normal leading-6 mt-2 text-12 xs:text-14 sm:text-normal">
                       {item.discription}
