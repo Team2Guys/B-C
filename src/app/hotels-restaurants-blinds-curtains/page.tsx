@@ -11,7 +11,7 @@ let products = await fetchProducts()
   const filtereProdcts =["Hotels & Restaurants"]
   const filteredProduct = products?.find((prod) => filtereProdcts.includes(prod.title));
 
-  const headersList = headers();
+  const headersList = await headers();
   const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
   const pathname = headersList.get('x-invoke-path') || '/';

@@ -2,11 +2,16 @@ import { fetchCategories, fetchProducts, fetchSubCategories,  } from "config/fet
 import Product from "./Product";
 import { ICategory } from "types/types";
 import { headers } from "next/headers";
-import { Metadata } from "next";
+import { Metadata} from "next";
 import { links } from "data/header_links";
 
-export async function generateMetadata({ params }: { params: { productName: string } }): Promise<Metadata> {
-  const { productName } = params;
+type Props = {
+  params: Promise<{ productName: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const productName = (await params).productName;
+
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
@@ -15,9 +20,8 @@ export async function generateMetadata({ params }: { params: { productName: stri
   ]);
 
   const filterCategory = categories.find((category) => category.title === matchingLink?.label);
-  const headersList = headers();
-  const domain =
-    headersList.get('x-forwarded-host') || headersList.get('host') || '';
+  const headersList = await headers();
+  const domain =  headersList.get('x-forwarded-host') ||  headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
   const pathname = headersList.get('x-invoke-path') || '/';
 
@@ -61,8 +65,8 @@ export async function generateMetadata({ params }: { params: { productName: stri
   };
 }
 
-const Products = async ({ params }: { params: { productName: string } }) => {
-  const slug = params.productName;
+const Products = async ({ params }: Props) => {
+  const slug = (await params).productName;
   const [products, categories, subCategories] = await Promise.all([
     fetchProducts(),
     fetchCategories(),
