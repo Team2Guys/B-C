@@ -24,7 +24,7 @@ const BlogCard = ({ blog }: IBlogCard) => {
           alt={title}
           width={100}
           height={100}
-          className="rounded-lg object-cover w-full sm:w-[160px] h-52 sm:h-[160px]"
+          className="rounded-lg md:object-cover w-full sm:w-[160px] sm:h-[160px] h-[280px]"
         />
       <div className='grow'>
         <div className="flex items-center justify-between mb-2">
