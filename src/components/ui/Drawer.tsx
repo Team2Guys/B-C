@@ -41,8 +41,8 @@ const Sheet: React.FC<SheetProps> = ({
           <div>{children}</div>
         ) : (
           <div>
-            {React.Children.map(children, (child) =>
-              React.isValidElement(child) && child.props.label === selectedLabel
+            {React.Children.map(children, (child:any) =>
+              React.isValidElement(child) as any && child.props.label === selectedLabel
                 ? child
                 : null,
             )}

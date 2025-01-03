@@ -394,8 +394,9 @@ interface ColorData {
 }
 
 export type meta_props = {
-  params: { product: string };
+  params:Promise<{ product: string }>;
 };
+
 
 export interface PRODUCS_PROPS {
   product: string;

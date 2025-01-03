@@ -443,7 +443,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               defaultValue={preferTimeOptions.find(
                 (option) => option.value === 'pm',
               )}
-              onChange={(option) =>
+              onChange={(option:any) =>
                 handleSelectChange('prefered_time', option?.value || '')
               }
               value={preferTimeOptions.find(
@@ -472,7 +472,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
             </label>
             <Select
               options={referralOptions}
-              onChange={(option) =>
+              onChange={(option:any) =>
                 handleSelectChange('how_user_find_us', option?.value || '')
               }
               value={referralOptions.find(

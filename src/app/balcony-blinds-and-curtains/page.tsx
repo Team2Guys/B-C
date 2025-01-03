@@ -7,9 +7,9 @@ import { ICategory } from 'types/types';
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const headersList = headers();
+  const headersList = await headers();
   let product = "Balcony Blinds And Curtains"
-  const subCategories:ICategory[] = await fetchSubCategories();
+  const subCategories: ICategory[] = await fetchSubCategories();
   const filteredCatgory = subCategories.find((c) => c.title === product);
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
@@ -19,10 +19,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const fullUrl = `${protocol}://${domain}${pathname}`;
 
   let ImageUrl =
-  filteredCatgory?.posterImage.imageUrl ||
+    filteredCatgory?.posterImage.imageUrl ||
     'blindsandcurtains';
   let alt =
-  filteredCatgory?.posterImage.altText ||
+    filteredCatgory?.posterImage.altText ||
     'blindsandcurtains';
 
   let NewImage = [
@@ -32,11 +32,11 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   ];
   let title =
-  filteredCatgory?.Meta_Title ||
+    filteredCatgory?.Meta_Title ||
     'blindsandcurtains';
-    console.log(title,'title')
+  console.log(title, 'title')
   let description =
-  filteredCatgory?.Meta_description ||
+    filteredCatgory?.Meta_description ||
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}balcony-blinds-and-curtains`;
   return {
@@ -50,15 +50,15 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical:
-      filteredCatgory?.Canonical_Tag || url,
+        filteredCatgory?.Canonical_Tag || url,
     },
   };
 }
 
 const CommercialPage = async () => {
   let product = "Balcony Blinds And Curtains"
- 
- const subCategories = await fetchSubCategories();
+
+  const subCategories = await fetchSubCategories();
 
 
   const filteredSubCategory = subCategories?.find((sub) => sub.title === product,
@@ -67,17 +67,18 @@ const CommercialPage = async () => {
   if (!filteredSubCategory) {
     return <NotFound />;
   }
+  
 
   return (
     <>
 
-          <CommercialByRoom
-            title={`${filteredSubCategory?.title}`}
-            description={`${filteredSubCategory?.description}`}
-            category={`${filteredSubCategory?.category.title}`}
-            relatedProducts={filteredSubCategory?.products || []}
-          />
-         
+      <CommercialByRoom
+        title={`${filteredSubCategory?.title}`}
+        description={`${filteredSubCategory?.description}`}
+        category={`${filteredSubCategory?.category.title}`}
+        relatedProducts={filteredSubCategory?.products || []}
+      />
+
     </>
   );
 };
