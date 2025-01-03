@@ -7,7 +7,7 @@ const Appointments =() => {
     <>
       <DefaultLayout>
         <Breadcrumb pageName={'View Appointments'} />
-        <AppointmentsClient />
+        <AppointmentsClient/>
       </DefaultLayout>
     </>
   );

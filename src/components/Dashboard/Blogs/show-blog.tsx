@@ -1,8 +1,6 @@
 'use client';
-import React, { SetStateAction, useState } from 'react';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { fetchBlogs } from 'config/fetch';
-import TableSkeleton from '../Tables/TableSkelton';
+import React, { SetStateAction, useEffect, useState } from 'react';
+import {  useQueryClient } from '@tanstack/react-query';
 import { BlogInfo, UpdateBlog } from 'types/interfaces';
 import { formatDateMonth } from 'config';
 import { LiaEdit } from 'react-icons/lia';
@@ -21,16 +19,16 @@ import Cookies from 'js-cookie';
 interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
   setEditBlog: React.Dispatch<SetStateAction<UpdateBlog | null>>;
+  blogs:any
 }
 
-const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
+const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog,blogs }) => {
   const queryClient = useQueryClient();
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [filteredBlog, setfilteredBlog] = useState<BlogInfo[]>([]);
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-  console.log('loggedInUser', loggedInUser);
-  const canAddBlog =
-    loggedInUser &&
+  const canAddBlog =loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canAddBlog : true);
   const canDeleteBlog =
     loggedInUser &&
@@ -44,32 +42,20 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       const super_admin_token = Cookies.get('superAdminToken');
     
       const token = admin_token ? admin_token : super_admin_token;
-  const {
-    data: blogs,
-    isLoading,
-    error,
-  } = useQuery<BlogInfo[]>({
-    queryKey: ['blogs'],
-    queryFn: fetchBlogs,
-  });
+ 
 
-  if (isLoading) {
-    return <TableSkeleton rows={10} columns={1} />;
-  }
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+      let searchTerm = e.target.value
+    const filteredBlog: BlogInfo[] =blogs.filter((blog: BlogInfo) =>
+      blog.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    ) || [];
+
+    setfilteredBlog(filteredBlog)
+    setSearchTerm(searchTerm)
   };
 
-  const filteredBlog: BlogInfo[] =
-    blogs
-      ?.sort(
-        (a: BlogInfo, b: BlogInfo) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-      )
-      .filter((blog: BlogInfo) =>
-        blog.title.toLowerCase().includes(searchTerm.toLowerCase()),
-      ) || [];
+
 
   const confirmDelete = (id: string) => {
     Modal.confirm({
@@ -81,6 +67,13 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
     });
   };
   
+useEffect(() => {
+  setfilteredBlog(blogs)
+
+
+}, [])
+
+
 
   const handleDelete = async (id: string) => {
     try {
@@ -209,9 +202,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
         </button>
       </div>
 
-      {error ? (
-        <p>Error fetching blogs😢</p>
-      ) : filteredBlog && filteredBlog.length > 0 ? (
+      { filteredBlog && filteredBlog.length > 0 ? (
         <Table
           dataSource={filteredBlog}
           columns={columns}

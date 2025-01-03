@@ -7,8 +7,8 @@ import { headers } from "next/headers";
 import { Metadata } from "next";
 
 
-export async function generateMetadata({ params }: { params: { subproduct: string } }): Promise<Metadata> {
-  const { subproduct } = params;
+export async function generateMetadata({ params }: { params: Promise<{ subproduct: string}>}): Promise<Metadata> {
+  const  subproduct = (await params).subproduct;
   const Cateories = [2];
   const products = await fetchProducts();
 
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: { subproduct: strin
       generateSlug(prod.title) === ChangedProductUrl(subproduct as string) &&
       Cateories.some((item: number) => item == prod.CategoryId),
   );
-  const headersList = headers();
+  const headersList = await headers();
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
@@ -64,8 +64,8 @@ export async function generateMetadata({ params }: { params: { subproduct: strin
 }
 
 
-const Page = async ({ params }: { params: { subproduct: string } }) => {
-  const slug = params.subproduct;
+const Page = async ({ params }: { params: Promise<{ subproduct: string }> }) => {
+  const slug = (await params).subproduct;
   const [products, subCategories] = await Promise.all([
     fetchProducts(),
     fetchSubCategories(),
