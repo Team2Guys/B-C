@@ -14,7 +14,7 @@ const Cateories = [5];
 export async function generateMetadata({
   params,
 }: meta_props): Promise<Metadata> {
-  const { product } = params;
+  const  product  = (await params).product;
 
   const [products, categories] = await Promise.all([
     fetchProducts(),
@@ -24,7 +24,7 @@ export async function generateMetadata({
   const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(categories, product, Cateories);
 
-  const headersList = headers();
+  const headersList = await headers();
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
@@ -76,8 +76,8 @@ export async function generateMetadata({
   };
 }
 
-const CommercialPage = async ({ params }: { params: { product: string } }) => {
-  const { product } = params;
+const CommercialPage = async ({ params }: meta_props) => {
+  const  product  = (await params).product;
   const [products, categories] = await Promise.all([
     fetchProducts(),
     fetchSubCategories(),
