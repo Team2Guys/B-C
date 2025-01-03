@@ -51,6 +51,7 @@ export const fetchCategories = async (): Promise<ICategory[]> => {
   );
   return response.data;
 };
+
 export const fetchSubCategories = async (): Promise<ICategory[]> => {
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
