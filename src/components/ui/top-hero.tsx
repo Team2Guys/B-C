@@ -25,12 +25,12 @@ const TopHero: React.FC<TopHeroProps> = ({
 }) => {
   const [pageName, setPageName] = useState<string[]>([]);
   const page = usePathname();
-
+  const name = pagename ? pagename : page;
   const pathname = title.replace('-', ' ');
 
   useEffect(() => {
-    if (pagename) {
-      const newPageName = pagename
+    if (name) {
+      const newPageName = name
         .split('/')
         .filter((segment: string) => segment !== '')
         .map((segment: string) => segment.replaceAll('-', ' '));
@@ -38,7 +38,7 @@ const TopHero: React.FC<TopHeroProps> = ({
       setPageName(newPageName);
       console.log(newPageName, 'pageName');
     }
-  }, [pagename]);
+  }, [name]);
 
   const result = BreakCrum_conent_pages.find((value: any) =>
     value.url.toLowerCase().includes(page.toLowerCase()),

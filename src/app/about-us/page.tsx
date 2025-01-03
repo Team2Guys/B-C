@@ -1,4 +1,3 @@
-'use client';
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/about.jpg';
 import Container from 'components/Res-usable/Container/Container';
@@ -8,13 +7,32 @@ import {
   OurHistoryData,
   UsHistoryPara,
 } from 'data/data';
-import { usePathname } from 'next/navigation';
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+  title: 'About Us Page',
+  description: 'About Us description',
+  openGraph: {
+    title: 'About Us',
+    description: 'About Us description',
+    url: 'fullUrl',
+    images: [
+      {
+        url: 'imageUrl',
+        alt: 'altText',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'about-us',
+  },
+}
 
 const AboutUsPage = () => {
-  const pathName = usePathname();
   return (
     <div>
-      <TopHero title="About Us" image={bgBreadcrum.src} pagename={pathName} />
+      <TopHero title="About Us" image={bgBreadcrum.src} />
       <Container className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 xs:p-2 px-6 2xl:gap-20 xs:py-20 md:px-10">
         <div
           className="w-full h-full"
