@@ -274,7 +274,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                       <div key={index} className="flex flex-col gap-5 w-full">
                         <p className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
                           {/* {title + ' ' + item.name} */}
-                          <div />
+                          {/* <div /> */}
                           {title}{' '}
                           {item.name === 'dynamic'
                             ? parent === 'shutters'
