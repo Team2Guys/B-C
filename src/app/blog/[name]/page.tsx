@@ -5,15 +5,15 @@ import { fetchBlogs, fetchCategories } from "config/fetch";
 import { blogLinks } from "data/header_links";
 import { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: { name: string } }): Promise<Metadata> {
-  const { name } = params;
+export async function generateMetadata({ params }: { params: Promise< { name: string }> }): Promise<Metadata> {
+  const  name  = (await params).name;
   const matchingLink = blogLinks.find((link) =>
       link.href === name);
   const categories = await fetchCategories();
 
 
   const filterCategory = categories.find((category) => category.title === matchingLink?.label);
-  const headersList = headers();
+  const headersList = await headers();
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';

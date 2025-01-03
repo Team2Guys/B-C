@@ -16,6 +16,7 @@ import bgBreadcrum from '../../../../public/assets/images/Blog/blogbackground.pn
 import { FaAngleRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { ICategory } from 'types/types';
+import NotFound from 'app/not-found';
 // import { blogLinks } from 'data/header_links';
 // import NotFound from 'app/not-found';
 
@@ -141,7 +142,7 @@ const Blog = ({
           </div>
           <div className="">
             <Image
-              className="w-full rounded-md h-full sm:h-[416px] object-cover "
+              className="w-full rounded-md h-[270px] sm:h-[416px] xl:h-[467px] 2xl:sm:h-[526px]  xl:object-cover "
               width={1000}
               height={608}
               src={blog?.posterImage?.imageUrl}
@@ -166,7 +167,7 @@ const Blog = ({
           </div>
         </Container>
       ) : (
-        <p>Blog not found.</p>
+        <NotFound />
       )}
     </>
   );
