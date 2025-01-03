@@ -1416,16 +1416,16 @@ export const colorData: IColorData[] = [
           '/assets/images/optimized-images/Color/Black-shutters/Cold color shutters (1).webp',
         altText: 'Black Shutters',
       },
-      {
-        imageUrl:
-          '/assets/images/optimized-images/Color/Black-shutters/full height shutters (2).webp',
-        altText: 'Black Shutters',
-      },
-      {
-        imageUrl:
-          '/assets/images/optimized-images/Color/Black-shutters/Tier on Tier Shutters (2).webp',
-        altText: 'Black Shutters',
-      },
+      // {
+      //   imageUrl:
+      //     '/assets/images/optimized-images/Color/Black-shutters/Full-height-shutters.jpg',
+      //   altText: 'Black Shutters',
+      // },
+      // {
+      //   imageUrl:
+      //     '/assets/images/optimized-images/Color/Black-shutters/Tier on Tier Shutters (2).webp',
+      //   altText: 'Black Shutters',
+      // },
     ],
   },
   {

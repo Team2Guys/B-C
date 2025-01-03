@@ -1,7 +1,6 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-// import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import Container from 'components/Res-usable/Container/Container';
 import Support from 'components/Res-usable/support/support';
 import VideoAutomation from 'components/video-Automation/video-Automation';
@@ -13,7 +12,6 @@ import React, { useEffect, useState } from 'react';
 import { IProduct } from 'types/types';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
 import TopHero from 'components/ui/top-hero';
-// import { Categories_wise_Images } from 'data/Images';
 import { IColorData } from 'types/interfaces';
 import ThumbImage from 'components/Detail/ThumbImage/ThumbImage';
 interface ShuttersByColorProps {
@@ -33,25 +31,16 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
       content: string;
     }[];
   } | null>(null);
-  // const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [loadingFilteredProducts, setLoadingFilteredProducts] =
     useState<boolean>(false);
   const [relaiveProducts, setRelaiveProducts] = useState<IProduct[]>([]);
   const [colorImages, setcolorImages] = useState<IColorData>();
-  // const [showAll, setShowAll] = useState(false);
   const pathname = usePathname();
   const route = useRouter();
   const { data: products } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-
-  // const {
-  //   data: categoriesList = [],
-  // } = useQuery<ICategory[], Error>({
-  //   queryKey: ['category'],
-  //   queryFn: fetchCategories,
-  // });
 
   const getColorHex = (path: string) => {
     const colorMatch = colorData.find((color) => color.url === path);
@@ -76,9 +65,6 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
     }
   }, [pathname]);
 
-  // const handleShowMore = () => {
-  //   setShowAll(true);
-  // };
   useEffect(() => {
     if (products) {
       const filterprod = products.filter((prod) => prod.CategoryId === 9);
@@ -153,22 +139,6 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
                 ></p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-10">
-                {/* {filteredProducts.map((item) => {
-                const filteredCategory = categoriesList.find(
-                  (cat) => cat.id === item?.CategoryId,
-                  
-                  );
-                  return (
-                    <GalleryCard
-                    card={item}
-                    product_Images={colorImages}
-                    key={item.id}
-                    relativeProducts={true}
-                    detailHide={false}
-                    parent={filteredCategory?.title.toLowerCase()}
-                    />
-                    );
-                    })} */}
                 <ThumbImage card={colorImages} />
               </div>
             </>
@@ -178,17 +148,6 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
         ) : (
           <CardSkeleton />
         )}
-
-        {/* {!showAll && filteredProducts.length > 6 && (
-          <div className="text-center">
-            <button
-              onClick={handleShowMore}
-              className="bg-secondary px-6 py-2 text-lg rounded-md text-white"
-            >
-              Show More
-            </button>
-          </div>
-        )} */}
       </Container>
       <Container className="my-20">
         <RelatedProducts products={relaiveProducts || []} limit={4} />
