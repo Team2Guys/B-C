@@ -54,14 +54,14 @@ export interface Category {
 
 export interface CategoriesType extends Category {
   posterImageUrl: IMAGE_INTERFACE;
-  createdAt:string;
-  last_editedBy:string;
-  id: string ;
+  createdAt: string;
+  last_editedBy: string;
+  id: string;
   posterImage?: postimage;
 }
- interface postimage{
-  imageUrl:string
- }
+interface postimage {
+  imageUrl: string;
+}
 interface CloudinaryImage {
   public_id: string | undefined;
   imageUrl: string | undefined;
@@ -146,9 +146,9 @@ export interface Categories_Types {
   createdAt: string;
   updatedAt: string;
   __v: any;
-  last_editedBy:string;
-  id:string;
-  dataSource:string;
+  last_editedBy: string;
+  id: string;
+  dataSource: string;
 }
 
 interface Image {
@@ -336,6 +336,7 @@ export interface BlogInfo {
   createdAt?: any;
   updatedAt?: any;
   last_editedBy?: string;
+  isPublished?: boolean;
 }
 interface commentprops {
   status?: string;

@@ -1,5 +1,5 @@
 'use client';
-import React, { SetStateAction, useState } from 'react';
+import React, { Fragment, SetStateAction, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
 import TableSkeleton from '../Tables/TableSkelton';
@@ -39,11 +39,10 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canEditBlog : true);
 
+  const admin_token = Cookies.get('2guysAdminToken');
+  const super_admin_token = Cookies.get('superAdminToken');
 
-      const admin_token = Cookies.get('2guysAdminToken');
-      const super_admin_token = Cookies.get('superAdminToken');
-    
-      const token = admin_token ? admin_token : super_admin_token;
+  const token = admin_token ? admin_token : super_admin_token;
   const {
     data: blogs,
     isLoading,
@@ -80,12 +79,12 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       cancelText: 'No',
     });
   };
-  
 
   const handleDelete = async (id: string) => {
     try {
       await axios.delete(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/delete/${id}`,{
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/delete/${id}`,
+        {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -150,6 +149,26 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
       key: 'time',
       render: (text: string, record: BlogInfo) => {
         return <span>{record.last_editedBy}</span>;
+      },
+    },
+    {
+      title: 'Status',
+      dataIndex: 'isPublished',
+      key: 'isPublished',
+      render: (text: string, record: BlogInfo) => {
+        return (
+          <Fragment>
+            {record.isPublished ? (
+              <span className="bg-green-500 text-white rounded-lg p-2 text-sm">
+                Published
+              </span>
+            ) : (
+              <span className="bg-yellow-500 text-white rounded-lg p-2 text-sm text-sm">
+                Draft
+              </span>
+            )}
+          </Fragment>
+        );
       },
     },
     {

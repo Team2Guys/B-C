@@ -32,6 +32,8 @@ const AddBlogs = ({
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(
     EditInitialValues ? [EditInitialValues.posterImage] : [],
   );
+  const [isPublish, setIsPublish] = useState(false);
+
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
@@ -63,14 +65,15 @@ const AddBlogs = ({
     mutationFn: (formData: typeof blogInitialValues) => {
       let posterImage = posterimageUrl && posterimageUrl[0];
       if (!posterImage) {
-        showToast('warn', 'Please select Thumnail image😴');
-        throw new Error('No poster image selected');
+        setposterimageUrl([]);
+        // showToast('warn', 'Please select Thumnail image😴');
+        // throw new Error('No poster image selected');
       }
 
       const values = { ...formData, posterImage };
       if (EditInitialValues) {
         const updatedAt = new Date();
-        const finalValues = { updatedAt, ...values };
+        const finalValues = { updatedAt, isPublished: isPublish, ...values };
 
         return axios.put(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/update/${EditInitialValues.id}`,
@@ -85,17 +88,22 @@ const AddBlogs = ({
         { headers },
       );
     },
+
     onSuccess: () => {
-      setMenuType('Blogs');
-      showToast(
-        'success',
-        EditInitialValues
-          ? 'Blog updated successfully🎉'
-          : 'Blog added successfully🎉',
-      );
-      setEditBlog(null);
-      //@ts-expect-error
-      queryClient.invalidateQueries(['blogs']);
+      if (isPublish) {
+        setMenuType('Blogs');
+        showToast(
+          'success',
+          EditInitialValues
+            ? 'Blog updated successfully🎉'
+            : 'Blog added successfully🎉',
+        );
+        setEditBlog(null);
+        //@ts-expect-error
+        queryClient.invalidateQueries(['blogs']);
+      } else {
+        showToast('warn', 'Blog saved as Draft🎉');
+      }
     },
     onError: (error: any) => {
       showToast('error', error.data.message + '☹');
@@ -127,13 +135,13 @@ const AddBlogs = ({
         <Formik
           initialValues={blogInitialValues}
           onSubmit={(values, { resetForm }) => {
-            if (
-              values.content === '' ||
-              values.category === '' ||
-              values.title === ''
-            ) {
-              return showToast('warn', 'Ensure all fields are filled out😴');
-            }
+            // if (
+            //   values.content === '' ||
+            //   values.category === '' ||
+            //   values.title === ''
+            // ) {
+            //   return showToast('warn', 'Ensure all fields are filled out😴');
+            // }
             addBlogMutation.mutate(values, {
               onSuccess: () => {
                 resetForm();
@@ -270,7 +278,12 @@ const AddBlogs = ({
               setFieldValue('content', data);
             }}
           /> */}
-              <MyEditor setFieldValue={setFieldValue} values={values} />
+              <MyEditor
+                setFieldValue={setFieldValue}
+                values={values}
+                addBlogMutation={addBlogMutation}
+              />
+
               <div>
                 <label className=" block text-16 font-medium text-black dark:text-white">
                   Meta Title
@@ -328,18 +341,38 @@ const AddBlogs = ({
                   }
                 />
               </div>
-
-              <Button
-                disabled={addBlogMutation.isPending ? true : false}
-                type="submit"
-                className="text-white bg-primary px-4 py-2 font-semibold rounded-md"
-              >
-                {addBlogMutation.isPending ? (
-                  <Loader color="#fff" />
-                ) : (
-                  'Submit'
-                )}
-              </Button>
+              <div className="flex justify-between">
+                <Button
+                  disabled={addBlogMutation.isPending ? true : false}
+                  type="submit"
+                  className="text-white bg-yellow-500  px-4 py-2 font-semibold rounded-md"
+                >
+                  {addBlogMutation.isPending ? (
+                    <Loader color="#fff" />
+                  ) : (
+                    'Draft'
+                  )}
+                </Button>
+                <Button
+                  disabled={
+                    addBlogMutation.isPending ||
+                    values.title === '' ||
+                    values.category === '' ||
+                    values.content === ''
+                      ? true
+                      : false
+                  }
+                  type="submit"
+                  className="text-white bg-green-600 px-4 py-2 font-semibold rounded-md"
+                  onClick={() => setIsPublish(true)}
+                >
+                  {addBlogMutation.isPending ? (
+                    <Loader color="#fff" />
+                  ) : (
+                    'PUBLISH'
+                  )}
+                </Button>
+              </div>
             </Form>
           )}
         </Formik>
