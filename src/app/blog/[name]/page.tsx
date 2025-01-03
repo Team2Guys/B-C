@@ -4,11 +4,13 @@ import { headers } from "next/headers";
 import { fetchBlogs, fetchCategories } from "config/fetch";
 import { blogLinks } from "data/header_links";
 import { Metadata } from "next";
+import { BlogInfo } from "types/interfaces";
+import { generateSlug } from "data/data";
 
-export async function generateMetadata({ params }: { params: Promise< { name: string }> }): Promise<Metadata> {
-  const  name  = (await params).name;
+export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
+  const name = (await params).name;
   const matchingLink = blogLinks.find((link) =>
-      link.href === name);
+    link.href === name);
   const categories = await fetchCategories();
 
 
@@ -58,13 +60,32 @@ export async function generateMetadata({ params }: { params: Promise< { name: st
     },
   };
 }
-const BlogDetail = async () => {
-  const [ categories , blogs] = await Promise.all([
+const BlogDetail = async ({ params }: { params: Promise<{ name: string }> }) => {
+  const [categories, blogs] = await Promise.all([
     fetchCategories(),
     fetchBlogs()
   ]);
+  const name = (await params).name;
+  const category = categories?.find(
+    (category) => category.title.toLowerCase() === name,
+  );
+
+  const filterCategoryBlogPosts = blogs?.filter(
+    (blogItem: BlogInfo) => blogItem.category === category?.title,)
+
+  const blog: BlogInfo | undefined = blogs?.find(
+    (blog) => generateSlug(blog.title) === name,
+  );
+
+  const filterRelatedPosts = blogs
+        .filter(
+          (blogItem: BlogInfo) =>
+            blogItem.category === blog?.category &&
+            generateSlug(blogItem.title) !== generateSlug(blog.title),
+        )
+        .slice(0, 3);
   return (
-    <Blog categories={categories} blogs={blogs} />
+    <Blog category={category} filterCategoryBlogPosts={filterCategoryBlogPosts} blog={blog} filterRelatedPosts={filterRelatedPosts} />
   );
 };
 
