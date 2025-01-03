@@ -14,6 +14,7 @@ let Finaltoken = superAdmintoken ? superAdmintoken : token;
 const headers = {
   Authorization: `Bearer ${Finaltoken}`,
 };
+console.log(headers)
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
   const response = await fetch(
