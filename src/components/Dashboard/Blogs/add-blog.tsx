@@ -1,6 +1,6 @@
 'use client';
 import { Form, Formik } from 'formik';
-import React, { useState, SetStateAction, Fragment } from 'react';
+import React, { useState, SetStateAction, Fragment, useRef } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Select, Spin } from 'antd';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -32,6 +32,8 @@ const AddBlogs = ({
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(
     EditInitialValues ? [EditInitialValues.posterImage] : [],
   );
+  const [isPublish, setIsPublish] = useState(false);
+
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
@@ -63,14 +65,18 @@ const AddBlogs = ({
     mutationFn: (formData: typeof blogInitialValues) => {
       let posterImage = posterimageUrl && posterimageUrl[0];
       if (!posterImage) {
-        showToast('warn', 'Please select Thumnail image😴');
-        throw new Error('No poster image selected');
+        if (isPublish) {
+          showToast('warn', 'Please select Thumnail image😴');
+          throw new Error('No poster image selected');
+        } else {
+          setposterimageUrl([]);
+        }
       }
 
       const values = { ...formData, posterImage };
       if (EditInitialValues) {
         const updatedAt = new Date();
-        const finalValues = { updatedAt, ...values };
+        const finalValues = { updatedAt, isPublished: isPublish, ...values };
 
         return axios.put(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/update/${EditInitialValues.id}`,
@@ -85,17 +91,22 @@ const AddBlogs = ({
         { headers },
       );
     },
+
     onSuccess: () => {
-      setMenuType('Blogs');
-      showToast(
-        'success',
-        EditInitialValues
-          ? 'Blog updated successfully🎉'
-          : 'Blog added successfully🎉',
-      );
-      setEditBlog(null);
-      //@ts-expect-error
-      queryClient.invalidateQueries(['blogs']);
+      if (isPublish) {
+        setMenuType('Blogs');
+        showToast(
+          'success',
+          EditInitialValues
+            ? 'Blog updated successfully🎉'
+            : 'Blog added successfully🎉',
+        );
+        setEditBlog(null);
+        //@ts-expect-error
+        queryClient.invalidateQueries(['blogs']);
+      } else {
+        showToast('warn', 'Blog saved as Draft🎉');
+      }
     },
     onError: (error: any) => {
       showToast('error', error.data.message + '☹');
@@ -103,6 +114,18 @@ const AddBlogs = ({
     },
   });
 
+  // eslint-disable-next-line no-undef
+  const typingTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  const handleDebouncedMutation = (newValues: typeof blogInitialValues) => {
+    if (typingTimeout.current) {
+      clearTimeout(typingTimeout.current);
+    }
+
+    typingTimeout.current = setTimeout(() => {
+      addBlogMutation.mutate(newValues);
+    }, 5000);
+  };
   return (
     <Fragment>
       <p
@@ -127,13 +150,16 @@ const AddBlogs = ({
         <Formik
           initialValues={blogInitialValues}
           onSubmit={(values, { resetForm }) => {
-            if (
-              values.content === '' ||
-              values.category === '' ||
-              values.title === ''
-            ) {
-              return showToast('warn', 'Ensure all fields are filled out😴');
+            if (isPublish) {
+              if (
+                values.content === '' ||
+                values.category === '' ||
+                values.title === ''
+              ) {
+                return showToast('warn', 'Ensure all fields are filled out 😴');
+              }
             }
+
             addBlogMutation.mutate(values, {
               onSuccess: () => {
                 resetForm();
@@ -194,7 +220,13 @@ const AddBlogs = ({
                   placeholder="Title"
                   value={values.title}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) => setFieldValue('title', e.target.value)}
+                  onChange={(e) => {
+                    setFieldValue('title', e.target.value);
+                    handleDebouncedMutation({
+                      ...values,
+                      title: e.target.value,
+                    });
+                  }}
                 />
               </div>
 
@@ -209,7 +241,10 @@ const AddBlogs = ({
                     className="w-full h-[48px] detail-option  border rounded-md "
                     placeholder="Select Category"
                     value={values.category}
-                    onChange={(value) => setFieldValue('category', value)}
+                    onChange={(value) => {
+                      setFieldValue('category', value);
+                      handleDebouncedMutation({ ...values, category: value });
+                    }}
                     notFoundContent={
                       categoryError
                         ? 'Error loading categories'
@@ -217,10 +252,12 @@ const AddBlogs = ({
                     }
                     options={[
                       { value: '', label: 'Select Category', disabled: true },
-                      ...(categories?.filter((category) => category.title !== 'Commercial').map((category) => ({
-                        value: category.title,
-                        label: category.title,
-                      })) || []),
+                      ...(categories
+                        ?.filter((category) => category.title !== 'Commercial')
+                        .map((category) => ({
+                          value: category.title,
+                          label: category.title,
+                        })) || []),
                     ]}
                   />
                 )}
@@ -270,7 +307,13 @@ const AddBlogs = ({
               setFieldValue('content', data);
             }}
           /> */}
-              <MyEditor setFieldValue={setFieldValue} values={values} />
+              <MyEditor
+                setFieldValue={setFieldValue}
+                values={values}
+                addBlogMutation={addBlogMutation}
+                handleDebouncedMutation={handleDebouncedMutation}
+              />
+
               <div>
                 <label className=" block text-16 font-medium text-black dark:text-white">
                   Meta Title
@@ -281,7 +324,13 @@ const AddBlogs = ({
                   placeholder="Enter Meta Title"
                   value={values.Meta_Title}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) => setFieldValue('Meta_Title', e.target.value)}
+                  onChange={(e) => {
+                    setFieldValue('Meta_Title', e.target.value);
+                    handleDebouncedMutation({
+                      ...values,
+                      Meta_Title: e.target.value,
+                    });
+                  }}
                 />
               </div>
               <div>
@@ -294,9 +343,13 @@ const AddBlogs = ({
                   placeholder="Enter Canonical Tag"
                   value={values.Canonical_Tag}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) =>
-                    setFieldValue('Canonical_Tag', e.target.value)
-                  }
+                  onChange={(e) => {
+                    setFieldValue('Canonical_Tag', e.target.value);
+                    handleDebouncedMutation({
+                      ...values,
+                      Canonical_Tag: e.target.value,
+                    });
+                  }}
                 />
               </div>
               <div>
@@ -308,9 +361,13 @@ const AddBlogs = ({
                   placeholder="Enter Meta Description"
                   value={values.Meta_description}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) =>
-                    setFieldValue('Meta_description', e.target.value)
-                  }
+                  onChange={(e) => {
+                    setFieldValue('Meta_description', e.target.value);
+                    handleDebouncedMutation({
+                      ...values,
+                      Meta_description: e.target.value,
+                    });
+                  }}
                 />
               </div>
               <div>
@@ -323,23 +380,40 @@ const AddBlogs = ({
                   placeholder="Enter Image ALT text"
                   value={values.Images_Alt_Text}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) =>
-                    setFieldValue('Images_Alt_Text', e.target.value)
-                  }
+                  onChange={(e) => {
+                    setFieldValue('Images_Alt_Text', e.target.value);
+                    handleDebouncedMutation({
+                      ...values,
+                      Images_Alt_Text: e.target.value,
+                    });
+                  }}
                 />
               </div>
-
-              <Button
-                disabled={addBlogMutation.isPending ? true : false}
-                type="submit"
-                className="text-white bg-primary px-4 py-2 font-semibold rounded-md"
-              >
-                {addBlogMutation.isPending ? (
-                  <Loader color="#fff" />
-                ) : (
-                  'Submit'
-                )}
-              </Button>
+              <div className="flex justify-between">
+                <Button
+                  disabled={addBlogMutation.isPending ? true : false}
+                  type="submit"
+                  className="text-white bg-yellow-500  px-4 py-2 font-semibold rounded-md"
+                >
+                  {addBlogMutation.isPending ? (
+                    <Loader color="#fff" />
+                  ) : (
+                    'Draft'
+                  )}
+                </Button>
+                <Button
+                  disabled={addBlogMutation.isPending ? true : false}
+                  type="submit"
+                  className="text-white bg-green-600 px-4 py-2 font-semibold rounded-md"
+                  onClick={() => setIsPublish(true)}
+                >
+                  {addBlogMutation.isPending ? (
+                    <Loader color="#fff" />
+                  ) : (
+                    'PUBLISH'
+                  )}
+                </Button>
+              </div>
             </Form>
           )}
         </Formik>
