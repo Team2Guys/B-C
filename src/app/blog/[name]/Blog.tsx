@@ -2,105 +2,42 @@
 import BlogMain from 'components/Blogs/blog-main';
 import OurBlog from 'components/Blogs/our-blog';
 import Container from 'components/Res-usable/Container/Container';
-import PageSkelton from 'components/Skeleton/PageSkelton';
 import Comments from 'components/comments/Comments';
 import TopHero from 'components/ui/top-hero';
 import { formatDateMonth } from 'config';
-import { generateSlug } from 'data/data';
-import { blogCategoryUrl } from 'data/urls';
 import Image from 'next/image';
-import { useParams, usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import React from 'react';
 import { BlogInfo } from 'types/interfaces';
 import bgBreadcrum from '../../../../public/assets/images/Blog/blogbackground.png';
 import { FaAngleRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { ICategory } from 'types/types';
 import NotFound from 'app/not-found';
-// import { blogLinks } from 'data/header_links';
-// import NotFound from 'app/not-found';
 
 const Blog = ({
-  blogs,
-  categories,
+  category,
+  filterCategoryBlogPosts,
+  blog,
+  filterRelatedPosts
 }: {
-  blogs: BlogInfo[];
-  categories: ICategory[];
+  category?: ICategory;
+  filterCategoryBlogPosts?: BlogInfo[];
+  blog?: BlogInfo;
+  filterRelatedPosts?: BlogInfo[];
 }) => {
-  const { name } = useParams();
   const pathName = usePathname();
-  const [catgoryPage, setCatgoryPage] = useState<{
-    url: string;
-    name: string;
-  } | null>(null);
-  const [catgoryPageSkeleton, setCatgoryPageSkeleton] = useState(false);
-  const [relatedPosts, setRelatedPosts] = useState<BlogInfo[]>([]);
-  const [filterCategoryPosts, setfilterCategoryPosts] = useState<BlogInfo[]>(
-    [],
-  );
-
-  const category = categories?.find(
-    (category) => category.title === catgoryPage?.name,
-  );
-
-  const blog: BlogInfo | undefined = blogs?.find(
-    (blog) => generateSlug(blog.title) === name,
-  );
-
-  useEffect(() => {
-    if (blog && blogs) {
-      const filterRelatedPosts = blogs
-        .filter(
-          (blogItem: BlogInfo) =>
-            blogItem.category === blog.category &&
-            generateSlug(blogItem.title) !== generateSlug(blog.title),
-        )
-        .slice(0, 3);
-
-      setRelatedPosts(filterRelatedPosts);
-    }
-  }, [blog, blogs]);
-
-  useEffect(() => {
-    setCatgoryPageSkeleton(false);
-    const matches = blogCategoryUrl.find(
-      (category) => category.url === pathName,
-    );
-    if (matches) {
-      setCatgoryPage(matches);
-    } else {
-      setCatgoryPage(null);
-    }
-    setCatgoryPageSkeleton(true);
-  }, [pathName]);
-
-  useEffect(() => {
-    if (catgoryPage && blogs) {
-      const filterCategoryBlogPosts = blogs?.filter(
-        (blogItem: BlogInfo) => blogItem.category === catgoryPage.name,
-      );
-      setfilterCategoryPosts(filterCategoryBlogPosts || []);
-    }
-  }, [blogs, catgoryPage]);
-
-  // const matchingLink = blogLinks.find((link) => link.href === name);
-  // if (!matchingLink) {
-  //   return <NotFound />;
-  // }
-
   return (
     <>
-      {!catgoryPageSkeleton ? (
-        <PageSkelton />
-      ) : catgoryPage ? (
+      { category ? (
         <>
           <TopHero
-            title={catgoryPage?.name || 'blogs'}
+            title={category?.title || 'blogs'}
             image={`${category?.bannerImage?.imageUrl || bgBreadcrum.src}`}
             pagename={pathName}
           />
           <div className="my-5">
-            <BlogMain blogs={filterCategoryPosts || []} />{' '}
+            <BlogMain blogs={filterCategoryBlogPosts || []} />{' '}
           </div>
         </>
       ) : blog ? (
@@ -163,7 +100,7 @@ const Blog = ({
              href={`/blog/${blog?.category.toLowerCase()}`}>See All</Link>
             </div>
             
-            <OurBlog Blogdata={relatedPosts || []} />
+            <OurBlog Blogdata={filterRelatedPosts || []} />
           </div>
         </Container>
       ) : (

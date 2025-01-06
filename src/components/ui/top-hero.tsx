@@ -25,12 +25,12 @@ const TopHero: React.FC<TopHeroProps> = ({
 }) => {
   const [pageName, setPageName] = useState<string[]>([]);
   const page = usePathname();
-
+  const name = pagename ? pagename : page;
   const pathname = title.replace('-', ' ');
 
   useEffect(() => {
-    if (pagename) {
-      const newPageName = pagename
+    if (name) {
+      const newPageName = name
         .split('/')
         .filter((segment: string) => segment !== '')
         .map((segment: string) => segment.replaceAll('-', ' '));
@@ -38,7 +38,7 @@ const TopHero: React.FC<TopHeroProps> = ({
       setPageName(newPageName);
       console.log(newPageName, 'pageName');
     }
-  }, [pagename]);
+  }, [name]);
 
   const result = BreakCrum_conent_pages.find((value: any) =>
     value.url.toLowerCase().includes(page.toLowerCase()),
@@ -55,7 +55,8 @@ const TopHero: React.FC<TopHeroProps> = ({
         backgroundOrigin: 'content-box',
       }}
     >
-      <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
+      {page === '/shutters-range/black-shutters' && (
+        <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>)}
       <div className="relative z-20 py-6 sm:py-14 md:py-24">
         <h1 className="text-xl xs:text-3xl md:text-4xl lg:text-5xl font-black mt-5 uppercase">
           {result
@@ -72,79 +73,77 @@ const TopHero: React.FC<TopHeroProps> = ({
           </Link>
           {pageName
             ? pageName.map((item, index) => {
-                const matchedLink = TopHeroLink.find(
-                  (heroLink) =>
-                    heroLink.matchingTitle.toLowerCase() === item.toLowerCase(),
-                );
-                const matchingPageTitle = TopHeroLink.find(
-                  (itemTitle) =>
-                    itemTitle.title.toLowerCase() === item.toLowerCase(),
-                );
-                const matchingColorData = colorData.find(
-                  (item) => item.url === page,
-                );
-                let linkHref = '';
-                let linkText = item;
-                if (matchedLink) {
-                  linkHref = `/${
-                    item !== 'blog' &&
+              const matchedLink = TopHeroLink.find(
+                (heroLink) =>
+                  heroLink.matchingTitle.toLowerCase() === item.toLowerCase(),
+              );
+              const matchingPageTitle = TopHeroLink.find(
+                (itemTitle) =>
+                  itemTitle.title.toLowerCase() === item.toLowerCase(),
+              );
+              const matchingColorData = colorData.find(
+                (item) => item.url === page,
+              );
+              let linkHref = '';
+              let linkText = item;
+              if (matchedLink) {
+                linkHref = `/${item !== 'blog' &&
                     pageName.length > 1 &&
                     blogCategoryUrl.some(
                       (item) =>
                         item.name.toLowerCase() ===
                         pageName.at(1)?.toLowerCase(),
                     )
-                      ? `blog/${pageName.at(1)?.toLowerCase()}`
-                      : matchedLink?.title || ''
+                    ? `blog/${pageName.at(1)?.toLowerCase()}`
+                    : matchedLink?.title || ''
                   }`;
-                } else if (matchingPageTitle) {
-                  linkHref = `/${matchingPageTitle.title.replaceAll(' ', '-')}`;
-                  linkText = matchingPageTitle.title;
-                } else if (index === pageName.length - 2) {
-                  linkHref = `/${
-                    pageName.at(0)?.toLowerCase() === 'blinds'
-                      ? 'blinds'
-                      : pageName.at(0)?.toLowerCase() === 'curtains'
-                        ? 'curtains'
-                        : pageName.at(0)?.toLowerCase() === 'shutters'
-                          ? 'shutters'
-                          : pageName.at(0)?.toLowerCase() === 'commercial'
-                            ? 'commercial'
-                            : pageName.at(0)?.toLowerCase() === 'blog'
-                              ? 'blog'
-                              : ''
+              } else if (matchingPageTitle) {
+                linkHref = `/${matchingPageTitle.title.replaceAll(' ', '-')}`;
+                linkText = matchingPageTitle.title;
+              } else if (index === pageName.length - 2) {
+                linkHref = `/${pageName.at(0)?.toLowerCase() === 'blinds'
+                    ? 'blinds'
+                    : pageName.at(0)?.toLowerCase() === 'curtains'
+                      ? 'curtains'
+                      : pageName.at(0)?.toLowerCase() === 'shutters'
+                        ? 'shutters'
+                        : pageName.at(0)?.toLowerCase() === 'commercial'
+                          ? 'commercial'
+                          : pageName.at(0)?.toLowerCase() === 'blog'
+                            ? 'blog'
+                            : ''
                   }${item === 'commercial' ? '' : `/${item.replaceAll(' ', '-')}`}`;
-                } else if (matchingColorData) {
-                  return (
-                    <>
-                    <FaAngleRight size={20} />
-                      <Link
-                        href="/shutters-range"
-                        className="font-bold capitalize"
-                      >
-                        Shutters Range
-                      </Link>
-                      <FaAngleRight size={20} />
-                      <h2 className="font-bold capitalize">{item}</h2>
-                    </>
-                  );
-                } else {
-                  linkText =
-                    item === 'request appointment' ? 'Book Appointment' : item;
-                }
+              } else if (matchingColorData) {
                 return (
-                  <React.Fragment key={index}>
+                  <>
                     <FaAngleRight size={20} />
-                    {linkHref ? (
-                      <Link href={linkHref} className="font-bold capitalize">
-                        {linkText}
-                      </Link>
-                    ) : (
-                      <h2 className="font-bold capitalize">{linkText}</h2>
-                    )}
-                  </React.Fragment>
+                    <Link
+                      href="/shutters-range"
+                      className="font-bold capitalize"
+                    >
+                      Shutters Range
+                    </Link>
+                    <FaAngleRight size={20} />
+                    <h2 className="font-bold capitalize">{item}</h2>
+                  </>
                 );
-              })
+              } else {
+                linkText =
+                  item === 'request appointment' ? 'Book Appointment' : item;
+              }
+              return (
+                <React.Fragment key={index}>
+                  <FaAngleRight size={20} />
+                  {linkHref ? (
+                    <Link href={linkHref} className="font-bold capitalize">
+                      {linkText}
+                    </Link>
+                  ) : (
+                    <h2 className="font-bold capitalize">{linkText}</h2>
+                  )}
+                </React.Fragment>
+              );
+            })
             : null}
         </div>
       </div>
