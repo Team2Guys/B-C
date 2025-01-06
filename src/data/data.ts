@@ -116,7 +116,7 @@ export const footerLinks: TFooterSection[] = [
   },
 ];
 
-export const footerInfo = 'Blinds & Curtains 2024 All Rights Reserved';
+export const footerInfo = 'Blinds & Curtains 2025 All Rights Reserved';
 
 export const phoneNumberInfo: PhoneNumber = {
   number: '+971 54 494 5339',
