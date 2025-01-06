@@ -14,6 +14,7 @@ interface TopHeroProps {
   home?: string;
   pagename?: string;
   pageTitle?: string;
+  className?: string;
 }
 
 const TopHero: React.FC<TopHeroProps> = ({
@@ -22,6 +23,7 @@ const TopHero: React.FC<TopHeroProps> = ({
   home,
   pagename,
   pageTitle,
+  className
 }) => {
   const [pageName, setPageName] = useState<string[]>([]);
   const page = usePathname();
@@ -48,8 +50,8 @@ const TopHero: React.FC<TopHeroProps> = ({
 
   return (
     <div
-      className="relative      
-      flex items-center text-center justify-center bg-no-repeat w-full  border-black h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px] bg-center bg-cover xl:bg-custom-size"
+      className={`relative      
+      flex items-center text-center justify-center bg-no-repeat w-full  border-black h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px] bg-center bg-cover xl:bg-custom-size ${className}`}
       style={{
         backgroundImage: `url(${image})`,
         backgroundOrigin: 'content-box',
