@@ -1,3 +1,4 @@
+import React from "react";
 import { fetchProducts } from "config/fetch";
 import EstimatorPage from "./Estimator";
 import { allowedTitles, predefinedOrder } from "data/urls";

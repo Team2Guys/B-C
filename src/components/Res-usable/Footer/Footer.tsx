@@ -6,7 +6,6 @@ import {
   footerInfo,
   generateSlug,
   phoneNumberInfo,
-  WhatsAppInfo,
   EmailInfo,
   footerData,
 } from 'data/data';

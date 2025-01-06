@@ -11,6 +11,8 @@ export const links = [
   { href: '/contact-us', label: 'Contact Us'},
 ];
 
+
+
 export const blogLinks = [
   { href: 'blinds', label: 'Blinds', id: 2 },
   { href: 'curtains', label: 'Curtains', id: 5 },
