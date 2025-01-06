@@ -14,7 +14,14 @@ const MyEditor = ({
   useEffect(() => {
     setContent(values.content);
   }, [values.content]);
-
+  const handleContentChange = (newContent: string) => {
+    setContent(newContent);
+    setFieldValue('content', newContent);
+    handleDebouncedMutation({
+      ...values,
+      content: newContent,
+    });
+  };
   const config = useMemo(
     () => ({
       readonly: false,
@@ -80,14 +87,7 @@ const MyEditor = ({
       value={content}
       config={config}
       onBlur={handleBlur}
-      onChange={(newContent) => {
-        setContent(newContent);
-        setFieldValue('content', newContent);
-        handleDebouncedMutation({
-          ...values,
-          content: newContent,
-        });
-      }}
+      onChange={handleContentChange}
     />
   );
 };
