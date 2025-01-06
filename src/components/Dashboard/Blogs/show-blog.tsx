@@ -1,8 +1,6 @@
 'use client';
-import React, { Fragment, SetStateAction, useState } from 'react';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { fetchBlogs } from 'config/fetch';
-import TableSkeleton from '../Tables/TableSkelton';
+import React, { Fragment, SetStateAction, useEffect, useState } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 import { BlogInfo, UpdateBlog } from 'types/interfaces';
 import { formatDateMonth } from 'config';
 import { LiaEdit } from 'react-icons/lia';
@@ -44,18 +42,6 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
   const super_admin_token = Cookies.get('superAdminToken');
 
   const token = admin_token ? admin_token : super_admin_token;
-  const {
-    data: blogs,
-    isLoading,
-    error,
-  } = useQuery<BlogInfo[]>({
-    queryKey: ['blogs'],
-    queryFn: fetchBlogs,
-  });
-
-  if (isLoading) {
-    return <TableSkeleton rows={10} columns={1} />;
-  }
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let searchTerm = e.target.value;
@@ -77,6 +63,10 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
       cancelText: 'No',
     });
   };
+
+  useEffect(() => {
+    setfilteredBlog(blogs);
+  }, []);
 
   const handleDelete = async (id: string) => {
     try {
@@ -161,7 +151,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
                 Published
               </span>
             ) : (
-              <span className="bg-yellow-500 text-white rounded-lg p-2 text-sm text-sm">
+              <span className="bg-yellow-500 text-white rounded-lg p-2 text-sm ">
                 Draft
               </span>
             )}
