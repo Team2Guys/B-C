@@ -87,7 +87,7 @@ const Blog = ({
             />
           </div>
           <div className="w-full overflow-hidden text-start">
-            <span dangerouslySetInnerHTML={{ __html: blog?.content || '' }} />
+            <span className='blog-list' dangerouslySetInnerHTML={{ __html: blog?.content || '' }} />
           </div>
           <Comments data={blog} />
 

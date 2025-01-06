@@ -455,6 +455,39 @@ html {
 .ant-checkbox-inner{
   border-color: #cdb7aa !important;
 }
-:where(.css-dev-only-do-not-override-1c0na6j).ant-checkbox-checked .ant-checkbox-inner {
+.ant-checkbox-checked .ant-checkbox-inner {
   background-color: #cdb7aa !important;
+}
+
+.jodit .jodit-wysiwyg blockquote {
+  font-style: italic;
+  border-left: 4px solid #cdb7aa;
+  padding-left: 10px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.jodit .jodit-wysiwyg ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.jodit .jodit-wysiwyg ol {
+  list-style-type: decimal;
+  margin-left: 20px;
+}
+blockquote{
+  font-style: italic;
+  border-left: 4px solid #cdb7aa;
+  padding-left: 10px;
+  margin: 10px 0;
+  color: #555;
+}
+.blog-list ul{
+  list-style-type: disc;
+  margin-left: 20px;
+}
+.blog-list ol{
+  list-style-type: decimal;
+  margin-left: 20px;
 }
