@@ -171,3 +171,9 @@ export interface CategoryProps {
   subCategories?: ICategory[];
   categories?: ICategory[];
 }
+//GuaranteeVistProps
+export interface IGuaranteeVisitProps {
+  button: string;
+  heading: string;
+  description: string;
+}
