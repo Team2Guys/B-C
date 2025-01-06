@@ -328,6 +328,10 @@ export interface BlogInfo {
   createdAt?: any;
   updatedAt?: any;
   last_editedBy?: string;
+  Images_Alt_Text?: '';
+  Canonical_Tag?: '';
+  Meta_Title?: '';
+  Meta_description?: '';
   isPublished?: boolean;
 }
 interface commentprops {
@@ -395,9 +399,8 @@ interface ColorData {
 }
 
 export type meta_props = {
-  params:Promise<{ product: string }>;
+  params: Promise<{ product: string }>;
 };
-
 
 export interface PRODUCS_PROPS {
   product: string;
