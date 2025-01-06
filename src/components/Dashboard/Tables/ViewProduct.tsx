@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, SetStateAction } from 'react';
-import { Table, notification, Modal } from 'antd';
+import { Table, notification } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
@@ -17,6 +17,7 @@ import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Link from 'next/link';
 import useColorMode from 'hooks/useColorMode';
 import TableSkeleton from './TableSkelton';
+import Swal from 'sweetalert2';
 
 interface Product extends IProduct {
   id: number;
@@ -38,7 +39,6 @@ const ViewProduct: React.FC<CategoryProps> = ({
   Categories,
   setselecteMenu,
   setEditProduct,
-  
 }) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
@@ -46,8 +46,8 @@ const ViewProduct: React.FC<CategoryProps> = ({
   const super_admin_token = Cookies.get('superAdminToken');
   const [colorMode, toggleColorMode] = useColorMode();
   console.log(toggleColorMode, 'toggleColorMode');
-    const [loading, setLoading] = useState<boolean>(false);
-    console.log(setLoading, 'setLoading');
+  const [loading, setLoading] = useState<boolean>(false);
+  console.log(setLoading, 'setLoading');
 
   const token = admin_token || super_admin_token;
 
@@ -71,7 +71,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
   const canEditproduct =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canEditProduct : true);
-    
+
   useEffect(() => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
 
@@ -90,12 +90,17 @@ const ViewProduct: React.FC<CategoryProps> = ({
   }, [searchTerm, Categories]);
 
   const confirmDelete = (key: number) => {
-    Modal.confirm({
-      title: 'Are you sure you want to delete this product?',
-      content: 'Once deleted, the product cannot be recovered.',
-      onOk: () => handleDelete(key),
-      okText: 'Yes',
-      cancelText: 'No',
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Once deleted, the blog cannot be recovered.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDelete(key);
+      }
     });
   };
 
@@ -108,7 +113,7 @@ const ViewProduct: React.FC<CategoryProps> = ({
         },
       );
       revalidateTag('products');
-      
+
       notification.success({
         message: 'Product Deleted',
         description: 'The product has been successfully deleted.',
@@ -125,29 +130,30 @@ const ViewProduct: React.FC<CategoryProps> = ({
 
   const getPath = (product: IProduct, parent: string | undefined) => {
     const slug = ChangedProductUrl_handler(product.title);
-    
+
     // Determine the base path based on the product and parent
     const basePath =
-      product.href && parent
-        ? `${window.origin}/${product.href}`
-        : `/${slug}`;
-    
+      product.href && parent ? `${window.origin}/${product.href}` : `/${slug}`;
+
     // Predefined paths or custom logic
     const path =
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
-        : `/${parent?.toLowerCase() === 'shutters'
-          ? `${parent.toLowerCase()}-range`
-          : parent?.toLowerCase() || ''}${[
-            'dimout-roller-blinds',
-            'sunscreen-roller-blinds',
-            'blackout-roller-blinds',
-          ].includes(slug)
-            ? '/roller-blinds'
-            : ''
+        : `/${
+            parent?.toLowerCase() === 'shutters'
+              ? `${parent.toLowerCase()}-range`
+              : parent?.toLowerCase() || ''
+          }${
+            [
+              'dimout-roller-blinds',
+              'sunscreen-roller-blinds',
+              'blackout-roller-blinds',
+            ].includes(slug)
+              ? '/roller-blinds'
+              : ''
           }/${slug}`);
-    
+
     return path;
   };
 
@@ -205,11 +211,8 @@ const ViewProduct: React.FC<CategoryProps> = ({
         const parent = generateSlug(category?.title);
         return (
           <Link href={getPath(record, parent)} target="_blank">
-          <FaRegEye
-            className="cursor-pointer"
-          />
+            <FaRegEye className="cursor-pointer" />
           </Link>
-          
         );
       },
     },
@@ -253,43 +256,41 @@ const ViewProduct: React.FC<CategoryProps> = ({
         <TableSkeleton rows={10} columns={1} />
       ) : (
         <>
-
-        <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
-          <input
-            className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
-            type="search"
-            placeholder="Search Product"
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-          <div>
-            <p
-              className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed !bg-secondary opacity-20 text-gray-900 shadow-sm rounded-md'} p-2 ${canAddProduct ? '  bg-secondary text-white rounded-md ' : ''}`}
-              onClick={() => {
-                if (canAddProduct) {
-                  setEditProduct(undefined);
-                  setselecteMenu('Add Products');
-                }
-              }}
-            >
-              Add Products
-            </p>
+          <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white">
+            <input
+              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
+              type="search"
+              placeholder="Search Product"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <div>
+              <p
+                className={`${canAddProduct ? 'cursor-pointer rounded-md' : 'cursor-not-allowed !bg-secondary opacity-20 text-gray-900 shadow-sm rounded-md'} p-2 ${canAddProduct ? '  bg-secondary text-white rounded-md ' : ''}`}
+                onClick={() => {
+                  if (canAddProduct) {
+                    setEditProduct(undefined);
+                    setselecteMenu('Add Products');
+                  }
+                }}
+              >
+                Add Products
+              </p>
+            </div>
           </div>
-        </div>
-        {filteredProducts && filteredProducts.length > 0 ? (
-          <Table
-            className="lg:overflow-hidden overflow-x-scroll !dark:border-strokedark !dark:bg-boxdark !bg-transparent"
-            dataSource={filteredProducts}
-            columns={columns}
-            rowKey="id"
-            pagination={false}
-          />
-        ) : (
-          <p className="text-primary dark:text-white">No products found</p>
-        )}
-      </>
+          {filteredProducts && filteredProducts.length > 0 ? (
+            <Table
+              className="lg:overflow-hidden overflow-x-scroll !dark:border-strokedark !dark:bg-boxdark !bg-transparent"
+              dataSource={filteredProducts}
+              columns={columns}
+              rowKey="id"
+              pagination={false}
+            />
+          ) : (
+            <p className="text-primary dark:text-white">No products found</p>
+          )}
+        </>
       )}
-     
     </div>
   );
 };
