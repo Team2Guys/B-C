@@ -120,7 +120,7 @@ model Admins {
 
 model blogs {
   id               Int              @id @default(autoincrement())
-  title            String           @unique
+  title            String
   content          String
   category         String
   updatedAt        DateTime?
@@ -132,6 +132,7 @@ model blogs {
   Meta_Title       String?
   Canonical_Tag    String?
   Meta_description String?
+  isPublished      Boolean          @default(false)
 }
 
 model blogs_comments {
