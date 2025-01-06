@@ -21,7 +21,6 @@ interface ProductOptions {
   plantation_bhutters?: boolean;
   others?: boolean;
 }
-
 interface IAppointments {
   name: string;
   phone_number: string;
@@ -64,7 +63,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
 
     }
   };
-
 
   const getInitialSelectedOptions = (): ProductOptions => {
     if (singlePage) {

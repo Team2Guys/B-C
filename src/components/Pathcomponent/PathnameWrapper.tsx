@@ -23,12 +23,11 @@ const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
       {withoutHeaderPages.includes(pathname) ||
       splited_urls.includes('dashboard') ? null : (
         <>
-          {splited_urls.includes('blog') ? null : (
+          {splited_urls.includes('blog') || splited_urls.includes('product-guarantees') ? null : (
             <>
-            
-              <Guarrenty />
-              <Testimonial />
-              <OurClient />
+            <Guarrenty />
+            <Testimonial />
+            <OurClient />
             </>
           )}
           <Footer />

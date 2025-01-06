@@ -3,16 +3,16 @@ import TopHero from 'components/ui/top-hero';
 import { productData, PGuarantees } from 'data/data';
 import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
 import Image from 'next/image';
 import { useQuery } from '@tanstack/react-query';
 import { IProduct } from 'types/types';
 import { fetchProducts } from 'config/fetch';
 import { usePathname } from 'next/navigation';
 import second from '../../../public//assets/images/product-guarantees/large.png';
+import GuaranteeVisit from 'components/Gurranteevisit';
 const ProductGuarantees = () => {
   const pathName = usePathname();
-  const { data: products, error } = useQuery<IProduct[]>({
+  const { data:error } = useQuery<IProduct[]>({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
@@ -29,9 +29,7 @@ const ProductGuarantees = () => {
           <h1 className="lg:text-3xl text-18 sm:text-2xl pb-2 font-bold text-center mb-4 w-fit mx-auto border-b-[1px] border-[#BDC9BD]">
             {productData.heading}
           </h1>
-          <p className="text-14 sm:text-lg text-black lg:mt-5 leading-relaxed text-center ">
-            {productData.content}
-          </p>
+          <p className="text-14 sm:text-lg text-black lg:mt-5 leading-relaxed text-center"dangerouslySetInnerHTML={{ __html: productData.content }}></p>
         </div>
       </Container>
       {PGuarantees.map((data: any, index: any) => (
@@ -45,9 +43,8 @@ const ProductGuarantees = () => {
             <h3 className="font-bold text-lg xs:text-2xl tracking-wider">
               {data.heading}
             </h3>
-            <p className="text-12 sm:text-14 2xl:text-16 leading-5 sm:leading-8 mt-4 text-lightdark">
-              {data.text}
-            </p>
+            <p className="text-12 sm:text-14 2xl:text-16 leading-5 sm:leading-8 mt-4 text-lightdark" dangerouslySetInnerHTML={{ __html: data.text }}></p>
+
             <div className="h-fit mt-8"></div>
           </div>
           <div
@@ -58,13 +55,13 @@ const ProductGuarantees = () => {
               width={1000}
               height={300}
               alt="why-us img"
-              className="mx-auto md:me-0 ms-auto w-full"
+              className="mx-auto md:me-0 ms-auto w-full md:h-[650px] lg:h-[550px] xl:h-[450px]"
             />
           </div>
         </Container>
       ))}
-      <Container className="py-10">
-        <RelatedProducts products={products || []} limit={4} />
+      <Container className='py-10'>
+       <GuaranteeVisit/>
       </Container>
     </>
   );

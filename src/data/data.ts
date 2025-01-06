@@ -116,7 +116,7 @@ export const footerLinks: TFooterSection[] = [
   },
 ];
 
-export const footerInfo = 'Blinds & Curtains 2024 All Rights Reserved';
+export const footerInfo = 'Blinds & Curtains 2025 All Rights Reserved';
 
 export const phoneNumberInfo: PhoneNumber = {
   number: '+971 54 494 5339',
@@ -224,7 +224,7 @@ export const productData: Tproductdata = {
   sideImage1: '/assets/images/product-guarantees/guarantee2.png',
   heading: 'BLINDS, CURTAINS & SHUTTERS PRODUCT GUARANTEES',
   content:
-    'When you’re choosing Blinds & Curtains window dressings, you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications. you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications.',
+    'We at <a href="/" target="_blank" style="text-decoration:underline">blindsandcurtains.ae</a> know our products will complement your home now and in the future. All our made-to-measure <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">blinds</a>, <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">curtains</a>, and <a href="/shutters-range" target="_blank" style="text-decoration:underline">shutters</a> come with a 10-year mechanical and labour warranty. We make sure all our products are of high quality, but if something goes wrong, our team will visit to assess the situation. With them, you can be sure your problem will be handled with care, whether with a quick fix or a replacement. We stand behind our work so that you can trust us.',
 };
 
 export const sizePresets: TsizePresets[] = [
@@ -242,15 +242,15 @@ export const initialSize: TsizePresets = {
 
 export const PGuarantees: TProductGuarantees[] = [
   {
-    heading: 'OUR 3-YEAR GUARANTEE',
-    text: "When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you'll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you. When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you'll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you.",
-    image: '/assets/images/product-guarantees/guarantee2.png',
+    heading: 'What Our Guarantee Cover?',
+    text: `When choosing <a href="/" target="_blank" style="text-decoration:underline">blindsandcurtains.ae</a>, you're buying beautiful window dressings and getting a customer service experience that is unmatched in Dubai. From free consultation and installation to an after-sales care package, you can rest assured that you’ll be in good hands for the lifetime of your blinds, curtains or shutters. We understand how important fabric quality is to your blinds and curtains. That’s why we offer a 3-year warranty on all fabrics used in our products. From the track to the rod and every mechanism in between, every component of your blinds and curtains is durable. There's a 10-year warranty on all moving and static parts, so you're covered for the long term.If your custom window covering doesn’t perform as it should within 10 years of installation, we’ll fix it or give you a replacement of your choice. We do this so you'll always have a solution that works.`,
+    image: '/assets/images/product-guarantees/guarantee3.png',
     imageAlign: 'left',
   },
   {
-    heading: 'OUR LIFETIME WARRANTY',
-    text: "From the day your order is fitted, you will have a fully comprehensive 3-year Guarantee against manufacturing defects. This encompasses all parts, components, and materials used. Once the 3 years have passed, you can relax in the knowledge that we will be there to support you throughout the lifetime of your blinds, curtains or shutters. Where repairs are required, we will provide this service for you at a nominal fee and cost of goods only. Where goods are no longer available, we will offer you the most cost-effective method of resolving any issues. When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you’ll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you. ",
-    image: '/assets/images/product-guarantees/guarantee1.png',
+    heading: 'The Best Quality and Workmanship',
+    text: "Great care and pride is attached to everything we do. As soon as they are installed, you can count on our support. This is our commitment to you.For over a decade, we’ve been helping homes across Dubai achieve stunning, functional window solutions. From transparent pricing to honest advice, we’ve built a reputation for reliability. Our 750+ 5-star reviews speak to the trust our customers place in us.Call or email our support team, and we’ll guide you through the next steps. To fix the problem, our technicians will come to you when it's convenient for you. The warranty covers all labour costs and parts replacements. Moreover, we provide free uninstall/reinstall services within two years, protecting your peace of mind during renovations.",
+    image: '/assets/images/product-guarantees/guarantee4.png',
     imageAlign: 'right',
   },
 ];
@@ -1192,7 +1192,7 @@ export const MoterisedContent = [
     Data: [
       {
         title: 'Automated Blinds',
-        heroImage: 'assets/images/Breadcrum/modern.png',
+        heroImage: 'assets/images/Blinds/landing/landing.webp',
         infoTitle: 'Automatic Blinds with Remote',
         infoSubtitle: 'Convert your windows into Smart Windows ',
         infoDescription:
@@ -1250,7 +1250,7 @@ export const MoterisedContent = [
     Data: [
       {
         title: 'Automated Curtains',
-        heroImage: 'assets/images/Breadcrum/modern.png',
+        heroImage: 'assets/images/Curtain/landing/landing.webp',
         infoTitle: 'Modern Automatic Curtains',
         infoSubtitle: 'Convert your windows into Smart Windows',
         infoDescription: `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
@@ -1934,4 +1934,52 @@ export const footerData = [
       'Black Shutters',
     ],
   },
+];
+
+export const GuaranteeVisitData =[
+  {
+    heading:"Book a free consultation" ,
+    description: "Our experts will come over at your convenience and discuss colours, styles, and measurements.",
+    button:"Book an appointment" ,
+    href:"/request-appointment",
+  },
+  {
+    heading:"Visit our showroom " ,
+    description: "Visit us in person next time you're in the area, and see for yourself what we've got to offer.",
+    button:"Find Our Location Map" ,
+    href:"https://www.google.com/maps?cid=2467468347994691262&hl=en",
+  },
+  {
+    heading:"Talk To Our Specialist" ,
+    description:"Do you want to talk with the Blinds & Curtains Team? Our team will get back to you ASAP.",
+    button:"Talk To Specialist" ,
+    href:"https://api.whatsapp.com/send/?phone=%2B971544945339&text&type=phone_number&app_absent=0",
+  },
+]
+
+export const contentArray = [
+  [
+    "Free home visits with free installation",
+    "Great selection of blinds, curtains, and shutters",
+    "Free uninstall/re-install within 2 years",
+    "We’re trusted, with over 750+ 5* reviews"
+  ],
+  [
+    "A team of 50 staff to ensure perfection from start to finish",
+    "In-house production - quality is our concern, not yours",
+    "10 YEARS warranty on all mechanical parts and labour"
+  ]
+];
+
+export const links = {
+  blinds: '/made-to-measure-blinds',
+  curtains: '/made-to-measure-curtains',
+  shutters: '/shutters-range'
+};
+
+export const locations = [
+  ["Sheikh Zayed Road", "Downtown Dubai", "JLT", "City Walk"],
+  ["Oud Metha", "Dubai Marina", "Jadaff", "Blue Water Island"],
+  ["Business Bay", "Nad Al Shiba", "Palm Jumeirah", "Dubai Hills"],
+  ["Karama", "JBR", "Jumeirah", "50 More Areas"],
 ];
