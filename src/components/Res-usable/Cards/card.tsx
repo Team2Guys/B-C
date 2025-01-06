@@ -37,12 +37,12 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
           </p>
         </div>
         <div className=" w-fit flex flex-col justify-center items-center text-sm mx-auto">
-          <Link
+          <div
             className="font-bold font-sans rounded-none group-hover:rounded-full px-3 py-1 group-hover:border-gray-300 group-hover:bg-white"
-            href={`${href}`}
+
           >
             View {data.title}
-          </Link>
+          </div>
           <hr className="border-b-4 border-b-primary w-24 mt-1" />
         </div>
       </Link>
