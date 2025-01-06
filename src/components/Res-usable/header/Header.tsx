@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
@@ -20,8 +20,8 @@ import {
 } from 'data/data';
 import { usePathname } from 'next/navigation';
 import { Collapse } from 'antd';
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { links } from 'data/header_links';
+import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
@@ -176,40 +176,41 @@ const Header = () => {
                   path?.includes('automated-curtains') ||
                   path?.includes('automated-blinds');
                 return combinedSliderData.length > 0 ? (
-                  <MegaMenu
-                    onClick={handleCloseDrawer}
-                    key={link.id}
-                    title={link.label || ''}
-                    sliderData={combinedSliderData}
-                    href={link.href}
-                    className={
-                      link.label === 'Commercial' && isBalconyActive
-                        ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                        : link.label === 'Motorised' && ismoterised
+                  <Fragment key={index} >
+                    <MegaMenu
+                      onClick={handleCloseDrawer}
+                      title={link.label || ''}
+                      sliderData={combinedSliderData}
+                      href={link.href}
+                      className={
+                        link.label === 'Commercial' && isBalconyActive
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                          : !isBalconyActive &&
+                          : link.label === 'Motorised' && ismoterised
+                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                            : !isBalconyActive &&
                               !ismoter &&
                               (isBlogActive || isActive)
-                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                            : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
-                    }
-                    loading={isLoading}
-                  />
+                              ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                              : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
+                      }
+                      loading={isLoading}
+                    />
+                  </Fragment>
                 ) : (
+                  <Fragment key={index} >
                   <Link
-                    key={index}
-                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${
-                      link.label === 'Motorised' && ismoterised
+                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${link.label === 'Motorised' && ismoterised
                         ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                         : isBlogActive || isActive
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                           : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-4'
-                    }`}
+                      }`}
                     onClick={handleCloseDrawer}
                     href={link.href}
                   >
                     {link.label}
                   </Link>
+                  </Fragment>
                 );
               })}
             </div>
@@ -229,18 +230,20 @@ const Header = () => {
                 open={drawerOpen}
                 setOpen={setDrawerOpen}
                 selectedLabel={selectedLabel}
+                mobileBgColor="#E6E4E5"
+                className="custom-moblie-sheet"
               >
                 <div className="flex flex-col gap-2">
                   <Collapse
                     bordered={false}
                     expandIcon={({ isActive }) =>
                       isActive ? (
-                        <IoMdArrowDropup size={20} />
+                        <Image src={downIcon} alt='up icon' width={8} height={8} className='transform rotate-180' />
                       ) : (
-                        <IoMdArrowDropdown size={20} />
+                        <Image src={downIcon} alt='down icon' width={8} height={8} />
                       )
                     }
-                    className="custom-collapse border-0 bg-transparent flex flex-col gap-2"
+                    className="custom-collapse bg-transparent border-0 flex flex-col gap-1"
                   >
                     {links.map((link, index) => {
                       let filteredSubCategories =
@@ -331,19 +334,18 @@ const Header = () => {
 
                       const isActive =
                         !isBlogPath && path?.includes(generateSlug(link.label));
-
                       return combinedSliderData.length > 0 ? (
                         <Panel
                           key={index}
+
                           header={
                             <Link
                               href={link.href}
                               onClick={handleCloseDrawer}
-                              className={`border-b-2 border-transparent hover:text-black ${
-                                isBlogActive || isActive
-                                  ? 'border-b-secondary'
-                                  : 'hover:border-b-secondary'
-                              }`}
+                              className={`border-b-2 border-transparent text-16 hover:text-black ${isBlogActive || isActive
+                                  ? 'font-bold text-secondary'
+                                  : 'font-normal'
+                                }`}
                             >
                               {link.label}
                             </Link>
@@ -352,7 +354,7 @@ const Header = () => {
                         >
                           <MegaMenu
                             onClick={handleCloseDrawer}
-                            key={link.id}
+                            // key={index}
                             title={link.label || ''}
                             sliderData={combinedSliderData}
                             href={link.href}
@@ -366,11 +368,10 @@ const Header = () => {
                       ) : (
                         <Link
                           key={index}
-                          className={`w-fit text-14 border-b-2 border-white hover:text-black font-medium ${
-                            isBlogActive || isActive
-                              ? 'border-b-secondary'
-                              : 'hover:border-b-secondary'
-                          }`}
+                          className={`text-16 border-b border-[#0000002a] pb-[6px] ${isBlogActive || isActive
+                              ? 'font-bold'
+                              : 'font-normal'
+                            }`}
                           onClick={handleCloseDrawer}
                           href={link.href}
                         >

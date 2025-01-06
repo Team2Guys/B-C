@@ -189,14 +189,26 @@ html {
   bottom: -30px !important;
   /* left: -35px !important; */
 }
+.custom-moblie-sheet .ant-drawer-close{
+  color: black !important;
+  font-size: 20px !important;
+}
+.custom-moblie-sheet .ant-drawer-body {
+  padding: 0px 30px;
+}
+.custom-moblie-sheet .ant-drawer-header {
+  border: 0;
+  padding: 16px 20px;
+}
 .custom-collapse .ant-collapse-content-box {
  padding-bottom: 0px !important;
 }
 .custom-collapse .ant-collapse-header {
   padding: 0 !important;
-  font-weight: 500;
+  font-weight: 400;
   display: flex;
   justify-content: space-between;
+  font-size: 16px;
 }
 .custom-collapse .ant-collapse-header .ant-collapse-header-text {
   width: fit-content;
@@ -208,6 +220,13 @@ html {
 }
 .custom-panel {
   border-bottom: 0px !important;
+}
+
+.custom-panel .ant-collapse-header {
+  border-bottom: 1px solid #0000002a;
+}
+.custom-panel .ant-collapse-header-text{
+  padding-bottom: 6px;
 }
  li button:before {
   font-size: 19px !important;

@@ -113,7 +113,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <SidebarLinkGroup activeCondition={pathname === '/dashboard'}>
                 {(handleClick, open) => {
                   return (
-                    <React.Fragment>
+                    <>
                       <Link
                         href="/dashboard"
                         className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out  dark:hover:bg-lightdark text-white dark:text-white ${
@@ -156,7 +156,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         </ul>
                       </div>
                       {/* <!-- Dropdown Menu End --> */}
-                    </React.Fragment>
+                    </>
                   );
                 }}
               </SidebarLinkGroup>
@@ -166,7 +166,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               >
                 {(handleClick, open) => {
                   return (
-                    <React.Fragment>
+                    <>
                       <Link
                         href="#"
                         className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${
@@ -221,7 +221,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         </ul>
                       </div>
                       {/* <!-- Dropdown Menu End --> */}
-                    </React.Fragment>
+                    </>
                   );
                 }}
               </SidebarLinkGroup>
@@ -231,7 +231,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               >
                 {(handleClick, open) => {
                   return (
-                    <React.Fragment>
+                    <>
                       <Link
                         href="/dashboard/Products"
                         className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${
@@ -275,7 +275,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         </ul>
                       </div>
                       {/* <!-- Dropdown Menu End --> */}
-                    </React.Fragment>
+                    </>
                   );
                 }}
               </SidebarLinkGroup>
@@ -287,7 +287,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               >
                 {(handleClick, open) => {
                   return (
-                    <React.Fragment>
+                    <>
                       <Link
                         href="/dashboard/blog"
                         className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${
@@ -341,7 +341,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         </ul>
                       </div>
                       {/* <!-- Dropdown Menu End --> */}
-                    </React.Fragment>
+                    </>
                   );
                 }}
               </SidebarLinkGroup>
@@ -352,7 +352,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               >
                 {(handleClick, open) => {
                   return (
-                    <React.Fragment>
+                    <>
                       <Link
                         href="/dashboard/appointments"
                         className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${
@@ -396,7 +396,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         </ul>
                       </div>
                       {/* <!-- Dropdown Menu End --> */}
-                    </React.Fragment>
+                    </>
                   );
                 }}
               </SidebarLinkGroup>
@@ -407,7 +407,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               >
                 {(handleClick, open) => {
                   return (
-                    <React.Fragment>
+                    <>
                       <Link
                         href="/dashboard/abundant"
                         className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${
@@ -451,7 +451,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         </ul>
                       </div>
              
-                    </React.Fragment>
+                    </>
                   );
                 }}
               </SidebarLinkGroup>
