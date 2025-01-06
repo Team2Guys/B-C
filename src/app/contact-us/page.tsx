@@ -45,10 +45,7 @@ const ProductUs: React.FC = () => {
                 Tell Us More
               </h2>
               <p className="lg:mt-8 mt-4 font-light text-14 lg:text-16 md:text-18">
-              The most trusted window treatment<br/> company in Dubai with a decade of experience<br/> and 100s of positive reviews.
-
-
-              </p>
+              The most trusted window treatment<br/> company in Dubai with a decade of experience<br/> and 100s of positive reviews.</p>
               <div className="block sm:hidden">
                 <BookAppointment />
               </div>
