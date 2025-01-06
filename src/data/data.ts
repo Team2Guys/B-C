@@ -1956,3 +1956,10 @@ export const links = {
   curtains: '/made-to-measure-curtains',
   shutters: '/shutters-range'
 };
+
+export const locations = [
+  ["Sheikh Zayed Road", "Downtown Dubai", "JLT", "City Walk"],
+  ["Oud Metha", "Dubai Marina", "Jadaff", "Blue Water Island"],
+  ["Business Bay", "Nad Al Shiba", "Palm Jumeirah", "Dubai Hills"],
+  ["Karama", "JBR", "Jumeirah", "50 More Areas"],
+];

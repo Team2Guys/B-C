@@ -1,18 +1,13 @@
 'use client';
 import TopHero from 'components/ui/top-hero';
-import second from '../../../public/assets/images/contact-us/contactUs.webp';
+import second from '../../../public/assets/images/choose-us/choose.jpg';
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
-import { contentArray, links } from 'data/data';
+import { contentArray, links, locations } from 'data/data';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-const locations = [
-  ["Sheikh Zayed Road", "Downtown Dubai", "JLT", "City Walk"],
-  ["Oud Metha", "Dubai Marina", "Jadaff", "Blue Water Island"],
-  ["Business Bay", "Nad Al Shiba", "Palm Jumeirah", "Dubai Hills"],
-  ["Karama", "JBR", "Jumeirah", "50 More Areas"],
-];
+
 const ChooseUs = () => {
   const pathName = usePathname();
   return (
