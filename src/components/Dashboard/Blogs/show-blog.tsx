@@ -5,7 +5,6 @@ import { BlogInfo, UpdateBlog } from 'types/interfaces';
 import { formatDateMonth } from 'config';
 import { LiaEdit } from 'react-icons/lia';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { Modal } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import { Table } from 'antd';
 import axios from 'axios';
@@ -15,6 +14,7 @@ import { FaRegEye } from 'react-icons/fa';
 import { generateSlug } from 'data/data';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import Cookies from 'js-cookie';
+import Swal from 'sweetalert2';
 
 interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -55,12 +55,17 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
   };
 
   const confirmDelete = (id: string) => {
-    Modal.confirm({
-      title: 'Are you sure you want to delete this blog?',
-      content: 'Once deleted, the blog cannot be recovered.',
-      onOk: () => handleDelete(id),
-      okText: 'Yes',
-      cancelText: 'No',
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Once deleted, the blog cannot be recovered.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDelete(id);
+      }
     });
   };
 
