@@ -1935,3 +1935,24 @@ export const footerData = [
     ],
   },
 ];
+
+
+export const contentArray = [
+  [
+    "Our products are fully guaranteed",
+    "Free advice",
+    "Free quote",
+    "Free, Fast and flexible consultation"
+  ],
+  [
+    "Free installation",
+    "Great selection of blinds, curtains, and shutters",
+    "The finest craftsmanship Dubai has to offer"
+  ]
+];
+
+export const links = {
+  blinds: '/made-to-measure-blinds',
+  curtains: '/made-to-measure-curtains',
+  shutters: '/shutters-range'
+};
