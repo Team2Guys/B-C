@@ -1935,3 +1935,31 @@ export const footerData = [
     ],
   },
 ];
+
+
+export const contentArray = [
+  [
+    "Free home visits with free installation",
+    "Great selection of blinds, curtains, and shutters",
+    "Free uninstall/re-install within 2 years",
+    "We’re trusted, with over 750+ 5* reviews"
+  ],
+  [
+    "A team of 50 staff to ensure perfection from start to finish",
+    "In-house production - quality is our concern, not yours",
+    "10 YEARS warranty on all mechanical parts and labour"
+  ]
+];
+
+export const links = {
+  blinds: '/made-to-measure-blinds',
+  curtains: '/made-to-measure-curtains',
+  shutters: '/shutters-range'
+};
+
+export const locations = [
+  ["Sheikh Zayed Road", "Downtown Dubai", "JLT", "City Walk"],
+  ["Oud Metha", "Dubai Marina", "Jadaff", "Blue Water Island"],
+  ["Business Bay", "Nad Al Shiba", "Palm Jumeirah", "Dubai Hills"],
+  ["Karama", "JBR", "Jumeirah", "50 More Areas"],
+];
