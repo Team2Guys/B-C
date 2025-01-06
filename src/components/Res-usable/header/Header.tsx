@@ -1,5 +1,5 @@
 'use client';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
@@ -26,6 +26,9 @@ import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
+    undefined,
+  );
+  const [activeKey, setActiveKey] = useState<number | undefined>(
     undefined,
   );
   const path = usePathname();
@@ -198,18 +201,18 @@ const Header = () => {
                   </Fragment>
                 ) : (
                   <Fragment key={index} >
-                  <Link
-                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${link.label === 'Motorised' && ismoterised
+                    <Link
+                      className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${link.label === 'Motorised' && ismoterised
                         ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                         : isBlogActive || isActive
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                           : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-4'
-                      }`}
-                    onClick={handleCloseDrawer}
-                    href={link.href}
-                  >
-                    {link.label}
-                  </Link>
+                        }`}
+                      onClick={handleCloseDrawer}
+                      href={link.href}
+                    >
+                      {link.label}
+                    </Link>
                   </Fragment>
                 );
               })}
@@ -236,6 +239,7 @@ const Header = () => {
                 <div className="flex flex-col gap-2">
                   <Collapse
                     bordered={false}
+                    defaultActiveKey={activeKey}
                     expandIcon={({ isActive }) =>
                       isActive ? (
                         <Image src={downIcon} alt='up icon' width={8} height={8} className='transform rotate-180' />
@@ -329,11 +333,25 @@ const Header = () => {
                       }
 
                       const isBlogPath = path.startsWith('/blog');
-
                       const isBlogActive = link.href === '/blog' && isBlogPath;
+                      const isActive = !isBlogPath && path?.includes(generateSlug(link.label));
+                      const isMotorised = path === '/automated-blinds' || path === '/automated-curtains';
+                      const isBalconyActive =
+                        path?.includes('blinds-and-curtains') ||
+                        path?.includes('blinds-curtains') ||
+                        path?.includes('printed-blinds');
+                      const ismoterised =
+                        path.startsWith('/automated-blinds') ||
+                        path.startsWith('/automated-curtains');
+                      const ismoter =
+                        path?.includes('automated-curtains') ||
+                        path?.includes('automated-blinds');
+                      useEffect(() => {
+                        if ((isActive || isBlogActive) && activeKey !== (isMotorised ? 3 : index)) {
+                          setActiveKey(isMotorised ? 3 : index);
+                        }
+                      }, [isActive, isBlogActive, isMotorised, activeKey, index]);
 
-                      const isActive =
-                        !isBlogPath && path?.includes(generateSlug(link.label));
                       return combinedSliderData.length > 0 ? (
                         <Panel
                           key={index}
@@ -342,10 +360,17 @@ const Header = () => {
                             <Link
                               href={link.href}
                               onClick={handleCloseDrawer}
-                              className={`border-b-2 border-transparent text-16 hover:text-black ${isBlogActive || isActive
-                                  ? 'font-bold text-secondary'
-                                  : 'font-normal'
-                                }`}
+                              className={
+                                link.label === 'Commercial' && isBalconyActive
+                                  ? 'font-bold'
+                                  : link.label === 'Motorised' && ismoterised
+                                    ? 'font-bold'
+                                    : !isBalconyActive &&
+                                      !ismoter &&
+                                      (isBlogActive || isActive)
+                                      ? 'font-bold'
+                                      : 'font-normal'
+                              }
                             >
                               {link.label}
                             </Link>
@@ -359,18 +384,24 @@ const Header = () => {
                             sliderData={combinedSliderData}
                             href={link.href}
                             className={
-                              isBlogActive || isActive
-                                ? 'border-b-secondary'
-                                : 'hover:border-b-secondary'
+                              link.label === 'Commercial' && isBalconyActive
+                                ? 'font-bold'
+                                : link.label === 'Motorised' && ismoterised
+                                  ? 'font-bold'
+                                  : !isBalconyActive &&
+                                    !ismoter &&
+                                    (isBlogActive || isActive)
+                                    ? 'font-bold'
+                                    : 'font-normal'
                             }
                           />
                         </Panel>
                       ) : (
                         <Link
                           key={index}
-                          className={`text-16 border-b border-[#0000002a] pb-[6px] ${isBlogActive || isActive
-                              ? 'font-bold'
-                              : 'font-normal'
+                          className={`text-16 border-b text-black border-[#0000002a] pb-[6px] ${isBlogActive || isActive
+                            ? 'font-bold'
+                            : 'font-normal'
                             }`}
                           onClick={handleCloseDrawer}
                           href={link.href}

@@ -228,6 +228,11 @@ html {
 .custom-panel .ant-collapse-header-text{
   padding-bottom: 6px;
 }
+.footer-links-wrapper .custom-panel .ant-collapse-header {
+  border-bottom: 1px solid #ffffff4d;
+  padding-right: 20px !important;
+  padding-left: 10px !important;
+}
  li button:before {
   font-size: 19px !important;
   color: #fff !important;
