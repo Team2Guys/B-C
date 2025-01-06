@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Table, notification, Modal } from 'antd';
+import { Table, notification } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
@@ -10,6 +10,7 @@ import { useAppSelector } from 'components/Others/HelperRedux';
 import useColorMode from 'hooks/useColorMode';
 import Cookies from 'js-cookie';
 import { CategoryProps, ICategory } from 'types/types';
+import Swal from 'sweetalert2';
 
 // interface CategoryProps {
 //   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -20,7 +21,11 @@ import { CategoryProps, ICategory } from 'types/types';
 //   cetagories?: ICategory[];
 // }
 
-const TableTwo = ({ setMenuType, seteditCategory , categories }: CategoryProps) => {
+const TableTwo = ({
+  setMenuType,
+  seteditCategory,
+  categories,
+}: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
@@ -47,7 +52,6 @@ const TableTwo = ({ setMenuType, seteditCategory , categories }: CategoryProps) 
     setSearchTerm(e.target.value);
   };
 
-
   // Filter products based on search term
   const filteredProducts: ICategory[] =
     category?.filter((product: any) =>
@@ -55,12 +59,17 @@ const TableTwo = ({ setMenuType, seteditCategory , categories }: CategoryProps) 
     ) || [];
 
   const confirmDelete = (key: any) => {
-    Modal.confirm({
-      title: 'Are you sure you want to delete this category?',
-      content: 'Once deleted, the category cannot be recovered.',
-      onOk: () => handleDelete(key),
-      okText: 'Yes',
-      cancelText: 'No',
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Once deleted, the blog cannot be recovered.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDelete(key);
+      }
     });
   };
 
@@ -96,7 +105,7 @@ const TableTwo = ({ setMenuType, seteditCategory , categories }: CategoryProps) 
     }
   };
 
-  const columns =  [
+  const columns = [
     {
       title: 'Image',
       dataIndex: 'posterImageUrl',
@@ -119,10 +128,10 @@ const TableTwo = ({ setMenuType, seteditCategory , categories }: CategoryProps) 
       title: 'Date',
       dataIndex: 'createdAt',
       key: 'date',
-        render: (text: any, record: ICategory) => {
-              const createdAt = new Date(record.createdAt);
-              return <span>{createdAt.toLocaleDateString()}</span>;
-       },
+      render: (text: any, record: ICategory) => {
+        const createdAt = new Date(record.createdAt);
+        return <span>{createdAt.toLocaleDateString()}</span>;
+      },
     },
     {
       title: 'Time',
@@ -131,7 +140,8 @@ const TableTwo = ({ setMenuType, seteditCategory , categories }: CategoryProps) 
       render: (text: string, record: ICategory) => {
         const createdAt = new Date(record.createdAt);
         return <span>{createdAt.toLocaleTimeString()}</span>;
-    }},
+      },
+    },
     {
       title: 'Last Edited By',
       dataIndex: 'last_editedBy',
@@ -172,50 +182,48 @@ const TableTwo = ({ setMenuType, seteditCategory , categories }: CategoryProps) 
 
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
-        <>
-          <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
-            <input
-              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
-              type="search"
-              placeholder="Search Category"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <div>
-              <p
-                className={`${
-                  canAddCategory && 'cursor-pointer'
-                } lg:p-2 md:p-2 ${
-                  canAddCategory &&
-                  ' bg-secondary text-white rounded-md hover:text-white '
-                } flex justify-center ${
-                  !canAddCategory && 'cursor-not-allowed '
-                }`}
-                onClick={() => {
-                  seteditCategory && seteditCategory(null);
-                  if (canAddCategory) {
-                    setMenuType('Add Category');
-                  }
-                }}
-              >
-                Add Category
-              </p>
-            </div>
-          </div>
-          {filteredProducts.length > 0 ? (
-            <Table
-              className="overflow-x-scroll lg:overflow-auto w-full"
-              dataSource={filteredProducts}
-              columns={columns}
-              pagination={false}
-              rowKey="_id"
-            />
-          ) : (
-            <p className="text-xl text-black dark:text-white">
-              No Categories found
+      <>
+        <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
+          <input
+            className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
+            type="search"
+            placeholder="Search Category"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <div>
+            <p
+              className={`${canAddCategory && 'cursor-pointer'} lg:p-2 md:p-2 ${
+                canAddCategory &&
+                ' bg-secondary text-white rounded-md hover:text-white '
+              } flex justify-center ${
+                !canAddCategory && 'cursor-not-allowed '
+              }`}
+              onClick={() => {
+                seteditCategory && seteditCategory(null);
+                if (canAddCategory) {
+                  setMenuType('Add Category');
+                }
+              }}
+            >
+              Add Category
             </p>
-          )}
-        </>
+          </div>
+        </div>
+        {filteredProducts.length > 0 ? (
+          <Table
+            className="overflow-x-scroll lg:overflow-auto w-full"
+            dataSource={filteredProducts}
+            columns={columns}
+            pagination={false}
+            rowKey="_id"
+          />
+        ) : (
+          <p className="text-xl text-black dark:text-white">
+            No Categories found
+          </p>
+        )}
+      </>
     </div>
   );
 };

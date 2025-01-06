@@ -54,14 +54,14 @@ export interface Category {
 
 export interface CategoriesType extends Category {
   posterImageUrl: IMAGE_INTERFACE;
-  createdAt:string;
-  last_editedBy:string;
-  id: string ;
+  createdAt: string;
+  last_editedBy: string;
+  id: string;
   posterImage?: postimage;
 }
- interface postimage{
-  imageUrl:string
- }
+interface postimage {
+  imageUrl: string;
+}
 interface CloudinaryImage {
   public_id: string | undefined;
   imageUrl: string | undefined;
@@ -146,9 +146,9 @@ export interface Categories_Types {
   createdAt: string;
   updatedAt: string;
   __v: any;
-  last_editedBy:string;
-  id:string;
-  dataSource:string;
+  last_editedBy: string;
+  id: string;
+  dataSource: string;
 }
 
 interface Image {
@@ -328,6 +328,11 @@ export interface BlogInfo {
   createdAt?: any;
   updatedAt?: any;
   last_editedBy?: string;
+  Images_Alt_Text?: '';
+  Canonical_Tag?: '';
+  Meta_Title?: '';
+  Meta_description?: '';
+  isPublished?: boolean;
 }
 interface commentprops {
   status?: string;
@@ -394,9 +399,8 @@ interface ColorData {
 }
 
 export type meta_props = {
-  params:Promise<{ product: string }>;
+  params: Promise<{ product: string }>;
 };
-
 
 export interface PRODUCS_PROPS {
   product: string;
