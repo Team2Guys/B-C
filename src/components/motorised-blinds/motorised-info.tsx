@@ -22,12 +22,11 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
   description3,
   image,
   className,
-  imageClass,
   decClass,
 }) => {
   return (
-    <Container className="mt-5 md:mt-20">
-      <div className={`flex flex-wrap lg:flex-nowrap lg:gap-4 ${className}`}>
+    <Container className="mt-3 md:mt-5 lg:mt-14">
+      <div className={`flex flex-wrap lg:flex-nowrap lg:gap-7 ${className}`}>
         <div className="w-full lg:w-8/12">
           <div className="space-y-4">
             <h2 className="text-32 md:text-[41px] font-medium text-center sm:text-start">{title || ""}</h2>
@@ -41,16 +40,15 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-4/12 my-10 lg:mt-0">
-          <div className={`text-end  ${imageClass}`}>
-            <Image
-              width={455}
-              height={420}
-              src={image}
-              alt="Motorised Blind Image"
-            />
+        <div className="w-full lg:w-4/12 mb-10 mt-4 md:mt-5 lg:mt-0">
+        <div className="flex justify-center items-center text-center">
+          <Image
+          width={455}
+          height={420}
+          src={image}
+          alt="Motorised Blind Image"
+          className="w-96 h-72 xs:h-80"/></div>
           </div>
-        </div>
       </div>
     </Container>
   );
