@@ -168,7 +168,7 @@ const Footer: React.FC = () => {
                                   <li>
                                     <Link
                                       className="text-sm font-medium"
-                                      href={`/${category.title.toLowerCase()}/${ChangedProductUrl(
+                                      href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(
                                         matchingSubcategory.title,
                                       )}`}
                                     >
