@@ -1939,15 +1939,15 @@ export const footerData = [
 
 export const contentArray = [
   [
-    "Our products are fully guaranteed",
-    "Free advice",
-    "Free quote",
-    "Free, Fast and flexible consultation"
+    "Free home visits with free installation",
+    "Great selection of blinds, curtains, and shutters",
+    "Free uninstall/re-install within 2 years",
+    "We’re trusted, with over 750+ 5* reviews"
   ],
   [
-    "Free installation",
-    "Great selection of blinds, curtains, and shutters",
-    "The finest craftsmanship Dubai has to offer"
+    "A team of 50 staff to ensure perfection from start to finish",
+    "In-house production - quality is our concern, not yours",
+    "10 YEARS warranty on all mechanical parts and labour"
   ]
 ];
 

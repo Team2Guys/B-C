@@ -13,9 +13,9 @@ const ChooseUs = () => {
   return (
     <>
       <TopHero title="Why Choose Us" image={second.src} pagename={pathName} className='max-xs:bg-current' />
-      <Container className='mt-10'>
+      <Container className='mt-10 mb-10 md:mb-20'>
         <h1 className='text-[28px] md:text-[36px] font-black'>Why Choose Blinds & Curtains</h1>
-        <h3 className='text-[18px] md:text-[24px] font-bold'>Learn more about what makes the Blinds & Curtains different</h3>
+        <h2 className='text-[18px] md:text-[24px] font-bold'>What Makes Blinds & Curtains Different?</h2>
 
         <div className='mt-10 md:mt-20 grid grid-cols-1 md:grid-cols-2 px-4 text-16'>
         {contentArray.map((group, index) => (
@@ -39,17 +39,20 @@ const ChooseUs = () => {
       </div>
       <div className='mt-10 md:mt-20 space-y-5'>
         <div className='flex gap-2 items-center'>
-        <h4 className='text-18 lg:whitespace-nowrap font-semibold'>We have had orders from many businesses or organizations and manufactured and fitted blinds for:</h4>
+        <h4 className='text-18 lg:whitespace-nowrap font-semibold'>With over 750 glowing reviews, we've built a reputation for quality</h4>
         <hr className=' border border-primary w-full max-md:hidden' />
         </div>
-        <p>We have a very large range of colours and designs to choose from including high performance: Fire retardant, Dim-out, Blackout, Heat reflective and solar screening. Our products are tested to the highest standards - we expose the materials to extremes of temperature and checked for resistance to fading.</p>
-        <p>Don&apos;t miss out - Request an appointment with Blinds & Curtains and we will visit you at a time convenient to you!</p>
+        <p>We've got a huge selection of colours, designs, and materials, including high-quality, fire retardant, dim-out, blackout, and printed options. Our products are tested to the highest standards. <Link className='underline' href={"/"}>Blindsandcurtains.ae</Link> has been a trusted name in Dubai for over 10 years. Our dedication to customer satisfaction and delivering custom, quality products shines through in our five-star reviews on Google.</p>
       </div>
 
       <div className="mt-10 md:mt-20 space-y-5">
       <div className='flex gap-2 items-center'>
-        <h4 className='text-18 lg:whitespace-nowrap font-semibold'>Our Blinds & Curtains Expert Team is Ready To Serve You All Over Dubai</h4>
+        <h4 className='text-18 lg:whitespace-nowrap font-semibold'>At Blinds & Curtains, it’s all about you</h4>
         <hr className=' border border-primary w-full max-md:hidden' />
+        </div>
+        <div>
+        <p>With a full range of custom window coverings and a team of experts, we work with you to find what works for your home and budget. Our experience makes the process simple and stress-free.</p>
+        <p>Don’t miss out – Request an appointment with Blinds & Curtains, and we will visit you at a convenient time!</p>
         </div>
       <div className="overflow-x-auto">
         <table className="table-auto w-full text-left ">
