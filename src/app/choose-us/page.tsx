@@ -12,7 +12,7 @@ const ChooseUs = () => {
   const pathName = usePathname();
   return (
     <>
-      <TopHero title="Why Choose Us" image={second.src} pagename={pathName} />
+      <TopHero title="Why Choose Us" image={second.src} pagename={pathName} className='max-xs:bg-current' />
       <Container className='mt-10'>
         <h1 className='text-[28px] md:text-[36px] font-black'>Why Choose Blinds & Curtains</h1>
         <h3 className='text-[18px] md:text-[24px] font-bold'>Learn more about what makes the Blinds & Curtains different</h3>
