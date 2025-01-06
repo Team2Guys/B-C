@@ -9,7 +9,6 @@ import Support from 'components/Res-usable/support/support';
 import { usePathname } from 'next/navigation';
 import { Image } from 'antd';
 import { IoSearch } from 'react-icons/io5';
-import ImageCardLoading from 'components/Skeleton/image-card-loading';
 
 const itemsPerPage = 12;
 const Gallery = ({ products , categories}: {products: IProduct[] , categories: ICategory[]}) => {
