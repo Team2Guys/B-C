@@ -39,10 +39,10 @@ const ChooseUs = () => {
       </div>
       <div className='mt-10 md:mt-20 space-y-5'>
         <div className='flex gap-2 items-center'>
-        <h4 className='text-18 lg:whitespace-nowrap font-semibold'>With over 750 glowing reviews, we've built a reputation for quality</h4>
+        <h4 className='text-18 lg:whitespace-nowrap font-semibold'>With over 750 glowing reviews, we&apos;ve built a reputation for quality</h4>
         <hr className=' border border-primary w-full max-md:hidden' />
         </div>
-        <p>We've got a huge selection of colours, designs, and materials, including high-quality, fire retardant, dim-out, blackout, and printed options. Our products are tested to the highest standards. <Link className='underline' href={"/"}>Blindsandcurtains.ae</Link> has been a trusted name in Dubai for over 10 years. Our dedication to customer satisfaction and delivering custom, quality products shines through in our five-star reviews on Google.</p>
+        <p>We&apos;ve got a huge selection of colours, designs, and materials, including high-quality, fire retardant, dim-out, blackout, and printed options. Our products are tested to the highest standards. <Link className='underline' href={"/"}>Blindsandcurtains.ae</Link> has been a trusted name in Dubai for over 10 years. Our dedication to customer satisfaction and delivering custom, quality products shines through in our five-star reviews on Google.</p>
       </div>
 
       <div className="mt-10 md:mt-20 space-y-5">
