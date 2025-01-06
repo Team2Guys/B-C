@@ -10,9 +10,11 @@ const superAdmintoken = Cookies.get('superAdminToken');
 const token = Cookies.get('2guysAdminToken');
 let Finaltoken = superAdmintoken ? superAdmintoken : token;
 
+
 const headers = {
   Authorization: `Bearer ${Finaltoken}`,
 };
+console.log(headers)
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
   const response = await fetch(
@@ -79,12 +81,16 @@ export const adminRecords = async (
   }
 };
 
-export const fetchAppointments = async (): Promise<IAppointments[]> => {
+export const fetchAppointments = async (token:string | undefined): Promise<IAppointments[]> => {
   try {
+   
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/getAllappointments`,
       {
-        headers: headers,
+        headers: {
+  Authorization: `Bearer ${token}`,
+
+        }
       },
     );
     return response.data;

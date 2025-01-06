@@ -71,8 +71,8 @@ function Hero() {
                       className="cursor-pointer absolute bg-black rounded-full w-9 h-9 text-white p-1 
                       top-16
                       sm:top-28
-                       md:top-16 lg:top-20 xl:top-32
-                       text-10 text-center "
+                      md:top-16 lg:top-20 xl:top-32
+                      text-10 text-center "
                     >
                       <span id="modalHandler">why us?</span>
                     </div>
