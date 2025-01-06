@@ -43,7 +43,7 @@ const ChooseUs = () => {
         <hr className=' border border-primary w-full max-md:hidden' />
         </div>
         <p>We have a very large range of colours and designs to choose from including high performance: Fire retardant, Dim-out, Blackout, Heat reflective and solar screening. Our products are tested to the highest standards - we expose the materials to extremes of temperature and checked for resistance to fading.</p>
-        <p>Don't miss out - Request an appointment with Blinds & Curtains and we will visit you at a time convenient to you!</p>
+        <p>Don&apos;t miss out - Request an appointment with Blinds & Curtains and we will visit you at a time convenient to you!</p>
       </div>
 
       <div className="mt-10 md:mt-20 space-y-5">
