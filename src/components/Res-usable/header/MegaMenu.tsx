@@ -17,7 +17,7 @@ import {
 } from 'data/urls';
 import Link from 'next/link';
 import { Collapse } from 'antd';
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
+import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
 import { Skeleton } from 'components/ui/skeleton';
 
 interface MegaMenuProps {
@@ -274,7 +274,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                       <div key={index} className="flex flex-col gap-5 w-full">
                         <p className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
                           {/* {title + ' ' + item.name} */}
-                          <div />
+                          {/* <div /> */}
                           {title}{' '}
                           {item.name === 'dynamic'
                             ? parent === 'shutters'
@@ -385,16 +385,16 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           bordered={false}
           expandIcon={({ isActive }) =>
             isActive ? (
-              <IoMdArrowDropup size={20} />
+              <Image src={downIcon} alt='up icon' width={8} height={8} className='transform rotate-180' />
             ) : (
-              <IoMdArrowDropdown size={20} />
+              <Image src={downIcon} alt='down icon' width={8} height={8} />
             )
           }
           className="bg-transparent"
         >
-          {title === 'Moterised' ? (
+          {title === 'Motorised' ? (
             <div className="flex justify-between">
-              <div className="flex flex-col py-2 w-fit">
+              <div className="flex flex-col py-2 w-fit space-y-2">
                 {MoterisedData.map((product, index) => (
                   <Link
                     key={index}
@@ -418,14 +418,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                   <Panel
                     header={`${title} ${header_type}`}
                     key={index}
-                    className="custom-panel py-2"
+                    className="custom-panel pt-[6px]"
                   >
                     <ul className="space-y-2">
                       {products.map((product: IProduct, idx) => (
                         <li key={idx}>
                           <Link
                             href={generatePath(product, title.toLowerCase())}
-                            className={`focus:text-black hover:text-black border-b-2 border-transparent hover:border-b-secondary`}
+                            className={`focus:text-black hover:text-black border-b-2 border-transparent text-16 font-normal hover:border-b-secondary`}
                             onClick={onClick}
                           >
                             {title == 'Blinds' && header_type == 'By Room'

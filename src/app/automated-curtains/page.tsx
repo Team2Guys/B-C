@@ -4,14 +4,14 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title:
-    'Automatic Window Curtains | Motorised Curtains | Smart Curtains Dubai',
+    'Premium Automated Curtains in Dubai | Blinds & Curtains Dubai',
   description:
-    'We offer automatic window curtains in Dubai that combine style and convenience. Our motorised curtains offer light control, privacy, and a sleek design.',
+    'Discover automated window curtains in Dubai that combine style, convenience, and light control. Enjoy privacy & sleek design with our modern automatic curtains.',
   openGraph: {
     title:
-      'Automatic Window Curtains | Motorised Curtains | Smart Curtains Dubai',
+      'Premium Automated Curtains in Dubai | Blinds & Curtains Dubai',
     description:
-      'We offer automatic window curtains in Dubai that combine style and convenience. Our motorised curtains offer light control, privacy, and a sleek design.',
+      'Discover automated window curtains in Dubai that combine style, convenience, and light control. Enjoy privacy & sleek design with our modern automatic curtains.',
     url: 'https://b-c-eight.vercel.app/automated-curtains',
     images: [
       {

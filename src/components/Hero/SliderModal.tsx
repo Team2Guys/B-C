@@ -2,7 +2,6 @@ import Image from 'next/image';
 import React, { SetStateAction } from 'react';
 import { Rate } from 'antd';
 import { HeroImages } from 'data/data';
-// import { HeroImage } from 'src/assets/images/data';
 interface SliderModalProps {
   setshowModel: React.Dispatch<SetStateAction<string>>;
   className?: string;
@@ -22,12 +21,14 @@ function SliderModal({ setshowModel, className, modelType }: SliderModalProps) {
         <Image
           id="modalHandler"
           src={HeroImages.logo}
+          loading='lazy'
           alt="logo"
-          width={80}
-          height={51}
+          width={60}
+          height={60}
         />
         <Image
           id="modalHandler"
+          loading='lazy'
           onClick={() => setshowModel('')}
           src={
             modelType && modelType == '2_model'

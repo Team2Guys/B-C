@@ -21,14 +21,15 @@ import Cookies from 'js-cookie';
 interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
   setEditBlog: React.Dispatch<SetStateAction<UpdateBlog | null>>;
+  blogs: any;
 }
 
-const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
+const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
   const queryClient = useQueryClient();
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [filteredBlog, setfilteredBlog] = useState<BlogInfo[]>([]);
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
-  console.log('loggedInUser', loggedInUser);
   const canAddBlog =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canAddBlog : true);
@@ -57,18 +58,15 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
   }
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const filteredBlog: BlogInfo[] =
-    blogs
-      ?.sort(
-        (a: BlogInfo, b: BlogInfo) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-      )
-      .filter((blog: BlogInfo) =>
+    let searchTerm = e.target.value;
+    const filteredBlog: BlogInfo[] =
+      blogs.filter((blog: BlogInfo) =>
         blog.title.toLowerCase().includes(searchTerm.toLowerCase()),
       ) || [];
+
+    setfilteredBlog(filteredBlog);
+    setSearchTerm(searchTerm);
+  };
 
   const confirmDelete = (id: string) => {
     Modal.confirm({
@@ -228,9 +226,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog }) => {
         </button>
       </div>
 
-      {error ? (
-        <p>Error fetching blogs😢</p>
-      ) : filteredBlog && filteredBlog.length > 0 ? (
+      {filteredBlog && filteredBlog.length > 0 ? (
         <Table
           dataSource={filteredBlog}
           columns={columns}

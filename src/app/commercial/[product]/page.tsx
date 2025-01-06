@@ -5,10 +5,11 @@ import { ICategory, IProduct } from "types/types";
 import { Metadata } from "next";
 import { urls } from "data/urls";
 import { reverseSlug } from "data/data";
+import { meta_props } from "types/interfaces";
 
 
-export async function generateMetadata({ params }: { params: { product: string } }): Promise<Metadata> {
-  const { product } = params;
+export async function generateMetadata({ params }:meta_props): Promise<Metadata> {
+  const product  = (await params).product;
   const [products, subCategories] = await Promise.all([
     fetchProducts(),
     fetchSubCategories(),
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: { product: string }
     const comparisonValue = matchingLinks?.productName || reverseSlug(product);
     return prod.title === comparisonValue;
   });
-  const headersList = headers();
+  const headersList = await headers();
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
@@ -66,8 +67,8 @@ export async function generateMetadata({ params }: { params: { product: string }
 }
 
 
-const CommercialPage = async ({ params }: { params: { product: string } }) => {
-  const slug = params.product;
+const CommercialPage = async ({ params }: meta_props) => {
+  const slug = (await params).product;
   const [products, subCategories] = await Promise.all([
     fetchProducts(),
     fetchSubCategories(),

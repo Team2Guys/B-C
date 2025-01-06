@@ -195,18 +195,10 @@ export interface FeatureProductData {
   id: number;
   category: string;
   title: string;
-  image: string; // You can also use StaticImageData if importing images
+  image: string;
   link: string;
 }
 
-export interface ProductCardData {
-  id: number;
-  category: string;
-  title: string;
-  decription: string;
-  image: any; // You can also use StaticImageData if importing images
-  link: string;
-}
 export interface FooterLink {
   text: string;
   href: string;
@@ -403,8 +395,9 @@ interface ColorData {
 }
 
 export type meta_props = {
-  params: { product: string };
+  params:Promise<{ product: string }>;
 };
+
 
 export interface PRODUCS_PROPS {
   product: string;

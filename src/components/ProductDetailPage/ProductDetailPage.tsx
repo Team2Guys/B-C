@@ -10,13 +10,14 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
 import { usePathname } from 'next/navigation';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
+import { generateSlug } from 'data/data';
+import { customTitles } from 'data/urls';
 
 interface IProductDetail {
   title: string;
   allprod?: IProduct[];
 }
 const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
-
   const pathName = usePathname();
 
   const filterProduct = allprod?.find((product) => {
@@ -27,16 +28,21 @@ const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
     return product.CategoryId === filterProduct?.CategoryId;
   });
 
-  const getTrimmedTitle = (title: string) => {
-    return title.replace(/^Made to measure\s+/i, '');
+  const getCustomTitle = (title: string) => {
+    const slug = title;
+    const match = customTitles.find((item) => generateSlug(item.slug) === generateSlug(slug));
+    if (match) {
+      return match.name;
+    }
+    return `Made to Measure ${title.replace(/^Made to measure\s+/i, '')}`;
   };
-  const trimmedProductTitle = getTrimmedTitle(title);
-
+  const customPageTitle = getCustomTitle(title);
+  
   return (
     <>
       <TopHero
         title={title}
-        pageTitle={`Made to Measure ${trimmedProductTitle}`}
+        pageTitle={customPageTitle}
         //@ts-expect-error
         image={`${filterProduct?.bannerImage?.imageUrl || bgBreadcrum.src}`}
         pagename={pathName}
