@@ -6,17 +6,11 @@ import img4 from '../../public/assets/images/MotorisedBlind/loyalty-program.png'
 import moto2 from '../../public/assets/images/MotorisedBlind/mons2.png';
 
 import {
-  BlogInfo,
-  CardTypes,
   Email,
-  FeatureProductData,
-  GalleryItems,
   IColorData,
   ITopHeroLink,
   OurHistory,
   PhoneNumber,
-  ProductCardData,
-  ProductItems,
   SupportItem,
   TFooterSection,
   THeroImages,
@@ -57,29 +51,6 @@ export const reverseSlug = (slug: string): string => {
 
 /* eslint-enable no-useless-escape */
 
-export const cardData: CardTypes[] = [
-  {
-    image: '/assets/images/blindcard/blind.png',
-    heading: 'BLINDS',
-    paragraph:
-      'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
-    buttonText: 'VIEW BLINDS',
-  },
-  {
-    image: '/assets/images/blindcard/curtains.png',
-    heading: 'CURTAINS',
-    paragraph:
-      'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
-    buttonText: 'VIEW CURTAINS',
-  },
-  {
-    image: '/assets/images/blindcard/shutters.png',
-    heading: 'SHUTTERS',
-    paragraph:
-      'Find the perfect made-to-measure window blinds within our range and give your home a refreshing burst of style',
-    buttonText: 'VIEW SHUTTERS',
-  },
-];
 
 // Blinds and Curtains section data
 
@@ -94,17 +65,7 @@ As a trusted window treatment company, we bring style and functionality to every
   buttonText: 'Read More',
 };
 
-export const menuItem = [
-  { id: 1, MenuName: 'Home' },
-  { id: 2, MenuName: 'Bilnds', dropDown: true },
-  { id: 3, MenuName: 'Curtains' },
-  { id: 4, MenuName: 'Shutters' },
-  { id: 5, MenuName: 'Commercial' },
-  { id: 6, MenuName: 'Gallery' },
-  { id: 7, MenuName: 'Installation' },
-  { id: 8, MenuName: 'About Us' },
-  { id: 8, MenuName: 'Contact Us' },
-];
+
 
 export const heroSlider = [
   {
@@ -135,6 +96,7 @@ export const heroSlider = [
       "You won't find a better deal than having shutters installed in your Dubai home or office, complete with free consultation, quick installation, and a 5-year warranty.",
   },
 ];
+
 export const bannerData: BannerData = {
   imageUrl: '/assets/images/measure_shutter/measure_shutter.png',
   title: 'MADE TO MEASURE SHUTTERS FOR YOU..',
@@ -185,211 +147,6 @@ export const BlogTitles = [
   { id: 3, title: 'Building Modern Web Apps' },
 ];
 
-export const CommentData = [
-  {
-    id: 1,
-    blogId: 1, // Linking this comment to "Understanding React Basics"
-    userName: 'Laura Hipster',
-    comment:
-      'Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.',
-    createdAt: 'October 03, 2022',
-  },
-  {
-    id: 2,
-    blogId: 2, // Linking this comment to "Advanced JavaScript Tips"
-    userName: 'John Doe',
-    comment:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id neque metus. Sed lacinia luctus sem eget congue.',
-    createdAt: 'October 05, 2022',
-  },
-];
-
-export const NestedCommentData = [
-  {
-    id: 1,
-    replyId: 1,
-    userName: 'Emma Watson',
-    comment: 'I totally agree with this statement!',
-    createdAt: 'October 04, 2022',
-  },
-  {
-    id: 2,
-    replyId: 1,
-    userName: 'Chris Pratt',
-    comment: 'Could you elaborate on this part?',
-    createdAt: 'October 06, 2022',
-  },
-];
-
-export const featureProducts: FeatureProductData[] = [
-  {
-    id: 1,
-    category: 'Blind',
-    title: 'Vertical Blinds',
-    image: '/assets/images/dynamic/Rectangle 811d.png', // Adjust the path accordingly
-    link: '/products',
-  },
-  {
-    id: 2,
-    category: 'Blind',
-    title: 'Sheer Curtains',
-    image: '/assets/images/dynamic/Rectangle 811da.png',
-    link: '/products',
-  },
-  {
-    id: 3,
-    category: 'Blind',
-    title: 'Plantation Shutters',
-    image: '/assets/images/dynamic/Rectangle 811dds.png',
-    link: '/products',
-  },
-  {
-    id: 4,
-    category: 'Blind',
-    title: 'Plantation Shutters',
-    image: '/assets/images/dynamic/Rectangle 811da.png',
-    link: '/products',
-  },
-  {
-    id: 5,
-    category: 'Curtains',
-    title: 'Sheer Curtains',
-    image: '/assets/images/dynamic/Rectangle 811da.png',
-    link: '/products',
-  },
-  {
-    id: 6,
-    category: 'Curtains',
-    title: 'Plantation Shutters',
-    image: '/assets/images/dynamic/Rectangle 811dds.png',
-    link: '/products',
-  },
-  {
-    id: 7,
-    category: 'Curtains',
-    title: 'Sheer Curtains',
-    image: '/assets/images/dynamic/Rectangle 811da.png',
-    link: '/products',
-  },
-  {
-    id: 8,
-    category: 'Shutters',
-    title: 'Plantation Shutters',
-    image: '/assets/images/dynamic/Rectangle 811dds.png',
-    link: '/products',
-  },
-];
-
-export const ProductCardINFO: ProductCardData[] = [
-  {
-    id: 1,
-    category: 'BLINDS BY TYPE',
-    title: 'Vertical Blinds',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/6.png',
-    link: '/product',
-  },
-  {
-    id: 2,
-    category: 'BLINDS BY TYPE',
-    title: 'Sheer Curtains',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/1.png',
-    link: '/product',
-  },
-  {
-    id: 3,
-    category: 'BLINDS BY TYPE',
-    title: 'Plantation Shutters',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/2.png',
-    link: '/product',
-  },
-  {
-    id: 4,
-    category: 'BLINDS BY TYPE',
-    title: 'Plantation Shutters',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/3.png',
-    link: '/product',
-  },
-  {
-    id: 5,
-    category: 'BY ROOM',
-    title: 'Sheer Curtains',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/4.png',
-    link: '/product',
-  },
-  {
-    id: 6,
-    category: 'BY ROOM',
-    title: 'Plantation Shutters',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/5.png',
-    link: '/product',
-  },
-  {
-    id: 7,
-    category: 'BY ROOM',
-    title: 'Sheer Curtains',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/6.png',
-    link: '/product',
-  },
-  {
-    id: 8,
-    category: 'BY ROOM',
-    title: 'Plantation Shutters',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/5.png',
-    link: '/product',
-  },
-  {
-    id: 9,
-    category: 'BLINDS BY TYPE',
-    title: 'Plantation Shutters',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/4.png',
-    link: '/product',
-  },
-  {
-    id: 10,
-    category: 'BY ROOM',
-    title: 'Sheer Curtains',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/3.png',
-    link: '/product',
-  },
-  {
-    id: 11,
-    category: 'BY ROOM',
-    title: 'Plantation Shutters',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/2.png',
-    link: '/product',
-  },
-  {
-    id: 12,
-    category: 'BY ROOM',
-    title: 'Sheer Curtains',
-    decription:
-      'Our collection is full of rich, bold colours,unusual designs, add simple elegance to a window',
-    image: '/assets/images/product/1.png',
-    link: '/product',
-  },
-];
 
 export const supportItems: SupportItem[] = [
   {
@@ -452,408 +209,6 @@ velit, nec, malesuada tellus. Urna `,
   },
 ];
 
-export const blindsSliderItems = [
-  {
-    key: 1,
-    src: '/assets/images/Container.png',
-    alt: 'Description 1',
-    title: 'Title 1',
-  },
-  {
-    key: 2,
-    src: '/assets/images/Container2.png',
-    alt: 'Description 2',
-    title: 'Title 2',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 1,
-    src: '/assets/images/Container.png',
-    alt: 'Description 1',
-    title: 'Title 1',
-  },
-  {
-    key: 2,
-    src: '/assets/images/Container2.png',
-    alt: 'Description 2',
-    title: 'Title 2',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 1,
-    src: '/assets/images/Container.png',
-    alt: 'Description 1',
-    title: 'Title 1',
-  },
-  {
-    key: 2,
-    src: '/assets/images/Container2.png',
-    alt: 'Description 2',
-    title: 'Title 2',
-  },
-];
-
-export const curtainsSliderItems = [
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 1,
-    src: '/assets/images/Container.png',
-    alt: 'Description 1',
-    title: 'Title 1',
-  },
-  {
-    key: 2,
-    src: '/assets/images/Container2.png',
-    alt: 'Description 2',
-    title: 'Title 2',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 3,
-    src: '/assets/images/Container.png',
-    alt: 'Description 3',
-    title: 'Title 3',
-  },
-  {
-    key: 1,
-    src: '/assets/images/Container.png',
-    alt: 'Description 1',
-    title: 'Title 1',
-  },
-];
-
-export const menuItems = [
-  { label: 'Home', path: '/' },
-  { label: 'Blinds', path: '#', sliderData: blindsSliderItems },
-  { label: 'Curtains', path: '#', sliderData: curtainsSliderItems },
-  { label: 'Shutters', path: '#', sliderData: blindsSliderItems },
-  { label: 'Commercial', path: '#', sliderData: curtainsSliderItems },
-  { label: 'Estimator', path: '/estimator' },
-  { label: 'Gallery', path: '/gallery' },
-  { label: 'About Us', path: '/about-us' },
-  { label: 'Contact Us', path: '/contact-us' },
-];
-
-export const MobilemenuItems = [
-  { label: 'Home', path: '/' },
-  {
-    label: 'Blinds',
-    subItems: blindsSliderItems.map((item) => ({
-      key: item.key,
-      src: item.src,
-      alt: item.alt,
-      title: item.title,
-    })),
-  },
-  {
-    label: 'Curtains',
-    subItems: curtainsSliderItems.map((item) => ({
-      key: item.key,
-      src: item.src,
-      alt: item.alt,
-      title: item.title,
-    })),
-  },
-  { label: 'Shutters', path: '/shutters' },
-  { label: 'Commercial', path: '/commercial' },
-  { label: 'Estimator', path: '/estimator' },
-  { label: 'Gallery', path: '/gallery' },
-  { label: 'About Us', path: '/about-us' },
-  { label: 'Contact Us', path: '/contact-us' },
-];
-
-export const galleryItems: GalleryItems[] = [
-  {
-    id: 1,
-    imageUrl: '/assets/images/Rectangle8.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'BILNDS',
-  },
-  {
-    id: 2,
-    imageUrl: '/assets/images/Rectangle8dd.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'CURTAINS',
-  },
-  {
-    id: 3,
-    imageUrl: '/assets/images/Image_3.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'BILNDS',
-  },
-  {
-    id: 4,
-    imageUrl: '/assets/images/Image_4.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'SHUTTERS',
-  },
-  {
-    id: 5,
-    imageUrl: '/assets/images/Image_5.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'COMMERCIAL',
-  },
-  {
-    id: 6,
-    imageUrl: '/assets/images/Image_3.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'SHUTTERS',
-  },
-  {
-    id: 7,
-    imageUrl: '/assets/images/Image_6.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'COMMERCIAL',
-  },
-  {
-    id: 8,
-    imageUrl: '/assets/images/Image_4.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'SHUTTERS',
-  },
-  {
-    id: 9,
-    imageUrl: '/assets/images/Image_6.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'INSTALLATION',
-  },
-  {
-    id: 10,
-    imageUrl: '/assets/images/Image_4.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'COMMERCIAL',
-  },
-  {
-    id: 11,
-    imageUrl: '/assets/images/Image_5.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'SHUTTERS',
-  },
-  {
-    id: 12,
-    imageUrl: '/assets/images/Image_4.png',
-    title: 'The Bel Air Wooden Blinds',
-    category: 'INSTALLATION',
-  },
-];
-
-export const relativeProducts: GalleryItems[] = [
-  {
-    id: 1,
-    imageUrl: '/assets/images/Rectangle8.png',
-    title: 'Vertical Blinds',
-    category: 'BILNDS',
-  },
-  {
-    id: 2,
-    imageUrl: '/assets/images/Rectangle8dd.png',
-    title: 'Vertical Blinds',
-    category: 'CURTAINS',
-  },
-  {
-    id: 3,
-    imageUrl: '/assets/images/image_3.png',
-    title: 'Vertical Blinds',
-    category: 'BILNDS',
-  },
-];
-
-export const productItems: ProductItems[] = [
-  {
-    id: 1,
-    imageUrl: '/assets/images/Rectangle812h.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'OFFICE',
-    category: 'OFFICE',
-  },
-  {
-    id: 2,
-    imageUrl: '/assets/images/Rectangle812g.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'ROMAN BLINDS',
-    category: 'ROMAN BLINDS',
-  },
-  {
-    id: 3,
-    imageUrl: '/assets/images/Rectangle812gs.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'ROMAN BLINDS',
-    category: 'ROMAN BLINDS',
-  },
-  {
-    id: 4,
-    imageUrl: '/assets/images/Rectangle812h.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'OFFICE',
-    category: 'OFFICE',
-  },
-  {
-    id: 5,
-    imageUrl: '/assets/images/Rectangle812g.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'OFFICE',
-    category: 'OFFICE',
-  },
-  {
-    id: 6,
-    imageUrl: '/assets/images/Rectangle812gs.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'ROMAN BLINDS',
-    category: 'ROMAN BLINDS',
-  },
-  {
-    id: 7,
-    imageUrl: '/assets/images/Rectangle812h.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'OFFICE',
-    category: 'OFFICE',
-  },
-  {
-    id: 8,
-    imageUrl: '/assets/images/Rectangle812g.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'ROMAN BLINDS',
-    category: 'ROMAN BLINDS',
-  },
-  {
-    id: 9,
-    imageUrl: '/assets/images/Rectangle812gs.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'OFFICE',
-    category: 'OFFICE',
-  },
-  {
-    id: 10,
-    imageUrl: '/assets/images/Rectangle812h.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'OFFICE',
-    category: 'OFFICE',
-  },
-  {
-    id: 11,
-    imageUrl: '/assets/images/Rectangle812g.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'ROMAN BLINDS',
-    category: 'ROMAN BLINDS',
-  },
-  {
-    id: 12,
-    imageUrl: '/assets/images/Rectangle812gs.png',
-    discription:
-      'Our collection is full of rich, bold colours, unusual designs, add simple elegance to a window',
-    title: 'OFFICE',
-    category: 'OFFICE',
-  },
-];
 export const RatingSlider: TRatingSlider = {
   imageUrl: '/assets/images/googleReview/qautes.png',
   StarImage: '/assets/images/googleReview/star.png',
@@ -968,13 +323,13 @@ export const OurHistoryData: OurHistory[] = [
     discription:
       'Making our own products gave us greater control over quality and design, so we could better meet our customers needs.',
   },
-  {
-    id: 4,
-    year: '2020',
-    heading: 'Had our first AED 500k + order',
-    discription:
-      'A single order exceeding AED 500k signifies the trust and dedication of our clients, as well as the hard work of our team members.',
-  },
+  // {
+  //   id: 4,
+  //   year: '2020',
+  //   heading: 'Had our first AED 500k + order',
+  //   discription:
+  //     'A single order exceeding AED 500k signifies the trust and dedication of our clients, as well as the hard work of our team members.',
+  // },
   {
     id: 4,
     year: '2023 ',
@@ -982,13 +337,13 @@ export const OurHistoryData: OurHistory[] = [
     discription:
       'We moved to Al Quoz as part of our company rebranding, taking advantage of new opportunities to better serve our customers.',
   },
-  {
-    id: 4,
-    year: '2024',
-    heading: 'Opened an office in Islamabad to support our online growth',
-    discription:
-      'We also opened an office in Islamabad to improve our online presence as part of our expansion into new regions.',
-  },
+  // {
+  //   id: 4,
+  //   year: '2024',
+  //   heading: 'Opened an office in Islamabad to support our online growth',
+  //   discription:
+  //     'We also opened an office in Islamabad to improve our online presence as part of our expansion into new regions.',
+  // },
 ];
 
 export const validateForm = (formData: {
@@ -1457,64 +812,6 @@ export const estimateSldie = {
   },
 };
 
-export const blogData: BlogInfo[] = [
-  {
-    posterImage: '/assets/images/product/1.png',
-    category: 'Technology',
-    title: 'The Rise of AI in Modern Technology',
-    content:
-      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology. Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology Explore how AI is revolutionizing industries and what the future holds for this incredible technology',
-  },
-  {
-    posterImage: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    content:
-      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    posterImage: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    content:
-      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-  {
-    posterImage: '/assets/images/product/1.png',
-    category: 'Technology',
-    title: 'The Rise of AI in Modern Technology',
-    content:
-      'Explore how AI is revolutionizing industries and what the future holds for this incredible technology.',
-  },
-  {
-    posterImage: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    content:
-      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    posterImage: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    content:
-      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-  {
-    posterImage: '/assets/images/product/2.png',
-    category: 'Health',
-    title: 'Top 10 Health Tips for a Better Life',
-    content:
-      'Discover essential health tips that can help you live a healthier and more fulfilling life.',
-  },
-  {
-    posterImage: '/assets/images/product/3.png',
-    category: 'Travel',
-    title: 'Best Travel Destinations for 2024',
-    content:
-      'Check out the must-visit travel destinations for 2024, from exotic beaches to bustling cities.',
-  },
-];
 
 export const blogPara = [
   {
@@ -2008,165 +1305,7 @@ export const MoterisedContent = [
   },
 ];
 
-//MoterisedBlindsData
-// export const motorisedPageData = {
-//   title: 'Motorised Blinds',
-//   heroImage: bgBreadcrum,
-//   infoTitle: 'MOTORISED BLINDS',
-//   infoSubtitle: 'Convert your windows into Smart Windows',
-//   infoDescription:
-//     'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These motorised blinds give you the option to control your <a href="/made-to-measure-curtains" target="_blank" style="text-decoration: underline">window covering</a> with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer <a href="/blinds/motorised-blinds" target="_blank" style="text-decoration: underline">remote control blinds</a> that are smooth, reliable, and long-lasting. Whether you want a simple electric blind or fully connected, we’ve got the right motorisation system for you.',
-//   infoImage: moto1,
-//   measureTitle: '“Hey Alexa, lower my Blinds”',
-//   measureDescription:
-//     "With motorised systems, you can control them with a remote, your smartphone, or even your voice using Google Home, Apple HomeKit, or Amazon Alexa. Open and close your window coverings from anywhere in the house—or even while you're away. It's all about making things simpler and more flexible for you.",
-//   chooseustitle: 'Why Choose Us For Your Motorisation?',
-//   chooseustitle1: 'Control your windows anytime, anywhere!',
-//   measureTitle1: 'Set Your Own Schedule or Control Remotely',
-//   measureDescription1:
-//     'We love our customers and want to make things easier for them. If you have several blinds in your home, one remote can control them all. You can control them from anywhere in the world with a wifi hub. As we work daily with motorisation systems and have experience in handling them we will discuss pros and cons and give honest impartial advice.',
-//   chooseUsItems: [
-//     {
-//       image: img1,
-//       text: '10 Years warranty on all mechanical parts and labour',
-//     },
-//     {
-//       image: img2,
-//       text: 'A team of 50 staff to ensure perfection from start-to-finish',
-//     },
-//     {
-//       image: img3,
-//       text: 'In house production - quality is our concern, not yours',
-//     },
-//     { image: img4, text: 'We’re trusted, with over 700+ 5*reviews' },
-//   ],
-//   motorization: [
-//     { text: 'Easily operate with remote. Smartphone, or voice command.' },
-//     {
-//       text: 'Block out harmful UV rays, reducing energy usage and utility costs.',
-//     },
-//     {
-//       text: 'Perfect for individuals with mobility or accessibility challenges.',
-//     },
-//     {
-//       text: 'Programmable to block out sunlight at specific times, ensuring privacy.',
-//     },
-//     {
-//       text: 'Adjust the amount of light entering your home to create the perfect ambiance.',
-//     },
-//   ],
-//   additionalDescription:
-//     "There's no hard sell just relaxed and pressure-free consultation",
-//   additionalImage: moto2,
-//   additionalDescription2:
-//     "We believe in making your experience as stress-free as possible. Our team members are paid a fair living wage, meaning they are here for you. Rest assured, no one is working on commission here. Our team’s priority is to provide honest, helpful advice that’s best for you—not to push for a sale. If you choose to go with us, congratulations. If not we’ll send you your quotation by email and one follow up call. Then it's up to you to decide.",
-//   additionalDescription3:
-//     'We approach every consultation the way we’d like to be treated: with honesty and zero pressure. If you’re interested in a no-obligation quotation, you can give our friendly team a call, or simply fill out the online contact form, and we’ll get back to you quickly.',
-// };
-
-//Moterised Curtains Data
-// export const motorisedPageData1 = {
-//   title: 'Motorised Curtains',
-//   heroImage: bgBreadcrum,
-//   infoTitle: 'MOTORISED CURTAINS',
-//   infoSubtitle: 'Convert your windows into Smart Windows ',
-//   infoDescription:
-//     "Our passion for excellence makes us more than just a window covering company. There are so many reasons to go electric. Everything else in your life is automated, why not your blinds?  Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with motorised curtains. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly, continuously for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts.",
-//   infoImage: moto1,
-//   measureTitle: 'Made to Measure Motorised Curtains',
-//   measureDescription: `Just say the word, and let your motorisation system do the rest. It's now easier to control them with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
-//   chooseustitle: 'Why Choose Us For Your Motorisation?',
-//   chooseustitle1: 'Control your windows anytime, anywhere!',
-//   measureTitle1: 'Set Your Own Schedule or Control Remotely',
-//   measureDescription1: `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use your system so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants.`,
-//   chooseUsItems1: [
-//     {
-//       image: img1,
-//       text: '10 Years warranty on all mechanical parts and labour',
-//     },
-//     {
-//       image: img2,
-//       text: '50 experts to make sure perfection is maintained from start-to-finish',
-//     },
-//     {
-//       image: img3,
-//       text: `Quality production - we're in it for the long haul`,
-//     },
-//     {
-//       image: img4,
-//       text: 'More than 700 5-star reviews prove our reputation as trusted',
-//     },
-//   ],
-//   motorization1: [
-//     {
-//       text: 'Easily operate with remote. Smartphone, or voice command.',
-//     },
-//     {
-//       text: 'Save money and protect your home from UV rays.',
-//     },
-//     {
-//       text: `It's perfect for people with mobility or accessibility issues.`,
-//     },
-//     {
-//       text: 'You can set it up to block out the sun at specific times.',
-//     },
-//     {
-//       text: 'Adjust the amount of light entering your home to create the perfect ambiance.',
-//     },
-//   ],
-//   additionalDescription: `There's no hard sell just relaxed and pressure-free consultation`,
-//   additionalImage: moto2,
-//   additionalDescription2: `At Blinds and Curtains Dubai, choosing window coverings should be fun and enjoyable instead of stressful. So we designed our consultations to be relaxed and informative. Our team is here to guide you, not to push you. We take the time to fully understand your needs and provide solutions that genuinely work for your space, whether you're looking for fabrics, motorised options, or light control advice.`,
-//   additionalDescription3: `Every home is different, and every customer has a different taste. That's why we listen to you and offer honest, helpful advice during our consultations. There's no hustle, no pressure, and definitely no hard sell.`,
-// };
-
 export const Cateories = [9, 2, 5, 12];
-
-//BathroomBlindsData
-export const BathroomBlindsData = [
-  {
-    imgsrc: '/assets/images/bathroom-blinds/Rectangle1.png',
-    title: 'BATHROOM ROLLER BLINDS',
-    description:
-      'Choose a Roller blind for a neat and clutter-free finish. From fun prints to textured plains, all in moisture-resistant fabrics, you’re sure to find the perfect bathroom blinds, whatever your style of bathroom. Roller blinds are ideal for any bathroom where you want to maximise light and space. They filter the light beautifully while giving you much-needed privacy, especially in downstairs bathrooms and rooms that are overlooked.',
-    buttontext: 'VIEW OUR ROLLER BLINDS',
-  },
-  {
-    imgsrc: '/assets/images/bathroom-blinds/Rectangle2.png',
-    title: 'BATHROOM VENETIAN BLINDS',
-    description:
-      'Venetian blinds come in a wide range of colours, metallic shades, and special finishes for a sleek and contemporary look. Practical and easy to maintain, Venetian blinds are great for bathrooms. They are ideal for windows that are away from sinks, showers, and baths.',
-    buttontext: 'VIEW OUR VENETIAN BLINDS',
-  },
-  {
-    imgsrc: '/assets/images/bathroom-blinds/Rectangle1.png',
-    title: 'BATHROOM VERTICAL BLINDS',
-    description:
-      'Ideal for large glazed windows and doors, Vertical blinds a great option for bathrooms and wet rooms, where their moisture-resistant properties are a real bonus. Vertical blinds come in a fantastic array of designs and fabrics that work particularly well in contemporary spaces. Durable and hardwearing PVC fabrics are especially suited to steamy bathrooms and wet rooms.',
-    buttontext: 'VIEW OUR VERTICAL BLINDS',
-  },
-  {
-    imgsrc: '/assets/images/bathroom-blinds/Rectangle2.png',
-    title: 'BATHROOM WOODEN BLINDS',
-    description:
-      'Wood Venetian blinds are the natural choice for those who like to mix a bit of elegance with timeless while giving a modern or classic feel to any room. These give you the same good looks, but with the added benefit of being moisture-resistant.',
-    buttontext: 'VIEW OUR WOODEN BLINDS',
-  },
-  {
-    imgsrc: '/assets/images/bathroom-blinds/Rectangle1.png',
-    title: 'BATHROOM BLACKOUT BLINDS',
-    description:
-      'Our blackout blinds for bathrooms guarantee all the privacy you need, which is important if your bathroom is overlooked by neighbors or looks out onto the street. Many are available in PVC fabrics that are 100% waterproof, and they all block out the light.',
-    buttontext: 'VIEW OUR BLACKOUT BLINDS',
-  },
-  {
-    imgsrc: '/assets/images/bathroom-blinds/Rectangle2.png',
-    title: 'BATHROOM SKYLIGHT BLINDS',
-    description:
-      'Our skylight blinds come in a range of colours to suit your style and with a selection of waterproof fabrics, you don’t have to worry about accidental splashes.',
-    buttontext: 'VIEW OUR SKYLIGHT BLINDS',
-  },
-];
 
 export const infoSectionData = {
   title: 'Lorem Ipsum is simply dummy text of',
@@ -2236,7 +1375,7 @@ export const colorData: IColorData[] = [
       },
       {
         imageUrl:
-          '/assets/images/optimized-images/Color/White-shutters/Bay window shutters (3).webp',
+          '/assets/images/optimized-images/Color/White-shutters/Bay-Window-shutters.webp',
         altText: 'White Shutters',
       },
     ],
@@ -2275,16 +1414,6 @@ export const colorData: IColorData[] = [
       {
         imageUrl:
           '/assets/images/optimized-images/Color/Black-shutters/Cold color shutters (1).webp',
-        altText: 'Black Shutters',
-      },
-      {
-        imageUrl:
-          '/assets/images/optimized-images/Color/Black-shutters/full height shutters (2).webp',
-        altText: 'Black Shutters',
-      },
-      {
-        imageUrl:
-          '/assets/images/optimized-images/Color/Black-shutters/Tier on Tier Shutters (2).webp',
         altText: 'Black Shutters',
       },
     ],

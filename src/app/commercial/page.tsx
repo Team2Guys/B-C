@@ -6,9 +6,10 @@ import { Metadata } from "next";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const headersList = headers();
+  const headersList = await headers();
   const categories = await fetchCategories();
   const filteredCatgory = categories.find((c) => c.id === 12);
+ 
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
@@ -56,12 +57,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 const CommercialPage = async () => {
-  const [products , subCategories ] = await Promise.all([
+  const [products , subCategories ,categories ] = await Promise.all([
     fetchProducts(),
-    fetchSubCategories()
+    fetchSubCategories(),
+    fetchCategories(),
   ]);
+
   return (
-    <Commercial products={products} subCategories={subCategories} />
+    <Commercial products={products} subCategories={subCategories} categories={categories} />
   );
 };
 

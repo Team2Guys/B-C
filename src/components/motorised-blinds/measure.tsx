@@ -4,7 +4,7 @@ import React from 'react';
 const Measure = ({ title, description, className }: any) => {
   return (
     <Container className={`space-y-4 text-center  ${className}`}>
-      <h1 className=" text-20 md:text-30 font-medium">{title}</h1>
+      <h2 className=" text-20 md:text-30 font-medium">{title}</h2>
       <p className="text-12 md:text-16" dangerouslySetInnerHTML={{ __html: description }}></p>
     </Container>
   );
