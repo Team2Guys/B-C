@@ -470,6 +470,9 @@ li button:before {
   list-style-type: disc;
   margin-left: 20px;
 }
+.jodit .jodit-wysiwyg a {
+  text-decoration: underline;
+}
 
 .jodit .jodit-wysiwyg ol {
   list-style-type: decimal;
@@ -486,6 +489,7 @@ blockquote {
   list-style-type: disc;
   margin-left: 20px;
 }
+
 .blog-list ol {
   list-style-type: decimal;
   margin-left: 20px;
@@ -493,4 +497,12 @@ blockquote {
 
 .swal2-actions .swal2-confirm {
   background-color: #ff5858 !important;
+}
+
+ ol{
+  list-style-type: decimal;
+  margin-left: 20px;
+}
+.blog-list a {
+  text-decoration: underline;
 }
