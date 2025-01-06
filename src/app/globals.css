@@ -471,6 +471,9 @@ html {
   list-style-type: disc;
   margin-left: 20px;
 }
+.jodit .jodit-wysiwyg a {
+  text-decoration: underline;
+}
 
 .jodit .jodit-wysiwyg ol {
   list-style-type: decimal;
@@ -487,7 +490,10 @@ blockquote{
   list-style-type: disc;
   margin-left: 20px;
 }
-.blog-list ol{
+ ol{
   list-style-type: decimal;
   margin-left: 20px;
+}
+.blog-list a {
+  text-decoration: underline;
 }
