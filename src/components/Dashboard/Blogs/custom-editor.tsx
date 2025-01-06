@@ -6,24 +6,14 @@ const MyEditor = ({
   values,
   setFieldValue,
   placeholder,
-  addBlogMutation,
+  handleDebouncedMutation,
 }: any) => {
   const editor = useRef(null);
   const [content, setContent] = useState(values.content || '');
-  // eslint-disable-next-line no-undef
-  const typingTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setContent(values.content);
   }, [values.content]);
-
-  useEffect(() => {
-    return () => {
-      if (typingTimeout.current) {
-        clearTimeout(typingTimeout.current);
-      }
-    };
-  }, []);
 
   const config = useMemo(
     () => ({
@@ -75,20 +65,13 @@ const MyEditor = ({
     [placeholder],
   );
 
-  const handleDebouncedMutation = (newContent: string) => {
-    if (typingTimeout.current) {
-      clearTimeout(typingTimeout.current);
-    }
-
-    typingTimeout.current = setTimeout(() => {
-      addBlogMutation.mutate({ ...values, content: newContent });
-    }, 5000);
-  };
-
   const handleBlur = (newContent: string) => {
     setContent(newContent);
     setFieldValue('content', newContent);
-    handleDebouncedMutation(newContent);
+    handleDebouncedMutation({
+      ...values,
+      content: newContent,
+    });
   };
 
   return (
@@ -100,7 +83,10 @@ const MyEditor = ({
       onChange={(newContent) => {
         setContent(newContent);
         setFieldValue('content', newContent);
-        handleDebouncedMutation(newContent);
+        handleDebouncedMutation({
+          ...values,
+          content: newContent,
+        });
       }}
     />
   );
