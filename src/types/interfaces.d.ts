@@ -328,6 +328,10 @@ export interface BlogInfo {
   createdAt?: any;
   updatedAt?: any;
   last_editedBy?: string;
+  Images_Alt_Text?: '';
+  Canonical_Tag?: '';
+  Meta_Title?: '';
+  Meta_description?: '';
 }
 interface commentprops {
   status?: string;

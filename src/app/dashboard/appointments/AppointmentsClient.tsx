@@ -126,7 +126,6 @@ const AppointmentsClient = ({ appointments }: { appointments: IAppointments[] })
     <>
       <DefaultLayout>
       <div className={colorMode === 'dark' ? 'dark' : ''}>
-     
      <>
      <Breadcrumb pageName={'View Appointments'} />
         <div className="flex justify-between mb-4 items-center flex-wrap text-black dark:text-white pt-4">

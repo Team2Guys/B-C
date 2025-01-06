@@ -9,28 +9,24 @@ import { generateSlug } from "data/data";
 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
   const name = (await params).name;
-  const matchingLink = blogLinks.find((link) =>
-    link.href === name);
-  const categories = await fetchCategories();
-
+  const matchingLink = blogLinks.find((link) => link.href === name);
+  const [categories, blogs] = await Promise.all([fetchCategories(),fetchBlogs()]);
 
   const filterCategory = categories.find((category) => category.title === matchingLink?.label);
+  const blog: BlogInfo | undefined = blogs?.find((blog) => generateSlug(blog.title) === name);
+
+
   const headersList = await headers();
-  const domain =
-    headersList.get('x-forwarded-host') || headersList.get('host') || '';
+  const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
 
-  let Category = filterCategory as ICategory;
+  let Category : BlogInfo | ICategory = filterCategory  ? filterCategory: blog || {} as any;
 
-  let ImageUrl =
-    Category?.posterImage.imageUrl ||
-    'blindsandcurtains';
-  let alt =
-    Category?.posterImage.altText ||
-    'blindsandcurtains';
+  let ImageUrl = Category?.posterImage.imageUrl || 'blindsandcurtains';
+  let alt = Category?.posterImage.altText || 'blindsandcurtains';
 
   let NewImage = [
     {
@@ -38,12 +34,9 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
       alt: alt,
     },
   ];
-  let title =
-    Category?.Meta_Title ||
-    'blindsandcurtains';
-  let description =
-    Category?.Meta_description ||
-    'Welcome to blindsandcurtains';
+
+  let title = Category?.Meta_Title ||'blindsandcurtains';
+  let description = Category?.Meta_description || 'Welcome to blindsandcurtains';
   let url = `${fullUrl}blog/${name}`;
   return {
     title: title,
@@ -70,20 +63,11 @@ const BlogDetail = async ({ params }: { params: Promise<{ name: string }> }) => 
     (category) => category.title.toLowerCase() === name,
   );
 
-  const filterCategoryBlogPosts = blogs?.filter(
-    (blogItem: BlogInfo) => blogItem.category === category?.title,)
+  const filterCategoryBlogPosts = blogs?.filter( (blogItem: BlogInfo) => blogItem.category === category?.title,)
 
-  const blog: BlogInfo | undefined = blogs?.find(
-    (blog) => generateSlug(blog.title) === name,
-  );
+  const blog: BlogInfo | undefined = blogs?.find((blog) => generateSlug(blog.title) === name);
 
-  const filterRelatedPosts = blogs
-        .filter(
-          (blogItem: BlogInfo) =>
-            blogItem.category === blog?.category &&
-            generateSlug(blogItem.title) !== generateSlug(blog.title),
-        )
-        .slice(0, 3);
+  const filterRelatedPosts = blogs.filter((blogItem: BlogInfo) =>blogItem.category === blog?.category && generateSlug(blogItem.title) !== generateSlug(blog.title)).slice(0, 3);
   return (
     <Blog category={category} filterCategoryBlogPosts={filterCategoryBlogPosts} blog={blog} filterRelatedPosts={filterRelatedPosts} />
   );
