@@ -42,12 +42,12 @@ const ProductUs: React.FC = () => {
             <div className="lg:pl-12 ">
               <p className="md:text-xl font-bold">Contact Info :</p>
               <h2 className="text-left lg:text-5xl text-3xl font-bold lg:mt-8 mt-4">
-                Tell us More
+                Tell Us More
               </h2>
               <p className="lg:mt-8 mt-4 font-light text-14 lg:text-16 md:text-18">
-                Leverage agile frameworks to provide a robust <br /> synopsis
-                for high level overviews. Iterative <br /> approaches to
-                corporate strategy foster
+              The most trusted window treatment<br/> company in Dubai with a decade of experience<br/> and 100s of positive reviews.
+
+
               </p>
               <div className="block sm:hidden">
                 <BookAppointment />
