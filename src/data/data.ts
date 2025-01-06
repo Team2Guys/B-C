@@ -224,7 +224,7 @@ export const productData: Tproductdata = {
   sideImage1: '/assets/images/product-guarantees/guarantee2.png',
   heading: 'BLINDS, CURTAINS & SHUTTERS PRODUCT GUARANTEES',
   content:
-    'When you’re choosing Blinds & Curtains window dressings, you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications. you can be confident that they will continue to enhance your home now and in the come fully guaranteed, so you can rest assured you’re investing in quality products that are made to the highest specifications.',
+    'We at <a href="/" target="_blank" style="text-decoration:underline">blindsandcurtains.ae</a> know our products will complement your home now and in the future. All our made-to-measure <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">blinds</a>, <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">curtains</a>, and <a href="/shutters-range" target="_blank" style="text-decoration:underline">shutters</a> come with a 10-year mechanical and labour warranty. We make sure all our products are of high quality, but if something goes wrong, our team will visit to assess the situation. With them, you can be sure your problem will be handled with care, whether with a quick fix or a replacement. We stand behind our work so that you can trust us.',
 };
 
 export const sizePresets: TsizePresets[] = [
@@ -242,15 +242,15 @@ export const initialSize: TsizePresets = {
 
 export const PGuarantees: TProductGuarantees[] = [
   {
-    heading: 'OUR 3-YEAR GUARANTEE',
-    text: "When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you'll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you. When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you'll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you.",
-    image: '/assets/images/product-guarantees/guarantee2.png',
+    heading: 'What Our Guarantee Cover?',
+    text: `When choosing <a href="/" target="_blank" style="text-decoration:underline">blindsandcurtains.ae</a>, you're buying beautiful window dressings and getting a customer service experience that is unmatched in Dubai. From free consultation and installation to an after-sales care package, you can rest assured that you’ll be in good hands for the lifetime of your blinds, curtains or shutters. We understand how important fabric quality is to your blinds and curtains. That’s why we offer a 3-year warranty on all fabrics used in our products. From the track to the rod and every mechanism in between, every component of your blinds and curtains is durable. There's a 10-year warranty on all moving and static parts, so you're covered for the long term.If your custom window covering doesn’t perform as it should within 10 years of installation, we’ll fix it or give you a replacement of your choice. We do this so you'll always have a solution that works.`,
+    image: '/assets/images/product-guarantees/guarantee3.png',
     imageAlign: 'left',
   },
   {
-    heading: 'OUR LIFETIME WARRANTY',
-    text: "From the day your order is fitted, you will have a fully comprehensive 3-year Guarantee against manufacturing defects. This encompasses all parts, components, and materials used. Once the 3 years have passed, you can relax in the knowledge that we will be there to support you throughout the lifetime of your blinds, curtains or shutters. Where repairs are required, we will provide this service for you at a nominal fee and cost of goods only. Where goods are no longer available, we will offer you the most cost-effective method of resolving any issues. When choosing blindsandcurtains.ae for your window dressings, you can relax in the knowledge that you're not only buying a beautiful product, but you're also buying into a customer service ethos that will be like no other experience in Dubai. From our after-sales care package to our 1 working day guaranteed response, you can rest assured that you’ll be in good hands for the lifetime of your blinds, curtains or shutters. Great care and pride is attached into everything we do. From the blinds we supply and our beautiful handmade curtains, to the shutters that we import. You'll have our support from the day they are installed. This is the promise we make to you. ",
-    image: '/assets/images/product-guarantees/guarantee1.png',
+    heading: 'The Best Quality and Workmanship',
+    text: "Great care and pride is attached to everything we do. As soon as they are installed, you can count on our support. This is our commitment to you.For over a decade, we’ve been helping homes across Dubai achieve stunning, functional window solutions. From transparent pricing to honest advice, we’ve built a reputation for reliability. Our 750+ 5-star reviews speak to the trust our customers place in us.Call or email our support team, and we’ll guide you through the next steps. To fix the problem, our technicians will come to you when it's convenient for you. The warranty covers all labour costs and parts replacements. Moreover, we provide free uninstall/reinstall services within two years, protecting your peace of mind during renovations.",
+    image: '/assets/images/product-guarantees/guarantee4.png',
     imageAlign: 'right',
   },
 ];
@@ -1935,3 +1935,24 @@ export const footerData = [
     ],
   },
 ];
+
+export const GuaranteeVisitData =[
+  {
+    heading:"Book a free consultation" ,
+    description: "Our experts will come over at your convenience and discuss colours, styles, and measurements.",
+    button:"Book an appointment" ,
+    href:"/request-appointment",
+  },
+  {
+    heading:"Visit our showroom " ,
+    description: "Visit us in person next time you're in the area, and see for yourself what we've got to offer.",
+    button:"Find Our Location Map" ,
+    href:"https://www.google.com/maps?cid=2467468347994691262&hl=en",
+  },
+  {
+    heading:"Talk To Our Specialist" ,
+    description:"Do you want to talk with the Blinds & Curtains Team? Our team will get back to you ASAP.",
+    button:"Talk To Specialist" ,
+    href:"https://api.whatsapp.com/send/?phone=%2B971544945339&text&type=phone_number&app_absent=0",
+  },
+]
