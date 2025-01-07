@@ -110,10 +110,10 @@ const Gallery = ({ products , categories}: {products: IProduct[] , categories: I
                         }}
                       />
                       <div
-                        className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
+                        className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center justify-center rounded-se-sm bg-secondary md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
                       >
                         <span
-                          className={`text-black text-start text-primary cursor-pointer `}
+                          className={`text-black text-start cursor-pointer `}
                         >
                           {product.title}
                         </span>

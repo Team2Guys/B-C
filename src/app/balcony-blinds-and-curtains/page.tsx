@@ -11,8 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
   let product = "Balcony Blinds And Curtains"
   const subCategories: ICategory[] = await fetchSubCategories();
   const filteredCatgory = subCategories.find((c) => c.title === product);
-  const domain =
-    headersList.get('x-forwarded-host') || headersList.get('host') || '';
+  const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
   const pathname = headersList.get('x-invoke-path') || '/';
 
