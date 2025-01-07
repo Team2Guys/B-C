@@ -7,7 +7,8 @@ import Image from 'next/image';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
-import {Client} from "@googlemaps/google-maps-services-js";
+import { Client } from "@googlemaps/google-maps-services-js";
+import { fetchReviewsHandler } from 'config/fetch';
 
 function SampleNextArrow(props: any) {
   const { onClick } = props;
@@ -53,48 +54,47 @@ interface Review {
   translated?: boolean;
 }
 
+// let arry =     [   {
+//   author_name: "TEST",
+//   author_url: "TEST",
+//   language: "TEST",
+//   original_language: "TEST",
+//   profile_photo_url: "TEST",
+//   rating: 5, // Valid rating value
+//   relative_time_description: "relative_time_description",
+// },
+// {
+//   author_name: "TEST",
+//   author_url: "TEST",
+//   language: "TEST",
+//   original_language: "TEST",
+//   profile_photo_url: "TEST",
+//   rating: 5, // Valid rating value
+//   relative_time_description: "relative_time_description",
+// },
+// {
+//   author_name: "TEST",
+//   author_url: "TEST",
+//   language: "TEST",
+//   original_language: "TEST",
+//   profile_photo_url: "TEST",
+//   rating: 5, // Valid rating value
+//   relative_time_description: "relative_time_description",
+// },
+// {
+//   author_name: "TEST",
+//   author_url: "TEST",
+//   language: "TEST",
+//   original_language: "TEST",
+//   profile_photo_url: "TEST",
+//   rating: 5, // Valid rating value
+//   relative_time_description: "relative_time_description",
+// },
+
+// ]
 
 export default function Review_banner() {
-  const [reviews, setReviews] = useState<Review[]>(
-    [   {
-      author_name: "TEST",
-      author_url: "TEST",
-      language: "TEST",
-      original_language: "TEST",
-      profile_photo_url: "TEST",
-      rating: 5, // Valid rating value
-      relative_time_description: "relative_time_description",
-    },
-    {
-      author_name: "TEST",
-      author_url: "TEST",
-      language: "TEST",
-      original_language: "TEST",
-      profile_photo_url: "TEST",
-      rating: 5, // Valid rating value
-      relative_time_description: "relative_time_description",
-    },
-    {
-      author_name: "TEST",
-      author_url: "TEST",
-      language: "TEST",
-      original_language: "TEST",
-      profile_photo_url: "TEST",
-      rating: 5, // Valid rating value
-      relative_time_description: "relative_time_description",
-    },
-    {
-      author_name: "TEST",
-      author_url: "TEST",
-      language: "TEST",
-      original_language: "TEST",
-      profile_photo_url: "TEST",
-      rating: 5, // Valid rating value
-      relative_time_description: "relative_time_description",
-    },
-    
-]
-)
+  const [reviews, setReviews] = useState<Review[]>([])
   const settings: SliderSettings = {
     dots: false,
     infinite: true,
@@ -105,35 +105,15 @@ export default function Review_banner() {
     prevArrow: <SamplePrevArrow />,
   };
 
-  // const fetchReviewsHandler = async () => {
-  //   try {
-  //     let accountId = "011F5D-96EF92-0B0224";
-  //     let locationId = "ChIJ4V0HC41pXz4Rvla-qGM1PiI";
-  //     let url = `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`;
-  //     let response = await fetch(url, {
 
-
-  //     })
-  //     let data = await response.json()
-  //     console.log(data, "data")
-  //     setReviews(data)
-  //   }
-
-  //   catch (error) {
-  //     console.log(error);
-  //   }
-  // }
   useEffect(() => {
-    // fetchReviewsHandler()
+     fetchReviewsHandler(setReviews)
+ 
   }, [])
 
-  console.log(setReviews, 
-    'reviews'
-  )
 
   return (
     <>
-      {/* <button onClick={fetchReviewsHandler}>fetchReviewsHanlder</button> */}
       <Container className=" px-2 lg:mt-10 mt-10 relative">
         <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md">
           <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
@@ -167,18 +147,19 @@ export default function Review_banner() {
                 />
 
                 <Slider {...settings}>
-                  {reviews?.map((slide, index: any) => (
-                    <div
+                  {reviews?.map((slide, index: any) => {
+console.log(slide, "slide")
+                    return (<div
                       key={index}
                       className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
                     >
 
                       <h3 className="text-xl font-semibold text-white">
-                        {slide.author_name}
+                        {slide?.author_name}
                       </h3>
-                      <p className="mt-2 text-white">{slide.text}</p>
-                    </div>
-                  ))}
+                      <p className="mt-2 text-white overflow-x-auto max-h-36 text-ellipsis slider-text">{slide?.text}</p>
+                    </div>)
+                  })}
                 </Slider>
 
 
