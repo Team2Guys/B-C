@@ -18,12 +18,12 @@ interface blogs {
 const Blogging = ({blogs}:blogs) => {
   const [menuType, setMenuType] = useState('Blogs');
   const [editBlog, setEditBlog] = useState<IUpdateBlog | null>(null);
-
+console.log(blogs, "blogs")
   return (
     <DefaultLayout>
       <Breadcrumb pageName={menuType} />
       {menuType === 'Blogs' ? (
-        <ShowBlog setMenuType={setMenuType} setEditBlog={setEditBlog} blogs={blogs} />
+        <ShowBlog setMenuType={setMenuType} setEditBlog={setEditBlog} blogs={blogs} menuType={menuType} />
       ) : (
         <AddBlogs
           setMenuType={setMenuType}

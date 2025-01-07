@@ -198,18 +198,18 @@ const Header = () => {
                   </Fragment>
                 ) : (
                   <Fragment key={index} >
-                  <Link
-                    className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${link.label === 'Motorised' && ismoterised
+                    <Link
+                      className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${link.label === 'Motorised' && ismoterised
                         ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                         : isBlogActive || isActive
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                           : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-4'
-                      }`}
-                    onClick={handleCloseDrawer}
-                    href={link.href}
-                  >
-                    {link.label}
-                  </Link>
+                        }`}
+                      onClick={handleCloseDrawer}
+                      href={link.href}
+                    >
+                      {link.label}
+                    </Link>
                   </Fragment>
                 );
               })}
@@ -343,8 +343,8 @@ const Header = () => {
                               href={link.href}
                               onClick={handleCloseDrawer}
                               className={`border-b-2 border-transparent text-16 hover:text-black ${isBlogActive || isActive
-                                  ? 'font-bold text-secondary'
-                                  : 'font-normal'
+                                ? 'font-bold text-secondary'
+                                : 'font-normal'
                                 }`}
                             >
                               {link.label}
@@ -369,8 +369,8 @@ const Header = () => {
                         <Link
                           key={index}
                           className={`text-16 border-b border-[#0000002a] pb-[6px] ${isBlogActive || isActive
-                              ? 'font-bold'
-                              : 'font-normal'
+                            ? 'font-bold'
+                            : 'font-normal'
                             }`}
                           onClick={handleCloseDrawer}
                           href={link.href}

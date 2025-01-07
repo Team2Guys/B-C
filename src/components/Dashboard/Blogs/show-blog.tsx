@@ -14,18 +14,20 @@ import { FaRegEye } from 'react-icons/fa';
 import { generateSlug } from 'data/data';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import Cookies from 'js-cookie';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertResult } from 'sweetalert2';
+import revalidateTag from 'components/ServerActons/ServerAction';
 
 interface BlogProps {
   setMenuType: React.Dispatch<SetStateAction<string>>;
   setEditBlog: React.Dispatch<SetStateAction<UpdateBlog | null>>;
-  blogs: any;
+  blogs: BlogInfo[];
+  menuType:string
 }
 
-const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
+const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs,menuType }) => {
   const queryClient = useQueryClient();
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [filteredBlog, setfilteredBlog] = useState<BlogInfo[]>([]);
+  const [filteredBlog, setfilteredBlog] = useState<BlogInfo[]>(blogs);
 
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
   const canAddBlog =
@@ -62,16 +64,13 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
       cancelButtonText: 'No, keep it',
-    }).then((result) => {
+    }).then((result:SweetAlertResult) => {
       if (result.isConfirmed) {
         handleDelete(id);
       }
     });
   };
 
-  useEffect(() => {
-    setfilteredBlog(blogs);
-  }, []);
 
   const handleDelete = async (id: string) => {
     try {
@@ -83,9 +82,12 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
           },
         },
       );
+      setfilteredBlog(((prev)=>prev.filter((blog:any)=>blog.id !==id)))
       showToast('success', 'The blog has been successfully deleted👍');
       //@ts-expect-error
       queryClient.invalidateQueries(['blogs']);
+      revalidateTag('blogs');
+
     } catch (error) {
       showToast('warn', 'There was an error deleting the blog😢');
     }
@@ -96,15 +98,22 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
       title: 'Image',
       dataIndex: 'posterImageUrl',
       key: 'posterImageUrl',
-      render: (text: any, record: BlogInfo) => (
-        <Image
+      render: (text: any, record: BlogInfo) => {
+        return (
+          record.posterImage?.imageUrl ? 
+
+          <Image
           src={record.posterImage?.imageUrl}
           alt={`Image of ${record.title}`}
           className="rounded-md h-[50px]"
           width={50}
           height={50}
-        />
-      ),
+        />    : "Image not available"
+      
+        
+
+        )
+        }  ,
     },
     {
       title: 'Name',
@@ -151,7 +160,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
       render: (text: string, record: BlogInfo) => {
         return (
           <Fragment>
-            {record.isPublished ? (
+            {record?.isPublished ? (
               <span className="bg-green-500 text-white rounded-lg p-2 text-sm">
                 Published
               </span>
@@ -167,14 +176,13 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
     {
       title: 'Edit',
       key: 'edit',
-      //@ts-expect-error
-      render: (_, record: UpdateBlog) => (
+      render: (_, record: BlogInfo) => (
         <LiaEdit
           className={`${canEditBlog ? 'cursor-pointer' : 'cursor-not-allowed text-slate-200'}`}
           size={20}
           onClick={() => {
             if (canEditBlog) {
-              setEditBlog(record);
+              setEditBlog(record as any);
               setMenuType('Add Blog');
             }
           }}
@@ -198,6 +206,11 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs }) => {
       ),
     },
   ];
+
+useEffect(()=>{
+  setfilteredBlog(blogs)
+},[blogs])
+
 
   return (
     <div className="mt-10">
