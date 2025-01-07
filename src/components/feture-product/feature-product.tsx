@@ -120,7 +120,6 @@ const FeatureProduct: React.FC = () => {
         <p className="text-16 font-normal text-primary">
           We deliver on our promises, every single time{' '}
         </p>
-        <hr className="border-2 border-primary w-28 mx-auto mt-3 md:mt-0" />
       </div>
       <div className="mt-10">
         <div className="overflow-x-auto border">
@@ -152,7 +151,7 @@ const FeatureProduct: React.FC = () => {
         {visibleCount < (filteredProducts?.length || 0) && (
           <div className="flex justify-center mt-10">
             <Button
-              className="w-[163px] h-[55px] text-15 leading-6 tracking-wider font-bold text-white"
+              className="w-[163px] h-[55px] text-15 leading-6 tracking-wider font-bold text-black"
               onClick={handleViewMore}
               variant={'secondary'}
             >

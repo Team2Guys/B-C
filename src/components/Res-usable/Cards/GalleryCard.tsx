@@ -88,13 +88,13 @@ const GalleryCard: React.FC<GalleryProps> = ({
           detailHide ? 'block' : ''
         } ${
           relativeProducts ? 'justify-between' : 'justify-center'
-        } justify-center rounded-se-sm bg-white md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
+        } justify-center rounded-se-sm bg-secondary md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
       >
         {card && (
           <>
             <Link href={getPath(card)}>
               <span
-                className={`text-black text-start text-primary cursor-pointer ${
+                className={`text-black text-start  cursor-pointer ${
                   relativeProducts
                     ? 'text-12 font-light'
                     : 'text-sm font-medium'
@@ -105,7 +105,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
             </Link>
             <Link
               href={getPath(card)}
-              className={`border border-primary text-primary cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-white text-12 lg:text-14 text-nowrap ${
+              className={`border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-12 lg:text-14 text-nowrap ${
                 relativeProducts ? 'block' : 'block'
               }`}
             >

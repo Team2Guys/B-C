@@ -17,12 +17,12 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
   return (
     <>
       <Link
-        className="max-w-md rounded  lg:m-4 m-2 group cursor-pointer text-center sm:text-start"
+        className="max-w-md rounded  lg:m-4 m-2  text-center sm:text-start"
         href={`${href}`}
       >
         <div>
           <Image
-            className="lg:w-[500px] object-cover w-full lg:h-[400px] h-[280px] sm:h-[300px]  rounded-3xl transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+            className="lg:w-[500px] object-cover w-full lg:h-[400px] cursor-pointer h-[280px] sm:h-[300px] rounded-3xl transition-transform duration-300 ease-in-out transform hover:scale-105"
             width={400}
             height={400}
             loading='lazy'
@@ -30,20 +30,16 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
             alt={data.title || 'Title Image'}
           />
         </div>
-        <div className="px-2 py-4">
-          <div className="font-bold text-[24px] mb-2">{data.title} </div>
-          <p className="text-[#333333] text-15 md:text-16 font-light md:leading-8 md:text-justify">
+        <div className="px-2 py-4 cursor-default">
+          <div className="font-bold text-[24px] mb-2 text-center">{data.title} </div>
+          <p className="text-[#333333] text-15 md:text-16 font-light md:leading-8 text-center md:text-center">
             {truncateText(data.description || '', 30)}
           </p>
         </div>
-        <div className=" w-fit flex flex-col justify-center items-center text-sm mx-auto">
+        <div className=" w-fit flex flex-col bg-secondary justify-center items-center text-sm mx-auto rounded-sm cursor-pointer">
           <div
-            className="font-bold font-sans rounded-none group-hover:rounded-full px-3 py-1 group-hover:border-gray-300 group-hover:bg-white"
-
-          >
-            View {data.title}
+            className="font-bold font-sans px-4 py-2 group-hover:border-gray-300 hover:bg-primary rounded-sm"> View {data.title}
           </div>
-          <hr className="border-b-4 border-b-primary w-24 mt-1" />
         </div>
       </Link>
     </>
