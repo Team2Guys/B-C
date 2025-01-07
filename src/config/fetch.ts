@@ -190,3 +190,19 @@ export const filterProd = (
     );
   });
 };
+
+
+
+export   const fetchReviewsHandler = async (setReviews:any) => {
+  try {
+    let url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}`
+    let response = await fetch(url, {})
+    let data = await response.json()
+    console.log(data.result.reviews, "slide")
+    setReviews(data.result.reviews)
+  }
+
+  catch (error) {
+    console.log(error);
+  }
+}

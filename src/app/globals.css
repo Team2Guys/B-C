@@ -511,3 +511,9 @@ blockquote {
 .blog-list a {
   text-decoration: underline;
 }
+
+
+
+.slider-text::-webkit-scrollbar{
+  width: 0 !important;
+}
