@@ -43,6 +43,8 @@ export const metadata: Metadata = {
 
 const Blog = async () => {
   const blogs = await fetchBlogs();
+  const filteredBlog: BlogInfo[] =blogs?.filter((blog:BlogInfo)=>blog.isPublished)?.sort((a: BlogInfo, b: BlogInfo) =>new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+
   return (
     <>
       <Header />
@@ -50,9 +52,9 @@ const Blog = async () => {
 
       <div className="mt-5">
         <Suspense fallback={<PageSkelton />}>
-          <BlogMain blogs={blogs} />
+          <BlogMain blogs={filteredBlog} />
           <div className="mt-10">
-            <PopularBlog blogs={blogs} />
+       {filteredBlog.length >= 3  &&      <PopularBlog blogs={blogs} />}
           </div>
         </Suspense>
       </div>

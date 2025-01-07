@@ -14,6 +14,8 @@ import { FaAngleRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { ICategory } from 'types/types';
 import NotFound from 'app/not-found';
+import HTMLReactParser from "html-react-parser";
+
 
 const Blog = ({
   category,
@@ -27,9 +29,10 @@ const Blog = ({
   filterRelatedPosts?: BlogInfo[];
 }) => {
   const pathName = usePathname();
+  console.log(filterRelatedPosts, "filterRelatedPosts")
   return (
     <>
-      { category ? (
+      {category ? (
         <>
           <TopHero
             title={category?.title || 'blogs'}
@@ -87,20 +90,22 @@ const Blog = ({
             />
           </div>
           <div className="w-full overflow-hidden text-start">
-            <span className='blog-list' dangerouslySetInnerHTML={{ __html: blog?.content || '' }} />
+            <span>{HTMLReactParser(blog?.content || '')}</span>
           </div>
           <Comments data={blog} />
 
           <div className="mt-10">
             <div className='flex flex-wrap justify-between items-center'>
-            <h3 className="text-18 xs:text-28 md:text-[48px] font-semibold">
-              Related Articles
-            </h3>
-            <Link className="text-14 font-semibold rounded-full py-2 px-4 text-white bg-primary xs:text-16 sm:text-18"
-             href={`/blog/${blog?.category.toLowerCase()}`}>See All</Link>
+              <h3 className="text-18 xs:text-28 md:text-[48px] font-semibold">
+                Related Articles
+              </h3>
+              <Link className="text-14 font-semibold rounded-full py-2 px-4 text-white bg-primary xs:text-16 sm:text-18"
+                href={`/blog/${blog?.category.toLowerCase()}`}>See All</Link>
             </div>
-            
-            <OurBlog Blogdata={filterRelatedPosts || []} />
+
+            {filterRelatedPosts && filterRelatedPosts?.length >= 2 && <OurBlog Blogdata={filterRelatedPosts
+              .slice(0, 3)
+              || []} />}
           </div>
         </Container>
       ) : (
