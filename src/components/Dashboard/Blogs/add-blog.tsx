@@ -99,7 +99,6 @@ const AddBlogs = ({
     },
     onError: (error: any) => {
       showToast('error', error.data.message + '☹');
-      console.error('Error adding blog:', error);
     },
   });
 
