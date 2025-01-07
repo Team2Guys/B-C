@@ -1,14 +1,10 @@
 "use client";
-import React ,{ useEffect } from 'react';
+import React from 'react';
 import Link from "next/link";
 interface ErrorProps {
   error: Error;
 }
 export default function Error({ error }: ErrorProps) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
-  console.log(error, "error");
   return (
     <div className="flex items-center justify-center h-[90vh]">
       <div className="flex justify-center items-center flex-col gap-4">
