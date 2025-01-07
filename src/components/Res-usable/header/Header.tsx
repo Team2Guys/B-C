@@ -77,8 +77,6 @@ const Header = () => {
     megamenuActiveHanlder()
   }, [path]);
 
-  console.log(activeKey, "activeKey", path, "path")
-
   return (
     <>
       <div className="w-full bg-secondary">

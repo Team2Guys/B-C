@@ -1,3 +1,4 @@
+'use client'
 import ImageCardLoading from 'components/Skeleton/image-card-loading'
 import React from 'react'
 
