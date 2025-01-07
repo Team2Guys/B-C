@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
               <Link href={'/'}>
                 <Image
                   src={'/assets/images/whitelogo.png'}
-                  className="w-auto h-auto lg:w-24 lg:h-20 "
+                  className="w-auto h-auto lg:w-36 lg:h-32"
                   alt="Logo"
                   width={200}
                   height={200}
