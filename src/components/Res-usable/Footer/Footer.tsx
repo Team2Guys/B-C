@@ -25,9 +25,10 @@ import { ChangedProductUrl_handler, predefinedPaths, urls } from 'data/urls';
 import { Skeleton } from 'components/ui/skeleton';
 import { Collapse } from 'antd';
 import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
-import emailIcon from '../../../../public/assets/images/icon/envelope-icon (1) 2.png';
-import locationIcon from '../../../../public/assets/images/icon/Vector.png';
-import phoneIcon from '../../../../public/assets/images/icon/Vector (2).png';
+import emailIcon from '../../../../public/assets/images/icon/email-9-svgrepo-com (1) 1@2x.png';
+import locationIcon from '../../../../public/assets/images/icon/location-svgrepo-com 1.png';
+import phoneIcon from '../../../../public/assets/images/icon/Group 1171285400.png';
+import whatsAppIcon from '../../../../public/assets/images/icon/whatsapp-svgrepo-com (1) 1.png';
 
 const Footer: React.FC = () => {
   const fetchAllData = async () => {
@@ -159,7 +160,7 @@ const Footer: React.FC = () => {
                             <ul className="space-y-2 my-4">
                               {category.items.map((item) => {
                                 const matchingSubcategory = subcategories?.find(
-                                  (subcategory) =>
+                                  (subcategory: ICategory) =>
                                     subcategory.title === item &&
                                     subcategory.CategoryId === categories.find(
                                       (cat) => generateSlug(cat.title) === generateSlug(category.title),
@@ -211,7 +212,7 @@ const Footer: React.FC = () => {
                           <ul className="space-y-2 mt-4">
                             {category.items.map((item) => {
                               const matchingSubcategory = subcategories?.find(
-                                (subcategory) =>
+                                (subcategory: ICategory) =>
                                   subcategory.title === item &&
                                   subcategory.CategoryId === categories.find(
                                     (cat) => generateSlug(cat.title) === generateSlug(category.title),
@@ -316,7 +317,8 @@ const Footer: React.FC = () => {
                       </span>) : (<h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">Blinds & Curtains Dubai</h3>)}
                       <ul className="space-y-4 mt-4 text-sm lg:w-[100%]">
                         <li className="flex gap-2 flex-nowrap">
-                          <span className="w-6 h-6 rounded-full border border-[#F6EFE9] flex justify-center items-center"><Image src={emailIcon} alt='phone Icon' width={15} height={15} /></span>
+                        <span>
+                        <Image src={emailIcon} alt='phone Icon' width={36} height={36} className='w-5 h-5' /></span>
                           <Link
                             href={`mailto:${EmailInfo.email}`}
                             target="_blank"
@@ -326,7 +328,8 @@ const Footer: React.FC = () => {
                           </Link>
                         </li>
                         <li className="flex gap-2 flex-nowrap">
-                          <span className="w-6 h-6 rounded-full border border-[#F6EFE9] flex justify-center items-center"><Image src={phoneIcon} alt='phone Icon' width={14} height={14} /></span>
+                          <span>
+                          <Image src={phoneIcon} alt='phone Icon' width={36} height={36} className='w-5 h-5' /></span>
                           <Link
                             href={`tel:${phoneNumberInfo.number.replaceAll(' ', '')}`}
                             target="_blank"
@@ -336,8 +339,19 @@ const Footer: React.FC = () => {
                           </Link>
                         </li>
                         <li className="flex gap-2 flex-nowrap">
+                        <span>
+                          <Image src={whatsAppIcon} alt='phone Icon' width={36} height={36} className='w-6 h-6' /></span>
+                          <Link
+                            href={`https://wa.me/${phoneNumberInfo.number.replaceAll(' ', '')}`}
+                            target="_blank"
+                            className="text-sm font-medium text-nowrap"
+                          >
+                            {phoneNumberInfo.number}
+                          </Link>
+                        </li>
+                        <li className="flex gap-2 flex-nowrap">
                           <span>
-                          <span className="w-6 h-6 rounded-full border border-[#F6EFE9] flex justify-center items-center"><Image src={locationIcon} alt='phone Icon' width={10} height={10} /></span></span>
+                          <Image src={locationIcon} alt='phone Icon' width={36} height={36} className='min-w-6 w-6 h-6' /></span>
                           <Link
                             target="_blank"
                             className="text-sm font-medium"
