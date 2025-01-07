@@ -246,7 +246,7 @@ const Header = () => {
               href="/request-appointment"
               onClick={handleLinkClick}
             >
-              Book Free Appointment
+              Book a free appointment
             </Link>
             <div className="flex lg:hidden">
               <Sheet
@@ -437,7 +437,7 @@ const Header = () => {
             href="/request-appointment"
             onClick={handleLinkClick}
           >
-            Book Free Appointment
+           Book a free appointment
           </Link>
         </Container>
       </nav>
