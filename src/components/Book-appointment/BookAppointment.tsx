@@ -289,8 +289,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
       className={`bg-white  text-left text-black ${className} ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
     >
       {!singlePage && (
-        <h3 className="font-bold text-lg text-center tracking-[5px]">
-          BOOK YOUR FREE APPOINTMENT
+        <h3 className="font-bold text-lg text-center tracking-[5px] uppercase">
+         Book a free appointment
         </h3>
       )}
       <form
@@ -298,7 +298,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
         className={` bg-white rounded-md ${singlePage ? 'w-full p-4 ' : ' px-4 py-2'}`}
       >
         <div
-          className={`xs:grid  mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-5'}`}
+          className={`xs:grid  mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-6' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-5'}`}
         >
           <div>
             <label htmlFor="name" className="block text-11 font-light ">
