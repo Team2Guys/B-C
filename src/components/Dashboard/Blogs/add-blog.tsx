@@ -1,6 +1,6 @@
 'use client';
 import { Form, Formik } from 'formik';
-import React, { useState, SetStateAction, Fragment, useRef } from 'react';
+import React, { useState, SetStateAction, Fragment } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Select, Spin } from 'antd';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -17,7 +17,6 @@ import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Image from 'next/image';
 import MyEditor from './custom-editor';
 import Cookies from 'js-cookie';
-import revalidateTag from 'components/ServerActons/ServerAction';
 
 interface IAddBlogs {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -33,8 +32,6 @@ const AddBlogs = ({
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(
     EditInitialValues ? [EditInitialValues.posterImage] : [],
   );
-  const [isPublish, setIsPublish] = useState(false);
-
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
@@ -50,10 +47,8 @@ const AddBlogs = ({
     Canonical_Tag: EditInitialValues?.Canonical_Tag || '',
     Meta_Title: EditInitialValues?.Meta_Title || '',
     Meta_description: EditInitialValues?.Meta_description || '',
-    // isPublished: EditInitialValues?.Meta_description || '',
   };
   const queryClient = useQueryClient();
-console.log(EditInitialValues, "EditInitialValues")
 
   const {
     data: categories,
@@ -65,79 +60,48 @@ console.log(EditInitialValues, "EditInitialValues")
   });
 
   const addBlogMutation = useMutation({
-    mutationFn: async(formData: typeof blogInitialValues) => {
+    mutationFn: (formData: typeof blogInitialValues) => {
       let posterImage = posterimageUrl && posterimageUrl[0];
       if (!posterImage) {
-        if (isPublish) {
-          showToast('error', 'Please select Thumnail image😴');
-          throw new Error('No poster image selected');
-        } else {
-          setposterimageUrl([]);
-        }
+        showToast('warn', 'Please select Thumnail image😴');
+        throw new Error('No poster image selected');
       }
 
       const values = { ...formData, posterImage };
       if (EditInitialValues) {
         const updatedAt = new Date();
-        const finalValues = { updatedAt, isPublished: isPublish, ...values };
+        const finalValues = { updatedAt, ...values };
 
-      await axios.put(
+        return axios.put(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/update/${EditInitialValues.id}`,
           finalValues,
           { headers },
         );
-      revalidateTag('blogs');
-      return  
-
       }
 
-       await axios.post(
+      return axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/create_blog`,
         values,
         { headers },
       );
-
-      revalidateTag('blogs');
-      
     },
-
     onSuccess: () => {
-      if (isPublish) {
-      revalidateTag('blogs');
-
-        setMenuType('Blogs');
-        showToast(
-          'success',
-          EditInitialValues
-            ? 'Blog updated successfully🎉'
-            : 'Blog added successfully🎉',
-        );
-        setEditBlog(null);
-        //@ts-expect-error
-        queryClient.invalidateQueries(['blogs']);
-
-      } else {
-        showToast('success', 'Blog saved as Draft🎉');
-      }
+      setMenuType('Blogs');
+      showToast(
+        'success',
+        EditInitialValues
+          ? 'Blog updated successfully🎉'
+          : 'Blog added successfully🎉',
+      );
+      setEditBlog(null);
+      //@ts-expect-error
+      queryClient.invalidateQueries(['blogs']);
     },
     onError: (error: any) => {
       showToast('error', error.data.message + '☹');
       console.error('Error adding blog:', error);
     },
   });
-
-  // eslint-disable-next-line no-undef
-  const typingTimeout = useRef<NodeJS.Timeout | null>(null);
-
-  const handleDebouncedMutation = (newValues: typeof blogInitialValues) => {
-    if (typingTimeout.current) {
-      clearTimeout(typingTimeout.current);
-    }
-
-    typingTimeout.current = setTimeout(() => {
-      addBlogMutation.mutate(newValues);
-    }, 2000);
-  };
 
   return (
     <Fragment>
@@ -163,16 +127,13 @@ console.log(EditInitialValues, "EditInitialValues")
         <Formik
           initialValues={blogInitialValues}
           onSubmit={(values, { resetForm }) => {
-            if (isPublish) {
-              if (
-                values.content === '' ||
-                values.category === '' ||
-                values.title === ''
-              ) {
-                return showToast('warn', 'Ensure all fields are filled out 😴');
-              }
+            if (
+              values.content === '' ||
+              values.category === '' ||
+              values.title === ''
+            ) {
+              return showToast('warn', 'Ensure all fields are filled out😴');
             }
-
             addBlogMutation.mutate(values, {
               onSuccess: () => {
                 resetForm();
@@ -189,7 +150,7 @@ console.log(EditInitialValues, "EditInitialValues")
                   </h3>
                 </div>
 
-                {(posterimageUrl && posterimageUrl?.length > 0) && posterimageUrl.some((item)=>Object.keys(item).length > 0) ? (
+                {posterimageUrl && posterimageUrl?.length > 0 ? (
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
                     {posterimageUrl.map((item: any, index) => (
                       <div
@@ -233,13 +194,7 @@ console.log(EditInitialValues, "EditInitialValues")
                   placeholder="Title"
                   value={values.title}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) => {
-                    setFieldValue('title', e.target.value);
-                    handleDebouncedMutation({
-                      ...values,
-                      title: e.target.value,
-                    });
-                  }}
+                  onChange={(e) => setFieldValue('title', e.target.value)}
                 />
               </div>
 
@@ -254,10 +209,7 @@ console.log(EditInitialValues, "EditInitialValues")
                     className="w-full h-[48px] detail-option  border rounded-md "
                     placeholder="Select Category"
                     value={values.category}
-                    onChange={(value) => {
-                      setFieldValue('category', value);
-                      handleDebouncedMutation({ ...values, category: value });
-                    }}
+                    onChange={(value) => setFieldValue('category', value)}
                     notFoundContent={
                       categoryError
                         ? 'Error loading categories'
@@ -265,12 +217,10 @@ console.log(EditInitialValues, "EditInitialValues")
                     }
                     options={[
                       { value: '', label: 'Select Category', disabled: true },
-                      ...(categories
-                        ?.filter((category) => category.title !== 'Commercial')
-                        .map((category) => ({
-                          value: category.title,
-                          label: category.title,
-                        })) || []),
+                      ...(categories?.filter((category) => category.title !== 'Commercial').map((category) => ({
+                        value: category.title,
+                        label: category.title,
+                      })) || []),
                     ]}
                   />
                 )}
@@ -320,13 +270,7 @@ console.log(EditInitialValues, "EditInitialValues")
               setFieldValue('content', data);
             }}
           /> */}
-              <MyEditor
-                setFieldValue={setFieldValue}
-                values={values}
-                addBlogMutation={addBlogMutation}
-                handleDebouncedMutation={handleDebouncedMutation}
-              />
-
+              <MyEditor setFieldValue={setFieldValue} values={values} />
               <div>
                 <label className=" block text-16 font-medium text-black dark:text-white">
                   Meta Title
@@ -337,13 +281,7 @@ console.log(EditInitialValues, "EditInitialValues")
                   placeholder="Enter Meta Title"
                   value={values.Meta_Title}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) => {
-                    setFieldValue('Meta_Title', e.target.value);
-                    handleDebouncedMutation({
-                      ...values,
-                      Meta_Title: e.target.value,
-                    });
-                  }}
+                  onChange={(e) => setFieldValue('Meta_Title', e.target.value)}
                 />
               </div>
               <div>
@@ -356,13 +294,9 @@ console.log(EditInitialValues, "EditInitialValues")
                   placeholder="Enter Canonical Tag"
                   value={values.Canonical_Tag}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) => {
-                    setFieldValue('Canonical_Tag', e.target.value);
-                    handleDebouncedMutation({
-                      ...values,
-                      Canonical_Tag: e.target.value,
-                    });
-                  }}
+                  onChange={(e) =>
+                    setFieldValue('Canonical_Tag', e.target.value)
+                  }
                 />
               </div>
               <div>
@@ -374,13 +308,9 @@ console.log(EditInitialValues, "EditInitialValues")
                   placeholder="Enter Meta Description"
                   value={values.Meta_description}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) => {
-                    setFieldValue('Meta_description', e.target.value);
-                    handleDebouncedMutation({
-                      ...values,
-                      Meta_description: e.target.value,
-                    });
-                  }}
+                  onChange={(e) =>
+                    setFieldValue('Meta_description', e.target.value)
+                  }
                 />
               </div>
               <div>
@@ -393,40 +323,23 @@ console.log(EditInitialValues, "EditInitialValues")
                   placeholder="Enter Image ALT text"
                   value={values.Images_Alt_Text}
                   className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                  onChange={(e) => {
-                    setFieldValue('Images_Alt_Text', e.target.value);
-                    handleDebouncedMutation({
-                      ...values,
-                      Images_Alt_Text: e.target.value,
-                    });
-                  }}
+                  onChange={(e) =>
+                    setFieldValue('Images_Alt_Text', e.target.value)
+                  }
                 />
               </div>
-              <div className="flex justify-between">
-                <Button
-                  disabled={addBlogMutation.isPending  || !EditInitialValues?.isPublished ? true : false}
-                  type="submit"
-                  className={`text-white ${EditInitialValues?.isPublished ? "bg-yellow-500" : "bg-gray-500"}   px-4 py-2 font-semibold rounded-md`}
-                >
-                  {addBlogMutation.isPending && !EditInitialValues?.isPublished  ? (
-                    <Loader color="#fff" />
-                  ) : (
-                    'Draft'
-                  )}
-                </Button>
-                <Button
-                  disabled={addBlogMutation.isPending || EditInitialValues?.isPublished ? true : false}
-                  type="submit"
-                  className={`text-white  ${EditInitialValues?.isPublished ? "bg-gray-400 cursor-default" : "bg-green-600" } px-4 py-2 font-semibold rounded-md`}
-                  onClick={() => setIsPublish(true)}
-                >
-                  {addBlogMutation.isPending && EditInitialValues?.isPublished  && isPublish? (
-                    <Loader color="#fff" />
-                  ) : (
-                    'PUBLISH'
-                  )}
-                </Button>
-              </div>
+
+              <Button
+                disabled={addBlogMutation.isPending ? true : false}
+                type="submit"
+                className="text-white bg-primary px-4 py-2 font-semibold rounded-md"
+              >
+                {addBlogMutation.isPending ? (
+                  <Loader color="#fff" />
+                ) : (
+                  'Submit'
+                )}
+              </Button>
             </Form>
           )}
         </Formik>
