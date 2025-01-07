@@ -17,6 +17,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@reduxjs/toolkit": "^2.3.0",
     "@tanstack/react-query": "^5.62.7",
+    "@tinymce/tinymce-react": "^5.1.1",
     "antd": "^5.20.1",
     "apexcharts": "^3.52.0",
     "axios": "^1.7.4",
@@ -51,6 +52,7 @@
     "swiper": "^11.1.12",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
+    "tinymce": "^7.6.0",
     "typescript-eslint": "^8.18.0",
     "yup": "^1.4.0"
   },
