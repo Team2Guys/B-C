@@ -81,7 +81,7 @@ console.log(EditInitialValues, "EditInitialValues")
         const updatedAt = new Date();
         const finalValues = { updatedAt, isPublished: isPublish, ...values };
 
-        let resonse = await axios.put(
+      await axios.put(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/update/${EditInitialValues.id}`,
           finalValues,
           { headers },
@@ -91,7 +91,7 @@ console.log(EditInitialValues, "EditInitialValues")
 
       }
 
-      let response = await axios.post(
+       await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/create_blog`,
         values,
         { headers },
