@@ -13,9 +13,11 @@ const MyEditor = ({
   setFieldValue,
   placeholder,
   handleDebouncedMutation,
+  setEditorLoading
 }: any) => {
   const editorRef = useRef<any>(null);
   const [content, setContent] = useState(values.content || '');
+  
   useEffect(() => {
     setContent(values.content);
   }, [values.content]);
