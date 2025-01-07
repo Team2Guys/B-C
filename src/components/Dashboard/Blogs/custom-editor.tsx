@@ -16,7 +16,6 @@ const MyEditor = ({
 }: any) => {
   const editorRef = useRef<any>(null);
   const [content, setContent] = useState(values.content || '');
-
   useEffect(() => {
     setContent(values.content);
   }, [values.content]);
@@ -51,15 +50,16 @@ const MyEditor = ({
     autosave_interval: '10s',
     a11y_advanced_options: true,
     quickbars_insert_toolbar: true,
+    nonbreaking_force_tab: true,
+    allow_html_in_named_anchor: true,
     quickbars_image_toolbar: 'alignleft aligncenter alignright | rotateleft rotateright | imageoptions',
     plugins: [
-      'advlist', 'autolink','accordion','quickbars','autosave','importword','restoredraft','upload', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+      'advlist','blocks fontfamily fontsize', 'autolink','accordion','quickbars','autosave','importword','restoredraft','upload', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
       'searchreplace', 'wordcount', 'visualblocks','insertimage', 'visualchars', 'code', 'fullscreen', 'insertdatetime','quickbars image editimage',
-      'media', 'table', 'emoticons', 'help'
+      'media', 'table', 'emoticons', 'help','directionality','nonbreaking'
     ],
-    toolbar: 'undo redo | styles |restoredraft| bold italic|accordion |quickimage|quicktable| importword | restoredraft | alignleft aligncenter alignright alignjustify | ' +
-    'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
-    'forecolor backcolor emoticons | help',
+    toolbar1: 'undo redo|blocks fontfamily fontsize | styles |restoredraft|nonbreaking| bold italic|accordion|ltr rtl |quickimage|quicktable| importword  ',
+     toolbar2: 'alignleft aligncenter alignright alignjustify |bullist numlist outdent indent | link image| print preview media fullscreen |forecolor backcolor emoticons| anchor|restoredraft | help',
     menu: {
       file: { title: 'File', items: 'newdocument restoredraft | preview | importword exportpdf exportword | print | deleteallconversations' },
       edit: { title: 'Edit', items: 'undo redo | cut copy paste pastetext | selectall | searchreplace' },
