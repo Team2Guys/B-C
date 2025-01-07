@@ -209,7 +209,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs,menuTyp
 
 useEffect(()=>{
   setfilteredBlog(blogs)
-},[blogs])
+},[blogs,menuType])
 
 
   return (
