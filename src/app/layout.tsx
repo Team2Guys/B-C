@@ -6,6 +6,7 @@ import 'app/globals.css';
 import { Providers } from './Providers';
 import { ToastContainer } from 'react-toastify';
 import WhatsIcon from 'components/Icons/Whatsapp';
+import Callbutton from 'components/Res-usable/callbutton/callbutton';
 
 const gotham = localFont({
   src: [
@@ -34,6 +35,7 @@ export default function RootLayout({
         <body className={` ${gotham.className} bg-lightgrey`}>
           <PathnameWrapper>
             {children}
+            <Callbutton/>
             <WhatsIcon />
             <ToastContainer autoClose={3000} />
           </PathnameWrapper>
