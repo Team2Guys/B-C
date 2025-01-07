@@ -254,12 +254,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         {isOpen && (
           <div
             ref={menuRef}
-            className="border-t-8 border-secondary absolute bg-white w-full left-1/2 max-w-[98%] -translate-x-1/2  py-4 space-y-4 transition-transform transform z-50"
-          >
+            className={`border-t-8 border-secondary absolute bg-white w-full left-1/2 ${title === 'Motorised' ? 'max-w-[60%]' :'max-w-[98%]'} -translate-x-1/2 py-4 space-y-4 transition-transform transform z-50`}>
             <Container>
               {title === 'Motorised' ? (
-                <div className="flex justify-between">
-                  <div className="flex flex-col gap-4 w-fit">
+                <div className="flex justify-between gap-10">
+                  <div className="flex flex-col gap-4">
                     {MoterisedData.map((product, index) => (
                       <Link
                         key={index}
@@ -267,7 +266,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         onMouseEnter={() =>
                           setHoveredProduct(product.title || 'Automated Blinds')
                         }
-                        className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${hoveredProduct === product.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
+                        className={` font-gotham text-15 cursor-pointer text-nowrap capitalize w-fit link-underline ${hoveredProduct === product.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
                       >
                         {product.title}
                       </Link>
