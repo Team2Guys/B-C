@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['furniturezone.pk', 'example.com', 'res.cloudinary.com', "unsplash.com"],
+        domains: ['furniturezone.pk', 'example.com', 'res.cloudinary.com', "unsplash.com", "googleusercontent.com"],
         unoptimized: true,
     },
 
