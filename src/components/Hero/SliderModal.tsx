@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { SetStateAction } from 'react';
+import React, { SetStateAction, useEffect } from 'react';
 import { Rate } from 'antd';
 import { HeroImages } from 'data/data';
 interface SliderModalProps {
@@ -8,7 +8,27 @@ interface SliderModalProps {
   modelType?: string;
 }
 
+
+
 function SliderModal({ setshowModel, className, modelType }: SliderModalProps) {
+
+  useEffect(() => {
+    const modelHanlder = (e: any) => {
+      let doc_id = "modalHandler"
+      let id = e.target.id;
+      if (doc_id !== id) setshowModel('bnc')
+
+    }
+
+    document.addEventListener('click', modelHanlder)
+
+    return () => {
+      document.removeEventListener('click', modelHanlder)
+
+    }
+
+  }, [])
+
   return (
     <div
       id="modalHandler"
@@ -51,9 +71,9 @@ function SliderModal({ setshowModel, className, modelType }: SliderModalProps) {
 
         {modelType == "2_model" ? `A team of 50 staff to ensure perfection from start-to-finish
 In house production - quality is our concern, not yours
-Free uninstall/re-install within 2 years.` : 
+Free uninstall/re-install within 2 years.` :
 
-`10 YEARS warranty on all mechanical parts and labour
+          `10 YEARS warranty on all mechanical parts and labour
 We’re trusted, with over 750+ 5* reviews
 Free home visits with free installation.`}
       </div>
