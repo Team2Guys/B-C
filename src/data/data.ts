@@ -3,7 +3,7 @@ import img1 from '../../public/assets/images/MotorisedBlind/guarantee1.png';
 import img2 from '../../public/assets/images/MotorisedBlind/businessmen1.png';
 import img3 from '../../public/assets/images/MotorisedBlind/ready-stock.png';
 import img4 from '../../public/assets/images/MotorisedBlind/loyalty-program.png';
-import moto2 from '../../public/assets/images/MotorisedBlind/mons2.png';
+import moto2 from '../../public/assets/images/MotorisedBlind/blinds.png';
 
 import {
   Email,
