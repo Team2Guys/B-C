@@ -63,11 +63,16 @@ const BlogDetail = async ({ params }: { params: Promise<{ name: string }> }) => 
     (category) => category.title.toLowerCase() === name,
   );
 
-  const filterCategoryBlogPosts = blogs?.filter( (blogItem: BlogInfo) => blogItem.category === category?.title,)
+  const filterCategoryBlogPosts = blogs?.filter( (blogItem: BlogInfo) => blogItem.category === category?.title && blogItem?.isPublished)
 
-  const blog: BlogInfo | undefined = blogs?.find((blog) => generateSlug(blog.title) === name);
+  const blog: BlogInfo | undefined = blogs?.find((blog) => generateSlug(blog.title) === name && blog.isPublished);
 
-  const filterRelatedPosts = blogs.filter((blogItem: BlogInfo) =>blogItem.category === blog?.category && generateSlug(blogItem.title) !== generateSlug(blog.title)).slice(0, 3);
+  const filterRelatedPosts = blogs.filter((blogItem: BlogInfo) =>(blogItem.category === blog?.category) &&
+   generateSlug(blogItem.title) !== generateSlug(blog.title) && blogItem.isPublished) 
+   
+  //  .slice(0, 3);
+ 
+  console.log(filterRelatedPosts.length, "FILTER")
   return (
     <Blog category={category} filterCategoryBlogPosts={filterCategoryBlogPosts} blog={blog} filterRelatedPosts={filterRelatedPosts} />
   );
