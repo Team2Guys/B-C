@@ -8,6 +8,7 @@ import { IoCall, IoLocationSharp } from 'react-icons/io5';
 import Link from 'next/link';
 import BookAppointment from 'components/Book-appointment/BookAppointment';
 import { usePathname } from 'next/navigation';
+import { SlCalender } from "react-icons/sl";
 
 const ProductUs: React.FC = () => {
   const pathName = usePathname();
@@ -71,6 +72,9 @@ const ProductUs: React.FC = () => {
                     +971 054 494 5339
                   </Link>
                 </div>
+                <div className="text-14 md:text-18 flex gap-3 items-start">
+                  <SlCalender className="text-white w-6 h-6" />
+                    8.30am - 6.00pm 7 days a week</div>
                 <div className=" text-14 flex gap-3 items-start md:text-18">
                   <MdEmail className="text-white w-6 h-6" />
                   <Link
