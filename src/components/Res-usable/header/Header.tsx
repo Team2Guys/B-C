@@ -31,9 +31,6 @@ const Header = () => {
   const [activeKey, setActiveKey] = useState<number | undefined>(
     undefined,
   );
-  const [index, setindex] = useState<number | undefined>(
-    undefined,
-  );
   const path = usePathname();
   const { Panel } = Collapse;
   const handleLinkClick = () => {
@@ -61,34 +58,26 @@ const Header = () => {
   const products: IProduct[] = data?.products || [];
   const subCategories: ICategory[] = data?.subCategories || [];
 
-const megamenuActiveHanlder =()=>{
-  const isBlogActive = path.startsWith('/blog');
-const isActive =  links.some(link =>link.href === path);
-console.log(isActive, "activeKey")
-const isMotorised = path === '/automated-blinds' || path === '/automated-curtains';
-let myindex = 0
+  const megamenuActiveHanlder = () => {
+    links.map((link , index) => {
+      const isBlogPath = path.startsWith('/blog');
+      const isBlogActive = link.href === '/blog' && isBlogPath;
+      const isActive = !isBlogPath && path?.includes(generateSlug(link.label));
+      const isMotorised = path === '/automated-blinds' || path === '/automated-curtains';
+      const isBalconyActive =
+                        path?.includes('blinds-and-curtains') ||
+                        path?.includes('blinds-curtains') ||
+                        path?.includes('printed-blinds');
+      if (isActive || isBlogActive || isMotorised || isBalconyActive) {
+        setActiveKey(isMotorised ? 3 : isBalconyActive ? 4 : index);
+      }
+    })
+  }
+  useEffect(() => {
+    megamenuActiveHanlder()
+  }, [path]);
 
-if ((isActive || isBlogActive) || !isMotorised) {
-  links.map((item:any, index) => {
-    if(path.includes(item.href)){
-      return myindex = index;
-    }
-
-    return item;
-  })
-  setActiveKey(isMotorised ? 3 : myindex);
-}
-
-}
-
-
-
-                  
-                      useEffect(() => {
-                        megamenuActiveHanlder()
-                      }, [path]);
-
-console.log(activeKey, "activeKey", path, "path")
+  console.log(activeKey, "activeKey", path, "path")
 
   return (
     <>
@@ -367,7 +356,6 @@ console.log(activeKey, "activeKey", path, "path")
                       const isBlogPath = path.startsWith('/blog');
                       const isBlogActive = link.href === '/blog' && isBlogPath;
                       const isActive = !isBlogPath && path?.includes(generateSlug(link.label));
-                      const isMotorised = path === '/automated-blinds' || path === '/automated-curtains';
                       const isBalconyActive =
                         path?.includes('blinds-and-curtains') ||
                         path?.includes('blinds-curtains') ||
@@ -378,20 +366,7 @@ console.log(activeKey, "activeKey", path, "path")
                       const ismoter =
                         path?.includes('automated-curtains') ||
                         path?.includes('automated-blinds');
-                      // useEffect(() => {
-                      //   if ((isActive || isBlogActive) && activeKey !== (isMotorised ? 3 : index)) {
-                      //     setActiveKey(isMotorised ? 3 : index);
-                      //   }
-                      // }, [isActive, isBlogActive, isMotorised, activeKey, index]);
-                      const ActiveHandler =() => {
-                        if ((isActive || isBlogActive) && activeKey !== (isMotorised ? 3 : index)) {
-                          setActiveKey(isMotorised ? 3 : index);
-                        }
-                      }
-
-
-                      ActiveHandler
-
+                     
                       return combinedSliderData.length > 0 ? (
                         <Panel
                           key={index}
