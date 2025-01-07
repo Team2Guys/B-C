@@ -6,7 +6,6 @@ import Container from 'components/Res-usable/Container/Container';
 import logo from '../../../../public/assets/images/logomain.png';
 import MegaMenu from './MegaMenu';
 import Sheet from 'components/ui/Drawer';
-import { RiMenuFoldLine } from 'react-icons/ri';
 import SocialLink from '../social-link/social-link';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
@@ -22,6 +21,7 @@ import { usePathname } from 'next/navigation';
 import { Collapse } from 'antd';
 import { links } from 'data/header_links';
 import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
+import menuIcon from '../../../../public/assets/images/icon/menu.png';
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
@@ -77,8 +77,6 @@ const Header = () => {
     megamenuActiveHanlder()
   }, [path]);
 
-  console.log(activeKey, "activeKey", path, "path")
-
   return (
     <>
       <div className="w-full bg-secondary">
@@ -95,6 +93,16 @@ const Header = () => {
       </div>
 
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50 py-2 sm:py-0">
+        
+      <Container className="sm:hidden mb-2 pb-4 pt-2 text-center border-b border-[#0006]">
+          <Link
+            className="py-3 px-6 rounded-md text-14 xs:text-15 whitespace-nowrap bg-primary text-black"
+            href="/request-appointment"
+            onClick={handleLinkClick}
+          >
+            BOOK A FREE APPOINTMENT
+          </Link>
+        </Container>
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
           <Link href={'/'} className="w-7/12 lg:w-1/12 ">
             <Image
@@ -250,7 +258,7 @@ const Header = () => {
             </Link>
             <div className="flex lg:hidden">
               <Sheet
-                drawerName={<RiMenuFoldLine size={25} />}
+                drawerName={<Image src={menuIcon} alt='menu icon' width={75} height={75} className='min-w-10 w-9 h-9' />}
                 open={drawerOpen}
                 setOpen={setDrawerOpen}
                 selectedLabel={selectedLabel}
@@ -430,15 +438,6 @@ const Header = () => {
               </Sheet>
             </div>
           </div>
-        </Container>
-        <Container className="sm:hidden pb-1 pt-2 text-center">
-          <Link
-            className="py-2 px-6 rounded-md text-14 whitespace-nowrap bg-primary text-black"
-            href="/request-appointment"
-            onClick={handleLinkClick}
-          >
-            Book Free Appointment
-          </Link>
         </Container>
       </nav>
     </>
