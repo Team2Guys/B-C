@@ -75,7 +75,7 @@ const MyEditor = ({
         'bold italic underline | removeformat | forecolor backcolor',
         'insertdatetime emoticons | code'
       ],
-      file_picker_callback: (cb: (url: string, meta: any) => void, value: string, meta: any) => {
+      file_picker_callback: (cb: (url: string, meta: any) => void,) => {
         const input = document.createElement('input');
         input.setAttribute('type', 'file');
         input.setAttribute('accept', 'image/*');
@@ -110,7 +110,7 @@ const MyEditor = ({
       value={content}
       init={config}
       onBlur={(evt, editor) => handleBlur(editor.getContent())}
-      onEditorChange={(newContent, editor) => handleContentChange(newContent)}
+      onEditorChange={(newContent) => handleContentChange(newContent)}
     />
   );
 };
