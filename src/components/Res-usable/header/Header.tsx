@@ -6,7 +6,6 @@ import Container from 'components/Res-usable/Container/Container';
 import logo from '../../../../public/assets/images/logomain.png';
 import MegaMenu from './MegaMenu';
 import Sheet from 'components/ui/Drawer';
-import { RiMenuFoldLine } from 'react-icons/ri';
 import SocialLink from '../social-link/social-link';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
