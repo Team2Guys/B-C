@@ -454,8 +454,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                       (matchingItem?.includes('blinds-and-curtains') || 
                        matchingItem?.includes('blinds-curtains') || 
                        matchingItem?.includes('printed-blinds')) || 
-                      matchingItem?.includes(title.toLowerCase())) && defualtActiveKey === index 
-                      ? 'text-secondary font-bold' : 'font-normal'}`}>{title} {title=== 'Blinds' && header_type === 'Dynamic' ? 'By Febric' : header_type}</span>}
+                       matchingItem?.includes(title.toLowerCase())) && defualtActiveKey === index 
+                       ? 'text-secondary font-bold' : 'font-normal'}`}>{title} {title=== 'Blinds' && header_type === 'Dynamic' ? 'By Meterial' : title=== 'Curtains' && header_type === 'Dynamic' ? 'By Febric Type' : title=== 'Shutters' && header_type === 'Dynamic' ? 'By Colour' : title === 'Commercial' && header_type === 'Dynamic' ? 'By Meterial' : header_type}</span>}
                     key={index}
                     className="custom-panel pt-[6px]"
                   >
