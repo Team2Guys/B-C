@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { cn } from 'lib/utils';
 import { IProduct } from 'types/types';
@@ -14,11 +15,13 @@ import {
   customSortingOrder,
   MoterisedData,
   predefinedPaths,
+  urls,
 } from 'data/urls';
 import Link from 'next/link';
 import { Collapse } from 'antd';
 import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
 import { Skeleton } from 'components/ui/skeleton';
+import { usePathname } from 'next/navigation';
 
 interface MegaMenuProps {
   title: string;
@@ -42,8 +45,11 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
   const [timeoutId, setTimeoutId] = useState<any | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const [hoveredProduct, setHoveredProduct] = useState('Automated Blinds');
+  const [activeKey, setActiveKey] = useState<number | undefined>(undefined);
+  const [defualtActiveKey, setDefualtActiveKey] = useState<number | undefined>(undefined);
+  const [matchingItem, setMatchingItem] = useState<string | null>(null);
   const buttonRef = useRef<HTMLAnchorElement | any>(null);
-
+  const path = usePathname();
   const { Panel } = Collapse;
   const handleMouseEnter = () => {
     if (timeoutId) {
@@ -52,7 +58,6 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     }
     setIsOpen(true);
   };
-
   const handleMouseLeave = (event: React.MouseEvent) => {
     const mouseEvent = event as any;
 
@@ -101,15 +106,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
-        : `/${parent === 'shutters' ? `${parent}-range` : parent}${
-            [
-              'dimout-roller-blinds',
-              'sunscreen-roller-blinds',
-              'blackout-roller-blinds',
-            ].includes(slug)
-              ? '/roller-blinds'
-              : ''
-          }/${slug}`)
+        : `/${parent === 'shutters' ? `${parent}-range` : parent}${[
+          'dimout-roller-blinds',
+          'sunscreen-roller-blinds',
+          'blackout-roller-blinds',
+        ].includes(slug)
+          ? '/roller-blinds'
+          : ''
+        }/${slug}`)
     );
   };
 
@@ -197,6 +201,37 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   const distributedProducts = distributeProducts(3);
 
+  useEffect(() => {
+    const parts = path.split('/')
+    const name = parts[parts.length - 1];
+    const alterUrl = urls.find((url) => url.Url === name);
+    const urlName = alterUrl ? generateSlug(alterUrl.productName) : generateSlug(name);
+
+    const styles = megaMenubyStyle.find((item) => generateSlug(item.productName) === urlName);
+    const dynamics = megaMenuDynamic.find((item) => generateSlug(item.productName) === urlName);
+    const rooms = megaMenubyRoom.find((item) => generateSlug(item.productName) === urlName);
+    const activeCategory = styles ? styles.productName : rooms ? rooms.productName : dynamics ? dynamics.productName : null;
+    setMatchingItem(activeCategory);
+    const activeIndex = styles ? 0 : rooms ? 1 : dynamics ? 2 : undefined;
+    if (title === 'Commercial' && 
+      (activeCategory?.includes('blinds-and-curtains') || 
+       activeCategory?.includes('blinds-curtains') || 
+       activeCategory?.includes('printed-blinds'))) {
+    setActiveKey(activeIndex);
+    setDefualtActiveKey(activeIndex);
+  } else if (activeIndex !== undefined && 
+      activeCategory?.includes(title.toLowerCase()) && 
+      !(activeCategory?.includes('blinds-and-curtains') || 
+        activeCategory?.includes('blinds-curtains') || 
+        activeCategory?.includes('printed-blinds'))) {
+    setActiveKey(activeIndex);
+    setDefualtActiveKey(activeIndex);
+  }
+  }, [path]);
+
+  const handlePanelChange = (key: any) => {
+    setActiveKey(key);
+  }
   return (
     <>
       <div
@@ -320,32 +355,32 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                     {title == 'Blinds' && itemName == 'By Room'
                                       ? item.title.replace('Blinds', '')
                                       : title == 'Curtains' &&
-                                          itemName == 'By Room'
+                                        itemName == 'By Room'
                                         ? item.title.replace('Curtains', '')
                                         : title == 'Curtains' &&
-                                            itemName == 'dynamic'
+                                          itemName == 'dynamic'
                                           ? item.title === 'Geometric Curtains'
                                             ? 'Geometric Designs'
                                             : item.title.includes('Fabric')
                                               ? item.title.replace(
-                                                  'Curtains',
-                                                  '',
-                                                )
+                                                'Curtains',
+                                                '',
+                                              )
                                               : item.title.replace(
-                                                  'Curtains',
-                                                  'Fabrics',
-                                                )
+                                                'Curtains',
+                                                'Fabrics',
+                                              )
                                           : title == 'Shutters' &&
-                                              (itemName == 'By Room' ||
-                                                itemName == 'dynamic')
+                                            (itemName == 'By Room' ||
+                                              itemName == 'dynamic')
                                             ? item.title.replace('Shutters', '')
                                             : title == 'Commercial' &&
-                                                (itemName == 'By Room' ||
-                                                  itemName == 'dynamic')
+                                              (itemName == 'By Room' ||
+                                                itemName == 'dynamic')
                                               ? item.title.replace(
-                                                  /Blinds And Curtains|Curtains/g,
-                                                  '',
-                                                )
+                                                /Blinds And Curtains|Curtains/g,
+                                                '',
+                                              )
                                               : item.title}
                                   </Link>
                                 </>
@@ -383,6 +418,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
       <div className="lg:hidden">
         <Collapse
           bordered={false}
+          activeKey={activeKey}
+          onChange={handlePanelChange}
           expandIcon={({ isActive }) =>
             isActive ? (
               <Image src={downIcon} alt='up icon' width={8} height={8} className='transform rotate-180' />
@@ -400,10 +437,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     key={index}
                     onClick={onClick}
                     href={product.link}
-                    onMouseEnter={() =>
-                      setHoveredProduct(product.title || 'Automated Blinds')
-                    }
-                    className={`focus:text-black hover:text-black border-b-2 border-transparent hover:border-b-secondary`}
+                    className={`text-16 ${path.slice(1) === generateSlug(product.title) ? 'font-bold' : 'font-normal'}`}
                   >
                     {product.title}
                   </Link>
@@ -416,7 +450,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                 let header_type = ['By Style', 'By Room', 'Dynamic'][index];
                 return (
                   <Panel
-                    header={`${title} ${header_type}`}
+                    header={<span className={`${(title === 'Commercial' && 
+                      (matchingItem?.includes('blinds-and-curtains') || 
+                       matchingItem?.includes('blinds-curtains') || 
+                       matchingItem?.includes('printed-blinds')) || 
+                      matchingItem?.includes(title.toLowerCase())) && defualtActiveKey === index 
+                      ? 'text-secondary font-bold' : 'font-normal'}`}>{title} {title=== 'Blinds' && header_type === 'Dynamic' ? 'By Febric' : header_type}</span>}
                     key={index}
                     className="custom-panel pt-[6px]"
                   >
@@ -425,18 +464,39 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         <li key={idx}>
                           <Link
                             href={generatePath(product, title.toLowerCase())}
-                            className={`focus:text-black hover:text-black border-b-2 border-transparent text-16 font-normal hover:border-b-secondary`}
+                            className={`text-16 ${matchingItem === generateSlug(product.title) ? 'font-bold' : 'font-normal'}`}
                             onClick={onClick}
                           >
                             {title == 'Blinds' && header_type == 'By Room'
                               ? product.title.replace('Blinds', '')
-                              : title == 'Curtains' && header_type == 'By Room'
+                              : title == 'Curtains' &&
+                                header_type == 'By Room'
                                 ? product.title.replace('Curtains', '')
-                                : title == 'Shutters' &&
+                                : title == 'Curtains' &&
+                                  header_type == 'dynamic'
+                                  ? product.title === 'Geometric Curtains'
+                                    ? 'Geometric Designs'
+                                    : product.title.includes('Fabric')
+                                      ? product.title.replace(
+                                        'Curtains',
+                                        '',
+                                      )
+                                      : product.title.replace(
+                                        'Curtains',
+                                        'Fabrics',
+                                      )
+                                  : title == 'Shutters' &&
                                     (header_type == 'By Room' ||
                                       header_type == 'dynamic')
-                                  ? product.title.replace('Shutters', '')
-                                  : product.title}
+                                    ? product.title.replace('Shutters', '')
+                                    : title == 'Commercial' &&
+                                      (header_type == 'By Room' ||
+                                        header_type == 'dynamic')
+                                      ? product.title.replace(
+                                        /Blinds And Curtains|Curtains/g,
+                                        '',
+                                      )
+                                      : product.title}
                           </Link>
                         </li>
                       ))}

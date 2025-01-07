@@ -32,15 +32,20 @@ export const fetchProducts = async (): Promise<Allproduct[]> => {
 };
 
 export const fetchBlogs = async (): Promise<BlogInfo[]> => {
-  console.log(`${process.env.NEXT_PUBLIC_BASE_URL}`);
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
+  const response =  await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
+    {
+      next: { tags: ['blogs'] },
+    },
   );
-  return response.data;
+  let blogs = response.json()
+
+  return blogs;
 };
 
 export const fetchProductBySlug = async (slug: string) => {
-  const response = await fetch(`/api/products?slug=${slug}`);
+  const response = await fetch(`/api/products?slug=${slug}`,  {
+    next: { tags: ['products'] },
+  },);
   if (!response.ok) {
     throw new Error('Error fetching product');
   }
@@ -48,17 +53,24 @@ export const fetchProductBySlug = async (slug: string) => {
 };
 
 export const fetchCategories = async (): Promise<ICategory[]> => {
-  const response = await axios.get(
+  const response = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
+    {
+      next: { tags: ['categories'] },
+    },
   );
-  return response.data;
+  let result = await response.json();
+  return result;
 };
 
 export const fetchSubCategories = async (): Promise<ICategory[]> => {
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,{
+      next: { tags: ['subCategories'] },
+    }
   );
-  return response.data;
+  let result = await response.json();
+  return result;
 };
 
 export const adminRecords = async (
