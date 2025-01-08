@@ -174,10 +174,6 @@ const MyEditor = ({
       onBlur={(evt, editor) => handleBlur(editor.getContent())}
       onEditorChange={(newContent) => {
         handleContentChange(newContent);
-        handleDebouncedMutation({
-          ...values,
-          content: newContent,
-        });
       }}
     />
   );
