@@ -44,6 +44,7 @@ const MotorisedPage = () => {
         subtitle={pageData.infoSubtitle}
         description={pageData.infoDescription}
         image={pageData.infoImage}
+        showButton={false}
       />
       <div className="bg-light text-center py-10 mb-5 md:mb-10 md:mt-5">
         <Measure
