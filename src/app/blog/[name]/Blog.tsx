@@ -89,6 +89,7 @@ const Blog = ({
               alt="Blog Image"
             />
           </div>
+          
           <div className="w-full overflow-hidden text-start">
             <span className='blog-content'>{HTMLReactParser(blog?.content || '')}</span>
             {/* <span className='blog-content'dangerouslySetInnerHTML={{ __html: blog?.content }}>
