@@ -250,7 +250,7 @@ const Header = () => {
 
           <div className="lg:w-2/12 flex justify-center items-center gap-4">
             <Link
-              className="py-2 px-2 lg:px-4 xl:px-5 hidden sm:block rounded-md text-10 xl:text-12 2xl:text-15 whitespace-nowrap bg-primary text-black uppercase"
+              className="py-2 px-2 lg:px-2 xl:px-5 hidden sm:block rounded-md text-10 xl:text-11 2xl:text-15 whitespace-nowrap bg-primary text-black uppercase"
               href="/request-appointment"
               onClick={handleLinkClick}
             >

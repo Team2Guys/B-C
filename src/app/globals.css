@@ -471,18 +471,6 @@ html {
   color: #555;
 }
 
-.jodit .jodit-wysiwyg ul {
-  list-style-type: disc;
-  margin-left: 20px;
-}
-.jodit .jodit-wysiwyg a {
-  text-decoration: underline;
-}
-
-.jodit .jodit-wysiwyg ol {
-  list-style-type: decimal;
-  margin-left: 20px;
-}
 blockquote {
   font-style: italic;
   border-left: 4px solid #cdb7aa;
@@ -490,12 +478,12 @@ blockquote {
   margin: 10px 0;
   color: #555;
 }
-.blog-list ul {
+.blog-content ul {
   list-style-type: disc;
   margin-left: 20px;
 }
 
-.blog-list ol {
+.blog-content ol {
   list-style-type: decimal;
   margin-left: 20px;
 }
@@ -503,11 +491,16 @@ blockquote {
 .swal2-actions .swal2-confirm {
   background-color: #ff5858 !important;
 }
-
  ol{
   list-style-type: decimal;
   margin-left: 20px;
 }
-.blog-list a {
+.blog-content a {
   text-decoration: underline;
+}
+
+
+
+.slider-text::-webkit-scrollbar{
+  width: 0 !important;
 }
