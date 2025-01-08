@@ -17,6 +17,7 @@ import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Image from 'next/image';
 import MyEditor from './custom-editor';
 import Cookies from 'js-cookie';
+import revalidateTag from 'components/ServerActons/ServerAction';
 
 interface IAddBlogs {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -100,6 +101,8 @@ const AddBlogs = ({
       }
       if (isPublish) {
         setMenuType('Blogs');
+        revalidateTag('blogs');
+
         showToast(
           'success',
           EditInitialValues
@@ -107,9 +110,6 @@ const AddBlogs = ({
             : 'Blog added successfully🎉',
         );
         setEditBlog(null);
-
-        //@ts-expect-error
-        queryClient.invalidateQueries(['blogs']);
       } else {
         showToast('warn', 'Blog saved as Draft🎉');
       }
@@ -129,6 +129,9 @@ const AddBlogs = ({
       addBlogMutation.mutate(newValues);
     }, 5000);
   };
+
+
+
   return (
     <Fragment>
       <p
