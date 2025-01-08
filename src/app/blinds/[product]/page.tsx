@@ -9,6 +9,7 @@ import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { IProduct } from 'types/types';
 import { meta_props } from 'types/interfaces';
+import { notFound } from 'next/navigation';
 const Cateories = [2];
 
 
@@ -32,6 +33,11 @@ export async function generateMetadata({
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
 console.log(fullUrl, "fullurl")
+
+if (!filteredProduct ) {
+  notFound();
+}
+
   let Product = filteredProduct as IProduct;
 
   let ImageUrl =

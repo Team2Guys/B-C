@@ -9,6 +9,7 @@ import {
 import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
+import { notFound } from 'next/navigation';
 const Cateories = [5];
 
 export async function generateMetadata({
@@ -31,6 +32,10 @@ export async function generateMetadata({
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
+  if (!filteredProduct) {
+    notFound();
+  }
+
 
   let Product = filteredProduct as IProduct;
 
