@@ -3,7 +3,7 @@ import { Form, Formik } from 'formik';
 import React, { useState, SetStateAction, Fragment, useRef } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Select, Spin } from 'antd';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery} from '@tanstack/react-query';
 import { ICategory } from 'types/types';
 import { fetchCategories } from 'config/fetch';
 import Imageupload from 'components/ImageUpload/Imageupload';
@@ -53,7 +53,6 @@ const AddBlogs = ({
     Meta_Title: EditInitialValues?.Meta_Title || '',
     Meta_description: EditInitialValues?.Meta_description || '',
   };
-  const queryClient = useQueryClient();
 
   const {
     data: categories,
