@@ -1,9 +1,11 @@
-import moto1 from '../../public/assets/images/MotorisedBlind/montorised1.png';
+import moto1 from '../../public/assets/images/MotorisedBlind/blind.png';
+import moto3 from '../../public/assets/images/MotorisedBlind/blind1.png';
 import img1 from '../../public/assets/images/MotorisedBlind/guarantee1.png';
 import img2 from '../../public/assets/images/MotorisedBlind/businessmen1.png';
 import img3 from '../../public/assets/images/MotorisedBlind/ready-stock.png';
 import img4 from '../../public/assets/images/MotorisedBlind/loyalty-program.png';
-import moto2 from '../../public/assets/images/MotorisedBlind/blinds.png';
+import moto2 from '../../public/assets/images/MotorisedBlind/curtain.png';
+import moto4 from '../../public/assets/images/MotorisedBlind/curtain1.png';
 
 import {
   Email,
@@ -1239,7 +1241,7 @@ export const MoterisedContent = [
         ],
         additionalDescription:
           "There's no hard sell just relaxed and pressure-free consultation",
-        additionalImage: moto2,
+        additionalImage: moto3,
         additionalDescription2: `We believe in making your experience as stress-free as possible. Our team members are paid a fair living wage, meaning they are here for you. Rest assured, no one is working on commission here. <a href="/" target="_blank" style="text-decoration:underline">Blinds and Curtains Dubai’s</a> priority is to provide honest, helpful advice that’s best for you—not to push for a sale. If you choose to go with us, congratulations. If not we’ll send you your quotation by email and one follow up call. Then it's up to you to decide.`,
         additionalDescription3:
           'We approach every consultation the way we’d like to be treated: with honesty and zero pressure. Contact our friendly team if you would like a no-obligation quote on our home automation window blinds, or fill out the online contact form, and we will get back to you as soon as possible.',
@@ -1255,7 +1257,7 @@ export const MoterisedContent = [
         infoTitle: 'Modern Automatic Curtains',
         infoSubtitle: 'Convert your windows into Smart Windows',
         infoDescription: `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
-        infoImage: moto1,
+        infoImage: moto4,
         measureTitle: 'Made to Measure Motorised Curtains',
         measureDescription: `Just say the word, and let your motorisation system do the rest. It's now easier to control auto curtains with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
         chooseustitle: 'Why Choose Us For Your Motorisation?',

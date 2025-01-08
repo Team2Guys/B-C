@@ -13,6 +13,7 @@ interface MotorisedInfoProps {
   description2?: string;
   description3?: string;
   decClass?:string
+  showButton?: boolean;
 }
 
 const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
@@ -24,6 +25,7 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
   image,
   className,
   decClass,
+  showButton =true,
 }) => {
   return (
     <Container className="mt-3 md:mt-5 lg:mt-14">
@@ -39,7 +41,7 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
               <p className="text-12 md:text-16 md:leading-8 px-1 md:px-0" dangerouslySetInnerHTML={{ __html: description2 || "" }}></p>
               <p className="text-12 md:text-16 md:leading-8 px-1 md:px-0">{description3}</p>
             </div>
-          <AppointmentButton/>
+            {showButton && <AppointmentButton />}
           </div>
         </div>
         <div className="w-full lg:6/12 xl:w-5/12 mb-10 mt-4 md:mt-5 lg:mt-0">
