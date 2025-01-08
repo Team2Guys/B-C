@@ -1,3 +1,4 @@
+import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -9,7 +10,8 @@ interface BlindsAndCurtainsTypesProps {
 
 const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
   return (
-    <div className=" lg:max-w-[1032.86px] 2xl:max-w-screen-xl mx-auto">
+    <Container>
+<div className="  w-full">
       <div className="grid grid-cols-12 gap-6 2xl:gap-10 ">
         <div className='col-span-12 md:col-span-7 lg:col-span-5 2xl:col-span-6 block xs:hidden md:block'>
         <Image
@@ -20,7 +22,7 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
           alt={data.heading}
         />
         </div>
-        <div className='col-span-12 md:col-span-5 lg:col-span-7 2xl:col-span-6 flex flex-col justify-between px-4 md:px-0'>
+        <div className='col-span-12 md:col-span-5 lg:col-span-7 2xl:col-span-6 flex flex-col justify-between px-4 md:px-0 '>
         <h2 className="lg:text-[39px] md:text-3xl text-2xl font-bold max-sm:!leading-8 !leading-[50px] text-center sm:text-start ">
             {data.heading}
           </h2>
@@ -42,6 +44,8 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
   
       </div>
     </div>
+    </Container>
+    
   );
 };
 
