@@ -3,7 +3,7 @@ import { Form, Formik } from 'formik';
 import React, { useState, SetStateAction, Fragment, useRef } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Select, Spin } from 'antd';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { ICategory } from 'types/types';
 import { fetchCategories } from 'config/fetch';
 import Imageupload from 'components/ImageUpload/Imageupload';
@@ -53,7 +53,6 @@ const AddBlogs = ({
     Meta_Title: EditInitialValues?.Meta_Title || '',
     Meta_description: EditInitialValues?.Meta_description || '',
   };
-  const queryClient = useQueryClient();
 
   const {
     data: categories,
@@ -130,13 +129,14 @@ const AddBlogs = ({
     }, 5000);
   };
 
-
-
   return (
     <Fragment>
       <p
         className="text-lg font-black mb-4 flex items-center justify-center gap-2  w-fit p-2 cursor-pointer text-black  dark:text-white"
         onClick={() => {
+          if (typingTimeout.current) {
+            clearTimeout(typingTimeout.current);
+          }
           setMenuType('Blogs');
           setEditBlog(null);
         }}
@@ -406,7 +406,7 @@ const AddBlogs = ({
                   type="submit"
                   className="text-white bg-yellow-500  px-4 py-2 font-semibold rounded-md"
                 >
-                  {addBlogMutation.isPending ? (
+                  {addBlogMutation.isPending && !isPublish ? (
                     <Loader color="#fff" />
                   ) : (
                     'Draft'
@@ -418,7 +418,7 @@ const AddBlogs = ({
                   className="text-white bg-green-600 px-4 py-2 font-semibold rounded-md"
                   onClick={() => setIsPublish(true)}
                 >
-                  {addBlogMutation.isPending ? (
+                  {addBlogMutation.isPending && isPublish ? (
                     <Loader color="#fff" />
                   ) : (
                     'PUBLISH'
