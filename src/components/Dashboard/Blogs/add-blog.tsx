@@ -33,6 +33,8 @@ const AddBlogs = ({
     EditInitialValues ? [EditInitialValues.posterImage] : [],
   );
   const [isPublish, setIsPublish] = useState(false);
+  // eslint-disable-next-line no-undef
+  const typingTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
@@ -66,7 +68,7 @@ const AddBlogs = ({
       let posterImage = posterimageUrl && posterimageUrl[0];
       if (!posterImage) {
         if (isPublish) {
-          showToast('warn', 'Please select Thumnail image😴');
+          showToast('error', 'Please select Thumnail image😴');
           throw new Error('No poster image selected');
         } else {
           setposterimageUrl([]);
@@ -93,6 +95,9 @@ const AddBlogs = ({
     },
 
     onSuccess: () => {
+      if (typingTimeout.current) {
+        clearTimeout(typingTimeout.current);
+      }
       if (isPublish) {
         setMenuType('Blogs');
         showToast(
@@ -102,6 +107,7 @@ const AddBlogs = ({
             : 'Blog added successfully🎉',
         );
         setEditBlog(null);
+
         //@ts-expect-error
         queryClient.invalidateQueries(['blogs']);
       } else {
@@ -113,9 +119,6 @@ const AddBlogs = ({
       console.error('Error adding blog:', error);
     },
   });
-
-  // eslint-disable-next-line no-undef
-  const typingTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const handleDebouncedMutation = (newValues: typeof blogInitialValues) => {
     if (typingTimeout.current) {
@@ -156,13 +159,18 @@ const AddBlogs = ({
                 values.category === '' ||
                 values.title === ''
               ) {
-                return showToast('warn', 'Ensure all fields are filled out 😴');
+                return showToast(
+                  'error',
+                  'Ensure all fields are filled out 😴',
+                );
               }
             }
 
             addBlogMutation.mutate(values, {
               onSuccess: () => {
-                resetForm();
+                if (isPublish) {
+                  resetForm();
+                }
               },
             });
           }}
