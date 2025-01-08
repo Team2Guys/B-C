@@ -17,11 +17,21 @@ export class BlogsService {
 
   async create(createBlogDto: Prisma.blogsCreateInput, req: Request | any) {
     const { email } = req.user;
-    // let existing_blog = await this.prisma.blogs.findFirst({
-    //   where: { title: createBlogDto.title },
-    // });
-    // if (existing_blog)
-    //   return CustomErrorHandler('Blog is Already Exists', 'BAD_REQUEST');
+    const existingBlog = await this.prisma.blogs.findFirst({
+      where: { title: createBlogDto.title },
+    });
+
+    if (existingBlog) {
+      const updatedBlog = await this.prisma.blogs.update({
+        where: { id: existingBlog.id },
+        data: { ...createBlogDto, last_editedBy: email },
+      });
+
+      return {
+        message: 'Blog already existed and has been updated',
+        blog: updatedBlog,
+      };
+    }
     const blog = await this.prisma.blogs.create({
       data: { ...createBlogDto, last_editedBy: email },
     });
