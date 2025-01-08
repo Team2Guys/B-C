@@ -54,6 +54,7 @@ export const reverseSlug = (slug: string): string => {
 
 // Blinds and Curtains section data
 
+
 export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
   heading: 'We offer window treatments for homes or offices in Dubai',
