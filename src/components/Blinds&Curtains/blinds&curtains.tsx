@@ -11,7 +11,7 @@ interface BlindsAndCurtainsTypesProps {
 const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
   return (
     <Container>
-<div className="  w-full">
+      <div className="  w-full">
       <div className="grid grid-cols-12 gap-6 2xl:gap-10 ">
         <div className='col-span-12 md:col-span-7 lg:col-span-5 2xl:col-span-6 block xs:hidden md:block'>
         <Image
