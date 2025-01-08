@@ -25,6 +25,7 @@ interface IAddBlogs {
   setEditBlog: React.Dispatch<SetStateAction<UpdateBlog | null>>;
 }
 
+
 const AddBlogs = ({
   setMenuType,
   EditInitialValues,
