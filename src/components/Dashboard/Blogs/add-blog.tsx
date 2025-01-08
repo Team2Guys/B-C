@@ -17,7 +17,6 @@ import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Image from 'next/image';
 import MyEditor from './custom-editor';
 import Cookies from 'js-cookie';
-import revalidateTag from 'components/ServerActons/ServerAction';
 
 interface IAddBlogs {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -50,10 +49,8 @@ const AddBlogs = ({
     Canonical_Tag: EditInitialValues?.Canonical_Tag || '',
     Meta_Title: EditInitialValues?.Meta_Title || '',
     Meta_description: EditInitialValues?.Meta_description || '',
-    // isPublished: EditInitialValues?.Meta_description || '',
   };
   const queryClient = useQueryClient();
-console.log(EditInitialValues, "EditInitialValues")
 
   const {
     data: categories,
@@ -65,11 +62,11 @@ console.log(EditInitialValues, "EditInitialValues")
   });
 
   const addBlogMutation = useMutation({
-    mutationFn: async(formData: typeof blogInitialValues) => {
+    mutationFn: (formData: typeof blogInitialValues) => {
       let posterImage = posterimageUrl && posterimageUrl[0];
       if (!posterImage) {
         if (isPublish) {
-          showToast('error', 'Please select Thumnail image😴');
+          showToast('warn', 'Please select Thumnail image😴');
           throw new Error('No poster image selected');
         } else {
           setposterimageUrl([]);
@@ -81,30 +78,22 @@ console.log(EditInitialValues, "EditInitialValues")
         const updatedAt = new Date();
         const finalValues = { updatedAt, isPublished: isPublish, ...values };
 
-      await axios.put(
+        return axios.put(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/update/${EditInitialValues.id}`,
           finalValues,
           { headers },
         );
-      revalidateTag('blogs');
-      return  
-
       }
 
-       await axios.post(
+      return axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/create_blog`,
         values,
         { headers },
       );
-
-      revalidateTag('blogs');
-      
     },
 
     onSuccess: () => {
       if (isPublish) {
-      revalidateTag('blogs');
-
         setMenuType('Blogs');
         showToast(
           'success',
@@ -115,9 +104,8 @@ console.log(EditInitialValues, "EditInitialValues")
         setEditBlog(null);
         //@ts-expect-error
         queryClient.invalidateQueries(['blogs']);
-
       } else {
-        showToast('success', 'Blog saved as Draft🎉');
+        showToast('warn', 'Blog saved as Draft🎉');
       }
     },
     onError: (error: any) => {
@@ -136,9 +124,8 @@ console.log(EditInitialValues, "EditInitialValues")
 
     typingTimeout.current = setTimeout(() => {
       addBlogMutation.mutate(newValues);
-    }, 2000);
+    }, 5000);
   };
-
   return (
     <Fragment>
       <p
@@ -189,7 +176,7 @@ console.log(EditInitialValues, "EditInitialValues")
                   </h3>
                 </div>
 
-                {(posterimageUrl && posterimageUrl?.length > 0) && posterimageUrl.some((item)=>Object.keys(item).length > 0) ? (
+                {posterimageUrl && posterimageUrl?.length > 0 ? (
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
                     {posterimageUrl.map((item: any, index) => (
                       <div
@@ -404,23 +391,23 @@ console.log(EditInitialValues, "EditInitialValues")
               </div>
               <div className="flex justify-between">
                 <Button
-                  disabled={addBlogMutation.isPending  || !EditInitialValues?.isPublished ? true : false}
+                  disabled={addBlogMutation.isPending ? true : false}
                   type="submit"
-                  className={`text-white ${EditInitialValues?.isPublished ? "bg-yellow-500" : "bg-gray-500"}   px-4 py-2 font-semibold rounded-md`}
+                  className="text-white bg-yellow-500  px-4 py-2 font-semibold rounded-md"
                 >
-                  {addBlogMutation.isPending && !EditInitialValues?.isPublished  ? (
+                  {addBlogMutation.isPending ? (
                     <Loader color="#fff" />
                   ) : (
                     'Draft'
                   )}
                 </Button>
                 <Button
-                  disabled={addBlogMutation.isPending || EditInitialValues?.isPublished ? true : false}
+                  disabled={addBlogMutation.isPending ? true : false}
                   type="submit"
-                  className={`text-white  ${EditInitialValues?.isPublished ? "bg-gray-400 cursor-default" : "bg-green-600" } px-4 py-2 font-semibold rounded-md`}
+                  className="text-white bg-green-600 px-4 py-2 font-semibold rounded-md"
                   onClick={() => setIsPublish(true)}
                 >
-                  {addBlogMutation.isPending && EditInitialValues?.isPublished  && isPublish? (
+                  {addBlogMutation.isPending ? (
                     <Loader color="#fff" />
                   ) : (
                     'PUBLISH'
