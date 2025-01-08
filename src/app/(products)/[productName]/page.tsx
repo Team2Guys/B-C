@@ -4,6 +4,7 @@ import { ICategory } from "types/types";
 import { headers } from "next/headers";
 import { Metadata} from "next";
 import { links } from "data/header_links";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ productName: string }>
@@ -27,6 +28,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
 
+   if (!filterCategory) {
+        notFound();
+      }
+  
   let Category = filterCategory as ICategory;
 
   let ImageUrl =
