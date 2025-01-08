@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link";
 import gitImg from "../../public/assets/json/404.json";
 import { useEffect, useState } from "react";
@@ -8,11 +7,8 @@ const Lottie = dynamic(() => import('components/Lottie/error-gif'), {
   ssr: false,
 })
 
-
 export default function NotFound() {
-
 const [isClient, setIsClient] = useState(false);
-
   useEffect(() => {
     setIsClient(true);
   }, []);

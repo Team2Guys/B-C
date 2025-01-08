@@ -1,6 +1,7 @@
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 import React from 'react';
+import AppointmentButton from 'components/Res-usable/bookappointmentbutton';
 
 interface MotorisedInfoProps {
   title?: string;
@@ -12,6 +13,7 @@ interface MotorisedInfoProps {
   description2?: string;
   description3?: string;
   decClass?:string
+  showButton?: boolean;
 }
 
 const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
@@ -23,11 +25,12 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
   image,
   className,
   decClass,
+  showButton =true,
 }) => {
   return (
     <Container className="mt-3 md:mt-5 lg:mt-14">
-      <div className={`flex flex-wrap lg:flex-nowrap lg:gap-7 ${className}`}>
-        <div className="w-full lg:w-8/12">
+      <div className={`flex flex-wrap lg:flex-nowrap lg:gap-10 ${className}`}>
+        <div className="w-full lg:w-/12 xl:w-6/12">
           <div className="space-y-4">
             <h2 className="text-32 md:text-[41px] font-medium text-center sm:text-start">{title || ""}</h2>
             <p className="underline underline-offset-8 text-[#6F747F] text-center sm:text-start">
@@ -38,16 +41,17 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
               <p className="text-12 md:text-16 md:leading-8 px-1 md:px-0" dangerouslySetInnerHTML={{ __html: description2 || "" }}></p>
               <p className="text-12 md:text-16 md:leading-8 px-1 md:px-0">{description3}</p>
             </div>
+            {showButton && <AppointmentButton />}
           </div>
         </div>
-        <div className="w-full lg:w-4/12 mb-10 mt-4 md:mt-5 lg:mt-0">
+        <div className="w-full lg:6/12 xl:w-5/12 mb-10 mt-4 md:mt-5 lg:mt-0">
         <div className="flex justify-center items-center text-center">
           <Image
           width={455}
           height={420}
           src={image}
           alt="Motorised Blind Image"
-          className="w-96 h-72 xs:h-80"/></div>
+          className="w-full h-72 xs:h-[400px] lg:h-[600px] xl:h-[400px]"/></div>
           </div>
       </div>
     </Container>
