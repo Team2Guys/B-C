@@ -54,7 +54,7 @@ const Blog = async () => {
         <Suspense fallback={<PageSkelton />}>
           <BlogMain blogs={filteredBlog} />
           <div className="mt-10">
-       {filteredBlog.length >= 3  &&      <PopularBlog blogs={blogs} />}
+       {filteredBlog.length >= 3  &&  <PopularBlog blogs={blogs} />}
           </div>
         </Suspense>
       </div>
