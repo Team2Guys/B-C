@@ -9,7 +9,6 @@ import {
 import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
-import { notFound } from 'next/navigation';
 const Cateories = [5];
 
 export async function generateMetadata({

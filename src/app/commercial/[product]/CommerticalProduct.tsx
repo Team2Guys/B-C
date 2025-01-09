@@ -34,7 +34,7 @@ const CategoryFiilterHandler =()=>{
     setfilteredProduct(filteredProduct)
     setfilteredSubCategory(filteredSubCategory)
   } catch (error) {
-    
+    console.log(error)
   }finally{
     setloading(false)
   }
