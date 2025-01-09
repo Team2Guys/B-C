@@ -90,14 +90,14 @@ const Blog = ({
             />
           </div>
           
-          <div className="w-full overflow-hidden text-start">
-            <span className='blog-content'>{HTMLReactParser(blog?.content || '')}</span>
+          <div className="w-[90%] m-auto overflow-hidden text-start">
+            <div className='blog-content mt-8'>{HTMLReactParser(blog?.content || '')}</div>
             {/* <span className='blog-content'dangerouslySetInnerHTML={{ __html: blog?.content }}>
               {HTMLReactParser(blog?.content || '')}
               
               </span> */}
-          </div>
           <Comments data={blog} />
+          </div>
 
           <div className="mt-10">
             <div className='flex flex-wrap justify-between items-center'>
