@@ -14,15 +14,26 @@ const CommercialProduct = ({product , products  , subCategories}: {product: stri
 
   const router = useRouter();
 
-  const redirected_product = CommercialUrl.find(
-    (prod: { urlName: string; Redirect: string }) => {
-      return prod.urlName == String(product)?.toLowerCase();
-    },
-  );
 
-  if (redirected_product) {
-    router.push(redirected_product.Redirect);
+
+useEffect(() => {
+  const Redirectedhandler =()=>{
+    const redirected_product = CommercialUrl.find(
+      (prod: { urlName: string; Redirect: string }) => {
+        return prod.urlName == String(product)?.toLowerCase();
+      },
+    );
+  
+    if (redirected_product) {
+      router.push(redirected_product.Redirect);
+    }
   }
+
+
+Redirectedhandler()
+}, [product])
+
+ 
   const filteredSubCategory = subCategories?.find(
     (sub) => generateSlug(sub.title) === ChangedProductUrl(product as string),
   );

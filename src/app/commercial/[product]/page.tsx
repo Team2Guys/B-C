@@ -31,9 +31,9 @@ export async function generateMetadata({ params }:meta_props): Promise<Metadata>
   const pathname = headersList.get('x-invoke-path') || '/';
   const fullUrl = `${protocol}://${domain}${pathname}`;
 
-  if (!filterSubCategory && !filterproduct) {
-    notFound();
-  }
+  // if (!filterSubCategory && !filterproduct) {
+  //   notFound();
+  // }
 
   let SubCategory = filterSubCategory ? filterSubCategory as ICategory : filterproduct as IProduct;
   let ImageUrl =

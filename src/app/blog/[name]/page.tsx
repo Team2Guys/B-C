@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
-    if (!filterCategory && !filterCategory) {
+    if (!filterCategory && !blog) {
       notFound();
     }
 
