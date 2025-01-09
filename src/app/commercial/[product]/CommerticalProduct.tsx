@@ -5,7 +5,7 @@ import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
 import SubCategoryPageSkeleton from 'components/Skeleton/SubCategoryPageSkeleton';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl, urls } from 'data/urls';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname} from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
@@ -16,7 +16,7 @@ const CommercialProduct = ({product , products  , subCategories}: {product: stri
   const [filteredSubCategory, setfilteredSubCategory] = useState<ICategory | undefined>();
   const path = usePathname();
 
-  const router = useRouter();
+  // const router = useRouter();
 
 const CategoryFiilterHandler =()=>{
   try {
