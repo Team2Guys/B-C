@@ -60,12 +60,12 @@ const TopHero: React.FC<TopHeroProps> = ({
       {page === '/shutters-range/black-shutters' && (
         <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>)}
       <div className="relative z-20 py-6 sm:py-14 md:py-24">
-        <h1 className="text-xl xs:text-3xl md:text-4xl lg:text-5xl font-black mt-5 uppercase">
+        <h1 className="text-xl xs:text-3xl md:text-4xl lg:text-5xl font-black mt-5 uppercase bg-[#9fac9ba3]">
           {result
             ? result.content
             : UpdateShutterTitle(pageTitle ? pageTitle : pathname)}
         </h1>
-        <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base flex-wrap">
+        <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base flex-wrap bg-[#9fac9ba3] w-fit m-auto">
           <Link
             href="/"
             className="flex items-center gap-2 font-bold capitalize"
