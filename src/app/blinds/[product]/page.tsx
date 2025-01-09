@@ -34,9 +34,6 @@ export async function generateMetadata({
   const fullUrl = `${protocol}://${domain}${pathname}`;
 console.log(fullUrl, "fullurl")
 
-if (!filteredProduct ) {
-  notFound();
-}
 
   let Product = filteredProduct as IProduct;
 
