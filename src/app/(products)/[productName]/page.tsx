@@ -4,7 +4,7 @@ import { ICategory } from "types/types";
 import { headers } from "next/headers";
 import { Metadata} from "next";
 import { links } from "data/header_links";
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import { blogPostUrl } from "data/urls";
 
 type Props = {
