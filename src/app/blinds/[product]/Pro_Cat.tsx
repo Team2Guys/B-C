@@ -4,7 +4,7 @@ import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
 import {urls } from 'data/urls';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname} from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { PRODUCS_PROPS } from 'types/interfaces';
 
@@ -17,7 +17,7 @@ const CommercialPage = ({
   const path = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
   console.log(product, "produc")
-  
+
   useEffect(() => {
     if (path) {
       const matchingUrl = urls.find((url) => url.errorUrl === path);

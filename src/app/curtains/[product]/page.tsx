@@ -9,6 +9,9 @@ import {
 import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
+import { CommercialUrl } from 'data/urls';
+import { redirect } from 'next/navigation';
+
 const Cateories = [5];
 
 export async function generateMetadata({
@@ -85,7 +88,16 @@ const CommercialPage = async ({ params }: meta_props) => {
 
   const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(categories, product, Cateories);
-  console.log(filteredProduct, 'filteredProductDebuge');
+
+    const redirected_product = CommercialUrl.find(
+          (prod: { urlName: string; Redirect: string }) => {
+            return prod.urlName == String(product)?.toLowerCase();
+          },
+        );
+      
+        if (redirected_product) {
+          redirect(redirected_product.Redirect);
+        }
   return (
     <Curtain
       filteredProduct={filteredProduct}
