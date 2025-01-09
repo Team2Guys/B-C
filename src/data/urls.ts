@@ -211,6 +211,7 @@ export const CommercialUrl = [
   { urlName: "study-room-blinds", Redirect: "/commercial" },
   { urlName: "aric-blinds", Redirect: "/" },
   { urlName: "outdoor-blinds", Redirect: "/commercial/outdoor" },
+  { urlName: "ripplefoldwave-curtains", Redirect: "/curtains/wave-curtains" },
 ]
 
 export const getProduct = [
