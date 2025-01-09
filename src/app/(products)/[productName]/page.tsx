@@ -4,7 +4,8 @@ import { ICategory } from "types/types";
 import { headers } from "next/headers";
 import { Metadata} from "next";
 import { links } from "data/header_links";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { blogPostUrl } from "data/urls";
 
 type Props = {
   params: Promise<{ productName: string }>
@@ -27,10 +28,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
-
-   if (!filterCategory) {
-        notFound();
-      }
   
   let Category = filterCategory as ICategory;
 
@@ -72,6 +69,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const Products = async ({ params }: Props) => {
   const slug = (await params).productName;
+    const matchingUrl = blogPostUrl.find((item) => item.url === `/${slug}`);
+    if (matchingUrl) {
+      redirect(matchingUrl.redirectUrl);
+    }
   const [products, categories, subCategories] = await Promise.all([
     fetchProducts(),
     fetchCategories(),

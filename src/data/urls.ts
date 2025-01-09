@@ -212,6 +212,10 @@ export const CommercialUrl = [
   { urlName: "aric-blinds", Redirect: "/" },
   { urlName: "outdoor-blinds", Redirect: "/commercial/outdoor" },
   { urlName: "ripplefoldwave-curtains", Redirect: "/curtains/wave-curtains" },
+  { urlName: "special-shape-shutters-wooden-shutters", Redirect: "/shutters-range/special-shape-shutters" },
+  { urlName: "tier-on-tier-shutters-wooden-shutters", Redirect: "/shutters-range/tier-on-tier-shutters" },
+  { urlName: "solid-panel-shutters-plantation-shutters-dubai", Redirect: "/shutters-range/solid-panel-shutters" },
+  { urlName: "installed-office-blinds-dubai", Redirect: "/commercial" },
 ]
 
 export const getProduct = [
@@ -308,6 +312,22 @@ export const blogPostUrl = [
   { url: '/how-to-cover-entire-wall-with-curtains' , redirectUrl: '/blog/how-to-cover-entire-wall-with-curtains' },
   { url: '/the-modern-window-treatments-in-dubai' , redirectUrl: '/blog/the-modern-window-treatments-in-dubai' },
   { url: '/vertical-blinds-for-windows' , redirectUrl: '/blog/vertical-blinds-for-windows' },
+  { url: '/our-installation' , redirectUrl: '/gallery' },
+  { url: '/call-me-back' , redirectUrl: '/request-appointment' },
+  { url: '/blinds-projects' , redirectUrl: '/projects' },
+  { url: '/curtains-projects' , redirectUrl: '/projects' },
+  { url: '/shutters-projects' , redirectUrl: '/projects' },
+  { url: '/motorised-projects' , redirectUrl: '/projects' },
+  { url: '/why-choose-blinds-curtains' , redirectUrl: '/choose-us' },
+  { url: '/downtown-dubai' , redirectUrl: '/projects' },
+  { url: '/al-barsha' , redirectUrl: '/projects' },
+  { url: '/business-bay-dubai' , redirectUrl: '/projects' },
+  { url: '/jumeirah-beach-residence' , redirectUrl: '/projects' },
+  { url: '/arabian-ranches' , redirectUrl: '/projects' },
+  { url: '/jumeirah-bay-island' , redirectUrl: '/projects' },
+  { url: '/dubai-hills' , redirectUrl: '/projects' },
+  { url: '/palm-jumeirah' , redirectUrl: '/projects' },
+
 ]
 
 export const subCategoryUrls = [
