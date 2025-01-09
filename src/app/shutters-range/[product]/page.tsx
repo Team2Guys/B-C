@@ -80,6 +80,15 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: meta_props) => {
   const  product  = (await params).product;
+  const redirected_product = CommercialUrl.find(
+    (prod: { urlName: string; Redirect: string }) => {
+      return prod.urlName == String(product)?.toLowerCase();
+    },
+  );
+
+  if (redirected_product) {
+    redirect(redirected_product.Redirect);
+  }
   const Cateories = [9];
 
   const [products, categories] = await Promise.all([
@@ -90,15 +99,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(categories, product, Cateories);
 
-    const redirected_product = CommercialUrl.find(
-      (prod: { urlName: string; Redirect: string }) => {
-        return prod.urlName == String(product)?.toLowerCase();
-      },
-    );
-  
-    if (redirected_product) {
-      redirect(redirected_product.Redirect);
-    }
+    
 
   return (
     <Shutters
