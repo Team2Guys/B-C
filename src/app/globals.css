@@ -498,6 +498,9 @@ blockquote {
 .blog-content a {
   text-decoration: underline;
 }
+.blog-content p {
+  padding-left: 0 !important;
+}
 
 
 
