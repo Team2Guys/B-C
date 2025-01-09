@@ -4,7 +4,7 @@ import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
 import SubCategoryPageSkeleton from 'components/Skeleton/SubCategoryPageSkeleton';
 import { generateSlug } from 'data/data';
-import { ChangedProductUrl, CommercialUrl, urls } from 'data/urls';
+import { ChangedProductUrl, urls } from 'data/urls';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
