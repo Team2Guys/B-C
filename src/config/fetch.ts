@@ -6,15 +6,15 @@ import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
 
 
-const superAdmintoken = Cookies.get('superAdminToken');
-const token = Cookies.get('2guysAdminToken');
-let Finaltoken = superAdmintoken ? superAdmintoken : token;
+// const superAdmintoken = Cookies.get('superAdminToken');
+// const token = Cookies.get('2guysAdminToken');
+// let Finaltoken = superAdmintoken ? superAdmintoken : token;
 
 
-const headers = {
-  Authorization: `Bearer ${Finaltoken}`,
-};
-console.log(headers)
+// const headers = {
+//   Authorization: `Bearer ${Finaltoken}`,
+// };
+// console.log(headers)
 
 export const fetchProducts = async (): Promise<Allproduct[]> => {
   const response = await fetch(

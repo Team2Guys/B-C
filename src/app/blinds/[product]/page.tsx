@@ -9,7 +9,7 @@ import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { IProduct } from 'types/types';
 import { meta_props } from 'types/interfaces';
-import { notFound } from 'next/navigation';
+
 const Cateories = [2];
 
 
