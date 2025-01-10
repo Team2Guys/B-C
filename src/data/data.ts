@@ -577,6 +577,7 @@ export const blindMegaMenuItems = [
   // { productName: 'outdoor' },
   // { productName: 'motorised-blinds' },
   { productName: 'dimout-blinds' },
+  { productName: 'translucent-blinds' },
   { productName: 'sunscreentransparent-blinds' },
 ];
 
@@ -928,6 +929,8 @@ export const megaMenuDynamic = [
   // { productName: 'outdoor-blinds' },
   { productName: 'motorised-blinds' },
   { productName: 'dimout-blinds' },
+  { productName: 'translucent-blinds' },
+
 
   { productName: 'white-shutters' },
   { productName: 'light-wood-shutters' },
@@ -1026,7 +1029,7 @@ export const extendedDynamic = [
   { productName: 'blackout-roller-blinds' },
   { productName: 'sunscreen-blinds' },
   { productName: 'dimout-blinds' },
-  { productName: 'transculent-blinds' },
+  { productName: 'translucent-blinds' },
   // { productName: 'zipline-outdoor-blinds' },
 
   { productName: 'made-to-measure-chiffon-curtains' },
