@@ -1123,6 +1123,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-blinds',
     content: {
       heading: 'Made to Measure Blinds',
+      src:"/assets/video/blinds.mp4",
       paragraph:
         'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
       subheading1: 'Custom Window Blinds ',
@@ -1148,6 +1149,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-curtains',
     content: {
       heading: 'Made to Measure Curtains',
+      src:"/assets/video/curtains.mp4",
       paragraph:
         '1000s of colour and style choices—voiles, velvets, silks, and plain textured fabrics. Get curtains installed in your Dubai home or office, with free consultation, quick installation, and 5-year warranty.',
       subheading1: 'Custom Window Curtains ',
@@ -1169,12 +1171,12 @@ export const categoriesContent = [
     slug: 'shutters-range',
     content: {
       heading: 'Made to Measure shutters',
+      src:"/assets/video/shutter.mp4",
       paragraph:
         'We offer custom made window shutters that fit any window. Make your home more stylish with our versatile made-to-measure shutters, including stylish window plantation shutters.',
       subheading1: 'Custom Window Shutters',
       subheading2: 'Wide range of stains and paints',
       posterImage: '/assets/images/Shutters/landing/landing.webp',
-
       subheadingContent: [
         {
           content:
@@ -1198,7 +1200,7 @@ export const MoterisedContent = [
     Data: [
       {
         title: 'Automated Blinds',
-        heroImage: 'assets/images/Blinds/landing/landing.webp',
+        heroVideo: '/assets/video/Automated_Blinds.mp4',
         infoTitle: 'Automatic Blinds with Remote',
         infoSubtitle: 'Convert your windows into Smart Windows ',
         infoDescription:
@@ -1256,7 +1258,7 @@ export const MoterisedContent = [
     Data: [
       {
         title: 'Automated Curtains',
-        heroImage: 'assets/images/Curtain/landing/landing.webp',
+        heroVideo: '/assets/video/curtains.mp4',
         infoTitle: 'Modern Automatic Curtains',
         infoSubtitle: 'Convert your windows into Smart Windows',
         infoDescription: `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,

@@ -1,24 +1,13 @@
 'use client';
 import Link from 'next/link';
-// import { useRouter } from 'next/navigation';
 import React from 'react';
 
 interface VideoAutomationProps {
-  className?: string; // className is optional
+  className?: string; 
 }
 const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
-  // const router = useRouter();
-  // const handleNavigation = (event: any, path: string) => {
-  //   if (event.ctrlKey || event.metaKey) {
-  //     window.open(path, '_blank');
-  //   } else {
-  //     router.push(path);
-  //   }
-  // };
   return (
-    <div
-      className={`relative w-full h-auto md:h-[397px] px-1 overflow-hidden mt-10 ${className}`}
-    >
+    <div className={`relative w-full h-auto md:h-[397px] px-1 overflow-hidden mt-10 ${className}`}>
       <video
         className="absolute inset-0 object-cover w-full h-full"
         src="/assets/video/Agsons.mp4"
