@@ -1120,6 +1120,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-blinds',
     content: {
       heading: 'Made to Measure Blinds',
+      src:"/assets/video/blinds.mp4",
       paragraph:
         'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
       subheading1: 'Custom Window Blinds ',
@@ -1145,6 +1146,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-curtains',
     content: {
       heading: 'Made to Measure Curtains',
+      src:"/assets/video/curtains.mp4",
       paragraph:
         '1000s of colour and style choices—voiles, velvets, silks, and plain textured fabrics. Get curtains installed in your Dubai home or office, with free consultation, quick installation, and 5-year warranty.',
       subheading1: 'Custom Window Curtains ',
@@ -1166,12 +1168,12 @@ export const categoriesContent = [
     slug: 'shutters-range',
     content: {
       heading: 'Made to Measure shutters',
+      src:"/assets/video/shutter.mp4",
       paragraph:
         'We offer custom made window shutters that fit any window. Make your home more stylish with our versatile made-to-measure shutters, including stylish window plantation shutters.',
       subheading1: 'Custom Window Shutters',
       subheading2: 'Wide range of stains and paints',
       posterImage: '/assets/images/Shutters/landing/landing.webp',
-
       subheadingContent: [
         {
           content:
