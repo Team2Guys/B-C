@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Table, notification, Modal } from 'antd';
+import { Table, notification } from 'antd';
 import Image from 'next/image';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import axios from 'axios';
@@ -13,21 +13,23 @@ import Cookies from 'js-cookie';
 import { FaRegEye } from 'react-icons/fa';
 import { generateSlug } from 'data/data';
 import { CategoryProps, ICategory } from 'types/types';
-
+import Swal from 'sweetalert2';
 
 const ViewSubcategries = ({
   setMenuType,
   seteditCategory,
   editCategory,
   subCategories,
-  categories
+  categories,
 }: CategoryProps) => {
   const admin_token = Cookies.get('2guysAdminToken');
   const super_admin_token = Cookies.get('superAdminToken');
 
   const token = admin_token ? admin_token : super_admin_token;
   console.log(editCategory, 'editCategory');
-  const [category, setCategory] = useState<ICategory[] | undefined>(subCategories);
+  const [category, setCategory] = useState<ICategory[] | undefined>(
+    subCategories,
+  );
   const [colorMode, toggleColorMode] = useColorMode();
   console.log(toggleColorMode, 'toggleColorMode');
 
@@ -56,12 +58,17 @@ const ViewSubcategries = ({
     ) || [];
 
   const confirmDelete = (key: any) => {
-    Modal.confirm({
+    Swal.fire({
       title: 'Are you sure?',
-      content: 'Once deleted, the sub category cannot be recovered.',
-      onOk: () => handleDelete(key),
-      okText: 'Yes',
-      cancelText: 'No',
+      text: 'Once deleted, the blog cannot be recovered.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDelete(key);
+      }
     });
   };
 
@@ -146,26 +153,26 @@ const ViewSubcategries = ({
       },
     },
     {
-          title: 'Preview',
-          key: 'Preview',
-          render: (text: string, record: ICategory) => {
-            const category = categories?.find((i) => i.id === record.CategoryId);
-            if (category === undefined) return null;
-            const parent = generateSlug(category?.title);
-            return (
-              <FaRegEye
-                className="cursor-pointer"
-                onClick={() => {
-                  const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${
-                    // generateSlug(record.title)
-                    ChangedProductUrl_handler(record.title)
-                  }
+      title: 'Preview',
+      key: 'Preview',
+      render: (text: string, record: ICategory) => {
+        const category = categories?.find((i) => i.id === record.CategoryId);
+        if (category === undefined) return null;
+        const parent = generateSlug(category?.title);
+        return (
+          <FaRegEye
+            className="cursor-pointer"
+            onClick={() => {
+              const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${
+                // generateSlug(record.title)
+                ChangedProductUrl_handler(record.title)
+              }
                   `;
-                  window.open(url, '_blank');
-                }}
-              />
-            );
-          },
+              window.open(url, '_blank');
+            }}
+          />
+        );
+      },
     },
     {
       title: 'Edit',
@@ -184,7 +191,8 @@ const ViewSubcategries = ({
       render: (text: any, record: any) => (
         <RiDeleteBin6Line
           className={`cursor-pointer ${canDeleteCategory && 'text-red'} ${
-            !canDeleteCategory && 'cursor-not-allowed text-black dark:text-slate-300'
+            !canDeleteCategory &&
+            'cursor-not-allowed text-black dark:text-slate-300'
           }`}
           // className="cursor-pointer text-red-500"
           size={20}
@@ -200,50 +208,49 @@ const ViewSubcategries = ({
 
   return (
     <div className={colorMode === 'dark' ? 'dark' : ''}>
-        <>
-          <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
-            <input
-              className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
-              type="search"
-              placeholder="Search Category"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <div>
-              <p
-                className={`${
-                  canAddCategory && 'cursor-pointer w-full xsm:text-12 xsm:px-2 py-2 lg:text-16'
-                } lg:p-2 md:p-2 ${
-                  canAddCategory && ' bg-secondary text-white rounded-md w-full '
-                } flex justify-center ${
-                  !canAddCategory && 'cursor-not-allowed w-full'
-                }`}
-                onClick={() => {
-                  seteditCategory && seteditCategory(null);
-                  if (canAddCategory) {
-                    setMenuType('Add Category');
-                  }
-                }}
-              >
-                Add Sub Category
-              </p>
-            </div>
-          </div>
-
-          {filteredProducts.length > 0 ? (
-            <Table
-              className="overflow-x-scroll lg:overflow-auto w-full"
-              dataSource={filteredProducts}
-              columns={columns}
-              pagination={false}
-              rowKey="id"
-            />
-          ) : (
-            <p className="text-black dark:text-white">
-              No Sub Categories found
+      <>
+        <div className="flex justify-between mb-4 items-center text-dark dark:text-white">
+          <input
+            className="peer lg:p-3 p-2 block outline-none border dark:text-black rounded-md border-gray-200 dark:bg-boxdark dark:drop-shadow-none text-sm dark:focus:border-primary focus:border-dark focus:ring-dark-500 disabled:opacity-50 disabled:pointer-events-none"
+            type="search"
+            placeholder="Search Category"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <div>
+            <p
+              className={`${
+                canAddCategory &&
+                'cursor-pointer w-full xsm:text-12 xsm:px-2 py-2 lg:text-16'
+              } lg:p-2 md:p-2 ${
+                canAddCategory && ' bg-secondary text-white rounded-md w-full '
+              } flex justify-center ${
+                !canAddCategory && 'cursor-not-allowed w-full'
+              }`}
+              onClick={() => {
+                seteditCategory && seteditCategory(null);
+                if (canAddCategory) {
+                  setMenuType('Add Category');
+                }
+              }}
+            >
+              Add Sub Category
             </p>
-          )}
-        </>
+          </div>
+        </div>
+
+        {filteredProducts.length > 0 ? (
+          <Table
+            className="overflow-x-scroll lg:overflow-auto w-full"
+            dataSource={filteredProducts}
+            columns={columns}
+            pagination={false}
+            rowKey="id"
+          />
+        ) : (
+          <p className="text-black dark:text-white">No Sub Categories found</p>
+        )}
+      </>
     </div>
   );
 };
