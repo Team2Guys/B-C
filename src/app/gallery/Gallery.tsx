@@ -1,23 +1,19 @@
 'use client';
 import React, { useState } from 'react';
-import TopHero from 'components/ui/top-hero';
-import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import Container from 'components/Res-usable/Container/Container';
 import { ICategory, IProduct } from 'types/types';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
-import { usePathname } from 'next/navigation';
 import { Image } from 'antd';
 import { IoSearch } from 'react-icons/io5';
 
 const itemsPerPage = 12;
-const Gallery = ({ products , categories}: {products: IProduct[] , categories: ICategory[]}) => {
-  const pathName = usePathname();
-  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
-    null,
+const Gallery = ({ products, categories }: { products: IProduct[], categories: ICategory[] }) => {
+  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null,
   );
+  let All_Content = "Take a Look at the Beautiful Window Coverings We’ve Installed Across Dubai"
   const [currentPage, setCurrentPage] = useState(1);
-
+  const [conent, setconent] = useState(All_Content)
   const filteredProducts = selectedCategoryId
     ? products?.filter((product) => product.CategoryId === selectedCategoryId)
     : products;
@@ -30,24 +26,39 @@ const Gallery = ({ products , categories}: {products: IProduct[] , categories: I
   );
   const totalPages = Math.ceil((filteredProducts?.length || 0) / itemsPerPage);
 
+
+  const Category_wise_Conent: { [key: string]: string } = {
+    2: "Take a look at the stylish and functional blinds we've installed in Dubai homes and offices",
+    5: "From blackout to sheer curtains, you'll find every style here",
+    9: "You can view our shutter installations by scrolling down through the pictures in the gallery below",
+    12: "You can make your windows look sophisticated with custom window treatments in a variety of fabrics and colours",
+
+  }
   const handleCategoryClick = (categoryId: number | null) => {
+
     setSelectedCategoryId(categoryId);
     setCurrentPage(1);
+    let content = (categoryId && Category_wise_Conent[categoryId])
+    console.log(conent, "content", categoryId)
+    setconent(content ? content : All_Content)
   };
+
+
+
 
   return (
     <>
-      <TopHero title="GALLERY" image={bgBreadcrum.src} pagename={pathName} />
+      {/* <TopHero title="GALLERY" image={bgBreadcrum.src} pagename={pathName} /> */}
       <Container className="pt-16 pb-12 px-4 md:px-0">
-        <div className="flex justify-between items-center pb-4 mb-6 overflow-hidden md:px-5">
-          <h2 className="text-2xl xs:text-3xl font-medium text-gray-800">
+        <div className="flex flex-col justify-between items-center pb-4 mb-6 overflow-hidden md:px-5">
+          <h2 className="text-2xl xs:text-3xl font-medium text-gray-800 m-auto">
             GALLERY
           </h2>
-          <span className="text-gray-400 text-11 xs:text-14">
-            Showing {indexOfFirstItem + 1}–
-            {Math.min(indexOfLastItem, filteredProducts?.length || 0)} of{' '}
-            {filteredProducts?.length || 0} results
-          </span>
+          <p className='text-center max-w-[70%] mt-4'>
+     
+          Window Treatment Inspiration Gallery
+
+            </p>
         </div>
 
         <div className="overflow-x-auto">
@@ -58,27 +69,26 @@ const Gallery = ({ products , categories}: {products: IProduct[] , categories: I
             >
               All
             </div>
-            {categories && categories.sort((a, b) => {const order = ['Blinds','Curtains','Shutters','Commercial',
-                  ];
-                  return order.indexOf(a.title) - order.indexOf(b.title);
-                })
-                .map((category: ICategory, index: number) => (
-                  <div
-                    className={`py-2 px-[.35rem] md:px-4 rounded !text-[12px] md:!text-[16px] cursor-pointer ${selectedCategoryId === category.id ? 'bg-secondary text-white' : ''}`}
-                    key={index}
-                    onClick={() => handleCategoryClick(category.id!)}
-                  >
-                    {category.title}
-                  </div>
-                ))}
+            {categories && categories.sort((a, b) => {
+              const order = ['Blinds', 'Curtains', 'Shutters', 'Commercial',];
+              return order.indexOf(a.title) - order.indexOf(b.title);
+            })
+              .map((category: ICategory, index: number) => (
+                <div
+                  className={`py-2 px-[.35rem] md:px-4 rounded !text-[12px] md:!text-[16px] cursor-pointer ${selectedCategoryId === category.id ? 'bg-secondary text-white' : ''}`}
+                  key={index}
+                  onClick={() => handleCategoryClick(category.id!)}
+                >
+                  {category.title}
+                </div>
+              ))}
           </div>
         </div>
       </Container>
       <div className="w-full border-t-[1px] border-borderclr "></div>
       <Container className="lg:pt-12 pt-5 pb-16 px-4 md:px-0">
         <p className="text-center text-14 font-semibold md:font-normal lg:text-2xl xl:text-3xl 2xl:text-4xl leading-normal 2xl:leading-normal text-black w-full md:w-4/5 xl:w-3/4 mx-auto">
-          A RANGE OF THE VAST CHOICES OF WINDOW COVERINGS AVAILABLE FOR YOUR
-          HOME OR OFFICE...
+          {conent}
         </p>
         <Image.PreviewGroup
           preview={{
@@ -131,11 +141,10 @@ const Gallery = ({ products , categories}: {products: IProduct[] , categories: I
               {Array.from({ length: totalPages }, (_, page) => (
                 <button
                   key={page + 1}
-                  className={`mx-1 w-16 h-8 md:h-14 flex justify-center rounded-sm items-center font-medium transition ${
-                    currentPage === page + 1
+                  className={`mx-1 w-16 h-8 md:h-14 flex justify-center rounded-sm items-center font-medium transition ${currentPage === page + 1
                       ? 'bg-btnclr text-white'
                       : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
-                  }`}
+                    }`}
                   onClick={() => {
                     setCurrentPage(page + 1);
                   }}

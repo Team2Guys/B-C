@@ -1,7 +1,7 @@
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/about.jpg';
 import Container from 'components/Res-usable/Container/Container';
-import aboutUsImg from '../../../public/assets/images/about.png';
+import aboutUsImg from '../../../public/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png';
 import {
   AboutUsPara,
   OurHistoryData,

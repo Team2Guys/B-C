@@ -3,7 +3,7 @@ import { Form, Formik } from 'formik';
 import React, { useState, SetStateAction, Fragment, useRef } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Select, Spin } from 'antd';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { ICategory } from 'types/types';
 import { fetchCategories } from 'config/fetch';
 import Imageupload from 'components/ImageUpload/Imageupload';
@@ -17,6 +17,7 @@ import { ImageRemoveHandler } from 'utils/helperFunctions';
 import Image from 'next/image';
 import MyEditor from './custom-editor';
 import Cookies from 'js-cookie';
+import revalidateTag from 'components/ServerActons/ServerAction';
 
 interface IAddBlogs {
   setMenuType: React.Dispatch<SetStateAction<string>>;
@@ -33,6 +34,8 @@ const AddBlogs = ({
     EditInitialValues ? [EditInitialValues.posterImage] : [],
   );
   const [isPublish, setIsPublish] = useState(false);
+  // eslint-disable-next-line no-undef
+  const typingTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
@@ -50,7 +53,6 @@ const AddBlogs = ({
     Meta_Title: EditInitialValues?.Meta_Title || '',
     Meta_description: EditInitialValues?.Meta_description || '',
   };
-  const queryClient = useQueryClient();
 
   const {
     data: categories,
@@ -66,7 +68,7 @@ const AddBlogs = ({
       let posterImage = posterimageUrl && posterimageUrl[0];
       if (!posterImage) {
         if (isPublish) {
-          showToast('warn', 'Please select Thumnail image😴');
+          showToast('error', 'Please select Thumnail image😴');
           throw new Error('No poster image selected');
         } else {
           setposterimageUrl([]);
@@ -93,8 +95,13 @@ const AddBlogs = ({
     },
 
     onSuccess: () => {
+      if (typingTimeout.current) {
+        clearTimeout(typingTimeout.current);
+      }
       if (isPublish) {
         setMenuType('Blogs');
+        revalidateTag('blogs');
+
         showToast(
           'success',
           EditInitialValues
@@ -102,8 +109,6 @@ const AddBlogs = ({
             : 'Blog added successfully🎉',
         );
         setEditBlog(null);
-        //@ts-expect-error
-        queryClient.invalidateQueries(['blogs']);
       } else {
         showToast('warn', 'Blog saved as Draft🎉');
       }
@@ -114,9 +119,6 @@ const AddBlogs = ({
     },
   });
 
-  // eslint-disable-next-line no-undef
-  const typingTimeout = useRef<NodeJS.Timeout | null>(null);
-
   const handleDebouncedMutation = (newValues: typeof blogInitialValues) => {
     if (typingTimeout.current) {
       clearTimeout(typingTimeout.current);
@@ -126,11 +128,15 @@ const AddBlogs = ({
       addBlogMutation.mutate(newValues);
     }, 5000);
   };
+
   return (
     <Fragment>
       <p
         className="text-lg font-black mb-4 flex items-center justify-center gap-2  w-fit p-2 cursor-pointer text-black  dark:text-white"
         onClick={() => {
+          if (typingTimeout.current) {
+            clearTimeout(typingTimeout.current);
+          }
           setMenuType('Blogs');
           setEditBlog(null);
         }}
@@ -156,13 +162,18 @@ const AddBlogs = ({
                 values.category === '' ||
                 values.title === ''
               ) {
-                return showToast('warn', 'Ensure all fields are filled out 😴');
+                return showToast(
+                  'error',
+                  'Ensure all fields are filled out 😴',
+                );
               }
             }
 
             addBlogMutation.mutate(values, {
               onSuccess: () => {
-                resetForm();
+                if (isPublish) {
+                  resetForm();
+                }
               },
             });
           }}
@@ -395,7 +406,7 @@ const AddBlogs = ({
                   type="submit"
                   className="text-white bg-yellow-500  px-4 py-2 font-semibold rounded-md"
                 >
-                  {addBlogMutation.isPending ? (
+                  {addBlogMutation.isPending && !isPublish ? (
                     <Loader color="#fff" />
                   ) : (
                     'Draft'
@@ -407,7 +418,7 @@ const AddBlogs = ({
                   className="text-white bg-green-600 px-4 py-2 font-semibold rounded-md"
                   onClick={() => setIsPublish(true)}
                 >
-                  {addBlogMutation.isPending ? (
+                  {addBlogMutation.isPending && isPublish ? (
                     <Loader color="#fff" />
                   ) : (
                     'PUBLISH'

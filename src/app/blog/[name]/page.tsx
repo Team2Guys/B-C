@@ -6,6 +6,7 @@ import { blogLinks } from "data/header_links";
 import { Metadata } from "next";
 import { BlogInfo } from "types/interfaces";
 import { generateSlug } from "data/data";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
   const name = (await params).name;
@@ -22,6 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
+    if (!filterCategory && !blog) {
+      notFound();
+    }
 
   let Category : BlogInfo | ICategory = filterCategory  ? filterCategory: blog || {} as any;
 

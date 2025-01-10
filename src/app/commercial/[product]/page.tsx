@@ -3,10 +3,10 @@ import CommercialProduct from "./CommerticalProduct";
 import { headers } from "next/headers";
 import { ICategory, IProduct } from "types/types";
 import { Metadata } from "next";
-import { urls } from "data/urls";
+import { CommercialUrl, urls } from "data/urls";
 import { reverseSlug } from "data/data";
 import { meta_props } from "types/interfaces";
-
+import { redirect } from "next/navigation";
 
 export async function generateMetadata({ params }:meta_props): Promise<Metadata> {
   const product  = (await params).product;
@@ -15,6 +15,7 @@ export async function generateMetadata({ params }:meta_props): Promise<Metadata>
     fetchSubCategories(),
   ]);
   const matchingLinks = urls.find((link) => link.Url === product)
+
   const filterSubCategory = subCategories.find((subcategory) => {
     const comparisonValue = matchingLinks?.productName || reverseSlug(product);
     return subcategory.title === comparisonValue;
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }:meta_props): Promise<Metadata>
   const protocol = headersList.get('x-forwarded-proto') || 'https';
   const pathname = headersList.get('x-invoke-path') || '/';
   const fullUrl = `${protocol}://${domain}${pathname}`;
+
   let SubCategory = filterSubCategory ? filterSubCategory as ICategory : filterproduct as IProduct;
   let ImageUrl =
   SubCategory?.posterImage.imageUrl ||
@@ -73,6 +75,16 @@ const CommercialPage = async ({ params }: meta_props) => {
     fetchProducts(),
     fetchSubCategories(),
   ]);
+
+   const redirected_product = CommercialUrl.find(
+        (prod: { urlName: string; Redirect: string }) => {
+          return prod.urlName == String(slug)?.toLowerCase();
+        },
+      );
+    
+      if (redirected_product) {
+        redirect(redirected_product.Redirect);
+      }
   return (
     <>
       <CommercialProduct product={slug} products={products} subCategories={subCategories} />
