@@ -10,7 +10,8 @@ import { blogCategoryUrl } from 'data/urls';
 
 interface TopHeroProps {
   title: string;
-  Video: string;
+  Video?: string;
+  image?: string;
   home?: string;
   pagename?: string;
   pageTitle?: string;
@@ -23,7 +24,8 @@ const TopHero: React.FC<TopHeroProps> = ({
   home,
   pagename,
   pageTitle,
-  className
+  className,
+  image
 }) => {
   const [pageName, setPageName] = useState<string[]>([]);
   const page = usePathname();
@@ -50,7 +52,16 @@ const TopHero: React.FC<TopHeroProps> = ({
 
   return (
     <div className={`relative      
-      flex items-center text-center justify-center bg-no-repeat w-full  border-black h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px] bg-center bg-cover xl:bg-custom-size ${className}`}>
+      flex items-center text-center justify-center bg-no-repeat w-full  border-black h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px] bg-center bg-cover xl:bg-custom-size ${className}`}
+      style={
+        !Video
+          ? {
+              backgroundImage: `url(${image})`,
+              backgroundOrigin: 'content-box',
+            }
+          : undefined
+      }
+      >
       <>
         <video
           className="absolute object-fill w-full h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px]"
@@ -60,7 +71,7 @@ const TopHero: React.FC<TopHeroProps> = ({
           muted
           playsInline
           controls={false}
-        />
+        /> 
         <div
           className={`relative`}
         >
