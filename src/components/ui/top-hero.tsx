@@ -9,7 +9,7 @@ import { BreakCrum_conent_pages } from 'data/data';
 import { blogCategoryUrl } from 'data/urls';
 
 interface TopHeroProps {
-  title: string;
+  title: string | any;
   Video?: string;
   image?: string;
   home?: string;
