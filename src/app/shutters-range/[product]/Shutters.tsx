@@ -5,8 +5,8 @@ import ShuttersByColor from 'components/ByColor/ShuttersByColor';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
 import { colorData } from 'data/data';
-import { CommercialUrl, urls } from 'data/urls';
-import { usePathname, useRouter } from 'next/navigation';
+import { urls } from 'data/urls';
+import { usePathname} from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { IColorData, PRODUCS_PROPS } from 'types/interfaces';
 
@@ -20,8 +20,7 @@ const CommercialPage = ({
 
   const pathname = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
-  const router = useRouter();
-
+console.log(product)
   useEffect(() => {
     setColorPage(undefined);
     if (pathname) {
@@ -34,15 +33,6 @@ const CommercialPage = ({
     }
   }, [pathname]);
 
-  const redirected_product = CommercialUrl.find(
-    (prod: { urlName: string; Redirect: string }) => {
-      return prod.urlName == String(product)?.toLowerCase();
-    },
-  );
-
-  if (redirected_product) {
-    router.push(redirected_product.Redirect);
-  }
 
   useEffect(() => {
     if (pathname) {

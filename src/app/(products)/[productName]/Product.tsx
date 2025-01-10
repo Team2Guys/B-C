@@ -7,16 +7,14 @@ import { categoriesContent, generateSlug, HiddenProducts_list } from 'data/data'
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import AllProducts from 'components/Product/All-Products/Products';
 import NotFound from 'app/not-found';
 import { ICategory, IProduct } from 'types/types';
 import VideoBanner from 'components/video-banner/video-banner';
-import { blogPostUrl } from 'data/urls';
 import { links } from 'data/header_links';
 
 const Product = ({productName , products , categories , subCategories}: {productName: string, products: IProduct[] , categories: ICategory[] , subCategories: ICategory[]}) => {
-  const router = useRouter();
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
@@ -37,13 +35,6 @@ const Product = ({productName , products , categories , subCategories}: {product
   const productNameString = Array.isArray(productName)
     ? productName[0]
     : productName;
-
-useEffect(() => {
-  const matchingUrl = blogPostUrl.find((item) => item.url === pathname);
-  if (matchingUrl) {
-    router.push(matchingUrl.redirectUrl);
-  }
-},[pathname]);
 
   
   useEffect(() => {

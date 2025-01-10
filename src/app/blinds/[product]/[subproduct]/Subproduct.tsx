@@ -10,6 +10,7 @@ import { IProduct } from 'types/types';
 const SubProduct = ({products , filteredProduct , filteredSubCategory }: {products: IProduct[] , filteredProduct: IProduct | undefined , filteredSubCategory : any}) => {
   const path = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
+  
   useEffect(() => {
     if (path) {
       const matchingUrl = urls.find((url) => url.errorUrl === path);
