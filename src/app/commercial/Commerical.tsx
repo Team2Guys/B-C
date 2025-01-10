@@ -68,17 +68,17 @@ const Commercial = ({
     <div>
     <TopHero
       title={filteredCatgory?.title}
-      pageTitle={`Made to Measure ${filteredCatgory?.title}`}
+      pageTitle ="Commercial Office Blinds"
       image={`${filteredCatgory?.bannerImage?.imageUrl || bgBreadcrum.src}`}
       pagename={pathname}
       />
       <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4">
         <div className="w-full md:w-1/2">
-          <h1 className="font-bold text-xl xs:text-2xl tracking-wider">
-            Commercial Office Blinds
+          <h2 className="font-bold text-xl xs:text-2xl tracking-wider">
+          Maximise Your Productivity With Commercial Office Blinds
+            
             <br />
-            <span className="font-medium">Why Us in Dubai, UAE?</span>
-          </h1>
+          </h2>
           <p className="text-14 xs:text-18 md:leading-8 mt-4 text-lightdark">
             We offer custom-made options for commercial office blinds. These
             blinds can fit to windows of any size and shape, including large
