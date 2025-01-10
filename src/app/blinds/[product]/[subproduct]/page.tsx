@@ -5,6 +5,7 @@ import { generateSlug } from "data/data";
 import { IProduct } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 
 export async function generateMetadata({ params }: { params: Promise<{ subproduct: string}>}): Promise<Metadata> {
@@ -24,6 +25,10 @@ export async function generateMetadata({ params }: { params: Promise<{ subproduc
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
+
+  if (!filteredProduct ) {
+    notFound();
+  }
 
   let Product = filteredProduct as IProduct;
 

@@ -11,6 +11,7 @@ const AddBlogs = dynamic(() => import('components/Dashboard/Blogs/add-blog'), {
   ssr: false,
 });
 
+
 interface blogs {
     blogs: any
 }

@@ -26,10 +26,10 @@ const ProductGuarantees = () => {
       />
       <Container className="">
         <div className="lg:py-6 p-3 lg:mt-10 mx-auto">
-          <h1 className="lg:text-3xl text-18 sm:text-2xl pb-2 font-bold text-center mb-4 w-fit mx-auto border-b-[1px] border-[#BDC9BD]">
+          <h1 className="lg:text-3xl text-18 sm:text-2xl pb-2 font-bold text-center mb-9 w-fit mx-auto border-b-[1px] border-[#BDC9BD]">
             {productData.heading}
           </h1>
-          <p className="text-14 sm:text-lg text-black lg:mt-5 leading-relaxed text-center"dangerouslySetInnerHTML={{ __html: productData.content }}></p>
+          <p className="text-12 sm:text-16 2xl:text-18 leading-9 text-center mt-4 text-lightdark"dangerouslySetInnerHTML={{ __html: productData.content }}></p>
         </div>
       </Container>
       {PGuarantees.map((data: any, index: any) => (
@@ -43,7 +43,7 @@ const ProductGuarantees = () => {
             <h3 className="font-bold text-lg xs:text-2xl tracking-wider">
               {data.heading}
             </h3>
-            <p className="text-12 sm:text-14 2xl:text-16 leading-5 sm:leading-8 mt-4 text-lightdark" dangerouslySetInnerHTML={{ __html: data.text }}></p>
+            <p className="text-12 sm:text-16 2xl:text-18 leading-9 sm:leading-8 mt-4 text-lightdark" dangerouslySetInnerHTML={{ __html: data.text }}></p>
 
             <div className="h-fit mt-8"></div>
           </div>
