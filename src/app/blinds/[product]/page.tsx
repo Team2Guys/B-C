@@ -87,7 +87,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(categories, product, Cateories);
   
-  const redirected_product = CommercialUrl.find(
+  const redirected_product = product !== 'school-blinds' && CommercialUrl.find(
     (prod: { urlName: string; Redirect: string }) => {
       return prod.urlName == String(product)?.toLowerCase();
     },
