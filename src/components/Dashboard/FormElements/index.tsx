@@ -322,6 +322,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     ICategory[]
   >([]);
 
+
+  
   useEffect(() => {
     const filteredSubcategories = subCategoriesList.filter((subcategory) =>
       selectedCategoryIds.includes(subcategory.CategoryId),
