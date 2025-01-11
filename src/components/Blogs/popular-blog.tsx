@@ -4,7 +4,7 @@ import { BlogInfo } from 'types/interfaces'
 import { useRouter } from 'next/navigation'
 import { generateSlug } from 'data/data'
 import Link from 'next/link'
-import { formatDateMonth, removeImagesFromContent } from 'config'
+import { formatDateMonth } from 'config'
 import Image from 'next/image'
 import Slider, { SliderSettings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -109,13 +109,12 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
             ) : (
               <Slider {...settings}>
                 {filteredBlogs.map((blog, index) => {
-                  const filteredContent = removeImagesFromContent(blog.content);
                   return (
                     <div
                       className={`rounded-lg space-y-2 sm:space-y-4 mt-5 px-4 flex flex-col justify-between`}
                       key={index}
                       onClick={() => {
-                        route.push(`/blog/${generateSlug(blog.title)}`);
+                        route.push(`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`);
                       }}
                     >
                       <div className={``}>
@@ -134,28 +133,18 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                         <h3
                           className="text-13 sm:text-20 font-bold cursor-pointer text-start"
                           onClick={() => {
-                            route.push(`/blog/${generateSlug(blog.title)}`);
+                            route.push(`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`);
                           }}
                         >
                           {blog.title}
                         </h3>
 
                         <p className=" text-10 sm:text-16">
-                          {filteredContent.length > 160 ? (
-                            <span
-                              dangerouslySetInnerHTML={{
-                                __html: `${filteredContent.slice(0, 100)}...`,
-                              }}
-                            />
-                          ) : (
-                            <span
-                              dangerouslySetInnerHTML={{ __html: filteredContent }}
-                            />
-                          )}
+                          {blog.Meta_description}
                         </p>
                       </div>
                       <Link
-                        href={`/blog/${generateSlug(blog.title)}`}
+                        href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`}
                         className={`text-primary text-12 sm:text-18 underline font-bold text-center sm:text-start`}
                       >
                         Read More

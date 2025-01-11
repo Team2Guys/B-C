@@ -3,68 +3,74 @@ import NotFound from 'app/not-found';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
 import SubCategoryPageSkeleton from 'components/Skeleton/SubCategoryPageSkeleton';
+import { filterProd } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl, urls } from 'data/urls';
-import { usePathname} from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
-const CommercialProduct = ({product , products  , subCategories}: {product: string, products: IProduct[] , subCategories: ICategory[]}) => {
+const CommercialProduct = ({
+  product,
+  products,
+  subCategories,
+}: {
+  product: string;
+  products: IProduct[];
+  subCategories: ICategory[];
+}) => {
   const [isNotFound, setIsNotFound] = useState(false);
   const [loading, setloading] = useState(false);
-  const [filteredProduct, setfilteredProduct] = useState<IProduct | undefined>();
-  const [filteredSubCategory, setfilteredSubCategory] = useState<ICategory | undefined>();
+  const [filteredProduct, setfilteredProduct] = useState<
+    IProduct | undefined
+  >();
+  const [filteredSubCategory, setfilteredSubCategory] = useState<
+    ICategory | undefined
+  >();
   const path = usePathname();
 
   // const router = useRouter();
 
-const CategoryFiilterHandler =()=>{
-  try {
-    setloading(true)
-    const filteredSubCategory:ICategory| undefined = subCategories?.find(
-      (sub) => generateSlug(sub.title) === ChangedProductUrl(product as string),
-    );
-  
-    const filteredProduct = products?.find(
-      (prod) =>
-        generateSlug(prod.title) ===
-        generateSlug(ChangedProductUrl(product as string)),
-    );
-  
-    setfilteredProduct(filteredProduct)
-    setfilteredSubCategory(filteredSubCategory)
-  } catch (error) {
-    console.log(error)
-  }finally{
-    setloading(false)
-  }
+  const CategoryFiilterHandler = () => {
+    try {
+      setloading(true);
+      const filteredSubCategory: ICategory | undefined = subCategories?.find(
+        (sub) =>
+          generateSlug(sub.title) === ChangedProductUrl(product as string),
+      );
 
+      // const filteredProduct = products?.find(
+      //   (prod) =>
+      //     generateSlug(prod.title) ===
+      //     generateSlug(ChangedProductUrl(product as string)),
+      // );
+      const filteredProduct = filterProd(products, product, [12]);
 
-}
+      setfilteredProduct(filteredProduct);
+      setfilteredSubCategory(filteredSubCategory);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setloading(false);
+    }
+  };
 
+  useEffect(() => {
+    //   const Redirectedhandler =()=>{
+    //     const redirected_product = CommercialUrl.find(
+    //       (prod: { urlName: string; Redirect: string }) => {
+    //         return prod.urlName == String(product)?.toLowerCase();
+    //       },
+    //     );
 
-useEffect(() => {
-//   const Redirectedhandler =()=>{
-//     const redirected_product = CommercialUrl.find(
-//       (prod: { urlName: string; Redirect: string }) => {
-//         return prod.urlName == String(product)?.toLowerCase();
-//       },
-//     );
-  
-//     if (redirected_product) {
-//       router.push(redirected_product.Redirect);
-//     }
-//   }
+    //     if (redirected_product) {
+    //       router.push(redirected_product.Redirect);
+    //     }
+    //   }
 
-
-// Redirectedhandler()
-CategoryFiilterHandler()
-}, [product])
-
- 
-
-
-
+    // Redirectedhandler()
+    CategoryFiilterHandler();
+  }, [product]);
 
   useEffect(() => {
     if (path) {
@@ -84,8 +90,9 @@ CategoryFiilterHandler()
   }
   return (
     <>
-    
-      {loading ? <SubCategoryPageSkeleton/> :filteredSubCategory ? (
+      {loading ? (
+        <SubCategoryPageSkeleton />
+      ) : filteredSubCategory ? (
         <>
           <CommercialByRoom
             title={`${filteredSubCategory.title}`}
