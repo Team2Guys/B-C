@@ -10,7 +10,9 @@ const filteredBlog: BlogInfo[] =blog.sort((a: BlogInfo, b: BlogInfo) =>new Date(
 
 //  .filter((blog)=>blog.isPublished)?
   return (
- <Blog blogs ={filteredBlog}/>
+<>
+<Blog blogs ={filteredBlog}/>
+</> 
   );
 };
 
