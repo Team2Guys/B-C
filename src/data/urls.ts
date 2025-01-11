@@ -25,25 +25,21 @@ export const urls = [
     productName: 'Zipline Outdoor Blinds',
     Url: 'zipline-blinds',
     errorUrl: '/curtains/zipline-outdoor-blinds',
-
   },
   {
     productName: 'Ripplefold/Wave Curtains',
     Url: 'wave-curtains',
     errorUrl: '/curtains/ripplefoldwave-curtains',
-
   },
   {
     productName: 'Kids Prints Curtains',
     Url: 'curtain-prints-for-kids',
     errorUrl: '/curtains/kids-prints-curtains',
-
   },
   {
     productName: 'Double Pinch Pleat Curtains',
     Url: 'double-pleat-curtains',
     errorUrl: '/curtains/double-pleat-pleat-curtains',
-
   },
 
   {
@@ -159,9 +155,7 @@ export const urls = [
     Url: 'pergola',
     errorUrl: '/commercial/pergola-curtains',
   },
-
 ];
-
 
 export const predefinedPaths = {
   'office-blinds': '/commercial',
@@ -174,7 +168,7 @@ export const predefinedPaths = {
   schools: '/blinds/school-blinds',
   offices: '/commercial',
   gym: '/curtains/gym-curtains',
-  'skylight': '/blinds/skylight-blinds-dubai',
+  skylight: '/blinds/skylight-blinds-dubai',
   'skylight-blinds': '/blinds/skylight-blinds-dubai',
   'balcony-blinds-and-curtains': '/balcony-blinds-and-curtains',
 };
@@ -197,26 +191,33 @@ export const ChangedProductUrl_handler = (title: string): string => {
   return products ? products.Url : generateSlug(title);
 };
 
-
-
 export const CommercialUrl = [
-  { urlName: "hospitals", Redirect: "/curtains/hospital-curtains" },
-  { urlName: "restaurants", Redirect: "/hotels-restaurants-blinds-curtains" },
-  { urlName: "hotels", Redirect: "/hotels-restaurants-blinds-curtains" },
-  { urlName: "offices", Redirect: "/curtains/office-window-curtains" },
-  { urlName: "school-blinds", Redirect: "/blinds/school-blinds" },
-  { urlName: "gym", Redirect: "/curtains/gym-curtains" },
-  { urlName: "theatre", Redirect: "/curtains/stage-and-theatre-curtains" },
-  { urlName: "wooden-aluminium-blinds", Redirect: "/blinds/wooden-venetian" },
-  { urlName: "study-room-blinds", Redirect: "/commercial" },
-  { urlName: "aric-blinds", Redirect: "/" },
-  { urlName: "outdoor-blinds", Redirect: "/commercial/outdoor" },
-  { urlName: "ripplefoldwave-curtains", Redirect: "/curtains/wave-curtains" },
-  { urlName: "special-shape-shutters-wooden-shutters", Redirect: "/shutters-range/special-shape-shutters" },
-  { urlName: "tier-on-tier-shutters-wooden-shutters", Redirect: "/shutters-range/tier-on-tier-shutters" },
-  { urlName: "solid-panel-shutters-plantation-shutters-dubai", Redirect: "/shutters-range/solid-panel-shutters" },
-  { urlName: "installed-office-blinds-dubai", Redirect: "/commercial" },
-]
+  { urlName: 'hospitals', Redirect: '/curtains/hospital-curtains' },
+  // { urlName: 'restaurants', Redirect: '/hotels-restaurants-blinds-curtains' },
+  // { urlName: 'hotels', Redirect: '/hotels-restaurants-blinds-curtains' },
+  { urlName: 'offices', Redirect: '/curtains/office-window-curtains' },
+  { urlName: 'school-blinds', Redirect: '/blinds/school-blinds' },
+  { urlName: 'gym', Redirect: '/curtains/gym-curtains' },
+  { urlName: 'theatre', Redirect: '/curtains/stage-and-theatre-curtains' },
+  { urlName: 'wooden-aluminium-blinds', Redirect: '/blinds/wooden-venetian' },
+  { urlName: 'study-room-blinds', Redirect: '/commercial' },
+  { urlName: 'aric-blinds', Redirect: '/' },
+  { urlName: 'outdoor-blinds', Redirect: '/commercial/outdoor' },
+  { urlName: 'ripplefoldwave-curtains', Redirect: '/curtains/wave-curtains' },
+  {
+    urlName: 'special-shape-shutters-wooden-shutters',
+    Redirect: '/shutters-range/special-shape-shutters',
+  },
+  {
+    urlName: 'tier-on-tier-shutters-wooden-shutters',
+    Redirect: '/shutters-range/tier-on-tier-shutters',
+  },
+  {
+    urlName: 'solid-panel-shutters-plantation-shutters-dubai',
+    Redirect: '/shutters-range/solid-panel-shutters',
+  },
+  { urlName: 'installed-office-blinds-dubai', Redirect: '/commercial' },
+];
 
 export const getProduct = [
   'Roller Blinds',
@@ -260,96 +261,133 @@ export const getProduct = [
   'Bathroom Shutters',
   'Bi Fold Shutters',
   'Outdoor Shutters',
-  'Staircase Shutters'
+  'Staircase Shutters',
 ];
 
-
 export const allowedTitles = [
-  "Roman Blinds",
-  "Vertical Blinds",
-  "Wooden Blinds",
-  "Aluminium Blinds",
-  "Zebra Blinds",
-  "Blackout Curtains",
-  "Sheer Curtains",
-  "Shutters MDF",
-  "Roller Blinds",
-  "Shutters Basswood"
+  'Roman Blinds',
+  'Vertical Blinds',
+  'Wooden Blinds',
+  'Aluminium Blinds',
+  'Zebra Blinds',
+  'Blackout Curtains',
+  'Sheer Curtains',
+  'Shutters MDF',
+  'Roller Blinds',
+  'Shutters Basswood',
 ];
 
 export const predefinedOrder = [
-    'Roller Blinds',
-    'Roman Blinds',
-    'Vertical Blinds',
-    'Wooden Blinds',
-    'Aluminium Blinds',
-    'Zebra Blinds',
-    'Blackout Curtains',
-    'Sheer Curtains',
-    'Shutters MDF',
-    'Shutters Basswood'
-  ];
-
+  'Roller Blinds',
+  'Roman Blinds',
+  'Vertical Blinds',
+  'Wooden Blinds',
+  'Aluminium Blinds',
+  'Zebra Blinds',
+  'Blackout Curtains',
+  'Sheer Curtains',
+  'Shutters MDF',
+  'Shutters Basswood',
+];
 
 export const blogCategoryUrl = [
-  { url: '/blog/blinds'   , name: 'Blinds'},
-  { url: '/blog/curtains' , name: 'Curtains' },
-  { url: '/blog/shutters' , name: 'Shutters' }
-]
+  { url: '/blog/blinds', name: 'Blinds' },
+  { url: '/blog/curtains', name: 'Curtains' },
+  { url: '/blog/shutters', name: 'Shutters' },
+];
 
 export const blogPostUrl = [
-  { url: '/how-to-clean-dusty-curtains' , redirectUrl: '/blog/how-to-clean-dusty-curtains' },
-  { url: '/how-to-install-window-blinds-without-drilling' , redirectUrl: '/blog/how-to-install-window-blinds-without-drilling' },
-  { url: '/guide-to-pulling-up-and-rolling-down-blinds' , redirectUrl: '/blog/guide-to-pulling-up-and-rolling-down-blinds' },
-  { url: '/types-of-popular-roman-blinds' , redirectUrl: '/blog/types-of-popular-roman-blinds' },
-  { url: '/types-of-roller-blinds-a-definitive-guide' , redirectUrl: '/blog/types-of-roller-blinds-a-definitive-guide' },
-  { url: '/can-you-paint-a-roller-blind' , redirectUrl: '/blog/can-you-paint-a-roller-blind' },
-  { url: '/how-to-choose-curtains-for-the-living-room' , redirectUrl: '/blog/how-to-choose-curtains-for-the-living-room' },
-  { url: '/should-curtains-match-the-wall-color' , redirectUrl: '/blog/should-curtains-match-the-wall-color' },
-  { url: '/different-types-of-curtains-for-windows' , redirectUrl: '/blog/different-types-of-curtains-for-windows' },
-  { url: '/blinds-vs-curtains-which-is-energy-efficient' , redirectUrl: '/blog/blinds-vs-curtains-which-is-energy-efficient' },
-  { url: '/lined-vs-unlined-curtains' , redirectUrl: '/blog/lined-vs-unlined-curtains' },
-  { url: '/how-to-cover-entire-wall-with-curtains' , redirectUrl: '/blog/how-to-cover-entire-wall-with-curtains' },
-  { url: '/the-modern-window-treatments-in-dubai' , redirectUrl: '/blog/the-modern-window-treatments-in-dubai' },
-  { url: '/vertical-blinds-for-windows' , redirectUrl: '/blog/vertical-blinds-for-windows' },
-  { url: '/our-installation' , redirectUrl: '/gallery' },
-  { url: '/call-me-back' , redirectUrl: '/request-appointment' },
-  { url: '/blinds-projects' , redirectUrl: '/projects' },
-  { url: '/curtains-projects' , redirectUrl: '/projects' },
-  { url: '/shutters-projects' , redirectUrl: '/projects' },
-  { url: '/motorised-projects' , redirectUrl: '/projects' },
-  { url: '/why-choose-blinds-curtains' , redirectUrl: '/choose-us' },
-  { url: '/downtown-dubai' , redirectUrl: '/projects' },
-  { url: '/al-barsha' , redirectUrl: '/projects' },
-  { url: '/business-bay-dubai' , redirectUrl: '/projects' },
-  { url: '/jumeirah-beach-residence' , redirectUrl: '/projects' },
-  { url: '/arabian-ranches' , redirectUrl: '/projects' },
-  { url: '/jumeirah-bay-island' , redirectUrl: '/projects' },
-  { url: '/dubai-hills' , redirectUrl: '/projects' },
-  { url: '/palm-jumeirah' , redirectUrl: '/projects' },
-
-]
+  {
+    url: '/how-to-clean-dusty-curtains',
+    redirectUrl: '/blog/how-to-clean-dusty-curtains',
+  },
+  {
+    url: '/how-to-install-window-blinds-without-drilling',
+    redirectUrl: '/blog/how-to-install-window-blinds-without-drilling',
+  },
+  {
+    url: '/guide-to-pulling-up-and-rolling-down-blinds',
+    redirectUrl: '/blog/guide-to-pulling-up-and-rolling-down-blinds',
+  },
+  {
+    url: '/types-of-popular-roman-blinds',
+    redirectUrl: '/blog/types-of-popular-roman-blinds',
+  },
+  {
+    url: '/types-of-roller-blinds-a-definitive-guide',
+    redirectUrl: '/blog/types-of-roller-blinds-a-definitive-guide',
+  },
+  {
+    url: '/can-you-paint-a-roller-blind',
+    redirectUrl: '/blog/can-you-paint-a-roller-blind',
+  },
+  {
+    url: '/how-to-choose-curtains-for-the-living-room',
+    redirectUrl: '/blog/how-to-choose-curtains-for-the-living-room',
+  },
+  {
+    url: '/should-curtains-match-the-wall-color',
+    redirectUrl: '/blog/should-curtains-match-the-wall-color',
+  },
+  {
+    url: '/different-types-of-curtains-for-windows',
+    redirectUrl: '/blog/different-types-of-curtains-for-windows',
+  },
+  {
+    url: '/blinds-vs-curtains-which-is-energy-efficient',
+    redirectUrl: '/blog/blinds-vs-curtains-which-is-energy-efficient',
+  },
+  {
+    url: '/lined-vs-unlined-curtains',
+    redirectUrl: '/blog/lined-vs-unlined-curtains',
+  },
+  {
+    url: '/how-to-cover-entire-wall-with-curtains',
+    redirectUrl: '/blog/how-to-cover-entire-wall-with-curtains',
+  },
+  {
+    url: '/the-modern-window-treatments-in-dubai',
+    redirectUrl: '/blog/the-modern-window-treatments-in-dubai',
+  },
+  {
+    url: '/vertical-blinds-for-windows',
+    redirectUrl: '/blog/vertical-blinds-for-windows',
+  },
+  { url: '/our-installation', redirectUrl: '/gallery' },
+  { url: '/call-me-back', redirectUrl: '/request-appointment' },
+  { url: '/blinds-projects', redirectUrl: '/projects' },
+  { url: '/curtains-projects', redirectUrl: '/projects' },
+  { url: '/shutters-projects', redirectUrl: '/projects' },
+  { url: '/motorised-projects', redirectUrl: '/projects' },
+  { url: '/why-choose-blinds-curtains', redirectUrl: '/choose-us' },
+  { url: '/downtown-dubai', redirectUrl: '/projects' },
+  { url: '/al-barsha', redirectUrl: '/projects' },
+  { url: '/business-bay-dubai', redirectUrl: '/projects' },
+  { url: '/jumeirah-beach-residence', redirectUrl: '/projects' },
+  { url: '/arabian-ranches', redirectUrl: '/projects' },
+  { url: '/jumeirah-bay-island', redirectUrl: '/projects' },
+  { url: '/dubai-hills', redirectUrl: '/projects' },
+  { url: '/palm-jumeirah', redirectUrl: '/projects' },
+];
 
 export const subCategoryUrls = [
-  {url: 'blackout-blinds' , name: 'Blackout/Private Blinds'}
-]
-
+  { url: 'blackout-blinds', name: 'Blackout/Private Blinds' },
+];
 
 export const customSortingOrder = [
-  
   //Blinds By Type
 
-    'roller-blinds',
-    'roman-blinds',
-    'vertical-blinds',
-    'wooden-blinds',
-    'aluminium-blinds',
-    'zebra-blinds',
-    'zipline-outdoor-blinds',
-    'panel-blinds',
+  'roller-blinds',
+  'roman-blinds',
+  'vertical-blinds',
+  'wooden-blinds',
+  'aluminium-blinds',
+  'zebra-blinds',
+  'zipline-outdoor-blinds',
+  'panel-blinds',
 
   //Blinds By Room
-  
+
   'living-room-blinds',
   'dining-room-blinds',
   'bedroom-blinds',
@@ -381,7 +419,7 @@ export const customSortingOrder = [
   'kitchen-curtains',
   'staircase-curtains',
   'conservatory-curtains',
-  
+
   //Curtain By fabric
 
   'blackout-curtains',
@@ -404,7 +442,7 @@ export const customSortingOrder = [
   'cafe-style-shutters',
   'bay-window-shutters',
   'outdoor-shutters',
-  
+
   //Shutter By Room
   'living-room-shutters',
   'bedroom-shutters',
@@ -421,43 +459,40 @@ export const customSortingOrder = [
   'light-wood-shutters',
   'dark-wood-shutters',
   'bold-colours-shutters',
-  ];
+];
 
+export const MoterisedData = [
+  {
+    title: 'Automated Blinds',
+    link: '/automated-blinds',
+    imageSrc: 'assets/images/Blinds/landing/AutomatedBlinds.webp',
+  },
+  {
+    title: 'Automated Curtains',
+    link: '/automated-curtains',
+    imageSrc: 'assets/images/Curtain/landing/Automatedcurtains.webp',
+  },
+];
 
- export const MoterisedData = [
-    {
-      title: "Automated Blinds",
-      link: "/automated-blinds",
-      imageSrc: "assets/images/Blinds/landing/AutomatedBlinds.webp",
-    },
-    {
-      title: "Automated Curtains",
-      link: "/automated-curtains",
-      imageSrc: "assets/images/Curtain/landing/Automatedcurtains.webp",
-    },
-  ];
+export const allProductsOrder = [
+  'roller-blinds',
+  'roman-blinds',
+  'vertical-blinds',
+  'wooden-blinds',
+  'aluminium-blinds',
 
-  export const allProductsOrder = [
-    'roller-blinds',
-    'roman-blinds',
-    'vertical-blinds',
-    'wooden-blinds',
-    'aluminium-blinds',
+  'triple-pinch-pleat-curtains',
+  'double-pinch-pleat-curtains',
+  'pencil-pleat-curtains',
+  'ripplefoldwave-curtains',
 
-    'triple-pinch-pleat-curtains',
-    'double-pinch-pleat-curtains',
-    'pencil-pleat-curtains',
-    'ripplefoldwave-curtains',
+  'full-height-shutters',
+  'bi-fold-shutters',
+  'bi-pass-shutters',
+  'solid-panel-shutters',
+];
 
-    'full-height-shutters',
-    'bi-fold-shutters',
-    'bi-pass-shutters',
-    'solid-panel-shutters',
-
-  ];
-
-  export const customTitles = [
-    { slug: "hotels-restaurants", name: "Hotels & Restaurant Window Coverings" },
-    { slug: "auditoriums", name: "Made To Measure Auditorium Window Coverings" },
-
-  ];
+export const customTitles = [
+  { slug: 'hotels-restaurants', name: 'Hotels & Restaurant Window Coverings' },
+  { slug: 'auditoriums', name: 'Made To Measure Auditorium Window Coverings' },
+];
