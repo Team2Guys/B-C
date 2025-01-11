@@ -80,13 +80,18 @@ export class CategoriesService {
 
 
   async AddsubCategoryHandler(createCategoryDto: Prisma.SubCategoriesCreateInput, @Req() req:Request | any) {
-    const CreatesubCategoryHandlerWithErrorHandling = withAsyncErrorHandling(CreatesubCategoryHandler)
-    const [response, error]: any = await CreatesubCategoryHandlerWithErrorHandling(createCategoryDto, req);
-    if (error) {
+
+    try {
+      const { email } = req.user
+      return await CreatesubCategoryHandler(createCategoryDto, email)
+    } catch (error: any) {
+      console.log(error, "err")
       return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
+
     }
 
-    return response
+
+
 
   }
 

@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Req } from '@nestjs/co
 import { CategoriesService } from './categories.service';
 import { createCategorydto } from '../dto/category.dto'
 import { Prisma } from '@prisma/client';
-import { get } from 'http';
 
 
 @Controller('categories')
