@@ -4,13 +4,16 @@ import { fetchProducts } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
+import { notFound } from 'next/navigation';
 import { IProduct } from 'types/types';
 
 export async function generateMetadata(): Promise<Metadata> {
 let products = await fetchProducts()
   const filtereProdcts =["Hotels & Restaurants"]
   const filteredProduct = products?.find((prod) => filtereProdcts.includes(prod.title));
-
+  if(!filteredProduct) {
+    return {}
+  }
   const headersList = await headers();
   const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
@@ -55,6 +58,9 @@ let products = await fetchProducts()
   const filtereProdcts =["Hotels & Restaurants"]
 
   const filteredProduct = products?.find((prod) => filtereProdcts.includes(prod.title));
+  if(!filteredProduct){
+    return notFound();
+  }
   return (
     <>
       <ProductDetailPage
