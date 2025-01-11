@@ -11,7 +11,7 @@ const itemsPerPage = 12;
 const Gallery = ({ products, categories }: { products: IProduct[], categories: ICategory[] }) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null,
   );
-  let All_Content = "A RANGE OF THE VAST CHOICES OF WINDOW COVERINGS AVAILABLE FOR YOUR HOME OR OFFICE..."
+  let All_Content = "Take a Look at the Beautiful Window Coverings We’ve Installed Across Dubai"
   const [currentPage, setCurrentPage] = useState(1);
   const [conent, setconent] = useState(All_Content)
   const filteredProducts = selectedCategoryId
@@ -28,10 +28,10 @@ const Gallery = ({ products, categories }: { products: IProduct[], categories: I
 
 
   const Category_wise_Conent: { [key: string]: string } = {
-    2: "blind",
-    5: "curtain",
-    9: "shutters",
-    12: "commercial",
+    2: "Take a look at the stylish and functional blinds we've installed in Dubai homes and offices",
+    5: "From blackout to sheer curtains, you'll find every style here",
+    9: "You can view our shutter installations by scrolling down through the pictures in the gallery below",
+    12: "You can make your windows look sophisticated with custom window treatments in a variety of fabrics and colours",
 
   }
   const handleCategoryClick = (categoryId: number | null) => {
@@ -46,7 +46,6 @@ const Gallery = ({ products, categories }: { products: IProduct[], categories: I
 
 
 
-
   return (
     <>
       {/* <TopHero title="GALLERY" image={bgBreadcrum.src} pagename={pathName} /> */}
@@ -56,7 +55,10 @@ const Gallery = ({ products, categories }: { products: IProduct[], categories: I
             GALLERY
           </h2>
           <p className='text-center max-w-[70%] mt-4'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde dignissimos ipsa similique eos voluptates. Voluptate, est possimus quae exercitationem porro expedita neque consequuntur reprehenderit vel aliquid, nisi, odio eos molestiae.</p>
+     
+          Window Treatment Inspiration Gallery
+
+            </p>
         </div>
 
         <div className="overflow-x-auto">
