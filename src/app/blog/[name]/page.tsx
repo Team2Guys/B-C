@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const [categories, blogs] = await Promise.all([fetchCategories(),fetchBlogs()]);
 
   const filterCategory = categories.find((category) => category.title === matchingLink?.label);
-  const blog: BlogInfo | undefined = blogs?.find((blog) => generateSlug(blog.title) === name);
+  const blog: BlogInfo | undefined = blogs?.find((blog) => blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title) === name);
 
 
   const headersList = await headers();
@@ -69,8 +69,7 @@ const BlogDetail = async ({ params }: { params: Promise<{ name: string }> }) => 
 
   const filterCategoryBlogPosts = blogs?.filter( (blogItem: BlogInfo) => blogItem.category === category?.title && blogItem?.isPublished)
 
-  const blog: BlogInfo | undefined = blogs?.find((blog) => generateSlug(blog.title) === name && blog.isPublished);
-
+  const blog: BlogInfo | undefined = blogs?.find((blog) => blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title) === name && blog.isPublished);
   const filterRelatedPosts = blogs.filter((blogItem: BlogInfo) =>(blogItem.category === blog?.category) &&
    generateSlug(blogItem.title) !== generateSlug(blog.title) && blogItem.isPublished) 
    
