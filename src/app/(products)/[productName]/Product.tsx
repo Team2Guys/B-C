@@ -31,34 +31,26 @@ const Product = ({productName , products , categories , subCategories}: {product
   const title = matchingLink ? matchingLink.label : productName;
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
   const [isNotFound, setIsNotFound] = useState(false);
-
   const productNameString = Array.isArray(productName)
     ? productName[0]
     : productName;
-
-  
   useEffect(() => {
     if (products && categories && productNameString) {
       const matchingLink = links.find((link) =>
         productNameString.includes(link.href.replace(/^\//, '')),
       );
-  
       const selectedProductName = matchingLink ? matchingLink.label : '';
-  
       const filterCat = categories?.find(
         (cat) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
       );
-  
       if (filterCat) {
         const filteredProducts =
           products.filter((product) => product.CategoryId === filterCat.id) ||
           [];
-  
         const filteredSubCategories =
           subCategories?.filter(
             (subCat) => subCat.CategoryId === filterCat.id,
           ) || [];
-  
         const filteredItems = [...filteredProducts, ...filteredSubCategories];
         setFilteredProducts(filteredItems);
         if (filteredItems.length > 0) {
@@ -69,7 +61,6 @@ const Product = ({productName , products , categories , subCategories}: {product
       setIsNotFound(true);
     }
   }, [products, categories, subCategories, productNameString]);
-  
   useEffect(() => {
     const selectedPage = categoriesContent.find(
       (page) => page.slug === generateSlug(pathname),
@@ -78,11 +69,9 @@ const Product = ({productName , products , categories , subCategories}: {product
       setSelectedPage(selectedPage.content);
     }
   }, [pathname]);
-
    if (isNotFound ) {
       return <NotFound />;
     }
-
   return (
     <>
       <VideoBanner
