@@ -11,10 +11,13 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
   const name = (await params).name;
   const matchingLink = blogLinks.find((link) => link.href === name);
-  const [categories, blogs] = await Promise.all([fetchCategories(),fetchBlogs()]);
+  const [categories, blogs] = await Promise.all([fetchCategories(), fetchBlogs()]);
 
   const filterCategory = categories.find((category) => category.title === matchingLink?.label);
-  const blog: BlogInfo | undefined = blogs?.find((blog) => blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title) === name);
+  const blog: BlogInfo | undefined = blogs?.find((blog) => {
+    const filterTitle = blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title);
+   return filterTitle === name && blog.isPublished;
+  });
 
 
   const headersList = await headers();
@@ -23,11 +26,11 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
-    if (!filterCategory && !blog) {
-      notFound();
-    }
+  if (!filterCategory && !blog) {
+    notFound();
+  }
 
-  let Category : BlogInfo | ICategory = filterCategory  ? filterCategory: blog || {} as any;
+  let Category: BlogInfo | ICategory = filterCategory ? filterCategory : blog || {} as any;
 
   let ImageUrl = Category?.posterImage.imageUrl || 'blindsandcurtains';
   let alt = Category?.posterImage.altText || 'blindsandcurtains';
@@ -39,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
     },
   ];
 
-  let title = Category?.Meta_Title ||'blindsandcurtains';
+  let title = Category?.Meta_Title || 'blindsandcurtains';
   let description = Category?.Meta_description || 'Welcome to blindsandcurtains';
   let url = `${fullUrl}blog/${name}`;
   return {
@@ -67,15 +70,16 @@ const BlogDetail = async ({ params }: { params: Promise<{ name: string }> }) => 
     (category) => category.title.toLowerCase() === name,
   );
 
-  const filterCategoryBlogPosts = blogs?.filter( (blogItem: BlogInfo) => blogItem.category === category?.title && blogItem?.isPublished)
+  const filterCategoryBlogPosts = blogs?.filter((blogItem: BlogInfo) => blogItem.category === category?.title && blogItem?.isPublished)
 
-  const blog: BlogInfo | undefined = blogs?.find((blog) => blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title) === name && blog.isPublished);
-  const filterRelatedPosts = blogs.filter((blogItem: BlogInfo) =>(blogItem.category === blog?.category) &&
-   generateSlug(blogItem.title) !== generateSlug(blog.title) && blogItem.isPublished) 
-   
+  const blog: BlogInfo | undefined = blogs?.find((blog) => {
+    const filterTitle = blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title);
+   return filterTitle === name && blog.isPublished;
+  }
+  );
+  const filterRelatedPosts = blogs.filter((blogItem: BlogInfo) => (blogItem.category === blog?.category) &&
+    generateSlug(blogItem.title) !== generateSlug(blog.title) && blogItem.isPublished)
   //  .slice(0, 3);
- 
-  console.log(filterRelatedPosts.length, "FILTER")
   return (
     <Blog category={category} filterCategoryBlogPosts={filterCategoryBlogPosts} blog={blog} filterRelatedPosts={filterRelatedPosts} />
   );
