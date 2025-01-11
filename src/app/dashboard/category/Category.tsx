@@ -11,9 +11,7 @@ import { ICategory } from 'types/types';
 
 const Category = ({cetagories}: {cetagories: ICategory[]}) => {
   const [menuType, setMenuType] = useState<string>('Categories');
-  const [editCategory, seteditCategory] = useState<
-    CategoriesType | undefined | null
-  >();
+  const [editCategory, seteditCategory] = useState<CategoriesType | undefined | null>();
 
   return (
     <DefaultLayout>
