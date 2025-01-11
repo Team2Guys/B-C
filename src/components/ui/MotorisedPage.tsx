@@ -36,7 +36,7 @@ const MotorisedPage = () => {
     <>
       <TopHero
         title={pageData.title}
-        image={pageData.heroImage}
+        Video={pageData.heroVideo}
         pagename={pathName}
       />
       <MotorisedInfo

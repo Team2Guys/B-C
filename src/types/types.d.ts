@@ -130,6 +130,7 @@ interface SubheadingContent {
 export interface ISelectedPage {
   heading?: string;
   paragraph?: string;
+  src?: string;
   subheading1?: string;
   subheading2?: string;
   posterImage?: string;
