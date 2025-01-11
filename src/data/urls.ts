@@ -193,8 +193,8 @@ export const ChangedProductUrl_handler = (title: string): string => {
 
 export const CommercialUrl = [
   { urlName: 'hospitals', Redirect: '/curtains/hospital-curtains' },
-  { urlName: 'restaurants', Redirect: '/hotels-restaurants-blinds-curtains' },
-  { urlName: 'hotels', Redirect: '/hotels-restaurants-blinds-curtains' },
+  // { urlName: 'restaurants', Redirect: '/hotels-restaurants-blinds-curtains' },
+  // { urlName: 'hotels', Redirect: '/hotels-restaurants-blinds-curtains' },
   { urlName: 'offices', Redirect: '/curtains/office-window-curtains' },
   { urlName: 'school-blinds', Redirect: '/blinds/school-blinds' },
   { urlName: 'gym', Redirect: '/curtains/gym-curtains' },
