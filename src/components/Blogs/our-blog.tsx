@@ -1,7 +1,7 @@
 'use client';
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
-import { formatDateMonth, removeImagesFromContent } from 'config';
+import { formatDateMonth } from 'config';
 import { generateSlug } from 'data/data';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -39,7 +39,6 @@ const OurBlog = ({
         id={id}
       >
         {Blogdata.map((blog, index) => {
-          const filteredContent = removeImagesFromContent(blog.content);
           return (
             <div
               className={`rounded-lg space-y-4 mt-3 flex flex-col justify-between ${className} `}
@@ -70,17 +69,7 @@ const OurBlog = ({
                   {blog.title}
                 </h3>
                 <p className="">
-                  {filteredContent.length > 160 ? (
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: `${filteredContent.slice(0, 100)}...`,
-                      }}
-                    />
-                  ) : (
-                    <span
-                      dangerouslySetInnerHTML={{ __html: filteredContent }}
-                    />
-                  )}
+                  {blog.Meta_description}
                 </p>
               </div>
               <Link

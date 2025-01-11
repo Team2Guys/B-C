@@ -4,7 +4,7 @@ import { BlogInfo } from 'types/interfaces'
 import { useRouter } from 'next/navigation'
 import { generateSlug } from 'data/data'
 import Link from 'next/link'
-import { formatDateMonth, removeImagesFromContent } from 'config'
+import { formatDateMonth } from 'config'
 import Image from 'next/image'
 import Slider, { SliderSettings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -109,7 +109,6 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
             ) : (
               <Slider {...settings}>
                 {filteredBlogs.map((blog, index) => {
-                  const filteredContent = removeImagesFromContent(blog.content);
                   return (
                     <div
                       className={`rounded-lg space-y-2 sm:space-y-4 mt-5 px-4 flex flex-col justify-between`}
@@ -141,17 +140,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                         </h3>
 
                         <p className=" text-10 sm:text-16">
-                          {filteredContent.length > 160 ? (
-                            <span
-                              dangerouslySetInnerHTML={{
-                                __html: `${filteredContent.slice(0, 100)}...`,
-                              }}
-                            />
-                          ) : (
-                            <span
-                              dangerouslySetInnerHTML={{ __html: filteredContent }}
-                            />
-                          )}
+                          {blog.Meta_description}
                         </p>
                       </div>
                       <Link
