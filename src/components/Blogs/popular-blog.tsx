@@ -115,7 +115,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                       className={`rounded-lg space-y-2 sm:space-y-4 mt-5 px-4 flex flex-col justify-between`}
                       key={index}
                       onClick={() => {
-                        route.push(`/blog/${generateSlug(blog.title)}`);
+                        route.push(`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`);
                       }}
                     >
                       <div className={``}>
@@ -134,7 +134,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                         <h3
                           className="text-13 sm:text-20 font-bold cursor-pointer text-start"
                           onClick={() => {
-                            route.push(`/blog/${generateSlug(blog.title)}`);
+                            route.push(`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`);
                           }}
                         >
                           {blog.title}
@@ -155,7 +155,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                         </p>
                       </div>
                       <Link
-                        href={`/blog/${generateSlug(blog.title)}`}
+                        href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`}
                         className={`text-primary text-12 sm:text-18 underline font-bold text-center sm:text-start`}
                       >
                         Read More
