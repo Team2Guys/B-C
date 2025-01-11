@@ -45,7 +45,7 @@ const OurBlog = ({
               className={`rounded-lg space-y-4 mt-3 flex flex-col justify-between ${className} `}
               key={index}
               onClick={() => {
-                route.push(`/blog/${generateSlug(blog.title)}`);
+                route.push(`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`);
               }}
             >
               <div className={``}>
@@ -64,7 +64,7 @@ const OurBlog = ({
                 <h3
                   className="text-20 font-bold cursor-pointer text-center sm:text-start"
                   onClick={() => {
-                    route.push(`/blog/${generateSlug(blog.title)}`);
+                    route.push(`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`);
                   }}
                 >
                   {blog.title}
@@ -84,7 +84,7 @@ const OurBlog = ({
                 </p>
               </div>
               <Link
-                href={`/blog/${generateSlug(blog.title)}`}
+                href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`}
                 className={`text-primary text-18 underline font-bold text-center sm:text-start w-fit`}
               >
                 Read More
