@@ -13,15 +13,25 @@ import { NotFoundError } from 'rxjs';
 
 @Injectable()
 export class BlogsService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
   async create(createBlogDto: Prisma.blogsCreateInput, req: Request | any) {
-    const { email } = req.user
-    let existing_blog = await this.prisma.blogs.findFirst({
+    const { email } = req.user;
+    const existingBlog = await this.prisma.blogs.findFirst({
       where: { title: createBlogDto.title },
     });
-    if (existing_blog)
-      return CustomErrorHandler('Blog is Already Exists', 'BAD_REQUEST');
+
+    if (existingBlog) {
+      const updatedBlog = await this.prisma.blogs.update({
+        where: { id: existingBlog.id },
+        data: { ...createBlogDto, last_editedBy: email },
+      });
+
+      return {
+        message: 'Blog already existed and has been updated',
+        blog: updatedBlog,
+      };
+    }
     const blog = await this.prisma.blogs.create({
       data: { ...createBlogDto, last_editedBy: email },
     });
@@ -51,9 +61,13 @@ export class BlogsService {
     }
   }
 
-  async update(id: number, updateBlogDto: Prisma.blogsUpdateInput, req: Request | any) {
+  async update(
+    id: number,
+    updateBlogDto: Prisma.blogsUpdateInput,
+    req: Request | any,
+  ) {
     try {
-      const { email } = req.user
+      const { email } = req.user;
       const updated_blog = await this.prisma.blogs.update({
         where: { id: id },
         data: { ...updateBlogDto, last_editedBy: email },
@@ -75,27 +89,30 @@ export class BlogsService {
     try {
       let existing_blog = await this.prisma.blogs.findUnique({
         where: { id: id },
-        include: { comments: true }
+        include: { comments: true },
       });
       if (!existing_blog)
         return CustomErrorHandler('No Blog found', 'BAD_REQUEST');
-      console.log(existing_blog, "blo")
-      let commentFlag = existing_blog.comments && existing_blog.comments.length > 0 ? true : false
+      console.log(existing_blog, 'blo');
+      let commentFlag =
+        existing_blog.comments && existing_blog.comments.length > 0
+          ? true
+          : false;
 
       const result = await this.prisma.$transaction([
         ...(commentFlag
           ? [
-            this.prisma.blogs_comments.deleteMany({
-              where: { blogId: id },
-            }),
-          ]
+              this.prisma.blogs_comments.deleteMany({
+                where: { blogId: id },
+              }),
+            ]
           : []),
         this.prisma.blogs.delete({
           where: { id },
         }),
       ]);
 
-console.log(result, "result")
+      console.log(result, 'result');
       return {
         message: 'Blog has been Deleted',
         blog: result[0],
@@ -175,8 +192,8 @@ console.log(result, "result")
 
   async updateStatus(id: number, status: string, req: Request | any) {
     try {
-      console.log(req, "req")
-      const { email } = req
+      console.log(req, 'req');
+      const { email } = req;
 
       if (!Object.values(CommentStatus).includes(status as CommentStatus)) {
         throw new Error(
