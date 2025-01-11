@@ -17,6 +17,7 @@ import Loader from 'components/Loader/Loader';
 import ProtectedRoute from 'hooks/AuthHookAdmin';
 import { Checkbox } from 'antd';
 import Cookies from 'js-cookie';
+import revalidateTag from 'components/ServerActons/ServerAction';
 
 interface editCategoryNameType {
   title: string;
@@ -121,6 +122,8 @@ const FormLayout = ({
         });
       }
       console.log(response, 'response');
+      revalidateTag('subCategories');
+
       showToast(
         'success',
         updateFlag
