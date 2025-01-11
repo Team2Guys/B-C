@@ -139,7 +139,7 @@ const ShowBlog: React.FC<BlogProps> = ({ setMenuType, setEditBlog, blogs,menuTyp
         <FaRegEye
           className="cursor-pointer"
           onClick={() => {
-            const url = `/blog/${generateSlug(record.title)}`;
+            const url = `/blog/${record.redirectionUrl ? record.redirectionUrl : generateSlug(record.title)}`;
             window.open(url, '_blank');
           }}
         />

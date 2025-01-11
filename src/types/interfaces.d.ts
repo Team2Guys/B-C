@@ -333,6 +333,7 @@ export interface BlogInfo {
   Meta_Title?: '';
   Meta_description?: '';
   isPublished?: boolean;
+  redirectionUrl?: string;
 }
 interface commentprops {
   status?: string;
@@ -345,6 +346,7 @@ export interface UpdateBlog extends BlogInfo {
   Canonical_Tag: '';
   Meta_Title: '';
   Meta_description: '';
+  redirectionUrl?: string;
 }
 export interface BlogProps {
   className?: string;
