@@ -465,7 +465,7 @@ export const MoterisedData = [
   {
     title: 'Automated Blinds',
     link: '/automated-blinds',
-    imageSrc: 'assets/images/Blinds/landing/AutomatedBlinds.webp',
+    imageSrc: 'assets/images/Blinds/landing/Automatedblinds.webp',
   },
   {
     title: 'Automated Curtains',
