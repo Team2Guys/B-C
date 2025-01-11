@@ -52,6 +52,7 @@ const AddBlogs = ({
     Canonical_Tag: EditInitialValues?.Canonical_Tag || '',
     Meta_Title: EditInitialValues?.Meta_Title || '',
     Meta_description: EditInitialValues?.Meta_description || '',
+    redirectionUrl: EditInitialValues?.redirectionUrl || '',
   };
 
   const {
@@ -236,6 +237,25 @@ const AddBlogs = ({
                     handleDebouncedMutation({
                       ...values,
                       title: e.target.value,
+                    });
+                  }}
+                />
+              </div>
+              <div>
+                <label className=" block text-16 font-medium text-black dark:text-white">
+                  Blog Url
+                </label>
+                <input
+                  type="text"
+                  name="redirectionUrl"
+                  placeholder="Blog Url"
+                  value={values.redirectionUrl}
+                  className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent placeholder:text-lightgrey px-5 py-3 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  onChange={(e) => {
+                    setFieldValue('redirectionUrl', e.target.value);
+                    handleDebouncedMutation({
+                      ...values,
+                      redirectionUrl: e.target.value,
                     });
                   }}
                 />
