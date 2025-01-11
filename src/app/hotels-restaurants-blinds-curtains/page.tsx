@@ -11,9 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
 let products = await fetchProducts()
   const filtereProdcts =["Hotels & Restaurants"]
   const filteredProduct = products?.find((prod) => filtereProdcts.includes(prod.title));
-  if(!filteredProduct) {
-    return {}
-  }
+
   const headersList = await headers();
   const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
