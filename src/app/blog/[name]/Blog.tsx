@@ -90,7 +90,7 @@ const Blog = ({
             />
           </div>
           
-          <div className="w-[90%] m-auto overflow-hidden text-start">
+          <div className="w-[90%] m-auto overflow-hidden text-start mt-5">
             <div className='blog-content mt-8'>{HTMLReactParser(blog?.content || '')}</div>
             {/* <span className='blog-content'dangerouslySetInnerHTML={{ __html: blog?.content }}>
               {HTMLReactParser(blog?.content || '')}
