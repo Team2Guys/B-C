@@ -5,22 +5,11 @@ import Footer from 'components/Res-usable/Footer/Footer';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { BlogInfo } from 'types/interfaces';
 import BlogMain from 'components/Blogs/blog-main';
-import axios, { AxiosResponse } from 'axios';
 import { Suspense } from 'react';
 import PopularBlog from 'components/Blogs/popular-blog';
 import { Metadata } from 'next';
+import { fetchBlogs } from 'config/fetch';
 
-const fetchBlogs = async (): Promise<BlogInfo[]> => {
-  try {
-    const response: AxiosResponse = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
-    );
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching blogs:', error);
-    return [];
-  }
-};
 
 export const metadata: Metadata = {
   title: 'blindsandcurtains',
