@@ -1,6 +1,6 @@
-import { projectMainFont } from 'app/projects/page';
 import Image from 'next/image';
 import React from 'react';
+import { projectMainFont } from 'typo/font';
 
 interface ProjectCardProps {
   title: string;

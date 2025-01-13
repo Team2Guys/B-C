@@ -1,17 +1,9 @@
 import Projects from 'components/Projects/Projects';
+import ProjectsTags from 'components/ProjectTags/ProjectsTags';
 import { Metadata } from 'next';
 import React, { Fragment } from 'react';
-import { Montserrat } from 'next/font/google';
 import ProjectTopHero from 'components/ui/project-top-hero';
 
-export const projectMainFont = Montserrat({
-  weight: '300',
-  subsets: ['latin-ext'],
-});
-export const projectFont = Montserrat({
-  weight: '400',
-  subsets: ['latin-ext'],
-});
 export const metadata: Metadata = {
   title: 'Projects',
   description: 'Projects description',
@@ -35,8 +27,8 @@ const ProjectPage = () => {
   return (
     <Fragment>
       <ProjectTopHero title="Projects" />
-
       <Projects />
+      <ProjectsTags />
     </Fragment>
   );
 };
