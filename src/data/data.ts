@@ -111,6 +111,7 @@ export const footerLinks: TFooterSection[] = [
       { text: 'Request An Appointment', href: '/request-appointment' },
       { text: 'Product Guarantees', href: '/product-guarantees' },
       { text: 'Why Choose Us', href: '/why-choose-blinds-curtains' },
+      { text: 'Projects', href: '/projects' },
     ],
   },
 ];
