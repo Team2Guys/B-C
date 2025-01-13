@@ -1,30 +1,36 @@
-import { Metadata } from 'next'
-import React from 'react'
-
+import Projects from 'components/Projects/Projects';
+import ProjectsTags from 'components/ProjectTags/ProjectsTags';
+import { Metadata } from 'next';
+import React, { Fragment } from 'react';
+import ProjectTopHero from 'components/ui/project-top-hero';
 
 export const metadata: Metadata = {
-   title: 'Projects',
-   description: 'Projects description',
-   openGraph: {
-     title: 'Projects',
-     description: 'Projects description',
-     url: 'fullUrl',
-     images: [
-       {
-         url: 'imageUrl',
-         alt: 'altText',
-       },
-     ],
-   },
-   alternates: {
-     canonical: 'projects',
-   },
- }
+  title: 'Projects',
+  description: 'Projects description',
+  openGraph: {
+    title: 'Projects',
+    description: 'Projects description',
+    url: 'fullUrl',
+    images: [
+      {
+        url: 'imageUrl',
+        alt: 'altText',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'projects',
+  },
+};
 
 const ProjectPage = () => {
   return (
-    <div>Project Page</div>
-  )
-}
+    <Fragment>
+      <ProjectTopHero title="Projects" />
+      <Projects />
+      <ProjectsTags />
+    </Fragment>
+  );
+};
 
-export default ProjectPage
+export default ProjectPage;
