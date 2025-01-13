@@ -1,18 +1,35 @@
-'use client';
 import TopHero from 'components/ui/top-hero';
 import second from '../../../public/assets/images/choose-us/choose.jpg';
 import React from 'react';
-import { usePathname } from 'next/navigation';
 import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
 import { contentArray, links, locations } from 'data/data';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Why Choose Us | Blinds and Curtains',
+  description: 'We have a diverse range of blinds perfect for your homes and offices. Choose from various styles to create the perfect environment for your space.',
+  openGraph: {
+    title: 'Why Choose Us | Blinds and Curtains',
+    description: 'We have a diverse range of blinds perfect for your homes and offices. Choose from various styles to create the perfect environment for your space.',
+    url: 'https://b-c-eight.vercel.app/why-choose-blinds-curtains',
+    images: [
+      {
+        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        alt: 'Why Choose Us | Blinds and Curtains',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://b-c-eight.vercel.app/why-choose-blinds-curtains',
+  },
+};
 
 const ChooseUs = () => {
-  const pathName = usePathname();
   return (
     <>
-      <TopHero title="Why Choose Us" image={second.src} pagename={pathName} className='max-xs:bg-current' />
+      <TopHero title="Why Choose Us" image={second.src} className='max-xs:bg-current' />
       <Container className='mt-10 mb-10 md:mb-20'>
         <h1 className='text-[28px] md:text-[36px] font-black'>Why Choose Blinds & Curtains</h1>
         <h2 className='text-[18px] md:text-[24px] font-bold mt-5 md:mt-10'>What Makes Blinds & Curtains Different?</h2>

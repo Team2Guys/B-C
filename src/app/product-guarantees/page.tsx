@@ -1,28 +1,38 @@
-'use client';
 import TopHero from 'components/ui/top-hero';
 import { productData, PGuarantees } from 'data/data';
 import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
-import { useQuery } from '@tanstack/react-query';
-import { IProduct } from 'types/types';
-import { fetchProducts } from 'config/fetch';
-import { usePathname } from 'next/navigation';
 import second from '../../../public//assets/images/product-guarantees/large.png';
 import GuaranteeVisit from 'components/Gurranteevisit';
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+  title: 'Blinds and Curtains Dubai | Product Guarantee',
+  description: 'Custom blinds, curtains, and shutters with a 10-year warranty. We ensure top quality, and if there’s an issue, our team will check and fix it for you.',
+  openGraph: {
+    title: 'Blinds and Curtains Dubai | Product Guarantee',
+    description: 'Custom blinds, curtains, and shutters with a 10-year warranty. We ensure top quality, and if there’s an issue, our team will check and fix it for you.',
+    url: 'https://b-c-eight.vercel.app/product-guarantees',
+    images: [
+      {
+        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        alt: 'Blinds and Curtains Dubai | Product Guarantee',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://b-c-eight.vercel.app/product-guarantees',
+  },
+};
+
 const ProductGuarantees = () => {
-  const pathName = usePathname();
-  const { data:error } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
-  if (error instanceof Error) return <div>Error: {error.message}</div>;
   return (
     <>
       <TopHero
         title="PRODUCT GUARANTEES"
         image={second.src}
-        pagename={pathName}
       />
       <Container className="">
         <div className="lg:py-6 p-3 lg:mt-10 mx-auto">
