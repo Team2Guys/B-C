@@ -124,7 +124,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                   <p
                     className="text-12 md:text-14 lg:text-16 leading-6 md:leading-8 text-lightdark mt-4"
                     dangerouslySetInnerHTML={{
-                      __html: product.description && product.description,
+                      __html: product_Images?.desc || product.description,
                     }}
                   ></p>
                 </div>
