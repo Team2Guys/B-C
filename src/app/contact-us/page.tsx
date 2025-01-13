@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import TopHero from 'components/ui/top-hero';
 import second from '../../../public/assets/images/contact-us/contactUs.webp';
@@ -7,14 +6,32 @@ import { MdEmail } from 'react-icons/md';
 import { IoCall, IoLocationSharp } from 'react-icons/io5';
 import Link from 'next/link';
 import BookAppointment from 'components/Book-appointment/BookAppointment';
-import { usePathname } from 'next/navigation';
 import { SlCalender } from "react-icons/sl";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blind And Curtains Dubai | Contact Us',
+  description: 'Shop the best blinds and curtains in Dubai. Stylish, affordable, and perfect for your space. Call us now to upgrade your home or office today.',
+  openGraph: {
+    title: 'Blind And Curtains Dubai | Contact Us',
+    description: 'Shop the best blinds and curtains in Dubai. Stylish, affordable, and perfect for your space. Call us now to upgrade your home or office today.',
+    url: 'https://b-c-eight.vercel.app/blog',
+    images: [
+      {
+        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        alt: 'Blind And Curtains Dubai | Contact Us',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://b-c-eight.vercel.app/contact-us',
+  },
+};
 
 const ProductUs: React.FC = () => {
-  const pathName = usePathname();
   return (
     <>
-      <TopHero title="CONTACT US" image={second.src} pagename={pathName} />
+      <TopHero title="CONTACT US" image={second.src} />
       <Container>
         <section className="text-center mb-12 max-w-screen-xl mx-auto">
           <h5 className="xs:py-12 py-5 text-[#666666] text-base font-bold">

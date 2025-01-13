@@ -7,18 +7,15 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
-  description:
-    'Learn all about Blinds and Curtains Dubai. We make custom blinds and curtains just for you. Stylish, high-quality, and perfect for your home or office.',
+  description: 'Learn all about Blinds and Curtains Dubai. We make custom blinds and curtains just for you. Stylish, high-quality, and perfect for your home or office.',
   openGraph: {
     title: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
-    description:
-      'Learn all about Blinds and Curtains Dubai. We make custom blinds and curtains just for you. Stylish, high-quality, and perfect for your home or office.',
-
+    description: 'Learn all about Blinds and Curtains Dubai. We make custom blinds and curtains just for you. Stylish, high-quality, and perfect for your home or office.',
     url: 'fullUrl',
     images: [
       {
         url: 'imageUrl',
-        alt: 'altText',
+        alt: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
       },
     ],
   },
