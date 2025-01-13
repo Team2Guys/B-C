@@ -96,6 +96,11 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               className={`flex flex-col gap-4 items-center justify-between mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
             >
               <div className="w-full md:w-1/2">
+              <div className="font-bold text-xl xs:text-2xl tracking-wider space-y-3 block sm:hidden pb-2">
+                    <h2 className="tracking-[.6rem] mb-2">
+                      Roller Blinds in Dubai, UAE{' '}
+                    </h2>
+                  </div>
                 {product_Images && (
                   <Image
                     className="w-full h-[280px] sm:h-[300px] md:h-[600px] rounded-xl"
@@ -109,7 +114,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
               <div className="w-full md:w-1/2 flex flex-col gap-4">
                 <div>
                   <div className="font-bold text-xl xs:text-2xl tracking-wider space-y-3">
-                    <h2 className="tracking-[.6rem] mb-2">
+                    <h2 className="tracking-[.6rem] mb-2 sm:block hidden">
                       Roller Blinds in Dubai, UAE{' '}
                     </h2>
                     <h2 className="font-light tracking-[.2rem] ">
