@@ -39,9 +39,7 @@ export default function Home() {
       <Review_banner />
       <HomeCard />
       <BlindsAndCurtainssection />
-      <div className="mx-auto">
-        <Banner data={bannerData} />
-      </div>
+      <Banner data={bannerData} />
       <FeatureProduct />
       <VideoAutomation />
       <Support />

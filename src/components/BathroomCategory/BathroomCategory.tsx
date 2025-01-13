@@ -148,7 +148,7 @@ const BathroomCategory = ({
                 )}
                 <Link
                   href={getPath(arr, parent)}
-                  className="font-bold text-xs sm:text-base bg-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center mx-auto"
+                  className="font-bold text-xs sm:text-base bg-secondary text-white hover:bg-[#BDC9BD] hover:text-white px-4 py-2 rounded-md flex items-center text-center mx-auto"
                   >
                   View Our {arr.title}
                 </Link>
