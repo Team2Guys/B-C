@@ -5,6 +5,7 @@ import Container from 'components/Res-usable/Container/Container';
 import { projectFont } from 'typo/font';
 
 const Projects: React.FC = () => {
+  const sortedProjects = projectsData.sort((a, b) => a.title.localeCompare(b.title));
   return (
     <Container className="px-6 pt-12">
       <p
@@ -14,7 +15,7 @@ const Projects: React.FC = () => {
         OR OFFICE
       </p>
       <div className="flex flex-wrap justify-center gap-6">
-        {projectsData.map((project, index) => (
+        {sortedProjects.map((project, index) => (
           <ProjectCard
             key={index}
             title={project.title}
