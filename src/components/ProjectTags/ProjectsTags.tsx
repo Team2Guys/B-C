@@ -17,7 +17,7 @@ const ProjectsTags = () => {
         A RANGE OF THE VAST CHOICES OF WINDOW COVERINGS
       </p>
       <div className="flex flex-wrap justify-center mt-5 gap-x-2 gap-y-3">
-        {projectsTags.map((tag, index) => (
+        {projectsTags.sort().map((tag, index) => (
           <span
             key={index}
             className={`bg-secondary text-white rounded-lg p-2 text-12 xs:text-14 sm:text-16 tracking-widest mr-2 ${MontserratFont.className}`}
