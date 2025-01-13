@@ -53,9 +53,7 @@ export const reverseSlug = (slug: string): string => {
 
 /* eslint-enable no-useless-escape */
 
-
 // Blinds and Curtains section data
-
 
 export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
@@ -67,8 +65,6 @@ As a trusted window treatment company, we bring style and functionality to every
   ],
   buttonText: 'Read More',
 };
-
-
 
 export const heroSlider = [
   {
@@ -149,7 +145,6 @@ export const BlogTitles = [
   { id: 2, title: 'Advanced JavaScript Tips' },
   { id: 3, title: 'Building Modern Web Apps' },
 ];
-
 
 export const supportItems: SupportItem[] = [
   {
@@ -816,7 +811,6 @@ export const estimateSldie = {
   },
 };
 
-
 export const blogPara = [
   {
     para: "Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
@@ -929,7 +923,6 @@ export const megaMenuDynamic = [
   // { productName: 'outdoor-blinds' },
   { productName: 'motorised-blinds' },
   { productName: 'dimout-blinds' },
-
 
   { productName: 'white-shutters' },
   { productName: 'light-wood-shutters' },
@@ -1122,7 +1115,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-blinds',
     content: {
       heading: 'Made to Measure Blinds',
-      src:"/assets/video/blinds.mp4",
+      src: '/assets/video/blinds.mp4',
       paragraph:
         'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
       subheading1: 'Custom Window Blinds ',
@@ -1148,7 +1141,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-curtains',
     content: {
       heading: 'Made to Measure Curtains',
-      src:"/assets/video/curtains.mp4",
+      src: '/assets/video/curtains.mp4',
       paragraph:
         '1000s of colour and style choices—voiles, velvets, silks, and plain textured fabrics. Get curtains installed in your Dubai home or office, with free consultation, quick installation, and 5-year warranty.',
       subheading1: 'Custom Window Curtains ',
@@ -1170,7 +1163,7 @@ export const categoriesContent = [
     slug: 'shutters-range',
     content: {
       heading: 'Made to Measure shutters',
-      src:"/assets/video/shutter.mp4",
+      src: '/assets/video/shutter.mp4',
       paragraph:
         'We offer custom made window shutters that fit any window. Make your home more stylish with our versatile made-to-measure shutters, including stylish window plantation shutters.',
       subheading1: 'Custom Window Shutters',
@@ -1943,50 +1936,103 @@ export const footerData = [
   },
 ];
 
-export const GuaranteeVisitData =[
+export const GuaranteeVisitData = [
   {
-    heading:"Book a free consultation" ,
-    description: "Our experts will come over at your convenience and discuss colours, styles, and measurements.",
-    button:"Book an appointment" ,
-    href:"/request-appointment",
+    heading: 'Book a free consultation',
+    description:
+      'Our experts will come over at your convenience and discuss colours, styles, and measurements.',
+    button: 'Book an appointment',
+    href: '/request-appointment',
   },
   {
-    heading:"Visit our showroom " ,
-    description: "Visit us in person next time you're in the area, and see for yourself what we've got to offer.",
-    button:"Find Our Location Map" ,
-    href:"https://www.google.com/maps?cid=2467468347994691262&hl=en",
+    heading: 'Visit our showroom ',
+    description:
+      "Visit us in person next time you're in the area, and see for yourself what we've got to offer.",
+    button: 'Find Our Location Map',
+    href: 'https://www.google.com/maps?cid=2467468347994691262&hl=en',
   },
   {
-    heading:"Talk To Our Specialist" ,
-    description:"Do you want to talk with the Blinds & Curtains Team? Our team will get back to you ASAP.",
-    button:"Talk To Specialist" ,
-    href:"https://api.whatsapp.com/send/?phone=%2B971544945339&text&type=phone_number&app_absent=0",
+    heading: 'Talk To Our Specialist',
+    description:
+      'Do you want to talk with the Blinds & Curtains Team? Our team will get back to you ASAP.',
+    button: 'Talk To Specialist',
+    href: 'https://api.whatsapp.com/send/?phone=%2B971544945339&text&type=phone_number&app_absent=0',
   },
-]
+];
 
 export const contentArray = [
   [
-    "Free home visits with free installation",
-    "Great selection of blinds, curtains, and shutters",
-    "Free uninstall/re-install within 2 years",
-    "We’re trusted, with over 750+ 5* reviews"
+    'Free home visits with free installation',
+    'Great selection of blinds, curtains, and shutters',
+    'Free uninstall/re-install within 2 years',
+    'We’re trusted, with over 750+ 5* reviews',
   ],
   [
-    "A team of 50 staff to ensure perfection from start to finish",
-    "In-house production - quality is our concern, not yours",
-    "10 YEARS warranty on all mechanical parts and labour"
-  ]
+    'A team of 50 staff to ensure perfection from start to finish',
+    'In-house production - quality is our concern, not yours',
+    '10 YEARS warranty on all mechanical parts and labour',
+  ],
 ];
 
 export const links = {
   blinds: '/made-to-measure-blinds',
   curtains: '/made-to-measure-curtains',
-  shutters: '/shutters-range'
+  shutters: '/shutters-range',
 };
 
 export const locations = [
-  ["Sheikh Zayed Road", "Downtown Dubai", "JLT", "City Walk"],
-  ["Oud Metha", "Dubai Marina", "Jadaff", "Blue Water Island"],
-  ["Business Bay", "Nad Al Shiba", "Palm Jumeirah", "Dubai Hills"],
-  ["Karama", "JBR", "Jumeirah", "50 More Areas"],
+  ['Sheikh Zayed Road', 'Downtown Dubai', 'JLT', 'City Walk'],
+  ['Oud Metha', 'Dubai Marina', 'Jadaff', 'Blue Water Island'],
+  ['Business Bay', 'Nad Al Shiba', 'Palm Jumeirah', 'Dubai Hills'],
+  ['Karama', 'JBR', 'Jumeirah', '50 More Areas'],
+];
+export const projectsData = [
+  {
+    title: 'Downtown Dubai',
+    description:
+      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+    imageUrl: '/assets/projects.png',
+  },
+  {
+    title: 'Albarsha',
+    description:
+      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+    imageUrl: '/assets/projects.png',
+  },
+  {
+    title: 'Business Bay',
+    description:
+      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+    imageUrl: '/assets/projects.png',
+  },
+  {
+    title: 'Jumeirah Beach',
+    description:
+      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+    imageUrl: '/assets/projects.png',
+  },
+  {
+    title: 'Arabian Ranches',
+    description:
+      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+    imageUrl: '/assets/projects.png',
+  },
+  {
+    title: 'Jumeirah Bay Island',
+    description:
+      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+    imageUrl: '/assets/projects.png',
+  },
+  {
+    title: 'Dubai Hills',
+    description:
+      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+    imageUrl: '/assets/projects.png',
+  },
+  {
+    title: 'Palm Jumeirah',
+    description:
+      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+    imageUrl: '/assets/projects.png',
+  },
 ];
