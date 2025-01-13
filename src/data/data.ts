@@ -577,7 +577,7 @@ export const blindMegaMenuItems = [
   // { productName: 'outdoor' },
   // { productName: 'motorised-blinds' },
   { productName: 'dimout-blinds' },
-  { productName: 'translucent-blinds' },
+  // { productName: 'translucent-blinds' },
   { productName: 'sunscreentransparent-blinds' },
 ];
 
@@ -929,7 +929,6 @@ export const megaMenuDynamic = [
   // { productName: 'outdoor-blinds' },
   { productName: 'motorised-blinds' },
   { productName: 'dimout-blinds' },
-  { productName: 'translucent-blinds' },
 
 
   { productName: 'white-shutters' },
