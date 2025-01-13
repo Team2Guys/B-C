@@ -1992,49 +1992,49 @@ export const projectsData = [
     title: 'Downtown Dubai',
     description:
       'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
-    imageUrl: '/assets/projects.png',
+    imageUrl: '/assets/images/Projects/downtown dubai.webp',
   },
   {
     title: 'Albarsha',
     description:
       'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
-    imageUrl: '/assets/projects.png',
+     imageUrl: '/assets/images/Projects/Albarsha.webp',
   },
   {
     title: 'Business Bay',
     description:
       'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
-    imageUrl: '/assets/projects.png',
+     imageUrl: '/assets/images/Projects/Business bay dubai.webp',
   },
   {
     title: 'Jumeirah Beach',
     description:
       'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
-    imageUrl: '/assets/projects.png',
+     imageUrl: '/assets/images/Projects/Jumeirah Beach.webp',
   },
   {
     title: 'Arabian Ranches',
     description:
       'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
-    imageUrl: '/assets/projects.png',
+     imageUrl: '/assets/images/Projects/Arabian Ranches.webp',
   },
   {
     title: 'Jumeirah Bay Island',
     description:
       'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
-    imageUrl: '/assets/projects.png',
+     imageUrl: '/assets/images/Projects/jumeriah bay island.webp',
   },
   {
     title: 'Dubai Hills',
     description:
       'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
-    imageUrl: '/assets/projects.png',
+     imageUrl: '/assets/images/Projects/dubai-hills.jpg',
   },
   {
     title: 'Palm Jumeirah',
     description:
       'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
-    imageUrl: '/assets/projects.png',
+     imageUrl: '/assets/images/Projects/Palm Jumeirah.webp',
   },
 ];
 
