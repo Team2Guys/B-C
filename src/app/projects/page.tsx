@@ -1,3 +1,4 @@
+import ProjectsTags from 'components/ProjectTags/ProjectsTags'
 import { Metadata } from 'next'
 import React from 'react'
 
@@ -23,7 +24,9 @@ export const metadata: Metadata = {
 
 const ProjectPage = () => {
   return (
-    <div>Project Page</div>
+    <>
+     <ProjectsTags />
+    </>
   )
 }
 
