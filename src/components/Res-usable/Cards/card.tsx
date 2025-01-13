@@ -38,7 +38,7 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
         </div>
         <div className=" w-fit flex flex-col bg-secondary justify-center items-center text-sm mx-auto rounded-sm cursor-pointer">
           <div
-            className="font-bold font-sans px-4 py-2 group-hover:border-gray-300 hover:bg-primary rounded-sm"> View {data.title}
+            className="font-bold font-sans px-4 py-2 group-hover:border-gray-300 hover:bg-primary rounded-sm text-white"> View {data.title}
           </div>
         </div>
       </Link>

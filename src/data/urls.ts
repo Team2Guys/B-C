@@ -359,7 +359,7 @@ export const blogPostUrl = [
   { url: '/curtains-projects', redirectUrl: '/projects' },
   { url: '/shutters-projects', redirectUrl: '/projects' },
   { url: '/motorised-projects', redirectUrl: '/projects' },
-  { url: '/why-choose-blinds-curtains', redirectUrl: '/choose-us' },
+  { url: '/why-choose-blinds-curtains', redirectUrl: '/why-choose-blinds-curtains' },
   { url: '/downtown-dubai', redirectUrl: '/projects' },
   { url: '/al-barsha', redirectUrl: '/projects' },
   { url: '/business-bay-dubai', redirectUrl: '/projects' },
