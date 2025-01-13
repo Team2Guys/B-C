@@ -665,7 +665,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
         <div className="text-center mt-4">
           <button
             type="submit"
-            className="w-fit bg-[#A9B4A4] text-white py-2 px-8 sm:px-14 rounded"
+            className="w-fit bg-secondary hover:bg-primary text-white py-2 px-8 sm:px-14 rounded"
             disabled={loading}
           >
             {loading ? <Loader color="#fff" /> : 'Submit Request'}

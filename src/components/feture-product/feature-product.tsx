@@ -117,7 +117,7 @@ const FeatureProduct: React.FC = () => {
         <h2 className="text-26 md:text-32 font-bold">
           Elegant & Functional Window Coverings
         </h2>
-        <p className="text-16 font-normal text-primary">
+        <p className="text-22  text-primary font-medium">
           We deliver on our promises, every single time{' '}
         </p>
       </div>
@@ -151,7 +151,7 @@ const FeatureProduct: React.FC = () => {
         {visibleCount < (filteredProducts?.length || 0) && (
           <div className="flex justify-center mt-10">
             <Button
-              className="w-[163px] h-[55px] text-15 leading-6 tracking-wider font-bold text-black"
+              className="w-[163px] h-[55px] text-15 leading-6 tracking-wider font-bold text-white"
               onClick={handleViewMore}
               variant={'secondary'}
             >
