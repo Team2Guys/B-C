@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
+import { RobotoTitle } from 'typo/font';
 interface TopHeroProps {
   title: string | any;
 }
@@ -16,10 +17,12 @@ const ProjectTopHero: React.FC<TopHeroProps> = ({ title }) => {
     >
       <div className={`relative`}>
         <div className="relative z-20 py-6 sm:py-14 md:py-24">
-          <h1 className="text-xl xs:text-3xl md:text-4xl lg:text-5xl font-black mt-5 uppercase ">
+          <h1
+            className={`"text-xl xs:text-3xl md:text-[72px] font-black mt-5 uppercase  ${RobotoTitle.className}`}
+          >
             {pathname}
           </h1>
-          <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 mt-2 text-14 sm:text-base flex-wrap  w-fit m-auto">
+          <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 text-14 sm:text-base flex-wrap mt-8 w-fit m-auto">
             <Link
               href="/"
               className="flex items-center gap-2 font-bold capitalize"
