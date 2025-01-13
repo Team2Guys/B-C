@@ -54,44 +54,6 @@ interface Review {
   translated?: boolean;
 }
 
-// let arry =     [   {
-//   author_name: "TEST",
-//   author_url: "TEST",
-//   language: "TEST",
-//   original_language: "TEST",
-//   profile_photo_url: "TEST",
-//   rating: 5, // Valid rating value
-//   relative_time_description: "relative_time_description",
-// },
-// {
-//   author_name: "TEST",
-//   author_url: "TEST",
-//   language: "TEST",
-//   original_language: "TEST",
-//   profile_photo_url: "TEST",
-//   rating: 5, // Valid rating value
-//   relative_time_description: "relative_time_description",
-// },
-// {
-//   author_name: "TEST",
-//   author_url: "TEST",
-//   language: "TEST",
-//   original_language: "TEST",
-//   profile_photo_url: "TEST",
-//   rating: 5, // Valid rating value
-//   relative_time_description: "relative_time_description",
-// },
-// {
-//   author_name: "TEST",
-//   author_url: "TEST",
-//   language: "TEST",
-//   original_language: "TEST",
-//   profile_photo_url: "TEST",
-//   rating: 5, // Valid rating value
-//   relative_time_description: "relative_time_description",
-// },
-
-// ]
 
 export default function Review_banner() {
   const [reviews, setReviews] = useState<Review[]>([])
