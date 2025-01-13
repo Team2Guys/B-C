@@ -1230,13 +1230,13 @@ export const RollerBlindsPage: IRollerBlinds[] = [
         altText: 'Sunscreen/Transparent Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Roller/Sunscreen.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'At <a href="/" target="_blank" style="text-decoration:underline">Blinds & Curtains Dubai</a>, we understand how intense Dubai&apos;s sun can be. The sunlight filling your space would be wonderful without the glare or fading your furnishings. Like quality sunglasses for your windows, sunscreen roller blinds keep the harshness out but let the light in. It does not block your view; it filters it, so you still see your room as open. <a href="/blinds/roller-blinds/sunscreen-roller-blinds" target="_blank" style="text-decoration:underline">Sunscreen blinds</a> also known as transparent blinds protect your interiors from UV damage so they stay bright and fresh for longer. Plus, they keep things cooler inside, so your AC doesn&apos;t have to work as hard. You can choose from a variety of shades and openness levels, so you can get the perfect amount of light and privacy.',
       },
       {
         product_name: 'Blackout Roller Blinds',
         altText: 'Blackout Roller Blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/Roller/Blackout.jpg',
-        desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
+        desc: 'Blackout roller blinds are ideal for bedrooms or spaces where you want to block out the sun and reduce heat. You can even add side channels to stop light from creeping in around the edges. The materials used in these <a href="/blinds/roller-blinds/blackout-roller-blinds" target="_blank" style="text-decoration:underline">blackout roller blinds</a> are thick and opaque, and the <a href="/blinds/blackout-blinds" target="_blank" style="text-decoration:underline">blackout </a>fabrics are often treated to resist moisture and stains, making it easy to clean them. You can create a cosy, dim room or a bright, glare-free space with roller blinds, depending on the fabric options.',
       },
     ],
   },

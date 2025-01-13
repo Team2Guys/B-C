@@ -7,16 +7,16 @@ import { Metadata } from 'next';
 
 
 export const metadata: Metadata = {
-  title: 'BOOK YOUR FREE APPOINTMENT',
-  description: 'BOOK YOUR FREE APPOINTMENT description',
+  title: 'Blind And Curtains Dubai | Book Appointment',
+  description: 'Spruce up your space with stylish blinds and curtains in Dubai. Book an appointment today for expert advice, custom designs, and perfect fits.',
   openGraph: {
-    title: 'BOOK YOUR FREE APPOINTMENT',
-    description: 'BOOK YOUR FREE APPOINTMENT description',
+    title: 'Blind And Curtains Dubai | Book Appointment',
+    description: 'Spruce up your space with stylish blinds and curtains in Dubai. Book an appointment today for expert advice, custom designs, and perfect fits.',
     url: 'fullUrl',
     images: [
       {
         url: 'imageUrl',
-        alt: 'altText',
+        alt: 'Blind And Curtains Dubai | Book Appointment',
       },
     ],
   },
