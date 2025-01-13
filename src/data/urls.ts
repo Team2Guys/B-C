@@ -368,6 +368,9 @@ export const blogPostUrl = [
   { url: '/jumeirah-bay-island', redirectUrl: '/projects' },
   { url: '/dubai-hills', redirectUrl: '/projects' },
   { url: '/palm-jumeirah', redirectUrl: '/projects' },
+  { url: '/window-shades', redirectUrl: '/' },
+  { url: '/solar-screen-shades', redirectUrl: '/' },
+  
 ];
 
 export const subCategoryUrls = [
