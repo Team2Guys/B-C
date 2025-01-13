@@ -78,4 +78,9 @@ export class AdminsController {
 
 // }
 
+    @Get("fetchReviewsHandler")
+    fetchReviewsHandler(){
+      return this.adminsService.fetchReviewsHandler()
+    }
+
 }

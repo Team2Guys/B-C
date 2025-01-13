@@ -291,8 +291,18 @@ export class AdminsService {
 
 
 
+async  fetchReviewsHandler  (){
+  try {
+    let url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}`
+    let response = await fetch(url,)
+    let data = await response.json()
+    console.log(data, "slide")
+    return data?.result?.reviews;
+  }
 
-
-
+  catch (error) {
+    return CustomErrorHandler(error.message || JSON.stringify(error), "INTERNAL_SERVER_ERROR")
+  }
+}
 
 }

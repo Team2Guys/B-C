@@ -18,7 +18,8 @@ export class AdminsModule implements NestModule {
       .apply(JwtMiddleware)
       .exclude({path: "admins/admin-login", method:RequestMethod.POST},
         {path: "admins/super_admin_login-login", method:RequestMethod.POST},
-        {path: "admins/getReviews", method:RequestMethod.POST}
+        {path: "admins/getReviews", method:RequestMethod.POST},
+        {path: "admins/fetchReviewsHandler", method:RequestMethod.GET}
       
       )
       .forRoutes(AdminsController); 
