@@ -4,7 +4,7 @@ import React from 'react';
 import { BannerProps } from 'types/interfaces';
 const Banner: React.FC<BannerProps> = () => {
   return (
-    <div className="grid grid-cols-12 items-center bg-[#F6EFE9] py-2 sm:py-0">
+    <div className="grid grid-cols-12 items-center bg-[#F6EFE9] py-2 sm:py-0 w-full">
       <div className="col-span-12 sm:col-span-4 md:col-span-5 2xl:col-span-6">
         <Image
           src={'/assets/images/measure_shutter/measure_shutter.png'}
