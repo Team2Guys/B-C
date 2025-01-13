@@ -200,7 +200,7 @@ export const CommercialUrl = [
   { urlName: 'gym', Redirect: '/curtains/gym-curtains' },
   { urlName: 'theatre', Redirect: '/curtains/stage-and-theatre-curtains' },
   { urlName: 'wooden-aluminium-blinds', Redirect: '/blinds/wooden-venetian' },
-  { urlName: 'study-room-blinds', Redirect: '/commercial' },
+  { urlName: 'study-room-blinds', Redirect: '/made-to-measure-blinds' },
   { urlName: 'aric-blinds', Redirect: '/' },
   { urlName: 'outdoor-blinds', Redirect: '/commercial/outdoor' },
   { urlName: 'ripplefoldwave-curtains', Redirect: '/curtains/wave-curtains' },
@@ -368,6 +368,9 @@ export const blogPostUrl = [
   { url: '/jumeirah-bay-island', redirectUrl: '/projects' },
   { url: '/dubai-hills', redirectUrl: '/projects' },
   { url: '/palm-jumeirah', redirectUrl: '/projects' },
+  { url: '/window-shades', redirectUrl: '/' },
+  { url: '/solar-screen-shades', redirectUrl: '/' },
+  
 ];
 
 export const subCategoryUrls = [
