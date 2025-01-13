@@ -117,7 +117,7 @@ const FeatureProduct: React.FC = () => {
         <h2 className="text-26 md:text-32 font-bold">
           Elegant & Functional Window Coverings
         </h2>
-        <p className="text-16 font-normal text-primary">
+        <p className="text-22  text-primary font-medium">
           We deliver on our promises, every single time{' '}
         </p>
       </div>
