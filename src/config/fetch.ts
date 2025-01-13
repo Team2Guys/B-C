@@ -4,6 +4,7 @@ import { Allproduct, BlogInfo } from 'types/interfaces';
 import Cookies from 'js-cookie';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
+import React, { SetStateAction } from 'react';
 
 
 // const superAdmintoken = Cookies.get('superAdminToken');
@@ -194,15 +195,24 @@ export const filterProd = (
 
 
 export   const fetchReviewsHandler = async (setReviews:any) => {
-  try {
-    let url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}`
-    let response = await fetch(url, {})
-    let data = await response.json()
-    console.log(data.result.reviews, "slide")
-    setReviews(data.result.reviews)
-  }
+  // try {
+  //   let url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}`
+  //   let response = await fetch(url,)
+  //   let data = await response.json()
+  //   console.log(data.result.reviews, "slide")
+  //   setReviews(data.result.reviews)
+  // }
 
-  catch (error) {
-    console.log(error);
-  }
+  // catch (error) {
+  //   console.log(error, "error from reviews");
+  // }
+    try {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/fetchReviewsHandler`);
+      console.log(response.data)
+      setReviews(response.data);
+      return 
+    } catch (error) {
+      console.error('Error fetching admin records:', error);
+      throw error;
+    }
 }
