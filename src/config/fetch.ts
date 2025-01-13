@@ -37,6 +37,7 @@ export const fetchBlogs = async (): Promise<BlogInfo[]> => {
       next: { tags: ['blogs'] },
     },
   );
+  
   let blogs = response.json()
 
   return blogs;
