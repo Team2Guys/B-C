@@ -4,7 +4,6 @@ import { Allproduct, BlogInfo } from 'types/interfaces';
 import Cookies from 'js-cookie';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
-import React, { SetStateAction } from 'react';
 
 
 // const superAdmintoken = Cookies.get('superAdminToken');

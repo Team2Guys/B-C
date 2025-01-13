@@ -22,12 +22,10 @@ const BookNowBanner: React.FC<BookNowBannerProps> = ({ className, parent }) => {
   }, [pathname])
   return (
     <div
-      className={`w-full md:mt-8 flex items-center relative ${className}`}
+      className={`w-full md:mt-8 flex items-center relative ${className} bg-right bg-cover sm:bg-[left_center]`}
       style={{
         backgroundImage: `url(${bgBanner.src})`,
-        backgroundPosition: 'left center',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
         height: '380px',
       }}
     >
