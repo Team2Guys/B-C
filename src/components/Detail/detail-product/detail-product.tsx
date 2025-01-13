@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import ThumbImage from '../ThumbImage/ThumbImage';
-
 interface detailprops {
   title: string;
   description: string;
@@ -29,5 +28,4 @@ const DetailProduct: React.FC<detailprops> = ({
     </Container>
   );
 };
-
 export default DetailProduct;

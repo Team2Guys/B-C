@@ -376,6 +376,7 @@ html {
 .ant-image .ant-image-mask:hover {
   border-radius: 16px !important;
 }
+
 @media only screen and (max-width: 1300px) {
   .ant-image {
     position: relative;
