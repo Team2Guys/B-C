@@ -110,7 +110,8 @@ export const footerLinks: TFooterSection[] = [
       { text: 'Contact Us', href: '/contact-us' },
       { text: 'Request An Appointment', href: '/request-appointment' },
       { text: 'Product Guarantees', href: '/product-guarantees' },
-      { text: 'Why Choose Us', href: '/choose-us' },
+      { text: 'Why Choose Us', href: '/why-choose-blinds-curtains' },
+      { text: 'Projects', href: '/projects' },
     ],
   },
 ];
@@ -1250,7 +1251,7 @@ export const MoterisedContent = [
     Data: [
       {
         title: 'Automated Curtains',
-        heroVideo: '/assets/video/curtains.mp4',
+        heroVideo: '/assets/video/automated_curtains.mp4',
         infoTitle: 'Modern Automatic Curtains',
         infoSubtitle: 'Convert your windows into Smart Windows',
         infoDescription: `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
