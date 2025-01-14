@@ -143,7 +143,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                         {blog.Meta_description?.slice(0, 45) + '..'}
                       </p>
                       <p className="text-10 md:text-14 xl:text-16 hidden lg:block 2xl:hidden">
-                        {blog.Meta_description?.slice(0, 65) + '..'}
+                        {blog.Meta_description?.slice(0, 55) + '..'}
                       </p>
                       <p className="text-10 md:text-14 xl:text-16 hidden 2xl:block">
                         {blog.Meta_description?.slice(0, 90) + '..'}
