@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     canonical: 'about-us',
   },
 };
-
 const AboutUsPage = () => {
   return (
     <div>
@@ -57,37 +56,10 @@ const AboutUsPage = () => {
               {item}
             </p>
           ))}
-          {/* <div className="flex justify-between gap-5 mt-6">
-            {aboutUsReviewData.map((item) => (
-              <div key={item.id}>
-                <span className="font-bold text-3xl xs:text-4xl sm:text-5xl text-primary">
-                  <CountUp
-                    end={item.keys}
-                    duration={2.5}
-                    suffix={item.suffix}
-                  />
-                </span>
-                <p className="font-medium mt-2 text-12 xs:text-14 sm:text-base text-paralight">
-                  {item.title}
-                </p>
-              </div>
-            ))}
-          </div> */}
         </div>
       </Container>
       <Container className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-10 lg:gap-20 xs:px-2 px-6 sm:py-10 md:px-10">
         <div>
-          {/* <h4 className="font-semibold xs:mb-6 text-paralight xs:text-base text-12 text-center sm:text-start">
-            {UsHistoryPara.subheading}
-          </h4>
-          {UsHistoryPara.heading.map((item, index) => (
-            <h2
-              className={`text-22 xs:text-36 lg:text-5xl leading-snug lg:leading-snug font-bold text-wrap text-center sm:text-start`}
-              key={index}
-            >
-              {item}
-            </h2>
-          ))} */}
           <div className="mt-5 pe-4 flex flex-col sm:gap-4">
             {UsHistoryPara.paragraph.map((item, index) => (
               <p
