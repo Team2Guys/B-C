@@ -204,6 +204,7 @@ export class AdminsService {
     }
   }
 
+  
   async getSuperAdminHandler(req: Request | any) {
     try {
       let super_admin_credentials = {
