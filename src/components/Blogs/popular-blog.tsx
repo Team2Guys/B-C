@@ -90,7 +90,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                 prevEl: prevRef.current,
                 nextEl: nextRef.current,
               }}
-              autoplay={{ delay: 6000 }}
+              // autoplay={{ delay: 6000 }}
               speed={1000}
               onBeforeInit={(swiper) => {
                 if (typeof swiper.params.navigation !== 'boolean') {
@@ -101,16 +101,17 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                 }
               }}
               breakpoints={{
-                300: { slidesPerView: 1, spaceBetween: 10 },
-                352: { slidesPerView: 2, spaceBetween: 10 },
-                768: { slidesPerView: 3, spaceBetween: 15 },
-                1024: { slidesPerView: 3, spaceBetween: 20 },
+                300: { slidesPerView: 1,  },
+                352: { slidesPerView: 1.5,  },
+                768: { slidesPerView: 3, },
+                880: { slidesPerView: 2.8, },
+                1024: { slidesPerView: 3,},
               }}
             >
               {filteredBlogs.map((blog, index) => (
                 <SwiperSlide key={index}>
                   <Link
-                    className="rounded-lg mt-5 px-4 flex flex-col justify-between"
+                    className="rounded-lg mt-5 px-4 flex flex-col justify-between w-full"
                     href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`}
                   >
                     <div>
@@ -125,26 +126,32 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                         {formatDateMonth(blog.createdAt)}
                       </span>
                       <h3
-                        className="text-13 sm:text-20 font-bold cursor-pointer text-start lg:h-24 xl:h-16"
+                        className="text-12 md:text-16 lg:text-18 xl:text-20 font-bold cursor-pointer text-start h-14 xs:h-16 sm:h-12 md:h-20 lg:h-24 xl:h-24 2xl:h-16"
                         onClick={() => {
                           route.push(
                             `/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`,
                           );
                         }}
                       >
-                        {blog.title}
+                        {blog.title?.slice(0, 70) + '..'}
                       </h3>
                     </div>
-                    <div>
-                      <p className="text-10 sm:text-16">
-                        {blog.Meta_description?.slice(0, 105) + '...'}
+                      <p className="text-10 sm:text-16 md:hidden">
+                        {blog.Meta_description?.slice(0, 60) + '..'}
                       </p>
-                    </div>
+                      <p className="text-10 sm:text-16 hidden md:block lg:hidden">
+                        {blog.Meta_description?.slice(0, 45) + '..'}
+                      </p>
+                      <p className="text-10 sm:text-16 hidden lg:block 2xl:hidden">
+                        {blog.Meta_description?.slice(0, 65) + '..'}
+                      </p>
+                      <p className="text-10 sm:text-16 hidden 2xl:block">
+                        {blog.Meta_description?.slice(0, 90) + '..'}
+                      </p>
                     <div className="">
                       <Link
                         href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`}
-                        className="text-primary text-12 sm:text-18 underline font-bold text-center sm:text-start"
-                      >
+                        className="text-primary text-12 sm:text-18 underline font-bold text-center sm:text-start">
                         Read More
                       </Link>
                     </div>
