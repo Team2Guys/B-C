@@ -8,12 +8,15 @@ import { BlogInfo } from "types/interfaces";
 import { generateSlug } from "data/data";
 import { notFound } from "next/navigation";
 
+const CategoryTitle = ["blinds", "curtains", "shutters"]
+
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
   const name = (await params).name;
   const matchingLink = blogLinks.find((link) => link.href === name);
   const [categories, blogs] = await Promise.all([fetchCategories(), fetchBlogs()]);
 
-  const filterCategory = categories.find((category) => category.title === matchingLink?.label);
+  const filterCategory:any = categories.find((category) => category.title === matchingLink?.label);
+  
   const blog: BlogInfo | undefined = blogs?.find((blog) => {
     const filterTitle = blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title);
    return filterTitle === name && blog.isPublished;
@@ -45,20 +48,32 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   let title = Category?.Meta_Title || 'blindsandcurtains';
   let description = Category?.Meta_description || 'Welcome to blindsandcurtains';
   let url = `${fullUrl}blog/${name}`;
-  return {
+let meta_object:Metadata = {
+  title: title,
+  description: description,
+  openGraph: {
     title: title,
     description: description,
-    openGraph: {
-      title: title,
-      description: description,
-      url: url,
-      images: NewImage,
-    },
-    alternates: {
-      canonical:
-        Category?.Canonical_Tag || url,
-    },
-  };
+    url: url,
+    images: NewImage,
+  },
+  alternates: {
+    canonical:
+      Category?.Canonical_Tag || url,
+  },
+};
+
+
+if(filterCategory && CategoryTitle.includes(filterCategory?.title?.toLowerCase())){
+  console.log(filterCategory.title, "asdfsadf")
+  meta_object ={...meta_object,   robots: {
+    index: false,
+    follow: false,
+  },}
+}
+
+
+  return {...meta_object} 
 }
 const BlogDetail = async ({ params }: { params: Promise<{ name: string }> }) => {
   const [categories, blogs] = await Promise.all([
