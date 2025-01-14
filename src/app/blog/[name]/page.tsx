@@ -64,6 +64,7 @@ let meta_object:Metadata = {
 };
 
 
+
 if(filterCategory && CategoryTitle.includes(filterCategory?.title?.toLowerCase())){
   console.log(filterCategory.title, "asdfsadf")
   meta_object ={...meta_object,   robots: {

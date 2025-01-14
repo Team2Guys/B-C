@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
+
 const Blog = async () => {
   const blogs = await fetchBlogs();
   const filteredBlog: BlogInfo[] = blogs?.filter((blog: BlogInfo) => blog.isPublished)?.sort((a: BlogInfo, b: BlogInfo) =>
