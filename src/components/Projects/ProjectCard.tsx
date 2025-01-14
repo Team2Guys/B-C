@@ -32,11 +32,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {title}
         </h3>
       </div>
-      <p
-        className={`text-sm md:text-[16px] text-[#000000] mt-2  ${projectMainFont.className}`}
-      >
-        {description}
-      </p>
+      <p className={`text-sm md:text-[16px] text-[#000000] mt-2 ${projectMainFont.className}`}
+      dangerouslySetInnerHTML={{ __html: description }}/>
     </div>
   );
 };
