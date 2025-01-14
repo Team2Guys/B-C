@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
   return (
     <Container className="px-6 pt-12">
       <p
-        className={` md:mx-20 line leading-10 md:leading-[54px] text-center text-2xl md:text-[38px] mb-8 ${projectFont.className}`}
+        className={` md:mx-20 line leading-10 md:leading-[54px] text-center text-xl md:text-[26px] mb-8 ${projectFont.className}`}
       >
        No matter where you are in Dubai, our expertise is just a phone call away
       </p>
