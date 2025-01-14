@@ -1991,49 +1991,49 @@ export const projectsData = [
   {
     title: 'Downtown Dubai',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      'In Downtown Dubai, we have installed <a href="/" target="_blank" style="text-decoration:underline">window coverings</a> to keep out brightness and soften the lights. ',
     imageUrl: '/assets/images/Projects/downtown dubai.webp',
   },
   {
     title: 'Albarsha',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      `As versatile as life in Al Barsha, we've designed blinds, curtains, and shutters to suit busy or restful households.`,
      imageUrl: '/assets/images/Projects/Albarsha.webp',
   },
   {
     title: 'Business Bay',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      'We added calm and precision to the hectic world of Business Bay with our window coverings.',
      imageUrl: '/assets/images/Projects/Business bay dubai.webp',
   },
   {
     title: 'Jumeirah Beach',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      'The struggle of the sun and sea? We met those with fabrics that resist fading and salt air.',
      imageUrl: '/assets/images/Projects/Jumeirah Beach.webp',
   },
   {
     title: 'Arabian Ranches',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      'We brought warmth to Arabian Ranches with window treatments that feel as inviting as the homes themselves.',
      imageUrl: '/assets/images/Projects/Arabian Ranches.webp',
   },
   {
     title: 'Jumeirah Bay Island',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      `A luxury home needs custom care. We made <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">custom blinds</a>, curtains and shutters for Jumeirah Bay Island's exclusive clients.`,
      imageUrl: '/assets/images/Projects/jumeriah bay island.webp',
   },
   {
     title: 'Dubai Hills',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      `In keeping with Dubai Hills' tradition of balance, our designs integrate smoothly into any interior.`,
      imageUrl: '/assets/images/Projects/dubai-hills.jpg',
   },
   {
     title: 'Palm Jumeirah',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      `We've made sure the blinds and <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">curtains</a> match the scale and elegance of Palm Jumeirah.`,
      imageUrl: '/assets/images/Projects/Palm Jumeirah.webp',
   },
 ];
