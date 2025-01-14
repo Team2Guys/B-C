@@ -51,7 +51,7 @@ const Blog = async () => {
           </div>
         </Suspense>
       </div>
-      <div className="mt-28" />
+      <div className="mt-0 sm:mt-16 lg:mt-20" />
       <Footer />
     </>
   );
