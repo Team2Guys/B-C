@@ -18,7 +18,7 @@ const ThumbImage:React.FC<GalleryProps>= ({card}) => {
             <Image
               src={array.imageUrl}
               alt={array.altText || "Image"}
-              className=" rounded-xl h-60 xs:h-56 sm:h-auto"
+              className=" rounded-xl h-56 sm:h-auto"
               preview={{
                 mask: (
                   <div>
