@@ -217,6 +217,9 @@ export const CommercialUrl = [
     Redirect: '/shutters-range/solid-panel-shutters',
   },
   { urlName: 'installed-office-blinds-dubai', Redirect: '/commercial' },
+  { urlName: 'schools', Redirect: '/blinds/school-blinds' },
+  { urlName: 'office-window-blinds', Redirect: '/commercial' },
+
 ];
 
 export const getProduct = [
@@ -370,6 +373,7 @@ export const blogPostUrl = [
   { url: '/palm-jumeirah', redirectUrl: '/projects' },
   { url: '/window-shades', redirectUrl: '/' },
   { url: '/solar-screen-shades', redirectUrl: '/' },
+  { url: '/office-window-blinds', redirectUrl: '/commercial' },
   
 ];
 
