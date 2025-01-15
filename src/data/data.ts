@@ -56,7 +56,7 @@ export const reverseSlug = (slug: string): string => {
 // Blinds and Curtains section data
 
 export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
-  image: '/assets/images/offer-windows/blinds-curtains-dubai.png',
+  image: '/assets/images/blind-curtains-dubai/blinds-curtains-dubai.png',
   heading: 'We offer window treatments for homes or offices in Dubai',
   paragraph: [
     `Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and <a href="/shutters-range" target="_blank" style="text-decoration: underline"><b>shutters</b></a>. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function. Blinds and Curtains Dubai has the largest selection of <a href="/made-to-measure-blinds" target="_blank" style="text-decoration: underline"><b>custom blinds</b></a> in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).
