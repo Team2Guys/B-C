@@ -13,7 +13,7 @@ const ProjectTopHero: React.FC<TopHeroProps> = ({ title }) => {
   return (
     <div
       className={`relative      
-      flex text-center justify-center bg-no-repeat w-full   h-[230px] border-b border-[#BDC9BD] `}
+      flex text-center justify-center bg-no-repeat w-full h-[150px] sm:h-[230px] border-b border-[#BDC9BD] `}
     >
       <div className={`relative`}>
         <div className="relative z-20 py-6 sm:py-14 md:py-24">

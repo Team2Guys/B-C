@@ -53,7 +53,7 @@ const TopHero: React.FC<TopHeroProps> = ({
   return (
     <div
       className={`relative      
-      flex items-center text-center justify-center bg-no-repeat w-full  border-black h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px] bg-center bg-cover xl:bg-custom-size ${className}`}
+      flex items-center text-center justify-center bg-no-repeat w-full  border-black  bg-center bg-cover xl:bg-custom-size ${className} ${Video ? "h-[200px]  md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]" :"h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px]"}`}
       style={
         !Video
           ? {
@@ -65,7 +65,7 @@ const TopHero: React.FC<TopHeroProps> = ({
     >
       <>
         <video
-          className="absolute object-fill w-full h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px]"
+          className="absolute object-fill w-full h-[200px]  md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]"
           src={Video}
           autoPlay
           loop

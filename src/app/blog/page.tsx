@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
+
 const Blog = async () => {
   const blogs = await fetchBlogs();
   const filteredBlog: BlogInfo[] = blogs?.filter((blog: BlogInfo) => blog.isPublished)?.sort((a: BlogInfo, b: BlogInfo) =>
@@ -51,7 +52,7 @@ const Blog = async () => {
           </div>
         </Suspense>
       </div>
-      <div className="mt-28" />
+      <div className="mt-0 sm:mt-16 lg:mt-20 max-sm:mb-10" />
       <Footer />
     </>
   );
