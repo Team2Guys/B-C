@@ -11,9 +11,10 @@ const ProjectsTags = () => {
       >
         Made-To-Measure Blinds & Curtains
       </h2>
-      <p className={`text-base sm:text-xl lg:text-2xl w-full md:w-2/3 text-center mx-auto mt-5 ${MontserratFont.className}`}>
-      You&apos;ll never have an ill-fitting or messy window in your house with custom blinds and curtains that are made to match.</p>
-      <div className="flex flex-wrap justify-center mt-5 gap-x-2 gap-y-3">
+      <p
+  className={`text-base sm:text-16 md:text-[20px] w-full md:w-2/3 text-center mx-auto mt-5 ${MontserratFont.className}`}>
+  You&apos;ll never have an ill-fitting or messy window in your house with custom blinds and curtains that are made to match.</p>
+  <div className="flex flex-wrap justify-center mt-5  gap-x-2 gap-y-3">
         {projectsTags.sort().map((tag, index) => (
           <span
             key={index}
