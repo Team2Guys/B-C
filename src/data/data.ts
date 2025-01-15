@@ -242,7 +242,7 @@ export const initialSize: TsizePresets = {
 export const PGuarantees: TProductGuarantees[] = [
   {
     heading: 'What Our Guarantee Cover?',
-    text: `When choosing <a href="/" target="_blank" style="text-decoration:underline">blindsandcurtains.ae</a>, you're buying beautiful window dressings and getting a customer service experience that is unmatched in Dubai. From free consultation and installation to an after-sales care package, you can rest assured that you’ll be in good hands for the lifetime of your blinds, curtains or shutters. We understand how important fabric quality is to your blinds and curtains. That’s why we offer a 3-year warranty on all fabrics used in our products. From the track to the rod and every mechanism in between, every component of your blinds and curtains is durable. There's a 10-year warranty on all moving and static parts, so you're covered for the long term.If your custom window covering doesn’t perform as it should within 10 years of installation, we’ll fix it or give you a replacement of your choice. We do this so you'll always have a solution that works.`,
+    text: `When choosing blindsandcurtains.ae, you're buying beautiful window dressings and getting a customer service experience that is unmatched in Dubai. From free consultation and installation to an after-sales care package, you can rest assured that you’ll be in good hands for the lifetime of your blinds, curtains or shutters. We understand how important fabric quality is to your blinds and curtains. That’s why we offer a 3-year warranty on all fabrics used in our products. From the track to the rod and every mechanism in between, every component of your blinds and curtains is durable. There's a 10-year warranty on all moving and static parts, so you're covered for the long term.If your custom window covering doesn’t perform as it should within 10 years of installation, we’ll fix it or give you a replacement of your choice. We do this so you'll always have a solution that works.`,
     image: '/assets/images/product-guarantees/guarantee3.png',
     imageAlign: 'left',
   },
@@ -1991,49 +1991,49 @@ export const projectsData = [
   {
     title: 'Downtown Dubai',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      'In Downtown Dubai, we have installed <a href="/" target="_blank" style="text-decoration:underline">window coverings</a> to keep out brightness and soften the lights. ',
     imageUrl: '/assets/images/Projects/downtown dubai.webp',
   },
   {
     title: 'Albarsha',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      `As versatile as life in Al Barsha, we've designed blinds, curtains, and shutters to suit busy or restful households.`,
      imageUrl: '/assets/images/Projects/Albarsha.webp',
   },
   {
     title: 'Business Bay',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      'We added calm and precision to the hectic world of Business Bay with our window coverings.',
      imageUrl: '/assets/images/Projects/Business bay dubai.webp',
   },
   {
     title: 'Jumeirah Beach',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      'The struggle of the sun and sea? We met those with fabrics that resist fading and salt air.',
      imageUrl: '/assets/images/Projects/Jumeirah Beach.webp',
   },
   {
     title: 'Arabian Ranches',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      'We brought warmth to Arabian Ranches with window treatments that feel as inviting as the homes themselves.',
      imageUrl: '/assets/images/Projects/Arabian Ranches.webp',
   },
   {
     title: 'Jumeirah Bay Island',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      `A luxury home needs custom care. We made <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">custom blinds</a>, curtains and shutters for Jumeirah Bay Island's exclusive clients.`,
      imageUrl: '/assets/images/Projects/jumeriah bay island.webp',
   },
   {
     title: 'Dubai Hills',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      `In keeping with Dubai Hills' tradition of balance, our designs integrate smoothly into any interior.`,
      imageUrl: '/assets/images/Projects/dubai-hills.jpg',
   },
   {
     title: 'Palm Jumeirah',
     description:
-      'A growing business based in the heart of Dubai with a showroom in Al Quoz.',
+      `We've made sure the blinds and <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">curtains</a> match the scale and elegance of Palm Jumeirah.`,
      imageUrl: '/assets/images/Projects/Palm Jumeirah.webp',
   },
 ];
