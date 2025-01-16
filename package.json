@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next lint && next build",
+    "dev": "next dev -p 3005",
+    "build": "next lint && next build -p 5001",
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\""
