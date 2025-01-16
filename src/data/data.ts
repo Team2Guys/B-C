@@ -108,10 +108,11 @@ export const footerLinks: TFooterSection[] = [
     links: [
       { text: 'About Us', href: '/about-us' },
       { text: 'Contact Us', href: '/contact-us' },
-      { text: 'Request An Appointment', href: '/request-appointment' },
+      { text: 'Our Projects', href: '/our-projects' },
       { text: 'Product Guarantees', href: '/product-guarantees' },
-      { text: 'Why Choose Us', href: '/why-choose-blinds-curtains' },
-      { text: 'Projects', href: '/projects' },
+      { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
+      { text: 'Book A Free Appointment', href: '/request-appointment' },
+     
     ],
   },
 ];

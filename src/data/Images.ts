@@ -965,7 +965,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Sheer Curtains',
         altText: 'Sheer Curtains',
         Imagesurl: '/assets/images/optimized-images/commerical/hospital/s.webp',
-        desc: 'We offer lightweight sheer curtains that allow natural light to gently filter into a hospital room to create a soft, airy ambiance. Our cubicle curtains are used to separate the rooms of patient spaces that guarantee privacy during consultations, treatment, or rest. These curtains allow hospitals to provide individual care in shared spaces; our curtains are crucial for maintaining confidentiality and offering comfort to patients. So get a free installation. We are trusted, with over 700+ 5* reviews.',
+        desc: 'We offer lightweight sheer curtains that allow natural light to gently filter into a hospital room to create a soft, airy ambiance. Our cubicle curtains are used to separate the rooms of patient spaces that guarantee privacy during consultations, treatment, or rest. These curtains allow hospitals to provide individual care in shared spaces; our curtains are crucial for maintaining confidentiality and offering comfort to patients. So get a free installation. We are trusted, with over 700+ to 750+* reviews.',
       },
       {
         product_name: 'Motorised curtains',
