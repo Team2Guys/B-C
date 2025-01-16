@@ -172,3 +172,41 @@ export interface CategoryProps {
   subCategories?: ICategory[];
   categories?: ICategory[];
 }
+
+export interface ProductOptions {
+  shutters?: boolean;
+  curtains?: boolean;
+  blinds?: boolean;
+  roller_blinds?: boolean;
+  wooden_blinds?: boolean;
+  other_blinds?: boolean;
+  plantation_bhutters?: boolean;
+  others?: boolean;
+}
+export interface IAppointments {
+  id: any;
+  name: string;
+  phone_number: string;
+  area: string;
+  email: string;
+  whatsapp_number: string;
+  windows: string;
+  prefered_Date: Date; // Accept Date here
+  prefered_contact_method: string[];
+  how_user_find_us: string;
+  user_query: string;
+  product_type: string[];
+  other: string;
+  prefered_time?: string;
+}
+
+export interface ContactMethods {
+  email: boolean;
+  telephone: boolean;
+  whatsapp: boolean;
+}
+
+export interface AppointmentProps {
+  singlePage?: boolean;
+  className?: string;
+}

@@ -10,17 +10,7 @@ import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import showToast from 'components/Toaster/Toaster';
-
-interface ProductOptions {
-  shutters?: boolean;
-  curtains?: boolean;
-  blinds?: boolean;
-  roller_blinds?: boolean;
-  wooden_blinds?: boolean;
-  other_blinds?: boolean;
-  plantation_bhutters?: boolean;
-  others?: boolean;
-}
+import { AppointmentProps, ContactMethods, ProductOptions } from 'types/types';
 interface IAppointments {
   name: string;
   phone_number: string;
@@ -37,16 +27,6 @@ interface IAppointments {
   prefered_time: string;
 }
 
-interface ContactMethods {
-  email: boolean;
-  telephone: boolean;
-  whatsapp: boolean;
-}
-
-interface AppointmentProps {
-  singlePage?: boolean;
-  className?: string;
-}
 
 const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -110,10 +90,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
     prefered_time: '',
   };
 
-  const [formData, setFormData] = useState(() => ({
-    ...formInitialValues,
-    prefered_Date: new Date(),
-  }));
+  const [formData, setFormData] = useState(formInitialValues);
   const [wordCount, setWordCount] = useState(0);
   const [errors, setErrors] = useState({
     name: '',

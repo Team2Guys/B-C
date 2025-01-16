@@ -279,7 +279,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {hoveredProduct === product.title && (
                           <>
                             <Image
-                            key={index}
+                            key={product.id}
                               width={500}
                               height={500}
                               className="bg-contain h-[250px] lg:h-[300px]"
@@ -307,7 +307,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     const itemName = item.name;
                     return (
                       <div key={index} className="flex flex-col gap-5 w-full">
-                        <p key={index} className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
+                        <p className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
                           {/* {title + ' ' + item.name} */}
                           {/* <div /> */}
                           {title}{' '}
@@ -347,7 +347,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                   {' '}
                                   <Link
                                     href={path}
-                                    key={index}
+                                    key={item.id}
                                     onClick={() => setIsOpen(false)}
                                     onMouseEnter={() => setactiveProduct(item)}
                                     className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
