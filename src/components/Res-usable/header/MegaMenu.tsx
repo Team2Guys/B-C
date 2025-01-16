@@ -285,8 +285,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                               className="bg-contain h-[250px] lg:h-[300px]"
                               src={
                                 product.imageSrc
-                                  ? product.imageSrc
-                                  : '/assets/images/Blinds/landing/landing.webp'
+                                  && product.imageSrc
+                               
                               }
                               alt={product.title}
                             />
