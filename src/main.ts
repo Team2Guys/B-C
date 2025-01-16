@@ -31,7 +31,8 @@ async function bootstrap() {
       'http://localhost:3000',
       'http://localhost:3001',
       "http://localhost:3001",
-      /\.vercel\.app$/
+      /\.vercel\.app$/,
+      "http://localhost:5001",
     ],
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     preflightContinue: false,
@@ -57,6 +58,6 @@ async function bootstrap() {
 const document = SwaggerModule.createDocument(app, config);
 
 SwaggerModule.setup('docs', app, document);
-  await app.listen(3200);
+  await app.listen(5002);
 }
 bootstrap();
