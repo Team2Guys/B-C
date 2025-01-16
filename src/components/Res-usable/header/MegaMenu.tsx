@@ -347,7 +347,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                   {' '}
                                   <Link
                                     href={path}
-                                    key={item.id}
+                                    key={index}
                                     onClick={() => setIsOpen(false)}
                                     onMouseEnter={() => setactiveProduct(item)}
                                     className={` font-gotham text-15 cursor-pointer whitespace-break-spaces capitalize w-fit link-underline ${activeProduct?.title == item.title ? 'font-semibold drop-shadow-sm' : ' font-normal'}`}
