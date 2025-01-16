@@ -132,7 +132,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                             `/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`,
                           );
                         }}
-                      >
+                      > 
                         {blog.title?.slice(0, 70) + '..'}
                       </h3>
                     </div>
