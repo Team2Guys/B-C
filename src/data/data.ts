@@ -678,7 +678,7 @@ export const commercialPagesItems = [
   'sunscreentransparent',
   'vertical-blinds',
   'aluminium-blinds',
-  'wooden-blinds',
+  // 'wooden-blinds',
   'blackout-blinds',
   'motorised-blinds',
   'panel-blinds',
@@ -1133,7 +1133,7 @@ export const categoriesContent = [
         },
         {
           content:
-            'Call the team now and book a free appointment today. No pressure!',
+            'Call the team now and book a free appointment today. No pressure! Book a free, no-pressure appointment today by clicking the button below.',
         },
       ],
     },
