@@ -183,22 +183,7 @@ export interface ProductOptions {
   plantation_bhutters?: boolean;
   others?: boolean;
 }
-export interface IAppointments {
-  id: any;
-  name: string;
-  phone_number: string;
-  area: string;
-  email: string;
-  whatsapp_number: string;
-  windows: string;
-  prefered_Date: Date; // Accept Date here
-  prefered_contact_method: string[];
-  how_user_find_us: string;
-  user_query: string;
-  product_type: string[];
-  other: string;
-  prefered_time?: string;
-}
+
 
 export interface ContactMethods {
   email: boolean;
