@@ -89,12 +89,13 @@ const BookAppointment: React.FC<AppointmentProps> = ({
   const [selectedOptions, setSelectedOptions] = useState<ProductOptions>(
     getInitialSelectedOptions(),
   );
-
-  const [contactMethods, setContactMethods] = useState<ContactMethods>({
+  const initialContactMethods = {
     email: false,
     telephone: false,
     whatsapp: false,
-  });
+  };
+  const [contactMethods, setContactMethods] = useState<ContactMethods>(initialContactMethods);
+  const [successMessage, setSuccessMessage] = useState<string>('');
 
   const formInitialValues = {
     name: '',
@@ -254,8 +255,21 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           product_type: productTypeArray,
         });
         console.log('response:', response);
-        toast.success('Appointment submitted successfully!');
-        setFormData(formInitialValues);
+        setFormData({
+          ...formInitialValues,
+          how_user_find_us: '',
+
+        });
+        setTimeout(() => setFormData(formInitialValues), 0);
+        setSelectedOptions(getInitialSelectedOptions());
+        setContactMethods(initialContactMethods)
+
+        setWordCount(0)
+        setSuccessMessage('Form Submitted Successfully🎉');
+        setTimeout(() => {
+          setSuccessMessage('');
+        }, 2000);
+        // toast.success('Form Submitted Successfully🎉');
       } catch (error) {
         toast.error('Failed to submit the appointment. Please try again.');
       } finally {
@@ -428,8 +442,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               selected={formData.prefered_Date}
               onChange={handleDateChange}
               className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
-              dateFormat="dd/MM/yy" // Set date format to DD/MM/YY
-              minDate={new Date()} // Disable past dates
+              dateFormat="dd/MM/yy"
+              minDate={new Date()}
             />
           </div>
           <div className="w-full custom-datepicker">
@@ -478,11 +492,13 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               instanceId="window-options-select"
               options={referralOptions}
               onChange={(option: any) =>
-                handleSelectChange('how_user_find_us', option?.value || '')
+                handleSelectChange('how_user_find_us', option?.value || null)
               }
-              value={referralOptions.find(
-                (option) => option.value === formData.how_user_find_us,
-              )}
+              value={
+                referralOptions.find(
+                  (option) => option.value === formData.how_user_find_us,
+                ) || null // Ensures no value is selected when reset
+              }
               className="mt-1 w-full text-11"
             />
           </div>
@@ -500,7 +516,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               className={`mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.area}
               onChange={handleChange}
-              // required
+            // required
             />
 
             {errors.area && (
@@ -669,6 +685,9 @@ const BookAppointment: React.FC<AppointmentProps> = ({
         </div>
 
         <div className="text-center mt-4">
+
+
+
           <button
             type="submit"
             className="w-fit bg-secondary hover:bg-primary text-white py-2 px-8 sm:px-14 rounded"
@@ -676,7 +695,17 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           >
             {loading ? <Loader color="#fff" /> : 'Submit Request'}
           </button>
+          {successMessage && (
+            <p className=" text-xs mt-2">{successMessage}
+
+
+            </p>
+          )}
+
         </div>
+
+
+
       </form>
     </div>
   );
