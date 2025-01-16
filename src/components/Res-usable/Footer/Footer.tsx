@@ -140,55 +140,35 @@ const Footer: React.FC = () => {
                         />
                       ))}
                     </div>
-                  ) : (
-                    footerData.map((category) => (
-                      <div className="pl-2" key={category.title}>
-                        {isMobile ? (
-                          <Collapse
-                            bordered={false}
-                            expandIcon={({ isActive }) =>
-                              isActive ? (
-                                <Image
-                                  src={downIcon}
-                                  alt="up icon"
-                                  width={14}
-                                  height={14}
-                                  className="pt-1c transform rotate-180 invert"
-                                />
-                              ) : (
-                                <Image
-                                  src={downIcon}
-                                  alt="down icon"
-                                  width={14}
-                                  height={14}
-                                  className="pt-1 invert"
-                                />
-                              )
-                            }
-                            className="custom-collapse bg-transparent border-0 flex flex-col gap-1"
+                  ) : (footerData.map((category) => (
+                    <div className="pl-2" key={category.key}>
+                      {isMobile ? (
+                        <Collapse
+                          
+                          bordered={false}
+                          expandIcon={({ isActive }) => (
+                            isActive ? (
+                              <Image src={downIcon} alt="up icon" width={14} height={14} className="pt-1 transform rotate-180 invert" />
+                            ) : (
+                              <Image src={downIcon} alt="down icon" width={14} height={14} className="pt-1 invert" />
+                            )
+                          )}
+                          className="custom-collapse bg-transparent border-0 flex flex-col gap-1"
+                        >
+                          <Panel
+                            header={<span className="font-semibold text-18 text-white">{category.title}</span>}
+                            key={category.key}
+                            className="custom-panel pt-[6px]"
                           >
-                            <Panel
-                              header={
-                                <span className="font-semibold text-18 text-white">
-                                  {category.title}
-                                </span>
-                              }
-                              key={category.title}
-                              className="custom-panel pt-[6px]"
-                            >
-                              <ul className="space-y-2 my-4">
-                                {category.items.map((item) => {
-                                  const matchingSubcategory =
-                                    subcategories?.find(
-                                      (subcategory: ICategory) =>
-                                        subcategory.title === item &&
-                                        subcategory.CategoryId ===
-                                          categories.find(
-                                            (cat) =>
-                                              generateSlug(cat.title) ===
-                                              generateSlug(category.title),
-                                          )?.id,
-                                    );
+                            <ul className="space-y-2 my-4">
+                              {category.items.map((item) => {
+                                const matchingSubcategory = subcategories?.find(
+                                  (subcategory: ICategory) =>
+                                    subcategory.title === item &&
+                                    subcategory.CategoryId === categories.find(
+                                      (cat) => generateSlug(cat.title) === generateSlug(category.title),
+                                    )?.id,
+                                );
 
                                   const matchingProduct = products?.find(
                                     (product) =>
