@@ -1737,7 +1737,7 @@ export const BooKNowbannerContent = [
   {
     url: '/blinds/roller-blinds',
     content:
-      'Ready to get started? Call our sales team at (04) 252 2025 for a free quote or fill out the online form, and we&apos;ll be in touch',
+      'Ready to get started? Call our sales team at <a href="tel:+(04) 252 2025" target="_blank" style="text-decoration:underline">(04) 252 2025</a> for a free quote or fill out the online form, and we&apos;ll be in touch',
   },
   {
     url: '/blinds/panel-blinds',
