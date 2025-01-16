@@ -7,7 +7,7 @@ const AppointmentButton = () => {
     <div className="h-fit flex justify-center mt-5">
     <Link
       href="/request-appointment"
-      className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr"
+      className="px-8 py-4 rounded-md text-white bg-secondary hover:bg-primary"
     >
       Book A Free Appointment
     </Link>

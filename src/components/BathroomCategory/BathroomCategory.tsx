@@ -119,9 +119,10 @@ const BathroomCategory = ({
               console.log(product_Images, "product_Images =");
             return (
               <div
-              className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full "
+              className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full  justify-between"
               key={index}
               >
+                <div>
                   <Image
                     className="w-full h-[280px] xs:h-[300px] sm:h-[350px] md:h-[450px] lg:h-[500px] rounded-md"
                     src={
@@ -138,20 +139,23 @@ const BathroomCategory = ({
                   <h2 className="font-bold  sm:text-xl md:text-2xl text-center">
                     {arr.title}
                   </h2>
-                {product_Images && (
+                    {product_Images && (
                   <p
-                  className="leading-6 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal"
+                  className="leading-6 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal w-full"
                   dangerouslySetInnerHTML={{
                     __html: product_Images.desc,
                   }}
                   ></p>
                 )}
+                    </div>
+                <div>
                 <Link
                   href={getPath(arr, parent)}
                   className="font-bold text-xs sm:text-base bg-secondary text-white hover:bg-primary px-4 py-2 rounded-md flex items-center text-center mx-auto"
                   >
                   View Our {arr.title}
                 </Link>
+                </div>
               </div>
             );
           })}

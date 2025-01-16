@@ -151,7 +151,7 @@ const FeatureProduct: React.FC = () => {
         {visibleCount < (filteredProducts?.length || 0) && (
           <div className="flex justify-center mt-10">
             <Button
-              className="w-[163px] h-[55px] text-15 leading-6 tracking-wider font-bold text-white"
+              className="w-[163px] h-[55px] text-15 leading-6 tracking-wider font-bold text-white hover:bg-primary"
               onClick={handleViewMore}
               variant={'secondary'}
             >

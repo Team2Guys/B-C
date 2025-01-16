@@ -108,10 +108,11 @@ export const footerLinks: TFooterSection[] = [
     links: [
       { text: 'About Us', href: '/about-us' },
       { text: 'Contact Us', href: '/contact-us' },
-      { text: 'Request An Appointment', href: '/request-appointment' },
+      { text: 'Our Projects', href: '/projects' },
       { text: 'Product Guarantees', href: '/product-guarantees' },
-      { text: 'Why Choose Us', href: '/why-choose-blinds-curtains' },
-      { text: 'Projects', href: '/projects' },
+      { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
+      { text: 'Book A Free Appointment', href: '/request-appointment' },
+     
     ],
   },
 ];
@@ -678,7 +679,7 @@ export const commercialPagesItems = [
   'sunscreentransparent',
   'vertical-blinds',
   'aluminium-blinds',
-  'wooden-blinds',
+  // 'wooden-blinds',
   'blackout-blinds',
   'motorised-blinds',
   'panel-blinds',
@@ -1133,7 +1134,7 @@ export const categoriesContent = [
         },
         {
           content:
-            'Call the team now and book a free appointment today. No pressure!',
+            'Call the team now and book a free appointment today. No pressure! Book a free, no-pressure appointment today by clicking the button below.',
         },
       ],
     },
@@ -1737,7 +1738,7 @@ export const BooKNowbannerContent = [
   {
     url: '/blinds/roller-blinds',
     content:
-      'Ready to get started? Call our sales team at (04) 252 2025 for a free quote or fill out the online form, and we&apos;ll be in touch',
+      'Ready to get started? Call our sales team at <a href="tel:(04) 252 2025" target="_blank" style="text-decoration:underline">(04) 252 2025</a> for a free quote or fill out the online form, and we&apos;ll be in touch',
   },
   {
     url: '/blinds/panel-blinds',
