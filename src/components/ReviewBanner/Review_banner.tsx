@@ -70,9 +70,11 @@ export default function Review_banner() {
 
   useEffect(() => {
      fetchReviewsHandler(setReviews)
- 
-  }, [])
 
+  }, [])
+  const filteredTestimonials = reviews.filter(
+    (testimonial: any) => testimonial.rating >= 4
+  );
 
   return (
     <>
@@ -107,9 +109,9 @@ export default function Review_banner() {
                   width={140}
                   height={140}
                 />
-{reviews.length > 0 &&
+{filteredTestimonials.length > 0 &&
                 <Slider {...settings}>
-                  { reviews?.map((slide, index: any) => {
+                  { filteredTestimonials?.map((slide, index: any) => {
 console.log(slide, "slide")
                     return (<div
                       key={index}
@@ -135,11 +137,6 @@ console.log(slide, "slide")
                     height={70}
                   />
                 </div>
-
-
-
-
-
               </div>
             </div>
           </div>

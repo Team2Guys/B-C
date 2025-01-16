@@ -69,12 +69,13 @@ const BookAppointment: React.FC<AppointmentProps> = ({
   const [selectedOptions, setSelectedOptions] = useState<ProductOptions>(
     getInitialSelectedOptions(),
   );
-
-  const [contactMethods, setContactMethods] = useState<ContactMethods>({
+  const initialContactMethods = {
     email: false,
     telephone: false,
     whatsapp: false,
-  });
+  };
+  const [contactMethods, setContactMethods] = useState<ContactMethods>(initialContactMethods);
+  const [successMessage, setSuccessMessage] = useState<string>('');
 
   const formInitialValues = {
     name: '',
@@ -234,8 +235,21 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           product_type: productTypeArray,
         });
         console.log('response:', response);
-        toast.success('Appointment submitted successfully!');
-        setFormData(formInitialValues);
+        setFormData({
+          ...formInitialValues,
+          how_user_find_us: '',
+
+        });
+        setTimeout(() => setFormData(formInitialValues), 0);
+        setSelectedOptions(getInitialSelectedOptions());
+        setContactMethods(initialContactMethods)
+
+        setWordCount(0)
+        setSuccessMessage('Form Submitted Successfully🎉');
+        setTimeout(() => {
+          setSuccessMessage('');
+        }, 2000);
+        // toast.success('Form Submitted Successfully🎉');
       } catch (error) {
         toast.error('Failed to submit the appointment. Please try again.');
       } finally {
@@ -270,7 +284,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
 
   return (
     <div
-      className={`bg-white  text-left text-black ${className} ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
+      className={`bg-white  text-left text-black ${className} ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-6/12 2xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
     >
       {!singlePage && (
         <h3 className="font-bold text-lg text-center tracking-[5px] uppercase">
@@ -285,7 +299,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           className={`xs:grid  mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-6' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-5'}`}
         >
           <div>
-            <label htmlFor="name" className="block text-11 font-light ">
+            <label htmlFor="name" className="block text-10 2xl:text-11 font-light ">
               Name *
             </label>
             <input
@@ -293,7 +307,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               name="name"
               placeholder="Enter Your Full Name"
               id="name"
-              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-11 ${errors.name ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.name}
               onChange={handleChange}
             />
@@ -304,11 +318,11 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           <div>
             <label
               htmlFor="phone_number"
-              className="block text-11 font-light mb-1 "
+              className="block text-10 2xl:text-11 font-light mb-1 "
             >
               Phone Number *
             </label>
-            {/* <div className='border flex items-center px-1 h-9  border-gray-300 w-full rounded text-11 outline-none'>
+            {/* <div className='border flex items-center px-1 h-9  border-gray-300 w-full rounded text-10 2xl:text-11 outline-none'>
               <div className='w-2/12'>
               <Image width={25} height={25} src={"/assets/images/aedflag.png"} alt='flag'/>
               </div>
@@ -317,7 +331,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               </div>
             </div> */}
             <PhoneInput
-              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none"
+              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 outline-none"
               international
               defaultCountry="AE"
               limitMaxLength
@@ -333,7 +347,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-11 font-light ">
+            <label htmlFor="email" className="block text-10 2xl:text-11 font-light ">
               E-Mail *
             </label>
             <input
@@ -341,7 +355,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               placeholder="Enter Your E-Mail"
               name="email"
               id="email"
-              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-11 ${errors.email ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.email ? 'border-red-500' : ''}`}
               value={formData.email}
               onChange={handleChange}
             />
@@ -352,12 +366,12 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           <div className="relative overflow-hidden">
             <label
               htmlFor="whatsapp_number"
-              className="block text-11 font-light mb-1 "
+              className="block text-10 2xl:text-11 font-light mb-1 "
             >
               WhatsApp No. If Different
             </label>
             <PhoneInput
-              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none"
+              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 outline-none"
               international
               defaultCountry="AE"
               limitMaxLength
@@ -369,7 +383,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             />
           </div>
           <div>
-            <label htmlFor="windows " className="block text-11 font-light ">
+            <label htmlFor="windows " className="block text-10 2xl:text-11 font-light ">
               How Many Windows *
             </label>
             <input
@@ -377,7 +391,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               placeholder="Enter No of Windows"
               name="windows"
               id="windows"
-              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-11 ${errors.windows ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.windows ? 'border-red-500' : ''}`}
               value={formData.windows}
               onChange={handleChange}
             />
@@ -390,7 +404,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               value={windowOptions.find(
                 (option) => option.value === formData.windows,
               )}
-              className={`mt-1 w-full text-11 ${errors.windows ? 'border-red-500' : ''}`}
+              className={`mt-1 w-full text-10 2xl:text-11 ${errors.windows ? 'border-red-500' : ''}`}
             /> */}
             {errors.windows && (
               <p className="text-red-500 text-xs">{errors.windows}</p>
@@ -399,7 +413,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           <div className="w-full custom-datepicker">
             <label
               htmlFor="preferredDate"
-              className="block text-11 font-light "
+              className="block text-10 2xl:text-11 font-light "
             >
               Preferred Data
             </label>
@@ -407,15 +421,15 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             <DatePicker
               selected={formData.prefered_Date}
               onChange={handleDateChange}
-              className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
-              dateFormat="dd/MM/yy" // Set date format to DD/MM/YY
-              minDate={new Date()} // Disable past dates
+              className="h-[38px] mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
+              dateFormat="dd/MM/yy"
+              minDate={new Date()}
             />
           </div>
           <div className="w-full custom-datepicker">
             <label
               htmlFor="preferredTime"
-              className="block text-11 font-light "
+              className="block text-10 2xl:text-11 font-light "
             >
               Preferred Time
             </label>
@@ -431,7 +445,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               value={preferTimeOptions.find(
                 (option) => option.value === formData.prefered_time,
               )}
-              className="mt-1 w-full text-11"
+              className="mt-1 w-full text-10 2xl:text-11"
             />
             {/* <DatePicker
               selected={
@@ -442,7 +456,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               showTimeSelect
               showTimeSelectOnly
               dateFormat="h:mm aa"
-              className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
+              className="h-[38px] mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
             /> */}
           </div>
           <div
@@ -450,7 +464,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           >
             <label
               htmlFor="how_user_find_us"
-              className="block text-11 font-light "
+              className="block text-10 2xl:text-11 font-light "
             >
               How Did You Hear About Us?
             </label>
@@ -458,18 +472,20 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               instanceId="window-options-select"
               options={referralOptions}
               onChange={(option: any) =>
-                handleSelectChange('how_user_find_us', option?.value || '')
+                handleSelectChange('how_user_find_us', option?.value || null)
               }
-              value={referralOptions.find(
-                (option) => option.value === formData.how_user_find_us,
-              )}
-              className="mt-1 w-full text-11"
+              value={
+                referralOptions.find(
+                  (option) => option.value === formData.how_user_find_us,
+                ) || null // Ensures no value is selected when reset
+              }
+              className="mt-1 w-full text-10 2xl:text-11"
             />
           </div>
           <div
             className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}
           >
-            <label htmlFor="Address " className="block text-11 font-light ">
+            <label htmlFor="Address " className="block text-10 2xl:text-11 font-light ">
               Address *
             </label>
             <input
@@ -477,10 +493,10 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               name="area"
               placeholder="Enter Your Address"
               id="area"
-              className={`mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 ${errors.name ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.area}
               onChange={handleChange}
-              // required
+            // required
             />
 
             {errors.area && (
@@ -491,13 +507,13 @@ const BookAppointment: React.FC<AppointmentProps> = ({
         {!singlePage && (
           <div className="flex flex-wrap justify-between gap-2 mb-3">
             <div className=" p-2 bg-white rounded-md">
-              <h2 className="text-11 font-light mb-3">
+              <h2 className="text-10 2xl:text-11 font-light mb-3">
                 Tell us what you need:
               </h2>
 
               <div className="flex flex-row flex-wrap sm:flex-nowrap gap-2 sm:gap-4">
                 <div>
-                  <label className="flex items-center text-11 text-[#898989]">
+                  <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                     <input
                       type="checkbox"
                       checked={selectedOptions.blinds}
@@ -509,7 +525,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
                 </div>
 
                 <div>
-                  <label className="flex items-center text-11 text-[#898989]">
+                  <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                     <input
                       type="checkbox"
                       checked={selectedOptions.curtains}
@@ -520,7 +536,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
                   </label>
                 </div>
                 <div>
-                  <label className="flex items-center text-11 text-[#898989]">
+                  <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                     <input
                       type="checkbox"
                       checked={selectedOptions.shutters}
@@ -533,11 +549,11 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               </div>
             </div>
             <div className="p-2 rounded-md">
-              <h2 className="text-11 font-light mb-3">
+              <h2 className="text-10 2xl:text-11 font-light mb-3">
                 How shall we contact you?
               </h2>
               <div className="flex flex-wrap sm:flex-nowrap flex-row gap-2 mt-2">
-                <label className="flex items-center text-11 text-[#898989]">
+                <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                   <input
                     type="checkbox"
                     name="whatsapp"
@@ -548,7 +564,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
                   WhatsApp
                 </label>
 
-                <label className="flex items-center text-11 text-[#898989]">
+                <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                   <input
                     type="checkbox"
                     name="telephone"
@@ -558,7 +574,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
                   />
                   Telephone
                 </label>
-                <label className="flex items-center text-11 text-[#898989]">
+                <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                   <input
                     type="checkbox"
                     name="email"
@@ -575,7 +591,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
         {singlePage && (
           <>
             <div className="w-full  mx-auto my-6">
-              <label className="block text-11 font-light ">
+              <label className="block text-10 2xl:text-11 font-light ">
                 Window Dressing Type
               </label>
               <div className="flex flex-row flex-wrap md:flex-nowrap justify-start md:justify-between gap-5 mt-2">
@@ -594,7 +610,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
                         handleCheckboxChange(option as keyof ProductOptions)
                       }
                     />
-                    <label htmlFor={option} className="ml-2 text-11">
+                    <label htmlFor={option} className="ml-2 text-10 2xl:text-11">
                       {option.replace('_', ' ').toUpperCase()}
                     </label>
                   </div>
@@ -617,7 +633,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
         )}
 
         <div className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}>
-          <label htmlFor="user_query" className="block text-11 font-light ">
+          <label htmlFor="user_query" className="block text-10 2xl:text-11 font-light ">
             Any Other Requirements
           </label>
           <textarea
@@ -625,7 +641,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             name="user_query"
             value={formData.user_query}
             onChange={handleInputChange}
-            className="mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
+            className="mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
             placeholder="Enter your query (max 350 characters)"
             rows={2}
           />
@@ -644,11 +660,14 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               value={queryOptions.find(
                 (option) => option.value === formData.user_query,
               )}
-              className="mt-1 w-full text-11"
+              className="mt-1 w-full text-10 2xl:text-11"
             /> */}
         </div>
 
         <div className="text-center mt-4">
+
+
+
           <button
             type="submit"
             className="w-fit bg-secondary hover:bg-primary text-white py-2 px-8 sm:px-14 rounded"
@@ -656,7 +675,17 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           >
             {loading ? <Loader color="#fff" /> : 'Submit Request'}
           </button>
+          {successMessage && (
+            <p className=" text-xs mt-2">{successMessage}
+
+
+            </p>
+          )}
+
         </div>
+
+
+
       </form>
     </div>
   );

@@ -112,7 +112,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
                   href={getPath(product, parent)}
                   className="bg-secondary hover:bg-primary text-white group-hover:text-white py-3 px-5 rounded-md"
                 >
-                  View {category.title}
+                  View More
                 </Link>
               </div>
             </div>

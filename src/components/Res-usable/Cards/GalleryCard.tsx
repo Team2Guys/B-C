@@ -96,8 +96,8 @@ const GalleryCard: React.FC<GalleryProps> = ({
               <span
                 className={`text-black text-start  cursor-pointer ${
                   relativeProducts
-                    ? 'text-14'
-                    : 'text-14'
+                    ? 'text-16'
+                    : 'text-16'
                 }`}
               >
                 {card.title}

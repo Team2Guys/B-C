@@ -144,7 +144,7 @@ const Commercial = ({
           <div className="h-fit flex justify-center md:justify-start mt-4">
             <Link
               href="/request-appointment"
-              className="px-8 py-4 bg-secondary rounded-md text-white "
+              className="px-8 py-4 bg-secondary rounded-md text-white hover:bg-primary "
             >
               Book A Free Appointment
             </Link>

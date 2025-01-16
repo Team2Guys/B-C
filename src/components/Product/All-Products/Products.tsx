@@ -23,10 +23,10 @@ interface relativeProps {
 }
 
 const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
-  const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [activeCategory, setActiveCategory] = useState<string>('By Style');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [productsPerPage, setProductsPerPage] = useState<number>(8);
-  const categories = ['All', 'By Style', 'By Room', 'dynamic'];
+  const categories = [ 'By Style', 'By Room', 'dynamic'];
   const productContainerRef = useRef<HTMLDivElement | null>(null);
   const [content, setContent] = useState({ title: '', subtitle: '' });
 
@@ -106,10 +106,10 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
 
   const filteredProducts: IProduct[] = useMemo(() => {
     switch (activeCategory) {
-      case 'All': {
-        const sorted = sortProducts(products, customSortingOrder);
-        return sorted;
-      }
+      // case 'All': {
+      //   const sorted = sortProducts(products, customSortingOrder);
+      //   return sorted;
+      // }
       case 'By Room': {
         const filtered = ByRoomItems;
         return sortProducts(filtered, customSortingOrder);
