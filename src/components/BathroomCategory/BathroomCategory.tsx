@@ -140,7 +140,7 @@ const BathroomCategory = ({
                   </h2>
                 {product_Images && (
                   <p
-                  className="leading-6 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal"
+                  className="leading-6 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal w-full h-auto sm:h-[580px] md:h-[500px] lg:h-[400px] xl:h-[280px]"
                   dangerouslySetInnerHTML={{
                     __html: product_Images.desc,
                   }}
