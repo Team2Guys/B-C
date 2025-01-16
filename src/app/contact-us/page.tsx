@@ -71,13 +71,13 @@ const ProductUs: React.FC = () => {
             <div className="lg:mt-5 mt-4 lg:pl-12">
               <p className="md:text-xl font-bold">Contact Info :</p>
               <div className="flex flex-col gap-4 lg:mt-6 mt-4">
-                <div className="text-14 md:text-18 flex gap-3 items-start">
+                <div className="text-14 md:text-15 2xl:text-18 flex gap-3 items-start">
                   <IoLocationSharp className="text-white w-6 h-6" />
                   <p>
                     Unit 43 22nd St Al Quoz Industrial Area 4 – Dubai UAE
                   </p>
                 </div>
-                <div className="text-14 md:text-18 flex gap-3 items-start">
+                <div className="text-14 md:text-15 2xl:text-18 flex gap-3 items-start">
                   <IoCall className="text-white w-6 h-6" />
                   <Link
                     target="_blank"
@@ -87,7 +87,7 @@ const ProductUs: React.FC = () => {
                     +971 54 494 5339
                   </Link>
                 </div>
-                <div className="text-14 md:text-18 flex gap-3 items-start">
+                <div className="text-14 md:text-15 2xl:text-18 flex gap-3 items-start">
                   <SlCalender className="text-white w-6 h-6" />
                     8.30am - 6.00pm 7 days a week</div>
                 <div className=" text-14 flex gap-3 items-start md:text-18">
