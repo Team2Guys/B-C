@@ -1,12 +1,9 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/endering.png';
 import TopHero from 'components/ui/top-hero';
+import BookAppointment from 'components/Book-appointment/BookAppointment';
 import Container from 'components/Res-usable/Container/Container';
 import { Metadata } from 'next';
-const BookAppointment = dynamic(() => import('components/Book-appointment/BookAppointment'), { ssr: false });
-
-
 export const metadata: Metadata = {
   title: 'Blind And Curtains Dubai | Book Appointment',
   description: 'Spruce up your space with stylish blinds and curtains in Dubai. Book an appointment today for expert advice, custom designs, and perfect fits.',
