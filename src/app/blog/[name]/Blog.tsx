@@ -106,7 +106,7 @@ const Blog = ({
               <h3 className="text-18 xs:text-28 md:text-[48px] font-semibold">
                 Related Articles
               </h3>
-              <Link className="text-14 font-semibold rounded-full py-2 px-4 text-white bg-primary xs:text-16 sm:text-18"
+              <Link className="text-14 font-semibold rounded-full py-2 px-4 text-white bg-secondary hover:bg-primary xs:text-16 sm:text-18"
                 href={`/blog/${blog?.category.toLowerCase()}`}>See All</Link>
             </div>
 
