@@ -107,9 +107,9 @@ export default function Review_banner() {
                   width={140}
                   height={140}
                 />
-
+{reviews.length > 0 &&
                 <Slider {...settings}>
-                  {reviews?.map((slide, index: any) => {
+                  { reviews?.map((slide, index: any) => {
 console.log(slide, "slide")
                     return (<div
                       key={index}
@@ -124,7 +124,7 @@ console.log(slide, "slide")
                   })}
                 </Slider>
 
-
+}
 
                 <div className="bg-white w-fit mx-auto px-7 py-1 mt-4 rounded-b-xl shadow-lg -mb-2 ">
                   <Image

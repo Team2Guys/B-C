@@ -204,9 +204,10 @@ const Header = () => {
                 const ismoterised =
                   path.startsWith('/automated-blinds') ||
                   path.startsWith('/automated-curtains');
-                const ismoter =
-                  path?.includes('automated-curtains') ||
-                  path?.includes('automated-blinds');
+                const isblindsmoter =
+                  path?.includes('motorised-blinds');
+                  const iscurtainsmoter =
+                  path?.includes('motorised-curtains') 
                 return combinedSliderData.length > 0 ? (
                   <Fragment key={index} >
                     <MegaMenu
@@ -219,8 +220,14 @@ const Header = () => {
                           ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                           : link.label === 'Motorised' && ismoterised
                             ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                            : link.label === 'Blinds' && isblindsmoter
+                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                            : link.label === 'Curtains' && iscurtainsmoter
+                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                             : !isBalconyActive &&
-                              !ismoter &&
+                              !ismoterised &&
+                              !isblindsmoter &&
+                              !iscurtainsmoter &&
                               (isBlogActive || isActive)
                               ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                               : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'

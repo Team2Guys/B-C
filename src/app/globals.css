@@ -364,11 +364,13 @@ html {
 .ant-image {
   position: relative;
   width: 100% !important;
-  height: 350px !important;
+  height: 280px !important;
 }
 .ant-image-img {
   width: 100%;
-  height: 350px !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  object-position: right bottom !important;
 }
 .ant-image .ant-image-mask {
   border-radius: 16px !important;
