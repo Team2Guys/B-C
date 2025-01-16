@@ -17,6 +17,7 @@ import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import { RollerBlindsPage } from 'data/Images';
 import { generateSlug } from 'data/data';
+import { desiredProductTitles } from 'data/urls';
 
 interface ICategoryPage {
   title: string;
@@ -29,7 +30,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-
+console.log(products,"productsproducts")
   const { data: subcategories } = useQuery<ICategory[]>({
     queryKey: ['subcategories'],
     queryFn: fetchSubCategories,
@@ -81,7 +82,9 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     return product;
   };
 
-  console.log(filterSubCat + 'filterSubCatfilterSubCat');
+  const filteredProductList = products?.filter(product =>
+    desiredProductTitles.includes(product.title)
+  );
 
   return (
     <div>
@@ -151,68 +154,9 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
           );
         })}
       </Container>
-
-      {/* <Container className="text-center py-6">
-        <div className="flex justify-center space-x-4 whitespace-nowrap overflow-auto">
-          <Button
-            variant={'feature'}
-            className={` ${activeFilter?.title === 'All' ? 'bg-secondary text-white' : 'text-black hover:bg-secondary active:bg-secondary'}`}
-            onClick={() =>
-              handleFilter({
-                title: 'All',
-                short_description:
-                  'Our expert team will visit you, take measurements, and offer a no-obligation quote on the spot. You can even choose Motorised Blinds options for added convenience or finish your blinds with a sleek cassette box.',
-              })
-            }
-          >
-            All
-          </Button>
-
-          {relatedProducts &&
-            relatedProducts.map((product) => (
-              <Button
-                key={product.id}
-                variant={'feature'}
-                className={` ${activeFilter.title === product.title ? 'bg-secondary text-white' : 'text-black hover:bg-secondary active:bg-secondary'}`}
-                onClick={() => handleFilter(product)}
-              >
-                {product.title}
-              </Button>
-            ))}
-        </div>
-      </Container>
-
-      <Container className="text-center ">
-        <h2 className="text-2xl xs:text-3xl sm:text-4xl">
-          {activeFilter.title.toUpperCase()}
-        </h2>
-        <p
-          className="mt-3 text-15 leading-7 w-full md:w-3/4 mx-auto"
-          dangerouslySetInnerHTML={{ __html: activeFilter?.short_description }}
-        ></p>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {filteredProducts &&
-            filteredProducts.map((product: IProduct) => {
-              const category = categories?.find(
-                (cat) => cat.id === product.CategoryId,
-              );
-              console.log(category, 'categor');
-              if (!category) return null;
-              const parent = generateSlug(category.title);
-              return (
-                <GalleryCard
-                  card={product}
-                  key={product.id}
-                  relativeProducts={true}
-                  parent={parent}
-                />
-              );
-            })}
-        </div>
-      </Container> */}
       <BookNowBanner />
       <Container className=" py-3 sm:py-10">
-        <RelatedProducts products={filteredProducts || []} limit={4} />
+        <RelatedProducts products={(filteredProductList ?? []).slice(0, 4)} limit={4} />
       </Container>
     </div>
   );

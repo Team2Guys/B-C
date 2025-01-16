@@ -64,8 +64,10 @@ const TopHero: React.FC<TopHeroProps> = ({
       }
     >
       <>
+      {
+        Video &&
         <video
-          className="absolute object-fill w-full h-[200px]  md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]"
+          className={`absolute object-fill w-full h-[200px]  md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]`}
           src={Video}
           autoPlay
           loop
@@ -73,6 +75,7 @@ const TopHero: React.FC<TopHeroProps> = ({
           playsInline
           controls={false}
         />
+      }
         <div className={`relative`}>
           {page === '/shutters-range/black-shutters' && (
             <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
