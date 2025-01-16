@@ -96,8 +96,8 @@ const GalleryCard: React.FC<GalleryProps> = ({
               <span
                 className={`text-black text-start  cursor-pointer ${
                   relativeProducts
-                    ? 'text-12 font-light'
-                    : 'text-sm font-medium'
+                    ? 'text-14'
+                    : 'text-14'
                 }`}
               >
                 {card.title}
@@ -105,7 +105,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
             </Link>
             <Link
               href={getPath(card)}
-              className={`border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-12 lg:text-14 text-nowrap ${
+              className={`border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-14 text-nowrap ${
                 relativeProducts ? 'block' : 'block'
               }`}
             >

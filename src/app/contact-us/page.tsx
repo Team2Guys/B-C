@@ -59,34 +59,32 @@ const ProductUs: React.FC = () => {
           <div className="lg:w-1/2 w-full text-white ">
             <div className="lg:pl-12 ">
               <p className="md:text-xl font-bold">Contact Info :</p>
-              <h2 className="text-left lg:text-5xl text-3xl font-bold lg:mt-8 mt-4">
+              <h2 className="text-left lg:text-4xl text-3xl font-bold lg:mt-5 mt-4">
                 Tell Us More
               </h2>
-              <p className="lg:mt-8 mt-4 font-light text-14 lg:text-16 md:text-18">
-              The most trusted window treatment<br/> company in Dubai with a decade of experience<br/> and 100s of positive reviews.</p>
+              <p className="lg:mt-4 mt-4 font-light text-14 lg:text-16 md:text-18">
+              The most trusted window treatment company in Dubai with a decade of experience and 100s of positive reviews.</p>
               <div className="block sm:hidden">
                 <BookAppointment />
               </div>
             </div>
-            <div className="lg:mt-8 mt-4 lg:pl-12">
+            <div className="lg:mt-5 mt-4 lg:pl-12">
               <p className="md:text-xl font-bold">Contact Info :</p>
               <div className="flex flex-col gap-4 lg:mt-6 mt-4">
                 <div className="text-14 md:text-18 flex gap-3 items-start">
                   <IoLocationSharp className="text-white w-6 h-6" />
                   <p>
-                    Unit 43 22nd St
-                    <br />
-                    Al Quoz Industrial Area 4 – Dubai UAE
+                    Unit 43 22nd St Al Quoz Industrial Area 4 – Dubai UAE
                   </p>
                 </div>
                 <div className="text-14 md:text-18 flex gap-3 items-start">
                   <IoCall className="text-white w-6 h-6" />
                   <Link
                     target="_blank"
-                    href={'tel:+9710544945339'}
+                    href={'tel:+971544945339'}
                     className="hover:underline"
                   >
-                    +971 054 494 5339
+                    +971 54 494 5339
                   </Link>
                 </div>
                 <div className="text-14 md:text-18 flex gap-3 items-start">
@@ -105,11 +103,11 @@ const ProductUs: React.FC = () => {
               </div>
             </div>
 
-            <div className="lg:mt-8 mt-4">
+            <div className="lg:mt-5 mt-4">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d115601.00872970802!2d55.235686!3d25.117715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sBlinds%20And%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1731328247874!5m2!1sen!2sus"
                 width="100%"
-                height="300"
+                height="200"
                 loading="lazy"
                 style={{ border: 0 }}
               />
