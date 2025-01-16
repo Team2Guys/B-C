@@ -110,7 +110,10 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
     prefered_time: '',
   };
 
-  const [formData, setFormData] = useState(formInitialValues);
+  const [formData, setFormData] = useState(() => ({
+    ...formInitialValues,
+    prefered_Date: new Date(),
+  }));
   const [wordCount, setWordCount] = useState(0);
   const [errors, setErrors] = useState({
     name: '',
@@ -437,6 +440,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               Preferred Time
             </label>
             <Select
+              instanceId="unique-instance-id"
               options={preferTimeOptions}
               defaultValue={preferTimeOptions.find(
                 (option) => option.value === 'pm',
@@ -469,6 +473,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               How Did You Hear About Us?
             </label>
             <Select
+              instanceId="referal-select"
               options={referralOptions}
               onChange={(option:any) =>
                 handleSelectChange('how_user_find_us', option?.value || '')

@@ -139,9 +139,10 @@ const Footer: React.FC = () => {
                       ))}
                     </div>
                   ) : (footerData.map((category) => (
-                    <div className="pl-2" key={category.title}>
+                    <div className="pl-2" key={category.key}>
                       {isMobile ? (
                         <Collapse
+                          
                           bordered={false}
                           expandIcon={({ isActive }) => (
                             isActive ? (
@@ -154,7 +155,7 @@ const Footer: React.FC = () => {
                         >
                           <Panel
                             header={<span className="font-semibold text-18 text-white">{category.title}</span>}
-                            key={category.title}
+                            key={category.key}
                             className="custom-panel pt-[6px]"
                           >
                             <ul className="space-y-2 my-4">
