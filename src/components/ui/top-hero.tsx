@@ -53,29 +53,28 @@ const TopHero: React.FC<TopHeroProps> = ({
   return (
     <div
       className={`relative      
-      flex items-center text-center justify-center bg-no-repeat w-full  border-black  bg-center bg-cover xl:bg-custom-size ${className} ${Video ? "h-[200px]  md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]" :"h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px]"}`}
+      flex items-center text-center justify-center bg-no-repeat w-full  border-black  bg-center bg-cover xl:bg-custom-size ${className} ${Video ? "h-[200px]  md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]" : "h-[200px] xs:h-[280px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px]"}`}
       style={
         !Video
           ? {
-              backgroundImage: `url(${image})`,
-              backgroundOrigin: 'content-box',
-            }
+            backgroundImage: `url(${image})`,
+            backgroundOrigin: 'content-box',
+          }
           : undefined
       }
     >
       <>
-      {
-        Video &&
-        <video
-          className={`absolute object-fill w-full h-[200px]  md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]`}
-          src={Video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls={false}
-        />
-      }
+        {Video &&
+          <video
+            className="absolute object-fill w-full h-[200px]  md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]"
+            src={Video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls={false}
+          />
+        }
         <div className={`relative`}>
           {page === '/shutters-range/black-shutters' && (
             <div className="absolute inset-0 bg-lightgrey opacity-30 z-10"></div>
@@ -96,85 +95,83 @@ const TopHero: React.FC<TopHeroProps> = ({
               </Link>
               {pageName
                 ? pageName.map((item, index) => {
-                    const matchedLink = TopHeroLink.find(
-                      (heroLink) =>
-                        heroLink.matchingTitle.toLowerCase() ===
-                        item.toLowerCase(),
-                    );
-                    const matchingPageTitle = TopHeroLink.find(
-                      (itemTitle) =>
-                        itemTitle.title.toLowerCase() === item.toLowerCase(),
-                    );
-                    const matchingColorData = colorData.find(
-                      (item) => item.url === page,
-                    );
-                    let linkHref = '';
-                    let linkText = item;
-                    if (matchedLink) {
-                      linkHref = `/${
-                        item !== 'blog' &&
+                  const matchedLink = TopHeroLink.find(
+                    (heroLink) =>
+                      heroLink.matchingTitle.toLowerCase() ===
+                      item.toLowerCase(),
+                  );
+                  const matchingPageTitle = TopHeroLink.find(
+                    (itemTitle) =>
+                      itemTitle.title.toLowerCase() === item.toLowerCase(),
+                  );
+                  const matchingColorData = colorData.find(
+                    (item) => item.url === page,
+                  );
+                  let linkHref = '';
+                  let linkText = item;
+                  if (matchedLink) {
+                    linkHref = `/${item !== 'blog' &&
                         pageName.length > 1 &&
                         blogCategoryUrl.some(
                           (item) =>
                             item.name.toLowerCase() ===
                             pageName.at(1)?.toLowerCase(),
                         )
-                          ? `blog/${pageName.at(1)?.toLowerCase()}`
-                          : matchedLink?.title || ''
+                        ? `blog/${pageName.at(1)?.toLowerCase()}`
+                        : matchedLink?.title || ''
                       }`;
-                    } else if (matchingPageTitle) {
-                      linkHref = `/${matchingPageTitle.title.replaceAll(' ', '-')}`;
-                      linkText = matchingPageTitle.title;
-                    } else if (index === pageName.length - 2) {
-                      linkHref = `/${
-                        pageName.at(0)?.toLowerCase() === 'blinds'
-                          ? 'blinds'
-                          : pageName.at(0)?.toLowerCase() === 'curtains'
-                            ? 'curtains'
-                            : pageName.at(0)?.toLowerCase() === 'shutters'
-                              ? 'shutters'
-                              : pageName.at(0)?.toLowerCase() === 'commercial'
-                                ? 'commercial'
-                                : pageName.at(0)?.toLowerCase() === 'blog'
-                                  ? 'blog'
-                                  : ''
+                  } else if (matchingPageTitle) {
+                    linkHref = `/${matchingPageTitle.title.replaceAll(' ', '-')}`;
+                    linkText = matchingPageTitle.title;
+                  } else if (index === pageName.length - 2) {
+                    linkHref = `/${pageName.at(0)?.toLowerCase() === 'blinds'
+                        ? 'blinds'
+                        : pageName.at(0)?.toLowerCase() === 'curtains'
+                          ? 'curtains'
+                          : pageName.at(0)?.toLowerCase() === 'shutters'
+                            ? 'shutters'
+                            : pageName.at(0)?.toLowerCase() === 'commercial'
+                              ? 'commercial'
+                              : pageName.at(0)?.toLowerCase() === 'blog'
+                                ? 'blog'
+                                : ''
                       }${item === 'commercial' ? '' : `/${item.replaceAll(' ', '-')}`}`;
-                    } else if (matchingColorData) {
-                      return (
-                        <>
-                          <FaAngleRight size={20} />
-                          <Link
-                            href="/shutters-range"
-                            className="font-bold capitalize"
-                          >
-                            Shutters Range
-                          </Link>
-                          <FaAngleRight size={20} />
-                          <h2 className="font-bold capitalize">{item}</h2>
-                        </>
-                      );
-                    } else {
-                      linkText =
-                        item === 'request appointment'
-                          ? 'Book Appointment'
-                          : item;
-                    }
+                  } else if (matchingColorData) {
                     return (
-                      <React.Fragment key={index}>
+                      <>
                         <FaAngleRight size={20} />
-                        {linkHref ? (
-                          <Link
-                            href={linkHref}
-                            className="font-bold capitalize"
-                          >
-                            {linkText}
-                          </Link>
-                        ) : (
-                          <h2 className="font-bold capitalize">{linkText}</h2>
-                        )}
-                      </React.Fragment>
+                        <Link
+                          href="/shutters-range"
+                          className="font-bold capitalize"
+                        >
+                          Shutters Range
+                        </Link>
+                        <FaAngleRight size={20} />
+                        <h2 className="font-bold capitalize">{item}</h2>
+                      </>
                     );
-                  })
+                  } else {
+                    linkText =
+                      item === 'request appointment'
+                        ? 'Book Appointment'
+                        : item;
+                  }
+                  return (
+                    <React.Fragment key={index}>
+                      <FaAngleRight size={20} />
+                      {linkHref ? (
+                        <Link
+                          href={linkHref}
+                          className="font-bold capitalize"
+                        >
+                          {linkText}
+                        </Link>
+                      ) : (
+                        <h2 className="font-bold capitalize">{linkText}</h2>
+                      )}
+                    </React.Fragment>
+                  );
+                })
                 : null}
             </div>
           </div>
