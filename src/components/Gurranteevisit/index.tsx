@@ -15,7 +15,7 @@ const GuaranteeVisit = () => {
               >
                 <h2 className="font-bold xs:text-20 md:text-18 2xl:text-19 text-center">{item.heading}</h2>
                 <p className='text-12 md:text-14 2xl:text-16'>{item.description}</p>
-                <Link href={item.href} target='blank' className='text-black px-3 py-2 sm:px-4 sm:py-3 bg-white text-12 sm:text-14 font-semibold'>{item.button}</Link>
+                <Link href={item.href} target='blank' className='text-white px-3 py-2 sm:px-4 sm:py-3 bg-secondary text-12 sm:text-14 font-semibold '>{item.button}</Link>
               </div>
             ))}
           </div>
