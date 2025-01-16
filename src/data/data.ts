@@ -1891,6 +1891,7 @@ export const estimator_data = [
 
 export const footerData = [
   {
+    key:"1",
     title: 'Blinds',
     items: [
       'Roller Blinds',
@@ -1906,6 +1907,7 @@ export const footerData = [
     ],
   },
   {
+    key:"2",
     title: 'Curtains',
     items: [
       'Triple Pinch Pleat Curtains',
@@ -1921,6 +1923,7 @@ export const footerData = [
     ],
   },
   {
+    key:"3",
     title: 'Shutters',
     items: [
       'Full Height Shutters',
