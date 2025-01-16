@@ -96,7 +96,7 @@ console.log(products,"productsproducts")
           return (
             <div
               key={index}
-              className={`flex flex-col gap-4 items-center justify-between mt-5 sm:mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
+              className={`flex flex-col gap-5 items-center justify-between mt-5 sm:mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
             >
               <div className="w-full md:w-1/2">
               <div className="font-bold text-xl xs:text-2xl tracking-wider space-y-3 block sm:hidden pb-2">
@@ -106,7 +106,7 @@ console.log(products,"productsproducts")
                   </div>
                 {product_Images && (
                   <Image
-                    className="w-full h-[280px] sm:h-[300px] md:h-[600px] rounded-xl"
+                    className="w-full h-[280px] sm:h-[300px] md:h-[450px] rounded-xl"
                     src={product_Images.Imagesurl}
                     height={500}
                     width={500}

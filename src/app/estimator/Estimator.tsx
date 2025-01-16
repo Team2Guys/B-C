@@ -179,7 +179,7 @@ const EstimatorPage = ({sortedProducts , products}: {sortedProducts: EsProduct[]
               <Button
                 variant={'default'}
                 onClick={() => route.push('/request-appointment')}
-                className="w-full mt-4 h-12 bg-[#BDC9BD] hover:bg-secondary font-semibold !text-18"
+                className="w-full mt-4 h-12 bg-secondary hover:bg-primary text-white font-semibold !text-18"
               >
                 Book Now
               </Button>
