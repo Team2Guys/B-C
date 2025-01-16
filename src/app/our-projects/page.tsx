@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const ProjectPage = () => {
   return (
     <Fragment>
-      <ProjectTopHero title="Projects" />
+      <ProjectTopHero title="Our Projects" />
       <Projects />
       <ProjectsTags />
     </Fragment>
