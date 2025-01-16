@@ -470,11 +470,13 @@ export const customSortingOrder = [
 
 export const MoterisedData = [
   {
+    id:1,
     title: 'Automated Blinds',
     link: '/automated-blinds',
     imageSrc: '/assets/images/Blinds/landing/Automatedblinds.webp',
   },
   {
+    id:2,
     title: 'Automated Curtains',
     link: '/automated-curtains',
     imageSrc: '/assets/images/Curtain/landing/Automatedcurtains.webp',
