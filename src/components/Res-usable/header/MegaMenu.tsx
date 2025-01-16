@@ -279,6 +279,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {hoveredProduct === product.title && (
                           <>
                             <Image
+                            key={index}
                               width={500}
                               height={500}
                               className="bg-contain h-[250px] lg:h-[300px]"
@@ -306,7 +307,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     const itemName = item.name;
                     return (
                       <div key={index} className="flex flex-col gap-5 w-full">
-                        <p className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
+                        <p key={index} className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
                           {/* {title + ' ' + item.name} */}
                           {/* <div /> */}
                           {title}{' '}
@@ -329,7 +330,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                 : item.name}
                         </p>
                         {distributedProducts[0].length == 0 || loading ? (
-                          <Fragment>
+                          <Fragment key={index}>
                             {Array.from({ length: 5 }).map((_, index) => (
                               <Skeleton key={index} className="w-1/2 h-6" />
                             ))}
