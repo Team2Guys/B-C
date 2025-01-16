@@ -25,7 +25,7 @@ const [testimonials, settestimonials] = useState([])
   
     useEffect(() => {
        fetchReviewsHandler(settestimonials)
-   
+
     }, [])
   
   return (
@@ -33,6 +33,7 @@ const [testimonials, settestimonials] = useState([])
       <h2 className="text-center lg:text-30 text-25 font-medium">
         Our Happy Customers
       </h2>
+{ testimonials.length > 0  &&      
       <Swiper
         pagination={{
           clickable: true,
@@ -67,9 +68,11 @@ const [testimonials, settestimonials] = useState([])
           },
         }}
       >
-        {testimonials.map((testimonial:any, index:number) => {
+        {testimonials.length > 0 &&testimonials?.map((testimonial:any, index:number) => {
           console.log(testimonial, "testimonial")
           return(
+
+
             <SwiperSlide className='lg:mt-14 mb-14 mt-4' key={index}>
             <div
                   
@@ -107,12 +110,14 @@ const [testimonials, settestimonials] = useState([])
                   </div>
                 </div>
             </SwiperSlide>
+
+
           )
       
        
 })}
       </Swiper>
-
+}
     </Container>
   );
 }
