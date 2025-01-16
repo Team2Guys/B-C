@@ -138,7 +138,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
                           : product.title
                       )
                     }`}
-                    className="px-6 sm:px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr max-xs:text-14"
+                    className="px-6 sm:px-8 py-4  rounded-md text-white bg-secondary max-xs:text-14"
                   >
                     View Our{' '}
                       {product.title === 'Sunscreen/Transparent Blinds'
