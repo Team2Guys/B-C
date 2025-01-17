@@ -58,7 +58,7 @@ export class AppointmentService {
       const mailOptions = {
         from: process.env.MAILER_MAIL,
         to: recipients,
-        subject: 'Appointment Confirmation',
+        subject: 'Book A Free Appointment',
         html: `<html lang="en">
 <head>
     <meta charset="UTF-8">
