@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en">
-        <body className={` ${gotham.className} bg-lightgrey`}>
+        <body className={` ${gotham.className}    bg-lightgrey`}>
           <PathnameWrapper>
             {children}
             <Callbutton/>
