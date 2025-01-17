@@ -12,8 +12,6 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 
 import { fetchReviewsHandler } from "config/fetch";
-import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
-import { TfiArrowCircleLeft, TfiArrowCircleRight } from "react-icons/tfi";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 
@@ -35,14 +33,6 @@ function Testimonial() {
   const filteredTestimonials = testimonials.filter(
     (testimonial: any) => testimonial.rating >= 4
   );
-
-  const handlePrev = () => {
-    swiperRef.current?.slidePrev();
-  };
-
-  const handleNext = () => {
-    swiperRef.current?.slideNext();
-  };
 
   return (
     <Container className="lg:mt-16 mt-5 py-8 mx-auto happy_customer max-w-screen-2xl">
@@ -141,7 +131,7 @@ function Testimonial() {
                 <FcGoogle className="lg:text-6xl text-14" />
               </div>
               <div className="text-center  flex flex-col gap-0">
-                <p className="text-[#6A6A6A] font-[900] text-28 ">
+                <p className="text-[#6A6A6A] font-[900] text-28 font-gotham">
                   4.8
                 </p>
                 <p className="text-[#6A6A6A] font-bold text-16 ">Google Rating</p>
