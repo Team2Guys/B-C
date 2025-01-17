@@ -1134,7 +1134,7 @@ export const categoriesContent = [
         },
         {
           content:
-            'Call the team now and book a free appointment today. No pressure! Book a free, no-pressure appointment today by clicking the button below.',
+            'Book a free, no-pressure appointment today by clicking the button below',
         },
       ],
     },
