@@ -10,10 +10,10 @@ const OurClient = () => {
   return (
     <>
       <div className=" pb-5 pt-4 max-w-screen-2xl mx-auto">
-        <h2 className="text-center font-semibold text-xl uppercase tracking-widest">
+        <h2 className="text-center font-bold text-xl uppercase tracking-widest font-gotham">
           our clients
         </h2>
-        <p className="text-center text-sm tracking-widest lg:w-2/5 mx-auto px-10 pt-3">
+        <p className="text-center text-sm tracking-widest lg:w-2/5 mx-auto px-10 pt-3 font-gothamlight ">
           Our goal is to do one thing and do it pretty well. That&apos;s why we offer the most reliable products on the market.
         </p>
       </div>
