@@ -15,16 +15,16 @@ import { fetchReviewsHandler } from "config/fetch";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 
+const getExcerpt = (text: string, wordLimit: number) => {
+  const words = text.split(" ");
+  return words.length > wordLimit
+    ? words.slice(0, wordLimit).join(" ") + "..."
+    : text;
+};
+
 function Testimonial() {
   const [testimonials, setTestimonials] = useState<any[]>([]);
   const swiperRef = useRef<SwiperCore | null>(null);
-
-  const getExcerpt = (text: string, wordLimit: number) => {
-    const words = text.split(" ");
-    return words.length > wordLimit
-      ? words.slice(0, wordLimit).join(" ") + " ..."
-      : text;
-  };
 
   useEffect(() => {
     fetchReviewsHandler(setTestimonials);
@@ -41,15 +41,13 @@ function Testimonial() {
       </h2>
       {filteredTestimonials.length > 0 && (
         <>
-
           <div className="">
             <Swiper
               onSwiper={(swiper) => (swiperRef.current = swiper)}
-
               pagination={{
                 clickable: true,
               }}
-              className=" mySwiper testimonial_slider"
+              className="mySwiper testimonial_slider"
               modules={[Grid, Pagination, Autoplay]}
               autoplay={{
                 delay: 3000,
@@ -81,75 +79,103 @@ function Testimonial() {
             >
               {filteredTestimonials.map((testimonial: any, index: number) => (
                 <SwiperSlide className="" key={index}>
-                  <div className="bg-white shadow-lg p-4 2xl:p-6 flex flex-col justify-between">
-                    <div className="flex items-start gap-4 justify-between">
-                      <Image
-                        src={testimonial?.profile_photo_url}
-                        alt="testimonial-image"
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 2xl:w-20 2xl:h-20 rounded-full object-cover"
-                      />
-                      <div>
-                        <div className="flex gap-4 justify-between">
-                          <div>
-                            <h3 className="text-14 lg:text-14 2xl:text-lg font-semibold">
-                              {testimonial.author_name}
-                            </h3>
-                            <div className="flex items-center gap-2">
-                              <div>
-                                <FcGoogle className="lg:text-2xl 2xl:text-4xl text-16" />
-
-                              </div>
-                              <div className="flex flex-col">
-                                <div className="flex gap-1.5 text-12 mt-1 text-[#FCD503]">
-                                  {[...Array(testimonial.rating)].map((_, i) => (
-                                    <FaStar key={i} />
-                                  ))}
-
-                                </div>
-                                <p className="text-center text-10 pt-1 text-[#868686]">Google reviews</p>
-                              </div>
-
-
-                            </div>
-
-                          </div>
-
-                          <span className="text-xs text-gray-800 mt-2">
-                            {testimonial.relative_time_description}
-                          </span>
-                        </div>
-
-                        <div className="mt-4 text-12 sm:text-sm text-[#6F747F] italic font-gotham leading-relaxed xs:tracking-widest font-extralight ">
-                          <p className="space-x-2">{getExcerpt(testimonial.text, 50)}</p>
-                        </div>
-
-                      </div>
-                    </div>
+                  <div className="flex flex-col">
+                    <ReadMoreCard testimonial={testimonial} wordLimit={34} />
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
-            {/* Custom Navigation Buttons */}
-            <div className="flex gap-1 justify-center mt-10 font-gotham">
+            <div className="flex gap-1 items-center justify-center mt-10 font-gotham">
               <div>
-                <FcGoogle className="lg:text-6xl text-14" />
+                <FcGoogle className="text-6xl" />
               </div>
-              <div className="text-center  flex flex-col gap-0">
+              <div className="text-center flex flex-col gap-0">
                 <p className="text-[#6A6A6A] font-[900] text-28 font-gotham">
-                  4.8
+                  4.9
                 </p>
-                <p className="text-[#6A6A6A] font-bold text-16 ">Google Rating</p>
-                <Link href="https://g.page/r/Cb5WvqhjNT4iEAE/" className="text-[#008CFF] text-10 pt-1 " target='_blank'>
-                  See all our reviews</Link>
+                <p className="text-[#6A6A6A] font-bold text-16">
+                  Google Rating
+                </p>
+                <Link
+                  href="https://g.page/r/Cb5WvqhjNT4iEAE/"
+                  className="text-[#008CFF] text-10 pt-1"
+                  target="_blank"
+                >
+                  See all our reviews
+                </Link>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </Container>
+  );
+}
+
+function ReadMoreCard({
+  testimonial,
+  wordLimit,
+}: {
+  testimonial: any;
+  wordLimit: number;
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div
+      className={`flex items-start gap-4 justify-between bg-white p-4 2xl:p-6 ${
+        isExpanded
+          ? "h-auto max-h-max"
+          : "md:h-[300px] lg:h-[370px] xl:h-[300px] md:max-h-[300px] lg:max-h-[370px] xl:max-h-80"
+      }`}
+    >
+      <Image
+        src={testimonial?.profile_photo_url}
+        alt="testimonial-image"
+        width={64}
+        height={64}
+        className="w-16 h-16 2xl:w-20 2xl:h-20 rounded-full object-cover"
+      />
+      <div>
+        <div className="flex gap-4 justify-between">
+          <div>
+            <h3 className="text-14 lg:text-14 2xl:text-lg font-semibold">
+              {testimonial.author_name}
+            </h3>
+            <div className="flex items-center gap-2">
+              <div>
+                <FcGoogle className="lg:text-2xl 2xl:text-4xl text-16" />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex gap-1.5 text-12 mt-1 text-[#FCD503]">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <FaStar key={i} />
+                  ))}
+                </div>
+                <p className="text-center text-10 pt-1 text-[#868686]">
+                  Google reviews
+                </p>
               </div>
             </div>
           </div>
 
-        </>
-      )}
-    </Container>
+          <span className="text-xs text-gray-800 mt-2">
+            {testimonial.relative_time_description}
+          </span>
+        </div>
+        <div className="mt-4 text-12 sm:text-sm text-[#6F747F] italic font-gotham leading-relaxed xs:tracking-wider font-extralight">
+          <p className="space-x-2">
+            {isExpanded ? testimonial.text : getExcerpt(testimonial.text, wordLimit)}
+            <button
+              className="underline"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              {isExpanded ? "Read Less" : "Read More"}
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
