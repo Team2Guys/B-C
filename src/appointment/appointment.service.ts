@@ -56,9 +56,9 @@ export class AppointmentService {
         ? `${user_mail}`
         : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL2}`;
       const mailOptions = {
-        from: process.env.MAILER_MAIL,
+        from: `"The Team @ Blinds and Curtains Dubai" <${process.env.MAILER_MAIL}>`,
         to: recipients,
-        subject: 'Book A Free Appointment',
+        subject: 'Online Book an Appointment - blindsandcurtains.ae',
         html: `<html lang="en">
 <head>
     <meta charset="UTF-8">
