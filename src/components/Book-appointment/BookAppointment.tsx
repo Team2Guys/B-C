@@ -54,7 +54,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
         roller_blinds: false,
         wooden_blinds: false,
         other_blinds: false,
-        plantation_shutters: false,
+        shutters: false,
         others: false,
       };
     } else {
