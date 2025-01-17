@@ -54,7 +54,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
         roller_blinds: false,
         wooden_blinds: false,
         other_blinds: false,
-        plantation_bhutters: false,
+        plantation_shutters: false,
         others: false,
       };
     } else {
@@ -617,18 +617,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({
                 ))}
               </div>
             </div>
-            {/* <div className="flex flex-col mt-4">
-              <label htmlFor="form-textarea" className="text-13 font-light">
-                What is your query regarding?
-              </label>
-              <textarea
-                name="other"
-                id="other"
-                value={formData.other}
-                onChange={handleChange}
-                className="border border-[#D1D5DB] h-64 rounded-md mt-1"
-              ></textarea>
-            </div> */}
           </>
         )}
 
