@@ -180,7 +180,7 @@ export interface ProductOptions {
   roller_blinds?: boolean;
   wooden_blinds?: boolean;
   other_blinds?: boolean;
-  plantation_bhutters?: boolean;
+  plantation_shutters?: boolean;
   others?: boolean;
 }
 
