@@ -14,6 +14,8 @@ import "swiper/css/pagination";
 import { fetchReviewsHandler } from "config/fetch";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from "react-icons/tfi";
+import { FcGoogle } from "react-icons/fc";
+import Link from "next/link";
 
 function Testimonial() {
   const [testimonials, setTestimonials] = useState<any[]>([]);
@@ -31,7 +33,7 @@ function Testimonial() {
   }, []);
 
   const filteredTestimonials = testimonials.filter(
-    (testimonial: any) => testimonial.rating >= 1
+    (testimonial: any) => testimonial.rating >= 4
   );
 
   const handlePrev = () => {
@@ -49,91 +51,106 @@ function Testimonial() {
       </h2>
       {filteredTestimonials.length > 0 && (
         <>
-       
-        <div className="">
-          <Swiper
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            grid={{
-              rows: 2,
-              fill: "row",
-            }}
-            pagination={{
-              clickable: true,
-            }}
-            className=" mySwiper testimonial_slider"
-            modules={[Grid, Pagination, Autoplay]}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-                spaceBetween: 15,
-              },
-              768: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-              },
-              1024: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-              },
-            }}
-          >
-            {filteredTestimonials.map((testimonial: any, index: number) => (
-              <SwiperSlide className="" key={index}>
-                <div className="bg-white shadow-lg p-6 min-h-[250px] flex flex-col justify-between">
-                  <div className="flex items-start gap-4">
-                    <Image
-                      src={testimonial?.profile_photo_url}
-                      alt="testimonial-image"
-                      width={64}
-                      height={64}
-                      className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover"
-                    />
-                    <div>
-                      <h3 className="text-lg font-semibold">
-                        {testimonial.author_name}
-                      </h3>
-                      <div className="flex items-center text-yellow-500 text-sm mt-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <FaStar key={i} />
-                        ))}
+
+          <div className="">
+            <Swiper
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+
+              pagination={{
+                clickable: true,
+              }}
+              className=" mySwiper testimonial_slider"
+              modules={[Grid, Pagination, Autoplay]}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              breakpoints={{
+                320: {
+                  slidesPerView: 2,
+                  spaceBetween: 15,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+              }}
+            >
+              {filteredTestimonials.map((testimonial: any, index: number) => (
+                <SwiperSlide className="" key={index}>
+                  <div className="bg-white shadow-lg p-6 min-h-[200px] flex flex-col justify-between">
+                    <div className="flex items-start gap-4">
+                      <Image
+                        src={testimonial?.profile_photo_url}
+                        alt="testimonial-image"
+                        width={64}
+                        height={64}
+                        className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover"
+                      />
+                      <div>
+                        <div className="flex justify-between">
+                          <div>
+                            <h3 className="text-lg font-semibold">
+                              {testimonial.author_name}
+                            </h3>
+                            <div className="flex gap-2">
+                              <div>
+                                <FcGoogle className="lg:text-4xl text-14" />
+
+                              </div>
+                              <div className="flex flex-col">
+                                <div className="flex gap-1.5 text-12 mt-1 text-[#FCD503]">
+                                  {[...Array(testimonial.rating)].map((_, i) => (
+                                    <FaStar key={i} />
+                                  ))}
+
+                                </div>
+                                <p className="text-center text-10 pt-1 text-[#868686]">Google reviews</p>
+                              </div>
+
+
+                            </div>
+
+                          </div>
+
+                          <span className="text-xs text-gray-800 mt-2">
+                            {testimonial.relative_time_description}
+                          </span>
+                        </div>
+
+                        <div className="mt-4 text-sm text-[#6F747F] italic font-gotham leading-relaxed tracking-widest font-extralight ">
+                          <p className="space-x-2">{getExcerpt(testimonial.text, 50)}</p>
+                        </div>
+
                       </div>
                     </div>
-                  </div>
-                  <div className="mt-4 text-sm text-gray-600 italic">
-                    <p>{getExcerpt(testimonial.text, 50)}</p>
-                  </div>
-                  <span className="text-xs text-gray-500 mt-2">
-                    {testimonial.relative_time_description}
-                  </span>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          {/* Custom Navigation Buttons */}
-        </div>
-        <div className="z-10 space-x-2 w-fit -mt-8 flex flex-wrap sm:flex-nowrap md:space-x-2 lg:space-x-6 xl:space-x-2">
-        <button
-            className="z-50"
-            onClick={handlePrev}
-            aria-label="Previous"
-          >
-            <TfiArrowCircleLeft size={30} />
 
-          </button>
-          <button
-            className="z-10"
-            onClick={handleNext}
-            aria-label="Next"
-          >
-            <TfiArrowCircleRight size={30}  />
 
-          </button>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            {/* Custom Navigation Buttons */}
+            <div className="flex gap-1 justify-center mt-10 font-gotham">
+              <div>
+                <FcGoogle className="lg:text-6xl text-14" />
+              </div>
+              <div className="text-center  flex flex-col gap-0">
+                <p className="text-[#6A6A6A] font-[900] text-28 ">
+                  4.8
+                </p>
+                <p className="text-[#6A6A6A] font-bold text-16 ">Google Rating</p>
+                <Link href="https://g.page/r/Cb5WvqhjNT4iEAE/" className="text-[#008CFF] text-10 pt-1 " target='_blank'>
+                  See all our reviews</Link>
+              </div>
+            </div>
           </div>
+
         </>
       )}
     </Container>
