@@ -35,7 +35,7 @@ function Testimonial() {
   );
 
   return (
-    <Container className="lg:mt-16 mt-5 py-8 mx-auto happy_customer max-w-screen-2xl">
+    <Container className="lg:mt-16 mt-5 py-8 mx-auto">
       <h2 className="text-center text-2xl lg:text-3xl font-semibold mb-8">
         Our Happy Customers
       </h2>
@@ -58,14 +58,22 @@ function Testimonial() {
               }}
               breakpoints={{
                 320: {
-                  slidesPerView: 2,
+                  slidesPerView: 1,
+                  spaceBetween: 15,
+                },
+                650: {
+                  slidesPerView: 1.5,
                   spaceBetween: 15,
                 },
                 768: {
                   slidesPerView: 2,
                   spaceBetween: 20,
                 },
-                1024: {
+                1000: {
+                  slidesPerView: 2.7,
+                  spaceBetween: 30,
+                },
+                1200: {
                   slidesPerView: 3,
                   spaceBetween: 30,
                 },
@@ -73,24 +81,24 @@ function Testimonial() {
             >
               {filteredTestimonials.map((testimonial: any, index: number) => (
                 <SwiperSlide className="" key={index}>
-                  <div className="bg-white shadow-lg p-6 min-h-[200px] flex flex-col justify-between">
-                    <div className="flex items-start gap-4">
+                  <div className="bg-white shadow-lg p-4 2xl:p-6 flex flex-col justify-between">
+                    <div className="flex items-start gap-4 justify-between">
                       <Image
                         src={testimonial?.profile_photo_url}
                         alt="testimonial-image"
                         width={64}
                         height={64}
-                        className="w-16 h-16 lg:w-20 lg:h-20 rounded-full object-cover"
+                        className="w-16 h-16 2xl:w-20 2xl:h-20 rounded-full object-cover"
                       />
                       <div>
-                        <div className="flex justify-between">
+                        <div className="flex gap-4 justify-between">
                           <div>
-                            <h3 className="text-lg font-semibold">
+                            <h3 className="text-14 lg:text-14 2xl:text-lg font-semibold">
                               {testimonial.author_name}
                             </h3>
-                            <div className="flex gap-2">
+                            <div className="flex items-center gap-2">
                               <div>
-                                <FcGoogle className="lg:text-4xl text-14" />
+                                <FcGoogle className="lg:text-2xl 2xl:text-4xl text-16" />
 
                               </div>
                               <div className="flex flex-col">
@@ -113,14 +121,12 @@ function Testimonial() {
                           </span>
                         </div>
 
-                        <div className="mt-4 text-sm text-[#6F747F] italic font-gotham leading-relaxed tracking-widest font-extralight ">
+                        <div className="mt-4 text-12 sm:text-sm text-[#6F747F] italic font-gotham leading-relaxed xs:tracking-widest font-extralight ">
                           <p className="space-x-2">{getExcerpt(testimonial.text, 50)}</p>
                         </div>
 
                       </div>
                     </div>
-
-
                   </div>
                 </SwiperSlide>
               ))}
