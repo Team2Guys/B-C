@@ -160,6 +160,11 @@ export const urls = [
     Url: 'pergola',
     errorUrl: '/commercial/pergola-curtains',
   },
+  {
+    productName: 'Dining Room Curtains',
+    Url: 'dining-room-curtains-dubai',
+    errorUrl: '/curtains/dining-room-curtains',
+  },
 ];
 
 export const predefinedPaths = {
@@ -224,6 +229,7 @@ export const CommercialUrl = [
   { urlName: 'installed-office-blinds-dubai', Redirect: '/commercial' },
   { urlName: 'schools', Redirect: '/blinds/school-blinds' },
   { urlName: 'office-window-blinds', Redirect: '/commercial' },
+  { urlName: 'dining-room-curtains', Redirect: '/dining-room-curtains-dubai' },
 
 ];
 
