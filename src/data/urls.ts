@@ -7,6 +7,11 @@ export const urls = [
     errorUrl: '/curtains/living-room-curtains',
   },
   {
+    productName: 'Dining Room Curtains',
+    Url: 'dining-room-curtains-dubai',
+    errorUrl: '/curtains/dining-room-curtains',
+  },
+  {
     productName: 'Kids Room Blinds',
     Url: 'blinds-for-kids-room',
     errorUrl: '/blinds/kids-room-blinds',

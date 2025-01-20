@@ -22,14 +22,13 @@ const BookNowBanner: React.FC<BookNowBannerProps> = ({ className, parent }) => {
   }, [pathname])
   return (
     <div
-      className={`w-full md:mt-8 flex items-center relative ${className} bg-right bg-cover sm:bg-[left_center]`}
+      className={`w-full flex items-center relative ${className} bg-right bg-cover sm:bg-[left_center] h-[200px] xs:h-[380px]`}
       style={{
         backgroundImage: `url(${bgBanner.src})`,
         backgroundRepeat: 'no-repeat',
-        height: '380px',
       }}
     >
-      <div className="absolute w-full h-full bg-light opacity-60"></div>
+      <div className="absolute w-full h-[200px] xs:h-full bg-light opacity-60"></div>
       <Container className="z-0">
         {/* <p className="text-16 sm:text-2xl md:text-3xl lg:text-4xl font-medium mx-auto w-fit text-center">
           Need some more information or to{' '}
