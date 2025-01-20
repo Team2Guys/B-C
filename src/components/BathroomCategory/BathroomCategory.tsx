@@ -136,7 +136,7 @@ const BathroomCategory = ({
                       alt={product_Images ? product_Images.altText : arr.title}
                       loading="lazy"
                       />
-                  <h2 className="font-bold  sm:text-xl md:text-2xl text-center">
+                  <h2 className="font-bold  sm:text-xl md:text-2xl text-center mt-2">
                     {arr.title}
                   </h2>
                     {product_Images && (
@@ -151,7 +151,7 @@ const BathroomCategory = ({
                 <div>
                 <Link
                   href={getPath(arr, parent)}
-                  className="font-bold text-xs sm:text-base bg-secondary text-white hover:bg-primary px-4 py-2 rounded-md flex items-center text-center mx-auto"
+                  className="font-bold text-xs sm:text-base bg-secondary text-white hover:bg-primary w-fit px-2 py-2 rounded-md flex items-center justify-center text-center mx-auto"
                   >
                   View Our {arr.title}
                 </Link>
