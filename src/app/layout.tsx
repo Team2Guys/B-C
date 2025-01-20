@@ -54,7 +54,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="p:domain_verify" content="58b7c4e018c53c00c2cd12f5f838b47a"/>
 
 <Script
-            id="google-tag-manager"
+            id="meta-pixel"
             dangerouslySetInnerHTML={{
               __html: `
             type="c63663996fc2ec3877fa585a-text/javascript">
@@ -71,7 +71,29 @@ fbq('track', 'PageView');
             `,
             }}
           />
+
+<Script
+            id="gtag-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+               async src="https://www.googletagmanager.com/gtag/js?id=UA-133442332-1" type="c63663996fc2ec3877fa585a-text/javascript"></script>
+<script type="c63663996fc2ec3877fa585a-text/javascript">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+
+gtag('config', 'UA-133442332-1');
+              `,
+            }}
+          />
+
+
+          
         </head>
+
+
         <body className={` ${gotham.className} bg-lightgrey`}>
         <GoogleTagManager gtmId="GTM-MNXTN5B" />
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNXTN5B"
