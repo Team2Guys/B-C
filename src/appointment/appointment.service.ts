@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { Prisma } from '@prisma/client';
-import { CustomErrorHandler } from '../utils/helperFunctions';
+import { capitalizeWords, CustomErrorHandler } from '../utils/helperFunctions';
 import * as nodemailer from 'nodemailer';
 @Injectable()
 export class AppointmentService {
@@ -52,6 +52,8 @@ export class AppointmentService {
     appointment: Prisma.AppointmentsCreateInput,
   ) {
     try {
+      console.log(user_data.product_type)
+      const product_type=capitalizeWords(user_data.product_type);
       const recipients = user_mail
         ? `${user_mail}`
         : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL2}`;
@@ -114,7 +116,7 @@ export class AppointmentService {
         <li><b>How many windows: </b></br>  ${user_data.windows} </li>
         <li><b>How did you hear about us?: </b></br>  ${user_data.how_user_find_us} </li>
         <li><b>Tell us where you are located: </b></br>  ${user_data.area} </li>
-        <li><b>Window Dressing Type: </b></br>  ${user_data.product_type} </li>
+        <li><b>Window Dressing Type: </b></br>  ${product_type} </li>
         <li><b>Any Other Requirements: </b>  ${user_data.user_query} </li>
       </ol>
     </div>
