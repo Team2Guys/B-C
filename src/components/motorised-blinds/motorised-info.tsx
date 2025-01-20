@@ -38,8 +38,8 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
             </p>
             <p className={`text-12 md:text-16 leading-6 md:leading-8  ${decClass}`} dangerouslySetInnerHTML={{ __html: description || "" }}></p>
             <div className="space-y-3">
-              <p className="text-12 md:text-16 md:leading-8 px-1 md:px-0" dangerouslySetInnerHTML={{ __html: description2 || "" }}></p>
-              <p className="text-12 md:text-16 md:leading-8 px-1 md:px-0">{description3}</p>
+              <p className="text-12 md:text-16 leading-6 md:leading-8 " dangerouslySetInnerHTML={{ __html: description2 || "" }}></p>
+              <p className="text-12 md:text-16 leading-6 md:leading-8 ">{description3}</p>
             </div>
             {showButton && <AppointmentButton />}
           </div>
