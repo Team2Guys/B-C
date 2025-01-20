@@ -366,7 +366,7 @@ const Footer: React.FC = () => {
                               alt="phone Icon"
                               width={36}
                               height={36}
-                              className="w-5 h-5"
+                              className="w-[18px] h-[18px]"
                             />
                           </span>
                           <Link
