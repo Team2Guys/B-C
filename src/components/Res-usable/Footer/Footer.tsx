@@ -130,9 +130,9 @@ const Footer: React.FC = () => {
 
             <div className="footer-links-wrapper py-5 w-full lg:w-5/6 space-y-0">
               <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-12 lg:justify-items-center">
-                <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full">
+                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 col-span-12 md:col-span-7 w-full">
                   {isLoading || isError ? (
-                    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 col-span-12 md:col-span-7 w-full gap-5">
+                    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 col-span-12 md:col-span-7 w-full ">
                       {Array.from({ length: 27 }).map((_, index) => (
                         <Skeleton
                           key={index}
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
                       ))}
                     </div>
                   ) : (footerData.map((category) => (
-                    <div className="pl-2" key={category.key}>
+                    <div className="2xl:pl-2" key={category.key}>
                       {isMobile ? (
                         <Collapse
                           
@@ -184,7 +184,7 @@ const Footer: React.FC = () => {
                                       {matchingSubcategory && (
                                         <li>
                                           <Link
-                                            className="text-16 text-white font-normal"
+                                            className="text-14 2xl:text-16 text-white font-normal"
                                             href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}`}
                                           >
                                             {matchingSubcategory.title}
@@ -195,7 +195,7 @@ const Footer: React.FC = () => {
                                       {matchingProduct && (
                                         <li>
                                           <Link
-                                            className="text-16 text-white font-normal"
+                                            className=" text-14 2xl:text-16 text-white font-normal"
                                             href={generatePath(
                                               matchingProduct,
                                               generateSlug(category.title),
@@ -243,7 +243,7 @@ const Footer: React.FC = () => {
                                     {matchingSubcategory && (
                                       <li>
                                         <Link
-                                          className="text-sm font-medium"
+                                          className="text-12 2xl:text-14 font-medium"
                                           href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}`}
                                         >
                                           {matchingSubcategory.title}
@@ -254,7 +254,7 @@ const Footer: React.FC = () => {
                                     {matchingProduct && (
                                       <li>
                                         <Link
-                                          className="text-sm font-medium"
+                                          className="text-12 2xl:text-14 font-medium"
                                           href={generatePath(
                                             matchingProduct,
                                             generateSlug(category.title),
@@ -275,8 +275,8 @@ const Footer: React.FC = () => {
                   )}
                 </div>
 
-                <div className="flex flex-col gap-4 pl-2 col-span-12 md:col-span-5 mt-0 md:mt-0">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
+                <div className="flex flex-col gap-4 lg:pl-2 col-span-12 md:col-span-5 mt-0 sm::mt-4 lg:mt-0">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 max-sm:mt-2 max-sm:space-y-2 sm:mt-4 ">
                     {footerLinks.map((category, index) => (
                       <div key={index}>
                         {isMobile ? (
@@ -331,11 +331,11 @@ const Footer: React.FC = () => {
                             <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">
                               {category.title}
                             </h3>
-                            <ul className="space-y-3 mt-4 text-sm">
+                            <ul className="space-y-3 mt-4 text-12 2xl:text-sm">
                               {category.links.map((link, index) => (
                                 <li key={index}>
                                   <Link
-                                    className="text-sm font-medium"
+                                    className="text-12 2xl:text-sm font-medium"
                                     href={link.href}
                                   >
                                     {link.text}
@@ -348,17 +348,17 @@ const Footer: React.FC = () => {
                       </div>
                     ))}
 
-                    <div className={`${isMobile ? 'pl-2' : 'pl-0'}`}>
+                    <div className={`${isMobile ? 'pl-2' : 'pl-0 md:mx-auto'}`}>
                       {isMobile ? (
                         <span className="font-semibold text-16 text-white">
                           Blinds & Curtains Dubai
                         </span>
                       ) : (
-                        <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit">
+                        <h3 className="font-bold text-16 mb-2 border-b-4 lg:border-0 w-fit ">
                           Blinds & Curtains Dubai
                         </h3>
                       )}
-                      <ul className="space-y-4 mt-4 text-sm lg:w-[100%]">
+                      <ul className="space-y-4 mt-4 text-sm lg:w-[100%] ">
                         <li className="flex gap-2 flex-nowrap">
                           <span>
                             <Image
@@ -372,7 +372,7 @@ const Footer: React.FC = () => {
                           <Link
                             href={`mailto:${EmailInfo.email}`}
                             target="_blank"
-                            className="text-sm font-medium text-wrap break-all"
+                            className="text-12 2xl:text-sm font-medium text-wrap break-all"
                           >
                             {EmailInfo.email}
                           </Link>
@@ -390,7 +390,7 @@ const Footer: React.FC = () => {
                           <Link
                             href={`tel:${phoneNumberInfo.number.replaceAll(' ', '')}`}
                             target="_blank"
-                            className="text-sm font-medium text-nowrap"
+                            className="text-12 2xl:text-sm font-medium text-nowrap"
                           >
                             {phoneNumberInfo.number}
                           </Link>
@@ -408,7 +408,7 @@ const Footer: React.FC = () => {
                           <Link
                             href={`https://wa.me/${phoneNumberInfo.number.replaceAll(' ', '')}`}
                             target="_blank"
-                            className="text-sm font-medium text-nowrap"
+                            className="text-12 2xl:text-sm font-medium text-nowrap"
                           >
                             {phoneNumberInfo.number}
                           </Link>
@@ -425,7 +425,7 @@ const Footer: React.FC = () => {
                           </span>
                           <Link
                             target="_blank"
-                            className="text-sm font-medium"
+                            className="text-12 2xl:text-sm font-medium"
                             href={
                               'https://www.google.com/maps/place/Two+Guys+-+Blinds+%26+Curtains+Dubai/@25.1177196,55.2331055,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?entry=tts&g_ep=EgoyMDI0MDkxOC4xKgBIAVAD'
                             }

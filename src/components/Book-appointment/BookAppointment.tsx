@@ -243,13 +243,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({
         setTimeout(() => setFormData(formInitialValues), 0);
         setSelectedOptions(getInitialSelectedOptions());
         setContactMethods(initialContactMethods)
-
         setWordCount(0)
         setSuccessMessage('Form Submitted Successfully🎉');
-        setTimeout(() => {
-          setSuccessMessage('');
-        }, 2000);
-        // toast.success('Form Submitted Successfully🎉');
       } catch (error) {
         toast.error('Failed to submit the appointment. Please try again.');
       } finally {
