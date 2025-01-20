@@ -1,9 +1,13 @@
 import { blogPostUrl } from 'data/urls';
 import { notFound, redirect } from 'next/navigation';
 import React from 'react'
-import { Props } from 'react-select';
 
-const Page = async ({ params }: Props) => {
+ type meta_props = {
+   params: Promise<{ slug: string }>;
+ };
+
+
+const Page = async ({ params }: meta_props) => {
    const slug = (await params).slug;
    if (slug === 'product-guarantees') {
       return redirect('/product-guarantees');
