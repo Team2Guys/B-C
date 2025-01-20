@@ -40,6 +40,8 @@
     --para-light: #666666;
     --bdr-grey: #9d9d9d;
     --dark-grey: #555555;
+    --gothamlight:'gothamlight', 'gothamlight Fallback';
+    --gothambold:'gothamGothamBold', 'gothamGothamBold Fallback'
   }
 }
 .light {
@@ -96,6 +98,12 @@ html {
   background-color: var(--primary);
 }
 
+.gotham-light{
+  font-family: var(--gothamlight) !important;
+}
+.gotham-bold{
+  font-family: var(--gothambold) !important;
+}
 .link-underline,
 .link-footer {
   position: relative;
@@ -125,42 +133,6 @@ html {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-/* @media only screen and (max-width: 1560px) {
-  .link-active::after {
-    bottom: -20px;
-  }
-  .link-underline::after,
-  .link-footer:after {
-    bottom: -20px;
-  }
-}
-@media only screen and (max-width: 1400px) {
-  .link-active::after {
-    bottom: -17px;
-  }
-  .link-underline::after,
-  .link-footer:after {
-    bottom: -17px;
-  }
-}
-@media only screen and (max-width: 1215px) {
-  .link-active::after {
-    bottom: -15px;
-  }
-  .link-underline::after,
-  .link-footer:after {
-    bottom: -15px;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .link-active::after {
-    bottom: -10px;
-  }
-  .link-underline::after,
-  .link-footer:after {
-    bottom: -10px;
-  }
-} */
 
 .ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
   background-color: var(--input) !important;
@@ -300,32 +272,6 @@ html {
 .custom-datepicker .react-datepicker-wrapper {
   width: 100%;
 }
-/* .css-1nmdiq5-menu > div {
-} */
-/* .react-tel-input .selected-flag .arrow {
-  position: relative;
-  top: 50%;
-  margin-top: -2px;
-  left: 26px !important;
-  width: 0;
-  height: 0;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 4px solid #555;
-}
-.react-tel-input .selected-flag .flag {
-  position: absolute;
-  top: 50%;
-  margin-top: -10px !important;
-}
-.react-tel-input .flag {
-  width: 22px !important;
-  border-radius: 14px;
-  height: 20px !important;
-}
-.react-tel-input .selected-flag {
-  padding: 0 0 0 4px !important;
-} */
 @media (max-width: 640px) {
   .Hero-slider:not(.custom-color-silder) .slick-dots {
     display: none !important;
@@ -364,11 +310,13 @@ html {
 .ant-image {
   position: relative;
   width: 100% !important;
-  height: 350px !important;
+  height: 280px !important;
 }
 .ant-image-img {
   width: 100%;
-  height: 350px !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  object-position: right bottom !important;
 }
 .ant-image .ant-image-mask {
   border-radius: 16px !important;
@@ -523,12 +471,13 @@ blockquote {
 .blog-content a {
   text-decoration: underline;
 }
-/* .blog-content p {
-  padding-left: 0 !important;
-} */
-
 
 
 .slider-text::-webkit-scrollbar{
   width: 0 !important;
 }
+
+.testimonial_slider.swiper-horizontal{
+padding-bottom: 60px;
+}
+

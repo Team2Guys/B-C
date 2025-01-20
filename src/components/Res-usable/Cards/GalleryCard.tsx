@@ -61,7 +61,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
           alt={card?.title || 'Image'}
           height={800}
           width={800}
-          className="rounded-xl h-56 xs:h-80 w-[100%] object-cover"
+          className="rounded-xl h-56 xs:h-80 w-[100%] sm:object-cover"
         />
       </div>
     );
@@ -81,7 +81,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
         alt={card?.title || 'Image'}
         height={800}
         width={800}
-        className="rounded-xl h-56 xs:h-80 w-[100%] object-cover"
+        className="rounded-xl h-56 md:h-64 2xl:h-80 w-[100%] object-cover object-top"
       />
       <div
         className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${
@@ -96,8 +96,8 @@ const GalleryCard: React.FC<GalleryProps> = ({
               <span
                 className={`text-black text-start  cursor-pointer ${
                   relativeProducts
-                    ? 'text-12 font-light'
-                    : 'text-sm font-medium'
+                    ? 'text-16'
+                    : 'text-16'
                 }`}
               >
                 {card.title}
@@ -105,7 +105,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
             </Link>
             <Link
               href={getPath(card)}
-              className={`border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-12 lg:text-14 text-nowrap ${
+              className={`border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-14 text-nowrap ${
                 relativeProducts ? 'block' : 'block'
               }`}
             >

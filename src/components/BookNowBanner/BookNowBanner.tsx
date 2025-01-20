@@ -53,7 +53,7 @@ const BookNowBanner: React.FC<BookNowBannerProps> = ({ className, parent }) => {
         <div className="mt-6 text-center">
           <Link
             href="/request-appointment"
-            className="px-4 py-3 bg-white rounded-md uppercase text-14 xs:text-base"
+            className="px-4 py-3 bg-secondary hover:bg-primary text-white rounded-md uppercase text-14 xs:text-base"
           >
             Book A Free Home Design Visit
           </Link>
