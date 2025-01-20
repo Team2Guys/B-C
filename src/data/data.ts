@@ -56,12 +56,12 @@ export const reverseSlug = (slug: string): string => {
 // Blinds and Curtains section data
 
 export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
-  image: '/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png',
+  image: '/assets/images/blind-curtains-dubai/blinds-curtains-dubai1.png',
   heading: 'We offer window treatments for homes or offices in Dubai',
   paragraph: [
     `Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and <a href="/shutters-range" target="_blank" style="text-decoration: underline"><b>shutters</b></a>. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function. Blinds and Curtains Dubai has the largest selection of <a href="/made-to-measure-blinds" target="_blank" style="text-decoration: underline"><b>custom blinds</b></a> in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).
 
-As a trusted window treatment company, we bring style and functionality to every room. Whether you’re looking for custom blinds, or <a href="/curtains/blackout-curtains-dubai" target="_blank" style="text-decoration:underline"><b>blackout curtains </b></a> we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure <a href="/made-to-measure-curtains" target="_blank" style="text-decoration: underline"><b>curtains</b></a> to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.`,
+   As a trusted window treatment company, we bring style and functionality to every room. Whether you’re looking for custom blinds, or <a href="/curtains/blackout-curtains-dubai" target="_blank" style="text-decoration:underline"><b>blackout curtains </b></a> we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure <a href="/made-to-measure-curtains" target="_blank" style="text-decoration: underline"><b>curtains</b></a> to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.`,
   ],
   buttonText: 'Read More',
 };
@@ -108,10 +108,11 @@ export const footerLinks: TFooterSection[] = [
     links: [
       { text: 'About Us', href: '/about-us' },
       { text: 'Contact Us', href: '/contact-us' },
-      { text: 'Request An Appointment', href: '/request-appointment' },
+      { text: 'Our Projects', href: '/projects' },
       { text: 'Product Guarantees', href: '/product-guarantees' },
-      { text: 'Why Choose Us', href: '/why-choose-blinds-curtains' },
-      { text: 'Projects', href: '/projects' },
+      { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
+      { text: 'Book A Free Appointment', href: '/request-appointment' },
+     
     ],
   },
 ];
@@ -678,7 +679,7 @@ export const commercialPagesItems = [
   'sunscreentransparent',
   'vertical-blinds',
   'aluminium-blinds',
-  'wooden-blinds',
+  // 'wooden-blinds',
   'blackout-blinds',
   'motorised-blinds',
   'panel-blinds',
@@ -1133,7 +1134,7 @@ export const categoriesContent = [
         },
         {
           content:
-            'Call the team now and book a free appointment today. No pressure!',
+            'Book a free, no-pressure appointment today by clicking the button below',
         },
       ],
     },
@@ -1737,7 +1738,7 @@ export const BooKNowbannerContent = [
   {
     url: '/blinds/roller-blinds',
     content:
-      'Ready to get started? Call our sales team at (04) 252 2025 for a free quote or fill out the online form, and we&apos;ll be in touch',
+      'Ready to get started? Call our sales team at <a href="tel:(04) 252 2025" target="_blank" style="text-decoration:underline">(04) 252 2025</a> for a free quote or fill out the online form, and we&apos;ll be in touch',
   },
   {
     url: '/blinds/panel-blinds',
@@ -1891,6 +1892,7 @@ export const estimator_data = [
 
 export const footerData = [
   {
+    key:"1",
     title: 'Blinds',
     items: [
       'Roller Blinds',
@@ -1906,6 +1908,7 @@ export const footerData = [
     ],
   },
   {
+    key:"2",
     title: 'Curtains',
     items: [
       'Triple Pinch Pleat Curtains',
@@ -1921,6 +1924,7 @@ export const footerData = [
     ],
   },
   {
+    key:"3",
     title: 'Shutters',
     items: [
       'Full Height Shutters',
@@ -1996,48 +2000,43 @@ export const projectsData = [
   },
   {
     title: 'Albarsha',
-    description:
-      `As versatile as life in Al Barsha, we've designed blinds, curtains, and shutters to suit busy or restful households.`,
-     imageUrl: '/assets/images/Projects/Albarsha.webp',
+    description: `As versatile as life in Al Barsha, we've designed blinds, curtains, and shutters to suit busy or restful households.`,
+    imageUrl: '/assets/images/Projects/Albarsha.webp',
   },
   {
     title: 'Business Bay',
     description:
       'We added calm and precision to the hectic world of Business Bay with our window coverings.',
-     imageUrl: '/assets/images/Projects/Business bay dubai.webp',
+    imageUrl: '/assets/images/Projects/Business bay dubai.webp',
   },
   {
     title: 'Jumeirah Beach',
     description:
       'The struggle of the sun and sea? We met those with fabrics that resist fading and salt air.',
-     imageUrl: '/assets/images/Projects/Jumeirah Beach.webp',
+    imageUrl: '/assets/images/Projects/Jumeirah Beach.webp',
   },
   {
     title: 'Arabian Ranches',
     description:
       'We brought warmth to Arabian Ranches with window treatments that feel as inviting as the homes themselves.',
-     imageUrl: '/assets/images/Projects/Arabian Ranches.webp',
+    imageUrl: '/assets/images/Projects/Arabian Ranches.webp',
   },
   {
     title: 'Jumeirah Bay Island',
-    description:
-      `A luxury home needs custom care. We made <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">custom blinds</a>, curtains and shutters for Jumeirah Bay Island's exclusive clients.`,
-     imageUrl: '/assets/images/Projects/jumeriah bay island.webp',
+    description: `A luxury home needs custom care. We made <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">custom blinds</a>, curtains and shutters for Jumeirah Bay Island's exclusive clients.`,
+    imageUrl: '/assets/images/Projects/jumeriah bay island.webp',
   },
   {
     title: 'Dubai Hills',
-    description:
-      `In keeping with Dubai Hills' tradition of balance, our designs integrate smoothly into any interior.`,
-     imageUrl: '/assets/images/Projects/dubai-hills.jpg',
+    description: `In keeping with Dubai Hills' tradition of balance, our designs integrate smoothly into any interior.`,
+    imageUrl: '/assets/images/Projects/dubai-hills.jpg',
   },
   {
     title: 'Palm Jumeirah',
-    description:
-      `We've made sure the blinds and <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">curtains</a> match the scale and elegance of Palm Jumeirah.`,
-     imageUrl: '/assets/images/Projects/Palm Jumeirah.webp',
+    description: `We've made sure the blinds and <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">curtains</a> match the scale and elegance of Palm Jumeirah.`,
+    imageUrl: '/assets/images/Projects/Palm Jumeirah.webp',
   },
 ];
-
 
 export const projectsTags = [
   'Emirates Hills',
@@ -2087,4 +2086,4 @@ export const projectsTags = [
   'Mirdif',
   'Falcon City',
   'Jumeirah',
-]
+];

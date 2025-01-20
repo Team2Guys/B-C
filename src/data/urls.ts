@@ -199,7 +199,7 @@ export const CommercialUrl = [
   { urlName: 'school-blinds', Redirect: '/blinds/school-blinds' },
   { urlName: 'gym', Redirect: '/curtains/gym-curtains' },
   { urlName: 'theatre', Redirect: '/curtains/stage-and-theatre-curtains' },
-  { urlName: 'wooden-aluminium-blinds', Redirect: '/blinds/wooden-venetian' },
+  { urlName: 'wooden-aluminium-blinds', Redirect: '/blinds/aluminium-venetian-blinds-dubai' },
   { urlName: 'study-room-blinds', Redirect: '/made-to-measure-blinds' },
   { urlName: 'aric-blinds', Redirect: '/' },
   { urlName: 'outdoor-blinds', Redirect: '/commercial/outdoor' },
@@ -360,7 +360,7 @@ export const blogPostUrl = [
   { url: '/call-me-back', redirectUrl: '/request-appointment' },
   { url: '/blinds-projects', redirectUrl: '/projects' },
   { url: '/curtains-projects', redirectUrl: '/projects' },
-  { url: '/shutters-projects', redirectUrl: '/projects' },
+  { url: '/shutters-project', redirectUrl: '/projects' },
   { url: '/motorised-projects', redirectUrl: '/projects' },
   { url: '/why-choose-blinds-curtains', redirectUrl: '/why-choose-blinds-curtains' },
   { url: '/downtown-dubai', redirectUrl: '/projects' },
@@ -470,11 +470,13 @@ export const customSortingOrder = [
 
 export const MoterisedData = [
   {
+    id:1,
     title: 'Automated Blinds',
     link: '/automated-blinds',
     imageSrc: '/assets/images/Blinds/landing/Automatedblinds.webp',
   },
   {
+    id:2,
     title: 'Automated Curtains',
     link: '/automated-curtains',
     imageSrc: '/assets/images/Curtain/landing/Automatedcurtains.webp',
@@ -502,4 +504,11 @@ export const allProductsOrder = [
 export const customTitles = [
   { slug: 'hotels-restaurants', name: 'Hotels & Restaurant Window Coverings' },
   { slug: 'auditoriums', name: 'Made To Measure Auditorium Window Coverings' },
+];
+
+export const desiredProductTitles = [
+  'Sunscreen/Transparent Blinds',
+  'Blackout Roller Blinds',
+  'Dimout Blinds',
+  'Translucent Blinds',
 ];

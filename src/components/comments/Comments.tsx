@@ -198,7 +198,7 @@ console.log(data, "data")
             <button
               disabled={loading && !isModalOpen}
               type="submit"
-              className="px-4 py-3 text-white bg-primary rounded-3xl text-16 sm:text-18 font-semibold"
+              className="px-4 py-3 text-white bg-secondary hover:bg-primary rounded-3xl text-16 sm:text-18 font-semibold"
             >
               {(loading && !isModalOpen) ? <Loader color="#fff" /> : "Post Comment"}
             </button>
