@@ -85,15 +85,15 @@ function Testimonial() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="flex gap-1 justify-center mt-2 font-gotham">
+            <div className="flex gap-1 justify-center mt-2 font-gotham mr-10 lg:mr-14">
               <div>
-                <FcGoogle className="h-[43px] w-[43px] md:h-[45px] md:w-[45px] xl:h-[50px] xl:w-[50px]" />
+                <FcGoogle className="h-[35px] w-[35px] md:h-[45px] md:w-[45px] xl:h-[50px] xl:w-[50px]" />
               </div>
               <div className="text-center flex flex-col gap-0">
-                <p className="text-[#6A6A6A] font-extrabold text-16 sm:text-19 font-gotham">
+                <p className="text-[#6A6A6A] font-extrabold text-14 sm:text-19 font-gotham">
                   4.9
                 </p>
-                <p className="text-[#6A6A6A] font-bold text-12">
+                <p className="text-[#6A6A6A] font-bold text-10 sm:text-12">
                   Google Rating
                 </p>
                 <Link
