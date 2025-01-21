@@ -81,7 +81,7 @@ const Product = ({productName , products , categories , subCategories}: {product
       />
       <Info selectedPage={selectedPage} />
       <AllProducts products={filteredProducts.filter((prod)=>!HiddenProducts_list.includes(prod.title))} categoryType={`${title}`} />
-      <Container className="mt-10 md:mt-20 mb-10">
+      <Container className="mt-10 mb-10">
         <RelatedProducts products={filteredProducts || []} limit={4} />
       </Container>
       <BookNowBanner className="mt-10" />

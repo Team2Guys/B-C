@@ -16,7 +16,7 @@ import UnitSelector from '../../components/estimator-product/UnitSelector';
 import EstimatorProduct from 'components/estimator-product/estimator-product';
 import { EsProduct } from 'types/interfaces';
 
-const EstimatorPage = ({sortedProducts , products}: {sortedProducts: EsProduct[] , products: IProduct[]}) => {
+const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct[], products: IProduct[] }) => {
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
   const [activeProduct, setActiveProduct] = useState<IProduct | null>(null);
   const [selectedUnit, setSelectedUnit] = useState<string>('cm');
@@ -55,21 +55,53 @@ const EstimatorPage = ({sortedProducts , products}: {sortedProducts: EsProduct[]
   };
 
   const calculatePrice = (width: number | '', height: number | '') => {
-    if (width && height && activeProduct) {
-      let calculatedPrice = width * height;
-      if (selectedUnit === 'cm') {
-        calculatedPrice = calculatedPrice / 10000;
-      } else if (selectedUnit === 'mm') {
-        calculatedPrice = calculatedPrice / 1000000;
-      } else if (selectedUnit === 'inches') {
-        calculatedPrice = calculatedPrice / 1550;
+    if (activeProduct?.title === 'Sheer Curtains' || activeProduct?.title === 'Blackout Curtains') {
+      if (width && activeProduct) {
+        let calculatedPrice = width;
+        switch (selectedUnit) {
+          case 'cm':
+            calculatedPrice = calculatedPrice / 100;
+            break;
+          case 'mm':
+            calculatedPrice = calculatedPrice / 1000;
+            break;
+          case 'inches':
+            calculatedPrice = calculatedPrice / 39.37;
+            break;
+          default:
+            // Handle case for unrecognized units if necessary
+            break;
+        }
+        const pricePerUnit = activeProduct.price || 0;
+        const price = calculatedPrice * pricePerUnit;
+
+        setCalculatedPrice(price);
       }
-      const pricePerUnit = activeProduct.price || 0;
-      const price = calculatedPrice * pricePerUnit;
-      setCalculatedPrice(price);
+      else {
+        setCalculatedPrice(0);
+      }
     } else {
-      setCalculatedPrice(0);
+
+      if (width && height && activeProduct) {
+        let calculatedPrice = width * height;
+        if (selectedUnit === 'cm') {
+          calculatedPrice = calculatedPrice / 10000;
+        } else if (selectedUnit === 'mm') {
+          calculatedPrice = calculatedPrice / 1000000;
+        } else if (selectedUnit === 'inches') {
+          calculatedPrice = calculatedPrice / 1550;
+        }
+        const pricePerUnit = activeProduct.price || 0;
+        const price = calculatedPrice * pricePerUnit;
+
+        console.log(selectedProduct);
+        setCalculatedPrice(price);
+      }
+      else {
+        setCalculatedPrice(0);
+      }
     }
+
   };
 
   useEffect(() => {
@@ -90,115 +122,115 @@ const EstimatorPage = ({sortedProducts , products}: {sortedProducts: EsProduct[]
 
   return (
     <>
-        <Container className="md:mt-10">
-          <div className="grid grid-cols-12 md:gap-10 xl:gap-14 2xl:md:h-[677px] space-y-4 md:space-y-0 md:px-2 xl:px-0">
-            <div className="col-span-12 md:col-span-6 mt-2 sm:mt-0">
-              <Image
-                src={selectedProduct?.posterImage?.imageUrl}
-                width={1000}
-                height={1000}
-                alt={selectedProduct?.title || 'Product Image'}
-                className="object-cover lg:w-full w-full h-[250px] md:h-[677px] 2xl:md:h-[700px] rounded-3xl"
-              />
+      <Container className="md:mt-10">
+        <div className="grid grid-cols-12 md:gap-10 xl:gap-14 2xl:md:h-[677px] space-y-4 md:space-y-0 md:px-2 xl:px-0">
+          <div className="col-span-12 md:col-span-6 mt-2 sm:mt-0">
+            <Image
+              src={selectedProduct?.posterImage?.imageUrl}
+              width={1000}
+              height={1000}
+              alt={selectedProduct?.title || 'Product Image'}
+              className="object-cover lg:w-full w-full h-[250px] md:h-[677px] 2xl:md:h-[700px] rounded-3xl"
+            />
+          </div>
+
+          <div className="flex flex-col space-y-3 col-span-12 md:col-span-6 px-2 md:px-0">
+            <h2 className="lg:text-[30px] lg:font-black text-2xl font-bold capitalize">
+              Select Product
+            </h2>
+
+            <EstimatorProduct
+              selectProduct={sortedProducts}
+              activeProduct={activeProduct}
+              setActiveProduct={setActiveProduct}
+            />
+
+            <h2 className="lg:text-[30px] lg:font-black text-2xl font-bold capitalize">
+              Enter Your Size
+            </h2>
+            <div
+              className="cursor-pointer text-[#0078D7] w-fit"
+              onClick={showModal}
+            >
+              <span className="text-[#0078D7] text-sm flex items-center gap-2">
+                Measuring Guide <PiGreaterThan className="text-[#0078D7]" />
+              </span>
             </div>
-
-            <div className="flex flex-col space-y-3 col-span-12 md:col-span-6 px-2 md:px-0">
-              <h2 className="lg:text-[30px] lg:font-black text-2xl font-bold capitalize">
-                Select Product
-              </h2>
-
-              <EstimatorProduct
-                selectProduct={sortedProducts}
-                activeProduct={activeProduct}
-                setActiveProduct={setActiveProduct}
+            <div className="space-y-2 sm:space-y-0">
+              <UnitSelector
+                selectedUnit={selectedUnit}
+                setSelectedUnit={setSelectedUnit}
               />
-
-              <h2 className="lg:text-[30px] lg:font-black text-2xl font-bold capitalize">
-                Enter Your Size
-              </h2>
-              <div
-                className="cursor-pointer text-[#0078D7] w-fit"
-                onClick={showModal}
-              >
-                <span className="text-[#0078D7] text-sm flex items-center gap-2">
-                  Measuring Guide <PiGreaterThan className="text-[#0078D7]" />
-                </span>
-              </div>
-              <div className="space-y-2 sm:space-y-0">
-                <UnitSelector
-                  selectedUnit={selectedUnit}
-                  setSelectedUnit={setSelectedUnit}
-                />
-                <div className="flex flex-wrap gap-4 items-center">
-                  <div className="grid grid-cols-2 max-sm:w-full gap-2">
-                    <div className="w-full sm:w-fit">
-                      <Input
-                        type="number"
-                        id="width"
-                        className="w-full h-11 rounded-lg md:w-24 2xl:w-full 2xl:h-12 sm:h-9 text-[7px] 2xl:text-sm 2xl:placeholder:text-[10px] placeholder:text-[7px] px-1 2xl:px-2"
-                        placeholder={getPlaceholder('Width')}
-                        value={width || ''}
-                        onChange={handleWidthChange}
-                      />
-                    </div>
-                    <div className="w-full sm:w-fit">
-                      <Input
-                        type="number"
-                        id="height"
-                        className="w-full h-11 rounded-lg md:w-24 2xl:w-full 2xl:h-12 sm:h-9 text-[7px] 2xl:text-sm 2xl:placeholder:text-[10px] placeholder:text-[7px] px-1 2xl:px-2"
-                        placeholder={getPlaceholder('Height')}
-                        value={height || ''}
-                        onChange={handleHeightChange}
-                      />
-                    </div>
+              <div className="flex flex-wrap gap-4 items-center">
+                <div className="grid grid-cols-2 max-sm:w-full gap-2">
+                  <div className="w-full sm:w-fit">
+                    <Input
+                      type="number"
+                      id="width"
+                      className="w-full h-11 rounded-lg md:w-24 2xl:w-full 2xl:h-12 sm:h-9 text-[7px] 2xl:text-sm 2xl:placeholder:text-[10px] placeholder:text-[7px] px-1 2xl:px-2"
+                      placeholder={getPlaceholder('Width')}
+                      value={width || ''}
+                      onChange={handleWidthChange}
+                    />
                   </div>
+                  <div className="w-full sm:w-fit">
+                    <Input
+                      type="number"
+                      id="height"
+                      className="w-full h-11 rounded-lg md:w-24 2xl:w-full 2xl:h-12 sm:h-9 text-[7px] 2xl:text-sm 2xl:placeholder:text-[10px] placeholder:text-[7px] px-1 2xl:px-2"
+                      placeholder={getPlaceholder('Height')}
+                      value={height || ''}
+                      onChange={handleHeightChange}
+                    />
+                  </div>
+                </div>
 
-                  <div className="flex gap-2 items-center">
-                    <p className="text-14">Estimated Price:</p>
-                    <div className="flex justify-center items-center bg-[#D9D9D9] rounded-full h-[70px] w-[70px] ">
-                      {activeProduct && (
-                        <div className="text-14 font-black text-wrap text-center">
-                          AED{' '}
-                          {
-                            calculatedPrice ? calculatedPrice.toFixed(2) : '0'
-                            // activeProduct.price
-                          }
-                        </div>
-                      )}
-                    </div>
+                <div className="flex gap-2 items-center">
+                  <p className="text-14">Estimated Price:</p>
+                  <div className="flex justify-center items-center bg-[#D9D9D9] rounded-full h-[70px] w-[70px] ">
+                    {activeProduct && (
+                      <div className="text-14 font-black text-wrap text-center">
+                        AED{' '}
+                        {
+                          calculatedPrice ? calculatedPrice.toFixed(2) : '0'
+                          // activeProduct.price
+                        }
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
-            <ul className="list-disc pl-5 lg:text-[15px]">
-  <li>The displayed price is for indication purposes only.</li>
-  <li>Final price may vary according to your actual requirements.</li>
-  <li>All blinds & shutters are charged at a minimum of 1.5m².</li>
-</ul>
-
-
-              <Button
-                variant={'default'}
-                onClick={() => route.push('/request-appointment')}
-                className="w-full mt-4 h-12 bg-secondary hover:bg-primary text-white font-semibold !text-18"
-              >
-                Book Now
-              </Button>
             </div>
+            <ul className="list-disc pl-5 lg:text-[15px]">
+              <li>The displayed price is for indication purposes only.</li>
+              <li>Final price may vary according to your actual requirements.</li>
+              <li>All blinds & shutters are charged at a minimum of 1.5m².</li>
+            </ul>
+
+
+            <Button
+              variant={'default'}
+              onClick={() => route.push('/request-appointment')}
+              className="w-full mt-4 h-12 bg-secondary hover:bg-primary text-white font-semibold !text-18"
+            >
+              Book Now
+            </Button>
           </div>
-          <Modal
-            title="How to Measure"
-            visible={modalVisible}
-            onCancel={handleCloseModal}
-            footer={null}
-          >
-            <Image
-              src={estimateIMG}
-              alt="Measuring Guide"
-              width={1000}
-              height={1000}
-            />
-          </Modal>
-        </Container>
+        </div>
+        <Modal
+          title="How to Measure"
+          visible={modalVisible}
+          onCancel={handleCloseModal}
+          footer={null}
+        >
+          <Image
+            src={estimateIMG}
+            alt="Measuring Guide"
+            width={1000}
+            height={1000}
+          />
+        </Modal>
+      </Container>
       <VideoAutomation />
       <BookNowBanner />
       <Support />
