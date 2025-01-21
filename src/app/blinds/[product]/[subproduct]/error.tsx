@@ -1,5 +1,5 @@
 "use client";
-import React ,{ useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Link from "next/link";
 interface ErrorProps {
   error: Error;
@@ -15,7 +15,7 @@ export default function Error({ error }: ErrorProps) {
         <span className="flex justify-center items-center rounded-full w-30 h-30 text-white text-8xl bg-[#E41B22]">!</span>
         <h2 className="text-2xl font-bold">Oops! Something went wrong.</h2>
         <p className="text-gray-700">{error.message}</p>
-        <Link    href="/contact-us"
+        <Link href="/contact-form"
           className="w-35 sm:w-40 h-10 sm:h-12 text-14 sm:text-base flex justify-center items-center rounded-full bg-primary text-white hover:bg-white border border-primary hover:text-primary transition"
         >
           Contact Us
