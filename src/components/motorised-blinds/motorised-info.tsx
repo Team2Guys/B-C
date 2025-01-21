@@ -12,7 +12,7 @@ interface MotorisedInfoProps {
   imageClass?: string;
   description2?: string;
   description3?: string;
-  decClass?:string
+  decClass?: string
   showButton?: boolean;
 }
 
@@ -25,7 +25,7 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
   image,
   className,
   decClass,
-  showButton =true,
+  showButton = true,
 }) => {
   return (
     <Container className="mt-3 md:mt-5 lg:mt-14">
@@ -41,18 +41,26 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
               <p className="text-12 md:text-16 leading-6 md:leading-8 " dangerouslySetInnerHTML={{ __html: description2 || "" }}></p>
               <p className="text-12 md:text-16 leading-6 md:leading-8 ">{description3}</p>
             </div>
-            {showButton && <AppointmentButton />}
+            <span className="hidden md:block">
+
+              {showButton && <AppointmentButton />}
+            </span>
           </div>
         </div>
         <div className="w-full lg:6/12 xl:w-5/12 mb-10 mt-4 md:mt-5 lg:mt-0">
-        <div className="flex justify-center items-center text-center">
-          <Image
-          width={455}
-          height={420}
-          src={image}
-          alt="Motorised Blind Image"
-          className="w-full h-72 xs:h-[400px] lg:h-[600px] xl:h-[400px]"/></div>
+          <div className="flex flex-col md:flex-row justify-center items-center text-center">
+            <Image
+              width={455}
+              height={420}
+              src={image}
+              alt="Motorised Blind Image"
+              className="w-full h-72 xs:h-[400px] lg:h-[600px] xl:h-[400px]" />
+            <span className="block md:hidden">
+
+              {showButton && <AppointmentButton />}
+            </span>
           </div>
+        </div>
       </div>
     </Container>
   );
