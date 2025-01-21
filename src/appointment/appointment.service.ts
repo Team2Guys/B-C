@@ -56,7 +56,7 @@ export class AppointmentService {
       const product_type=capitalizeWords(user_data.product_type);
       const recipients = user_mail
         ? `${user_mail}`
-        : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL2}`;
+        : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL2}, ${process.env.RECEIVER_MAIL3}`;
       const mailOptions = {
         from: `"The Team @ Blinds and Curtains Dubai" <${process.env.MAILER_MAIL}>`,
         to: recipients,
