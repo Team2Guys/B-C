@@ -59,7 +59,7 @@ const Header = () => {
   const subCategories: ICategory[] = data?.subCategories || [];
 
   const megamenuActiveHanlder = () => {
-    links.map((link , index) => {
+    links.map((link, index) => {
       const isBlogPath = path.startsWith('/blog');
       const isBlogActive = link.href === '/blog' && isBlogPath;
       const isActive = !isBlogPath && path?.includes(generateSlug(link.label));
@@ -90,8 +90,8 @@ const Header = () => {
       </div>
 
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50 py-2 sm:py-0">
-        
-      <Container className="sm:hidden mb-2 pb-4 pt-2 text-center border-b border-[#0006]">
+
+        <Container className="sm:hidden mb-2 pb-4 pt-2 text-center border-b border-[#0006]">
           <Link
             className="py-3 px-6 rounded-md text-14 xs:text-15 whitespace-nowrap bg-primary text-black"
             href="/request-appointment"
@@ -101,18 +101,18 @@ const Header = () => {
           </Link>
         </Container>
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
-          <Link href={'/'} className="w-7/12 lg:w-1/12 ">
+          <Link href={'/'} className="w-5/12 xs:w-7/12 lg:w-1/12 ">
             <Image
               width={300}
               height={300}
               loading='lazy'
               src={logo}
               alt="Logo"
-              className="w-32 h-full"
+              className="w-28 xs:w-32 h-full"
             />
           </Link>
 
-          <div className="w-3/12 lg:w-9/12 mt-9">
+          <div className="w-3/12 lg:w-9/12 mt-9 hidden lg:block">
             <div className="hidden lg:flex justify-evenly items-start lg:text-10 text-12 xl:text-16 whitespace-nowrap ">
               {links.map((link, index) => {
                 let filteredSubCategories =
@@ -203,8 +203,8 @@ const Header = () => {
                   path.startsWith('/automated-curtains');
                 const isblindsmoter =
                   path?.includes('motorised-blinds');
-                  const iscurtainsmoter =
-                  path?.includes('motorised-curtains') 
+                const iscurtainsmoter =
+                  path?.includes('motorised-curtains')
                 return combinedSliderData.length > 0 ? (
                   <Fragment key={index} >
                     <MegaMenu
@@ -218,16 +218,16 @@ const Header = () => {
                           : link.label === 'Motorised' && ismoterised
                             ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                             : link.label === 'Blinds' && isblindsmoter
-                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                            : link.label === 'Curtains' && iscurtainsmoter
-                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                            : !isBalconyActive &&
-                              !ismoterised &&
-                              !isblindsmoter &&
-                              !iscurtainsmoter &&
-                              (isBlogActive || isActive)
                               ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                              : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
+                              : link.label === 'Curtains' && iscurtainsmoter
+                                ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                                : !isBalconyActive &&
+                                  !ismoterised &&
+                                  !isblindsmoter &&
+                                  !iscurtainsmoter &&
+                                  (isBlogActive || isActive)
+                                  ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                                  : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
                       }
                       loading={isLoading}
                     />
@@ -252,14 +252,21 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="lg:w-2/12 flex justify-center items-center gap-4">
+          <div className="lg:w-2/12 flex flex-1 justify-between xs:justify-center items-center gap-6">
             <Link
-              className="py-2 px-2 lg:px-2 xl:px-5 hidden sm:block rounded-md text-10 xl:text-11 2xl:text-15 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
+              className="py-2 px-2 xl:px-5 hidden sm:block rounded-md text-10 xl:text-11 2xl:text-15 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
               href="/request-appointment"
               onClick={handleLinkClick}
             >
               Book a free appointment
             </Link>
+            <Link
+              className={`text-14 py-2 px-3 rounded-md text-black sm:hidden ${path === '/estimator'
+                ? 'bg-secondary text-white'
+                : 'bg-primary text-black'
+                }`}
+              href='/estimator'
+            >Estimator</Link>
             <div className="flex lg:hidden">
               <Sheet
                 drawerName={<Image src={menuIcon} alt='menu icon' width={75} height={75} className='min-w-10 w-9 h-9' />}
@@ -378,7 +385,7 @@ const Header = () => {
                       const ismoter =
                         path?.includes('automated-curtains') ||
                         path?.includes('automated-blinds');
-                     
+
                       return combinedSliderData.length > 0 ? (
                         <Panel
                           key={index}
@@ -423,10 +430,10 @@ const Header = () => {
                             }
                           />
                         </Panel>
-                      ) : (
+                      ) : ( 
                         <Link
                           key={index}
-                          className={`text-16 border-b text-black border-[#0000002a] pb-[6px] ${isBlogActive || isActive
+                          className={`${link.label === 'Estimator' && 'hidden sm:block'} text-16 border-b text-black border-[#0000002a] pb-[6px] hover:text-black ${isBlogActive || isActive
                             ? 'font-bold'
                             : 'font-normal'
                             }`}

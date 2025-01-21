@@ -29,6 +29,7 @@ import emailIcon from '../../../../public/assets/images/icon/email.png';
 import locationIcon from '../../../../public/assets/images/icon/location-svgrepo-com 1.png';
 import phoneIcon from '../../../../public/assets/images/icon/Group 1171285400.png';
 import whatsAppIcon from '../../../../public/assets/images/icon/whatsapp-svgrepo-com (1) 1.png';
+import { SlCalender } from 'react-icons/sl';
 
 const Footer: React.FC = () => {
   const fetchAllData = async () => {
@@ -60,15 +61,14 @@ const Footer: React.FC = () => {
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
-        : `/${parent === 'shutters' ? `${parent}-range` : parent}${
-            [
-              'dimout-roller-blinds',
-              'sunscreen-roller-blinds',
-              'blackout-roller-blinds',
-            ].includes(slug)
-              ? '/roller-blinds'
-              : ''
-          }/${slug}`)
+        : `/${parent === 'shutters' ? `${parent}-range` : parent}${[
+          'dimout-roller-blinds',
+          'sunscreen-roller-blinds',
+          'blackout-roller-blinds',
+        ].includes(slug)
+          ? '/roller-blinds'
+          : ''
+        }/${slug}`)
     );
   };
   const ChangedProductUrl = (title: string): string => {
@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
                     <div className="2xl:pl-2" key={category.key}>
                       {isMobile ? (
                         <Collapse
-                          
+
                           bordered={false}
                           expandIcon={({ isActive }) => (
                             isActive ? (
@@ -170,72 +170,13 @@ const Footer: React.FC = () => {
                                     )?.id,
                                 );
 
-                                  const matchingProduct = products?.find(
-                                    (product) =>
-                                      product.title === item &&
-                                      product.CategoryId ===
-                                        categories.find(
-                                          (cat) => cat.title === category.title,
-                                        )?.id,
-                                  );
-
-                                  return (
-                                    <React.Fragment key={item}>
-                                      {matchingSubcategory && (
-                                        <li>
-                                          <Link
-                                            className="text-14 2xl:text-16 text-white font-normal"
-                                            href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}`}
-                                          >
-                                            {matchingSubcategory.title}
-                                          </Link>
-                                        </li>
-                                      )}
-
-                                      {matchingProduct && (
-                                        <li>
-                                          <Link
-                                            className=" text-14 2xl:text-16 text-white font-normal"
-                                            href={generatePath(
-                                              matchingProduct,
-                                              generateSlug(category.title),
-                                            )}
-                                          >
-                                            {matchingProduct.title}
-                                          </Link>
-                                        </li>
-                                      )}
-                                    </React.Fragment>
-                                  );
-                                })}
-                              </ul>
-                            </Panel>
-                          </Collapse>
-                        ) : (
-                          <div>
-                            <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
-                              {category.title}
-                            </h3>
-                            <ul className="space-y-2 mt-4">
-                              {category.items.map((item) => {
-                                const matchingSubcategory = subcategories?.find(
-                                  (subcategory: ICategory) =>
-                                    subcategory.title === item &&
-                                    subcategory.CategoryId ===
-                                      categories.find(
-                                        (cat) =>
-                                          generateSlug(cat.title) ===
-                                          generateSlug(category.title),
-                                      )?.id,
-                                );
-
                                 const matchingProduct = products?.find(
                                   (product) =>
                                     product.title === item &&
                                     product.CategoryId ===
-                                      categories.find(
-                                        (cat) => cat.title === category.title,
-                                      )?.id,
+                                    categories.find(
+                                      (cat) => cat.title === category.title,
+                                    )?.id,
                                 );
 
                                 return (
@@ -243,7 +184,7 @@ const Footer: React.FC = () => {
                                     {matchingSubcategory && (
                                       <li>
                                         <Link
-                                          className="text-12 2xl:text-14 font-medium"
+                                          className="text-14 2xl:text-16 text-white font-normal"
                                           href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}`}
                                         >
                                           {matchingSubcategory.title}
@@ -254,7 +195,7 @@ const Footer: React.FC = () => {
                                     {matchingProduct && (
                                       <li>
                                         <Link
-                                          className="text-12 2xl:text-14 font-medium"
+                                          className=" text-14 2xl:text-16 text-white font-normal"
                                           href={generatePath(
                                             matchingProduct,
                                             generateSlug(category.title),
@@ -268,10 +209,69 @@ const Footer: React.FC = () => {
                                 );
                               })}
                             </ul>
-                          </div>
-                        )}
-                      </div>
-                    ))
+                          </Panel>
+                        </Collapse>
+                      ) : (
+                        <div>
+                          <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
+                            {category.title}
+                          </h3>
+                          <ul className="space-y-2 mt-4">
+                            {category.items.map((item) => {
+                              const matchingSubcategory = subcategories?.find(
+                                (subcategory: ICategory) =>
+                                  subcategory.title === item &&
+                                  subcategory.CategoryId ===
+                                  categories.find(
+                                    (cat) =>
+                                      generateSlug(cat.title) ===
+                                      generateSlug(category.title),
+                                  )?.id,
+                              );
+
+                              const matchingProduct = products?.find(
+                                (product) =>
+                                  product.title === item &&
+                                  product.CategoryId ===
+                                  categories.find(
+                                    (cat) => cat.title === category.title,
+                                  )?.id,
+                              );
+
+                              return (
+                                <React.Fragment key={item}>
+                                  {matchingSubcategory && (
+                                    <li>
+                                      <Link
+                                        className="text-12 2xl:text-14 font-medium"
+                                        href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}`}
+                                      >
+                                        {matchingSubcategory.title}
+                                      </Link>
+                                    </li>
+                                  )}
+
+                                  {matchingProduct && (
+                                    <li>
+                                      <Link
+                                        className="text-12 2xl:text-14 font-medium"
+                                        href={generatePath(
+                                          matchingProduct,
+                                          generateSlug(category.title),
+                                        )}
+                                      >
+                                        {matchingProduct.title}
+                                      </Link>
+                                    </li>
+                                  )}
+                                </React.Fragment>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ))
                   )}
                 </div>
 
@@ -395,14 +395,14 @@ const Footer: React.FC = () => {
                             {phoneNumberInfo.number}
                           </Link>
                         </li>
-                        <li className="flex gap-2 flex-nowrap">
+                        <li className="flex gap-1 flex-nowrap">
                           <span>
                             <Image
                               src={whatsAppIcon}
                               alt="phone Icon"
                               width={36}
                               height={36}
-                              className="w-6 h-6"
+                              className="w-[26px] h-[26px]"
                             />
                           </span>
                           <Link
@@ -412,6 +412,11 @@ const Footer: React.FC = () => {
                           >
                             {phoneNumberInfo.number}
                           </Link>
+                        </li>
+                        <li className="flex gap-2 flex-nowrap">
+                          <SlCalender size={18} className="text-white me-1 ms-[2px]" />
+                          <p className='text-12 2xl:text-sm font-medium'>8.30am - 6.00pm 7 days a week</p>
+
                         </li>
                         <li className="flex gap-2 flex-nowrap">
                           <span>
