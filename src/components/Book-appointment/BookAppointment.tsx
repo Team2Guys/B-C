@@ -430,6 +430,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             </label>
             <Select
               instanceId="window-options-select"
+              isSearchable={false}
               options={preferTimeOptions}
               defaultValue={preferTimeOptions.find(
                 (option) => option.value === 'pm',
@@ -465,6 +466,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             </label>
             <Select
               instanceId="window-options-select"
+              isSearchable={false}
               options={referralOptions}
               onChange={(option: any) =>
                 handleSelectChange('how_user_find_us', option?.value || null)
