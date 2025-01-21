@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Container from "components/Res-usable/Container/Container";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Grid, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { FaStar } from "react-icons/fa";
 import SwiperCore from "swiper";
 import "swiper/swiper-bundle.css";
@@ -49,11 +49,11 @@ function Testimonial() {
               }}
               className="mySwiper testimonial_slider"
               modules={[Pagination, Autoplay]}
-              // autoplay={{
-              //   delay: 3000,
-              //   disableOnInteraction: false,
-              //   pauseOnMouseEnter: true,
-              // }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
               breakpoints={{
                 320: {
                   slidesPerView: 1,
