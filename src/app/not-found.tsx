@@ -8,7 +8,7 @@ const Lottie = dynamic(() => import('components/Lottie/error-gif'), {
 })
 
 export default function NotFound() {
-const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -36,7 +36,7 @@ const [isClient, setIsClient] = useState(false);
           </Link>
           <Link
             className="w-35 sm:w-40 h-10 sm:h-12 text-14 flex justify-center items-center rounded-full bg-transparent text-primary hover:bg-primary border border-primary hover:border-primary hover:text-white transition"
-            href="/contact-us"
+            href="/contact-form"
           >
             Contact Us
           </Link>
