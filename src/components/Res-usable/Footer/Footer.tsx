@@ -276,7 +276,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col gap-4 lg:pl-2 col-span-12 md:col-span-5 mt-0 sm::mt-4 lg:mt-0">
-                  <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 max-sm:mt-2 max-sm:space-y-2 sm:mt-4 ">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 max-sm:mt-2 max-sm:space-y-2 sm:mt-4 lg:mt-0 ">
                     {footerLinks.map((category, index) => (
                       <div key={index}>
                         {isMobile ? (
@@ -366,7 +366,7 @@ const Footer: React.FC = () => {
                               alt="phone Icon"
                               width={36}
                               height={36}
-                              className="w-5 h-5"
+                              className="w-[18px] h-[18px]"
                             />
                           </span>
                           <Link
