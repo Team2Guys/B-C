@@ -71,31 +71,32 @@ const ProductUs: React.FC = () => {
             <div className="lg:mt-5 mt-4 lg:pl-12">
               <p className="md:text-xl font-bold">Contact Info :</p>
               <div className="flex flex-col gap-4 lg:mt-6 mt-4">
-                <div className="text-14 md:text-15 2xl:text-18 flex gap-3 items-start">
-                  <IoLocationSharp className="text-white w-6 h-6" />
-                  <p>
+                <div className="text-14 md:text-15 2xl:text-18 flex gap-3 items-center">
+                  <IoLocationSharp size={25} className="text-white w-1/12" />
+                  <p className='w-11/12'>
                     Unit 43 22nd St Al Quoz Industrial Area 4 – Dubai UAE
                   </p>
                 </div>
                 <div className="text-14 md:text-15 2xl:text-18 flex gap-3 items-start">
-                  <IoCall className="text-white w-6 h-6" />
+                  <IoCall size={25} className="text-white w-1/12 " />
                   <Link
                     target="_blank"
                     href={'tel:+971544945339'}
-                    className="hover:underline"
+                    className="hover:underline w-11/12"
                   >
                     +971 54 494 5339
                   </Link>
                 </div>
                 <div className="text-14 md:text-15 2xl:text-18 flex gap-3 items-start">
-                  <SlCalender className="text-white w-6 h-6" />
-                    8.30am - 6.00pm 7 days a week</div>
+                  <SlCalender size={20} className="text-white w-1/12 " />
+                    <p className='w-11/12'>8.30am - 6.00pm 7 days a week</p>
+                    </div>
                 <div className=" text-14 flex gap-3 items-start md:text-18">
-                  <MdEmail className="text-white w-6 h-6" />
+                  <MdEmail size={25} className="text-white w-1/12 " />
                   <Link
                     target="_blank"
                     href="mailto:connect@twoguys.ae"
-                    className="hover:underline"
+                    className="hover:underline w-11/12"
                   >
                     connect@twoguys.ae
                   </Link>

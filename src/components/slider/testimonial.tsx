@@ -85,12 +85,12 @@ function Testimonial() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="flex gap-1 items-center justify-center mt-10 font-gotham">
+            <div className="flex gap-1 items-center justify-center mt-2 font-gotham">
               <div>
-                <FcGoogle className="text-6xl" />
+                <FcGoogle className="text-5xl sm:text-6xl" />
               </div>
               <div className="text-center flex flex-col gap-0">
-                <p className="text-[#6A6A6A] font-[900] text-28 font-gotham">
+                <p className="text-[#6A6A6A] font-[900] text-24 sm:text-28 font-gotham">
                   4.9
                 </p>
                 <p className="text-[#6A6A6A] font-bold text-16">
@@ -123,21 +123,56 @@ function ReadMoreCard({
 
   return (
     <div
-      className={`flex items-start gap-4 justify-between bg-white p-4 2xl:p-6 ${
+      className={`flex max-xs:flex-col  items-start xs:gap-4 justify-between bg-white p-4 2xl:p-6 ${
         isExpanded
           ? "h-auto max-h-max"
-          : "md:h-[300px] lg:h-[370px] xl:h-[300px] md:max-h-[300px] lg:max-h-[370px] xl:max-h-80"
-      }`}
-    >
-      <Image
+          : "md:h-[300px] lg:h-[370px] xl:h-[300px] md:max-h-[300px] lg:max-h-[370px] xl:max-h-80" }`}>
+             <Image
+        src={testimonial?.profile_photo_url}
+        alt="testimonial-image"
+        width={64}
+        height={64}
+        className="w-16 h-16 2xl:w-20 2xl:h-20 rounded-full object-cover hidden xs:block"
+      />
+      <div className="flex gap-2 xs:hidden w-">
+     <div className="w-5/12">
+     <Image
         src={testimonial?.profile_photo_url}
         alt="testimonial-image"
         width={64}
         height={64}
         className="w-16 h-16 2xl:w-20 2xl:h-20 rounded-full object-cover"
       />
+     </div>
+      <div className="flex gap-4 justify-between xs:hidden w-9/12">
+          <div className="">
+            <h3 className="text-14 lg:text-14 2xl:text-lg font-semibold">
+              {testimonial.author_name}
+            </h3>
+          <span className="text-xs text-gray-800">
+            {testimonial.relative_time_description}
+          </span>
+            <div className="flex items-center gap-2">
+              <div>
+                <FcGoogle className="text-2xl 2xl:text-4xl" />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex gap-1.5 text-12 mt-1 text-[#FCD503]">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <FaStar key={i} />
+                  ))}
+                </div>
+                <p className="text-center text-10 pt-1 text-[#868686]">
+                  Google reviews
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
       <div>
-        <div className="flex gap-4 justify-between">
+        <div className="hidden xs:flex gap-4 justify-between ">
           <div>
             <h3 className="text-14 lg:text-14 2xl:text-lg font-semibold">
               {testimonial.author_name}
@@ -163,7 +198,7 @@ function ReadMoreCard({
             {testimonial.relative_time_description}
           </span>
         </div>
-        <div className="mt-4 text-12 sm:text-sm text-[#6F747F] italic font-gotham leading-relaxed xs:tracking-wider font-extralight">
+        <div className="mt-4 text-12 sm:text-sm text-[#6F747F] italic font-gotham leading-relaxed xs:tracking-wider font-extralight hidden xs:block">
           <p className="space-x-2">
             {isExpanded ? testimonial.text : getExcerpt(testimonial.text, wordLimit)}
             <button
@@ -175,6 +210,17 @@ function ReadMoreCard({
           </p>
         </div>
       </div>
+        <div className="mt-4 text-12 sm:text-sm text-[#6F747F] italic font-gotham leading-relaxed xs:tracking-wider font-extralight block xs:hidden">
+          <p className="space-x-2">
+            {isExpanded ? testimonial.text : getExcerpt(testimonial.text, wordLimit)}
+            <button
+              className="underline"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              {isExpanded ? "Read Less" : "Read More"}
+            </button>
+          </p>
+        </div>
     </div>
   );
 }
