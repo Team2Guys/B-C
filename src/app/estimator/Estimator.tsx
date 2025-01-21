@@ -170,12 +170,10 @@ const EstimatorPage = ({sortedProducts , products}: {sortedProducts: EsProduct[]
                 </div>
               </div>
             <ul className="list-disc pl-5 lg:text-[15px]">
-  <li>The displayed price is for indication purposes only.</li>
-  <li>Final price may vary according to your actual requirements.</li>
-  <li>All blinds & shutters are charged at a minimum of 1.5m².</li>
-</ul>
-
-
+            <li>The displayed price is for indication purposes only.</li>
+            <li>Final price may vary according to your actual requirements.</li>
+            <li>All blinds & shutters are charged at a minimum of 1.5m².</li>
+            </ul>
               <Button
                 variant={'default'}
                 onClick={() => route.push('/request-appointment')}

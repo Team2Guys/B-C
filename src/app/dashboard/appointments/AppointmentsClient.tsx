@@ -41,6 +41,11 @@ const AppointmentsClient = ({ appointments }: { appointments: IAppointments[] })
       width: 120,
     },
     {
+      title: 'Date',
+      dataIndex: 'prefered_Date',
+      width: 120,
+    },
+    {
       title: 'More Details',
       width:100,
       render: (_:IAppointments, record:IAppointments) => (
