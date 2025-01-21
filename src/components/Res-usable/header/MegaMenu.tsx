@@ -279,7 +279,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {hoveredProduct === product.title && (
                           <>
                             <Image
-                            key={index}
+                            key={product.id}
                               width={500}
                               height={500}
                               className="bg-contain h-[250px] lg:h-[300px]"

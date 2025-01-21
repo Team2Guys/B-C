@@ -1,16 +1,18 @@
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/about.jpg';
 import Container from 'components/Res-usable/Container/Container';
-import aboutUsImg from '../../../public/assets/images/blind& curtains_dubai/blinds-curtains-dubai.png';
+import aboutUsImg from '../../../public/assets/images/blind-curtains-dubai/blinds-curtains-dubai.png';
 import { AboutUsPara, OurHistoryData, UsHistoryPara } from 'data/data';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
-  description: 'Learn all about Blinds and Curtains Dubai. We make custom blinds and curtains just for you. Stylish, high-quality, and perfect for your home or office.',
+  description:
+    'Learn all about Blinds and Curtains Dubai. We make custom blinds and curtains just for you. Stylish, high-quality, and perfect for your home or office.',
   openGraph: {
     title: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
-    description: 'Learn all about Blinds and Curtains Dubai. We make custom blinds and curtains just for you. Stylish, high-quality, and perfect for your home or office.',
+    description:
+      'Learn all about Blinds and Curtains Dubai. We make custom blinds and curtains just for you. Stylish, high-quality, and perfect for your home or office.',
     url: 'fullUrl',
     images: [
       {

@@ -13,26 +13,15 @@ import { fetchReviewsHandler } from 'config/fetch';
 function SampleNextArrow(props: any) {
   const { onClick } = props;
   return (
-    <div
-      className={
-        'block absolute -right-7 xs:-right-3 bottom-3 font-semibold text-white cursor-pointer'
-      }
-      onClick={onClick}
-    >
+    <div className={'block absolute -right-7 xs:-right-3 bottom-14  sm:bottom-3 font-semibold text-white cursor-pointer' } onClick={onClick} >
       <GoArrowRight size={30} />
     </div>
   );
 }
-
 function SamplePrevArrow(props: any) {
   const { onClick } = props;
   return (
-    <div
-      className={
-        'block absolute -left-7 xs:-left-3 bottom-3 font-semibold text-white z-10 cursor-pointer'
-      }
-      onClick={onClick}
-    >
+    <div className={'block absolute -left-7 xs:-left-3 bottom-14  sm:bottom-3 font-semibold text-white z-10 cursor-pointer'} onClick={onClick}>
       <GoArrowLeft size={30} />
     </div>
   );
@@ -70,9 +59,11 @@ export default function Review_banner() {
 
   useEffect(() => {
      fetchReviewsHandler(setReviews)
- 
-  }, [])
 
+  }, [])
+  const filteredTestimonials = reviews.filter(
+    (testimonial: any) => testimonial.rating >= 4
+  );
 
   return (
     <>
@@ -85,9 +76,9 @@ export default function Review_banner() {
                 <br /> in Every Detail
               </h3>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10 lg:mb-0 mb-20">
+            <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10">
               <Link href="https://g.page/r/Cb5WvqhjNT4iEAE/" target='_blank' className="w-fit mx-auto">
-                <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit">
+                <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit mb-9">
                   <span>
                     <FcGoogle className="lg:text-3xl text-14" />
                   </span>
@@ -101,15 +92,15 @@ export default function Review_banner() {
             <div className="bg-primary lg:mt-0 mt-10">
               <div className="container h-auto w-full">
                 <Image
-                  className="absolute lg:-top-4 top-[49%]  xs:top-[41%] sm:top-[49%] lg:bottom-60  lg:right-[13%] lg:translate-x-[15%] 2xl:right-[14%] right-[50%] translate-x-[50%] sm:right-[50%] sm:translate-x-[50%]  z-10 "
+                  className="absolute lg:-top-4 top-[36%] lg:bottom-60  lg:right-[13%] lg:translate-x-[15%] 2xl:right-[14%] right-[50%] translate-x-[50%] sm:right-[50%] sm:translate-x-[50%]  z-10 "
                   src={RatingSlider.imageUrl}
                   alt=""
                   width={140}
                   height={140}
                 />
-{reviews.length > 0 &&
+{filteredTestimonials.length > 0 &&
                 <Slider {...settings}>
-                  { reviews?.map((slide, index: any) => {
+                  { filteredTestimonials?.map((slide, index: any) => {
 console.log(slide, "slide")
                     return (<div
                       key={index}
@@ -135,11 +126,6 @@ console.log(slide, "slide")
                     height={70}
                   />
                 </div>
-
-
-
-
-
               </div>
             </div>
           </div>
