@@ -14,7 +14,7 @@ const DetailProduct: React.FC<detailprops> = ({
 }) => {
   const modifiedProducts = {
     ...products,
-    imageUrls: products?.imageUrls?.slice(0, 4),
+    imageUrls: products?.imageUrls,
   };
   return (
     <Container className="mt-10 px-4">
