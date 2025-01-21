@@ -10,7 +10,7 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({ selectProduct, setActivePr
 
   return (
     <div className="container px-0 border rounded-xl bg-white p-2">
-      <div className="grid grid-cols-2 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-4 xl:grid-cols-5 sm:justify-items-center sm:gap-4 p-3">
+      <div className="grid grid-cols-2 xs:grid-cols-4 sm:grid-cols-5 sm:justify-items-center sm:gap-4 p-3">
         {selectProduct && selectProduct.map((product: EsProduct, index: number) => (
           <div
             key={index}
@@ -20,7 +20,7 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({ selectProduct, setActivePr
           >
             <div>
               <Image
-                className={`w-32 h-32 rounded-2xl mx-auto border-4 ${activeProduct?.id === product.id ? 'border-secondary' : 'border-white'
+                className={`w-32 h-32 rounded-2xl md:w-16 md:h-16 xl:h-20 xl:w-20 sm:rounded-xl mx-auto border-4 ${activeProduct?.id === product.id ? 'border-secondary' : 'border-white'
                   }`}
                 width={300}
                 height={300}

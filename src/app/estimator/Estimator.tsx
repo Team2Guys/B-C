@@ -58,12 +58,19 @@ const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct
     if (activeProduct?.title === 'Sheer Curtains' || activeProduct?.title === 'Blackout Curtains') {
       if (width && activeProduct) {
         let calculatedPrice = width;
-        if (selectedUnit === 'cm') {
-          calculatedPrice = calculatedPrice / 100;
-        } else if (selectedUnit === 'mm') {
-          calculatedPrice = calculatedPrice / 1000;
-        } else if (selectedUnit === 'inches') {
-          calculatedPrice = calculatedPrice / 39.37;
+        switch (selectedUnit) {
+          case 'cm':
+            calculatedPrice = calculatedPrice / 100;
+            break;
+          case 'mm':
+            calculatedPrice = calculatedPrice / 1000;
+            break;
+          case 'inches':
+            calculatedPrice = calculatedPrice / 39.37;
+            break;
+          default:
+            // Handle case for unrecognized units if necessary
+            break;
         }
         const pricePerUnit = activeProduct.price || 0;
         const price = calculatedPrice * pricePerUnit;
