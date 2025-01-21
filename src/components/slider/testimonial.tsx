@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Container from "components/Res-usable/Container/Container";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Grid, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { FaStar } from "react-icons/fa";
 import SwiperCore from "swiper";
 import "swiper/swiper-bundle.css";
@@ -48,7 +48,7 @@ function Testimonial() {
                 clickable: true,
               }}
               className="mySwiper testimonial_slider"
-              modules={[Grid, Pagination, Autoplay]}
+              modules={[Pagination, Autoplay]}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
@@ -68,8 +68,8 @@ function Testimonial() {
                   spaceBetween: 20,
                 },
                 1000: {
-                  slidesPerView: 2.7,
-                  spaceBetween: 30,
+                  slidesPerView: 2.5,
+                  spaceBetween: 20,
                 },
                 1200: {
                   slidesPerView: 3,
@@ -85,20 +85,20 @@ function Testimonial() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="flex gap-1 items-center justify-center mt-2 font-gotham">
+            <div className="flex gap-1 justify-center mt-2 font-gotham mr-10 lg:mr-14">
               <div>
-                <FcGoogle className="text-5xl sm:text-6xl" />
+                <FcGoogle className="h-[35px] w-[35px] md:h-[45px] md:w-[45px] xl:h-[50px] xl:w-[50px]" />
               </div>
               <div className="text-center flex flex-col gap-0">
-                <p className="text-[#6A6A6A] font-[900] text-24 sm:text-28 font-gotham">
+                <p className="text-[#6A6A6A] font-extrabold text-14 sm:text-19 font-gotham">
                   4.9
                 </p>
-                <p className="text-[#6A6A6A] font-bold text-16">
+                <p className="text-[#6A6A6A] font-bold text-10 sm:text-12">
                   Google Rating
                 </p>
                 <Link
                   href="https://g.page/r/Cb5WvqhjNT4iEAE/"
-                  className="text-[#008CFF] text-10 pt-1"
+                  className="text-[#008CFF] text-[7px] 2xl:text-[9px] pt-1"
                   target="_blank"
                 >
                   See all our reviews
@@ -134,41 +134,40 @@ function ReadMoreCard({
         height={64}
         className="w-16 h-16 2xl:w-20 2xl:h-20 rounded-full object-cover hidden xs:block"
       />
-      <div className="flex gap-2 xs:hidden w-">
-     <div className="w-5/12">
+      <div className="flex gap-2 xs:hidden justify-between w-full">
+     <div className="w-9/12 flex gap-2">
      <Image
         src={testimonial?.profile_photo_url}
         alt="testimonial-image"
         width={64}
         height={64}
-        className="w-16 h-16 2xl:w-20 2xl:h-20 rounded-full object-cover"
+        className="w-12 h-12 xs:w-16 xs:h-16 2xl:w-20 2xl:h-20 rounded-full object-cover"
       />
-     </div>
-      <div className="flex gap-4 justify-between xs:hidden w-9/12">
           <div className="">
-            <h3 className="text-14 lg:text-14 2xl:text-lg font-semibold">
+            <h3 className="text-12 xs:text-14 lg:text-14 2xl:text-lg font-semibold">
               {testimonial.author_name}
             </h3>
-          <span className="text-xs text-gray-800">
-            {testimonial.relative_time_description}
-          </span>
-            <div className="flex items-center gap-2">
+            <div className="flex gap-2">
               <div>
-                <FcGoogle className="text-2xl 2xl:text-4xl" />
+                <FcGoogle className="text-2xl xs:text-4xl" />
               </div>
               <div className="flex flex-col">
-                <div className="flex gap-1.5 text-12 mt-1 text-[#FCD503]">
+                <div className="flex gap-1 xs:gap-2 text-[9px] xs:text-10 mt-1 text-[#FCD503]">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <FaStar key={i} />
                   ))}
                 </div>
-                <p className="text-center text-10 pt-1 text-[#868686]">
+                <p className="text-center text-[7px] 2xl:10  text-[#868686]">
                   Google reviews
                 </p>
               </div>
             </div>
           </div>
-
+     </div>
+        <div>
+        <span className="text-10 text-gray-800 w-3/12 whitespace-nowrap ">
+            {testimonial.relative_time_description}
+          </span>
         </div>
       </div>
       <div>
@@ -177,17 +176,17 @@ function ReadMoreCard({
             <h3 className="text-14 lg:text-14 2xl:text-lg font-semibold">
               {testimonial.author_name}
             </h3>
-            <div className="flex items-center gap-2">
+            <div className="flex gap-2">
               <div>
-                <FcGoogle className="lg:text-2xl 2xl:text-4xl text-16" />
+                <FcGoogle className="text-4xl" />
               </div>
-              <div className="flex flex-col">
-                <div className="flex gap-1.5 text-12 mt-1 text-[#FCD503]">
+              <div className="flex flex-col pt-1">
+                <div className="flex gap-1.5 text-10 2xl:text-12 mt-1 text-[#FCD503]">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <FaStar key={i} />
                   ))}
                 </div>
-                <p className="text-center text-10 pt-1 text-[#868686]">
+                <p className="text-center text-[8px] 2xl:text-10 pt-1 text-[#868686]">
                   Google reviews
                 </p>
               </div>
