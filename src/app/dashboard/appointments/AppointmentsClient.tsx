@@ -41,9 +41,10 @@ const AppointmentsClient = ({ appointments }: { appointments: IAppointments[] })
       width: 120,
     },
     {
-      title: 'Date',
-      dataIndex: 'prefered_Date',
+      title: 'CreatedAt',
+      dataIndex: 'createdAt',
       width: 120,
+      render: (createdAt: string) => formatDate(createdAt),
     },
     {
       title: 'More Details',
@@ -103,6 +104,7 @@ const AppointmentsClient = ({ appointments }: { appointments: IAppointments[] })
       console.log("Appointments before formatting:", appointments);
 
       const filtered = appointments
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
         .map((appointment: IAppointments) => ({
           ...appointment,
           prefered_Date: formatDate(appointment.prefered_Date), 
