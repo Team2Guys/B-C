@@ -20,12 +20,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Build
-        run: npm run build
-
+    
       - name: Install sshpass
         run: sudo apt-get install sshpass
 
