@@ -106,7 +106,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
             {colorData.map((item, index) => (
               <div
                 onClick={(event) => handleNavigation(event, item.url)}
-                className="flex-col items-center gap-2 cursor-pointer color-box-wrapper border border-gray-200 py-3 rounded-md shadow-sm "
+                className="flex-col items-center gap-2 cursor-pointer color-box-wrapper border border-gray-200 py-3 rounded-md shadow-sm px-1"
                 key={`${item.color}-${index}`}
               >
                 <div
@@ -138,7 +138,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
                   }}
                 ></p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-10">
+              <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
                 <ThumbImage card={colorImages} />
               </div>
             </>
@@ -149,7 +149,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
           <CardSkeleton />
         )}
       </Container>
-      <Container className="my-20">
+      <Container className="my-10">
         <RelatedProducts products={relaiveProducts || []} limit={4} />
       </Container>
       <VideoAutomation />
