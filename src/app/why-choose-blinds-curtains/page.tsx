@@ -54,13 +54,13 @@ const ChooseUs = () => {
           </ul>
         ))}
       </div>
-      <div className='mt-10 md:mt-20 space-y-5'>
+      <div className='mt-10 space-y-5'>
         <h3 className='text-18  font-semibold'>With over 750 glowing reviews, we&apos;ve built a reputation for quality</h3>
       
         <p className='max-sm:text-14'>We&apos;ve got a huge selection of colours, designs, and materials, including high-quality, fire retardant, dim-out, blackout, and printed options. Our products are tested to the highest standards. <Link className='underline' href={"/"}>Blindsandcurtains.ae</Link> has been a trusted name in Dubai for over 10 years. Our dedication to customer satisfaction and delivering custom, quality products shines through in our five-star reviews on Google.</p>
       </div>
 
-      <div className="mt-10 md:mt-20 space-y-5">
+      <div className="mt-10 space-y-5">
         <h3 className='text-18  font-semibold'>At Blinds & Curtains, it’s all about you</h3>
         <div>
         <p className='max-sm:text-14'>With a full range of custom window coverings and a team of experts, we work with you to find what works for your home and budget. Our experience makes the process simple and stress-free.</p>

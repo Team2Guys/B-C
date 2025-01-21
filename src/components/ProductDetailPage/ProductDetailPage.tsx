@@ -73,7 +73,7 @@ const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
       {!allprod ? (
         <CardSkeleton />
       ) : (
-        <Container className="mt-10 md:mt-20">
+        <Container className="mt-10">
           <RelatedProducts products={relatedProducts || []} limit={4} title={title} />
         </Container>
       )}
