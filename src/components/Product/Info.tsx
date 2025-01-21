@@ -30,15 +30,15 @@ const Info = (selectedPage: IInfo) => {
                 dangerouslySetInnerHTML={{ __html: item.content as string }}
               ></p>
             ))}
-          <div className=" pt-5 text-center md:text-start">
-            <Link  href={"/request-appointment"}
+          <div className="hidden md:block pt-5 text-center md:text-start">
+            <Link href={"/request-appointment"}
               className="px-4 py-4 rounded-md bg-secondary hover:bg-primary text-white font-medium"
             >
               Book A Free Appointment
             </Link>
           </div>
         </div>
-        <div className="flex justify-center md:justify-end mt-14 md:mt-0">
+        <div className="flex flex-col gap-2 md:flex-row justify-center md:justify-end mt-14 md:mt-0">
           <Image
             className="w-auto h-auto rounded-xl object-fill"
             width={1024}
@@ -50,6 +50,13 @@ const Info = (selectedPage: IInfo) => {
             }
             alt="product"
           />
+          <div className="block md:hidden pt-5 text-center md:text-start">
+            <Link href={"/request-appointment"}
+              className="px-4 py-4 rounded-md bg-secondary hover:bg-primary text-white font-medium"
+            >
+              Book A Free Appointment
+            </Link>
+          </div>
         </div>
       </div>
     </Container>
