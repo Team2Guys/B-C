@@ -21,12 +21,13 @@ const ChooseUs: React.FC<ChooseUsProps> = ({
   return (
     <Container className="space-y-4">
       <h2 className="text-20 md:text-30 font-medium text-center">{title}</h2>
-      <div className={`${gridClass}`}>
+      <div className={`${gridClass} `}>
         {items.map((item, index) => (
           <div
             key={index}
-            className={`rounded-lg p-1 sm:p-3 text-center py-2 sm:py-6 space-y-4 ${boxClass}`}
+            className={`rounded-lg p-1 flex ${index === 4 && 'col-span-2 md:col-span-1'} sm:p-3 text-center py-2 sm:py-6 space-y-4 ${boxClass}`}
           >
+
             {item.image && (
               <Image
                 className="mx-auto"

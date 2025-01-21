@@ -30,7 +30,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
-console.log(products,"productsproducts")
+  console.log(products, "productsproducts")
   const { data: subcategories } = useQuery<ICategory[]>({
     queryKey: ['subcategories'],
     queryFn: fetchSubCategories,
@@ -99,11 +99,11 @@ console.log(products,"productsproducts")
               className={`flex flex-col gap-5 items-center justify-between mt-5 sm:mt-10 md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} justify-between`}
             >
               <div className="w-full md:w-1/2">
-              <div className="font-bold text-xl xs:text-2xl tracking-wider space-y-3 block sm:hidden pb-2">
-                    <h2 className="tracking-[.6rem] mb-2">
-                      Roller Blinds in Dubai, UAE{' '}
-                    </h2>
-                  </div>
+                <div className="font-bold text-xl xs:text-2xl tracking-wider space-y-3 block sm:hidden pb-2">
+                  <h2 className="tracking-[.6rem] mb-2">
+                    Roller Blinds in Dubai, UAE{' '}
+                  </h2>
+                </div>
                 {product_Images && (
                   <Image
                     className="w-full h-[280px] sm:h-[300px] md:h-[450px] rounded-xl"
@@ -134,22 +134,22 @@ console.log(products,"productsproducts")
 
                 <div className="mt-5 sm:mt-10 mx-auto">
                   <Link
-                     href={`/blinds/roller-blinds/${
-                      generateSlug(
-                        product.title === 'Sunscreen/Transparent Blinds'
-                          ? 'sunscreen-roller-blinds'
-                          : product.title
-                      )
-                    }`}
+                    href={`/blinds/roller-blinds/${generateSlug(
+                      product.title === 'Sunscreen/Transparent Blinds'
+                        ? 'sunscreen-roller-blinds'
+                        : product.title
+                    )
+                      }`}
                     className="px-6 sm:px-8 py-4 bg-secondary rounded-md text-white hover:bg-primary max-xs:text-14"
                   >
                     View Our{' '}
-                      {product.title === 'Sunscreen/Transparent Blinds'
-                        ? 'Sunscreen Roller Blinds'
-                        : product.title}
+                    {product.title === 'Sunscreen/Transparent Blinds'
+                      ? 'Sunscreen Roller Blinds'
+                      : product.title}
                   </Link>
                 </div>
               </div>
+
             </div>
           );
         })}
