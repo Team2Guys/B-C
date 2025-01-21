@@ -121,6 +121,7 @@ export interface IAppointments {
   user_query: string;
   whatsapp_number: string;
   windows: string;
+  createdAt: string;
 }
 
 interface SubheadingContent {
