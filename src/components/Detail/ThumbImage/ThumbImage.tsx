@@ -14,6 +14,8 @@ interface GalleryProps {
 }
 
 const ThumbImage: React.FC<GalleryProps> = ({ card }) => {
+  console.log('ThumbImage+++++++');
+  console.log(card);
   return (
     <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
       <ImageAntd.PreviewGroup
