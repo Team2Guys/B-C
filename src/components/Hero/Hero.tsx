@@ -13,7 +13,7 @@ function Hero() {
   return (
     <Container>
       <h1 className="hidden">Blinds & Curtains Dubai</h1>
-      <CustomSlider className="Hero-slider z-40 pb-3 xl:pt-0 2xl:pt-10 content-center h-[56vh] xs:h-full md:h-[55vh] lg:h-[65vh] xl:h-[80vh] 2xl:h-[84vh]">
+      <CustomSlider className="Hero-slider z-40 pb-3 xl:pt-0 2xl:pt-10 content-center h-[75vh] xs:h-full md:h-[55vh] lg:h-[65vh] xl:h-[80vh] 2xl:h-[84vh]">
         {heroSlider.map((item: any) => {
           return (
             <div key={item.id}>
@@ -37,16 +37,16 @@ function Hero() {
                       />
                     </svg>
 
-                    <h2 className="text-black font-gotham text-16 sm:text-20 md:text-[20px] lg:text-[30px] font-light ">
+                    <h2 className="text-black font-gotham mb-2 xs:mb-0 text-16 sm:text-20 md:text-[20px] lg:text-[30px] font-light ">
                       Blinds & Curtains Dubai
                     </h2>
                   </div>
-                  <h3 className="text-black font-extrabold text-18 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
+                  <h3 className="text-black font-extrabold mb-2 xs:mb-0 text-20 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
                     {item.heading}
                     <br />
                     {item.subheading}
                   </h3>
-                  <p className="font-normal text-12 xs:text-14 mt-0 md:mt-5 mb-2 md:mb-5 text-center md:text-start">
+                  <p className="font-normal text-13 xs:text-14 mt-0 md:mt-5 mb-2 md:mb-5 text-center md:text-start">
                     {item.content}
                   </p>
                   <Link
@@ -57,8 +57,8 @@ function Hero() {
                   </Link>
                 </div>
 
-                <div className="h-full w-fit mx-auto md:w-3/5 flex flex-col gap-3 sm:gap-5 md:gap-0 lg:justify-start justify-center !z-50 max-lg:py-2">
-                  <div className="relative">
+                <div className="h-full w-full xs:w-fit xs:mx-auto md:w-3/5 flex flex-col gap-3 sm:gap-5 md:gap-0 lg:justify-start justify-center !z-50 max-lg:py-2">
+                  <div className="relative mb-3 xs:mb-0">
                     {showModel == '1_model' && (
                       <SliderModal
                         className="-top-28 md:top-12 sm:top-12 xl:top-16"
@@ -77,7 +77,7 @@ function Hero() {
                       <span id="modalHandler">why us?</span>
                     </div>
                     <Image
-                      className="w-full h-full object-cover max-sm:object-contain max-sm:h-[180px]"
+                      className="w-full h-full object-cover max-sm:object-contain"
                       loading='lazy'
                       width={600}
                       height={600}
