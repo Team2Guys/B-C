@@ -3,24 +3,14 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import showToast from 'components/Toaster/Toaster';
-
-interface ProductOptions {
-  shutters?: boolean;
-  curtains?: boolean;
-  blinds?: boolean;
-  roller_blinds?: boolean;
-  wooden_blinds?: boolean;
-  other_blinds?: boolean;
-  plantation_bhutters?: boolean;
-  others?: boolean;
-}
+import { AppointmentProps, ContactMethods, ProductOptions } from 'types/types';
 interface IAppointments {
   name: string;
   phone_number: string;
@@ -37,30 +27,22 @@ interface IAppointments {
   prefered_time: string;
 }
 
-interface ContactMethods {
-  email: boolean;
-  telephone: boolean;
-  whatsapp: boolean;
-}
 
-interface AppointmentProps {
-  singlePage?: boolean;
-  className?: string;
-}
-
-const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) => {
+const BookAppointment: React.FC<AppointmentProps> = ({
+  singlePage,
+  className,
+}) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const PostAppointments = async (appointmentData: IAppointments) => {
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
-        appointmentData
+        appointmentData,
       );
       return response.data;
-    } catch (error:any) {
-      showToast('error', error.message  || JSON.stringify(error))
-
+    } catch (error: any) {
+      showToast('error', error.message || JSON.stringify(error));
     }
   };
 
@@ -72,7 +54,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
         roller_blinds: false,
         wooden_blinds: false,
         other_blinds: false,
-        plantation_bhutters: false,
+        shutters: false,
         others: false,
       };
     } else {
@@ -87,12 +69,13 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
   const [selectedOptions, setSelectedOptions] = useState<ProductOptions>(
     getInitialSelectedOptions(),
   );
-
-  const [contactMethods, setContactMethods] = useState<ContactMethods>({
+  const initialContactMethods = {
     email: false,
     telephone: false,
     whatsapp: false,
-  });
+  };
+  const [contactMethods, setContactMethods] = useState<ContactMethods>(initialContactMethods);
+  const [successMessage, setSuccessMessage] = useState<string>('');
 
   const formInitialValues = {
     name: '',
@@ -162,11 +145,10 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
       if (date >= today) {
         setFormData({ ...formData, prefered_Date: date });
       } else {
-        alert("Please select a date that is today or later.");
+        alert('Please select a date that is today or later.');
       }
     }
   };
-
 
   const validate = () => {
     let isValid = true;
@@ -224,7 +206,12 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
           prefered_time,
           ...withoutproductoption
         } = formData;
-        console.log(productoption, prefered_contact_method, prefered_time, withoutproductoption)
+        console.log(
+          productoption,
+          prefered_contact_method,
+          prefered_time,
+          withoutproductoption,
+        );
         let productTypeArray: any = Object.keys(formData.productoption)
           .map((item) => {
             const key = item as keyof ProductOptions;
@@ -248,10 +235,18 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
           product_type: productTypeArray,
         });
         console.log('response:', response);
-        toast.success('Appointment submitted successfully!');
-        setFormData(formInitialValues);
+        setFormData({
+          ...formInitialValues,
+          how_user_find_us: '',
+
+        });
+        setTimeout(() => setFormData(formInitialValues), 0);
+        setSelectedOptions(getInitialSelectedOptions());
+        setContactMethods(initialContactMethods)
+        setWordCount(0)
+        setSuccessMessage('Form Submitted Successfully🎉');
       } catch (error) {
-        toast.error('Failed to submit the appointment. Please try again.',);
+        toast.error('Failed to submit the appointment. Please try again.');
       } finally {
         setLoading(false);
       }
@@ -274,7 +269,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
     { value: 'Others', label: 'Others' },
   ];
 
-
   const handleInputChange = (e: any) => {
     const value = e.target.value;
     if (value.length <= 350) {
@@ -283,14 +277,13 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
     }
   };
 
-
   return (
     <div
-      className={`bg-white  text-left text-black ${className} ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
+      className={`bg-white  text-left text-black ${className} ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-6/12 2xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
     >
       {!singlePage && (
         <h3 className="font-bold text-lg text-center tracking-[5px] uppercase">
-         Book a free appointment
+          Book a free appointment
         </h3>
       )}
       <form
@@ -301,7 +294,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
           className={`xs:grid  mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-6' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-5'}`}
         >
           <div>
-            <label htmlFor="name" className="block text-11 font-light ">
+            <label htmlFor="name" className="block text-10 2xl:text-11 font-light ">
               Name *
             </label>
             <input
@@ -309,7 +302,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               name="name"
               placeholder="Enter Your Full Name"
               id="name"
-              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-11 ${errors.name ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.name}
               onChange={handleChange}
             />
@@ -320,11 +313,11 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
           <div>
             <label
               htmlFor="phone_number"
-              className="block text-11 font-light mb-1 "
+              className="block text-10 2xl:text-11 font-light mb-1 "
             >
               Phone Number *
             </label>
-            {/* <div className='border flex items-center px-1 h-9  border-gray-300 w-full rounded text-11 outline-none'>
+            {/* <div className='border flex items-center px-1 h-9  border-gray-300 w-full rounded text-10 2xl:text-11 outline-none'>
               <div className='w-2/12'>
               <Image width={25} height={25} src={"/assets/images/aedflag.png"} alt='flag'/>
               </div>
@@ -333,7 +326,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               </div>
             </div> */}
             <PhoneInput
-              className='mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none'
+              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 outline-none"
               international
               defaultCountry="AE"
               limitMaxLength
@@ -342,7 +335,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               onChange={(phone: any) =>
                 setFormData({ ...formData, phone_number: phone })
               }
-
             />
             {errors.phone_number && (
               <p className="text-red-500 text-xs">{errors.phone_number}</p>
@@ -350,7 +342,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-11 font-light ">
+            <label htmlFor="email" className="block text-10 2xl:text-11 font-light ">
               E-Mail *
             </label>
             <input
@@ -358,7 +350,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               placeholder="Enter Your E-Mail"
               name="email"
               id="email"
-              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-11 ${errors.email ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.email ? 'border-red-500' : ''}`}
               value={formData.email}
               onChange={handleChange}
             />
@@ -366,15 +358,15 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               <p className="text-red-500 text-xs">{errors.email}</p>
             )}
           </div>
-          <div className='relative overflow-hidden'>
+          <div className="relative overflow-hidden">
             <label
               htmlFor="whatsapp_number"
-              className="block text-11 font-light mb-1 "
+              className="block text-10 2xl:text-11 font-light mb-1 "
             >
               WhatsApp No. If Different
             </label>
             <PhoneInput
-              className='mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 outline-none'
+              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 outline-none"
               international
               defaultCountry="AE"
               limitMaxLength
@@ -386,7 +378,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
             />
           </div>
           <div>
-            <label htmlFor="windows " className="block text-11 font-light ">
+            <label htmlFor="windows " className="block text-10 2xl:text-11 font-light ">
               How Many Windows *
             </label>
             <input
@@ -394,7 +386,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               placeholder="Enter No of Windows"
               name="windows"
               id="windows"
-              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-11 ${errors.windows ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.windows ? 'border-red-500' : ''}`}
               value={formData.windows}
               onChange={handleChange}
             />
@@ -407,7 +399,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               value={windowOptions.find(
                 (option) => option.value === formData.windows,
               )}
-              className={`mt-1 w-full text-11 ${errors.windows ? 'border-red-500' : ''}`}
+              className={`mt-1 w-full text-10 2xl:text-11 ${errors.windows ? 'border-red-500' : ''}`}
             /> */}
             {errors.windows && (
               <p className="text-red-500 text-xs">{errors.windows}</p>
@@ -416,7 +408,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
           <div className="w-full custom-datepicker">
             <label
               htmlFor="preferredDate"
-              className="block text-11 font-light "
+              className="block text-10 2xl:text-11 font-light "
             >
               Preferred Data
             </label>
@@ -424,30 +416,31 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
             <DatePicker
               selected={formData.prefered_Date}
               onChange={handleDateChange}
-              className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
-              dateFormat="dd/MM/yy"  // Set date format to DD/MM/YY
-              minDate={new Date()}    // Disable past dates
+              className="h-[38px] mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
+              dateFormat="dd/MM/yy"
+              minDate={new Date()}
             />
           </div>
           <div className="w-full custom-datepicker">
             <label
               htmlFor="preferredTime"
-              className="block text-11 font-light "
+              className="block text-10 2xl:text-11 font-light "
             >
               Preferred Time
             </label>
             <Select
+              instanceId="window-options-select"
               options={preferTimeOptions}
               defaultValue={preferTimeOptions.find(
                 (option) => option.value === 'pm',
               )}
-              onChange={(option:any) =>
+              onChange={(option: any) =>
                 handleSelectChange('prefered_time', option?.value || '')
               }
               value={preferTimeOptions.find(
                 (option) => option.value === formData.prefered_time,
               )}
-              className="mt-1 w-full text-11"
+              className="mt-1 w-full text-10 2xl:text-11"
             />
             {/* <DatePicker
               selected={
@@ -458,31 +451,36 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               showTimeSelect
               showTimeSelectOnly
               dateFormat="h:mm aa"
-              className="h-[38px] mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
+              className="h-[38px] mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
             /> */}
           </div>
-          <div className={`w-full   ${singlePage ? 'col-span-4' : 'xl:col-span-2 2xl:col-span-1 '}`}>
+          <div
+            className={`w-full   ${singlePage ? 'col-span-4' : 'xl:col-span-2 2xl:col-span-1 '}`}
+          >
             <label
               htmlFor="how_user_find_us"
-              className="block text-11 font-light "
+              className="block text-10 2xl:text-11 font-light "
             >
               How Did You Hear About Us?
             </label>
             <Select
+              instanceId="window-options-select"
               options={referralOptions}
-              onChange={(option:any) =>
-                handleSelectChange('how_user_find_us', option?.value || '')
+              onChange={(option: any) =>
+                handleSelectChange('how_user_find_us', option?.value || null)
               }
-              value={referralOptions.find(
-                (option) => option.value === formData.how_user_find_us,
-              )}
-              className="mt-1 w-full text-11"
+              value={
+                referralOptions.find(
+                  (option) => option.value === formData.how_user_find_us,
+                ) || null // Ensures no value is selected when reset
+              }
+              className="mt-1 w-full text-10 2xl:text-11"
             />
           </div>
           <div
             className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}
           >
-            <label htmlFor="Address " className="block text-11 font-light ">
+            <label htmlFor="Address " className="block text-10 2xl:text-11 font-light ">
               Address *
             </label>
             <input
@@ -490,7 +488,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               name="area"
               placeholder="Enter Your Address"
               id="area"
-              className={`mt-1 h-9 p-2 border border-gray-300 w-full rounded text-11 ${errors.name ? 'border-red-500' : ''}`}
+              className={`mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.area}
               onChange={handleChange}
             // required
@@ -500,16 +498,17 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               <p className="text-red-500 text-xs">{errors.area}</p>
             )}
           </div>
-
         </div>
         {!singlePage && (
           <div className="flex flex-wrap justify-between gap-2 mb-3">
             <div className=" p-2 bg-white rounded-md">
-              <h2 className="text-11 font-light mb-3">Tell us what you need:</h2>
+              <h2 className="text-10 2xl:text-11 font-light mb-3">
+                Tell us what you need:
+              </h2>
 
               <div className="flex flex-row flex-wrap sm:flex-nowrap gap-2 sm:gap-4">
                 <div>
-                  <label className="flex items-center text-11 text-[#898989]">
+                  <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                     <input
                       type="checkbox"
                       checked={selectedOptions.blinds}
@@ -521,7 +520,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
                 </div>
 
                 <div>
-                  <label className="flex items-center text-11 text-[#898989]">
+                  <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                     <input
                       type="checkbox"
                       checked={selectedOptions.curtains}
@@ -532,7 +531,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
                   </label>
                 </div>
                 <div>
-                  <label className="flex items-center text-11 text-[#898989]">
+                  <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                     <input
                       type="checkbox"
                       checked={selectedOptions.shutters}
@@ -545,10 +544,11 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               </div>
             </div>
             <div className="p-2 rounded-md">
-              <h2 className="text-11 font-light mb-3">How shall we contact you?</h2>
+              <h2 className="text-10 2xl:text-11 font-light mb-3">
+                How shall we contact you?
+              </h2>
               <div className="flex flex-wrap sm:flex-nowrap flex-row gap-2 mt-2">
-                <label className="flex items-center text-11 text-[#898989]">
-
+                <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                   <input
                     type="checkbox"
                     name="whatsapp"
@@ -559,7 +559,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
                   WhatsApp
                 </label>
 
-                <label className="flex items-center text-11 text-[#898989]">
+                <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                   <input
                     type="checkbox"
                     name="telephone"
@@ -569,7 +569,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
                   />
                   Telephone
                 </label>
-                <label className="flex items-center text-11 text-[#898989]">
+                <label className="flex items-center text-10 2xl:text-11 text-[#898989]">
                   <input
                     type="checkbox"
                     name="email"
@@ -586,7 +586,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
         {singlePage && (
           <>
             <div className="w-full  mx-auto my-6">
-              <label className="block text-11 font-light ">
+              <label className="block text-10 2xl:text-11 font-light ">
                 Window Dressing Type
               </label>
               <div className="flex flex-row flex-wrap md:flex-nowrap justify-start md:justify-between gap-5 mt-2">
@@ -605,32 +605,18 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
                         handleCheckboxChange(option as keyof ProductOptions)
                       }
                     />
-                    <label htmlFor={option} className="ml-2 text-11">
+                    <label htmlFor={option} className="ml-2 text-10 2xl:text-11">
                       {option.replace('_', ' ').toUpperCase()}
                     </label>
                   </div>
                 ))}
               </div>
             </div>
-            {/* <div className="flex flex-col mt-4">
-              <label htmlFor="form-textarea" className="text-13 font-light">
-                What is your query regarding?
-              </label>
-              <textarea
-                name="other"
-                id="other"
-                value={formData.other}
-                onChange={handleChange}
-                className="border border-[#D1D5DB] h-64 rounded-md mt-1"
-              ></textarea>
-            </div> */}
           </>
         )}
 
-        <div
-          className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}
-        >
-          <label htmlFor="user_query" className="block text-11 font-light ">
+        <div className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}>
+          <label htmlFor="user_query" className="block text-10 2xl:text-11 font-light ">
             Any Other Requirements
           </label>
           <textarea
@@ -638,17 +624,16 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
             name="user_query"
             value={formData.user_query}
             onChange={handleInputChange}
-            className="mt-1 w-full text-11 border p-2 rounded-md border-[#D1D5DB]"
+            className="mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
             placeholder="Enter your query (max 350 characters)"
             rows={2}
           />
-          {wordCount > 0 &&
+          {wordCount > 0 && (
             <div className="text-sm text-gray-400 mt-1">
               {wordCount}
               {/* /350 words */}
             </div>
-          }
-
+          )}
 
           {/* <Select
               options={queryOptions}
@@ -658,11 +643,14 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
               value={queryOptions.find(
                 (option) => option.value === formData.user_query,
               )}
-              className="mt-1 w-full text-11"
+              className="mt-1 w-full text-10 2xl:text-11"
             /> */}
         </div>
 
         <div className="text-center mt-4">
+
+
+
           <button
             type="submit"
             className="w-fit bg-secondary hover:bg-primary text-white py-2 px-8 sm:px-14 rounded"
@@ -670,7 +658,17 @@ const BookAppointment: React.FC<AppointmentProps> = ({ singlePage, className }) 
           >
             {loading ? <Loader color="#fff" /> : 'Submit Request'}
           </button>
+          {successMessage && (
+            <p className=" text-xs mt-2">{successMessage}
+
+
+            </p>
+          )}
+
         </div>
+
+
+
       </form>
     </div>
   );

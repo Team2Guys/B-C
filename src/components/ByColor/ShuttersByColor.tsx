@@ -106,7 +106,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
             {colorData.map((item, index) => (
               <div
                 onClick={(event) => handleNavigation(event, item.url)}
-                className="flex-col items-center gap-2 cursor-pointer color-box-wrapper"
+                className="flex-col items-center gap-2 cursor-pointer color-box-wrapper border border-gray-200 py-3 rounded-md shadow-sm "
                 key={`${item.color}-${index}`}
               >
                 <div

@@ -34,7 +34,7 @@ const DetailInfo: React.FC<detailprops> = ({
           
           <div className="w-full xl:w-5/12">
             <div className="space-y-4">
-              <h2 className="text-24 xs:text-center lg:text-start sm:text-32 lg:text-[41px] font-medium">
+              <h2 className="text-24 text-center lg:text-start sm:text-32 lg:text-[41px] font-medium">
                 {heading ? heading : `What are ${title}`}{' '}
               </h2>
               <p className="underline underline-offset-8 text-[#6F747F] ">
@@ -42,7 +42,7 @@ const DetailInfo: React.FC<detailprops> = ({
               </p>
               <div className="space-y-3 md:space-y-10">
                 <p
-                  className="text-12 md:text-14 lg:text-16 leading-6 md:leading-8"
+                  className="text-12 text-center lg:text-start md:text-14 lg:text-16 leading-6 md:leading-8"
                   dangerouslySetInnerHTML={{ __html: description }}
                 ></p>
               </div>
@@ -61,7 +61,7 @@ const DetailInfo: React.FC<detailprops> = ({
           <div className="w-full xl:w-6/12 mt-4 lg:mt-0">
             <div className={`text-end  ${imageClass}`}>
               <Image
-                className="h-56 xs:h-[526.24px] w-full rounded-3xl "
+                className="h-56 xs:h-72 sm:h-[470px] 2xl:h-[526.24px] w-full rounded-3xl object-cover object-top"
                 width={1000}
                 height={1000}
                 src={image?.imageUrl}

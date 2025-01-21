@@ -59,8 +59,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
           >
             <div className="absolute w-full bottom-0">
               <div className="bg-secondary flex gap-2 justify-between items-center w-full p-2 px-4 md:opacity-1 group-hover:opacity-100 duration-700 rounded-b-xl">
-                <p className="text-12 lg:text-16 text-black capitalize"><Link className ="w-full cursor-pointer" href={getPath(product, parent as string)}>{product.title}</Link> </p>
-                <div className="border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-12 lg:text-14 text-nowrap">
+                <p className="text-14 text-black capitalize"><Link className ="w-full cursor-pointer" href={getPath(product, parent as string)}>{product.title}</Link> </p>
+                <div className="border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-14 text-nowrap">
             
                   <Link className ="w-full cursor-pointer" href={getPath(product, parent as string)}>View More</Link>
                 </div>

@@ -172,3 +172,26 @@ export interface CategoryProps {
   subCategories?: ICategory[];
   categories?: ICategory[];
 }
+
+export interface ProductOptions {
+  shutters?: boolean;
+  curtains?: boolean;
+  blinds?: boolean;
+  roller_blinds?: boolean;
+  wooden_blinds?: boolean;
+  other_blinds?: boolean;
+  shutters?: boolean;
+  others?: boolean;
+}
+
+
+export interface ContactMethods {
+  email: boolean;
+  telephone: boolean;
+  whatsapp: boolean;
+}
+
+export interface AppointmentProps {
+  singlePage?: boolean;
+  className?: string;
+}

@@ -144,7 +144,7 @@ const Commercial = ({
           <div className="h-fit flex justify-center md:justify-start mt-4">
             <Link
               href="/request-appointment"
-              className="px-8 py-4 bg-borderclr rounded-md text-white hover:bg-hoverborderclr "
+              className="px-8 py-4 bg-secondary rounded-md text-white hover:bg-primary "
             >
               Book A Free Appointment
             </Link>
@@ -179,13 +179,7 @@ const Commercial = ({
         <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal uppercase">
           COMMERCIAL OFFICE BLINDS installations
         </h2>
-        {/* <p className="mt-3 text-14 md:leading-7">
-          See our comprehensive Blinds range
-          <br />
-          Find the perfect made-to-measure blinds within our exclusive range.
-          There are many shades and stunning patterns to select from
-        </p> */}
-        <div>
+        <div className='w-full'>
           {
             <ImageAntd.PreviewGroup
               preview={{
@@ -197,44 +191,38 @@ const Commercial = ({
               {isLoading ? (
                 <CardSkeleton isSizeSmall />
               ) : (
-                <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
-                  {filteredProducts?.map((product) => {
-                    // Skip product without a category
-                    if (!product.category) return null;
-                    // use title { posterImage, title } = product;
-                    const { posterImage } = product;
-                    const altText = posterImage?.altText || 'Image';
+                <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
+                {filteredProducts?.map((product) => {
+                  if (!product.category) return null;
+                  const { posterImage } = product;
+                  const altText = posterImage?.altText || 'Image';
 
-                    return (
-                      <div
-                        key={product.id}
-                        className="relative rounded-lg transition-shadow duration-300 group"
-                      >
-                        <ImageAntd
-                          src={posterImage?.imageUrl || '/default-image.jpg'}
-                          alt={altText}
-                          className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px]"
-                          width={500}
-                          height={500}
-                          preview={{
-                            mask: (
-                              <div>
-                                <IoSearch
-                                  style={{ color: 'white', fontSize: '30px' }}
-                                />
-                              </div>
-                            ),
-                          }}
-                        />
-                        {/* <div
-                      className="absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center justify-center bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  return (
+                    <div
+                      key={product.id}
+                      className="max-sm:flex-shrink-0 relative rounded-lg transition-shadow duration-300 group max-sm:gap-4 w-8/12 xs:w-5/12 sm:w-3/12 mt-2"
                     >
-                      <span className="text-black text-start text-primary cursor-pointer">{title}</span>
-                    </div> */}
-                      </div>
-                    );
-                  })}
-                </div>
+                      <ImageAntd
+                        src={posterImage?.imageUrl || '/default-image.jpg'}
+                        alt={altText}
+                        className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px] w-full"
+                        width={500}
+                        height={500}
+                        preview={{
+                          mask: (
+                            <div>
+                              <IoSearch
+                                style={{ color: 'white', fontSize: '30px' }}
+                              />
+                            </div>
+                          ),
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+
               )}
             </ImageAntd.PreviewGroup>
           }
