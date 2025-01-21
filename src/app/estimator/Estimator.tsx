@@ -169,12 +169,12 @@ const EstimatorPage = ({sortedProducts , products}: {sortedProducts: EsProduct[]
                   </div>
                 </div>
               </div>
-              <p className="lg:text-[15px] ">
-                The displayed price is for indication purposes only. <br />
-                Final price may vary according to your actual requirements.{' '}
-                <br />
-                All blinds & shutters are charged at a minimum of 1.5m2
-              </p>
+            <ul className="list-disc pl-5 lg:text-[15px]">
+  <li>The displayed price is for indication purposes only.</li>
+  <li>Final price may vary according to your actual requirements.</li>
+  <li>All blinds & shutters are charged at a minimum of 1.5m².</li>
+</ul>
+
 
               <Button
                 variant={'default'}
