@@ -13,26 +13,15 @@ import { fetchReviewsHandler } from 'config/fetch';
 function SampleNextArrow(props: any) {
   const { onClick } = props;
   return (
-    <div
-      className={
-        'block absolute -right-7 xs:-right-3 bottom-3 font-semibold text-white cursor-pointer'
-      }
-      onClick={onClick}
-    >
+    <div className={'block absolute -right-7 xs:-right-3 bottom-14  sm:bottom-3 font-semibold text-white cursor-pointer' } onClick={onClick} >
       <GoArrowRight size={30} />
     </div>
   );
 }
-
 function SamplePrevArrow(props: any) {
   const { onClick } = props;
   return (
-    <div
-      className={
-        'block absolute -left-7 xs:-left-3 bottom-3 font-semibold text-white z-10 cursor-pointer'
-      }
-      onClick={onClick}
-    >
+    <div className={'block absolute -left-7 xs:-left-3 bottom-14  sm:bottom-3 font-semibold text-white z-10 cursor-pointer'} onClick={onClick}>
       <GoArrowLeft size={30} />
     </div>
   );
