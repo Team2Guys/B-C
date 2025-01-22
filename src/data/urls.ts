@@ -385,6 +385,7 @@ export const blogPostUrl = [
   { url: '/window-shades', redirectUrl: '/' },
   { url: '/solar-screen-shades', redirectUrl: '/' },
   { url: '/office-window-blinds', redirectUrl: '/commercial' },
+  { url: '/curtians/velvet-curtains', redirectUrl: '/curtains/velvet-curtains' },
   
 ];
 
