@@ -82,8 +82,7 @@ const RoomProducts = ({
     }
   }, [pathname]);
 
-  const [filteredProducts, setFilteredProducts] =
-    useState<IProduct[]>(relatedProducts);
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>(relatedProducts);
   const [productCategory, setProductCategory] = useState<string>('');
 
   const filterProducts = () => {
