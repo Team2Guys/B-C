@@ -985,6 +985,9 @@ export const extendedByStyle = [
   { productName: 'outdoor-shutters' },
   // { productName: 'staircase-shutters' },
   { productName: 'cafe-style-shutters' },
+  { productName: 'automated-curtains' },
+  { productName: 'automated-blinds' },
+
 ];
 
 export const extendedByRoom = [
@@ -1014,6 +1017,10 @@ export const extendedByRoom = [
   { productName: 'kitchen-shutters' },
   { productName: 'bedroom-shutters' },
   { productName: 'staircase-shutters' },
+  { productName: 'hotel-curtains' },
+  { productName: 'office-curtains' },
+  { productName: 'door-curtains' },
+
 ];
 export const extendedDynamic = [
   { productName: 'motorised-blinds' },
@@ -1043,6 +1050,9 @@ export const extendedDynamic = [
   { productName: 'dark-wood-shutters' },
   { productName: 'bold-colours-shutters' },
   { productName: 'grey-shutters' },
+  { productName: 'linen-curtains' },
+  { productName: 'chiffon-curtains' },
+
 ];
 
 export const AddProductvalidationSchema = Yup.object().shape({

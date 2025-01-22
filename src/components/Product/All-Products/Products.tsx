@@ -75,9 +75,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   );
 
   const byDynamic = [...extendedDynamic, ...megaMenuDynamic].flat();
-  const ByDynamicItems = useMemo(
-    () =>
-      products.filter((product) =>
+  const ByDynamicItems = useMemo(() =>      products.filter((product) =>
         byDynamic.some(
           (item) => item.productName === generateSlug(product.title)
         )
