@@ -385,7 +385,7 @@ export const blogPostUrl = [
   { url: '/window-shades', redirectUrl: '/' },
   { url: '/solar-screen-shades', redirectUrl: '/' },
   { url: '/office-window-blinds', redirectUrl: '/commercial' },
-  { url: '/contact-us', redirectUrl: '/contact-us' },
+  { url: '/contact-form', redirectUrl: '/contact-us' },
   { url: '/curtians/velvet-curtains', redirectUrl: '/curtains/velvet-curtains' },
   { url: '/talk-to-specialist', redirectUrl: '/request-appointment' },
   { url: '/blinds/digitally-printed-photo-logo-blinds', redirectUrl: '/commercial/printed-blinds' },
