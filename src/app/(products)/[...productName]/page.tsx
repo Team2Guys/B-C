@@ -20,9 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
-  const [categories] = await Promise.all([
-    fetchCategories(),
-  ]);
+  const categories = await  fetchCategories()
+
 
   const filterCategory = categories.find((category) => category.title === matchingLink?.label);
   const headersList = await headers();
