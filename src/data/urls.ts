@@ -230,6 +230,11 @@ export const CommercialUrl = [
   { urlName: 'schools', Redirect: '/blinds/school-blinds' },
   { urlName: 'office-window-blinds', Redirect: '/commercial' },
   { urlName: 'dining-room-curtains', Redirect: '/dining-room-curtains-dubai' },
+  { urlName: 'digitally-printed-photo-logo-blinds', Redirect: '/commercial/printed-blinds' },
+  { urlName: 'custom-printed-curtains', Redirect: '/curtains/curtain-prints-for-kids' },
+  { urlName: 'dorren-blinds', Redirect: '/made-to-measure-blinds' },
+
+
 
 ];
 
@@ -419,6 +424,7 @@ export const blogPostUrl = [
     url: "/blinds/digitally-printed-photo-logo-blinds",
     redirectUrl: "/commercial/printed-blinds"
   },
+  
   {
     url: "/shutters/lvl-shutters",
     redirectUrl: "/shutters-range"
