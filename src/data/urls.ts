@@ -367,6 +367,10 @@ export const blogPostUrl = [
     url: '/vertical-blinds-for-windows',
     redirectUrl: '/blog/vertical-blinds-for-windows',
   },
+  {
+    url: '/curtians/velvet-curtains',
+    redirectUrl: '/curtains/velvet-curtains',
+  },
   { url: '/our-installation', redirectUrl: '/gallery' },
   { url: '/call-me-back', redirectUrl: '/request-appointment' },
   { url: '/blinds-projects', redirectUrl: '/projects' },
