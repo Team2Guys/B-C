@@ -17,7 +17,7 @@ const Banner: React.FC<BannerProps> = () => {
       <div className="col-span-1" />
       <div className="col-span-12 sm:col-span-6 md:col-span-5 2xl:col-span-4 space-y-2 px-4 md:px-0 pt-3 pb-2 sm:py-2 md:py-0 text-center sm:text-start">
         <p className=' text-16 md:text-[34px] xl:text-[41px] font-bold'>From Bay Windows to Patio Doors..</p>
-        <Link href="/contact-form" className="text-16 xs:text-18 leading-4 block w-fit shadow-md text-white bg-secondary hover:bg-primary py-2 px-4 md:px-6 md:py-4 rounded-md capitalize
+        <Link href="/contact-us" className="text-16 xs:text-18 leading-4 block w-fit shadow-md text-white bg-secondary hover:bg-primary py-2 px-4 md:px-6 md:py-4 rounded-md capitalize
         max-xs:mx-auto">
           Contact Us
         </Link>

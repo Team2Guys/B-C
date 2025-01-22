@@ -3,22 +3,22 @@ import React, { useEffect, useState } from 'react';
 import Info from 'components/Product/Info';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { categoriesContent, generateSlug, HiddenProducts_list } from 'data/data';
+import { HiddenProducts_list } from 'data/data';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
-import { usePathname } from 'next/navigation';
 import AllProducts from 'components/Product/All-Products/Products';
 import NotFound from 'app/not-found';
 import { ICategory, IProduct } from 'types/types';
 import VideoBanner from 'components/video-banner/video-banner';
 import { links } from 'data/header_links';
 
-const Product = ({productName , products , categories , subCategories}: {productName: string, products: IProduct[] , categories: ICategory[] , subCategories: ICategory[]}) => {
-  const matchingLink = links.find((link) =>
-    productName?.includes(link.href.replace(/^\//, '')),
-  );
-  const [selectedPage, setSelectedPage] = useState<{
+interface IProductProps {
+  productName: string;
+  products: IProduct[];
+  categories: ICategory[];
+  subCategories: ICategory[];
+  selectedPage: {
     heading: string;
     paragraph: string;
     subheading1: string;
@@ -26,8 +26,29 @@ const Product = ({productName , products , categories , subCategories}: {product
     subheadingContent: {
       content: string;
     }[];
-  } | null>(null);
-  const pathname = usePathname();
+  } | null;
+}
+
+const Product = ({
+  productName,
+  products,
+  categories,
+  subCategories,
+  selectedPage,
+}: IProductProps) => {
+  const matchingLink = links.find((link) =>
+    productName?.includes(link.href.replace(/^\//, '')),
+  );
+  // const [selectedPage, setSelectedPage] = useState<{
+  //   heading: string;
+  //   paragraph: string;
+  //   subheading1: string;
+  //   subheading2: string;
+  //   subheadingContent: {
+  //     content: string;
+  //   }[];
+  // } | null>(null);
+
   const title = matchingLink ? matchingLink.label : productName;
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
   const [isNotFound, setIsNotFound] = useState(false);
@@ -61,17 +82,18 @@ const Product = ({productName , products , categories , subCategories}: {product
       setIsNotFound(true);
     }
   }, [products, categories, subCategories, productNameString]);
-  useEffect(() => {
-    const selectedPage = categoriesContent.find(
-      (page) => page.slug === generateSlug(pathname),
-    );
-    if (selectedPage) {
-      setSelectedPage(selectedPage.content);
-    }
-  }, [pathname]);
-   if (isNotFound ) {
-      return <NotFound />;
-    }
+
+  // useEffect(() => {
+  //   const selectedPage = categoriesContent.find(
+  //     (page) => page.slug === generateSlug(pathname),
+  //   );
+  //   if (selectedPage) {
+  //     setSelectedPage(selectedPage.content);
+  //   }
+  // }, [pathname]);
+  if (isNotFound) {
+    return <NotFound />;
+  }
   return (
     <>
       <VideoBanner
@@ -80,7 +102,7 @@ const Product = ({productName , products , categories , subCategories}: {product
         showButton={true}
       />
       <Info selectedPage={selectedPage} />
-      <AllProducts products={filteredProducts.filter((prod)=>!HiddenProducts_list.includes(prod.title))} categoryType={`${title}`} />
+      <AllProducts products={filteredProducts.filter((prod) => !HiddenProducts_list.includes(prod.title))} categoryType={`${title}`} />
       <Container className="mt-10 mb-10">
         <RelatedProducts products={filteredProducts || []} limit={4} />
       </Container>
