@@ -40,7 +40,7 @@ const DetailInfo: React.FC<detailprops> = ({
               <p className="underline underline-offset-8 text-[#6F747F] ">
                 {subtitle}
               </p>
-              <div className="space-y-3 md:space-y-10">
+              <div className="hidden lg:block space-y-3 md:space-y-10">
                 <p
                   className="text-12 text-center lg:text-start md:text-14 lg:text-16 leading-6 md:leading-8"
                   dangerouslySetInnerHTML={{ __html: description }}
@@ -67,7 +67,12 @@ const DetailInfo: React.FC<detailprops> = ({
                 src={image?.imageUrl}
                 alt={image?.altText || 'Image'}
               />
-
+              <div className="block lg:hidden mt-4 space-y-3 md:space-y-10">
+                <p
+                  className="text-12 text-center lg:text-start md:text-14 lg:text-16 leading-6 md:leading-8"
+                  dangerouslySetInnerHTML={{ __html: description }}
+                ></p>
+              </div>
               <div className='pb-2 lg:pb-0 lg:pt-4  w-full flex justify-center lg:justify-start mt-4'>
                 <Link href={"/request-appointment"}
                   target='_blank' rel="noopener"
