@@ -1,17 +1,32 @@
-"use client"
-import Link from "next/link";
-import gitImg from "../../public/assets/json/404.json";
-import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+'use client';
+
+import Link from 'next/link';
+import gitImg from '../../public/assets/json/404.json';
+import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+import { useDispatch } from 'react-redux';
+import { setIsNotFoundPage } from '../redux/slices/pageStateSlice';
+
 const Lottie = dynamic(() => import('components/Lottie/error-gif'), {
   ssr: false,
-})
+});
 
 export default function NotFound() {
   const [isClient, setIsClient] = useState(false);
+
+  const dispatch = useDispatch();
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+
+  useEffect(() => {
+    dispatch(setIsNotFoundPage(true));
+
+    return () => {
+      dispatch(setIsNotFoundPage(false));
+    };
+  }, [dispatch]);
 
   if (!isClient) {
     return null;
@@ -25,7 +40,7 @@ export default function NotFound() {
           There&apos;s <span className="uppercase">Nothing</span> here ...
         </h2>
         <p className="text-center px-2 xsm:px-0 text-10 xsm:text-12 sm:text-base md:text-lg lg:text-xl">
-          ...maybe the page you are looking for is not found or never exited.
+          ...maybe the page you are looking for is not found or never existed.
         </p>
         <div className="flex items-center gap-4 justify-center">
           <Link
@@ -36,7 +51,7 @@ export default function NotFound() {
           </Link>
           <Link
             className="w-35 sm:w-40 h-10 sm:h-12 text-14 flex justify-center items-center rounded-full bg-transparent text-primary hover:bg-primary border border-primary hover:border-primary hover:text-white transition"
-            href="/contact-form"
+            href="/contact-us"
           >
             Contact Us
           </Link>
