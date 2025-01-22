@@ -20,7 +20,7 @@ export async function generateMetadata({ params }:meta_props): Promise<Metadata>
     const comparisonValue = matchingLinks?.productName || reverseSlug(product);
     return subcategory.title === comparisonValue;
   });
-  const filterproduct = products.find((prod) => {
+  const filterproduct = products.find((prod:any) => {
     const comparisonValue = matchingLinks?.productName || reverseSlug(product);
     return prod.title === comparisonValue;
   });
