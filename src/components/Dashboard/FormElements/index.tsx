@@ -40,14 +40,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 }) => {
   console.log(EditInitialValues, 'valuesonsubmit0');
   const [imagesUrl, setImagesUrl] = useState<any[]>([]);
-  const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(
-    EditInitialValues &&
-      EditInitialValues.posterImage && [EditInitialValues.posterImage],
-  );
-  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(
-    EditInitialValues &&
-      EditInitialValues.bannerImage && [EditInitialValues.bannerImage],
-  );
+  const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(EditInitialValues &&EditInitialValues.posterImage && [EditInitialValues.posterImage],);
+  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
   const [productUpdateFlat, setProductUpdateFlat] = useState(false);
   const [hoverImage, sethoverImage] = useState<any[] | null | undefined>(
     EditInitialValues &&
@@ -126,8 +120,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     };
 
     CategoryHandler();
-  }, []);
+  }, [EditInitialValues]);
 
+
+  console.log(imagesUrl, 'imageUrls', imagesUrl.length)
   console.log(setVariationOption, 'setVariationOption');
   const onSubmit = async (values: any, { resetForm }: any) => {
     console.log(values, 'valuesonsubmit');
@@ -330,6 +326,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     );
     setFilteredSubcategories(filteredSubcategories);
   }, [selectedCategoryIds, categoriesList]);
+
+
+
 
   return (
     <>
