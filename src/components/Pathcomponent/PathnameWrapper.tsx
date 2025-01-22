@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Header from 'components/Res-usable/header/Header';
 import Footer from 'components/Res-usable/Footer/Footer';
@@ -8,13 +8,17 @@ import Testimonial from 'components/slider/testimonial';
 import OurClient from 'components/Our-Client/OurClient';
 import { RootState } from 'redux/store';
 import { useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { category_wise_paths } from 'data/urls';
 
 const PathnameWrapper = ({ children }: { children: React.ReactNode }) => {
   const isNotFoundPage = useSelector((state: RootState) => state.pageState.isNotFoundPage);
+  const router = useRouter()
   const pathname = usePathname();
   const withoutHeaderPages = ['/blog',];
 
   const splited_urls = pathname.split('/');
+
 
   return (
     <>
