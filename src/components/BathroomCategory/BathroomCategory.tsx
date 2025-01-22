@@ -94,7 +94,7 @@ const BathroomCategory = ({
         <h2 className="text-xl sm:text-30 font-bold border border-b-[#A9B4A4] text-center">
           {static_Title ? static_Title : categoryName}
         </h2>
-        <p className="font-normal text-xs sm:text-16 leading-6 sm:leading-9 text-center text-[#666768]" dangerouslySetInnerHTML={{ __html: description }}></p>
+        <p className="font-normal text-xs sm:text-16 leading-6 sm:leading-9 text-center text-[#666768]  border border-b-[#A9B4A4] pb-2 " dangerouslySetInnerHTML={{ __html: description }}></p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-10 2xl:gap-16 my-10 px-2">
         {isLoading

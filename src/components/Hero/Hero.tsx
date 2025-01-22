@@ -101,7 +101,7 @@ function Hero() {
                     )}
                   </div>
                   <Link
-                    className="uppercase bg-white md:hidden mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0   w-fit"
+                    className="uppercase bg-white mb-5 md:hidden mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0   w-fit"
                     href={'/request-appointment'}
                   >
                     Book A Free Home Design Visit
