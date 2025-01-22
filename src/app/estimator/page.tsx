@@ -30,7 +30,7 @@ const Estimator: React.FC = async () => {
   const products = await fetchProducts();
 
   const filteredFetchedProducts = products
-    ? products.filter((product) => allowedTitles.includes(product.title))
+    ? products.filter((product:any) => allowedTitles.includes(product.title))
     : [];
 
   const allProducts = [...estimator_data, ...filteredFetchedProducts];
