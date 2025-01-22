@@ -29,19 +29,19 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
 }) => {
   return (
     <Container className="mt-3 md:mt-5 lg:mt-14">
-      <div className={`flex flex-wrap lg:flex-nowrap lg:gap-10 ${className}`}>
+      <div className={`flex flex-wrap lg:flex-nowrap mb-2 lg:gap-10 ${className}`}>
         <div className="w-full lg:w-/12 xl:w-6/12">
-          <div className="space-y-4">
+          <div className="space-y-2">
             <h2 className="text-32 md:text-[41px] font-medium text-center sm:text-start">{title || ""}</h2>
             <p className="underline underline-offset-8 text-[#6F747F] text-center sm:text-start">
               {subtitle || ""}
             </p>
             <p className={`text-12 md:text-16 leading-6 md:leading-8  ${decClass}`} dangerouslySetInnerHTML={{ __html: description || "" }}></p>
-            <div className="space-y-3">
+            <div className="space-y-3 hidden lg:block">
               <p className="text-12 md:text-16 leading-6 md:leading-8 " dangerouslySetInnerHTML={{ __html: description2 || "" }}></p>
               <p className="text-12 md:text-16 leading-6 md:leading-8 ">{description3}</p>
             </div>
-            <span className="hidden md:block">
+            <span className="hidden md:block mb-3">
 
               {showButton && <AppointmentButton />}
             </span>
@@ -55,6 +55,10 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
               src={image}
               alt="Motorised Blind Image"
               className="w-full h-72 xs:h-[400px] lg:h-[600px] xl:h-[400px]" />
+            <div className="space-y-3 block lg:hidden mt-4">
+              <p className="text-12 md:text-16 leading-6 md:leading-8 " dangerouslySetInnerHTML={{ __html: description2 || "" }}></p>
+              <p className="text-12 md:text-16 leading-6 md:leading-8 ">{description3}</p>
+            </div>
             <span className="block md:hidden">
 
               {showButton && <AppointmentButton />}
