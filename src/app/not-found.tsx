@@ -14,7 +14,6 @@ const Lottie = dynamic(() => import('components/Lottie/error-gif'), {
 
 export default function NotFound() {
   const [isClient, setIsClient] = useState(false);
-  const [loading, setloading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -33,7 +32,7 @@ export default function NotFound() {
       useEffect(() => {
     setIsClient(true);
   }, []);
-  if (!isClient || loading) {
+  if (!isClient) {
     return null;
   }
 
