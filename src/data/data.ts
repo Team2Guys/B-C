@@ -107,7 +107,7 @@ export const footerLinks: TFooterSection[] = [
     title: 'Quick Links',
     links: [
       { text: 'About Us', href: '/about-us' },
-      { text: 'Contact Us', href: '/contact-us' },
+      { text: 'Contact Us', href: '/contact-form' },
       { text: 'Our Projects', href: '/projects' },
       { text: 'Product Guarantees', href: '/product-guarantees' },
       { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
