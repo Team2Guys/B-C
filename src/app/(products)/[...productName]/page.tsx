@@ -10,12 +10,12 @@ import { categoriesContent, generateSlug } from "data/data";
 import NotFound from "app/not-found";
 
 type Props = {
-  params: Promise<{ productName: string }>
+  params: Promise<{ productName: string[] }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const productName = (await params).productName;
-
+  const productName = (await params).productName[0];
+console.log(productName, "product")
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
@@ -70,8 +70,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const Products = async ({ params }: Props) => {
-  const slug = (await params).productName;
-  const matchingUrl = blogPostUrl.find((item) => item.url === `/${slug}`);
+  const slug = (await params).productName[0];
+  const redirectUrl:any = (await params).productName;
+  const splited = redirectUrl.join('/')
+console.log(redirectUrl, "splited", splited)
+  const matchingUrl = blogPostUrl.find((item) => item.url === `/${splited}`);
   if (matchingUrl) {
     redirect(matchingUrl.redirectUrl);
   }

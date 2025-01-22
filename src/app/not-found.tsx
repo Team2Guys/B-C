@@ -7,17 +7,17 @@ import dynamic from 'next/dynamic';
 import { useDispatch } from 'react-redux';
 import { setIsNotFoundPage } from '../redux/slices/pageStateSlice';
 
+
 const Lottie = dynamic(() => import('components/Lottie/error-gif'), {
   ssr: false,
 });
 
 export default function NotFound() {
   const [isClient, setIsClient] = useState(false);
+  const [loading, setloading] = useState(false);
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+
 
 
   useEffect(() => {
@@ -28,7 +28,12 @@ export default function NotFound() {
     };
   }, [dispatch]);
 
-  if (!isClient) {
+
+
+      useEffect(() => {
+    setIsClient(true);
+  }, []);
+  if (!isClient || loading) {
     return null;
   }
 
