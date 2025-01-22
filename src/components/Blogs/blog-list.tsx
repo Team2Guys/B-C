@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { formatDateMonth, formatDateMonthShort } from 'config';
 import { BlogInfo } from 'types/interfaces';
 import { generateSlug } from 'data/data';
+import HTMLReactParser from "html-react-parser";
+
 interface IBlogsList {
   blogs: BlogInfo[];
 }
@@ -47,7 +49,7 @@ const BlogCard = ({ blog }: IBlogCard) => {
           <Link href={`/blog/${redirectionUrl ? redirectionUrl : generateSlug(title)}`}>{title}</Link>
         </h3>
         <div className="text-16 text-gray-600 mt-2 ">
-          {filteredContent}...
+          {HTMLReactParser(filteredContent || '') }...
           <Link
             href={`/blog/${redirectionUrl ? redirectionUrl : generateSlug(title)}`}
             className={`text-primary ml-2   font-bold text-center sm:text-start max-sm:hidden`}
@@ -68,6 +70,8 @@ const BlogCard = ({ blog }: IBlogCard) => {
     </div>
   );
 };
+
+
 
 const BlogList = ({ blogs }: IBlogsList) => {
   return (

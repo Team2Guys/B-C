@@ -69,7 +69,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const Products = async ({ params }: Props) => {
   const slug = (await params).productName;
-    const matchingUrl = blogPostUrl.find((item) => item.url === `/${slug}`);
+const redirected =["/curtians/velvet-curtains"]
+    const matchingUrl = blogPostUrl?.find((item) => item.url ===  (redirected.includes(slug) ? slug:  `/${slug}`));
+    console.log(matchingUrl, "slug")
     if (matchingUrl) {
       redirect(matchingUrl.redirectUrl);
     }
