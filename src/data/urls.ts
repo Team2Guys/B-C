@@ -407,7 +407,42 @@ export const blogPostUrl = [
   { url: '/thank-you', redirectUrl: '/' },
   { url: '/new-collections', redirectUrl: '/gallery' },
   { url: '/portfolio-item/aamina', redirectUrl: '/projects' },
-  
+  {
+    url: "/curtians/velvet-curtains",
+    redirectUrl: "/curtains/velvet-curtains"
+  },
+  {
+    url: "/category/blog/page/2",
+    redirectUrl: "/blog"
+  },
+  {
+    url: "/blinds/digitally-printed-photo-logo-blinds",
+    redirectUrl: "/commercial/printed-blinds"
+  },
+  {
+    url: "/shutters/lvl-shutters",
+    redirectUrl: "/shutters-range"
+  },
+  {
+    url: "/blinds/dorren-blinds",
+    redirectUrl: "/made-to-measure-blinds"
+  },
+  {
+    url: "/shutters/abs-shutters",
+    redirectUrl: "/shutters-range"
+  },
+  {
+    url: "/portfolio-item/penny",
+    redirectUrl: "/projects"
+  },
+  {
+    url: "/portfolio-item/aamina",
+    redirectUrl: "/projects"
+  },
+
+
+
+
 ];
 
 export const subCategoryUrls = [
@@ -503,13 +538,13 @@ export const customSortingOrder = [
 
 export const MoterisedData = [
   {
-    id:1,
+    id: 1,
     title: 'Automated Blinds',
     link: '/automated-blinds',
     imageSrc: '/assets/images/Blinds/landing/Automatedblinds.webp',
   },
   {
-    id:2,
+    id: 2,
     title: 'Automated Curtains',
     link: '/automated-curtains',
     imageSrc: '/assets/images/Curtain/landing/Automatedcurtains.webp',
@@ -545,3 +580,9 @@ export const desiredProductTitles = [
   'Dimout Blinds',
   'Translucent Blinds',
 ];
+
+
+
+export const category_wise_paths = [
+
+]
