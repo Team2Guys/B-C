@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ subproduc
   const products = await fetchProducts();
 
   const filteredProduct = products?.find(
-    (prod) =>
+    (prod:any) =>
       generateSlug(prod.title) === ChangedProductUrl(subproduct as string) &&
       Cateories.some((item: number) => item == prod.CategoryId),
   );
@@ -86,7 +86,7 @@ const Page = async ({ params }: { params: Promise<{ subproduct: string }> }) => 
   });
 
   const filteredProduct = products?.find(
-    (prod) =>
+    (prod:any) =>
       generateSlug(prod.title) === ChangedProductUrl(slug as string) &&
       Cateories.some((item: number) => item == prod.CategoryId),
   );
