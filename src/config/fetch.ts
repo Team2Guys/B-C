@@ -16,19 +16,22 @@ import { ChangedProductUrl } from 'data/urls';
 // };
 // console.log(headers)
 
-export const fetchProducts = async (): Promise<Allproduct[]> => {
-  const response = await fetch(
+export const fetchProducts = async () => {
+  try {
+    const response = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
     {
       next: { tags: ['products'] },
     },
   );
-  if (!response.ok) {
-    throw new Error('Failed to fetch products');
-  }
-
   const products = await response.json();
   return products;
+  } catch (error) {
+    console.log(error)
+  }
+  
+
+ 
 };
 
 export const fetchBlogs = async (): Promise<BlogInfo[]> => {
