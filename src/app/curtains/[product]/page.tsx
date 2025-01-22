@@ -17,7 +17,7 @@ const Cateories = [5];
 export async function generateMetadata({
   params,
 }: meta_props): Promise<Metadata> {
-  const  product  = (await params).product;
+  const product = (await params).product;
 
   const [products, categories] = await Promise.all([
     fetchProducts(),
@@ -80,7 +80,7 @@ export async function generateMetadata({
 }
 
 const CommercialPage = async ({ params }: meta_props) => {
-  const  product  = (await params).product;
+  const product = (await params).product;
   const [products, categories] = await Promise.all([
     fetchProducts(),
     fetchSubCategories(),
@@ -89,15 +89,15 @@ const CommercialPage = async ({ params }: meta_props) => {
   const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(categories, product, Cateories);
 
-    const redirected_product = CommercialUrl.find(
-          (prod: { urlName: string; Redirect: string }) => {
-            return prod.urlName == String(product)?.toLowerCase();
-          },
-        );
-      
-        if (redirected_product) {
-          redirect(redirected_product.Redirect);
-        }
+  const redirected_product = CommercialUrl.find(
+    (prod: { urlName: string; Redirect: string }) => {
+      return prod.urlName == String(product)?.toLowerCase();
+    },
+  );
+
+  if (redirected_product) {
+    redirect(redirected_product.Redirect);
+  }
   return (
     <Curtain
       filteredProduct={filteredProduct}
