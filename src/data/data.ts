@@ -73,17 +73,14 @@ export const heroSlider = [
     imageUrl: '/assets/images/Hero/g2.png',
     heading: 'The Home of Customised',
     subheading: 'Window Coverings',
-    content:
-      "Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete.  ",
-  },
+    content:"Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete."  },
   {
     id: 2,
     name: 'g1.png',
     imageUrl: '/assets/images/Hero/g3.png',
     heading: 'Made To Measure Window  ',
     subheading: 'Curtains In Dubai',
-    content:
-      'Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains makes it simple.',
+    content:"Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains make it simple. You can choose from 1000s of fabrics and colours - velvets, silks, and plain textures.",
   },
   {
     id: 3,
@@ -92,7 +89,7 @@ export const heroSlider = [
     heading: 'Perfect Fit Window',
     subheading: 'Shutters Dubai',
     content:
-      "You won't find a better deal than having shutters installed in your Dubai home or office, complete with free consultation, quick installation, and a 5-year warranty.",
+      "Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains make it simple. You can choose from 1000s of fabrics and colours - velvets, silks, and plain textures.",
   },
 ];
 
