@@ -31,7 +31,7 @@ const DetailInfo: React.FC<detailprops> = ({
         <div
           className={`flex flex-wrap lg:flex-nowrap lg:gap-4 xl:gap-20 ${className} items-center`}
         >
-          
+
           <div className="w-full xl:w-5/12">
             <div className="space-y-4">
               <h2 className="text-24 text-center lg:text-start sm:text-32 lg:text-[41px] font-medium">
@@ -49,7 +49,7 @@ const DetailInfo: React.FC<detailprops> = ({
               <div className='pb-2 lg:pb-0 lg:pt-4  w-full flex justify-center lg:justify-start'>
                 <Link href={"/request-appointment"}
                   target='_blank' rel="noopener"
-                  className="text-12 lg:text-16 px-3 py-3 lg:px-4 lg:py-4 rounded-md bg-secondary text-white font-medium"
+                  className="hidden lg:block text-12 lg:text-16 px-3 py-3 lg:px-4 lg:py-4 rounded-md bg-secondary text-white font-medium"
                 >
                   BOOK A FREE APPOINTMENT
                 </Link>
@@ -67,6 +67,15 @@ const DetailInfo: React.FC<detailprops> = ({
                 src={image?.imageUrl}
                 alt={image?.altText || 'Image'}
               />
+
+              <div className='pb-2 lg:pb-0 lg:pt-4  w-full flex justify-center lg:justify-start mt-4'>
+                <Link href={"/request-appointment"}
+                  target='_blank' rel="noopener"
+                  className="block lg:hidden text-12 lg:text-16 px-3 py-3 lg:px-4 lg:py-4 rounded-md bg-secondary text-white font-medium"
+                >
+                  BOOK A FREE APPOINTMENT
+                </Link>
+              </div>
             </div>
           </div>
         </div>
