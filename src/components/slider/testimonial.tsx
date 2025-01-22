@@ -165,9 +165,10 @@ function ReadMoreCard({
           </div>
      </div>
         <div>
-        <span className="text-10 text-gray-800 w-3/12 whitespace-nowrap ">
+        {/* <span className="text-10 text-gray-800 w-3/12 whitespace-nowrap ">
             {testimonial.relative_time_description}
           </span>
+           */}
         </div>
       </div>
       <div>
@@ -193,9 +194,9 @@ function ReadMoreCard({
             </div>
           </div>
 
-          <span className="text-xs text-gray-800 mt-2">
+          {/* <span className="text-xs text-gray-800 mt-2">
             {testimonial.relative_time_description}
-          </span>
+          </span> */}
         </div>
         <div className="mt-4 text-12 sm:text-sm text-[#6F747F] italic font-gotham leading-relaxed xs:tracking-wider font-extralight hidden xs:block">
           <p className="space-x-2">
