@@ -51,7 +51,6 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     };
   }, []);
 
-  // Combine categories with products
   const byRoomItems = [...extendedByRoom, ...megaMenubyRoom].flat();
   const ByRoomItems = useMemo(
     () =>
@@ -83,7 +82,6 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     [products, byDynamic]
   );
 
-  // Sorting function to sort products based on customSortingOrder
   const sortProducts = (products: IProduct[], sortingOrder: string[]) => {
     const sorted = products.filter((product) =>
       sortingOrder.includes(generateSlug(product.title))
@@ -104,10 +102,6 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
 
   const filteredProducts: IProduct[] = useMemo(() => {
     switch (activeCategory) {
-      // case 'All': {
-      //   const sorted = sortProducts(products, customSortingOrder);
-      //   return sorted;
-      // }
       case 'By Room': {
         const filtered = ByRoomItems;
         return sortProducts(filtered, customSortingOrder);
@@ -258,7 +252,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
             dangerouslySetInnerHTML={{ __html: content.subtitle }}
           ></p>
         </div>
-        {/* categorydata */}
+        
         <div ref={productContainerRef} className="my-2" />
         <div className="" id="productContainer">
           <ProductCard products={visibleProducts} isSizeSmall={true} />
