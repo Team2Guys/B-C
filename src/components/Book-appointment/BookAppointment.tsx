@@ -317,16 +317,9 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             >
               Phone Number *
             </label>
-            {/* <div className='border flex items-center px-1 h-9  border-gray-300 w-full rounded text-10 2xl:text-11 outline-none'>
-              <div className='w-2/12'>
-              <Image width={25} height={25} src={"/assets/images/aedflag.png"} alt='flag'/>
-              </div>
-              <div className='w-10/12 px-[2px]'>
-              <input className='h-8 m-[1px] border  w-full' type='text' />
-              </div>
-            </div> */}
+            
             <PhoneInput
-              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 outline-none"
+              className="h-9 p-2 border border-gray-300 w-full rounded text-xsm outline-none"
               international
               defaultCountry="AE"
               limitMaxLength
@@ -366,7 +359,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               WhatsApp No. If Different
             </label>
             <PhoneInput
-              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 outline-none"
+              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-xsm outline-none"
               international
               defaultCountry="AE"
               limitMaxLength
@@ -390,17 +383,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               value={formData.windows}
               onChange={handleChange}
             />
-            {/* <Select
-              options={windowOptions}
-              defaultInputValue="How Many Windows?"
-              onChange={(option) =>
-                handleSelectChange('windows', option?.value || '')
-              }
-              value={windowOptions.find(
-                (option) => option.value === formData.windows,
-              )}
-              className={`mt-1 w-full text-10 2xl:text-11 ${errors.windows ? 'border-red-500' : ''}`}
-            /> */}
+          
             {errors.windows && (
               <p className="text-red-500 text-xs">{errors.windows}</p>
             )}
@@ -443,17 +426,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               )}
               className="mt-1 w-full text-10 2xl:text-11"
             />
-            {/* <DatePicker
-              selected={
-                formData.prefered_time ? new Date(formData.prefered_time) : null
-              }
-              placeholderText="AM/PM"
-              onChange={handletimeChange}
-              showTimeSelect
-              showTimeSelectOnly
-              dateFormat="h:mm aa"
-              className="h-[38px] mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
-            /> */}
           </div>
           <div
             className={`w-full   ${singlePage ? 'col-span-4' : 'xl:col-span-2 2xl:col-span-1 '}`}
@@ -633,26 +605,11 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           {wordCount > 0 && (
             <div className="text-sm text-gray-400 mt-1">
               {wordCount}
-              {/* /350 words */}
             </div>
           )}
-
-          {/* <Select
-              options={queryOptions}
-              onChange={(option) =>
-                handleSelectChange('user_query', option?.value || '')
-              }
-              value={queryOptions.find(
-                (option) => option.value === formData.user_query,
-              )}
-              className="mt-1 w-full text-10 2xl:text-11"
-            /> */}
         </div>
 
         <div className="text-center mt-4">
-
-
-
           <button
             type="submit"
             className="w-fit bg-secondary hover:bg-primary text-white py-2 px-8 sm:px-14 rounded"
