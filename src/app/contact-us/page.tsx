@@ -67,6 +67,7 @@ const ProductUs: React.FC = () => {
               <div className="block sm:hidden">
                 <BookAppointment />
               </div>
+              
             </div>
             <div className="lg:mt-5 mt-4 lg:pl-12">
               <p className="md:text-xl font-bold">Contact Info :</p>
@@ -115,82 +116,6 @@ const ProductUs: React.FC = () => {
             </div>
           </div>
           <BookAppointment className=" hidden sm:block" />
-
-          {/* <form
-            onSubmit={handelSubmit}
-            className="lg:w-1/2 bg-white lg:p-8 p-4 flex flex-col rounded-lg"
-          >
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-black "
-              >
-                Full Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                // required
-                placeholder="Enter Name here"
-                id="name"
-                className="mt-4 p-3 border border-gray-300 rounded-md w-full bg-[#F7F6FE]"
-              />
-              {errors.name && (
-                <p className="text-red-500 text-xs">{errors.name}</p>
-              )}
-            </div>
-            <div className="lg:mt-6 mt-4">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-black"
-              >
-                Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                // required
-                placeholder="Enter Email here"
-                id="email"
-                className="mt-4 p-3 border border-gray-300 rounded-md w-full bg-[#F7F6FE]"
-              />
-              {errors.email && (
-                <p className="text-red-500 text-xs">{errors.email}</p>
-              )}
-            </div>
-            <div className="lg:mt-6 mt-4">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-black"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                // required
-                rows={15}
-                placeholder="Write your message here..."
-                className="mt-4 block w-full border border-gray-300 rounded-md shadow-sm bg-[#F7F6FE] focus:ring-opacity-50 p-3"
-              />
-              {errors.message && (
-                <p className="text-red-500 text-xs">{errors.message}</p>
-              )}
-            </div>
-            <div className="mt-4 text-end">
-              <input
-                type="submit"
-                className="bg-secondary hover:bg-btnclr text-white text-16 font-medium py-4 px-14 sm:px-16 rounded-lg cursor-pointer"
-                value="Send Message"
-              />
-            </div>
-          </form> */}
         </section>
       </Container>
     </>

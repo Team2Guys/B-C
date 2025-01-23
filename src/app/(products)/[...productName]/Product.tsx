@@ -39,16 +39,6 @@ const Product = ({
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
-  // const [selectedPage, setSelectedPage] = useState<{
-  //   heading: string;
-  //   paragraph: string;
-  //   subheading1: string;
-  //   subheading2: string;
-  //   subheadingContent: {
-  //     content: string;
-  //   }[];
-  // } | null>(null);
-
   const title = matchingLink ? matchingLink.label : productName;
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
   const [isNotFound, setIsNotFound] = useState(false);
@@ -63,14 +53,11 @@ const Product = ({
       const filterCat = categories?.find(
         (cat) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
       );
+
       if (filterCat) {
         const filteredProducts =
-          products.filter((product) => product.CategoryId === filterCat.id) ||
-          [];
-        const filteredSubCategories =
-          subCategories?.filter(
-            (subCat) => subCat.CategoryId === filterCat.id,
-          ) || [];
+          products.filter((product) => product.CategoryId === filterCat.id) ||[];
+        const filteredSubCategories =subCategories?.filter((subCat) => subCat.CategoryId === filterCat.id) || [];
         const filteredItems = [...filteredProducts, ...filteredSubCategories];
         setFilteredProducts(filteredItems);
         if (filteredItems.length > 0) {
