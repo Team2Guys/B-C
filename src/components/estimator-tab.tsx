@@ -27,7 +27,6 @@ const EstimatorTabs: React.FC<EstimatorTabsProps> = ({
 
   const handleCategorySelect = (index: number) => {
     setSelectedCategoryIndex(index);
-    // setActiveProduct(null);
   };
 
   const handleProductSelect = (product: IProduct) => {

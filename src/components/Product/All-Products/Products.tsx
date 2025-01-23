@@ -101,7 +101,6 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
 
   const filteredProducts: IProduct[] = useMemo(() => {
     switch (activeCategory) {
-
       case 'By Room': {
         const filtered = ByRoomItems;
         return sortProducts(filtered, customSortingOrder);
@@ -252,6 +251,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
             dangerouslySetInnerHTML={{ __html: content.subtitle }}
           ></p>
         </div>
+
         <div ref={productContainerRef} className="my-2" />
         <div className="" id="productContainer">
           <ProductCard products={visibleProducts} isSizeSmall={true} />
@@ -280,8 +280,8 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
                 <Button
                   key={page}
                   className={`w-10 sm:w-[55px] h-8 sm:h-[55px] text-16 ${currentPage === page
-                      ? 'bg-secondary text-white'
-                      : 'bg-transparent text-black'
+                    ? 'bg-secondary text-white'
+                    : 'bg-transparent text-black'
                     }`}
                   onClick={() => handlePageChange(page)}
                 >

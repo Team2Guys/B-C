@@ -8,8 +8,8 @@ interface SheetProps {
   title?: string;
   open: boolean;
   setOpen: (open: boolean) => void;
-  selectedLabel?: string; // Add this to manage the currently selected label
-  setSelectedLabel?: (label: string | undefined) => void; // Add this to update the selected label
+  selectedLabel?: string; 
+  setSelectedLabel?: (label: string | undefined) => void; 
   mobileBgColor?: string;
   className?: string;
 }

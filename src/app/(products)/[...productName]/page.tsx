@@ -73,7 +73,6 @@ const Products = async ({ params }: Props) => {
   const slug = (await params).productName[0];
   const redirectUrl: any = (await params).productName;
   const splited = redirectUrl.join('/')
-  console.log(redirectUrl, "splited", splited)
   const matchingUrl = blogPostUrl.find((item) => item.url === `/${splited}`);
   if (matchingUrl) {
     permanentRedirect(matchingUrl.redirectUrl, 'push' as RedirectType);
