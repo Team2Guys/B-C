@@ -17,16 +17,16 @@ export const metadata: Metadata = {
     description:
       'Read our blog for the latest updates on trends and new products. Get to know the best product for your home or business. For more information, give us a call.',
 
-    url: 'https://b-c-eight.vercel.app/blog',
+    url: 'https://blindsandcurtains.ae/blog/',
     images: [
       {
-        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
         alt: 'blindsandcurtains',
       },
     ],
   },
   alternates: {
-    canonical: 'https://b-c-eight.vercel.app/blog',
+    canonical: 'https://blindsandcurtains.ae/blog/',
   },
 };
 

@@ -15,16 +15,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blind And Curtains Dubai | Contact Us',
     description: 'Shop the best blinds and curtains in Dubai. Stylish, affordable, and perfect for your space. Call us now to upgrade your home or office today.',
-    url: 'https://b-c-eight.vercel.app/blog',
+    url: 'https://blindsandcurtains.ae/contact-us/',
     images: [
       {
-        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
         alt: 'Blind And Curtains Dubai | Contact Us',
       },
     ],
   },
   alternates: {
-    canonical: 'https://b-c-eight.vercel.app/contact-us',
+    canonical: 'https://blindsandcurtains.ae/contact-us/',
   },
 };
 
