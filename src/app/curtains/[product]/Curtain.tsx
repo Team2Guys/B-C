@@ -45,7 +45,7 @@ const CommercialPage = ({
           {/* <CategoryPage
             title={`${filteredSubCategory.title}`}
             relatedProducts={filteredSubCategory?.products || []}
-          /> */}
+          /> */}  
         </>
       ) : (
         <ProductDetailPage
