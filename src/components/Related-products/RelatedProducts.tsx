@@ -24,6 +24,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title }) =>
     queryKey: ['category'],
     queryFn: fetchCategories,
   });
+
   useEffect(() => {
     if (pathname) {
       const matchedProduct = RelatedProductsdata.find((product) =>
@@ -32,6 +33,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title }) =>
       setDescription(matchedProduct ? matchedProduct.para : null);
     }
   }, [pathname]);
+  
   useEffect(() => {
       const getRandomUniqueProducts = (products: IProduct[], limit: number, title: string | undefined) => {
       const uniqueProducts: IProduct[] = [];
