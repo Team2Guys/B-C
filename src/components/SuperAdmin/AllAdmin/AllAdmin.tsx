@@ -12,10 +12,6 @@ import { getAllAdmins } from 'config/fetch';
 import { ADMINS_PROPS } from 'types/interfaces';
 import TableSkeleton from 'components/Dashboard/Tables/TableSkelton';
 
-
-
-
-
 function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   const [admins, setAdmins] = useState([]);
   const [delLoading, setDelLoading] = useState<string | null>(null);
@@ -54,7 +50,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
     } catch (error) {
       console.error('Error deleting admin:', error);
     } finally {
-      setDelLoading(null); // Reset loading state after delete operation completes
+      setDelLoading(null);
     }
   };
 
