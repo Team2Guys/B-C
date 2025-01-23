@@ -14,16 +14,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blinds and Curtains Dubai | Product Guarantee',
     description: 'Custom blinds, curtains, and shutters with a 10-year warranty. We ensure top quality, and if there’s an issue, our team will check and fix it for you.',
-    url: 'https://b-c-eight.vercel.app/product-guarantees',
+    url: 'https://blindsandcurtains.ae/product-guarantees/',
     images: [
       {
-        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
         alt: 'Blinds and Curtains Dubai | Product Guarantee',
       },
     ],
   },
   alternates: {
-    canonical: 'https://b-c-eight.vercel.app/product-guarantees',
+    canonical: 'https://blindsandcurtains.ae/product-guarantees/',
   },
 };
 

@@ -190,13 +190,7 @@ function ReadMoreCard({
                 </p>
               </div>
             </div>
-
-
           </div>
-
-          {/* <span className="text-xs text-gray-800 mt-2">
-            {testimonial.relative_time_description}
-          </span> */}
         </div>
         <div className="mt-4 text-12 sm:text-sm text-[#6F747F] italic font-gotham leading-relaxed xs:tracking-wider font-extralight hidden xs:block">
           <p className="space-x-2">
