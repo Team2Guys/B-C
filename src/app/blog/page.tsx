@@ -41,9 +41,7 @@ const Blog = async () => {
 
   return (
     <>
-      <Header />
       <TopHero title="Blogs" image={bgBreadcrum.src} pagename="blog" />
-
       <div className="mt-5">
         <Suspense fallback={<PageSkelton />}>
           <BlogMain blogs={filteredBlog} />
@@ -53,7 +51,6 @@ const Blog = async () => {
         </Suspense>
       </div>
       <div className="mt-0 sm:mt-16 lg:mt-20 max-sm:mb-10" />
-      <Footer />
     </>
   );
 };
