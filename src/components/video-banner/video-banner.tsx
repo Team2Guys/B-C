@@ -49,7 +49,7 @@ const VideoBanner: React.FC<BannerProps> = ({
           <video
             ref={videoRef}
             className="absolute object-fill w-full h-full md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]"
-            src={selectedPage.src ? selectedPage.src : "/assets/video/Agsons.mp4"}
+            src={selectedPage.src ? selectedPage.src : "/assets/video/blinds.mp4"}
             autoPlay
             loop
             muted
