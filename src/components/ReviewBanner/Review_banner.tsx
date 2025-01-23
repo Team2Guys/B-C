@@ -93,7 +93,6 @@ export default function Review_banner() {
                   <span>
                     <FcGoogle className="lg:text-3xl text-14" />
                   </span>
-                  {/* <span className="font-bold">4.8 |</span> */}
                   <p className="lg:text-base text-12">
                     With Over 750 5-Star Reviews
                   </p>
