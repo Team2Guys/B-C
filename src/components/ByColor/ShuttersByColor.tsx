@@ -1,15 +1,13 @@
 'use client';
-import { useQuery } from '@tanstack/react-query';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import Container from 'components/Res-usable/Container/Container';
 import Support from 'components/Res-usable/support/support';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
-import { fetchProducts } from 'config/fetch';
 import { ByColorContent, colorData } from 'data/data';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { IProduct } from 'types/types';
+import { ICategory, IProduct } from 'types/types';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
 import TopHero from 'components/ui/top-hero';
 import { IColorData } from 'types/interfaces';
@@ -17,10 +15,14 @@ import ThumbImage from 'components/Detail/ThumbImage/ThumbImage';
 interface ShuttersByColorProps {
   title: string;
   subCategory?: any;
+  categories?: ICategory[]
+  products?: IProduct[]
 }
 const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
   title,
   subCategory,
+  products,
+  categories
 }) => {
   const [selectedPage, setSelectedPage] = useState<{
     heading: string;
@@ -37,14 +39,10 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
   const [colorImages, setcolorImages] = useState<IColorData>();
   const pathname = usePathname();
   const route = useRouter();
-  const { data: products } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
 
   const getColorHex = (path: string) => {
     const colorMatch = colorData.find((color) => color.url === path);
-    console.log(colorMatch, 'Shutter-Color');
+    // console.log(colorMatch, 'Shutter-Color');
     return colorMatch ? colorMatch : null;
   };
 
@@ -144,7 +142,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
         )}
       </Container>
       <Container className="my-10">
-        <RelatedProducts products={relaiveProducts || []} limit={4} />
+        <RelatedProducts products={relaiveProducts || []} limit={4} categoriesList={categories} />
       </Container>
       <VideoAutomation />
       <Support />

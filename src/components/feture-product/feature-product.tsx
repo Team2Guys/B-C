@@ -3,29 +3,17 @@ import React, { useEffect, useState } from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import { Button } from 'components/ui/button';
 import FeatureCard from 'components/ui/feature-card';
-import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
-import { fetchCategories, fetchProducts } from 'config/fetch';
 import Featureskeleton from './skeleton';
 import { generateSlug } from 'data/data';
 import { allProductsOrder, customSortingOrder } from 'data/urls';
-const FeatureProduct: React.FC = () => {
-  const {
-    data: categories,
-    error: categoriesError,
-    isLoading: isLoadingCategories,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
-  const {
-    data: products,
-    error: productsError,
-    isLoading: isLoadingProducts,
-  } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
+
+interface Productsprops {
+  products: IProduct[];
+  categories: ICategory[]
+}
+const FeatureProduct: React.FC<Productsprops> = ({ products,categories}) => {
+
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(8);
   const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutters', 'Commercial'];
@@ -104,12 +92,9 @@ const FeatureProduct: React.FC = () => {
     }
   }, []);
 
-  if (isLoadingCategories || isLoadingProducts)
+  if (products.length < 1 || categories.length < 1){
     return <Featureskeleton />;
-  if (categoriesError instanceof Error)
-    return <div>Error: {categoriesError.message}</div>;
-  if (productsError instanceof Error)
-    return <div>Error: {productsError.message}</div>;
+  }
 
   return (
     <Container className="mt-20">

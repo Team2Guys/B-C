@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
-import { Allproduct, BlogInfo } from 'types/interfaces';
+import { Allproduct } from 'types/interfaces';
 import Cookies from 'js-cookie';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
@@ -19,62 +19,79 @@ import { ChangedProductUrl } from 'data/urls';
 export const fetchProducts = async () => {
   try {
     const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
-    {
-      next: { tags: ['products'] },
-    },
-  );
-  const products = await response.json();
-  return products;
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
+      {
+        next: { tags: ['products'] },
+      },
+    );
+    const products = await response.json();
+    return products;
   } catch (error) {
     console.log(error)
   }
-  
 
- 
+
+
 };
 
-export const fetchBlogs = async (): Promise<BlogInfo[]> => {
-  const response =  await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
-    {
-      next: { tags: ['blogs'] },
-    },
-  );
-  
-  let blogs = response.json()
+export const fetchBlogs = async () => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
+      {
+        next: { tags: ['blogs'] },
+      },
+    );
 
-  return blogs;
+    let blogs = response.json()
+
+    return blogs;
+  } catch (error) {
+    console.log(error)
+  }
+
 };
 
 export const fetchProductBySlug = async (slug: string) => {
-  const response = await fetch(`/api/products?slug=${slug}`,  {
-    next: { tags: ['products'] },
-  },);
-  if (!response.ok) {
-    throw new Error('Error fetching product');
-  }
-  return response.json();
-};
-
-export const fetchCategories = async (): Promise<ICategory[]> => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
-    {
-      next: { tags: ['categories'] },
-    },
-  );
-  let result = await response.json();
-  return result;
-};
-
-export const fetchSubCategories = async (): Promise<ICategory[]> => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`,{
-      next: { tags: ['subCategories'] },
+  try {
+    const response = await fetch(`/api/products?slug=${slug}`, {
+      next: { tags: ['products'] },
+    },);
+    if (!response.ok) {
+      throw new Error('Error fetching product');
     }
+    return response.json();
+  } catch (error) {
+    console.log(error)
+  }
+};
+
+export const fetchCategories = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/getAllCategories`,
+      {
+        next: { tags: ['categories'] },
+      },
+    );
+    let result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error)
+  }
+};
+
+export const fetchSubCategories = async () => {
+  try{
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`, {
+    next: { tags: ['subCategories'] },
+  }
   );
   let result = await response.json();
   return result;
+} catch (error) {
+  console.log(error)
+}
 };
 
 export const adminRecords = async (
@@ -97,14 +114,14 @@ export const adminRecords = async (
   }
 };
 
-export const fetchAppointments = async (token:string | undefined): Promise<IAppointments[]> => {
+export const fetchAppointments = async (token: string | undefined): Promise<IAppointments[]> => {
   try {
-   
+
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/getAllappointments`,
       {
         headers: {
-  Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
 
         }
       },
@@ -197,7 +214,7 @@ export const filterProd = (
 
 
 
-export   const fetchReviewsHandler = async (setReviews:any) => {
+export const fetchReviewsHandler = async (setReviews: any) => {
   // try {
   //   let url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}`
   //   let response = await fetch(url,)
@@ -209,13 +226,13 @@ export   const fetchReviewsHandler = async (setReviews:any) => {
   // catch (error) {
   //   console.log(error, "error from reviews");
   // }
-    try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/fetchReviewsHandler`);
-      console.log(response.data)
-      setReviews(response.data);
-      return 
-    } catch (error) {
-      console.error('Error fetching admin records:', error);
-      throw error;
-    }
+  try {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/fetchReviewsHandler`);
+    console.log(response.data)
+    setReviews(response.data);
+    return
+  } catch (error) {
+    console.error('Error fetching admin records:', error);
+    throw error;
+  }
 }

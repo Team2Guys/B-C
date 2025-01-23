@@ -5,13 +5,7 @@ import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import React, { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
-import { useQuery } from '@tanstack/react-query';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
-import {
-  fetchCategories,
-  fetchProducts,
-  fetchSubCategories,
-} from 'config/fetch';
 import TopHero from 'components/ui/top-hero';
 import { usePathname } from 'next/navigation';
 import { urls } from 'data/urls';
@@ -27,6 +21,9 @@ interface ICategoryPage {
   description: string;
   category: string;
   filteredSubCategory?: IFilteredSubCategory ;
+  subCategories:ICategory[];
+  categories?:ICategory[];
+  products?:IProduct[];
 }
 
 const CommercialByRoom = ({
@@ -35,29 +32,15 @@ const CommercialByRoom = ({
   description,
   category,
   filteredSubCategory,
+  products,
+  categories,
+  subCategories
 }: ICategoryPage) => {
   const pathname = usePathname();
   console.log(category, 'category');
   const [isNotFound, setIsNotFound] = useState(false);
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
-
-  const {
-    data: products,
-    error,
-    isLoading,
-  } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
-  const { data: subcategories } = useQuery<ICategory[]>({
-    queryKey: ['subcategories'],
-    queryFn: fetchSubCategories,
-  });
-  const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
 
   useEffect(() => {
     if (pathname) {
@@ -90,9 +73,8 @@ const CommercialByRoom = ({
 
   useEffect(() => {
     filterProducts();
-  }, [title, products, subcategories, categories]);
+  }, [title, products, subCategories, categories]);
 
-  if (error instanceof Error) return <div>Error: {error.message}</div>;
   if (isNotFound) {
     return <NotFound />;
   }
@@ -109,7 +91,7 @@ const CommercialByRoom = ({
           categoryName={title}
           description={description}
           filteredProducts={filteredProducts}
-          isLoading={isLoading}
+          isLoading={false}
           categoryTitle="none"
           subCategory={title}
         />
