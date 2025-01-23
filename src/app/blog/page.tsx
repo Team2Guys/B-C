@@ -1,7 +1,5 @@
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Blog/blogbackground.png';
-import Header from 'components/Res-usable/header/Header';
-import Footer from 'components/Res-usable/Footer/Footer';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { BlogInfo } from 'types/interfaces';
 import BlogMain from 'components/Blogs/blog-main';
@@ -41,8 +39,7 @@ const Blog = async () => {
 
   return (
     <>
-      <Header />
-      <TopHero title="Blogs" image={bgBreadcrum.src} pagename="blog" />
+          <TopHero title="Blogs" image={bgBreadcrum.src} pagename="blog" />
 
       <div className="mt-5">
         <Suspense fallback={<PageSkelton />}>
@@ -53,7 +50,6 @@ const Blog = async () => {
         </Suspense>
       </div>
       <div className="mt-0 sm:mt-16 lg:mt-20 max-sm:mb-10" />
-      <Footer />
     </>
   );
 };
