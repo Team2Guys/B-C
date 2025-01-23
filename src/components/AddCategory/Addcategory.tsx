@@ -154,13 +154,6 @@ const FormLayout = ({
           __v,
           ...EditInitialProductValues,
         );
-        // imageUrls ? setImagesUrl(imageUrls) : null;
-        // posterImage ? setposterimageUrl([posterImage]) : null;
-
-        // setProductInitialValue({
-        //   ...EditInitialProductValues,
-        //   name: EditInitialProductValues.title,
-        // });
       } catch (err) {
         console.log(err, 'err');
       }

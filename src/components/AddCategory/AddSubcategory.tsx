@@ -172,7 +172,6 @@ const FormLayout = ({
         initialValues={
           editCategoryName ? editCategoryName : subcategoryInitialValues
         }
-        // initialValues={subcategoryInitialValues}
         validationSchema={subcategoryValidationSchema}
         onSubmit={onSubmit}
       >
