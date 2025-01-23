@@ -400,65 +400,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   );
                 }}
               </SidebarLinkGroup>
-{/* 
-
-              <SidebarLinkGroup
-                activeCondition={pathname === '/dashboard/abundant'}
-              >
-                {(handleClick, open) => {
-                  return (
-                    <>
-                      <Link
-                        href="/dashboard/abundant"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${
-                          pathname === '/dashboard/abundant' &&
-                          'bg-primary-foreground dark:bg-lightdark'
-                        }`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          sidebarExpanded
-                            ? handleClick()
-                            : setSidebarExpanded(true);
-                        }}
-                      >
-                        <TbGardenCartOff size={20} className="text-white" />
-                        Abundant Order
-                        <MdOutlineKeyboardArrowDown
-                          size={30}
-                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${
-                            open && 'rotate-180'
-                          }`}
-                        />
-                      </Link>
-        
-                      <div
-                        className={`translate transform overflow-hidden ${
-                          !open && 'hidden'
-                        }`}
-                      >
-                        <ul className="mb-3 mt-3 flex flex-col gap-2 pl-6">
-                          <li>
-                            <Link
-                              href="/dashboard/abundant"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
-                                pathname === 'dashboard/abundant' &&
-                                'text-white'
-                              } `}
-                            >
-                              View Abundant Order
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-             
-                    </>
-                  );
-                }}
-              </SidebarLinkGroup>
-
-              
- */}
-
               {superAdmin ? (
                 <li>
                   <Link

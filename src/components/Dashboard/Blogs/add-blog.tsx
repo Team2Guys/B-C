@@ -296,48 +296,6 @@ const AddBlogs = ({
                   <div className="text-red-500">{categoryError.message}</div>
                 )}
               </div>
-
-              {/* <CKEditor
-            editor={ClassicEditor}
-            config={{
-              extraPlugins: [MyCustomUploadAdapterPlugin],
-              toolbar: [
-                'undo',
-                'redo',
-                '|',
-                'heading',
-                'fontSize',
-                'fontFamily',
-                'bold',
-                'italic',
-                'underline',
-                'strikethrough',
-                'alignment',
-                'numberedList',
-                'bulletedList',
-                'blockQuote',
-                'link',
-                'imageUpload',
-                'insertTable',
-                'mediaEmbed',
-                'highlight',
-                'horizontalLine',
-                'sourceEditing',
-              ],
-              image: {
-                toolbar: [
-                  'imageTextAlternative',
-                  'imageStyle:full',
-                  'imageStyle:side',
-                ],
-              },
-            }}
-            data={values.content}
-            onChange={(event, editor) => {
-              const data = editor.getData();
-              setFieldValue('content', data);
-            }}
-          /> */}
               <MyEditor
                 setFieldValue={setFieldValue}
                 values={values}

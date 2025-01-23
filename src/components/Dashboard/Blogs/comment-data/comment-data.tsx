@@ -188,38 +188,6 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                         <div className="mt-2 text-sm text-gray-500">
                           Status: {comment.status}
                         </div>
-
-                        {/* {comment?.replies && comment.replies.length > 0 && (
-                          <div className="mt-4 pl-6 border-l-2">
-                            {comment.replies.map((nestedItem: any) => (
-                              <div key={nestedItem.id} className="mt-4">
-                                <div className="flex justify-between items-center">
-                                  <h5 className="text-lg font-semibold">{nestedItem.name}</h5>
-                                  <span className="text-darkgrey">
-                                    {nestedItem.createdAt && new Date(nestedItem.createdAt).toLocaleString()}
-                                  </span>
-                                </div>
-                                <p className="leading-normal text-darkgrey text-base mb-4">
-                                  {nestedItem.description}
-                                </p>
-                                <div className="flex gap-4 mb-4">
-                                  <button
-                                    className="text-white bg-green-600 px-4 py-1 rounded"
-                                    onClick={() => handleApprove(nestedItem.id, 'reply', nestedItem, item)}
-                                  >
-                                    Approve
-                                  </button>
-                                  <button
-                                    className="text-white bg-red-600 px-4 py-1 rounded"
-                                    onClick={() => handleReject(nestedItem.id, 'reply', nestedItem)}
-                                  >
-                                    Reject
-                                  </button>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        )} */}
                       </div>
                     ))}
                   </div>

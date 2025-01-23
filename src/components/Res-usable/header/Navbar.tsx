@@ -85,8 +85,8 @@ const Navbar = ({products , subCategories}: {products: IProduct[] , subCategorie
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
           <Link href={'/'} className="w-5/12 xs:w-7/12 lg:w-1/12 ">
             <Image
-              width={300}
-              height={300}
+              width={600}
+              height={600}
               loading='lazy'
               src={logo}
               alt="Logo"

@@ -18,8 +18,6 @@ import {
   THeroImages,
   Tproductdata,
   TProductGuarantees,
-  TRSlide,
-  TsizePresets,
 } from 'types/interfaces';
 import { BlindsAndCurtainsTypes } from 'types/interfaces';
 import { BannerData } from 'types/interfaces';
@@ -224,18 +222,6 @@ export const productData: Tproductdata = {
     'We at <a href="/" target="_blank" style="text-decoration:underline">blindsandcurtains.ae</a> know our products will complement your home now and in the future. All our made-to-measure <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">blinds</a>, <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">curtains</a>, and <a href="/shutters-range" target="_blank" style="text-decoration:underline">shutters</a> come with a 10-year mechanical and labour warranty. We make sure all our products are of high quality, but if something goes wrong, our team will visit to assess the situation. With them, you can be sure your problem will be handled with care, whether with a quick fix or a replacement. We stand behind our work so that you can trust us.',
 };
 
-export const sizePresets: TsizePresets[] = [
-  { width: 300, height: 400, size: 100 },
-  { width: 50, height: 500, size: 100 },
-  { width: 400, height: 300, size: 100 },
-  { width: 120, height: 100, size: 100 },
-];
-
-export const initialSize: TsizePresets = {
-  width: 200,
-  height: 200,
-  size: 100,
-};
 
 export const PGuarantees: TProductGuarantees[] = [
   {
@@ -264,8 +250,6 @@ export const AboutUsPara = {
 };
 export const UsHistoryPara = {
   id: 1,
-  // subheading: 'OUR HISTORY',
-  // heading: ['Here is our', 'journey'],
   paragraph: [
     'This cycle ran successfully for many years but by 2021, with covid out the way, we figured it was time to push the barriers further. We had already introduced flooring, wallpaper and other items to our list of services offered, but the name felt restrictive. It was also around this time that lots of other companies turned up with copycat versions of our name (we guess blindsandcurtains.ae can’t really be expected to be exclusive) and it was quite confusing for our existing customers and quite a few were misled into buying from companies claiming to be us.',
     'With this in mind, we decided on a brand and image change. After weeks of deliberating, Shiraz’s brother Valy, (who had since followed his brother and made the move to Dubai), came up with Two Guys. It was instant love for both brothers and that is the name we trade as today. But with <a href="http://www.blindsandcurtains.ae" target="_blank" style="text-decoration: underline">www.blindsandcurtains.ae</a> having so many loyal customers, it would have been suicidal to wrap up and bury, so the brand is still alive and kicking today, albeit under the Two Guys Home Furnishings brand.',
@@ -273,29 +257,6 @@ export const UsHistoryPara = {
   ],
 };
 
-// export const aboutUsReviewData = [
-//   {
-//     id: 1,
-//     keys: '20 +',
-//     title: 'Years Experience',
-//   },
-//   {
-//     id: 2,
-//     keys: '375K',
-//     title: 'Work Completed',
-//   },
-//   {
-//     id: 3,
-//     keys: '19K',
-//     title: 'Client Satisfied',
-//   },
-// ];
-
-export const aboutUsReviewData = [
-  { id: 1, keys: 20, suffix: '+', title: 'Years Experience' },
-  { id: 2, keys: 375, suffix: 'K', title: 'Work Completed' },
-  { id: 3, keys: 19, suffix: 'K', title: 'Client Satisfied' },
-];
 
 export const OurHistoryData: OurHistory[] = [
   {
@@ -440,17 +401,6 @@ export const loginInitialValue = {
   password: '',
 };
 
-// export const AddProductvalidationSchema = Yup.object().shape({
-//   name: Yup.string()
-//     .min(2, 'Too Short!')
-//     .max(50, 'Too Long!')
-//     .required('Required'),
-//   description: Yup.string().required('Required'),
-//   price: Yup.string().required('Price is required'),
-//   // salePrice: Yup.number()
-//   //   .min(1, 'Minimum sales price must be at least 1')
-//   //   .required('Required'),
-// });
 
 export const AddproductsinitialValues: FormValues = {
   name: '',
@@ -480,36 +430,7 @@ export const AddproductsinitialValues: FormValues = {
   Images_Alt_Text: '',
 };
 
-export const options = [
-  {
-    value: 'abu_dhabi',
-    label: 'Abu Dhabi',
-  },
-  {
-    value: 'dubai',
-    label: 'Dubai',
-  },
-  {
-    value: 'sharjah',
-    label: 'Sharjah',
-  },
-  {
-    value: 'ajman',
-    label: 'Ajman',
-  },
-  {
-    value: 'umm_al_quwain',
-    label: 'Umm Al Quwain',
-  },
-  {
-    value: 'ras_al_khaimah',
-    label: 'Ras Al Khaimah',
-  },
-  {
-    value: 'fujairah',
-    label: 'Fujairah',
-  },
-];
+
 
 export const subcategoryInitialValues: ISUBCATEGORY = {
   title: '',
@@ -709,118 +630,6 @@ export const staticDescriptions: Record<string, string> = {
     'For classic or modern look our roman blinds offer custom fit fabric folds. These office blinds for windows provide blackout and translucent options.',
 };
 
-export const items = [
-  {
-    id: 1,
-    text: 'A team of 50 staff to ensure perfection from start-to-finish',
-  },
-  {
-    id: 2,
-    text: 'In house production - quality is our concern, not yours',
-  },
-  {
-    id: 3,
-    text: 'Free uninstall/re-install within 2 years',
-  },
-  {
-    id: 4,
-    text: '10 YEARS warranty on all mechanical parts and labour',
-  },
-  {
-    id: 5,
-    text: 'We’re trusted, with over 750+ 5* reviews',
-  },
-  {
-    id: 6,
-    text: 'Free home visits with free installation',
-  },
-];
-
-export const slides: TRSlide[] = [
-  {
-    title: 'Victoria Wotton',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-  },
-  {
-    title: 'Victoria Wotton',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
-  },
-];
-
-export const isActiveTabs: { name: string }[] = [
-  {
-    name: 'blinds',
-  },
-  {
-    name: 'shutters',
-  },
-  {
-    name: 'curtains',
-  },
-  {
-    name: 'commercial',
-  },
-  {
-    name: 'gallery',
-  },
-  {
-    name: 'contact-us',
-  },
-];
-
-export const optionDetail = [
-  { value: 'Select Sizes', label: 'Select Sizes', disabled: true },
-  { value: '140 x 180', label: '140 x 180' },
-  { value: '160 x 180', label: '160 x 180' },
-  { value: '180 x 180', label: '180 x 180' },
-  { value: '200 x 180', label: '200 x 180' },
-  { value: '220 x 180', label: '220 x 180' },
-];
-
-export const estimateSldie = {
-  320: {
-    slidesPerView: 1.4,
-    spaceBetween: 10,
-  },
-  420: {
-    slidesPerView: 2.3,
-    spaceBetween: 10,
-  },
-  640: {
-    slidesPerView: 3,
-    spaceBetween: 10,
-  },
-  768: {
-    slidesPerView: 4,
-    spaceBetween: 15,
-  },
-  890: {
-    slidesPerView: 3,
-    spaceBetween: 15,
-  },
-  1330: {
-    slidesPerView: 3.5,
-    spaceBetween: 15,
-  },
-  1440: {
-    slidesPerView: 4,
-    spaceBetween: 30,
-  },
-};
-
-export const blogPara = [
-  {
-    para: "Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-  },
-  {
-    para: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of",
-  },
-  {
-    para: ' It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of',
-  },
-];
 
 export const megaMenubyStyle = [
   { productName: 'vertical-blinds' },
@@ -1316,11 +1125,6 @@ export const MoterisedContent = [
 
 export const Cateories = [9, 2, 5, 12];
 
-export const infoSectionData = {
-  title: 'Lorem Ipsum is simply dummy text of',
-  description:
-    "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-};
 
 export const colorData: IColorData[] = [
   {
@@ -2093,4 +1897,30 @@ export const projectsTags = [
   'Mirdif',
   'Falcon City',
   'Jumeirah',
+];
+export const items = [
+  {
+    id: 1,
+    text: 'A team of 50 staff to ensure perfection from start-to-finish',
+  },
+  {
+    id: 2,
+    text: 'In house production - quality is our concern, not yours',
+  },
+  {
+    id: 3,
+    text: 'Free uninstall/re-install within 2 years',
+  },
+  {
+    id: 4,
+    text: '10 YEARS warranty on all mechanical parts and labour',
+  },
+  {
+    id: 5,
+    text: 'We’re trusted, with over 750+ 5* reviews',
+  },
+  {
+    id: 6,
+    text: 'Free home visits with free installation',
+  },
 ];

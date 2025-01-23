@@ -76,8 +76,6 @@ const RoomProducts = ({
     const filtered = products?.filter(
       (product) => product.CategoryId === filterCat?.id,
     );
-
-    // Determine category title (Blinds, Curtains, etc.)
     setProductCategory(filterCat?.title || '');
 
     setFilteredProducts(filtered || []);
@@ -115,14 +113,6 @@ const RoomProducts = ({
 
   return (
     <>
-      {/* <VideoBanner
-        title={title}
-        selectedPage={{
-          heading: category,
-          paragraph:description,
-        }}
-          
-      /> */}
       <TopHero
         title={title}
         pageTitle={`Made to Measure ${title}`}
