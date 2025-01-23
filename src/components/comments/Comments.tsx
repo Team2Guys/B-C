@@ -140,7 +140,6 @@ console.log(data, "data")
             >
               <FaWhatsapp size={20} />
             </WhatsappShareButton>
-            {/* <Link target='_blank' href={"https://www.instagram.com/blindsandcurtainsdubai/"}> <RiInstagramFill className='ms-2' /></Link> */}
           </span>
         </div>
       </div>
