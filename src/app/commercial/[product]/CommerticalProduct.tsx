@@ -38,12 +38,6 @@ const CommercialProduct = ({
         (sub) =>
           generateSlug(sub.title) === ChangedProductUrl(product as string),
       );
-
-      // const filteredProduct = products?.find(
-      //   (prod) =>
-      //     generateSlug(prod.title) ===
-      //     generateSlug(ChangedProductUrl(product as string)),
-      // );
       const filteredProduct = filterProd(products, product, [12]);
 
       setfilteredProduct(filteredProduct);
