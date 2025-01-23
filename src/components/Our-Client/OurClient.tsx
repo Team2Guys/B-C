@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
-import { Autoplay,  } from 'swiper/modules';
+import { Autoplay, } from 'swiper/modules';
 
 const OurClient = () => {
   return (
@@ -25,14 +25,11 @@ const OurClient = () => {
               delay: 2500,
               disableOnInteraction: false,
             }}
-           
+
             modules={[Autoplay]}
             className="mySwiper"
             breakpoints={{
-              // 320: {
-              //   slidesPerView: 1,
-              //   spaceBetween: 5,
-              // },
+
               440: {
                 slidesPerView: 1,
                 spaceBetween: 0,
