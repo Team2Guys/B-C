@@ -7,31 +7,12 @@ import ChooseUs from 'components/motorised-blinds/choose-us';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import Container from 'components/Res-usable/Container/Container';
-import { useQuery } from '@tanstack/react-query';
-import { IProduct } from 'types/types';
+import { ICategory, IProduct } from 'types/types';
 import { usePathname } from 'next/navigation';
-import { MoterisedContent } from 'data/data';
-import { fetchProducts } from 'config/fetch';
 
-const MotorisedPage = () => {
+const MotorisedPage = ({products, categories , pageData}:{products:IProduct[], categories:ICategory[] , pageData: any}) => {
   const pathName = usePathname();
-
-  const { data: products, error } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
-
-  if (error) return <div>Error: {error.message}</div>;
-
-  const content = MoterisedContent.find(
-    (item) => item.maintitle === pathName
-  );
-
-  if (!content) {
-    return '';
-  }
-  const { Data } = content;
-  const pageData = Data[0];
+  
   return (
     <>
       <TopHero
@@ -83,7 +64,7 @@ const MotorisedPage = () => {
       )}
       <BookNowBanner />
       <Container className="mt-10 md:mt-20">
-        <RelatedProducts products={products || []} limit={4} />
+        <RelatedProducts products={products || []} limit={4} categoriesList={categories} />
       </Container>
     </>
   );

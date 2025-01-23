@@ -1,6 +1,9 @@
 import React from 'react';
 import MotorisedPage from 'components/ui/MotorisedPage';
 import { Metadata } from 'next';
+import { fetchCategories, fetchProducts } from 'config/fetch';
+import { MoterisedContent } from 'data/data';
+import NotFound from 'app/not-found';
 
 export const metadata: Metadata = {
   title:
@@ -25,8 +28,22 @@ export const metadata: Metadata = {
   },
 };
 
-const MotorisedCurtains = () => {
-  return <MotorisedPage />;
+const MotorisedCurtains = async () => {
+  const [products, categories] = await Promise.all([
+    fetchProducts(),
+    fetchCategories(),
+  ]);
+  const content = MoterisedContent.find(
+    (item) => item.maintitle === '/automated-curtains/'
+  );
+  if (!content) {
+    return <NotFound />
+  }
+  const { Data } = content;
+  const pageData = Data[0];
+  return (
+    <MotorisedPage products={products} categories={categories} pageData={pageData} />
+  );
 };
 
 export default MotorisedCurtains;

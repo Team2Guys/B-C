@@ -1,32 +1,10 @@
 'use client';
-import NotFound from 'app/not-found';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
-import { urls } from 'data/urls';
-import { usePathname } from 'next/navigation';
-import { Fragment, useEffect, useState } from 'react';
-import { IProduct } from 'types/types';
+import { Fragment } from 'react';
+import { ICategory, IProduct } from 'types/types';
 
-const SubProduct = ({products , filteredProduct , filteredSubCategory }: {products: IProduct[] , filteredProduct: IProduct | undefined , filteredSubCategory : any}) => {
-  const path = usePathname();
-  const [isNotFound, setIsNotFound] = useState(false);
-  
-  useEffect(() => {
-    if (path) {
-      const matchingUrl = urls.find((url) => url.errorUrl === path);
-      console.log(path, 'pathnamepathname');
-      if (matchingUrl) {
-        console.log(matchingUrl, 'matchingUrl');
-        setIsNotFound(true);
-      } else {
-        setIsNotFound(false);
-      }
-    }
-  }, [path]);
-
-  if ((!filteredSubCategory && !filteredProduct) || isNotFound) {
-    return <NotFound />;
-  }
+const SubProduct = ({ products, categories, subCategories, filteredProduct, filteredSubCategory }: { products: IProduct[], subCategories: ICategory[], categories:ICategory[], filteredProduct: IProduct | undefined, filteredSubCategory: any }) => {
 
   return (
     <>
@@ -37,6 +15,9 @@ const SubProduct = ({products , filteredProduct , filteredSubCategory }: {produc
             description={`${filteredSubCategory.description}`}
             category={`${filteredSubCategory.category.title}`}
             relatedProducts={filteredSubCategory?.products || []}
+            products={products}
+            categories={categories || []}
+            subCategories={subCategories || []}
           />
           {/* <CategoryPage
             title={`${filteredSubCategory.title}`}
@@ -47,6 +28,7 @@ const SubProduct = ({products , filteredProduct , filteredSubCategory }: {produc
         <ProductDetailPage
           title={`${filteredProduct?.title}`}
           allprod={products}
+          categories={categories || []}
         />
       )}
     </>

@@ -1197,7 +1197,7 @@ export const BreakCrum_conent_pages = [
 
 export const MoterisedContent = [
   {
-    maintitle: '/automated-blinds',
+    maintitle: '/automated-blinds/',
     Data: [
       {
         title: 'Automated Blinds',
@@ -1255,7 +1255,7 @@ export const MoterisedContent = [
     ],
   },
   {
-    maintitle: '/automated-curtains',
+    maintitle: '/automated-curtains/',
     Data: [
       {
         title: 'Automated Curtains',
@@ -1327,7 +1327,7 @@ export const colorData: IColorData[] = [
     id: 1,
     name: 'Off White Shutters',
     color: 'FAF9EF',
-    url: '/shutters-range/off-white-shutters',
+    url: '/shutters-range/off-white-shutters/',
     imageUrls: [
       {
         imageUrl:
@@ -1345,7 +1345,7 @@ export const colorData: IColorData[] = [
     id: 2,
     name: 'White Shutters',
     color: 'FFFFFF',
-    url: '/shutters-range/white-shutters',
+    url: '/shutters-range/white-shutters/',
     imageUrls: [
       {
         imageUrl:
@@ -1393,7 +1393,7 @@ export const colorData: IColorData[] = [
     id: 3,
     name: 'Black Shutters',
     color: '000000',
-    url: '/shutters-range/black-shutters',
+    url: '/shutters-range/black-shutters/',
     imageUrls: [
       {
         imageUrl:
@@ -1431,7 +1431,7 @@ export const colorData: IColorData[] = [
     id: 4,
     name: 'Grey Shutters',
     color: '808080',
-    url: '/shutters-range/grey-shutters',
+    url: '/shutters-range/grey-shutters/',
     imageUrls: [
       {
         imageUrl:
@@ -1459,7 +1459,7 @@ export const colorData: IColorData[] = [
     id: 5,
     name: 'Dark Wood Shutters',
     color: '815438',
-    url: '/shutters-range/dark-wood-shutters',
+    url: '/shutters-range/dark-wood-shutters/',
     imageUrls: [
       {
         imageUrl:
@@ -1477,7 +1477,7 @@ export const colorData: IColorData[] = [
     id: 6,
     name: 'Light Wood Shutters',
     color: 'deb887',
-    url: '/shutters-range/light-wood-shutters',
+    url: '/shutters-range/light-wood-shutters/',
     imageUrls: [
       {
         imageUrl:
@@ -1505,7 +1505,7 @@ export const colorData: IColorData[] = [
     id: 7,
     name: 'Bold Colour Shutters',
     color: '8f1601',
-    url: '/shutters-range/bold-colours-shutters',
+    url: '/shutters-range/bold-colours-shutters/',
     imageUrls: [
       {
         imageUrl:
@@ -1548,7 +1548,7 @@ export const colorData: IColorData[] = [
 
 export const ByColorContent = [
   {
-    slug: '/shutters-range/off-white-shutters',
+    slug: '/shutters-range/off-white-shutters/',
     content: {
       heading: 'Off White Shutters: A Classic Choice',
       paragraph:
@@ -1563,7 +1563,7 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/white-shutters',
+    slug: '/shutters-range/white-shutters/',
     content: {
       heading: 'Aesthetically Beautiful Pure White Shutters',
       paragraph:
@@ -1578,7 +1578,7 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/black-shutters',
+    slug: '/shutters-range/black-shutters/',
     content: {
       heading: 'Black Shutters - Bold and Sophisticated',
       paragraph:
@@ -1593,7 +1593,7 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/dark-wood-shutters',
+    slug: '/shutters-range/dark-wood-shutters/',
     content: {
       heading: 'Dark Wood Shutters - Rustic and Timeless',
       paragraph:
@@ -1608,7 +1608,7 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/bold-colours-shutters',
+    slug: '/shutters-range/bold-colours-shutters/',
     content: {
       heading: 'Bold Colours Shutters - Express Yourself',
       paragraph:
@@ -1623,7 +1623,7 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/grey-shutters',
+    slug: '/shutters-range/grey-shutters/',
     content: {
       heading: 'Grey Shutters - A Modern Touch',
       paragraph:
@@ -1638,7 +1638,7 @@ export const ByColorContent = [
     },
   },
   {
-    slug: '/shutters-range/light-wood-shutters',
+    slug: '/shutters-range/light-wood-shutters/',
     content: {
       heading: 'Light Wood Shutters -  Versatile and Chic',
       paragraph:

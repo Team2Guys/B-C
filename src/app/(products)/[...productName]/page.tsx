@@ -1,12 +1,12 @@
 import { fetchCategories, fetchProducts, fetchSubCategories, } from "config/fetch";
 import Product from "./Product";
-import { ICategory } from "types/types";
+import { ICategory, IProduct } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { links } from "data/header_links";
-import { permanentRedirect, RedirectType,} from "next/navigation";
+import { permanentRedirect, RedirectType, } from "next/navigation";
 import { blogPostUrl } from "data/urls";
-import { categoriesContent, generateSlug } from "data/data";
+import { categoriesContent, generateSlug, RelatedProductsdata } from "data/data";
 import NotFound from "app/not-found";
 
 
@@ -20,10 +20,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
-  const categories = await  fetchCategories()
+  const categories = await fetchCategories()
 
 
-  const filterCategory = categories.find((category) => category.title === matchingLink?.label);
+  const filterCategory = categories.find((category:ICategory) => category.title === matchingLink?.label);
   const headersList = await headers();
   const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
@@ -73,7 +73,6 @@ const Products = async ({ params }: Props) => {
   const slug = (await params).productName[0];
   const redirectUrl: any = (await params).productName;
   const splited = redirectUrl.join('/')
-  console.log(redirectUrl, "splited", splited)
   const matchingUrl = blogPostUrl.find((item) => item.url === `/${splited}`);
   if (matchingUrl) {
     permanentRedirect(matchingUrl.redirectUrl, 'push' as RedirectType);
@@ -86,14 +85,34 @@ const Products = async ({ params }: Props) => {
   const selectedPage = categoriesContent.find(
     (page) => page.slug === generateSlug(slug),
   );
+  const matchedProduct = RelatedProductsdata.find((product) =>
+    slug.includes(product.name)
+  );
 
-  if (!selectedPage) {
+  const matchingLink = links.find((link) =>
+    slug.includes(link.href.replace(/^\//, '')),
+  );
+  const selectedProductName = matchingLink ? matchingLink.label : slug;
+  const filterCat = categories?.find(
+    (cat:ICategory) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
+  );
+  const filteredProducts =
+    products.filter((product: IProduct) => product.CategoryId === filterCat?.id) ||
+    [];
+  const filteredSubCategories =
+    subCategories?.filter(
+      (subCat:ICategory) => subCat.CategoryId === filterCat?.id,
+    ) || [];
+  const filteredItems = [...filteredProducts, ...filteredSubCategories];
+  // console.log(filteredItems, 'selectedProductName');
+
+  if (!selectedPage || filteredItems.length < 1) {
     return <NotFound />;
   }
 
   return (
     <>
-      <Product productName={slug} products={products} categories={categories} subCategories={subCategories} selectedPage={selectedPage.content} />
+      <Product productName={slug} products={products} categories={categories} subCategories={subCategories} selectedPage={selectedPage.content} matchedProduct={matchedProduct?.para} filteredItems={filteredItems} title={selectedProductName} />
     </>
   );
 };

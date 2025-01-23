@@ -1,41 +1,22 @@
 'use client'
-import { useQuery } from '@tanstack/react-query';
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
-import { fetchCategories } from 'config/fetch';
-import { RelatedProductsdata } from 'data/data';
-import { usePathname } from 'next/navigation';
+import RelatedProductSkeleton from 'components/Skeleton/Related-product';
 import React, { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
 interface relativeProps {
   products: IProduct[];
+  categoriesList?: ICategory[];
   limit?: number;
   className?: string;
   title?: string;
+  description?: string
 }
-const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title }) => {
-  const pathname = usePathname()
-  const [description, setDescription] = useState<string | null>(null);
+const RelatedProducts: React.FC<relativeProps> = ({ products, categoriesList, limit, title, description }) => {
   const [selectedProducts, setSelectedProducts] = useState<IProduct[]>([]);
 
-  const {
-    data: categoriesList = [],isLoading
-  } = useQuery<ICategory[], Error>({
-    queryKey: ['category'],
-    queryFn: fetchCategories,
-  });
-
   useEffect(() => {
-    if (pathname) {
-      const matchedProduct = RelatedProductsdata.find((product) =>
-        pathname.includes(product.name)
-      );
-      setDescription(matchedProduct ? matchedProduct.para : null);
-    }
-  }, [pathname]);
-  
-  useEffect(() => {
-      const getRandomUniqueProducts = (products: IProduct[], limit: number, title: string | undefined) => {
+    const getRandomUniqueProducts = (products: IProduct[], limit: number, title: string | undefined) => {
       const uniqueProducts: IProduct[] = [];
       const titlesSet: Set<string> = new Set();
 
@@ -51,7 +32,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title }) =>
 
       return uniqueProducts;
     };
-    const safeLimit = limit ?? 4; 
+    const safeLimit = limit ?? 4;
     const randomProducts = getRandomUniqueProducts([...products], safeLimit, title);
     setSelectedProducts(randomProducts);
   }, [products, limit, title]);
@@ -66,8 +47,8 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title }) =>
         {description || 'Explore our collection, each piece a showcase of exceptional window blinds design.'}
       </p>
       <div className="grid grid-cols-1 xs:grid-cols-2 md: lg:grid-cols-4 gap-6 lg:mt-10 mt-4 lg:mb-10">
-        {selectedProducts.map((item) => {
-          const filteredCategory = categoriesList.find(
+        {selectedProducts.length > 0 ? selectedProducts.map((item) => {
+          const filteredCategory = categoriesList?.find(
             (cat) => cat.id === item?.CategoryId,
           );
           return (
@@ -75,11 +56,13 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title }) =>
               card={item}
               key={item.id}
               relativeProducts={true}
-              isLoading={isLoading}
+              isLoading={false}
               parent={filteredCategory?.title.toLowerCase()}
             />
           );
-        })}
+        }) : Array(4).fill(null).map((_, index) => (
+          <RelatedProductSkeleton key={index} />
+        ))}
       </div>
     </div>
   );

@@ -1,62 +1,20 @@
 'use client';
 
-import NotFound from 'app/not-found';
 import ShuttersByColor from 'components/ByColor/ShuttersByColor';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
-import { colorData } from 'data/data';
-import { urls } from 'data/urls';
-import { usePathname} from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { IColorData, PRODUCS_PROPS } from 'types/interfaces';
+import { PRODUCS_PROPS } from 'types/interfaces';
 
 const CommercialPage = ({
   filteredProduct,
   filteredSubCategory,
-  product,
+  // product,
   allprod,
+  categories,
+  subCategories,
+  colorPage
 }: PRODUCS_PROPS) => {
-  const [colorPage, setColorPage] = useState<IColorData | undefined>();
 
-  const pathname = usePathname();
-  const [isNotFound, setIsNotFound] = useState(false);
-console.log(product)
-  useEffect(() => {
-    setColorPage(undefined);
-    if (pathname) {
-      const matchingColorShutter = colorData.find(
-        (clr) => clr.url === pathname,
-      );
-      if (matchingColorShutter) {
-        setColorPage(matchingColorShutter);
-      }
-    }
-  }, [pathname]);
-
-
-  useEffect(() => {
-    if (pathname) {
-      const matchingUrl = urls.find((url) => url.errorUrl === pathname);
-      console.log(pathname, 'pathnamepathname');
-      if (matchingUrl) {
-        console.log(matchingUrl, 'matchingUrl');
-        setIsNotFound(true);
-      } else {
-        setIsNotFound(false);
-      }
-    }
-  }, [pathname]);
-
-  if (isNotFound) {
-    return <NotFound />;
-  }
-
-  if (!filteredSubCategory && !filteredProduct && !colorPage) {
-    return <NotFound />;
-  }
-
-  console.log(colorPage, 'colorPage');
-  console.log(filteredSubCategory, 'colorPage1');
 
   return (
     <>
@@ -69,6 +27,9 @@ console.log(product)
               category={`${filteredSubCategory.category.title}`}
               relatedProducts={filteredSubCategory?.products || []}
               filteredSubCategory={filteredSubCategory}
+              products={allprod}
+              categories={categories || []}
+              subCategories={subCategories || []}
             />
           </>
         ) : (
@@ -76,6 +37,7 @@ console.log(product)
             <ProductDetailPage
               title={`${filteredProduct?.title}`}
               allprod={allprod}
+              categories={categories}
             />
           )
         )
@@ -83,6 +45,8 @@ console.log(product)
         <ShuttersByColor
           title={colorPage.name}
           subCategory={filteredSubCategory}
+          products={allprod}
+          categories={categories}
         />
       )}
     </>
