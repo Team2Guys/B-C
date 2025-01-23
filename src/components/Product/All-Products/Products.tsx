@@ -26,12 +26,11 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   const [activeCategory, setActiveCategory] = useState<string>('By Style');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [productsPerPage, setProductsPerPage] = useState<number>(8);
-  const categories = [ 'By Style', 'By Room', 'dynamic'];
+  const categories = ['By Style', 'By Room', 'dynamic'];
   const productContainerRef = useRef<HTMLDivElement | null>(null);
   const [content, setContent] = useState({ title: '', subtitle: '' });
 
-   // Update the number of products per page based on window width
-   useEffect(() => {
+  useEffect(() => {
     const updateProductsPerPage = () => {
       const width = window.innerWidth;
       if (width < 768) {
@@ -51,7 +50,6 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
     };
   }, []);
 
-  // Combine categories with products
   const byRoomItems = [...extendedByRoom, ...megaMenubyRoom].flat();
   const ByRoomItems = useMemo(
     () =>
@@ -75,15 +73,14 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   );
 
   const byDynamic = [...extendedDynamic, ...megaMenuDynamic].flat();
-  const ByDynamicItems = useMemo(() =>      products.filter((product) =>
-        byDynamic.some(
-          (item) => item.productName === generateSlug(product.title)
-        )
-      ),
+  const ByDynamicItems = useMemo(() => products.filter((product) =>
+    byDynamic.some(
+      (item) => item.productName === generateSlug(product.title)
+    )
+  ),
     [products, byDynamic]
   );
 
-  // Sorting function to sort products based on customSortingOrder
   const sortProducts = (products: IProduct[], sortingOrder: string[]) => {
     const sorted = products.filter((product) =>
       sortingOrder.includes(generateSlug(product.title))
@@ -104,10 +101,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
 
   const filteredProducts: IProduct[] = useMemo(() => {
     switch (activeCategory) {
-      // case 'All': {
-      //   const sorted = sortProducts(products, customSortingOrder);
-      //   return sorted;
-      // }
+
       case 'By Room': {
         const filtered = ByRoomItems;
         return sortProducts(filtered, customSortingOrder);
@@ -258,7 +252,6 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
             dangerouslySetInnerHTML={{ __html: content.subtitle }}
           ></p>
         </div>
-        {/* categorydata */}
         <div ref={productContainerRef} className="my-2" />
         <div className="" id="productContainer">
           <ProductCard products={visibleProducts} isSizeSmall={true} />
@@ -286,11 +279,10 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
               ) : (
                 <Button
                   key={page}
-                  className={`w-10 sm:w-[55px] h-8 sm:h-[55px] text-16 ${
-                    currentPage === page
+                  className={`w-10 sm:w-[55px] h-8 sm:h-[55px] text-16 ${currentPage === page
                       ? 'bg-secondary text-white'
                       : 'bg-transparent text-black'
-                  }`}
+                    }`}
                   onClick={() => handlePageChange(page)}
                 >
                   {page}
