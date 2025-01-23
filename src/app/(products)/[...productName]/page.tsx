@@ -4,7 +4,7 @@ import { ICategory } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { links } from "data/header_links";
-import { redirect } from "next/navigation";
+import { permanentRedirect,} from "next/navigation";
 import { blogPostUrl } from "data/urls";
 import { categoriesContent, generateSlug } from "data/data";
 import NotFound from "app/not-found";
@@ -76,7 +76,7 @@ const Products = async ({ params }: Props) => {
   console.log(redirectUrl, "splited", splited)
   const matchingUrl = blogPostUrl.find((item) => item.url === `/${splited}`);
   if (matchingUrl) {
-    redirect(matchingUrl.redirectUrl);
+    permanentRedirect(matchingUrl.redirectUrl);
   }
   const [products, categories, subCategories] = await Promise.all([
     fetchProducts(),
