@@ -21,6 +21,7 @@ const MotorisedPage = () => {
     queryFn: fetchProducts,
   });
 
+  
   if (error) return <div>Error: {error.message}</div>;
 
   const content = MoterisedContent.find(
