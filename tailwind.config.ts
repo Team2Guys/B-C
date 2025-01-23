@@ -30,6 +30,7 @@ const config = {
         appointment: "url('/assets/images/MotorisedBlind/appoint.png')",
       },
       fontSize: {
+        xsm: ['11px', '14px'],
         "title-xxl": ["44px", "55px"],
         "title-xxl2": ["42px", "58px"],
         "title-xl": ["36px", "45px"],

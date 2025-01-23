@@ -587,8 +587,3 @@ export const desiredProductTitles = [
   'Translucent Blinds',
 ];
 
-
-
-export const category_wise_paths = [
-
-]

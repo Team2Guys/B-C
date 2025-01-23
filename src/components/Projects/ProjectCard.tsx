@@ -21,6 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           alt={title}
           height={500}
           width={500}
+          loading='lazy'
           className="w-full h-full object-cover rounded-t-xl"
         />
       </div>
