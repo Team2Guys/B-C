@@ -117,6 +117,7 @@ const Review: React.FC<ReviewProps> = ({
                           alt="feedback"
                         />
                         <div>
+
                           <HeadingH6 title={array.name} />
                           <Rate
                             className="reviewstar"
@@ -125,6 +126,8 @@ const Review: React.FC<ReviewProps> = ({
                           />
                         </div>
                       </div>
+
+                      
                       <p>{array.description}</p>
                     </div>
                   );
