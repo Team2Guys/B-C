@@ -409,6 +409,9 @@ export interface PRODUCS_PROPS {
   filteredProduct: IProduct | undefined | null;
   filteredSubCategory: ICategory | undefined | null;
   allprod: Allproduct[];
+  categories?: ICategory[]
+  subCategories?: ICategory[]
+  colorPage?: IColorData
 }
 
 export interface EsProduct {

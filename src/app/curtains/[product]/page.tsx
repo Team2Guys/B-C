@@ -1,6 +1,7 @@
 import { IProduct } from 'types/types';
 import Curtain from './Curtain';
 import {
+  fetchCategories,
   fetchProducts,
   fetchSubCategories,
   filtereCategory,
@@ -9,8 +10,9 @@ import {
 import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
-import { CommercialUrl } from 'data/urls';
+import { CommercialUrl, urls } from 'data/urls';
 import { permanentRedirect} from 'next/navigation';
+import NotFound from 'app/not-found';
 
 const Cateories = [5];
 
@@ -81,13 +83,11 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: meta_props) => {
   const product = (await params).product;
-  const [products, categories] = await Promise.all([
-    fetchProducts(),
-    fetchSubCategories(),
-  ]);
+  const [products, cateories, subCategories] = await Promise.all([fetchProducts(), fetchCategories(),fetchSubCategories()]);
+
 
   const filteredProduct = filterProd(products, product, Cateories);
-  const filteredSubCategory = filtereCategory(categories, product, Cateories);
+  const filteredSubCategory = filtereCategory(subCategories, product, Cateories);
 
   const redirected_product = CommercialUrl.find(
     (prod: { urlName: string; Redirect: string }) => {
@@ -98,12 +98,21 @@ const CommercialPage = async ({ params }: meta_props) => {
   if (redirected_product) {
     permanentRedirect(redirected_product.Redirect);
   }
+  const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/curtains/${product}/`);
+  if (matchingUrl) {
+    return <NotFound />
+  }
+  if (!filteredSubCategory && !filteredProduct) {
+    return <NotFound />;
+  }
   return (
     <Curtain
       filteredProduct={filteredProduct}
       filteredSubCategory={filteredSubCategory}
       product={product}
       allprod={products}
+      categories={cateories}
+      subCategories={subCategories}
     />
   );
 };
