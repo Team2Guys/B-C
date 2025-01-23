@@ -52,9 +52,8 @@ const Product = ({
   const title = matchingLink ? matchingLink.label : productName;
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
   const [isNotFound, setIsNotFound] = useState(false);
-  const productNameString = Array.isArray(productName)
-    ? productName[0]
-    : productName;
+  const productNameString = Array.isArray(productName)? productName[0]: productName;
+  
   useEffect(() => {
     if (products && categories && productNameString) {
       const matchingLink = links.find((link) =>
@@ -83,14 +82,6 @@ const Product = ({
     }
   }, [products, categories, subCategories, productNameString]);
 
-  // useEffect(() => {
-  //   const selectedPage = categoriesContent.find(
-  //     (page) => page.slug === generateSlug(pathname),
-  //   );
-  //   if (selectedPage) {
-  //     setSelectedPage(selectedPage.content);
-  //   }
-  // }, [pathname]);
   if (isNotFound) {
     return <NotFound />;
   }
