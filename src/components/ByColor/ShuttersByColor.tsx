@@ -52,13 +52,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
     console.log(selectedColorHex, 'selectedColorHex');
 
     if (selectedColorHex) {
-      /* Later usage filter product by color */
-      // const filteredByColor = products?.filter((prod) =>
-      //   prod.colors?.some((color) => color.colorName === selectedColorHex.color),
-      // );
-      // console.log(filteredByColor);
       setcolorImages(selectedColorHex);
-      // setFilteredProducts(filteredByColor);
       setLoadingFilteredProducts(true);
     }
   }, [pathname]);

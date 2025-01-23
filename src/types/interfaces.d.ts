@@ -213,10 +213,6 @@ export interface SupportItem {
   description: string;
 }
 
-export interface TRSlide {
-  title: string;
-  content: string;
-}
 export type BannerData = {
   imageUrl: string;
   title: string;
@@ -272,11 +268,7 @@ export interface Tproductdata {
   sideImage1: string;
   sideImage: string;
 }
-export interface TsizePresets {
-  width: number;
-  height: number;
-  size: any;
-}
+
 export interface TProductGuarantees {
   heading: string;
   text: string;

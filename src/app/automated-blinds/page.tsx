@@ -11,16 +11,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Premium Automated Blinds in Dubai | Blinds & Curtains Dubai',
     description: 'Automated blinds are trending in Dubai. Explore our wide range of smart blinds for windows. Contact us today for more information!',
-    url: 'https://b-c-eight.vercel.app/automated-blinds',
+    url: 'https://blindsandcurtains.ae/automated-blinds/',
     images: [
       {
-        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
         alt: 'blindsandcurtains',
       },
     ],
   },
   alternates: {
-    canonical: 'https://b-c-eight.vercel.app/automated-blinds',
+    canonical: 'https://blindsandcurtains.ae/automated-blinds/',
   },
 };
 

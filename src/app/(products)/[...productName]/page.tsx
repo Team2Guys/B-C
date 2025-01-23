@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const categories = await fetchCategories()
 
 
-  const filterCategory = categories.find((category:ICategory) => category.title === matchingLink?.label);
+  const filterCategory = categories.find((category: ICategory) => category.title === matchingLink?.label);
   const headersList = await headers();
   const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
@@ -94,14 +94,14 @@ const Products = async ({ params }: Props) => {
   );
   const selectedProductName = matchingLink ? matchingLink.label : slug;
   const filterCat = categories?.find(
-    (cat:ICategory) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
+    (cat: ICategory) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
   );
   const filteredProducts =
     products.filter((product: IProduct) => product.CategoryId === filterCat?.id) ||
     [];
   const filteredSubCategories =
     subCategories?.filter(
-      (subCat:ICategory) => subCat.CategoryId === filterCat?.id,
+      (subCat: ICategory) => subCat.CategoryId === filterCat?.id,
     ) || [];
   const filteredItems = [...filteredProducts, ...filteredSubCategories];
   // console.log(filteredItems, 'selectedProductName');

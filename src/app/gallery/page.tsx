@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     description:
       'Explore our gallery section, which includes all the products and different designs for you to select easily. Available in a variety of designs to suit your space.',
 
-    url: 'fullUrl',
+    url: 'https://blindsandcurtains.ae/gallery/',
     images: [
       {
-        url: 'imageUrl',
+        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
         alt: 'altText',
       },
     ],
   },
   alternates: {
-    canonical: 'about-us',
+    canonical: 'https://blindsandcurtains.ae/gallery/',
   },
 };
 const GalleryPage = async () => {

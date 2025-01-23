@@ -1,7 +1,5 @@
 import TopHero from 'components/ui/top-hero';
 import bgBreadcrum from '../../../public/assets/images/Blog/blogbackground.png';
-import Header from 'components/Res-usable/header/Header';
-import Footer from 'components/Res-usable/Footer/Footer';
 import PageSkelton from 'components/Skeleton/PageSkelton';
 import { BlogInfo } from 'types/interfaces';
 import BlogMain from 'components/Blogs/blog-main';
@@ -19,16 +17,16 @@ export const metadata: Metadata = {
     description:
       'Read our blog for the latest updates on trends and new products. Get to know the best product for your home or business. For more information, give us a call.',
 
-    url: 'https://b-c-eight.vercel.app/blog',
+    url: 'https://blindsandcurtains.ae/blog/',
     images: [
       {
-        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
         alt: 'blindsandcurtains',
       },
     ],
   },
   alternates: {
-    canonical: 'https://b-c-eight.vercel.app/blog',
+    canonical: 'https://blindsandcurtains.ae/blog/',
   },
 };
 
@@ -41,8 +39,7 @@ const Blog = async () => {
 
   return (
     <>
-      <Header />
-      <TopHero title="Blogs" image={bgBreadcrum.src} pagename="blog" />
+          <TopHero title="Blogs" image={bgBreadcrum.src} pagename="blog" />
 
       <div className="mt-5">
         <Suspense fallback={<PageSkelton />}>
@@ -53,7 +50,6 @@ const Blog = async () => {
         </Suspense>
       </div>
       <div className="mt-0 sm:mt-16 lg:mt-20 max-sm:mb-10" />
-      <Footer />
     </>
   );
 };
