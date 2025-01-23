@@ -18,16 +18,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
     description: 'If you are looking for blinds in dubai, or maybe curtains in Dubai, look no further. Our ZERO pressure appointment guarantee will ensure you are.....',
-    url: 'https://b-c-eight.vercel.app',
+    url: 'https://blindsandcurtains.ae/why-choose-blinds-curtains/',
     images: [
       {
-        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
         alt: 'blindsandcurtains',
       },
     ],
   },
   alternates: {
-    canonical: 'https://b-c-eight.vercel.app',
+    canonical: 'https://blindsandcurtains.ae/why-choose-blinds-curtains/',
   },
 }
 
