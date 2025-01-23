@@ -148,9 +148,8 @@ function ReadMoreCard({
               {testimonial.author_name}
             </h3>
             <div className="flex gap-2">
-              <div>
                 <FcGoogle className="text-2xl xs:text-4xl" />
-              </div>
+  
               <div className="flex flex-col">
                 <div className="flex gap-1 xs:gap-2 text-[9px] xs:text-10 mt-1 text-[#FCD503]">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -165,10 +164,7 @@ function ReadMoreCard({
           </div>
      </div>
         <div>
-        {/* <span className="text-10 text-gray-800 w-3/12 whitespace-nowrap ">
-            {testimonial.relative_time_description}
-          </span>
-           */}
+    
         </div>
       </div>
       <div>
@@ -178,9 +174,11 @@ function ReadMoreCard({
               {testimonial.author_name}
             </h3>
             <div className="flex gap-2">
-              <div>
+
                 <FcGoogle className="text-4xl" />
-              </div>
+            
+
+
               <div className="flex flex-col pt-1">
                 <div className="flex gap-1.5 text-10 2xl:text-12 mt-1 text-[#FCD503]">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -192,6 +190,8 @@ function ReadMoreCard({
                 </p>
               </div>
             </div>
+
+
           </div>
 
           {/* <span className="text-xs text-gray-800 mt-2">
