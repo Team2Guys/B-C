@@ -12,7 +12,7 @@ const HomeCard = () => {
     error,
     isLoading,
   } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
+    queryKey: [''],
     queryFn: fetchCategories,
   });
   const customOrder = ['Blinds', 'Curtains', 'Shutters'];

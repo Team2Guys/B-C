@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import { CommercialUrl, urls } from "data/urls";
 import { reverseSlug } from "data/data";
 import { meta_props } from "types/interfaces";
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export async function generateMetadata({ params }:meta_props): Promise<Metadata> {
   const product  = (await params).product;
@@ -83,7 +83,7 @@ const CommercialPage = async ({ params }: meta_props) => {
       );
     
       if (redirected_product) {
-        redirect(redirected_product.Redirect);
+        permanentRedirect(redirected_product.Redirect);
       }
   return (
     <>
