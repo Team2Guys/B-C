@@ -102,7 +102,6 @@ const Review: React.FC<ReviewProps> = ({
             {currentItems.length > 0 ? (
               <>
                 {currentItems.map((array: any, index: any) => {
-                  console.log(array.star, 'star');
                   return (
                     <div
                       className="space-y-2 rounded-md p-2 mt-1 shadow"
