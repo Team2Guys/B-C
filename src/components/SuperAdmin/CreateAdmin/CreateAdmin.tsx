@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import { Col, ConfigProvider, Form, Row } from 'antd';
-
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Checkbox, CheckboxProps } from 'antd';
 import axios from 'axios';
