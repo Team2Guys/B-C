@@ -90,6 +90,8 @@ model Appointments {
   prefered_contact_method String[] @default([])
   prefered_time           String?
   address                 String?
+  createdAt         DateTime   @default(now())
+
 }
 
 model Admins {
