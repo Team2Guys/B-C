@@ -13,16 +13,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Why Choose Us | Blinds and Curtains',
     description: 'We have a diverse range of blinds perfect for your homes and offices. Choose from various styles to create the perfect environment for your space.',
-    url: 'https://b-c-eight.vercel.app/why-choose-blinds-curtains',
+    url: 'https://blindsandcurtains.ae/why-choose-blinds-curtains/',
     images: [
       {
-        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
         alt: 'Why Choose Us | Blinds and Curtains',
       },
     ],
   },
-  alternates: {
-    canonical: 'https://b-c-eight.vercel.app/why-choose-blinds-curtains',
+   alternates: {
+    canonical: 'https://blindsandcurtains.ae/why-choose-blinds-curtains/',
   },
 };
 

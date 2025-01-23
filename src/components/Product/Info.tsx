@@ -7,7 +7,6 @@ import PageSkelton from 'components/Skeleton/PageSkelton';
 import Link from 'next/link';
 
 const Info = (selectedPage: IInfo) => {
-  // const route = useRouter();
   if (!selectedPage.selectedPage) {
     return <PageSkelton header={true} />;
   }
