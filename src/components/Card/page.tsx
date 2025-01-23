@@ -1,20 +1,11 @@
 'use client'
 import Card from 'components/Res-usable/Cards/card';
 import Container from 'components/Res-usable/Container/Container';
-import { useQuery } from '@tanstack/react-query';
-import { fetchCategories} from 'config/fetch';
 import { ICategory } from 'types/types';
 import { links } from 'data/header_links';
 
-const HomeCard = () => {
-  const {
-    data: categories,
-    error,
-    isLoading,
-  } = useQuery<ICategory[]>({
-    queryKey: [''],
-    queryFn: fetchCategories,
-  });
+const HomeCard = ({categories}: {categories: ICategory[]}) => {
+
   const customOrder = ['Blinds', 'Curtains', 'Shutters'];
   const sortedCategories = categories?.sort((a: ICategory, b: ICategory) => {
     const indexA = customOrder.indexOf(a.title);
@@ -22,8 +13,7 @@ const HomeCard = () => {
     return indexA - indexB;
   });
 
-  if (error instanceof Error) return <div>Error: {error.message}</div>;
-  if (isLoading)
+  if (categories.length < 0)
     return (
       <div>
         <Container className="py-12">

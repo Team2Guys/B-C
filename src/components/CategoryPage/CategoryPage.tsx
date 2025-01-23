@@ -5,13 +5,7 @@ import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 import Link from 'next/link';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
-import {
-  fetchCategories,
-  fetchProducts,
-  fetchSubCategories,
-} from 'config/fetch';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
@@ -22,27 +16,17 @@ import { desiredProductTitles } from 'data/urls';
 interface ICategoryPage {
   title: string;
   relatedProducts: IProduct[];
+  products: IProduct[];
+  categories: ICategory[];
+  subCategories: ICategory[]
 }
 
-const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
+const CategoryPage = ({ title, relatedProducts, products, categories , subCategories }: ICategoryPage) => {
   const pathname = usePathname();
-  const { data: products, error } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
-  console.log(products, "productsproducts")
-  const { data: subcategories } = useQuery<ICategory[]>({
-    queryKey: ['subcategories'],
-    queryFn: fetchSubCategories,
-  });
-  const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
 
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(relatedProducts);
-  let filterSubCat = subcategories?.find((subCat) => subCat.title === title);
+  let filterSubCat = subCategories?.find((subCat) => subCat.title === title);
   const filterProducts = () => {
     const filterCat = categories?.find(
       (cat) => cat.id === filterSubCat?.CategoryId,
@@ -61,9 +45,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
     } else {
       setFilteredProducts(relatedProducts);
     }
-  }, [title, products, subcategories, categories]);
-
-  if (error instanceof Error) return <div>Error: {error.message}</div>;
+  }, [title, products, subCategories, categories]);
 
   let prod_finder_handler = (arr: IProduct) => {
     let product;
@@ -156,7 +138,7 @@ const CategoryPage = ({ title, relatedProducts }: ICategoryPage) => {
       </Container>
       <BookNowBanner />
       <Container className=" py-3 sm:py-10">
-        <RelatedProducts products={(filteredProductList ?? []).slice(0, 4)} limit={4} />
+        <RelatedProducts products={(filteredProductList ?? []).slice(0, 4)} limit={4} categoriesList={categories} />
       </Container>
     </div>
   );
