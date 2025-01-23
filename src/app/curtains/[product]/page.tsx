@@ -10,7 +10,7 @@ import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
 import { CommercialUrl } from 'data/urls';
-import { redirect } from 'next/navigation';
+import { permanentRedirect} from 'next/navigation';
 
 const Cateories = [5];
 
@@ -96,7 +96,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   );
 
   if (redirected_product) {
-    redirect(redirected_product.Redirect);
+    permanentRedirect(redirected_product.Redirect);
   }
   return (
     <Curtain
