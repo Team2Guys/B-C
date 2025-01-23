@@ -12,15 +12,6 @@ import Cookies from 'js-cookie';
 import { CategoryProps, ICategory } from 'types/types';
 import Swal from 'sweetalert2';
 
-// interface CategoryProps {
-//   setMenuType: React.Dispatch<SetStateAction<string>>;
-//   seteditCategory?: React.Dispatch<
-//     SetStateAction<CategoriesType | undefined | null>
-//   >;
-//   editCategory?: CategoriesType | undefined | null;
-//   cetagories?: ICategory[];
-// }
-
 const TableTwo = ({
   setMenuType,
   seteditCategory,

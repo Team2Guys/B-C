@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { HeadingH6 } from 'components/Common/Heading';
 import { message, Modal, Rate } from 'antd';
 import { IoIosSend } from 'react-icons/io';
 import feedback from '../../../../public/images/review.png';
@@ -117,7 +116,7 @@ const Review: React.FC<ReviewProps> = ({
                           alt="feedback"
                         />
                         <div>
-                          <HeadingH6 title={array.name} />
+                          <p className='xl:text-xl-h6 lg:text-lg-h6 text-md-h6  gap-3' >title={array.name}</p>
                           <Rate
                             className="reviewstar"
                             disabled

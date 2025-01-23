@@ -30,12 +30,6 @@ const BookNowBanner: React.FC<BookNowBannerProps> = ({ className, parent }) => {
     >
       <div className="absolute w-full h-[200px] xs:h-full bg-light opacity-60"></div>
       <Container className="z-0">
-        {/* <p className="text-16 sm:text-2xl md:text-3xl lg:text-4xl font-medium mx-auto w-fit text-center">
-          Need some more information or to{' '}
-          <span className="font-black">Arrange an Appointment?</span>
-          <br />
-          Send us an email or call us on: 04 252 2025
-        </p> */}
         <p
           className="text-16 sm:text-2xl md:text-3xl lg:text-4xl font-medium mx-auto w-full lg:w-3/4 text-center"
         >

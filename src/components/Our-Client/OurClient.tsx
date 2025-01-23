@@ -29,10 +29,6 @@ const OurClient = () => {
             modules={[Autoplay]}
             className="mySwiper"
             breakpoints={{
-              // 320: {
-              //   slidesPerView: 1,
-              //   spaceBetween: 5,
-              // },
               440: {
                 slidesPerView: 1,
                 spaceBetween: 0,
