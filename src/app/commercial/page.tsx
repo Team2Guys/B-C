@@ -8,7 +8,7 @@ import { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers();
   const categories = await fetchCategories();
-  const filteredCatgory = categories.find((c) => c.id === 12);
+  const filteredCatgory = categories.find((c:ICategory) => c.id === 12);
  
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';

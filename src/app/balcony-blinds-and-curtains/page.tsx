@@ -1,6 +1,6 @@
 import NotFound from 'app/not-found';
 import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
-import { fetchSubCategories } from 'config/fetch';
+import { fetchCategories, fetchProducts, fetchSubCategories } from 'config/fetch';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { ICategory } from 'types/types';
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
   let description =
     filteredCatgory?.Meta_description ||
     'Welcome to blindsandcurtains';
-  let url = `${fullUrl}balcony-blinds-and-curtains`;
+  let url = `${fullUrl}balcony-blinds-and-curtains/`;
   return {
     title: title,
     description: description,
@@ -57,11 +57,14 @@ export async function generateMetadata(): Promise<Metadata> {
 const CommercialPage = async () => {
   let product = "Balcony Blinds And Curtains"
 
-  const subCategories = await fetchSubCategories();
+  const [products, categories, subCategories] = await Promise.all([
+    fetchProducts(),
+    fetchCategories(),
+    fetchSubCategories(),
+  ]);
 
 
-  const filteredSubCategory = subCategories?.find((sub) => sub.title === product,
-  );
+  const filteredSubCategory = subCategories?.find((sub:ICategory) => sub.title === product  );
 
   if (!filteredSubCategory) {
     return <NotFound />;
@@ -75,6 +78,9 @@ const CommercialPage = async () => {
         category={`${filteredSubCategory?.category.title}`}
         relatedProducts={filteredSubCategory?.products || []}
         filteredSubCategory={filteredSubCategory}
+        products={products}
+        categories={categories}
+        subCategories={subCategories}
       />
 
     </>
