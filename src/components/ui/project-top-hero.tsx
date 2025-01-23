@@ -22,6 +22,7 @@ const ProjectTopHero: React.FC<TopHeroProps> = ({ title }) => {
           >
             {pathname}
           </h1>
+          
           <div className="flex justify-center items-center px-2 gap-1 xs:gap-2 sm:gap-4 text-14 sm:text-base flex-wrap mt-8 w-fit m-auto">
             <Link
               href="/"
@@ -35,6 +36,7 @@ const ProjectTopHero: React.FC<TopHeroProps> = ({ title }) => {
               {pathname}
             </div>
           </div>
+
         </div>
       </div>
     </div>
