@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     url: 'https://b-c-eight.vercel.app/why-choose-blinds-curtains',
     images: [
       {
-        url: 'https://b-c-eight.vercel.app/blindsandcurtains.jpg',
+        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
         alt: 'Why Choose Us | Blinds and Curtains',
       },
     ],
   },
-  alternates: {
+   alternates: {
     canonical: 'https://b-c-eight.vercel.app/why-choose-blinds-curtains',
   },
 };
