@@ -36,8 +36,8 @@ export default function RootLayout({
     <Providers>
       <html lang="en">
         <head>
-        <GoogleTagManager gtmId="GTM-MNXTN5B" />
-        <Script
+          <GoogleTagManager gtmId="GTM-MNXTN5B" />
+          <Script
             id="google-tag-manager"
             dangerouslySetInnerHTML={{
               __html: `
@@ -50,7 +50,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }}
           />
 
-<Script
+          <Script
             id="clarity-script"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
@@ -64,10 +64,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }}
           />
 
-<meta name="google-site-verification" content="kY94RrP8_rfkJPW-jgK6GaWAfX9BUykeQ5Q7WFxmGyY" />
-<meta name="p:domain_verify" content="58b7c4e018c53c00c2cd12f5f838b47a"/>
+          <meta name="google-site-verification" content="kY94RrP8_rfkJPW-jgK6GaWAfX9BUykeQ5Q7WFxmGyY" />
+          <meta name="p:domain_verify" content="58b7c4e018c53c00c2cd12f5f838b47a" />
 
-<Script
+          <Script
             id="meta-pixel"
             dangerouslySetInnerHTML={{
               __html: `
@@ -86,7 +86,7 @@ fbq('track', 'PageView');
             }}
           />
 
-<Script
+          <Script
             id="gtag-init"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
@@ -104,19 +104,19 @@ gtag('config', 'UA-133442332-1');
           />
 
 
-          
+
         </head>
 
 
         <body className={` ${gotham.className} bg-lightgrey`}>
-        <GoogleTagManager gtmId="GTM-MNXTN5B" />
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNXTN5B"
-height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
+          <GoogleTagManager gtmId="GTM-MNXTN5B" />
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNXTN5B"
+            height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
 
 
           <PathnameWrapper>
             {children}
-            <Callbutton/>
+            <Callbutton />
             <WhatsIcon />
             <ToastContainer autoClose={3000} />
           </PathnameWrapper>
