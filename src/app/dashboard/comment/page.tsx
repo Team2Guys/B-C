@@ -1,34 +1,16 @@
-'use client';
 import React from 'react';
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
-import CommentsData from 'components/Dashboard/Blogs/comment-data/comment-data';
-import { BlogInfo } from 'types/interfaces';
-import { useQuery } from '@tanstack/react-query';
 import { fetchBlogs } from 'config/fetch';
-import ProtectedRoute from 'hooks/AuthHookAdmin';
-import HorizontalcardSkelton from 'components/Skeleton/HorizontalcardSkelton';
+import dynamic from 'next/dynamic'
+const CommentsData = dynamic(() => import('components/Dashboard/Blogs/comment-data/comment-data'), {
+  loading: () => <p>Loading...</p>,
+})
 
-const Comment = () => {
-  const {
-    data: blogs,
-    isLoading,
-  } = useQuery<BlogInfo[]>({
-    queryKey: ['blogs'],
-    queryFn: fetchBlogs,
-  });
+const Comment = async() => {
+  let blogs = await fetchBlogs()
 
-  if (isLoading) {
-    return (
-      <DefaultLayout>
-        <HorizontalcardSkelton rows={10} columns={1} />
-      </DefaultLayout>
-    );
-  }
- 
-  if (!blogs) {
-    return <p>Blog not found.</p>;
-  }
+
   return (
     <DefaultLayout>
       <Breadcrumb pageName={"Blogs Comment"} />
@@ -37,4 +19,4 @@ const Comment = () => {
   );
 };
 
-export default ProtectedRoute(Comment);
+export default Comment;

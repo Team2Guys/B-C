@@ -19,7 +19,10 @@ const nextConfig = {
           },
         ];
       },
-  compiler:{    removeConsole: process.env.NODE_ENV === 'production'  ? true : false }
+  compiler:{    removeConsole: process.env.NODE_ENV === 'production'  ? true : false },
+  experimental: {
+    optimizePackageImports: ['react-icons/*', "antd"],
+  },
 };
 
 

@@ -8,6 +8,8 @@ import Link from 'next/link';
 import BookAppointment from 'components/Book-appointment/BookAppointment';
 import { SlCalender } from "react-icons/sl";
 import { Metadata } from 'next';
+import { GoogleMapsEmbed } from '@next/third-parties/google'
+
 
 export const metadata: Metadata = {
   title: 'Blind And Curtains Dubai | Contact Us',
@@ -106,13 +108,21 @@ const ProductUs: React.FC = () => {
             </div>
 
             <div className="lg:mt-5 mt-4">
-              <iframe
+              {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d115601.00872970802!2d55.235686!3d25.117715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sBlinds%20And%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1731328247874!5m2!1sen!2sus"
                 width="100%"
                 height="200"
                 loading="lazy"
                 style={{ border: 0 }}
-              />
+              /> */}
+
+   <GoogleMapsEmbed
+      apiKey={process.env.NEXT_PUBLIC_REVIEWS_API_KEY || ""}
+      height={200}
+      width="100%"
+      mode="place"
+      q="blinds+and+curtains+Dubai,Dubai,DXB"
+    />
             </div>
           </div>
           <BookAppointment className=" hidden sm:block" />

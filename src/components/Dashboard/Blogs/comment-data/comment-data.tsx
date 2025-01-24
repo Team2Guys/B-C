@@ -4,6 +4,7 @@ import { useAppSelector } from "components/Others/HelperRedux";
 import showToast from "components/Toaster/Toaster";
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import ProtectedRoute from "hooks/AuthHookAdmin";
 
 interface IComment {
   id: number;
@@ -43,6 +44,7 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
+
   const handleApprove = async (id: number, comment: any, item: any) => {
     updateCommentStatus(comment.id, item.id, "APPROVED");
     setDisabledButtons((prev) => ({ ...prev, [comment.id]: true }));
@@ -64,6 +66,7 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
       }, 2000); // Re-enable after 2 seconds
     }
   };
+
 
   const handleReject = async (id: number, comment: any, item: any) => {
     updateCommentStatus(comment.id, item.id, "REJECTED");
@@ -93,11 +96,11 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
       prevComments.map((item) =>
         item.id === itemId
           ? {
-              ...item,
-              comments: item.comments.map((comment: IComment) =>
-                comment.id === commentId ? { ...comment, status: newStatus } : comment
-              ),
-            }
+            ...item,
+            comments: item.comments.map((comment: IComment) =>
+              comment.id === commentId ? { ...comment, status: newStatus } : comment
+            ),
+          }
           : item
       )
     );
@@ -158,26 +161,24 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                         </p>
                         <div className="flex gap-4 mb-4">
                           <button
-                           className={`text-white px-4 py-1 rounded ${
-                            disabledButtons[comment.id]
-                              ? "bg-gray-400"
-                              : !canEditBlog || comment.status === "APPROVED"
-                              ? "bg-gray-400"
-                              : "bg-green-600"
-                          }`}
+                            className={`text-white px-4 py-1 rounded ${disabledButtons[comment.id]
+                                ? "bg-gray-400"
+                                : !canEditBlog || comment.status === "APPROVED"
+                                  ? "bg-gray-400"
+                                  : "bg-green-600"
+                              }`}
                             onClick={() => handleApprove(comment.id, comment, item)}
                             disabled={!canEditBlog || comment.status === 'APPROVED' || disabledButtons[comment.id]}
                           >
                             Approve
                           </button>
                           <button
-                             className={`text-white px-4 py-1 rounded ${
-                              disabledButtons[comment.id]
+                            className={`text-white px-4 py-1 rounded ${disabledButtons[comment.id]
                                 ? "bg-gray-400"
                                 : !canEditBlog || comment.status === "REJECTED"
-                                ? "bg-gray-400"
-                                : "bg-red-600"
-                            }`}
+                                  ? "bg-gray-400"
+                                  : "bg-red-600"
+                              }`}
                             onClick={() => handleReject(comment.id, comment, item)}
                             disabled={!canEditBlog || comment.status === 'REJECTED' || disabledButtons[comment.id]}
                           >
@@ -203,4 +204,4 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
   );
 };
 
-export default Comments;
+export default ProtectedRoute(Comments);
