@@ -1,4 +1,4 @@
-import { fetchProducts, fetchSubCategories } from "config/fetch";
+import { fetchCategories, fetchProducts, fetchSubCategories } from "config/fetch";
 import CommercialProduct from "./CommerticalProduct";
 import { headers } from "next/headers";
 import { ICategory, IProduct } from "types/types";
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }:meta_props): Promise<Metadata>
   ]);
   const matchingLinks = urls.find((link) => link.Url === product)
 
-  const filterSubCategory = subCategories.find((subcategory) => {
+  const filterSubCategory = subCategories.find((subcategory:ICategory) => {
     const comparisonValue = matchingLinks?.productName || reverseSlug(product);
     return subcategory.title === comparisonValue;
   });
@@ -71,8 +71,9 @@ export async function generateMetadata({ params }:meta_props): Promise<Metadata>
 
 const CommercialPage = async ({ params }: meta_props) => {
   const slug = (await params).product;
-  const [products, subCategories] = await Promise.all([
+  const [products,categories , subCategories] = await Promise.all([
     fetchProducts(),
+    fetchCategories(),
     fetchSubCategories(),
   ]);
 
@@ -87,7 +88,7 @@ const CommercialPage = async ({ params }: meta_props) => {
       }
   return (
     <>
-      <CommercialProduct product={slug} products={products} subCategories={subCategories} />
+      <CommercialProduct product={slug} products={products} subCategories={subCategories}  categories={categories} />
     </>
   );
 };

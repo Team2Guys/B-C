@@ -1,11 +1,12 @@
-import { fetchProducts, fetchSubCategories } from "config/fetch";
+import { fetchCategories, fetchProducts, fetchSubCategories } from "config/fetch";
 import SubProduct from "./Subproduct";
-import { ChangedProductUrl } from "data/urls";
+import { ChangedProductUrl, urls } from "data/urls";
 import { generateSlug } from "data/data";
-import { IProduct } from "types/types";
+import { ICategory, IProduct } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import NotFound from "app/not-found";
 
 
 export async function generateMetadata({ params }: { params: Promise<{ subproduct: string}>}): Promise<Metadata> {
@@ -71,13 +72,10 @@ export async function generateMetadata({ params }: { params: Promise<{ subproduc
 
 const Page = async ({ params }: { params: Promise<{ subproduct: string }> }) => {
   const slug = (await params).subproduct;
-  const [products, subCategories] = await Promise.all([
-    fetchProducts(),
-    fetchSubCategories(),
-  ]);
+  const [products, categories, subCategories] = await Promise.all([fetchProducts(), fetchCategories(),fetchSubCategories()]);
   const Cateories = [2];
 
-  const filteredSubCategory = subCategories?.find((sub) => {
+  const filteredSubCategory = subCategories?.find((sub:ICategory) => {
     let title = ChangedProductUrl(slug as string);
     let title_flag = title === generateSlug(sub.title);
     return (
@@ -90,9 +88,17 @@ const Page = async ({ params }: { params: Promise<{ subproduct: string }> }) => 
       generateSlug(prod.title) === ChangedProductUrl(slug as string) &&
       Cateories.some((item: number) => item == prod.CategoryId),
   );
+
+  const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/roller-blinds/${slug}/`);
+    if (matchingUrl) {
+      return <NotFound />
+    }
+    if (!filteredSubCategory && !filteredProduct) {
+      return <NotFound />;
+    }
   return (
     <>
-      <SubProduct products={products} filteredProduct={filteredProduct} filteredSubCategory={filteredSubCategory} />
+      <SubProduct products={products} categories={categories} subCategories={subCategories}  filteredProduct={filteredProduct} filteredSubCategory={filteredSubCategory} />
     </>
   );
 };

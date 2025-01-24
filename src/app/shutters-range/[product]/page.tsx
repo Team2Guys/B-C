@@ -1,4 +1,5 @@
 import {
+  fetchCategories,
   fetchProducts,
   fetchSubCategories,
   filtereCategory,
@@ -10,7 +11,9 @@ import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
 import { permanentRedirect} from 'next/navigation';
-import { CommercialUrl } from 'data/urls';
+import { CommercialUrl, urls } from 'data/urls';
+import NotFound from 'app/not-found';
+import { colorData } from 'data/data';
 
 export async function generateMetadata({
   params,
@@ -91,15 +94,23 @@ const CommercialPage = async ({ params }: meta_props) => {
   }
   const Cateories = [9];
 
-  const [products, categories] = await Promise.all([
+  const [products, Subcategories , categories] = await Promise.all([
     fetchProducts(),
     fetchSubCategories(),
+    fetchCategories(),
   ]);
 
   const filteredProduct = filterProd(products, product, Cateories);
-  const filteredSubCategory = filtereCategory(categories, product, Cateories);
+  const filteredSubCategory = filtereCategory(Subcategories, product, Cateories);
 
-    
+  const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/shutters-range/${product}/`);
+  const matchingColorShutter = colorData.find((clr) => clr.url === `/shutters-range/${product}/`)
+  if (matchingUrl) {
+    return <NotFound />
+  }
+  if (!filteredSubCategory && !filteredProduct && !matchingColorShutter) {
+    return <NotFound />;
+  }
 
   return (
     <Shutters
@@ -107,6 +118,9 @@ const CommercialPage = async ({ params }: meta_props) => {
       filteredSubCategory={filteredSubCategory}
       product={product}
       allprod={products}
+      categories={categories}
+      subCategories={Subcategories}
+      colorPage={matchingColorShutter}
     />
   );
 };
