@@ -213,20 +213,20 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     const activeCategory = styles ? styles.productName : rooms ? rooms.productName : dynamics ? dynamics.productName : null;
     setMatchingItem(activeCategory);
     const activeIndex = styles ? 0 : rooms ? 1 : dynamics ? 2 : undefined;
-    if (title === 'Commercial' && 
-      (activeCategory?.includes('blinds-and-curtains') || 
-       activeCategory?.includes('blinds-curtains') || 
-       activeCategory?.includes('printed-blinds'))) {
-    setActiveKey(activeIndex);
-    setDefualtActiveKey(activeIndex);
-  } else if (activeIndex !== undefined && 
-      activeCategory?.includes(title.toLowerCase()) && 
-      !(activeCategory?.includes('blinds-and-curtains') || 
-        activeCategory?.includes('blinds-curtains') || 
+    if (title === 'Commercial' &&
+      (activeCategory?.includes('blinds-and-curtains') ||
+        activeCategory?.includes('blinds-curtains') ||
         activeCategory?.includes('printed-blinds'))) {
-    setActiveKey(activeIndex);
-    setDefualtActiveKey(activeIndex);
-  }
+      setActiveKey(activeIndex);
+      setDefualtActiveKey(activeIndex);
+    } else if (activeIndex !== undefined &&
+      activeCategory?.includes(title.toLowerCase()) &&
+      !(activeCategory?.includes('blinds-and-curtains') ||
+        activeCategory?.includes('blinds-curtains') ||
+        activeCategory?.includes('printed-blinds'))) {
+      setActiveKey(activeIndex);
+      setDefualtActiveKey(activeIndex);
+    }
   }, [path]);
 
   const handlePanelChange = (key: any) => {
@@ -254,7 +254,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
         {isOpen && (
           <div
             ref={menuRef}
-            className={`border-t-8 border-secondary absolute bg-white w-full left-1/2 ${title === 'Motorised' ? 'max-w-[60%]' :'max-w-[98%]'} -translate-x-1/2 py-4 space-y-4 transition-transform transform z-50`}>
+            className={`border-t-8 border-secondary absolute bg-white w-full left-1/2 ${title === 'Motorised' ? 'max-w-[60%]' : 'max-w-[98%]'} -translate-x-1/2 py-4 space-y-4 transition-transform transform z-50`}>
             <Container>
               {title === 'Motorised' ? (
                 <div className="flex justify-between gap-10">
@@ -279,14 +279,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                         {hoveredProduct === product.title && (
                           <>
                             <Image
-                            key={product.id}
+                              key={product.id}
                               width={500}
                               height={500}
                               className="bg-contain h-[250px] lg:h-[300px]"
                               src={
                                 product.imageSrc
-                                  && product.imageSrc
-                               
+                                && product.imageSrc
+
                               }
                               alt={product.title}
                             />
@@ -308,8 +308,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     return (
                       <div key={index} className="flex flex-col gap-5 w-full">
                         <p className="font-bold text-lg  border-b-[3px] border-secondary w-fit">
-                          {/* {title + ' ' + item.name} */}
-                          {/* <div /> */}
+
                           {title}{' '}
                           {item.name === 'dynamic'
                             ? parent === 'shutters'
@@ -450,12 +449,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                 let header_type = ['By Style', 'By Room', 'Dynamic'][index];
                 return (
                   <Panel
-                    header={<span className={`${(title === 'Commercial' && 
-                      (matchingItem?.includes('blinds-and-curtains') || 
-                       matchingItem?.includes('blinds-curtains') || 
-                       matchingItem?.includes('printed-blinds')) || 
-                       matchingItem?.includes(title.toLowerCase())) && defualtActiveKey === index 
-                       ? 'text-secondary font-bold' : 'font-normal'}`}>{title} {title=== 'Blinds' && header_type === 'Dynamic' ? 'By Meterial' : title=== 'Curtains' && header_type === 'Dynamic' ? 'By Febric Type' : title=== 'Shutters' && header_type === 'Dynamic' ? 'By Colour' : title === 'Commercial' && header_type === 'Dynamic' ? 'By Meterial' : header_type}</span>}
+                    header={<span className={`${(title === 'Commercial' &&
+                      (matchingItem?.includes('blinds-and-curtains') ||
+                        matchingItem?.includes('blinds-curtains') ||
+                        matchingItem?.includes('printed-blinds')) ||
+                      matchingItem?.includes(title.toLowerCase())) && defualtActiveKey === index
+                      ? 'text-secondary font-bold' : 'font-normal'}`}>{title} {title === 'Blinds' && header_type === 'Dynamic' ? 'By Meterial' : title === 'Curtains' && header_type === 'Dynamic' ? 'By Febric Type' : title === 'Shutters' && header_type === 'Dynamic' ? 'By Colour' : title === 'Commercial' && header_type === 'Dynamic' ? 'By Meterial' : header_type}</span>}
                     key={index}
                     className="custom-panel pt-[6px]"
                   >

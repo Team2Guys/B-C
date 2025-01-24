@@ -40,7 +40,6 @@ const TopHero: React.FC<TopHeroProps> = ({
         .map((segment: string) => segment.replaceAll('-', ' '));
 
       setPageName(newPageName);
-      console.log(newPageName, 'pageName');
     }
   }, []);
 
@@ -48,7 +47,6 @@ const TopHero: React.FC<TopHeroProps> = ({
     value.url.toLowerCase().includes(page.toLowerCase()),
   );
 
-  console.log(Video);
 
   return (
     <div
@@ -111,30 +109,30 @@ const TopHero: React.FC<TopHeroProps> = ({
                   let linkText = item;
                   if (matchedLink) {
                     linkHref = `/${item !== 'blog' &&
-                        pageName.length > 1 &&
-                        blogCategoryUrl.some(
-                          (item) =>
-                            item.name.toLowerCase() ===
-                            pageName.at(1)?.toLowerCase(),
-                        )
-                        ? `blog/${pageName.at(1)?.toLowerCase()}`
-                        : matchedLink?.title || ''
+                      pageName.length > 1 &&
+                      blogCategoryUrl.some(
+                        (item) =>
+                          item.name.toLowerCase() ===
+                          pageName.at(1)?.toLowerCase(),
+                      )
+                      ? `blog/${pageName.at(1)?.toLowerCase()}`
+                      : matchedLink?.title || ''
                       }`;
                   } else if (matchingPageTitle) {
                     linkHref = `/${matchingPageTitle.title.replaceAll(' ', '-')}`;
                     linkText = matchingPageTitle.title;
                   } else if (index === pageName.length - 2) {
                     linkHref = `/${pageName.at(0)?.toLowerCase() === 'blinds'
-                        ? 'blinds'
-                        : pageName.at(0)?.toLowerCase() === 'curtains'
-                          ? 'curtains'
-                          : pageName.at(0)?.toLowerCase() === 'shutters'
-                            ? 'shutters'
-                            : pageName.at(0)?.toLowerCase() === 'commercial'
-                              ? 'commercial'
-                              : pageName.at(0)?.toLowerCase() === 'blog'
-                                ? 'blog'
-                                : ''
+                      ? 'blinds'
+                      : pageName.at(0)?.toLowerCase() === 'curtains'
+                        ? 'curtains'
+                        : pageName.at(0)?.toLowerCase() === 'shutters'
+                          ? 'shutters'
+                          : pageName.at(0)?.toLowerCase() === 'commercial'
+                            ? 'commercial'
+                            : pageName.at(0)?.toLowerCase() === 'blog'
+                              ? 'blog'
+                              : ''
                       }${item === 'commercial' ? '' : `/${item.replaceAll(' ', '-')}`}`;
                   } else if (matchingColorData) {
                     return (

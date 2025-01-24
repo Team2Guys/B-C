@@ -35,8 +35,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const [sidebarExpanded, setSidebarExpanded] = useState(
     storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true',
   );
-
-  // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!sidebar.current || !trigger.current) return;
@@ -52,7 +50,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     return () => document.removeEventListener('click', clickHandler);
   });
 
-  // close if the esc key is pressed
   useEffect(() => {
     const keyHandler = ({ key }: KeyboardEvent) => {
       if (!sidebarOpen || key !== 'Escape') return;
@@ -71,15 +68,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     }
   }, [sidebarExpanded]);
 
-  // console.log(loggedInUser, "loggedInUser");
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-50 flex h-screen w-72 flex-col overflow-y-hidden bg-primary  dark:bg-dashboardDark duration-300 ease-linear lg:static lg:translate-x-0 ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      }`}
+      className={`absolute left-0 top-0 z-50 flex h-screen w-72 flex-col overflow-y-hidden bg-primary  dark:bg-dashboardDark duration-300 ease-linear lg:static lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
     >
-      {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5 lg:py-2">
         <Link href="/">
           <Image
@@ -97,29 +91,24 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           onClick={() => setSidebarOpen(!sidebarOpen)}
         />
       </div>
-      {/* <!-- SIDEBAR HEADER --> */}
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-        {/* <!-- Sidebar Menu --> */}
         <nav className="mt-2 px-4 py-4 lg:px-6">
-          {/* <!-- Menu Group --> */}
           <div>
             <h3 className="mb-4 ml-4 text-sm font-semibold text-white dark:text-white">
               MENU
             </h3>
 
             <ul className="mb-6 flex flex-col gap-1">
-              {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup activeCondition={pathname === '/dashboard'}>
                 {(handleClick, open) => {
                   return (
                     <>
                       <Link
                         href="/dashboard"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out  dark:hover:bg-lightdark text-white dark:text-white ${
-                          pathname === '/dashboard' &&
+                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out  dark:hover:bg-lightdark text-white dark:text-white ${pathname === '/dashboard' &&
                           'bg-primary-foreground dark:bg-lightdark'
-                        }`}
+                          }`}
                         onClick={(e) => {
                           e.preventDefault();
                           sidebarExpanded
@@ -131,31 +120,26 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         Dashboard
                         <MdOutlineKeyboardArrowDown
                           size={30}
-                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${
-                            open && 'rotate-180'
-                          }`}
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${open && 'rotate-180'
+                            }`}
                         />
                       </Link>
-                      {/* <!-- Dropdown Menu Start --> */}
                       <div
-                        className={`translate transform overflow-hidden ${
-                          !open && 'hidden'
-                        }`}
+                        className={`translate transform overflow-hidden ${!open && 'hidden'
+                          }`}
                       >
                         <ul className="mb-3 mt-3 flex flex-col gap-2 pl-6">
                           <li>
                             <Link
                               href="/dashboard"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
-                                pathname === '/dashboard' && 'text-white '
-                              }`}
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === '/dashboard' && 'text-white '
+                                }`}
                             >
                               eCommerce
                             </Link>
                           </li>
                         </ul>
                       </div>
-                      {/* <!-- Dropdown Menu End --> */}
                     </>
                   );
                 }}
@@ -169,10 +153,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="#"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${
-                          pathname === '/dashboard/category' &&
+                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${pathname === '/dashboard/category' &&
                           'bg-primary-foreground dark:bg-lightdark'
-                        }`}
+                          }`}
                         onClick={(e) => {
                           e.preventDefault();
                           sidebarExpanded
@@ -184,25 +167,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         Category
                         <MdOutlineKeyboardArrowDown
                           size={30}
-                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${
-                            open && 'rotate-180'
-                          }`}
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${open && 'rotate-180'
+                            }`}
                         />
                       </Link>
-                      {/* <!-- Dropdown Menu Start --> */}
                       <div
-                        className={`translate transform overflow-hidden ${
-                          !open && 'hidden'
-                        }`}
+                        className={`translate transform overflow-hidden ${!open && 'hidden'
+                          }`}
                       >
                         <ul className="mb-3 mt-3 flex flex-col gap-2 pl-6">
                           <li>
                             <Link
                               href="/dashboard/category"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 mt-2 ${
-                                pathname === '/dashboard/category' &&
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 mt-2 ${pathname === '/dashboard/category' &&
                                 'text-white'
-                              }`}
+                                }`}
                             >
                               View Categories
                             </Link>
@@ -210,17 +189,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/subcategory"
-                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in- text-white mt-2.5 hover:scale-105 ${
-                                pathname === '/dashboard/category' &&
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in- text-white mt-2.5 hover:scale-105 ${pathname === '/dashboard/category' &&
                                 'text-slate-200'
-                              }`}
+                                }`}
                             >
                               View Sub Categories
                             </Link>
                           </li>
                         </ul>
                       </div>
-                      {/* <!-- Dropdown Menu End --> */}
                     </>
                   );
                 }}
@@ -234,12 +211,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="/dashboard/Products"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${
-                          pathname === '/dashboard/products' &&
+                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${pathname === '/dashboard/products' &&
                           'bg-primary-foreground dark:bg-lightdark'
-                        }`}
+                          }`}
                         onClick={(e) => {
-                          e.preventDefault(); // Prevent default link behavior
+                          e.preventDefault();
                           sidebarExpanded
                             ? handleClick()
                             : setSidebarExpanded(true);
@@ -249,32 +225,27 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         Products
                         <MdOutlineKeyboardArrowDown
                           size={30}
-                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${
-                            open && 'rotate-180'
-                          }`}
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${open && 'rotate-180'
+                            }`}
                         />
                       </Link>
-                      {/* <!-- Dropdown Menu Start --> */}
                       <div
-                        className={`translate transform overflow-hidden ${
-                          !open && 'hidden'
-                        }`}
+                        className={`translate transform overflow-hidden ${!open && 'hidden'
+                          }`}
                       >
                         <ul className="mb-3 mt-3 flex flex-col gap-2 pl-6">
                           <li>
                             <Link
                               href="/dashboard/products"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
-                                pathname === 'dashboard/products' &&
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === 'dashboard/products' &&
                                 'text-white bg-lightdark'
-                              } `}
+                                } `}
                             >
                               View Products
                             </Link>
                           </li>
                         </ul>
                       </div>
-                      {/* <!-- Dropdown Menu End --> */}
                     </>
                   );
                 }}
@@ -290,12 +261,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="/dashboard/blog"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${
-                          pathname === '/dashboard/blog' &&
+                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${pathname === '/dashboard/blog' &&
                           'bg-primary-foreground dark:bg-lightdark'
-                        }`}
+                          }`}
                         onClick={(e) => {
-                          e.preventDefault(); // Prevent default link behavior
+                          e.preventDefault();
                           sidebarExpanded
                             ? handleClick()
                             : setSidebarExpanded(true);
@@ -305,24 +275,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         Blog
                         <MdOutlineKeyboardArrowDown
                           size={30}
-                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${
-                            open && 'rotate-180'
-                          }`}
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${open && 'rotate-180'
+                            }`}
                         />
                       </Link>
                       <div
-                        className={`translate transform overflow-hidden ${
-                          !open && 'hidden'
-                        }`}
+                        className={`translate transform overflow-hidden ${!open && 'hidden'
+                          }`}
                       >
                         <ul className="mb-3 mt-3 flex flex-col gap-2 pl-6">
                           <li>
                             <Link
                               href="/dashboard/blog"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
-                                pathname === 'dashboard/blog' &&
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === 'dashboard/blog' &&
                                 'text-white bg-lightdark'
-                              } `}
+                                } `}
                             >
                               View Blog
                             </Link>
@@ -330,17 +297,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/comment"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
-                                pathname === 'dashboard/blog' &&
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === 'dashboard/blog' &&
                                 'text-white bg-lightdark'
-                              } `}
+                                } `}
                             >
                               View Comment
                             </Link>
                           </li>
                         </ul>
                       </div>
-                      {/* <!-- Dropdown Menu End --> */}
                     </>
                   );
                 }}
@@ -355,12 +320,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="/dashboard/appointments"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${
-                          pathname === '/dashboard/appointments' &&
+                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${pathname === '/dashboard/appointments' &&
                           'bg-primary-foreground dark:bg-lightdark'
-                        }`}
+                          }`}
                         onClick={(e) => {
-                          e.preventDefault(); // Prevent default link behavior
+                          e.preventDefault();
                           sidebarExpanded
                             ? handleClick()
                             : setSidebarExpanded(true);
@@ -370,32 +334,27 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         Appointments
                         <MdOutlineKeyboardArrowDown
                           size={30}
-                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${
-                            open && 'rotate-180'
-                          }`}
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${open && 'rotate-180'
+                            }`}
                         />
                       </Link>
-                      {/* <!-- Dropdown Menu Start --> */}
                       <div
-                        className={`translate transform overflow-hidden ${
-                          !open && 'hidden'
-                        }`}
+                        className={`translate transform overflow-hidden ${!open && 'hidden'
+                          }`}
                       >
                         <ul className="mb-3 mt-3 flex flex-col gap-2 pl-6">
                           <li>
                             <Link
                               href="/dashboard/appointments"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${
-                                pathname === 'dashboard/appointments' &&
+                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === 'dashboard/appointments' &&
                                 'text-white'
-                              } `}
+                                } `}
                             >
                               View Appointments
                             </Link>
                           </li>
                         </ul>
                       </div>
-                      {/* <!-- Dropdown Menu End --> */}
                     </>
                   );
                 }}
@@ -404,10 +363,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <li>
                   <Link
                     href="/dashboard/super-admin"
-                    className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${
-                      pathname.includes('super-admin') &&
+                    className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${pathname.includes('super-admin') &&
                       'bg-primary-foreground dark:bg-lightdark'
-                    }`}
+                      }`}
                   >
                     <GrUserAdmin size={20} />
                     Admin
@@ -418,20 +376,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <Link
                   href="/dashboard/settings"
-                  className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${
-                    pathname.includes('settings') &&
+                  className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${pathname.includes('settings') &&
                     'bg-primary-foreground dark:bg-lightdark'
-                  }`}
+                    }`}
                 >
                   <IoSettingsOutline size={20} />
                   Settings
                 </Link>
               </li>
-              {/* <!-- Menu Item Settings --> */}
             </ul>
           </div>
         </nav>
-        {/* <!-- Sidebar Menu --> */}
       </div>
     </aside>
   );

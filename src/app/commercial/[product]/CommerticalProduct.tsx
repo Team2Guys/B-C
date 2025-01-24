@@ -31,7 +31,6 @@ const CommercialProduct = ({
   >();
   const path = usePathname();
 
-  // const router = useRouter();
 
   const CategoryFiilterHandler = () => {
     try {
@@ -52,28 +51,14 @@ const CommercialProduct = ({
   };
 
   useEffect(() => {
-    //   const Redirectedhandler =()=>{
-    //     const redirected_product = CommercialUrl.find(
-    //       (prod: { urlName: string; Redirect: string }) => {
-    //         return prod.urlName == String(product)?.toLowerCase();
-    //       },
-    //     );
 
-    //     if (redirected_product) {
-    //       router.push(redirected_product.Redirect);
-    //     }
-    //   }
-
-    // Redirectedhandler()
     CategoryFiilterHandler();
   }, [product]);
 
   useEffect(() => {
     if (path) {
       const matchingUrl = urls.find((url) => url.errorUrl === path);
-      console.log(path, 'pathnamepathname');
       if (matchingUrl) {
-        console.log(matchingUrl, 'matchingUrl');
         setIsNotFound(true);
       } else {
         setIsNotFound(false);

@@ -69,7 +69,6 @@ const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct
             calculatedPrice = calculatedPrice / 39.37;
             break;
           default:
-            // Handle case for unrecognized units if necessary
             break;
         }
         const pricePerUnit = activeProduct.price || 0;
@@ -94,7 +93,6 @@ const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct
         const pricePerUnit = activeProduct.price || 0;
         const price = calculatedPrice * pricePerUnit;
 
-        console.log(selectedProduct);
         setCalculatedPrice(price);
       }
       else {
@@ -193,7 +191,6 @@ const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct
                         AED{' '}
                         {
                           calculatedPrice ? calculatedPrice.toFixed(2) : '0'
-                          // activeProduct.price
                         }
                       </div>
                     )}
