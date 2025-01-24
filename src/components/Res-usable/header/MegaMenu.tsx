@@ -59,6 +59,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     setIsOpen(true);
   };
   const handleMouseLeave = (event: React.MouseEvent) => {
+      //@ts-ignore
     const mouseEvent = event as any;
 
     if (
@@ -74,6 +75,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
       setTimeoutId(newTimeoutId);
     }
+    //
   };
 
   useEffect(() => {

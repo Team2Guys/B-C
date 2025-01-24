@@ -30,6 +30,7 @@ import locationIcon from '../../../../public/assets/images/icon/location-svgrepo
 import phoneIcon from '../../../../public/assets/images/icon/Group 1171285400.png';
 import whatsAppIcon from '../../../../public/assets/images/icon/whatsapp-svgrepo-com (1) 1.png';
 import { SlCalender } from 'react-icons/sl';
+import GoogleMap from 'components/googlemap';
 
 const Footer: React.FC = () => {
   const fetchAllData = async () => {
@@ -93,7 +94,8 @@ const Footer: React.FC = () => {
         <div className="max-w-screen-2xl mx-auto px-2">
           <div className="lg:flex border-b-2 px-2 xl:gap-7 2xl:gap-8">
             <div className="mb-4 md:col-span-1 lg:w-2/12 flex flex-col items-center sm:items-start">
-              <Link href={'/'}>
+              <Link href='/' aria-label="logo"
+              >
                 <Image
                   src={'/assets/images/whitelogo.png'}
                   className="w-auto h-auto lg:w-36 lg:h-32"
@@ -110,18 +112,24 @@ const Footer: React.FC = () => {
                 <Link
                   target="_blank"
                   href={'https://www.facebook.com/blindsandcurtainsdubai'}
+                  aria-label="facebook"
+
                 >
                   <CiFacebook className="w-9 h-9" />
                 </Link>
                 <Link
                   target="_blank"
                   href={'https://www.pinterest.com/blindsandcurtainsdubai/'}
+                  aria-label="pinterest"
+
                 >
                   <IoLogoPinterest className="w-9 h-9 rounded-full" />
                 </Link>
                 <Link
                   target="_blank"
                   href={'https://www.instagram.com/blindsandcurtainsdubai/'}
+                  aria-label="instagram"
+
                 >
                   <AiOutlineInstagram className="w-9 h-9" />
                 </Link>
@@ -217,7 +225,7 @@ const Footer: React.FC = () => {
                             {category.title}
                           </h3>
                           <ul className="space-y-2 mt-4">
-                            {category.items.map((item) => {
+                            {category.items.map((item, index:number) => {
                               const matchingSubcategory = subcategories?.find(
                                 (subcategory: ICategory) =>
                                   subcategory.title === item &&
@@ -239,12 +247,13 @@ const Footer: React.FC = () => {
                               );
 
                               return (
-                                <React.Fragment key={item}>
+                                <React.Fragment key={index}>
                                   {matchingSubcategory && (
                                     <li>
                                       <Link
                                         className="text-12 2xl:text-14 font-medium"
                                         href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}`}
+                                        
                                       >
                                         {matchingSubcategory.title}
                                       </Link>
@@ -373,6 +382,7 @@ const Footer: React.FC = () => {
                             href={`mailto:${EmailInfo.email}`}
                             target="_blank"
                             className="text-12 2xl:text-sm font-medium text-wrap break-all"
+                            aria-label='email'
                           >
                             {EmailInfo.email}
                           </Link>
@@ -389,6 +399,7 @@ const Footer: React.FC = () => {
                           </span>
                           <Link
                             href={`tel:${phoneNumberInfo.number.replaceAll(' ', '')}`}
+                             aria-label="Call Phone Number"
                             target="_blank"
                             className="text-12 2xl:text-sm font-medium text-nowrap"
                           >
@@ -418,6 +429,7 @@ const Footer: React.FC = () => {
                           <p className='text-12 2xl:text-sm font-medium'>8.30am - 6.00pm 7 days a week</p>
 
                         </li>
+
                         <li className="flex gap-2 flex-nowrap">
                           <span>
                             <Image
@@ -431,6 +443,7 @@ const Footer: React.FC = () => {
                           <Link
                             target="_blank"
                             className="text-12 2xl:text-sm font-medium"
+                             aria-label="Address"
                             href={
                               'https://www.google.com/maps/place/Two+Guys+-+Blinds+%26+Curtains+Dubai/@25.1177196,55.2331055,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?entry=tts&g_ep=EgoyMDI0MDkxOC4xKgBIAVAD'
                             }
@@ -443,11 +456,13 @@ const Footer: React.FC = () => {
                     </div>
                   </div>
                   <div className="overflow-hidden grow">
-                    <iframe
+                    {/* <iframe
                       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14450.034204416814!2d55.2256!3d25.1275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sTwo%20Guys%20-%20Blinds%20%26%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1727335871755!5m2!1sen!2sus"
                       className="w-full h-full min-h-30"
                       loading="lazy"
-                    ></iframe>
+                    ></iframe> */}
+
+                    <GoogleMap/>
                   </div>
                 </div>
               </div>
