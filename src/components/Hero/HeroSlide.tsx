@@ -69,8 +69,8 @@ const HeroSlide = ({ item }: any) => {
                         </div>
                         <Image
                             className="w-full h-full object-cover max-sm:object-contain"
-                            loading='lazy'
-                            
+                            loading='eager'
+
                             width={600}
                             height={600}
                             alt={item.name}
@@ -99,6 +99,8 @@ const HeroSlide = ({ item }: any) => {
                         Book A Free Home Design Visit
                     </Link>
                 </div>
+
+
             </div>
         </div>
     )
