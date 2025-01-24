@@ -203,10 +203,10 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   useEffect(() => {
     const parts = path.split('/')
-    const name = parts[parts.length - 1];
-    const alterUrl = urls.find((url) => url.Url === name);
+    const name = parts[parts.length - 2];
+    const alterUrl = urls.find((url) => `${url.Url}` === name);
     const urlName = alterUrl ? generateSlug(alterUrl.productName) : generateSlug(name);
-
+console.log(name,'name')
     const styles = megaMenubyStyle.find((item) => generateSlug(item.productName) === urlName);
     const dynamics = megaMenuDynamic.find((item) => generateSlug(item.productName) === urlName);
     const rooms = megaMenubyRoom.find((item) => generateSlug(item.productName) === urlName);
