@@ -251,7 +251,7 @@ const Navbar = ({products , subCategories}: {products: IProduct[] , subCategorie
             >Estimator</Link>
             <div className="flex lg:hidden">
               <Sheet
-                drawerName={<Image src={menuIcon} alt='menu icon' width={75} height={75} className='min-w-10 w-9 h-9' />}
+                drawerName={<Image src={menuIcon} alt='menu icon' width={50} height={50} className='min-w-9 w-9 h-9' />}
                 open={drawerOpen}
                 setOpen={setDrawerOpen}
                 selectedLabel={selectedLabel}
