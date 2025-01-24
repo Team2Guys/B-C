@@ -8,6 +8,7 @@ import { permanentRedirect, RedirectType, } from "next/navigation";
 import { blogPostUrl } from "data/urls";
 import { categoriesContent, generateSlug, RelatedProductsdata } from "data/data";
 import NotFound from "app/not-found";
+import Script from "next/script";
 
 
 type Props = {
@@ -89,29 +90,24 @@ const Products = async ({ params }: Props) => {
     slug.includes(product.name)
   );
 
-  const matchingLink = links.find((link) =>
-    slug.includes(link.href.replace(/^\//, '')),
-  );
+  const matchingLink: any = links.find((link) => slug.includes(link.href.replace(/^\//, '')),);
   const selectedProductName = matchingLink ? matchingLink.label : slug;
-  const filterCat = categories?.find(
-    (cat: ICategory) => cat.title.toLowerCase() === selectedProductName.toLowerCase(),
-  );
-  const filteredProducts =
-    products.filter((product: IProduct) => product.CategoryId === filterCat?.id) ||
-    [];
-  const filteredSubCategories =
-    subCategories?.filter(
-      (subCat: ICategory) => subCat.CategoryId === filterCat?.id,
-    ) || [];
+  const filterCat = categories?.find((cat: ICategory) => cat.title.toLowerCase() === selectedProductName.toLowerCase());
+  const filteredProducts = products.filter((product: IProduct) => product.CategoryId === filterCat?.id) || [];
+  const filteredSubCategories = subCategories?.filter((subCat: ICategory) => subCat.CategoryId === filterCat?.id) || [];
   const filteredItems = [...filteredProducts, ...filteredSubCategories];
-  // console.log(filteredItems, 'selectedProductName');
-
   if (!selectedPage || filteredItems.length < 1) {
     return <NotFound />;
   }
+  console.log(matchingLink?.script, "script")
 
   return (
     <>
+      <Script type="application/ld+json" id="categories-json-ld">
+        {JSON.stringify(matchingLink?.script || "")}
+      </Script>
+
+
       <Product productName={slug} products={products} categories={categories} subCategories={subCategories} selectedPage={selectedPage.content} matchedProduct={matchedProduct?.para} filteredItems={filteredItems} title={selectedProductName} />
     </>
   );
