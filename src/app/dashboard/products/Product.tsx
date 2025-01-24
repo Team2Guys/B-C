@@ -53,8 +53,9 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
     Sub_Heading_description: editProduct && editProduct.Sub_Heading_description,
     bannerImage: editProduct && editProduct.bannerImage,
   };
+
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
-  console.log(products, 'Product');
+
   return (
     <>
       <Breadcrumb pageName={productFlag ? 'Products' : 'Add Products'} />
