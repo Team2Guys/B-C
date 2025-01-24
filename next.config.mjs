@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: true,
     trailingSlash: true,
     images: {
-        domains: ['furniturezone.pk', 'example.com', 'res.cloudinary.com', "unsplash.com", "googleusercontent.com"]},
+        domains: ['furniturezone.pk', 'example.com', 'res.cloudinary.com', "unsplash.com", "lh3.googleusercontent.com"]},
     async redirects() {
         return [
           {
@@ -19,8 +19,7 @@ const nextConfig = {
           },
         ];
       },
-      removeConsole: process.env.NODE_ENV === 'production' 
-
+  compiler:{    removeConsole: process.env.NODE_ENV === 'production'  ? true : false }
 };
 
 
