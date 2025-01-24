@@ -5,13 +5,7 @@ import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import React, { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
-import { useQuery } from '@tanstack/react-query';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
-import {
-  fetchCategories,
-  fetchProducts,
-  fetchSubCategories,
-} from 'config/fetch';
 import TopHero from 'components/ui/top-hero';
 import { usePathname } from 'next/navigation';
 import { subCategoryUrls, urls } from 'data/urls';
@@ -27,6 +21,9 @@ interface ICategoryPage {
   description: string;
   category: string;
   filteredSubCategory?: IFilteredSubCategory;
+  products: IProduct[];
+  categories: ICategory[];
+  subCategories: ICategory[]
 }
 
 const RoomProducts = ({
@@ -35,6 +32,7 @@ const RoomProducts = ({
   description,
   category,
   filteredSubCategory,
+  products, categories , subCategories
 }: ICategoryPage) => {
   const pathname = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
@@ -44,24 +42,6 @@ const RoomProducts = ({
     name: string;
   }>();
   console.log(category, 'category');
-  const {
-    data: products,
-    error,
-    isLoading,
-  } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  });
-
-  const { data: subcategories } = useQuery<ICategory[]>({
-    queryKey: ['subcategories'],
-    queryFn: fetchSubCategories,
-  });
-
-  const { data: categories } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
 
   useEffect(() => {
     if (pathname) {
@@ -86,7 +66,7 @@ const RoomProducts = ({
   const [productCategory, setProductCategory] = useState<string>('');
 
   const filterProducts = () => {
-    const filterSubCat = subcategories?.find(
+    const filterSubCat = subCategories?.find(
       (subCat) => subCat.title === title,
     );
     const filterCat = categories?.find(
@@ -125,9 +105,8 @@ const RoomProducts = ({
       );
       setProductCategory(relatedCategory?.title || '');
     }
-  }, [title, products, subcategories, categories]);
+  }, [title, products, subCategories, categories]);
 
-  if (error instanceof Error) return <div>Error: {error.message}</div>;
   if (isNotFound) {
     return <NotFound />;
   }
@@ -145,7 +124,7 @@ const RoomProducts = ({
           categoryName={categoryName ? categoryName : title}
           description={description}
           filteredProducts={filteredProducts}
-          isLoading={isLoading}
+          isLoading={false}
           categoryTitle={productCategory}
           subCategory={title}
           updateSubCategoryName={updateSubCategoryName}

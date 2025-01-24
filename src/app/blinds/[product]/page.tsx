@@ -1,4 +1,5 @@
 import {
+  fetchCategories,
   fetchProducts,
   fetchSubCategories,
   filtereCategory,
@@ -9,8 +10,9 @@ import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { IProduct } from 'types/types';
 import { meta_props } from 'types/interfaces';
-import { CommercialUrl } from 'data/urls';
-import { permanentRedirect,} from 'next/navigation';
+import { CommercialUrl, urls } from 'data/urls';
+import { permanentRedirect, } from 'next/navigation';
+import NotFound from 'app/not-found';
 
 const Cateories = [2];
 
@@ -18,7 +20,7 @@ const Cateories = [2];
 export async function generateMetadata({
   params,
 }: meta_props): Promise<Metadata> {
-  const  product  = (await params).product;
+  const product = (await params).product;
 
   const [products, categories] = await Promise.all([
     fetchProducts(),
@@ -34,7 +36,7 @@ export async function generateMetadata({
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
-console.log(fullUrl, "fullurl")
+  console.log(fullUrl, "fullurl")
 
 
   let Product = filteredProduct as IProduct;
@@ -81,21 +83,28 @@ console.log(fullUrl, "fullurl")
 }
 
 const CommercialPage = async ({ params }: meta_props) => {
-  const product  = (await params).product;
-  const [products, categories] = await Promise.all([fetchProducts(),fetchSubCategories()]);
+  const product = (await params).product;
+  const [products, cateories, subCategories] = await Promise.all([fetchProducts(), fetchCategories(), fetchSubCategories()]);
 
   const filteredProduct = filterProd(products, product, Cateories);
-  const filteredSubCategory = filtereCategory(categories, product, Cateories);
-  
+  const filteredSubCategory = filtereCategory(subCategories, product, Cateories);
+
   const redirected_product = product !== 'school-blinds' && CommercialUrl.find((prod: { urlName: string; Redirect: string }) => {
-      return prod.urlName == String(product)?.toLowerCase();
-    },
+    return prod.urlName == String(product)?.toLowerCase();
+  },
   );
 
   if (redirected_product) {
     permanentRedirect(redirected_product.Redirect);
   }
 
+  const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/${product}/`);
+  if (matchingUrl) {
+    return <NotFound />
+  }
+  if (!filteredSubCategory && !filteredProduct) {
+    return <NotFound />;
+  }
   return (
     <>
       <Products_Categories
@@ -103,6 +112,8 @@ const CommercialPage = async ({ params }: meta_props) => {
         filteredSubCategory={filteredSubCategory}
         product={product}
         allprod={products}
+        categories={cateories}
+        subCategories={subCategories}
       />
     </>
   );

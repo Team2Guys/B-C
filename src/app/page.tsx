@@ -11,6 +11,7 @@ import Review_banner from 'components/ReviewBanner/Review_banner';
 import Banner from 'components/HomeBanner/Home_Banner';
 import { bannerData } from 'data/data';
 import type { Metadata } from 'next'
+import { fetchCategories, fetchProducts } from 'config/fetch';
 
 export const metadata: Metadata = {
   title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
@@ -31,16 +32,18 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Home() {
+export default async function Home() {
+  const [products, categories] = await Promise.all([fetchProducts(), fetchCategories()]);
+  
   return (
     <>
       <Hero />
       <Appointment />
       <Review_banner />
-      <HomeCard />
+      <HomeCard categories={categories} />
       <BlindsAndCurtainssection />
       <Banner data={bannerData} />
-      <FeatureProduct />
+      <FeatureProduct products={products} categories={categories} />
       <VideoAutomation />
       <Support />
     </>
