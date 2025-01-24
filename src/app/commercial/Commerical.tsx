@@ -229,7 +229,7 @@ const Commercial = ({
         </div>
       </Container>
       <Container>
-        <RelatedProducts products={filteredProducts || []} limit={4} />
+        <RelatedProducts products={filteredProducts || []} categoriesList={categories} limit={4} />
       </Container>
     </div>
   );

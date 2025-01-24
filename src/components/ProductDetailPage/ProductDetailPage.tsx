@@ -4,7 +4,7 @@ import React from 'react';
 import DetailInfo from 'components/Detail/detail-info/detail-info';
 import DetailProduct from 'components/Detail/detail-product/detail-product';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { IProduct } from 'types/types';
+import { ICategory, IProduct } from 'types/types';
 import Container from 'components/Res-usable/Container/Container';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
@@ -16,8 +16,9 @@ import { customTitles } from 'data/urls';
 interface IProductDetail {
   title: string;
   allprod?: IProduct[];
+  categories?: ICategory[]
 }
-const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
+const ProductDetailPage = ({ title, allprod , categories }: IProductDetail) => {
   const pathName = usePathname();
 
   const filterProduct = allprod?.find((product) => {
@@ -74,7 +75,7 @@ const ProductDetailPage = ({ title, allprod }: IProductDetail) => {
         <CardSkeleton />
       ) : (
         <Container className="mt-10">
-          <RelatedProducts products={relatedProducts || []} limit={4} title={title} />
+          <RelatedProducts products={relatedProducts || []} limit={4} title={title} categoriesList={categories} />
         </Container>
       )}
       <BookNowBanner className="mt-20" />
