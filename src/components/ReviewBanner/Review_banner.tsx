@@ -118,10 +118,10 @@ export default function Review_banner() {
                             key={index}
                             className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
                           >
-                            <h3 className="text-xl font-semibold text-white">
+                            <h3 className="text-xl font-semibold text-white" key={slide?.author_name}>
                               {slide?.author_name}
                             </h3>
-                            <p className="mt-2 text-white overflow-x-auto max-h-36 text-ellipsis slider-text">
+                            <p key={slide?.text} className="mt-2 text-white overflow-x-auto max-h-36 text-ellipsis slider-text">
                               {slide?.text}
                             </p>
                           </div>
