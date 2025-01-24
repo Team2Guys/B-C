@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
-import logo from '../../../../public/assets/images/logomain.png';
+import logo from '../../../../public/assets/images/logomain.webp';
 import MegaMenu from './MegaMenu';
 import Sheet from 'components/ui/Drawer';
 import SocialLink from '../social-link/social-link';
