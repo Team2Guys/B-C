@@ -30,7 +30,7 @@ export const SocialData: SocialDataType[] = [
   },
   {
     href: `https://wa.me/${WhatsAppInfo.number.replaceAll(' ','')}`,
-    icon: <Image className='h-7 w-7' src="/assets/images/icon/whats.png" alt="Whatsapp" width={800} height={800} />,
+    icon: <Image className='h-7 w-7' src="/assets/images/icon/whats.png" alt="Whatsapp" width={50} height={50} />,
     alt: 'Whatsapp',
   },
 ];

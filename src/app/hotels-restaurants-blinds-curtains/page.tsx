@@ -1,6 +1,6 @@
 
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
-import { fetchProducts } from 'config/fetch';
+import { fetchCategories, fetchProducts } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
@@ -8,9 +8,9 @@ import { notFound } from 'next/navigation';
 import { IProduct } from 'types/types';
 
 export async function generateMetadata(): Promise<Metadata> {
-let products = await fetchProducts()
-  const filtereProdcts =["Hotels & Restaurants"]
-  const filteredProduct = products?.find((prod:any) => filtereProdcts.includes(prod.title));
+  let products = await fetchProducts()
+  const filtereProdcts = ["Hotels & Restaurants"]
+  const filteredProduct = products?.find((prod: any) => filtereProdcts.includes(prod.title));
 
   const headersList = await headers();
   const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
@@ -19,9 +19,9 @@ let products = await fetchProducts()
   const fullUrl = `${protocol}://${domain}${pathname}`;
   let Product = filteredProduct as IProduct;
 
-  let ImageUrl =Product?.posterImage?.imageUrl ||'blindsandcurtains';
+  let ImageUrl = Product?.posterImage?.imageUrl || 'blindsandcurtains';
 
-  let alt =Product?.posterImage.altText ||'blindsandcurtains';
+  let alt = Product?.posterImage.altText || 'blindsandcurtains';
 
   let NewImage = [
     {
@@ -31,8 +31,8 @@ let products = await fetchProducts()
   ];
 
 
-  let title =Product?.Meta_Title || 'blindsandcurtains';
-  let description =Product?.Meta_description ||'Welcome to blindsandcurtains';
+  let title = Product?.Meta_Title || 'blindsandcurtains';
+  let description = Product?.Meta_description || 'Welcome to blindsandcurtains';
 
   let url = `${fullUrl}/blinds/${generateSlug(Product.title)}`;
 
@@ -51,12 +51,12 @@ let products = await fetchProducts()
     },
   };
 }
-const CommercialPage = async() => {
-let products = await fetchProducts()
-  const filtereProdcts =["Hotels & Restaurants"]
+const CommercialPage = async () => {
+  const [products, categories] = await Promise.all([fetchProducts(), fetchCategories()]);
+  const filtereProdcts = ["Hotels & Restaurants"]
 
-  const filteredProduct = products?.find((prod:any) => filtereProdcts.includes(prod.title));
-  if(!filteredProduct){
+  const filteredProduct = products?.find((prod: any) => filtereProdcts.includes(prod.title));
+  if (!filteredProduct) {
     return notFound();
   }
   return (
@@ -64,6 +64,7 @@ let products = await fetchProducts()
       <ProductDetailPage
         title={`${filteredProduct?.title}`}
         allprod={products}
+        categories={categories}
       />
     </>
   );

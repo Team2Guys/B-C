@@ -1,36 +1,17 @@
 'use client';
-import NotFound from 'app/not-found';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
-import { urls } from 'data/urls';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { PRODUCS_PROPS } from 'types/interfaces';
 
 const CommercialPage = ({
   filteredProduct,
   filteredSubCategory,
-  product,
+  // product,
   allprod,
+  categories,
+  subCategories
 }: PRODUCS_PROPS) => {
-  const path = usePathname();
-  const [isNotFound, setIsNotFound] = useState(false);
- console.log(product, "product")
-  useEffect(() => {
-    if (path) {
-      const matchingUrl = urls.find((url) => url.errorUrl === path);
-      console.log(path, 'pathnamepathname');
-      if (matchingUrl) {
-        console.log(matchingUrl, 'matchingUrl');
-        setIsNotFound(true);
-      } else {
-        setIsNotFound(false);
-      }
-    }
-  }, [path]);
-  if (isNotFound || (!filteredSubCategory && !filteredProduct)) {
-    return <NotFound />;
-  }
+
   return (
     <>
       {filteredSubCategory ? (
@@ -41,6 +22,9 @@ const CommercialPage = ({
             category={`${filteredSubCategory.category.title}`}
             filteredSubCategory={filteredSubCategory}
             relatedProducts={filteredSubCategory?.products || []}
+            products={allprod}
+            categories={categories || []}
+            subCategories={subCategories || []}
           />
           {/* <CategoryPage
             title={`${filteredSubCategory.title}`}
@@ -51,6 +35,7 @@ const CommercialPage = ({
         <ProductDetailPage
           title={filteredProduct?.title || ''}
           allprod={allprod}
+          categories={categories}
         />
       )}
     </>
