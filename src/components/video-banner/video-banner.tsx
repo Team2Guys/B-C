@@ -39,7 +39,7 @@ const VideoBanner: React.FC<BannerProps> = ({
   if (!selectedPage) {
     return null;
   }
- console.log(selectedPage,"selectedPage")
+
   return (
     <div
       className={`relative w-full ${colorSlider ? 'h-full' : 'h-full  md:h-[55vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[84vh]'}  overflow-hidden ${className}`}

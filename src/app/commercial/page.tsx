@@ -4,6 +4,8 @@ import { fetchCategories, fetchProducts, fetchSubCategories } from "config/fetch
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { commercialPagesItems, generateSlug } from "data/data";
+import Script from "next/script";
+import { commererical } from "data/schema";
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -72,12 +74,17 @@ const CommercialPage = async () => {
 
 
   return (
+    <>
+    <Script type="application/ld+json" id="commercial-json-ld" >
+{JSON.stringify(commererical)} 
+    </Script>
     <Commercial
       filteredCatgory={filteredCatgory}
       filteredProducts={filtered}
       categories={categories}
       mixProdCategeries={mixed_prod_cats}
     />
+    </>
   );
 };
 
