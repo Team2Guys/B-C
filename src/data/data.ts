@@ -67,8 +67,8 @@ export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
 export const heroSlider = [
   {
     id: 1,
-    name: 'g2.webp',
-    imageUrl: '/assets/images/Hero/g2.webp',
+    name: 'g2.png',
+    imageUrl: '/assets/images/Hero/g2.png',
     heading: 'The Home of Customised',
     subheading: 'Window Coverings',
     content:"Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete."  },
