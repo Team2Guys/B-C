@@ -8,51 +8,28 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Link from 'next/link';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { ICategory, IProduct } from 'types/types';
-import { useEffect, useState } from 'react';
 import ProductCard from 'components/ui/Product-Card';
-import {
-  commercialPagesItems,
-  generateSlug,
+import {generateSlug,
   staticDescriptions,
 } from 'data/data';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import { IoSearch } from 'react-icons/io5';
-import CardSkeleton from 'components/Skeleton/card-skeleton';
+// import CardSkeleton from 'components/Skeleton/card-skeleton';
 import TopHero from 'components/ui/top-hero';
 import { usePathname } from 'next/navigation';
 
 const Commercial = ({
-  products,
-  subCategories,
-  categories
+  filteredProducts,
+  categories,
+  filteredCatgory,
+  mixProdCategeries
 }: {
-  products: IProduct[];
-  subCategories: ICategory[];
+  filteredProducts: IProduct[];
   categories: ICategory[];
+  filteredCatgory:ICategory
+  mixProdCategeries:any[]
 }) => {
-  const [isLoading, setLoading] = useState(true);
-  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
-  const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
   const pathname = usePathname();
-  const filteredCatgory = categories.find((c) => c.id === 12);
-
-  useEffect(() => {
-    if (products && subCategories) {
-      const matchingSubCategoryTitles = subCategories.filter((subCategory) =>
-        commercialPagesItems.some(
-          (prod: string) => prod === generateSlug(subCategory.title),
-        ),
-      );
-
-      const filtered = products.filter((product) =>commercialPagesItems.some((prod: string) => prod === generateSlug(product.title)),
-      );
-
-      setFilteredProducts(filtered);
-      setLoading(false);
-      let arry = [...filtered, ...matchingSubCategoryTitles];
-      setmixProdCategeries(arry);
-    }
-  }, [products, subCategories]);
 
   const renderDescription = (title: string) => {
     const slug = generateSlug(title);
@@ -73,8 +50,6 @@ const Commercial = ({
         <div className="w-full md:w-1/2">
           <h2 className="font-bold text-xl xs:text-2xl tracking-wider">
           Maximise Your Productivity With Commercial Office Blinds
-            
-            <br />
           </h2>
           <p className="text-14 xs:text-18 md:leading-8 mt-4 text-lightdark">
             We offer custom-made options for commercial office blinds. These
@@ -133,11 +108,6 @@ const Commercial = ({
             to your windows for optimal performance.
           </p>
 
-          {/* <ul className="text-14 xs:text-18 md:leading-8 text-lightdark list-disc list-inside ps-2">
-            {officeBlindsItems.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul> */}
           <div className="h-fit flex justify-center md:justify-start mt-4">
             <Link
               href="/request-appointment"
@@ -147,6 +117,7 @@ const Commercial = ({
             </Link>
           </div>
         </div>
+
         <div className="w-full md:w-1/2">
           <Image
             src={whyUsImg}
@@ -154,7 +125,9 @@ const Commercial = ({
             className="me-auto md:me-0 ms-auto"
           />
         </div>
+
       </Container>
+
       <div className="w-full border-t-[1px] border-borderclr"></div>
 
       <Container className="text-center py-10">
@@ -167,17 +140,18 @@ const Commercial = ({
           <br />
           all at competitive prices.
         </p>
+
         <ProductCard
           products={mixProdCategeries || []}
           renderDescription={renderDescription}
         />
       </Container>
       <BookNowBanner />
-      <Container className="text-center py-10">
-        <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal uppercase">
+      <Container>
+        <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal uppercase text-center py-10">
           COMMERCIAL OFFICE BLINDS installations
         </h2>
-        <div className='w-full'>
+ 
           {
             <ImageAntd.PreviewGroup
               preview={{
@@ -186,9 +160,12 @@ const Commercial = ({
                 },
               }}
             >
-              {isLoading ? (
-                <CardSkeleton isSizeSmall />
-              ) : (
+              {
+              // false ? (
+              //   <CardSkeleton isSizeSmall />
+              // ) : 
+              
+              (
                 <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
                 {filteredProducts?.map((product) => {
                   if (!product.category) return null;
@@ -224,10 +201,8 @@ const Commercial = ({
               )}
             </ImageAntd.PreviewGroup>
           }
-        </div>
-      </Container>
-      <Container>
         <RelatedProducts products={filteredProducts || []} categoriesList={categories} limit={4} />
+
       </Container>
     </>
   );
