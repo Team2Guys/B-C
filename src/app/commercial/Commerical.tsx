@@ -44,10 +44,7 @@ const Commercial = ({
         ),
       );
 
-      const filtered = products.filter((product) =>
-        commercialPagesItems.some(
-          (prod: string) => prod === generateSlug(product.title),
-        ),
+      const filtered = products.filter((product) =>commercialPagesItems.some((prod: string) => prod === generateSlug(product.title)),
       );
 
       setFilteredProducts(filtered);
@@ -65,7 +62,7 @@ const Commercial = ({
   };
 
   return (
-    <div>
+    <>
     <TopHero
       title={filteredCatgory?.title}
       pageTitle ="Commercial Office Blinds"
@@ -159,6 +156,7 @@ const Commercial = ({
         </div>
       </Container>
       <div className="w-full border-t-[1px] border-borderclr"></div>
+
       <Container className="text-center py-10">
         <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal">
           Thousands of Fabric and Colour Options
@@ -231,7 +229,7 @@ const Commercial = ({
       <Container>
         <RelatedProducts products={filteredProducts || []} categoriesList={categories} limit={4} />
       </Container>
-    </div>
+    </>
   );
 };
 
