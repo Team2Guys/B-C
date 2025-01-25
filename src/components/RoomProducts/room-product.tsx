@@ -32,7 +32,7 @@ const RoomProducts = ({
   description,
   category,
   filteredSubCategory,
-  products, categories , subCategories
+  products, categories, subCategories
 }: ICategoryPage) => {
   const pathname = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);

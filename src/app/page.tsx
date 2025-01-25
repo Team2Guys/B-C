@@ -12,6 +12,8 @@ import Banner from 'components/HomeBanner/Home_Banner';
 import { bannerData } from 'data/data';
 import type { Metadata } from 'next'
 import { fetchCategories, fetchProducts } from 'config/fetch';
+import Script from 'next/script';
+import { schema } from 'data/schema';
 
 export const metadata: Metadata = {
   title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
@@ -28,15 +30,22 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://blindsandcurtains.ae/why-choose-blinds-curtains/',
+    canonical: 'https://blindsandcurtains.ae/',
   },
 }
 
 export default async function Home() {
   const [products, categories] = await Promise.all([fetchProducts(), fetchCategories()]);
-  
+
+
   return (
     <>
+        {schema.map((script:any, index:number) => 
+      <Script type="application/ld+json" id="home-json-ld" key={index}>
+        {JSON.stringify(script)}
+        
+      </Script>
+)}
       <Hero />
       <Appointment />
       <Review_banner />

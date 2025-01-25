@@ -8,54 +8,29 @@ import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import Link from 'next/link';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { ICategory, IProduct } from 'types/types';
-import { useEffect, useState } from 'react';
 import ProductCard from 'components/ui/Product-Card';
 import {
-  commercialPagesItems,
   generateSlug,
   staticDescriptions,
 } from 'data/data';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import { IoSearch } from 'react-icons/io5';
-import CardSkeleton from 'components/Skeleton/card-skeleton';
+// import CardSkeleton from 'components/Skeleton/card-skeleton';
 import TopHero from 'components/ui/top-hero';
 import { usePathname } from 'next/navigation';
 
 const Commercial = ({
-  products,
-  subCategories,
-  categories
+  filteredProducts,
+  categories,
+  filteredCatgory,
+  mixProdCategeries
 }: {
-  products: IProduct[];
-  subCategories: ICategory[];
+  filteredProducts: IProduct[];
   categories: ICategory[];
+  filteredCatgory: ICategory
+  mixProdCategeries: any[]
 }) => {
-  const [isLoading, setLoading] = useState(true);
-  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
-  const [mixProdCategeries, setmixProdCategeries] = useState<any[]>([]);
   const pathname = usePathname();
-  const filteredCatgory = categories.find((c) => c.id === 12);
-
-  useEffect(() => {
-    if (products && subCategories) {
-      const matchingSubCategoryTitles = subCategories.filter((subCategory) =>
-        commercialPagesItems.some(
-          (prod: string) => prod === generateSlug(subCategory.title),
-        ),
-      );
-
-      const filtered = products.filter((product) =>
-        commercialPagesItems.some(
-          (prod: string) => prod === generateSlug(product.title),
-        ),
-      );
-
-      setFilteredProducts(filtered);
-      setLoading(false);
-      let arry = [...filtered, ...matchingSubCategoryTitles];
-      setmixProdCategeries(arry);
-    }
-  }, [products, subCategories]);
 
   const renderDescription = (title: string) => {
     const slug = generateSlug(title);
@@ -65,19 +40,17 @@ const Commercial = ({
   };
 
   return (
-    <div>
-    <TopHero
-      title={filteredCatgory?.title}
-      pageTitle ="Commercial Office Blinds"
-      image={`${filteredCatgory?.bannerImage?.imageUrl || bgBreadcrum.src}`}
-      pagename={pathname}
+    <>
+      <TopHero
+        title={filteredCatgory?.title}
+        pageTitle="Commercial Office Blinds"
+        image={`${filteredCatgory?.bannerImage?.imageUrl || bgBreadcrum.src}`}
+        pagename={pathname}
       />
       <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4">
         <div className="w-full md:w-1/2">
           <h2 className="font-bold text-xl xs:text-2xl tracking-wider">
-          Maximise Your Productivity With Commercial Office Blinds
-            
-            <br />
+            Maximise Your Productivity With Commercial Office Blinds
           </h2>
           <p className="text-14 xs:text-18 md:leading-8 mt-4 text-lightdark">
             We offer custom-made options for commercial office blinds. These
@@ -136,11 +109,6 @@ const Commercial = ({
             to your windows for optimal performance.
           </p>
 
-          {/* <ul className="text-14 xs:text-18 md:leading-8 text-lightdark list-disc list-inside ps-2">
-            {officeBlindsItems.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul> */}
           <div className="h-fit flex justify-center md:justify-start mt-4">
             <Link
               href="/request-appointment"
@@ -150,6 +118,7 @@ const Commercial = ({
             </Link>
           </div>
         </div>
+
         <div className="w-full md:w-1/2">
           <Image
             src={whyUsImg}
@@ -157,8 +126,11 @@ const Commercial = ({
             className="me-auto md:me-0 ms-auto"
           />
         </div>
+
       </Container>
+
       <div className="w-full border-t-[1px] border-borderclr"></div>
+
       <Container className="text-center py-10">
         <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal">
           Thousands of Fabric and Colour Options
@@ -169,69 +141,69 @@ const Commercial = ({
           <br />
           all at competitive prices.
         </p>
+
         <ProductCard
           products={mixProdCategeries || []}
           renderDescription={renderDescription}
         />
       </Container>
       <BookNowBanner />
-      <Container className="text-center py-10">
-        <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal uppercase">
+      <Container>
+        <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal uppercase text-center py-10">
           COMMERCIAL OFFICE BLINDS installations
         </h2>
-        <div className='w-full'>
-          {
-            <ImageAntd.PreviewGroup
-              preview={{
-                onChange: (current, prev) => {
-                  console.log(`current index: ${current}, prev index: ${prev}`);
-                },
-              }}
-            >
-              {isLoading ? (
-                <CardSkeleton isSizeSmall />
-              ) : (
-                <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
-                {filteredProducts?.map((product) => {
-                  if (!product.category) return null;
-                  const { posterImage } = product;
-                  const altText = posterImage?.altText || 'Image';
 
-                  return (
-                    <div
-                      key={product.id}
-                      className="max-sm:flex-shrink-0 relative rounded-lg transition-shadow duration-300 group max-sm:gap-4 w-8/12 xs:w-5/12 sm:w-3/12 mt-2"
-                    >
-                      <ImageAntd
-                        src={posterImage?.imageUrl || '/default-image.jpg'}
-                        alt={altText}
-                        className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px] w-full"
-                        width={500}
-                        height={500}
-                        preview={{
-                          mask: (
-                            <div>
-                              <IoSearch
-                                style={{ color: 'white', fontSize: '30px' }}
-                              />
-                            </div>
-                          ),
-                        }}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
+        {
+          <ImageAntd.PreviewGroup
+            preview={{
+              onChange: (current, prev) => {
+                console.log(`current index: ${current}, prev index: ${prev}`);
+              },
+            }}
+          >
+            {
+
+
+              (
+                <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
+                  {filteredProducts?.map((product) => {
+                    if (!product.category) return null;
+                    const { posterImage } = product;
+                    const altText = posterImage?.altText || 'Image';
+
+                    return (
+                      <div
+                        key={product.id}
+                        className="max-sm:flex-shrink-0 relative rounded-lg transition-shadow duration-300 group max-sm:gap-4 w-8/12 xs:w-5/12 sm:w-3/12 mt-2"
+                      >
+                        <ImageAntd
+                          src={posterImage?.imageUrl || '/default-image.jpg'}
+                          alt={altText}
+                          className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px] w-full"
+                          width={500}
+                          height={500}
+                          preview={{
+                            mask: (
+                              <div>
+                                <IoSearch
+                                  style={{ color: 'white', fontSize: '30px' }}
+                                />
+                              </div>
+                            ),
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
 
               )}
-            </ImageAntd.PreviewGroup>
-          }
-        </div>
-      </Container>
-      <Container>
+          </ImageAntd.PreviewGroup>
+        }
         <RelatedProducts products={filteredProducts || []} categoriesList={categories} limit={4} />
+
       </Container>
-    </div>
+    </>
   );
 };
 

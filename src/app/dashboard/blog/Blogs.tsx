@@ -13,13 +13,12 @@ const AddBlogs = dynamic(() => import('components/Dashboard/Blogs/add-blog'), {
 
 
 interface blogs {
-    blogs: any
+  blogs: any
 }
 
-const Blogging = ({blogs}:blogs) => {
+const Blogging = ({ blogs }: blogs) => {
   const [menuType, setMenuType] = useState('Blogs');
   const [editBlog, setEditBlog] = useState<IUpdateBlog | null>(null);
-console.log(blogs, "blogs")
   return (
     <DefaultLayout>
       <Breadcrumb pageName={menuType} />
@@ -31,7 +30,7 @@ console.log(blogs, "blogs")
           setEditBlog={setEditBlog}
           EditInitialValues={
             editBlog &&
-            (editBlog.title !== undefined || editBlog.category !== undefined)
+              (editBlog.title !== undefined || editBlog.category !== undefined)
               ? editBlog
               : undefined
           }

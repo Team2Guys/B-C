@@ -49,7 +49,7 @@ const ECommerce: React.FC = () => {
     );
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
-  const canVeiwAdmins =loggedInUser && (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : true);
+  const canVeiwAdmins = loggedInUser && (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : true);
   const canCheckProfit =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canCheckProfit : true);
@@ -139,36 +139,9 @@ const ECommerce: React.FC = () => {
           </CardDataStats>
         )}
 
-        {/* {!canViewSales ? null : (
-              <CardDataStats
-                title="Total Sales"
-                total={records?.totalSales ? records?.totalSales : ''}
-              >
-                <PiUsersThreeFill
-                  size={25}
-                  className="text-white dark:text-black"
-                />
-              </CardDataStats>
-            )} */}
-
-        {/* {!canViewUsers ? null : (
-              <CardDataStats
-                title="Total Users"
-                total={records?.totalUsers ? records?.totalUsers : ''}
-              >
-                <PiUsersThreeFill
-                  size={25}
-                  className="text-white dark:text-black"
-                />
-              </CardDataStats>
-            )} */}
       </div>
 
-      {/* <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        <ChartOne />
-        <ChartTwo />
-        <ChartThree />
-      </div> */}
+
     </>
   );
 };

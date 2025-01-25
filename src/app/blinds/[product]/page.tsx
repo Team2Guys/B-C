@@ -36,7 +36,6 @@ export async function generateMetadata({
   const pathname = headersList.get('x-invoke-path') || '/';
 
   const fullUrl = `${protocol}://${domain}${pathname}`;
-  console.log(fullUrl, "fullurl")
 
 
   let Product = filteredProduct as IProduct;

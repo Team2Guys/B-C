@@ -234,7 +234,7 @@ const Navbar = ({products , subCategories}: {products: IProduct[] , subCategorie
             </div>
           </div>
 
-          <div className="lg:w-2/12 flex flex-1 justify-between xs:justify-center items-center gap-6">
+          <div className="lg:w-2/12 flex flex-1 justify-between xs:justify-end items-center gap-6">
             <Link
               className="py-2 px-2 xl:px-5 hidden sm:block rounded-md text-10 xl:text-11 2xl:text-15 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
               href="/request-appointment"
@@ -251,7 +251,7 @@ const Navbar = ({products , subCategories}: {products: IProduct[] , subCategorie
             >Estimator</Link>
             <div className="flex lg:hidden">
               <Sheet
-                drawerName={<Image src={menuIcon} alt='menu icon' width={75} height={75} className='min-w-10 w-9 h-9' />}
+                drawerName={<Image src={menuIcon} alt='menu icon' width={50} height={50} className='min-w-9 w-9 h-9' />}
                 open={drawerOpen}
                 setOpen={setDrawerOpen}
                 selectedLabel={selectedLabel}

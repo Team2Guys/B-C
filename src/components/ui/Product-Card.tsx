@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
 
   if (isLoadingCategories)
     return (
-     <CardSkeleton isSizeSmall={isSizeSmall}/>
+      <CardSkeleton isSizeSmall={isSizeSmall} />
     );
   const getTrimmedTitle = (title: string) => {
     return title.replace(/^Made to measure\s+/i, '');
@@ -74,7 +74,6 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
       {products &&
         products.map((product: any) => {
           const category = categories?.find((cat) => cat.id == product.CategoryId);
-          console.log(category, "productscommercial", categories)
           if (!category) return null;
 
           const trimmedProductTitle = getTrimmedTitle(product.title);
@@ -95,9 +94,8 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
               <div className="text-center space-y-3">
                 <h4 className="text-17 font-semibold">{trimmedProductTitle}</h4>
                 <p
-                  className={`text-15 font-light md:w-[80%] mx-auto max-h-16 ${
-                    scrollEnabled ? 'custom-scrollbar' : 'overflow-hidden'
-                  }`}
+                  className={`text-15 font-light md:w-[80%] mx-auto max-h-16 ${scrollEnabled ? 'custom-scrollbar' : 'overflow-hidden'
+                    }`}
                   dangerouslySetInnerHTML={{
                     __html: renderDescription
                       ? renderDescription(product.title)

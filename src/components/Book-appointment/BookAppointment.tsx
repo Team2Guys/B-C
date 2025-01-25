@@ -321,6 +321,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             <PhoneInput
               className="h-9 p-2 border border-gray-300 w-full rounded text-xsm outline-none"
               international
+              aria-label="Phone Number"
               defaultCountry="AE"
               limitMaxLength
               countryCallingCodeEditable={false}
@@ -361,6 +362,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             <PhoneInput
               className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-xsm outline-none"
               international
+              
               defaultCountry="AE"
               limitMaxLength
               countryCallingCodeEditable={false}
@@ -397,6 +399,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             </label>
 
             <DatePicker
+            id='preferredDate'
               selected={formData.prefered_Date}
               onChange={handleDateChange}
               className="h-[38px] mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
