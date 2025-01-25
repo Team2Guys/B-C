@@ -3,13 +3,12 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import { fetchProducts, fetchSubCategories } from 'config/fetch';
 
-const Header =  () => {
-  // const [products, subCategories] = await Promise.all([fetchProducts(),fetchSubCategories()]);
+const Header = () => {
   const [products, setProducts] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-console.log(loading, error, "error")
+  console.log(loading, error, "error")
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,7 +19,7 @@ console.log(loading, error, "error")
         ]);
         setProducts(fetchedProducts);
         setSubCategories(fetchedSubCategories as any);
-      } catch (err:any) {
+      } catch (err: any) {
         setError(err);
       } finally {
         setLoading(false);
@@ -28,10 +27,10 @@ console.log(loading, error, "error")
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   return (
-    <Navbar products={products}  subCategories={subCategories} />
+    <Navbar products={products} subCategories={subCategories} />
   )
 }
 

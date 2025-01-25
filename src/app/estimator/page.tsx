@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'estimator',
+    canonical: 'https://blindsandcurtains.ae/estimator/',
   },
 };
 
