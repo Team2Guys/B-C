@@ -1,52 +1,23 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Table } from 'antd';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import axios from 'axios';
 import Loader from 'components/Loader/Loader';
-import Cookies from 'js-cookie';
 import { FaEdit } from 'react-icons/fa';
-import { useQuery } from '@tanstack/react-query';
-import { getAllAdmins } from 'config/fetch';
+import { admin_del_handler} from 'config/fetch';
 import { ADMINS_PROPS } from 'types/interfaces';
-import TableSkeleton from 'components/Dashboard/Tables/TableSkelton';
+import revalidateTag from 'components/ServerActons/ServerAction';
 
-function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
-  const [admins, setAdmins] = useState([]);
+function Admins({ setselecteMenu, setedit_admins, adminsData }: ADMINS_PROPS) {
   const [delLoading, setDelLoading] = useState<string | null>(null);
-  const superAdmintoken = Cookies.get('superAdminToken');
-  const token = Cookies.get('2guysAdminToken');
-  let Finaltoken = superAdmintoken ? superAdmintoken : token;
-  const [isClient, setIsClient] = useState(false);
-
-  console.log(admins, "admins")
-  const { data, isLoading } = useQuery({
-    queryKey: ['admins'],
-    queryFn: getAllAdmins,
-  });
-
-  const adminsData = Array.isArray(data) ? data : [];
 
   const handleDelete = async (id: string) => {
     try {
-      const token = localStorage.getItem('superAdminToken');
-      if (!token) {
-
-        return;
-      }
       setDelLoading(id);
-      await axios.delete(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/deletAdmin/${id}`,
-        {
-          headers: {
-            token: Finaltoken,
-          },
-        },
-      );
-      setAdmins((prevAdmins) =>
-        prevAdmins.filter((admin: any) => admin._id !== id),
-      );
+      console.log(id, "id")
+      await admin_del_handler(id)
+      revalidateTag('admins')
     } catch (error) {
       console.error('Error deleting admin:', error);
     } finally {
@@ -55,11 +26,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   };
 
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-
+  console.log(adminsData, "adminsData")
 
   const columns = [
     {
@@ -266,15 +233,15 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
               }}
             />
 
-            {isClient ? (
+            {
               delLoading === record._id ? <div><Loader color="#fff" /></div> : (
                 <RiDeleteBin6Line
                   className="cursor-pointer text-red-500"
                   size={20}
-                  onClick={() => handleDelete(record._id)}
+                  onClick={() => handleDelete(record.id)}
                 />
               )
-            ) : null
+          
             }
 
           </div>
@@ -306,7 +273,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
                 </button>
               </div>
             </div>
-            {!isLoading ? (
+    
               <Table
                 className="dark:border-strokedark dark:bg-dashboardDark"
                 scroll={{ y: 110 * 5 }}
@@ -315,12 +282,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
                 pagination={false}
                 rowKey="id"
               />
-            ) : (
-
-              <TableSkeleton rows={0} columns={9} />
-            )
-
-            }
+          
           </>
         )}
 

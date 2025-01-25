@@ -1116,13 +1116,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     Category_id: 9,
     sub_Category: 'White Shutters',
     Product: [
-      // {
-      //   product_name: 'Full Height Shutters',
-      //   altText: 'Full Height Shutters',
-      //   Imagesurl:
-      //     '/assets/images/optimized-images/Color/White-shutters/White Cafe style Shutters (2).webp',
-      //   desc: '',
-      // },
+
       {
         product_name: 'Cafe Style Shutters',
         altText: 'Cafe Style Shutters',
@@ -1156,13 +1150,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     Category_id: 9,
     sub_Category: 'Light Woods Shutters',
     Product: [
-      // {
-      //   product_name: 'Tracked Shutters',
-      //   altText: 'Tracked Shutters',
-      //   Imagesurl:
-      //     '/assets/images/optimized-images/Color/Light-wood/Off white tracked window shutters.webp',
-      //   desc: '',
-      // },
+   
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
@@ -1176,13 +1164,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     Category_id: 9,
     sub_Category: 'Grey Shutters',
     Product: [
-      // {
-      //   product_name: 'Tier On Tier Shutters',
-      //   altText: 'Tier On Tier Shutters',
-      //   Imagesurl:
-      //     '/assets/images/optimized-images/Color/Grey-color/Off white tracked window shutters.webp',
-      //   desc: '',
-      // },
+   
       {
         product_name: 'Bi Fold Shutters',
         altText: 'Bi Fold Shutters',
@@ -1196,13 +1178,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     Category_id: 9,
     sub_Category: 'Bold Colours Shutters',
     Product: [
-      // {
-      //   product_name: 'Tier On Tier Shutters',
-      //   altText: 'Tier On Tier Shutters',
-      //   Imagesurl:
-      //     '/assets/images/optimized-images/Color/Bold-colors/Off white tracked window shutters.webp',
-      //   desc: '',
-      // },
+ 
     ],
   },
   {

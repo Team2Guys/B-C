@@ -30,7 +30,7 @@ const Estimator: React.FC = async () => {
   const products = await fetchProducts();
 
   const filteredFetchedProducts = products
-    ? products.filter((product:any) => allowedTitles.includes(product.title))
+    ? products.filter((product: any) => allowedTitles.includes(product.title))
     : [];
 
   const allProducts = [...estimator_data, ...filteredFetchedProducts];
@@ -44,9 +44,7 @@ const Estimator: React.FC = async () => {
     return aIndex - bIndex;
   });
   return (
-    <>
-      <EstimatorPage products={products} sortedProducts={sortedProducts} />
-    </>
+    <EstimatorPage products={products} sortedProducts={sortedProducts} />
   );
 };
 

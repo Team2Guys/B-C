@@ -279,13 +279,7 @@ export const OurHistoryData: OurHistory[] = [
     discription:
       'Making our own products gave us greater control over quality and design, so we could better meet our customers needs.',
   },
-  // {
-  //   id: 4,
-  //   year: '2020',
-  //   heading: 'Had our first AED 500k + order',
-  //   discription:
-  //     'A single order exceeding AED 500k signifies the trust and dedication of our clients, as well as the hard work of our team members.',
-  // },
+
   {
     id: 4,
     year: '2023 ',
@@ -293,13 +287,7 @@ export const OurHistoryData: OurHistory[] = [
     discription:
       'We moved to Al Quoz as part of our company rebranding, taking advantage of new opportunities to better serve our customers.',
   },
-  // {
-  //   id: 4,
-  //   year: '2024',
-  //   heading: 'Opened an office in Islamabad to support our online growth',
-  //   discription:
-  //     'We also opened an office in Islamabad to improve our online presence as part of our expansion into new regions.',
-  // },
+
 ];
 
 export const validateForm = (formData: {
@@ -337,7 +325,6 @@ export const inputFields = [
   { name: 'name', type: 'text' },
   { name: 'description', type: 'text' },
   { name: 'price', type: 'number' },
-  // { name: "category", type: 'text' },
   { name: 'discountPrice', type: 'number' },
 ];
 
@@ -464,11 +451,8 @@ export const intitalValues = {
 export const blindMegaMenuItems = [
   { productName: 'vertical-blinds' },
   { productName: 'zipline-outdoor-blinds' },
-  // { productName: 'honeycomb-blinds' },
   { productName: 'panel-blinds' },
   { productName: 'aluminium-blinds' },
-  // { productName: 'wood-venetian' },
-  // { productName: 'daynight-blinds' },
   { productName: 'wooden-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
@@ -485,10 +469,7 @@ export const blindMegaMenuItems = [
   { productName: 'officestudy' },
 
   { productName: 'blackout-blinds' },
-  // { productName: 'outdoor' },
-  // { productName: 'motorised-blinds' },
   { productName: 'dimout-blinds' },
-  // { productName: 'translucent-blinds' },
   { productName: 'sunscreentransparent-blinds' },
 ];
 
@@ -508,14 +489,12 @@ export const curtainMegaMenuItems = [
   { productName: 'kids-room-blinds' },
   { productName: 'dining' },
   { productName: 'loungeliving' },
-  // { productName: 'kids-bedroom' },
 
   { productName: 'stripes-curtains' },
   { productName: 'geometric-curtains' },
   { productName: 'textured-curtains' },
   { productName: 'kids-prints-curtains' },
   { productName: 'natural-fabric-curtains' },
-  // { productName: 'patterned-curtains' },
   { productName: 'plain-curtains' },
   { productName: 'sheer-curtains' },
   { productName: 'blackout-curtains' },
@@ -531,8 +510,6 @@ export const shutterMegaMenuItems = [
   { productName: 'bi-fold-shutters' },
   { productName: 'full-height-shutters' },
   { productName: 'staircase-shutters' },
-  // { productName: 'bathroom-shutters' },
-  // { productName: 'kitchen-shutters' },
   { productName: 'dining-room-shutters' },
   { productName: 'tracked-shutters' },
 ];
@@ -542,7 +519,6 @@ export const commercialMegaMenuItems = [
   { productName: 'auditoriums' },
   { productName: 'hotels-restaurants' },
   { productName: 'schools' },
-  // { productName: 'offices' },
   { productName: 'gym' },
   { productName: 'theatre' },
 
@@ -593,7 +569,6 @@ export const commercialPagesItems = [
   'sunscreentransparent',
   'vertical-blinds',
   'aluminium-blinds',
-  // 'wooden-blinds',
   'blackout-blinds',
   'motorised-blinds',
   'panel-blinds',
@@ -633,14 +608,12 @@ export const megaMenubyStyle = [
   { productName: 'honeycomb-blinds' },
   { productName: 'panel-blinds' },
   { productName: 'aluminium-blinds' },
-  // { productName: 'wood-venetian' },
   { productName: 'daynight-blinds' },
   { productName: 'zebra-blinds' },
   { productName: 'wooden-blinds' },
   { productName: 'roman-blinds' },
   { productName: 'roller-blinds' },
 
-  // { productName: 'special-shape-shutters' },
   { productName: 'outdoor-shutters' },
   { productName: 'solid-panel-shutters' },
   { productName: 'cafe-style-shutters' },
@@ -648,12 +621,10 @@ export const megaMenubyStyle = [
   { productName: 'bay-window-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'full-height-shutters' },
-  // { productName: 'tracked-shutters' },
 
   { productName: 'pencil-pleat-curtains' },
   { productName: 'ripplefoldwave-curtains' },
   { productName: 'tab-top-curtains' },
-  // { productName: 'motorised-curtains' },
   { productName: 'eyelet-curtains' },
   { productName: 'double-pinch-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
@@ -662,7 +633,6 @@ export const megaMenubyStyle = [
   { productName: 'auditoriums' },
   { productName: 'hotels-restaurants' },
   { productName: 'schools' },
-  // { productName: 'offices' },
   { productName: 'gym' },
   { productName: 'theatre' },
 ];
@@ -691,14 +661,11 @@ export const megaMenubyRoom = [
   { productName: 'staircase-blinds' },
   { productName: 'bedroom-blinds' },
   { productName: 'office-blinds' },
-  // { productName: 'school-blinds' },
   { productName: 'study-room-Blinds' },
   { productName: 'dining-room-blinds' },
-  // { productName: 'loungeliving' },
   { productName: 'living-room-curtains' },
   { productName: 'dining-room-curtains' },
   { productName: 'bedroom-curtains' },
-  // { productName: 'kids-bedroom' },
   { productName: 'kids-room-curtains' },
   { productName: 'staircase-curtains' },
   { productName: 'conservatory-curtains' },
@@ -724,14 +691,12 @@ export const megaMenuDynamic = [
   { productName: 'blackout-curtains' },
   { productName: 'blackout-blinds' },
   { productName: 'outdoor' },
-  // { productName: 'outdoor-blinds' },
   { productName: 'motorised-blinds' },
   { productName: 'dimout-blinds' },
 
   { productName: 'white-shutters' },
   { productName: 'light-wood-shutters' },
   { productName: 'off-white-shutters' },
-  // { productName: 'black-shutters' },
   { productName: 'dark-wood-shutters' },
   { productName: 'bold-colours-shutters' },
   { productName: 'grey-shutters' },
@@ -766,26 +731,21 @@ export const extendedByStyle = [
   { productName: 'eyelet-curtains' },
   { productName: 'pinch-pleat-curtains' },
   { productName: 'motorised-curtains' },
-  // { productName: 'sheer-curtains' },
   { productName: 'goblet-pleat-curtains' },
   { productName: 'triple-pinch-pleat-curtains' },
   { productName: 'ripplefoldwave-curtains' },
-  // { productName: 'double-pinch-pleat-curtains-curtains' },
   { productName: 'pelmet-curtains' },
   { productName: 'modern-curtains' },
   { productName: 'tab-top-curtains' },
   { productName: 'pencil-pleat-curtains' },
-  // { productName: 'stripes-curtains' },
 
   { productName: 'full-height-shutters' },
   { productName: 'bay-window-shutters' },
   { productName: 'tracked-shutters' },
   { productName: 'special-shape-shutters' },
-  // { productName: 'tier-on-tier-shutters' },
   { productName: 'solid-panel-shutters' },
   { productName: 'bi-fold-shutters' },
   { productName: 'outdoor-shutters' },
-  // { productName: 'staircase-shutters' },
   { productName: 'cafe-style-shutters' },
   { productName: 'automated-curtains' },
   { productName: 'automated-blinds' },
@@ -828,12 +788,10 @@ export const extendedDynamic = [
   { productName: 'motorised-blinds' },
   { productName: 'blackout-blinds' },
   { productName: 'skylight-blinds-dubai' },
-  // { productName: 'roller-blinds' },
   { productName: 'blackout-roller-blinds' },
   { productName: 'sunscreen-blinds' },
   { productName: 'dimout-blinds' },
   { productName: 'translucent-blinds' },
-  // { productName: 'zipline-outdoor-blinds' },
 
   { productName: 'made-to-measure-chiffon-curtains' },
   { productName: 'made-to-measure-linen-curtains' },
@@ -1879,4 +1837,26 @@ export const items = [
     id: 6,
     text: 'Free home visits with free installation',
   },
+];
+
+
+
+export   const checkboxData = [
+  { name: 'canAddProduct', label: 'Can Add Product' },
+  { name: 'canEditProduct', label: 'Can Edit Product' },
+  { name: 'canDeleteProduct', label: 'Can Delete Product' },
+  { name: 'canAddCategory', label: 'Can Add Category' },
+  { name: 'canDeleteCategory', label: 'Can Delete Category' },
+  { name: 'canEditCategory', label: 'Can Edit Category' },
+  { name: 'canAddSubCategory', label: 'Can Add SubCategory' },
+  { name: 'canDeleteSubCategory', label: 'Can Delete SubCategory' },
+  { name: 'canEditSubCategory', label: 'Can Edit SubCategory' },
+  { name: 'canViewAppointments', label: 'Can View Appointments' },
+  { name: 'canVeiwAdmins', label: 'Can View Admins' },
+  { name: 'canVeiwTotalproducts', label: 'Can View Total Products' },
+  { name: 'canVeiwTotalCategories', label: 'Can View Total Categories' },
+  { name: 'canVeiwTotalSubCategories', label: 'Can View Total SubCategories' },
+  { name: 'canAddBlog', label: 'Can Add Blog' },
+  { name: 'canDeleteBlog', label: 'Can Delete Blog' },
+  { name: 'canEditBlog', label: 'Can Edit Blog' },
 ];

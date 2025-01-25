@@ -21,7 +21,7 @@ import { links } from 'data/header_links';
 import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
 import menuIcon from '../../../../public/assets/images/icon/menu.png';
 
-const Navbar = ({products , subCategories}: {products: IProduct[] , subCategories: ICategory[]}) => {
+const Navbar = ({ products, subCategories }: { products: IProduct[], subCategories: ICategory[] }) => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
     undefined,
@@ -160,7 +160,6 @@ const Navbar = ({products , subCategories}: {products: IProduct[] , subCategorie
                       ),
                     ) || [];
                   combinedSliderData = [
-                    // ...staticCommercialMegaMenuItems,
                     ...filteredSubCategories,
                     ...actualProducts,
                   ];
@@ -211,7 +210,6 @@ const Navbar = ({products , subCategories}: {products: IProduct[] , subCategorie
                                   ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                                   : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
                       }
-                     //  loading={true}
                     />
                   </Fragment>
                 ) : (
@@ -341,7 +339,6 @@ const Navbar = ({products , subCategories}: {products: IProduct[] , subCategorie
                           ) || [];
 
                         combinedSliderData = [
-                          // ...staticCommercialMegaMenuItems,
                           ...filteredSubCategories,
                           ...actualProducts,
                         ];
@@ -395,7 +392,6 @@ const Navbar = ({products , subCategories}: {products: IProduct[] , subCategorie
                         >
                           <MegaMenu
                             onClick={handleCloseDrawer}
-                            // key={index}
                             title={link.label || ''}
                             sliderData={combinedSliderData}
                             href={link.href}
@@ -412,7 +408,7 @@ const Navbar = ({products , subCategories}: {products: IProduct[] , subCategorie
                             }
                           />
                         </Panel>
-                      ) : ( 
+                      ) : (
                         <Link
                           key={index}
                           className={`${link.label === 'Estimator' && 'hidden sm:block'} text-16 border-b text-black border-[#0000002a] pb-[6px] hover:text-black ${isBlogActive || isActive

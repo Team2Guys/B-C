@@ -15,7 +15,6 @@ import {
 } from 'data/data';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import { IoSearch } from 'react-icons/io5';
-// import CardSkeleton from 'components/Skeleton/card-skeleton';
 import TopHero from 'components/ui/top-hero';
 import { usePathname } from 'next/navigation';
 

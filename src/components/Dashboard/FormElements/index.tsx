@@ -609,20 +609,18 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                   const checked = e.target.checked;
                                   setSelectedSubcategoryIds((prev) => {
                                     if (checked) {
-                                      // If a new subcategory is checked, add it to the selected list
                                       return [...prev, subcategory.id];
                                     } else {
-                                      // If the current subcategory is unchecked, remove it from the selected list
                                       return prev.filter(
                                         (id) => id !== subcategory.id,
                                       );
                                     }
                                   });
                                 }}
-                                id={`subcategory-${subcategory.id}`} // Corrected with template literals
+                                id={`subcategory-${subcategory.id}`}
                               />
                               <label
-                                htmlFor={`subcategory-${subcategory.id}`} // Corrected with template literals
+                                htmlFor={`subcategory-${subcategory.id}`}
                                 className="ml-2 text-black dark:text-white"
                               >
                                 {subcategory.title}
