@@ -6,7 +6,6 @@ import { PRODUCS_PROPS } from 'types/interfaces';
 const CommercialPage = ({
   filteredProduct,
   filteredSubCategory,
-  // product,
   allprod,
   categories,
   subCategories

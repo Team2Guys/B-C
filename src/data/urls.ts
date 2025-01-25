@@ -170,10 +170,8 @@ export const urls = [
 export const predefinedPaths = {
   'office-blinds': '/commercial',
   'offices-blinds': '/commercial',
-  // "study-room-blinds" : '/commercial',
   theatre: '/curtains/stage-and-theatre-curtains',
   hospitals: '/curtains/hospital-curtains',
-  // restaurants: '/hotels-restaurants-blinds-curtains',
   'hotels-restaurants': '/hotels-restaurants-blinds-curtains',
   schools: '/blinds/school-blinds',
   offices: '/commercial',
@@ -192,7 +190,6 @@ export const ChangedProductUrl = (title: string): string => {
 };
 
 export const ChangedProductUrl_handler = (title: string): string => {
-  // console.log(title, 'title');
 
   let products = urls.find((url: { productName: string; Url: string }) => {
     return url.productName === title;
@@ -203,8 +200,7 @@ export const ChangedProductUrl_handler = (title: string): string => {
 
 export const CommercialUrl = [
   { urlName: 'hospitals', Redirect: '/curtains/hospital-curtains' },
-  // { urlName: 'restaurants', Redirect: '/hotels-restaurants-blinds-curtains' },
-  // { urlName: 'hotels', Redirect: '/hotels-restaurants-blinds-curtains' },
+
   { urlName: 'offices', Redirect: '/curtains/office-window-curtains' },
   { urlName: 'school-blinds', Redirect: '/blinds/school-blinds' },
   { urlName: 'gym', Redirect: '/curtains/gym-curtains' },

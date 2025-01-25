@@ -63,7 +63,7 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
     } finally {
       setTimeout(() => {
         setDisabledButtons((prev) => ({ ...prev, [comment.id]: false }));
-      }, 2000); // Re-enable after 2 seconds
+      }, 2000);
     }
   };
 
@@ -86,7 +86,7 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
     } finally {
       setTimeout(() => {
         setDisabledButtons((prev) => ({ ...prev, [comment.id]: false }));
-      }, 2000); // Re-enable after 2 seconds
+      }, 2000);
     }
   };
 
@@ -162,10 +162,10 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                         <div className="flex gap-4 mb-4">
                           <button
                             className={`text-white px-4 py-1 rounded ${disabledButtons[comment.id]
+                              ? "bg-gray-400"
+                              : !canEditBlog || comment.status === "APPROVED"
                                 ? "bg-gray-400"
-                                : !canEditBlog || comment.status === "APPROVED"
-                                  ? "bg-gray-400"
-                                  : "bg-green-600"
+                                : "bg-green-600"
                               }`}
                             onClick={() => handleApprove(comment.id, comment, item)}
                             disabled={!canEditBlog || comment.status === 'APPROVED' || disabledButtons[comment.id]}
@@ -174,10 +174,10 @@ const Comments = ({ currentComments }: { currentComments: any[] }) => {
                           </button>
                           <button
                             className={`text-white px-4 py-1 rounded ${disabledButtons[comment.id]
+                              ? "bg-gray-400"
+                              : !canEditBlog || comment.status === "REJECTED"
                                 ? "bg-gray-400"
-                                : !canEditBlog || comment.status === "REJECTED"
-                                  ? "bg-gray-400"
-                                  : "bg-red-600"
+                                : "bg-red-600"
                               }`}
                             onClick={() => handleReject(comment.id, comment, item)}
                             disabled={!canEditBlog || comment.status === 'REJECTED' || disabledButtons[comment.id]}
