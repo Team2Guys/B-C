@@ -80,14 +80,11 @@ const BathroomCategory = ({
 
     return product;
   };
-  const currentCategory = Categories_wise_Images.find(
-    (category) =>
-      category.sub_Category === subCategory
+  const currentCategory = Categories_wise_Images.find((category) =>category.sub_Category === subCategory
   );
   const static_Title = currentCategory?.static_Title;
 
 
-  console.log(subCategory, "product_Images")
   return (
     <>
       <div className="flex flex-col justify-center items-center space-y-4 px-2">

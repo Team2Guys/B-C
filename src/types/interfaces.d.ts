@@ -303,11 +303,13 @@ export interface formDataTypes {
 export interface ADMINS_PROPS {
   setselecteMenu: React.Dispatch<SetStateAction<string | null | undefined>>;
   setedit_admins: React.Dispatch<SetStateAction<formDataTypes | undefined>>;
+  adminsData:any[]
 }
 
 export interface createAdmin extends ADMINS_PROPS {
   setedit_admins?: React.Dispatch<SetStateAction<formDataTypes | undefined>>;
   edit_admins: formDataTypes | undefined;
+  adminsData?:any[]
 }
 
 export interface BlogInfo {
