@@ -82,6 +82,7 @@ const VideoBanner: React.FC<BannerProps> = ({
                   <div className="mt-5">
                     <Link
                     aria-label='Book A Free Home Design Visit'
+                        aria-hidden="true"
                       className="uppercase bg-secondary hover:bg-primary text-12 md:text-16 font-medium shadow-md text-white rounded-full px-4 py-3"
                       href={'/request-appointment'}
                     >

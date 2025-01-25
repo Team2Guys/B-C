@@ -9,6 +9,8 @@ function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <div
+    aria-label="next"
+    aria-hidden="true"
       className={`${className} custom-color-arrow absolute transform -translate-y-1/2 rounded-full flex justify-center items-center cursor-pointer`}
       style={{ ...style }}
       onClick={onClick}

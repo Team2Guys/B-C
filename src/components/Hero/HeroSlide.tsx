@@ -42,6 +42,7 @@ const HeroSlide = ({ item }: any) => {
                     </p>
                     <Link
                     aria-label='Book A Free Home Design Visit'
+    aria-hidden="true"
                         className="uppercase bg-secondary hidden md:block mx-auto md:mx-0 text-12 sm:text-14 lg:text-16 font-semibold shadow-md text-white hover:bg-primary rounded-full px-6 py-4  w-fit"
                         href={'/request-appointment'}
                     >
@@ -95,6 +96,7 @@ const HeroSlide = ({ item }: any) => {
                     </div>
                     <Link
                     aria-label='Book A Free Home Design Visit'
+                        aria-hidden="true"
                         className="uppercase bg-white mb-5 md:hidden mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0   w-fit"
                         href={'/request-appointment'}
                     >
