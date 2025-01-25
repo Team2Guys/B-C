@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'about-us',
+    canonical: 'https://blindsandcurtains.ae/about-us/',
   },
 };
 const AboutUsPage = () => {
