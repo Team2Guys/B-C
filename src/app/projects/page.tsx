@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'projects',
+    canonical: 'https://blindsandcurtains.ae/projects/',
   },
 };
 

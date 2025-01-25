@@ -230,6 +230,7 @@ function Admins({ setselecteMenu, setedit_admins, adminsData }: ADMINS_PROPS) {
                 const { password, ...withoutPassowrd } = record
                 setedit_admins(withoutPassowrd); setselecteMenu(" ")
                 console.log(password, "password")
+                console.log(password, "password")
               }}
             />
 
