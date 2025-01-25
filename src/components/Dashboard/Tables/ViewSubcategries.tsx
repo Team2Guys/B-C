@@ -51,7 +51,6 @@ const ViewSubcategries = ({
     setSearchTerm(e.target.value);
   };
 
-  // Filter products based on search term
   const filteredProducts: ICategory[] =
     category?.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -163,10 +162,8 @@ const ViewSubcategries = ({
           <FaRegEye
             className="cursor-pointer"
             onClick={() => {
-              const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${
-                // generateSlug(record.title)
-                ChangedProductUrl_handler(record.title)
-              }
+              const url = `/${parent === 'shutters' ? `${parent}-range` : parent}/${ChangedProductUrl_handler(record.title)
+                }
                   `;
               window.open(url, '_blank');
             }}
@@ -190,11 +187,9 @@ const ViewSubcategries = ({
       key: 'action',
       render: (text: any, record: any) => (
         <RiDeleteBin6Line
-          className={`cursor-pointer ${canDeleteCategory && 'text-red'} ${
-            !canDeleteCategory &&
+          className={`cursor-pointer ${canDeleteCategory && 'text-red'} ${!canDeleteCategory &&
             'cursor-not-allowed text-black dark:text-slate-300'
-          }`}
-          // className="cursor-pointer text-red-500"
+            }`}
           size={20}
           onClick={() => {
             if (canDeleteCategory) {
@@ -219,14 +214,11 @@ const ViewSubcategries = ({
           />
           <div>
             <p
-              className={`${
-                canAddCategory &&
+              className={`${canAddCategory &&
                 'cursor-pointer w-full xsm:text-12 xsm:px-2 py-2 lg:text-16'
-              } lg:p-2 md:p-2 ${
-                canAddCategory && ' bg-secondary text-white rounded-md w-full '
-              } flex justify-center ${
-                !canAddCategory && 'cursor-not-allowed w-full'
-              }`}
+                } lg:p-2 md:p-2 ${canAddCategory && ' bg-secondary text-white rounded-md w-full '
+                } flex justify-center ${!canAddCategory && 'cursor-not-allowed w-full'
+                }`}
               onClick={() => {
                 seteditCategory && seteditCategory(null);
                 if (canAddCategory) {

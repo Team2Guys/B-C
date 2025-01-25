@@ -4,6 +4,7 @@ import Container from 'components/Res-usable/Container/Container';
 import aboutUsImg from '../../../public/assets/images/blind-curtains-dubai/blinds-curtains-dubai.png';
 import { AboutUsPara, OurHistoryData, UsHistoryPara } from 'data/data';
 import { Metadata } from 'next';
+import { Fragment } from 'react';
 
 export const metadata: Metadata = {
   title: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 };
 const AboutUsPage = () => {
   return (
-    <div>
+    <Fragment>
       <TopHero title="About Us" image={bgBreadcrum.src} />
       <Container className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 xs:p-2 px-6 2xl:gap-20 xs:py-20 md:px-10">
         <div
@@ -111,7 +112,7 @@ const AboutUsPage = () => {
           </div>
         </div>
       </Container>
-    </div>
+    </Fragment>
   );
 };
 
