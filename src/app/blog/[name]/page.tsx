@@ -15,11 +15,11 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const matchingLink = blogLinks.find((link) => link.href === name);
   const [categories, blogs] = await Promise.all([fetchCategories(), fetchBlogs()]);
 
-  const filterCategory:any = categories.find((category:ICategory) => category.title === matchingLink?.label);
-  
-  const blog: BlogInfo | undefined = blogs?.find((blog:BlogInfo) => {
+  const filterCategory: any = categories.find((category: ICategory) => category.title === matchingLink?.label);
+
+  const blog: BlogInfo | undefined = blogs?.find((blog: BlogInfo) => {
     const filterTitle = blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title);
-   return filterTitle === name && blog.isPublished;
+    return filterTitle === name && blog.isPublished;
   });
 
 
@@ -48,33 +48,34 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   let title = Category?.Meta_Title || 'blindsandcurtains';
   let description = Category?.Meta_description || 'Welcome to blindsandcurtains';
   let url = `${fullUrl}blog/${name}`;
-let meta_object:Metadata = {
-  title: title,
-  description: description,
-  openGraph: {
+  let meta_object: Metadata = {
     title: title,
     description: description,
-    url: url,
-    images: NewImage,
-  },
-  alternates: {
-    canonical:
-      Category?.Canonical_Tag || url,
-  },
-};
+    openGraph: {
+      title: title,
+      description: description,
+      url: url,
+      images: NewImage,
+    },
+    alternates: {
+      canonical:
+        Category?.Canonical_Tag || url,
+    },
+  };
 
 
 
-if(filterCategory && CategoryTitle.includes(filterCategory?.title?.toLowerCase())){
-  console.log(filterCategory.title, "asdfsadf")
-  meta_object ={...meta_object,   robots: {
-    index: false,
-    follow: false,
-  },}
-}
+  if (filterCategory && CategoryTitle.includes(filterCategory?.title?.toLowerCase())) {
+    meta_object = {
+      ...meta_object, robots: {
+        index: false,
+        follow: false,
+      },
+    }
+  }
 
 
-  return {...meta_object} 
+  return { ...meta_object }
 }
 const BlogDetail = async ({ params }: { params: Promise<{ name: string }> }) => {
   const [categories, blogs] = await Promise.all([
@@ -83,14 +84,14 @@ const BlogDetail = async ({ params }: { params: Promise<{ name: string }> }) => 
   ]);
   const name = (await params).name;
   const category = categories?.find(
-    (category:ICategory) => category.title.toLowerCase() === name,
+    (category: ICategory) => category.title.toLowerCase() === name,
   );
 
   const filterCategoryBlogPosts = blogs?.filter((blogItem: BlogInfo) => blogItem.category === category?.title && blogItem?.isPublished)
 
-  const blog: BlogInfo | undefined = blogs?.find((blog:BlogInfo) => {
+  const blog: BlogInfo | undefined = blogs?.find((blog: BlogInfo) => {
     const filterTitle = blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title);
-   return filterTitle === name && blog.isPublished;
+    return filterTitle === name && blog.isPublished;
   }
   );
   const filterRelatedPosts = blogs.filter((blogItem: BlogInfo) => (blogItem.category === blog?.category) &&

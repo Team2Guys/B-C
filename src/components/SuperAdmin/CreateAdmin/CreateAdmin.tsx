@@ -81,17 +81,17 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
       canAddCategory: true,
       canDeleteCategory: true,
       canEditCategory: true,
-      canAddSubCategory:true,
-      canDeleteSubCategory:true,
-      canEditSubCategory:true,
-      canViewAppointments:true,
+      canAddSubCategory: true,
+      canDeleteSubCategory: true,
+      canEditSubCategory: true,
+      canViewAppointments: true,
       canVeiwAdmins: true,
       canVeiwTotalproducts: true,
       canVeiwTotalCategories: true,
-      canVeiwTotalSubCategories:true,
+      canVeiwTotalSubCategories: true,
       canAddBlog: true,
       canDeleteBlog: true,
-      canEditBlog : true,
+      canEditBlog: true,
     });
 
 
@@ -108,8 +108,8 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
     { name: 'canDeleteSubCategory', label: 'Can Delete SubCategory' },
     { name: 'canEditSubCategory', label: 'Can Edit SubCategory' },
     { name: 'canViewAppointments', label: 'Can View Appointments' },
-    { name: 'canVeiwAdmins', label: 'Can View Admins' }, 
-    { name: 'canVeiwTotalproducts', label: 'Can View Total Products' }, 
+    { name: 'canVeiwAdmins', label: 'Can View Admins' },
+    { name: 'canVeiwTotalproducts', label: 'Can View Total Products' },
     { name: 'canVeiwTotalCategories', label: 'Can View Total Categories' },
     { name: 'canVeiwTotalSubCategories', label: 'Can View Total SubCategories' },
     { name: 'canAddBlog', label: 'Can Add Blog' },
@@ -126,14 +126,14 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
       canAddCategory: false,
       canDeleteCategory: false,
       canEditCategory: false,
-      canAddSubCategory: false, 
+      canAddSubCategory: false,
       canDeleteSubCategory: false,
       canEditSubCategory: false,
       canViewAppointments: false,
-      canVeiwAdmins: false,  
-      canVeiwTotalproducts: false,  
+      canVeiwAdmins: false,
+      canVeiwTotalproducts: false,
       canVeiwTotalCategories: false,
-      canVeiwTotalSubCategories: false,  
+      canVeiwTotalSubCategories: false,
       canAddBlog: false,
       canDeleteBlog: false,
       canEditBlog: false,
@@ -230,16 +230,16 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
               xs={{ order: 1, span: 24 }}
             >
               <ConfigProvider theme={{ token: { colorPrimary: "#9fac9b" } }}>
-              <Checkbox
-                className="custom-checkbox"
-                name={checkbox.name}
-                checked={formData[checkbox.name as keyof typeof formData] as boolean}
-                onChange={handleCheckboxChange}
-              >
-                {checkbox.label}
-              </Checkbox>
+                <Checkbox
+                  className="custom-checkbox"
+                  name={checkbox.name}
+                  checked={formData[checkbox.name as keyof typeof formData] as boolean}
+                  onChange={handleCheckboxChange}
+                >
+                  {checkbox.label}
+                </Checkbox>
               </ConfigProvider>
-              
+
 
             </Col>
           ))}

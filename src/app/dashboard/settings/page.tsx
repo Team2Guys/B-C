@@ -38,7 +38,6 @@ const Settings = () => {
   const [formData, setFormData] = useState(initialFormData);
 
   const [profilePhoto, setProfilePhoto] = useState<IMAGE_INTERFACE[]>([]);
-  console.log(loggedInUser, 'loggedInUser');
 
   const handlePhotoChange = async (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -61,7 +60,7 @@ const Settings = () => {
 
       if (loggedInUser) {
         let { fullname, posterImageUrl, ...extractedData } = loggedInUser;
-        console.log(fullname,posterImageUrl, 'fullname');
+        console.log(fullname, posterImageUrl, 'fullname');
 
         if (profilePhoto && profilePhoto.length > 0) {
           initialFormData = {
@@ -81,10 +80,9 @@ const Settings = () => {
           {
             headers: {
               Authorization: `Bearer ${token}`
-              },
+            },
           },
         );
-  console.log(response,"responseresponseresponseresponse")
         if (response.status === 200) {
           console.log('Admin updated successfully:', response.data);
         } else {
@@ -112,7 +110,7 @@ const Settings = () => {
       await AddminProfileTriggerHandler();
     } catch (err) {
       console.log(err, 'err');
-    }finally{
+    } finally {
       setloading(false)
     }
   };
@@ -124,7 +122,7 @@ const Settings = () => {
         {
           headers: {
             Authorization: `Bearer ${token}`
-            },
+          },
         },
       );
       dispatch(loggedInAdminAction(user.data));
@@ -145,7 +143,6 @@ const Settings = () => {
 
   useEffect(() => {
     if (loggedInUser && loggedInUser.profilePhoto) {
-      console.log(loggedInUser.profilePhoto, 'loggedInUser.profilePhoto');
       Object.keys(loggedInUser.profilePhoto).length > 0
         ? setProfilePhoto([loggedInUser.profilePhoto])
         : null;
@@ -167,95 +164,74 @@ const Settings = () => {
               <div className="px-7 py-5">
                 <div>
                   <div className="mb-4 flex items-center gap-3">
-                  {
-                   profilePhoto &&  profilePhoto.length > 0 ? 
+                    {
+                      profilePhoto && profilePhoto.length > 0 ?
 
-                    profilePhoto.map((profilePhoto, index: number) => {
-                      return (
-                        <>
-                          <div className="h-14 w-14 rounded-full overflow-hidden object-cover" key={index}>
-                            <Image
-                            className='h-14 w-14 rounded-full'
-                              src={
-                                profilePhoto && profilePhoto.imageUrl
-                                  ? profilePhoto.imageUrl
-                                  : '/images/dummy-avatar.jpg'
-                              }
-                              width={55}
-                              height={55}
-                              alt="User"
-                            />
-                          </div>
+                        profilePhoto.map((profilePhoto, index: number) => {
+                          return (
+                            <>
+                              <div className="h-14 w-14 rounded-full overflow-hidden object-cover" key={index}>
+                                <Image
+                                  className='h-14 w-14 rounded-full'
+                                  src={
+                                    profilePhoto && profilePhoto.imageUrl
+                                      ? profilePhoto.imageUrl
+                                      : '/images/dummy-avatar.jpg'
+                                  }
+                                  width={55}
+                                  height={55}
+                                  alt="User"
+                                />
+                              </div>
 
-                          <div>
-                            <span className="mb-1.5 text-black dark:text-white">
-                              Edit your photo
-                            </span>
-                            <span className="flex gap-2.5">
-                              <button
-                                className="text-sm hover:text-primary text-black dark:text-white"
-                                type="button"
-                                onClick={() =>
-                                  ImageRemoveHandler(
-                                    profilePhoto?.public_id
-                                      ? profilePhoto?.public_id
-                                      : '',
-                                    setProfilePhoto,
-                                  )
-                                }
-                              >
-                                Delete
-                              </button>
-                              <button
-                                className="text-sm hover:text-primary text-black dark:text-white"
-                                type="button"
-                              >
-                                Update
-                              </button>
-                            </span>
-                          </div>
-                        </>
-                      );
-                    })
-                    :
-                    <div className="h-14 w-14 rounded-full overflow-hidden object-cover" >
-                      <Image
-                      className="h-14 w-14 rounded-full"
-                      src={
-                        loggedInUser && loggedInUser.posterImageUrl
-                          ? loggedInUser.posterImageUrl.imageUrl
-                          : "/images/dummy-avatar.jpg"
-                      }
-                      width={55}
-                      height={55}
-                      alt="User"
-                    />
-                                 
-                  </div>
-                  }
-      
+                              <div>
+                                <span className="mb-1.5 text-black dark:text-white">
+                                  Edit your photo
+                                </span>
+                                <span className="flex gap-2.5">
+                                  <button
+                                    className="text-sm hover:text-primary text-black dark:text-white"
+                                    type="button"
+                                    onClick={() =>
+                                      ImageRemoveHandler(
+                                        profilePhoto?.public_id
+                                          ? profilePhoto?.public_id
+                                          : '',
+                                        setProfilePhoto,
+                                      )
+                                    }
+                                  >
+                                    Delete
+                                  </button>
+                                  <button
+                                    className="text-sm hover:text-primary text-black dark:text-white"
+                                    type="button"
+                                  >
+                                    Update
+                                  </button>
+                                </span>
+                              </div>
+                            </>
+                          );
+                        })
+                        :
+                        <div className="h-14 w-14 rounded-full overflow-hidden object-cover" >
+                          <Image
+                            className="h-14 w-14 rounded-full"
+                            src={
+                              loggedInUser && loggedInUser.posterImageUrl
+                                ? loggedInUser.posterImageUrl.imageUrl
+                                : "/images/dummy-avatar.jpg"
+                            }
+                            width={55}
+                            height={55}
+                            alt="User"
+                          />
 
-                    {/* <div className="h-14 w-14 rounded-full overflow-hidden">
-                      <Image
-                        src={profilePhoto ? profilePhoto.imageUrl : '/images/dummy-avatar.jpg'}
-                        width={55}
-                        height={55}
-                        alt="User"
-                      />
-                    </div>
-                    <div>
-                      <span className="mb-1.5 text-black dark:text-white">
-                        Edit your photo
-                      </span>
-                      <span className="flex gap-2.5">
-                        <button className="text-sm hover:text-primary text-black dark:text-white" type="button" disabled={AdminType}>
-                          Delete
-                        </button>
-                        <button className="text-sm hover:text-primary text-black dark:text-white" type="button" disabled={AdminType}>
-                          Update
-                        </button>
-                      </span>
-                    </div> */}
+                        </div>
+                    }
+
+
                   </div>
                   <div className="relative mb-4 h-36 rounded-md border-dashed border-stroke dark:border-strokedark bg-gray dark:bg-meta-4">
                     <input
@@ -309,7 +285,7 @@ const Settings = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="mb-5 flex flex-col gap-5 sm:flex-row">
                     <div className="w-full sm:w-1/2">
-                      {/* Add additional form fields if needed */}
+
                     </div>
                   </div>
 
@@ -364,7 +340,7 @@ const Settings = () => {
                       type="submit"
                       disabled={loading}
                     >
-                     {loading ? <Loader color="#fff" /> :  "Save"}
+                      {loading ? <Loader color="#fff" /> : "Save"}
                     </Button>
                   </div>
                 </form>

@@ -13,7 +13,6 @@ const Header = (props: {
     <header className="sticky top-0 z-40 flex w-full bg-primary drop-shadow-1 dark:bg-dashboardDark   border-r-0 border-t-0 border-l-0">
       <div className="flex flex-grow items-center justify-between px-4 py-2 shadow-2 md:px-6 2xl:px-11">
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden text-white dark:text-white">
-          {/* <!-- Hamburger Toggle BTN --> */}
           <RiBarChartHorizontalLine
             className="text-white dark:text-white cursor-pointer"
             size={25}
@@ -22,7 +21,6 @@ const Header = (props: {
               props.setSidebarOpen(!props.sidebarOpen);
             }}
           />
-          {/* <!-- Hamburger Toggle BTN --> */}
 
           <Link className="block flex-shrink-0 lg:hidden" href="/dashboard">
             <Image
