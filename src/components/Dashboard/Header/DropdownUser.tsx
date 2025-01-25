@@ -69,14 +69,14 @@ const DropdownUser = () => {
             {loggedInUser?.fullname}
           </span>
           <span className="block text-xs text-white dark:text-white">
-          {loggedInUser?.role}
+            {loggedInUser?.role}
           </span>
         </span>
 
         <div className=" hidden sm:flex items-center gap-3">
           <div className="h-12 w-12 rounded-full overflow-hidden">
             <Image
-            className='h-12 w-12 rounded-full object-cover'
+              className='h-12 w-12 rounded-full object-cover'
               src={
                 loggedInUser && loggedInUser.posterImageUrl
                   ? loggedInUser.posterImageUrl.imageUrl
@@ -92,14 +92,12 @@ const DropdownUser = () => {
         <IoIosArrowDown className="text-white dark:text-white" />
       </Link>
 
-      {/* <!-- Dropdown Start --> */}
       <div
         ref={dropdown}
         onFocus={() => setDropdownOpen(true)}
         onBlur={() => setDropdownOpen(false)}
-        className={`absolute right-0 mt-2 flex w-60 flex-col rounded-sm border border-stroke bg-primary dark:bg-dashboardDark    ${
-          dropdownOpen === true ? 'block' : 'hidden'
-        }`}
+        className={`absolute right-0 mt-2 flex w-60 flex-col rounded-sm border border-stroke bg-primary dark:bg-dashboardDark    ${dropdownOpen === true ? 'block' : 'hidden'
+          }`}
       >
         <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-3 dark:border-strokedark">
           <li>
@@ -120,7 +118,6 @@ const DropdownUser = () => {
           Log Out
         </button>
       </div>
-      {/* <!-- Dropdown End --> */}
     </div>
   );
 };

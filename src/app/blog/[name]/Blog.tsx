@@ -29,7 +29,6 @@ const Blog = ({
   filterRelatedPosts?: BlogInfo[];
 }) => {
   const pathName = usePathname();
-  console.log(filterRelatedPosts, "filterRelatedPosts")
   return (
     <>
       {category ? (
@@ -89,16 +88,13 @@ const Blog = ({
               alt="Blog Image"
             />
           </div>
-          
+
           <div className="w-[90%] m-auto overflow-hidden text-start">
             <div className='blog-content mt-8'>{HTMLReactParser(blog?.content || '')}</div>
-            {/* <span className='blog-content'dangerouslySetInnerHTML={{ __html: blog?.content }}>
-              {HTMLReactParser(blog?.content || '')}
-              
-              </span> */}
-              <div className='mt-5'>
-          <Comments data={blog} />
-          </div>
+
+            <div className='mt-5'>
+              <Comments data={blog} />
+            </div>
           </div>
 
           <div className="mt-10">
