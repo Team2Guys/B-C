@@ -342,9 +342,7 @@ export const inputFields = [
 ];
 
 export const CategorinputFields = [{ name: 'name', type: 'text' }];
-export const withoutVariation = [
-  { name: 'totalStockQuantity', type: 'number' },
-];
+
 
 export const Variation = [
   { name: 'variant', type: 'text' },
