@@ -13,6 +13,7 @@ import Container from 'components/Res-usable/Container/Container';
 const SliderInfo = () => {
   const [showModel, setshowModel] = useState<string>('');
   return (
+    
     <Swiper
       loop={true}
       pagination={{

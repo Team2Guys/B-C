@@ -7,10 +7,11 @@ const SliderInfo = dynamic(() => import('./slider-info'), {
 
 const MainHero = () => {
   return (
-    <>
-      <h1 className="hidden">Blinds & Curtains Dubai</h1>
+    <div  className="min-h-[60svh] flex justify-center items">
+
       <SliderInfo />
-    </>
+    </div>
+  
   );
 };
 
