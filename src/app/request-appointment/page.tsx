@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'request-appointment',
+    canonical: 'https://blindsandcurtains.ae/request-appointment/',
   },
 }
 
