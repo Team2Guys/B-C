@@ -1,45 +1,19 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import Slider, { SliderSettings } from 'react-slick';
+import React, { useEffect, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import { FcGoogle } from 'react-icons/fc';
 import { RatingSlider } from 'data/data';
 import Image from 'next/image';
-import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
-import { Client } from '@googlemaps/google-maps-services-js';
 import { fetchReviewsHandler } from 'config/fetch';
 import { FaStar } from 'react-icons/fa';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
-function SampleNextArrow(props: any) {
-  const { onClick } = props;
-  return (
-    <div
-      className={
-        'block absolute -right-7 xs:-right-3 bottom-14  font-semibold text-white cursor-pointer'
-      }
-      onClick={onClick}
-    >
-      <GoArrowRight size={30} />
-    </div>
-  );
-}
-function SamplePrevArrow(props: any) {
-  const { onClick } = props;
-  return (
-    <div
-      className={
-        'block absolute -left-7 xs:-left-3 bottom-14 font-semibold text-white z-10 cursor-pointer'
-      }
-      onClick={onClick}
-    >
-      <GoArrowLeft size={30} />
-    </div>
-  );
-}
-
-const client = new Client({});
-console.log(client, 'client');
 interface Review {
   author_name: string;
   author_url: string;
@@ -53,21 +27,13 @@ interface Review {
   translated?: boolean;
 }
 
-export default function Review_banner() {
+export default function ReviewBanner() {
   const [reviews, setReviews] = useState<Review[]>([]);
-  const settings: SliderSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  };
-
+  const swiperRef = useRef<any>(null);
   useEffect(() => {
     fetchReviewsHandler(setReviews);
   }, []);
+
   const filteredTestimonials = reviews.filter(
     (testimonial: any) => testimonial.rating >= 4,
   );
@@ -109,27 +75,48 @@ export default function Review_banner() {
                   height={140}
                 />
                 {filteredTestimonials.length > 0 && (
-                  <Slider {...settings}>
-                    {filteredTestimonials?.map((slide, index: number) => (
-                          <div
-                            key={index}
-                            className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
-                          >
-                            <h3 className="text-xl font-semibold text-white" key={slide?.author_name}>
-                              {slide?.author_name}
+                  <div className='relative'>
+                    <button
+                      aria-label="Previous Slide"
+                      onClick={() => swiperRef.current?.slidePrev()}
+                      className="absolute -left-4 top-[55%] transform -translate-y-1/2 z-10 text-white"
+                    >
+                      <BsChevronLeft size={20} />
+                    </button>
+                    <button
+                      aria-label="Next Slide"
+                      onClick={() => swiperRef.current?.slideNext()}
+                      className="absolute -right-4 top-[55%] transform -translate-y-1/2 z-10 text-white"
+                    >
+                      <BsChevronRight size={20} />
+                    </button>
+                    <Swiper
+                      modules={[Navigation]}
+                      onSwiper={(swiper) => (swiperRef.current = swiper)}
+                      spaceBetween={30}
+                      slidesPerView={1}
+                      pagination={{ clickable: true }}
+                      className="mySwiper"
+                    >
+                      {filteredTestimonials.map((slide, index) => (
+                        <SwiperSlide key={index}>
+                          <div className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5">
+                            <h3 className="text-xl font-semibold text-white">
+                              {slide.author_name}
                             </h3>
-                            <p key={slide?.text} className="mt-2 text-white overflow-x-auto max-h-36 text-ellipsis slider-text">
-                              {slide?.text}
+                            <p className="mt-2 text-white overflow-x-auto max-h-36 text-ellipsis slider-text">
+                              {slide.text}
                             </p>
                           </div>
-                      )
-                    )}
-                  </Slider>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
                 )}
                 <div className="bg-white w-fit mx-auto px-6 py-2 mt-4 rounded-b-xl shadow-xl -mb-2 ">
                   <div className="flex items-center gap-1 xs:gap-2 text-[9px] xs:text-14 text-[#FCD503]">
                     {[...Array(5)].map((_, i) => (
-                      <FaStar key={i}  />
+                      <FaStar key={i} />
                     ))}
                   </div>
                 </div>
