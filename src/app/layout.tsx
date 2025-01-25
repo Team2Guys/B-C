@@ -40,6 +40,7 @@ export default function RootLayout({
           <>
             {/* Google Tag Manager */}
             <Script
+            strategy='afterInteractive'
               id="google-tag-manager"
               dangerouslySetInnerHTML={{
                 __html: `
@@ -53,8 +54,9 @@ export default function RootLayout({
 
             {/* Microsoft Clarity */}
             <Script
+            
               id="clarity-script"
-              strategy="afterInteractive"
+     strategy='afterInteractive'
               dangerouslySetInnerHTML={{
                 __html: `
               (function(c,l,a,r,i,t,y){
@@ -75,6 +77,7 @@ export default function RootLayout({
             {/* Meta Pixel */}
             <Script
               id="meta-pixel"
+              strategy='afterInteractive'
               dangerouslySetInnerHTML={{
                 __html: `
               !function(f,b,e,v,n,t,s)
@@ -94,7 +97,8 @@ export default function RootLayout({
             {/* Google Analytics */}
             <Script
               id="gtag-init"
-              strategy="afterInteractive"
+
+              strategy='afterInteractive'
               dangerouslySetInnerHTML={{
                 __html: `
               window.dataLayer = window.dataLayer || [];
