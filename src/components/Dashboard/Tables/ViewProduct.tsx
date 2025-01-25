@@ -131,28 +131,24 @@ const ViewProduct: React.FC<CategoryProps> = ({
   const getPath = (product: IProduct, parent: string | undefined) => {
     const slug = ChangedProductUrl_handler(product.title);
 
-    // Determine the base path based on the product and parent
     const basePath =
       product.href && parent ? `${window.origin}/${product.href}` : `/${slug}`;
 
-    // Predefined paths or custom logic
     const path =
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
-        : `/${
-            parent?.toLowerCase() === 'shutters'
-              ? `${parent.toLowerCase()}-range`
-              : parent?.toLowerCase() || ''
-          }${
-            [
-              'dimout-roller-blinds',
-              'sunscreen-roller-blinds',
-              'blackout-roller-blinds',
-            ].includes(slug)
-              ? '/roller-blinds'
-              : ''
-          }/${slug}`);
+        : `/${parent?.toLowerCase() === 'shutters'
+          ? `${parent.toLowerCase()}-range`
+          : parent?.toLowerCase() || ''
+        }${[
+          'dimout-roller-blinds',
+          'sunscreen-roller-blinds',
+          'blackout-roller-blinds',
+        ].includes(slug)
+          ? '/roller-blinds'
+          : ''
+        }/${slug}`);
 
     return path;
   };

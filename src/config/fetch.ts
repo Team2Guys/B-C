@@ -6,15 +6,6 @@ import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
 
 
-// const superAdmintoken = Cookies.get('superAdminToken');
-// const token = Cookies.get('2guysAdminToken');
-// let Finaltoken = superAdmintoken ? superAdmintoken : token;
-
-
-// const headers = {
-//   Authorization: `Bearer ${Finaltoken}`,
-// };
-// console.log(headers)
 
 export const fetchProducts = async () => {
   try {
@@ -215,17 +206,7 @@ export const filterProd = (
 
 
 export const fetchReviewsHandler = async (setReviews: any) => {
-  // try {
-  //   let url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.NEXT_PUBLIC_PLACE_ID}&key=${process.env.NEXT_PUBLIC_REVIEWS_API_KEY}`
-  //   let response = await fetch(url,)
-  //   let data = await response.json()
-  //   console.log(data.result.reviews, "slide")
-  //   setReviews(data.result.reviews)
-  // }
 
-  // catch (error) {
-  //   console.log(error, "error from reviews");
-  // }
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/fetchReviewsHandler`);
     console.log(response.data)

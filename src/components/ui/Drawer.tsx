@@ -1,4 +1,3 @@
-// components/ui/Drawer.tsx
 import React from 'react';
 import { Drawer as AntDrawer } from 'antd';
 
@@ -8,8 +7,8 @@ interface SheetProps {
   title?: string;
   open: boolean;
   setOpen: (open: boolean) => void;
-  selectedLabel?: string; 
-  setSelectedLabel?: (label: string | undefined) => void; 
+  selectedLabel?: string;
+  setSelectedLabel?: (label: string | undefined) => void;
   mobileBgColor?: string;
   className?: string;
 }
@@ -47,7 +46,7 @@ const Sheet: React.FC<SheetProps> = ({
           <div>{children}</div>
         ) : (
           <div>
-            {React.Children.map(children, (child:any) =>
+            {React.Children.map(children, (child: any) =>
               React.isValidElement(child) as any && child.props.label === selectedLabel
                 ? child
                 : null,
