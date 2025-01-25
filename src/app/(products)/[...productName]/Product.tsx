@@ -31,10 +31,7 @@ interface IProductProps {
 }
 
 const Product = ({
-  // productName,
-  // products,
   categories,
-  // subCategories,
   selectedPage,
   matchedProduct,
   filteredItems,

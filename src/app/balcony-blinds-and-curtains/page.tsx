@@ -1,6 +1,7 @@
 import NotFound from 'app/not-found';
-import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
 import { fetchCategories, fetchProducts, fetchSubCategories } from 'config/fetch';
+import dynamic from 'next/dynamic'
+const CommercialByRoom = dynamic(() => import('components/RoomProducts/commercial-by-room'), {})
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { ICategory } from 'types/types';

@@ -42,7 +42,6 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
 
   const getColorHex = (path: string) => {
     const colorMatch = colorData.find((color) => color.url === path);
-    // console.log(colorMatch, 'Shutter-Color');
     return colorMatch ? colorMatch : null;
   };
 

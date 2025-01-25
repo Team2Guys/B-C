@@ -39,8 +39,7 @@ const CommercialByRoom = ({
   const pathname = usePathname();
   console.log(category, 'category');
   const [isNotFound, setIsNotFound] = useState(false);
-  const [filteredProducts, setFilteredProducts] =
-    useState<IProduct[]>(relatedProducts);
+  const [filteredProducts, setFilteredProducts] =useState<IProduct[]>(relatedProducts);
 
   useEffect(() => {
     if (pathname) {

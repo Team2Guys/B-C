@@ -10,8 +10,8 @@ import Cookies from 'js-cookie';
 import { Button } from 'components/ui/button';
 import { createAdmin, formDataTypes } from 'types/interfaces';
 import Input from 'components/Common/regularInputs';
-import { intitalValues } from 'data/data';
-
+import { checkboxData, intitalValues } from 'data/data';
+import revalidateTag from 'components/ServerActons/ServerAction';
 
 const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmin) => {
   const [formData, setFormData] = useState<formDataTypes>(edit_admins ? edit_admins : intitalValues);
@@ -54,10 +54,9 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
         },
       },
       );
-
-
+      revalidateTag('admins')
       console.log(response, 'response');
-      Toaster('success', 'Admin has been sucessfully Created');
+      Toaster('success', `Admin has been sucessfully ${edit_admins ? "Edited" : "Created"}`);
       setFormData(intitalValues);
     } catch (err: any) {
       if (err.response && err.response.data && err.response.data.message) {
@@ -97,25 +96,6 @@ const CreateAdmin = ({ setselecteMenu, edit_admins, setedit_admins }: createAdmi
 
   };
 
-  const checkboxData = [
-    { name: 'canAddProduct', label: 'Can Add Product' },
-    { name: 'canEditProduct', label: 'Can Edit Product' },
-    { name: 'canDeleteProduct', label: 'Can Delete Product' },
-    { name: 'canAddCategory', label: 'Can Add Category' },
-    { name: 'canDeleteCategory', label: 'Can Delete Category' },
-    { name: 'canEditCategory', label: 'Can Edit Category' },
-    { name: 'canAddSubCategory', label: 'Can Add SubCategory' },
-    { name: 'canDeleteSubCategory', label: 'Can Delete SubCategory' },
-    { name: 'canEditSubCategory', label: 'Can Edit SubCategory' },
-    { name: 'canViewAppointments', label: 'Can View Appointments' },
-    { name: 'canVeiwAdmins', label: 'Can View Admins' },
-    { name: 'canVeiwTotalproducts', label: 'Can View Total Products' },
-    { name: 'canVeiwTotalCategories', label: 'Can View Total Categories' },
-    { name: 'canVeiwTotalSubCategories', label: 'Can View Total SubCategories' },
-    { name: 'canAddBlog', label: 'Can Add Blog' },
-    { name: 'canDeleteBlog', label: 'Can Delete Blog' },
-    { name: 'canEditBlog', label: 'Can Edit Blog' },
-  ];
 
   const handleClearAllPermissions = () => {
     setFormData({
