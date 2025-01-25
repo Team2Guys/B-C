@@ -1,20 +1,11 @@
 import axios from 'axios';
 import { IAppointments, ICategory, IProduct, IRECORDS } from 'types/types';
 import { Allproduct } from 'types/interfaces';
-import Cookies from 'js-cookie';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
+import { token } from 'components/ServerActons/ServerAction';
 
 
-// const superAdmintoken = Cookies.get('superAdminToken');
-// const token = Cookies.get('2guysAdminToken');
-// let Finaltoken = superAdmintoken ? superAdmintoken : token;
-
-
-// const headers = {
-//   Authorization: `Bearer ${Finaltoken}`,
-// };
-// console.log(headers)
 
 export const fetchProducts = async () => {
   try {
@@ -163,18 +154,16 @@ export const PostAppointments = async (p0: {
   return response.data;
 };
 
-export const getAllAdmins = async () => {
+export const getAllAdmins = async (token:any) => {
   try {
-    const token = Cookies.get('superAdminToken');
-    if (!token) {
-      return;
-    }
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/get_all_admin`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        next: { tags: ['admins'] },
+        
       },
     );
     const admins = await response.json();
@@ -234,5 +223,22 @@ export const fetchReviewsHandler = async (setReviews: any) => {
   } catch (error) {
     console.error('Error fetching admin records:', error);
     throw error;
+  }
+}
+
+export const admin_del_handler =async(id:any)=>{
+  try {
+   let finalToken = await token()
+    await axios.delete(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/delete/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${finalToken}`,
+        },
+      },
+    );
+    
+  } catch (error:any) {
+    throw new Error(error.message || 'Error occured')
   }
 }

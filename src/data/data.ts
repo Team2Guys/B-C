@@ -1880,3 +1880,25 @@ export const items = [
     text: 'Free home visits with free installation',
   },
 ];
+
+
+
+export   const checkboxData = [
+  { name: 'canAddProduct', label: 'Can Add Product' },
+  { name: 'canEditProduct', label: 'Can Edit Product' },
+  { name: 'canDeleteProduct', label: 'Can Delete Product' },
+  { name: 'canAddCategory', label: 'Can Add Category' },
+  { name: 'canDeleteCategory', label: 'Can Delete Category' },
+  { name: 'canEditCategory', label: 'Can Edit Category' },
+  { name: 'canAddSubCategory', label: 'Can Add SubCategory' },
+  { name: 'canDeleteSubCategory', label: 'Can Delete SubCategory' },
+  { name: 'canEditSubCategory', label: 'Can Edit SubCategory' },
+  { name: 'canViewAppointments', label: 'Can View Appointments' },
+  { name: 'canVeiwAdmins', label: 'Can View Admins' },
+  { name: 'canVeiwTotalproducts', label: 'Can View Total Products' },
+  { name: 'canVeiwTotalCategories', label: 'Can View Total Categories' },
+  { name: 'canVeiwTotalSubCategories', label: 'Can View Total SubCategories' },
+  { name: 'canAddBlog', label: 'Can Add Blog' },
+  { name: 'canDeleteBlog', label: 'Can Delete Blog' },
+  { name: 'canEditBlog', label: 'Can Edit Blog' },
+];
