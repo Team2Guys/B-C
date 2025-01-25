@@ -43,7 +43,6 @@ const TableTwo = ({
     setSearchTerm(e.target.value);
   };
 
-  // Filter products based on search term
   const filteredProducts: ICategory[] =
     category?.filter((product: any) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -157,9 +156,8 @@ const TableTwo = ({
       key: 'action',
       render: (text: any, record: ICategory) => (
         <RiDeleteBin6Line
-          className={`cursor-pointer ${canDeleteCategory && 'text-red'} ${
-            !canDeleteCategory && 'cursor-not-allowed text-slate-300'
-          }`}
+          className={`cursor-pointer ${canDeleteCategory && 'text-red'} ${!canDeleteCategory && 'cursor-not-allowed text-slate-300'
+            }`}
           size={20}
           onClick={() => {
             if (canDeleteCategory) {
@@ -184,12 +182,10 @@ const TableTwo = ({
           />
           <div>
             <p
-              className={`${canAddCategory && 'cursor-pointer'} lg:p-2 md:p-2 ${
-                canAddCategory &&
+              className={`${canAddCategory && 'cursor-pointer'} lg:p-2 md:p-2 ${canAddCategory &&
                 ' bg-secondary text-white rounded-md hover:text-white '
-              } flex justify-center ${
-                !canAddCategory && 'cursor-not-allowed '
-              }`}
+                } flex justify-center ${!canAddCategory && 'cursor-not-allowed '
+                }`}
               onClick={() => {
                 seteditCategory && seteditCategory(null);
                 if (canAddCategory) {

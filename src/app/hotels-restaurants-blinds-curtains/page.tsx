@@ -60,13 +60,11 @@ const CommercialPage = async () => {
     return notFound();
   }
   return (
-    <>
-      <ProductDetailPage
-        title={`${filteredProduct?.title}`}
-        allprod={products}
-        categories={categories}
-      />
-    </>
+    <ProductDetailPage
+      title={`${filteredProduct?.title}`}
+      allprod={products}
+      categories={categories}
+    />
   );
 };
 

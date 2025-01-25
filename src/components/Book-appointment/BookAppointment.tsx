@@ -317,7 +317,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             >
               Phone Number *
             </label>
-            
+
             <PhoneInput
               className="h-9 p-2 border border-gray-300 w-full rounded text-xsm outline-none"
               international
@@ -362,7 +362,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             <PhoneInput
               className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-xsm outline-none"
               international
-              
+
               defaultCountry="AE"
               limitMaxLength
               countryCallingCodeEditable={false}
@@ -385,7 +385,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               value={formData.windows}
               onChange={handleChange}
             />
-          
+
             {errors.windows && (
               <p className="text-red-500 text-xs">{errors.windows}</p>
             )}
@@ -399,7 +399,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             </label>
 
             <DatePicker
-            id='preferredDate'
+              id='preferredDate'
               selected={formData.prefered_Date}
               onChange={handleDateChange}
               className="h-[38px] mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
@@ -449,7 +449,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               value={
                 referralOptions.find(
                   (option) => option.value === formData.how_user_find_us,
-                ) || null // Ensures no value is selected when reset
+                ) || null
               }
               className="mt-1 w-full text-10 2xl:text-11"
             />
@@ -468,7 +468,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               className={`mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.name ? 'border-red-500' : ''}`}
               value={formData.area}
               onChange={handleChange}
-            // required
             />
 
             {errors.area && (

@@ -12,7 +12,7 @@ interface Productsprops {
   products: IProduct[];
   categories: ICategory[]
 }
-const FeatureProduct: React.FC<Productsprops> = ({ products,categories}) => {
+const FeatureProduct: React.FC<Productsprops> = ({ products, categories }) => {
 
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(8);
@@ -30,13 +30,13 @@ const FeatureProduct: React.FC<Productsprops> = ({ products,categories}) => {
     }
     return product.CategoryId === activeCategory?.id;
   });
-  
+
   const sortingOrder =
     activeCategory?.title === 'Blinds' || activeCategory?.title === 'Curtains'
       ? customSortingOrder
       : activeCategory === null
-      ? allProductsOrder
-      : [];
+        ? allProductsOrder
+        : [];
   const sortedProducts = (() => {
     if (sortingOrder.length > 0) {
       const sorted = filteredProducts?.filter((product) =>
@@ -92,7 +92,7 @@ const FeatureProduct: React.FC<Productsprops> = ({ products,categories}) => {
     }
   }, []);
 
-  if (products.length < 1 || categories.length < 1){
+  if (products?.length < 1 || categories?.length < 1) {
     return <Featureskeleton />;
   }
 
