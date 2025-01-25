@@ -22,8 +22,9 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({ selectProduct, setActivePr
               <Image
                 className={`w-32 h-32 rounded-2xl md:w-16 md:h-16 xl:h-20 xl:w-20 sm:rounded-xl mx-auto border-4 ${activeProduct?.id === product.id ? 'border-secondary' : 'border-white'
                   }`}
-                width={300}
-                height={300}
+                width={200}
+                height={200}
+                loading='lazy'
                 src={product.posterImage?.imageUrl}
                 alt={product.title || 'Product Image'}
               />
