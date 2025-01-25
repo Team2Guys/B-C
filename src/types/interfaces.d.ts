@@ -165,12 +165,11 @@ export interface Allproduct {
   imageUrls: Image[];
   CategoryId: number;
   SubCategoryId: number | null;
-  createdAt: string; // Consider using Date if you want to handle this as a Date object
+  createdAt: string; 
   updatedAt: string | null;
   name?: any;
 }
 
-// card data types
 export interface CardTypes {
   image: string;
   heading: string;
@@ -178,7 +177,6 @@ export interface CardTypes {
   buttonText: string;
 }
 
-// Blinds and Curtains section Types
 export interface BlindsAndCurtainsTypes {
   image: string;
   heading: string;
