@@ -3,13 +3,16 @@ import Commercial from "./Commerical";
 import { fetchCategories, fetchProducts, fetchSubCategories } from "config/fetch";
 import { headers } from "next/headers";
 import { Metadata } from "next";
+import { commercialPagesItems, generateSlug } from "data/data";
+import Script from "next/script";
+import { commererical } from "data/schema";
 
 
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers();
   const categories = await fetchCategories();
-  const filteredCatgory = categories.find((c:ICategory) => c.id === 12);
- 
+  const filteredCatgory = categories.find((c: ICategory) => c.id === 12);
+
   const domain =
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
@@ -20,10 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
   let CommercialCategory = filteredCatgory as ICategory;
 
   let ImageUrl =
-  CommercialCategory?.posterImage.imageUrl ||
+    CommercialCategory?.posterImage.imageUrl ||
     'blindsandcurtains';
   let alt =
-  CommercialCategory?.posterImage.altText ||
+    CommercialCategory?.posterImage.altText ||
     'blindsandcurtains';
 
   let NewImage = [
@@ -33,10 +36,10 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   ];
   let title =
-  CommercialCategory?.Meta_Title ||
+    CommercialCategory?.Meta_Title ||
     'blindsandcurtains';
   let description =
-  CommercialCategory?.Meta_description ||
+    CommercialCategory?.Meta_description ||
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}commerical`;
   return {
@@ -50,21 +53,38 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical:
-      CommercialCategory?.Canonical_Tag || url,
+        CommercialCategory?.Canonical_Tag || url,
     },
   };
 }
 
 
 const CommercialPage = async () => {
-  const [products , subCategories ,categories ] = await Promise.all([
+  const [products, subCategories, categories] = await Promise.all([
     fetchProducts(),
     fetchSubCategories(),
     fetchCategories(),
   ]);
+  const filteredCatgory = categories.find((c: any) => c.id === 12);
+  const matchingSubCategoryTitles = subCategories.filter((subCategory: any) => commercialPagesItems.some((prod: string) => prod === generateSlug(subCategory.title)));
+
+  const filtered = products.filter((product: any) => commercialPagesItems.some((prod: string) => prod === generateSlug(product.title)));
+  let mixed_prod_cats = [...filtered, ...matchingSubCategoryTitles];
+
+
 
   return (
-    <Commercial products={products} subCategories={subCategories} categories={categories} />
+    <>
+    <Script type="application/ld+json" id="commercial-json-ld" >
+{JSON.stringify(commererical)} 
+    </Script>
+    <Commercial
+      filteredCatgory={filteredCatgory}
+      filteredProducts={filtered}
+      categories={categories}
+      mixProdCategeries={mixed_prod_cats}
+    />
+    </>
   );
 };
 

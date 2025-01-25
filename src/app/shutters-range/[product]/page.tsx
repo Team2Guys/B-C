@@ -10,7 +10,7 @@ import { IProduct } from 'types/types';
 import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
-import { permanentRedirect} from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 import { CommercialUrl, urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { colorData } from 'data/data';
@@ -18,7 +18,7 @@ import { colorData } from 'data/data';
 export async function generateMetadata({
   params,
 }: meta_props): Promise<Metadata> {
-  const  product  = (await params).product;
+  const product = (await params).product;
   const Cateories = [9];
 
   const [products, categories] = await Promise.all([
@@ -64,7 +64,6 @@ export async function generateMetadata({
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}shutters-range/${product}`;
 
-  console.log(Product, '');
   return {
     title: title,
     description: description,
@@ -82,7 +81,7 @@ export async function generateMetadata({
 }
 
 const CommercialPage = async ({ params }: meta_props) => {
-  const  product  = (await params).product;
+  const product = (await params).product;
   const redirected_product = CommercialUrl.find(
     (prod: { urlName: string; Redirect: string }) => {
       return prod.urlName == String(product)?.toLowerCase();
@@ -94,7 +93,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   }
   const Cateories = [9];
 
-  const [products, Subcategories , categories] = await Promise.all([
+  const [products, Subcategories, categories] = await Promise.all([
     fetchProducts(),
     fetchSubCategories(),
     fetchCategories(),

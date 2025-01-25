@@ -33,19 +33,17 @@ const GalleryCard: React.FC<GalleryProps> = ({
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
-        : `/${
-            parent?.toLowerCase() === 'shutters'
-              ? `${parent.toLowerCase()}-range`
-              : parent?.toLowerCase()
-          }${
-            [
-              'dimout-roller-blinds',
-              'sunscreen-roller-blinds',
-              'blackout-roller-blinds',
-            ].includes(slug)
-              ? '/roller-blinds'
-              : ''
-          }/${slug}`);
+        : `/${parent?.toLowerCase() === 'shutters'
+          ? `${parent.toLowerCase()}-range`
+          : parent?.toLowerCase()
+        }${[
+          'dimout-roller-blinds',
+          'sunscreen-roller-blinds',
+          'blackout-roller-blinds',
+        ].includes(slug)
+          ? '/roller-blinds'
+          : ''
+        }/${slug}`);
     return path;
   };
 
@@ -53,6 +51,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
     return (
       <div className="relative rounded-lg transition-shadow duration-300 group">
         <Image
+        loading='lazy'
           src={
             product_Images
               ? product_Images.Imagesurl
@@ -62,6 +61,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
           height={800}
           width={800}
           className="rounded-xl h-56 xs:h-80 w-[100%] sm:object-cover"
+
         />
       </div>
     );
@@ -71,52 +71,50 @@ const GalleryCard: React.FC<GalleryProps> = ({
       {isLoading ? (
         <RelatedProductSkeleton />
       ) : (
-    <div className="relative rounded-lg transition-shadow duration-300 group">
-      <Image
-        src={
-          product_Images
-            ? product_Images.Imagesurl
-            : card?.posterImage?.imageUrl || '/default-image.jpg'
-        }
-        alt={card?.title || 'Image'}
-        height={800}
-        width={800}
-        className="rounded-xl h-56 md:h-64 2xl:h-80 w-[100%] object-cover object-top"
-      />
-      <div
-        className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${
-          detailHide ? 'block' : ''
-        } ${
-          relativeProducts ? 'justify-between' : 'justify-center'
-        } justify-center rounded-se-sm bg-secondary md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
-      >
-        {card && (
-          <>
-            <Link href={getPath(card)}>
-              <span
-                className={`text-black text-start  cursor-pointer ${
-                  relativeProducts
-                    ? 'text-16'
-                    : 'text-16'
-                }`}
-              >
-                {card.title}
-              </span>
-            </Link>
-            <Link
-              href={getPath(card)}
-              className={`border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-14 text-nowrap ${
-                relativeProducts ? 'block' : 'block'
-              }`}
-            >
-              View More
-            </Link>
-          </>
-        )}
-      </div>
-    </div> 
-  )}
-  </>
+        <div className="relative rounded-lg transition-shadow duration-300 group">
+          <Image
+            src={
+              product_Images
+                ? product_Images.Imagesurl
+                : card?.posterImage?.imageUrl || '/default-image.jpg'
+            }
+            alt={card?.title || 'Image'}
+            height={800}
+            width={800}
+        loading='lazy'
+
+            className="rounded-xl h-56 md:h-64 2xl:h-80 w-[100%] object-cover object-top"
+          />
+          <div
+            className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide ? 'block' : ''
+              } ${relativeProducts ? 'justify-between' : 'justify-center'
+              } justify-center rounded-se-sm bg-secondary md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
+          >
+            {card && (
+              <>
+                <Link href={getPath(card)}>
+                  <span
+                    className={`text-black text-start  cursor-pointer ${relativeProducts
+                        ? 'text-16'
+                        : 'text-16'
+                      }`}
+                  >
+                    {card.title}
+                  </span>
+                </Link>
+                <Link
+                  href={getPath(card)}
+                  className={`border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-14 text-nowrap ${relativeProducts ? 'block' : 'block'
+                    }`}
+                >
+                  View More
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
