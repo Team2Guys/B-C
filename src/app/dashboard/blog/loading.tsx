@@ -5,7 +5,7 @@ import React from 'react'
 
 function loading() {
   return (
-    <div><TableSkeleton rows={10} columns={1} /></div>
+    <TableSkeleton rows={10} columns={1} />
   )
 }
 

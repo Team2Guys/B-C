@@ -16,9 +16,7 @@ const AppointmentPage = async () => {
     (a: any, b: any) => new Date(b.prefered_Date).getTime() - new Date(a.prefered_Date).getTime()
   );
   return (
-    <div>
-      <AppointmentsClient appointments={sortedFilteredAppointments} />
-    </div>
+    <AppointmentsClient appointments={sortedFilteredAppointments} />
   );
 };
 
