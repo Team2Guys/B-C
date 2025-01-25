@@ -25,7 +25,7 @@ const MainHero = () => {
           className="mySwiper hero-pagination">
         {heroSlider.map((item: any, index: number) => (
           <SwiperSlide key={index}>
-            <Container className="flex flex-wrap items-center md:flex-nowrap gap-5 w-full py-5 md:py-8 2xl:py-20">
+            <Container className="flex flex-wrap items-center md:flex-nowrap gap-5 w-full max-md:pt-7 md:py-8 2xl:py-20">
               <div className='w-full md:w-6/12 xl:w-5/12'>
                 <div className="w-full flex items-center justify-center md:justify-start ">
                   <div className="hidden sm:block w-8 border-b-2 border-black" />
