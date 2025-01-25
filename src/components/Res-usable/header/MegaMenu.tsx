@@ -59,6 +59,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
     setIsOpen(true);
   };
   const handleMouseLeave = (event: React.MouseEvent) => {
+      //@ts-ignore
     const mouseEvent = event as any;
 
     if (
@@ -74,6 +75,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
       setTimeoutId(newTimeoutId);
     }
+    //
   };
 
   useEffect(() => {
@@ -203,10 +205,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
 
   useEffect(() => {
     const parts = path.split('/')
-    const name = parts[parts.length - 1];
-    const alterUrl = urls.find((url) => url.Url === name);
+    const name = parts[parts.length - 2];
+    const alterUrl = urls.find((url) => `${url.Url}` === name);
     const urlName = alterUrl ? generateSlug(alterUrl.productName) : generateSlug(name);
-
     const styles = megaMenubyStyle.find((item) => generateSlug(item.productName) === urlName);
     const dynamics = megaMenuDynamic.find((item) => generateSlug(item.productName) === urlName);
     const rooms = megaMenubyRoom.find((item) => generateSlug(item.productName) === urlName);
