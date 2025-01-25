@@ -90,7 +90,6 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                 prevEl: prevRef.current,
                 nextEl: nextRef.current,
               }}
-              // autoplay={{ delay: 6000 }}
               speed={1000}
               onBeforeInit={(swiper) => {
                 if (typeof swiper.params.navigation !== 'boolean') {
@@ -101,11 +100,11 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                 }
               }}
               breakpoints={{
-                300: { slidesPerView: 1,  },
-                352: { slidesPerView: 1.5,  },
+                300: { slidesPerView: 1, },
+                352: { slidesPerView: 1.5, },
                 768: { slidesPerView: 3, },
                 880: { slidesPerView: 2.8, },
-                1024: { slidesPerView: 3,},
+                1024: { slidesPerView: 3, },
               }}
             >
               {filteredBlogs.map((blog, index) => (
@@ -132,22 +131,22 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                             `/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`,
                           );
                         }}
-                      > 
+                      >
                         {blog.title?.slice(0, 70) + '..'}
                       </h3>
                     </div>
-                      <p className="text-10 md:text-14 xl:text-16 md:hidden">
-                        {blog.Meta_description?.slice(0, 60) + '..'}
-                      </p>
-                      <p className="text-10 md:text-14 xl:text-16 hidden md:block lg:hidden">
-                        {blog.Meta_description?.slice(0, 45) + '..'}
-                      </p>
-                      <p className="text-10 md:text-14 xl:text-16 hidden lg:block 2xl:hidden">
-                        {blog.Meta_description?.slice(0, 55) + '..'}
-                      </p>
-                      <p className="text-10 md:text-14 xl:text-16 hidden 2xl:block">
-                        {blog.Meta_description?.slice(0, 90) + '..'}
-                      </p>
+                    <p className="text-10 md:text-14 xl:text-16 md:hidden">
+                      {blog.Meta_description?.slice(0, 60) + '..'}
+                    </p>
+                    <p className="text-10 md:text-14 xl:text-16 hidden md:block lg:hidden">
+                      {blog.Meta_description?.slice(0, 45) + '..'}
+                    </p>
+                    <p className="text-10 md:text-14 xl:text-16 hidden lg:block 2xl:hidden">
+                      {blog.Meta_description?.slice(0, 55) + '..'}
+                    </p>
+                    <p className="text-10 md:text-14 xl:text-16 hidden 2xl:block">
+                      {blog.Meta_description?.slice(0, 90) + '..'}
+                    </p>
                     <div className="">
                       <Link
                         href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`}

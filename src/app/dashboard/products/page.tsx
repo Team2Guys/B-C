@@ -1,6 +1,5 @@
 
 import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
-// import Product from './Product';
 import { fetchProducts } from 'config/fetch';
 import dynamic from 'next/dynamic'
 const Product = dynamic(() => import('./Product'), {
@@ -9,7 +8,7 @@ const Product = dynamic(() => import('./Product'), {
 
 
 const Produc_page = async () => {
-let products = await fetchProducts()
+  let products = await fetchProducts()
   return (
     <DefaultLayout>
       <Product products={products} />

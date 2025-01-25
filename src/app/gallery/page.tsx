@@ -30,9 +30,7 @@ const GalleryPage = async () => {
   ]);
 
   return (
-    <>
-      <Gallery products={products} categories={categories} />
-    </>
+    <Gallery products={products} categories={categories} />
   );
 };
 

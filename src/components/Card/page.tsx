@@ -4,7 +4,7 @@ import Container from 'components/Res-usable/Container/Container';
 import { ICategory } from 'types/types';
 import { links } from 'data/header_links';
 
-const HomeCard = ({categories}: {categories: ICategory[]}) => {
+const HomeCard = ({ categories }: { categories: ICategory[] }) => {
 
   const customOrder = ['Blinds', 'Curtains', 'Shutters'];
   const sortedCategories = categories?.sort((a: ICategory, b: ICategory) => {
@@ -13,7 +13,7 @@ const HomeCard = ({categories}: {categories: ICategory[]}) => {
     return indexA - indexB;
   });
 
-  if (categories.length < 0)
+  if (categories?.length < 0)
     return (
       <div>
         <Container className="py-12">

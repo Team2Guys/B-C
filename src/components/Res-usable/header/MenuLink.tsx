@@ -2,14 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-// Define the interface for menu data
 interface MenuItem {
   icon: string;
   title: string;
   link: string;
 }
 
-// Define the interface for props
 interface MenuLinkProps {
   menudata: MenuItem[];
 }
