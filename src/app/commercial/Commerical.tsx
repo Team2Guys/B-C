@@ -9,7 +9,8 @@ import Link from 'next/link';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { ICategory, IProduct } from 'types/types';
 import ProductCard from 'components/ui/Product-Card';
-import {generateSlug,
+import {
+  generateSlug,
   staticDescriptions,
 } from 'data/data';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
@@ -26,8 +27,8 @@ const Commercial = ({
 }: {
   filteredProducts: IProduct[];
   categories: ICategory[];
-  filteredCatgory:ICategory
-  mixProdCategeries:any[]
+  filteredCatgory: ICategory
+  mixProdCategeries: any[]
 }) => {
   const pathname = usePathname();
 
@@ -40,16 +41,16 @@ const Commercial = ({
 
   return (
     <>
-    <TopHero
-      title={filteredCatgory?.title}
-      pageTitle ="Commercial Office Blinds"
-      image={`${filteredCatgory?.bannerImage?.imageUrl || bgBreadcrum.src}`}
-      pagename={pathname}
+      <TopHero
+        title={filteredCatgory?.title}
+        pageTitle="Commercial Office Blinds"
+        image={`${filteredCatgory?.bannerImage?.imageUrl || bgBreadcrum.src}`}
+        pagename={pathname}
       />
       <Container className=" pt-10 md:pt-20 pb-14 flex justify-between gap-10 items-center flex-col md:flex-row px-4">
         <div className="w-full md:w-1/2">
           <h2 className="font-bold text-xl xs:text-2xl tracking-wider">
-          Maximise Your Productivity With Commercial Office Blinds
+            Maximise Your Productivity With Commercial Office Blinds
           </h2>
           <p className="text-14 xs:text-18 md:leading-8 mt-4 text-lightdark">
             We offer custom-made options for commercial office blinds. These
@@ -151,56 +152,54 @@ const Commercial = ({
         <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal uppercase text-center py-10">
           COMMERCIAL OFFICE BLINDS installations
         </h2>
- 
-          {
-            <ImageAntd.PreviewGroup
-              preview={{
-                onChange: (current, prev) => {
-                  console.log(`current index: ${current}, prev index: ${prev}`);
-                },
-              }}
-            >
-              {
-              // false ? (
-              //   <CardSkeleton isSizeSmall />
-              // ) : 
-              
+
+        {
+          <ImageAntd.PreviewGroup
+            preview={{
+              onChange: (current, prev) => {
+                console.log(`current index: ${current}, prev index: ${prev}`);
+              },
+            }}
+          >
+            {
+
+
               (
                 <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
-                {filteredProducts?.map((product) => {
-                  if (!product.category) return null;
-                  const { posterImage } = product;
-                  const altText = posterImage?.altText || 'Image';
+                  {filteredProducts?.map((product) => {
+                    if (!product.category) return null;
+                    const { posterImage } = product;
+                    const altText = posterImage?.altText || 'Image';
 
-                  return (
-                    <div
-                      key={product.id}
-                      className="max-sm:flex-shrink-0 relative rounded-lg transition-shadow duration-300 group max-sm:gap-4 w-8/12 xs:w-5/12 sm:w-3/12 mt-2"
-                    >
-                      <ImageAntd
-                        src={posterImage?.imageUrl || '/default-image.jpg'}
-                        alt={altText}
-                        className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px] w-full"
-                        width={500}
-                        height={500}
-                        preview={{
-                          mask: (
-                            <div>
-                              <IoSearch
-                                style={{ color: 'white', fontSize: '30px' }}
-                              />
-                            </div>
-                          ),
-                        }}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
+                    return (
+                      <div
+                        key={product.id}
+                        className="max-sm:flex-shrink-0 relative rounded-lg transition-shadow duration-300 group max-sm:gap-4 w-8/12 xs:w-5/12 sm:w-3/12 mt-2"
+                      >
+                        <ImageAntd
+                          src={posterImage?.imageUrl || '/default-image.jpg'}
+                          alt={altText}
+                          className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px] w-full"
+                          width={500}
+                          height={500}
+                          preview={{
+                            mask: (
+                              <div>
+                                <IoSearch
+                                  style={{ color: 'white', fontSize: '30px' }}
+                                />
+                              </div>
+                            ),
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
 
               )}
-            </ImageAntd.PreviewGroup>
-          }
+          </ImageAntd.PreviewGroup>
+        }
         <RelatedProducts products={filteredProducts || []} categoriesList={categories} limit={4} />
 
       </Container>

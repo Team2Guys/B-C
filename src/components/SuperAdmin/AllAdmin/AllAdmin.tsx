@@ -20,12 +20,12 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
   let Finaltoken = superAdmintoken ? superAdmintoken : token;
   const [isClient, setIsClient] = useState(false);
 
-  console.log(admins,"admins")
+  console.log(admins, "admins")
   const { data, isLoading } = useQuery({
     queryKey: ['admins'],
     queryFn: getAllAdmins,
   });
-  
+
   const adminsData = Array.isArray(data) ? data : [];
 
   const handleDelete = async (id: string) => {
@@ -127,7 +127,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canEditCategory',
       key: 'canEditCategory',
       width: 130,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canEditCategory ? 'Yes' : 'No'}</span>
       ),
@@ -137,7 +137,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canAddSubCategory',
       key: 'canAddSubCategory',
       width: 150,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canAddSubCategory ? 'Yes' : 'No'}</span>
       ),
@@ -147,7 +147,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canDeleteSubCategory',
       key: 'canDeleteSubCategory',
       width: 150,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canDeleteSubCategory ? 'Yes' : 'No'}</span>
       ),
@@ -157,7 +157,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canEditSubCategory',
       key: 'canEditSubCategory',
       width: 150,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canEditSubCategory ? 'Yes' : 'No'}</span>
       ),
@@ -167,7 +167,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canViewAppointments',
       key: 'canViewAppointments',
       width: 160,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canViewAppointments ? 'Yes' : 'No'}</span>
       ),
@@ -177,7 +177,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canVeiwAdmins',
       key: 'canVeiwAdmins',
       width: 130,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canVeiwAdmins ? 'Yes' : 'No'}</span>
       ),
@@ -187,7 +187,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canVeiwTotalproducts',
       key: 'canVeiwTotalproducts',
       width: 130,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canVeiwTotalproducts ? 'Yes' : 'No'}</span>
       ),
@@ -197,7 +197,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canVeiwTotalCategorie',
       key: 'canVeiwTotalCategorie',
       width: 130,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canVeiwTotalCategorie ? 'Yes' : 'No'}</span>
       ),
@@ -207,7 +207,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canVeiwTotalSubCategories',
       key: 'canVeiwTotalSubCategories',
       width: 180,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canVeiwTotalSubCategories ? 'Yes' : 'No'}</span>
       ),
@@ -217,7 +217,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canAddBlog',
       key: 'canAddBlog',
       width: 130,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canAddBlog ? 'Yes' : 'No'}</span>
       ),
@@ -227,7 +227,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canDeleteBlog',
       key: 'canDeleteBlog',
       width: 130,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canDeleteBlog ? 'Yes' : 'No'}</span>
       ),
@@ -237,7 +237,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       dataIndex: 'canEditBlog',
       key: 'canEditBlog',
       width: 130,
-      
+
       render: (text: any, record: any) => (
         <span>{record.canEditBlog ? 'Yes' : 'No'}</span>
       ),
@@ -247,7 +247,7 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
       title: 'Actions',
       key: 'actions',
       width: 130,
-      
+
       render: (text: any, record: any) =>
       (
 
@@ -262,20 +262,20 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
                 e.stopPropagation();
                 const { password, ...withoutPassowrd } = record
                 setedit_admins(withoutPassowrd); setselecteMenu(" ")
-                console.log(password,"password")
+                console.log(password, "password")
               }}
             />
 
-{isClient ? (
-          delLoading === record._id ? <div><Loader color="#fff" /></div> : (
-            <RiDeleteBin6Line
-              className="cursor-pointer text-red-500"
-              size={20}
-              onClick={() => handleDelete(record._id)}
-            />
-          )
-        ) : null
-        }
+            {isClient ? (
+              delLoading === record._id ? <div><Loader color="#fff" /></div> : (
+                <RiDeleteBin6Line
+                  className="cursor-pointer text-red-500"
+                  size={20}
+                  onClick={() => handleDelete(record._id)}
+                />
+              )
+            ) : null
+            }
 
           </div>
         </>
@@ -293,36 +293,36 @@ function Admins({ setselecteMenu, setedit_admins }: ADMINS_PROPS) {
 
       {
 
-      (
-        <>
-          <div className="flex justify-between mb-4 items-center text-black dark:text-white ">
-            <p></p>
-            <div>
-              <button
-                onClick={() => setselecteMenu('Add Admin')}
-                className=" bg-secondary text-white rounded-md   lg:p-2 md:p-2"
-              >
-                Add new Admin
-              </button>
+        (
+          <>
+            <div className="flex justify-between mb-4 items-center text-black dark:text-white ">
+              <p></p>
+              <div>
+                <button
+                  onClick={() => setselecteMenu('Add Admin')}
+                  className=" bg-secondary text-white rounded-md   lg:p-2 md:p-2"
+                >
+                  Add new Admin
+                </button>
+              </div>
             </div>
-          </div>
-          { !isLoading ? (
-            <Table
-              className="dark:border-strokedark dark:bg-dashboardDark"
-              scroll={{ y: 110 * 5 }}
-              dataSource={adminsData}
-              columns={columns}
-              pagination={false}
-              rowKey="id"
-            />
-          ) : (
+            {!isLoading ? (
+              <Table
+                className="dark:border-strokedark dark:bg-dashboardDark"
+                scroll={{ y: 110 * 5 }}
+                dataSource={adminsData}
+                columns={columns}
+                pagination={false}
+                rowKey="id"
+              />
+            ) : (
 
-            <TableSkeleton rows={0} columns={9} />
-          )
+              <TableSkeleton rows={0} columns={9} />
+            )
 
-          }
-        </>
-      )}
+            }
+          </>
+        )}
 
     </div>
   );

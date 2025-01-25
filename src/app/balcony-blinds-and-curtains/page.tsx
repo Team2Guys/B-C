@@ -33,7 +33,6 @@ export async function generateMetadata(): Promise<Metadata> {
   let title =
     filteredCatgory?.Meta_Title ||
     'blindsandcurtains';
-  console.log(title, 'title')
   let description =
     filteredCatgory?.Meta_description ||
     'Welcome to blindsandcurtains';
@@ -64,7 +63,7 @@ const CommercialPage = async () => {
   ]);
 
 
-  const filteredSubCategory = subCategories?.find((sub:ICategory) => sub.title === product  );
+  const filteredSubCategory = subCategories?.find((sub: ICategory) => sub.title === product);
 
   if (!filteredSubCategory) {
     return <NotFound />;

@@ -11,7 +11,7 @@ import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
 import { CommercialUrl, urls } from 'data/urls';
-import { permanentRedirect} from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 import NotFound from 'app/not-found';
 
 const Cateories = [5];
@@ -64,7 +64,6 @@ export async function generateMetadata({
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}/blinds/${product}`;
 
-  console.log(Product, '');
   return {
     title: title,
     description: description,
@@ -83,7 +82,7 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: meta_props) => {
   const product = (await params).product;
-  const [products, cateories, subCategories] = await Promise.all([fetchProducts(), fetchCategories(),fetchSubCategories()]);
+  const [products, cateories, subCategories] = await Promise.all([fetchProducts(), fetchCategories(), fetchSubCategories()]);
 
 
   const filteredProduct = filterProd(products, product, Cateories);

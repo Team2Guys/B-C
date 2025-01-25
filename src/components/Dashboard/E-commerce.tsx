@@ -49,7 +49,7 @@ const ECommerce: React.FC = () => {
     );
   if (error instanceof Error) return <div>Error: {error.message}</div>;
 
-  const canVeiwAdmins =loggedInUser && (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : true);
+  const canVeiwAdmins = loggedInUser && (loggedInUser.role == 'Admin' ? loggedInUser.canVeiwAdmins : true);
   const canCheckProfit =
     loggedInUser &&
     (loggedInUser.role == 'Admin' ? loggedInUser.canCheckProfit : true);
