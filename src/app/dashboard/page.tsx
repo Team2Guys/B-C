@@ -10,11 +10,9 @@ import DefaultLayout from 'components/Dashboard/Layouts/DefaultLayout';
 
 function Home() {
   return (
-    <>
-      <DefaultLayout>
-        <ECommerce />
-      </DefaultLayout>
-    </>
+    <DefaultLayout>
+      <ECommerce />
+    </DefaultLayout>
   );
 }
 

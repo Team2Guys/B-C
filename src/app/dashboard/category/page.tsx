@@ -8,9 +8,7 @@ const Category = dynamic(() => import('./Category'), {
 const AddCategory = async () => {
   const cetagories = await fetchCategories();
   return (
-    <>
-      <Category cetagories={cetagories} />
-    </>
+    <Category cetagories={cetagories} />
   );
 };
 
