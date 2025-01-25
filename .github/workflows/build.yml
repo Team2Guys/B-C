@@ -3,7 +3,7 @@ name: Build on PR
 on:
   push:
     branches:
-      - main
+      - live_main
   pull_request:
     branches:
       - dev
@@ -45,7 +45,7 @@ jobs:
           [ -s "\$NVM_DIR/bash_completion" ] && \. "\$NVM_DIR/bash_completion" # This loads nvm bash_completion
           nvm use 20
           cd /var/www/bnc/client
-          git pull origin main --no-rebase
+          git pull origin live_main --no-rebase
           
           npm install --legacy-peer-deps
           npm run build
