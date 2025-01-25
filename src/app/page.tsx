@@ -1,6 +1,5 @@
 
 import React from 'react'
-import Hero from 'components/Hero/Hero';
 import HomeCard from '../components/Card/page';
 import BlindsAndCurtainssection from '../components/Blind&Curtains/blinds&curtains';
 import Appointment from 'components/Appointment/Appointment';
@@ -14,6 +13,7 @@ import type { Metadata } from 'next'
 import { fetchCategories, fetchProducts } from 'config/fetch';
 import Script from 'next/script';
 import { schema } from 'data/schema';
+import MainHero from 'components/Hero/main-hero';
 
 export const metadata: Metadata = {
   title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
@@ -46,7 +46,7 @@ export default async function Home() {
         
       </Script>
 )}
-      <Hero />
+      <MainHero/>
       <Appointment />
       <Review_banner />
       <HomeCard categories={categories} />

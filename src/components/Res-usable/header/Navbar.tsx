@@ -61,7 +61,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
       <div className="w-full bg-secondary">
         <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center min-h-12 pb-0">
           <div></div>
-          <p className="text-white py-2 text-10 sm:text-12 2xl:text-15 font-medium tracking-[4px] leading-relaxed 2xl:leading-loose text-center md:text-start">
+          <p className="text-white py-2 text-10 sm:text-12 2xl:text-15 font-medium tracking-[2px] leading-relaxed 2xl:leading-loose text-center md:text-start max-sm:font-semibold">
             We can visit you, take measurements, help select fabrics & install
             in 2-3 days.
           </p>
