@@ -5,7 +5,7 @@ import { Allproduct } from 'types/interfaces';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 import { ICategory, IProduct } from 'types/types';
-import { fetchSubCategories } from 'config/fetch';
+import { fetchCategories} from 'config/fetch';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
 interface FeatureCardProps {
@@ -18,7 +18,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
     data: categories,
   } = useQuery<ICategory[]>({
     queryKey: ['categories'],
-    queryFn: fetchSubCategories,
+    queryFn: fetchCategories,
   });
   
   const getPath = (arr: IProduct, parent: string) => {
@@ -44,12 +44,15 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
     return path;
   };
 
+  console.log(categories, "filtered")
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 max-w-screen-2xl mx-auto px-2">
       {products.map((product) => {
         const filtered = categories?.find((cat: ICategory) => {
           return cat.id === product.CategoryId;
         });
+
+      console.log(filtered, "filtered")
         const parent = filtered?.title.toLowerCase();
         return (
           
