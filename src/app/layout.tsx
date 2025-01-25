@@ -40,6 +40,8 @@ export default function RootLayout({
           <>
             {/* Google Tag Manager */}
             <Script
+            async
+            strategy='lazyOnload'
               id="google-tag-manager"
               dangerouslySetInnerHTML={{
                 __html: `
@@ -53,8 +55,9 @@ export default function RootLayout({
 
             {/* Microsoft Clarity */}
             <Script
+            async
               id="clarity-script"
-              strategy="afterInteractive"
+     strategy='lazyOnload'
               dangerouslySetInnerHTML={{
                 __html: `
               (function(c,l,a,r,i,t,y){
@@ -74,7 +77,9 @@ export default function RootLayout({
 
             {/* Meta Pixel */}
             <Script
+            async
               id="meta-pixel"
+              strategy='lazyOnload'
               dangerouslySetInnerHTML={{
                 __html: `
               !function(f,b,e,v,n,t,s)
@@ -93,8 +98,9 @@ export default function RootLayout({
 
             {/* Google Analytics */}
             <Script
+            async
               id="gtag-init"
-              strategy="afterInteractive"
+              strategy='lazyOnload'
               dangerouslySetInnerHTML={{
                 __html: `
               window.dataLayer = window.dataLayer || [];
@@ -109,8 +115,8 @@ export default function RootLayout({
 
 
         <body className={` ${gotham.className} bg-lightgrey`}>
-          <GoogleTagManager gtmId="GTM-MNXTN5B" />
-          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNXTN5B"
+          <GoogleTagManager gtmId="GTM-MNXTN5B"/>
+     <noscript  ><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNXTN5B"
             height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
 
 
