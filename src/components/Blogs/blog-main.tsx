@@ -115,11 +115,10 @@ const BlogMain = ({ blogs }: { blogs: BlogInfo[] }) => {
                   <Link
                     href={`/blog/${subcategory.toLowerCase()}`}
                     key={subcategory}
-                    className={`cursor-pointer block py-1  sm:px-4 text-16 max-sm:font-semibold sm:text-16 rounded-md mb-2 w-full text-center ${
-                      pathName === `/blog/${subcategory.toLowerCase()}`
+                    className={`cursor-pointer block py-1  sm:px-4 text-16 max-sm:font-semibold sm:text-16 rounded-md mb-2 w-full text-center ${pathName === `/blog/${subcategory.toLowerCase()}`
                         ? 'bg-[#9FAC9B] text-white'
                         : 'bg-transparent'
-                    }`}
+                      }`}
                   >
                     {subcategory}
                   </Link>
@@ -127,44 +126,40 @@ const BlogMain = ({ blogs }: { blogs: BlogInfo[] }) => {
               </div>
             </div>
           </Container>
-          
+
           {totalBlogs > blogsPerPage && (
             <div className="flex justify-center mt-8 space-x-2">
-              {/* Previous Button */}
+
               <button
-                className={` px-4 sm:px-3 py-1 sm:py-2 rounded-md border ${
-                  currentPage === 1
+                className={` px-4 sm:px-3 py-1 sm:py-2 rounded-md border ${currentPage === 1
                     ? 'border-gray-300 text-gray-400 hidden'
                     : 'text-black hover:bg-secondary hover:text-white'
-                }`}
+                  }`}
                 onClick={prevPage}
                 disabled={currentPage === 1}
               >
                 <FaArrowRightLong style={{ transform: 'rotate(180deg)' }} />
               </button>
 
-              {/* Page Numbers */}
+
               {Array.from({ length: totalPages }, (_, index) => (
                 <div
                   key={index}
-                  className={`px-4 sm:px-4 py-1 sm:py-2 rounded-md cursor-pointer flex justify-center items-center ${
-                    currentPage === index + 1
+                  className={`px-4 sm:px-4 py-1 sm:py-2 rounded-md cursor-pointer flex justify-center items-center ${currentPage === index + 1
                       ? 'bg-secondary text-white'
                       : 'bg-transparent text-black hover:bg-secondary hover:text-white border border-[#0000001F]'
-                  }`}
+                    }`}
                   onClick={() => paginate(index + 1)}
                 >
                   {index + 1}
                 </div>
               ))}
 
-              {/* Next Button */}
               <button
-                className={`px-3 py-2 rounded-md border ${
-                  currentPage === totalPages
+                className={`px-3 py-2 rounded-md border ${currentPage === totalPages
                     ? 'border-gray-300 text-gray-400 hidden'
                     : 'text-black bg-transparent hover:bg-secondary hover:text-white border-[#0000001F]'
-                }`}
+                  }`}
                 onClick={nextPage}
                 disabled={currentPage === totalPages}
               >

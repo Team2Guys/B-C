@@ -17,7 +17,6 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const productName = (await params).productName[0];
-  console.log(productName, "product")
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
@@ -99,7 +98,6 @@ const Products = async ({ params }: Props) => {
   if (!selectedPage || filteredItems.length < 1) {
     return <NotFound />;
   }
-  console.log(matchingLink?.script, "script")
 
   return (
     <>

@@ -55,7 +55,6 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
   };
 
   let productFlag: boolean = selecteMenu === 'Add All Products' ? true : false;
-
   return (
     <>
       <Breadcrumb pageName={productFlag ? 'Products' : 'Add Products'} />
@@ -72,8 +71,8 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
           setEditProduct={setEditProduct}
           EditProductValue={
             EditInitialValues &&
-            (EditInitialValues.name !== undefined ||
-              EditInitialValues.category !== undefined)
+              (EditInitialValues.name !== undefined ||
+                EditInitialValues.category !== undefined)
               ? EditInitialValues
               : undefined
           }

@@ -48,17 +48,17 @@ const Gallery = ({ products, categories }: { products: IProduct[], categories: I
 
   return (
     <>
-      {/* <TopHero title="GALLERY" image={bgBreadcrum.src} pagename={pathName} /> */}
+
       <Container className="pt-16 pb-12 px-4 md:px-0">
         <div className="flex flex-col justify-between items-center pb-4 mb-6 overflow-hidden md:px-5">
           <h2 className="text-2xl xs:text-3xl font-medium text-gray-800 m-auto">
             GALLERY
           </h2>
           <p className='text-center max-w-[70%] mt-4'>
-     
-          Window Treatment Inspiration Gallery
 
-            </p>
+            Window Treatment Inspiration Gallery
+
+          </p>
         </div>
 
         <div className="overflow-x-auto">
@@ -142,8 +142,8 @@ const Gallery = ({ products, categories }: { products: IProduct[], categories: I
                 <button
                   key={page + 1}
                   className={`mx-1 w-16 h-8 md:h-14 flex justify-center rounded-sm items-center font-medium transition ${currentPage === page + 1
-                      ? 'bg-btnclr text-white'
-                      : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
+                    ? 'bg-btnclr text-white'
+                    : 'bg-transparent text-black hover:bg-btnclr hover:text-white'
                     }`}
                   onClick={() => {
                     setCurrentPage(page + 1);

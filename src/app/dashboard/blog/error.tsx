@@ -8,7 +8,6 @@ export default function Error({ error }: ErrorProps) {
   useEffect(() => {
     console.error(error);
   }, [error]);
-  console.log(error, "error");
   return (
     <div className="flex items-center justify-center h-[90vh]">
       <div className="flex justify-center items-center flex-col gap-4">
