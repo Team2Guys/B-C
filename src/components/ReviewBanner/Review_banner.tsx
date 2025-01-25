@@ -110,10 +110,7 @@ export default function Review_banner() {
                 />
                 {filteredTestimonials.length > 0 && (
                   <Slider {...settings}>
-                    {filteredTestimonials?.map((slide, index: any) => {
-                      console.log(slide, 'slide');
-                      return (
-                        <>
+                    {filteredTestimonials?.map((slide, index: number) => (
                           <div
                             key={index}
                             className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5 "
@@ -125,9 +122,8 @@ export default function Review_banner() {
                               {slide?.text}
                             </p>
                           </div>
-                        </>
-                      );
-                    })}
+                      )
+                    )}
                   </Slider>
                 )}
                 <div className="bg-white w-fit mx-auto px-6 py-2 mt-4 rounded-b-xl shadow-xl -mb-2 ">
