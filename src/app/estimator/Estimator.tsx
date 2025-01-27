@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Modal } from 'antd';
 import { IProduct } from 'types/types';
@@ -15,8 +15,9 @@ import { PiGreaterThan } from 'react-icons/pi';
 import UnitSelector from '../../components/estimator-product/UnitSelector';
 import EstimatorProduct from 'components/estimator-product/estimator-product';
 import { EsProduct } from 'types/interfaces';
+import showToast from 'components/Toaster/Toaster';
 
-const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct[], products: IProduct[] }) => {
+const EstimatorPage = ({ sortedProducts }: { sortedProducts: EsProduct[], products: IProduct[] }) => {
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
   const [activeProduct, setActiveProduct] = useState<IProduct | null>(null);
   const [selectedUnit, setSelectedUnit] = useState<string>('cm');
@@ -26,17 +27,14 @@ const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct
   const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
   const route = useRouter();
 
-  useEffect(() => {
-    if (products && products.length > 0) {
-      setActiveProduct(products[0]);
-      setSelectedProduct(products[0]);
-    }
-  }, [products]);
 
   useEffect(() => {
     calculatePrice(width, height);
     setSelectedProduct(activeProduct);
   }, [activeProduct]);
+
+  // eslint-disable-next-line no-undef
+  const toastTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
@@ -53,8 +51,23 @@ const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct
       calculatePrice(width, isNaN(value) ? '' : value);
     }
   };
+  const checkForToast = () => {
+    if (Number(width) > 0 && Number(height) > 0 && !activeProduct) {
+      if (!toastTimeout.current) {
+        toastTimeout.current = setTimeout(() => {
+          showToast('error', 'Please select a product');
+          toastTimeout.current = null;
+        }, 1000);
+      }
+    } else if (toastTimeout.current) {
+      clearTimeout(toastTimeout.current);
+      toastTimeout.current = null;
+    }
+  };
 
   const calculatePrice = (width: number | '', height: number | '') => {
+
+
     if (activeProduct?.title === 'Sheer Curtains' || activeProduct?.title === 'Blackout Curtains') {
       if (width && activeProduct) {
         let calculatedPrice = width;
@@ -77,10 +90,10 @@ const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct
         setCalculatedPrice(price);
       }
       else {
+
         setCalculatedPrice(0);
       }
     } else {
-
       if (width && height && activeProduct) {
         let calculatedPrice = width * height;
         if (selectedUnit === 'cm') {
@@ -96,6 +109,9 @@ const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct
         setCalculatedPrice(price);
       }
       else {
+        if (width && height && !activeProduct) {
+          checkForToast();
+        }
         setCalculatedPrice(0);
       }
     }
@@ -185,15 +201,10 @@ const EstimatorPage = ({ sortedProducts, products }: { sortedProducts: EsProduct
 
                 <div className="flex gap-2 items-center">
                   <p className="text-14">Estimated Price:</p>
-                  <div className="flex justify-center items-center bg-[#D9D9D9] rounded-full h-[70px] w-[70px] ">
-                    {activeProduct && (
-                      <div className="text-14 font-black text-wrap text-center">
-                        AED{' '}
-                        {
-                          calculatedPrice ? calculatedPrice.toFixed(2) : '0'
-                        }
-                      </div>
-                    )}
+                  <div className="flex justify-center items-center bg-[#D9D9D9] rounded-full h-[70px] w-[70px]">
+                    <div className="text-14 font-black text-wrap text-center">
+                      AED {activeProduct ? (calculatedPrice ? calculatedPrice.toFixed(2) : '0') : '0'}
+                    </div>
                   </div>
                 </div>
               </div>
