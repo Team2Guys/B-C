@@ -279,18 +279,16 @@ html {
 }
 
 .mySwiper .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   background-color: #d3d3d3;
   opacity: 1;
   border-radius: 50%;
   margin: 0 5px;
 }
-
 .mySwiper .swiper-pagination-bullet-active {
   background-color: #a3b4a2;
 }
-
 .ant-image {
   position: relative;
   width: 98% !important;
@@ -454,3 +452,13 @@ html {
 padding-bottom: 60px;
 }
 
+.hero-pagination .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+  bottom: 30px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .hero-pagination .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+    bottom: -5px !important;
+    display: none;
+  }
+}
