@@ -16,11 +16,10 @@ const truncateText = (text: string, wordLimit: number) => {
 const Card: React.FC<CardProps> = ({ data, href }) => {
   return (
     <>
-      <Link
-        className="max-w-md rounded  lg:m-4 m-2  text-center sm:text-start"
-        href={`${href}`}
+      <div
+        className="max-w-md  lg:m-4 m-2  text-center sm:text-start"
       >
-        <div>
+   
           <Image
             className="lg:w-[500px] object-cover w-full lg:h-[400px] cursor-pointer h-[280px] sm:h-[300px] rounded-3xl transition-transform duration-300 ease-in-out transform hover:scale-105"
             width={400}
@@ -29,19 +28,22 @@ const Card: React.FC<CardProps> = ({ data, href }) => {
             src={data.posterImage.imageUrl || 'image.pnd'}
             alt={data.title || 'Title Image'}
           />
-        </div>
+       
+
         <div className="px-2 py-4 cursor-default">
           <div className="font-bold text-[24px] mb-2 text-center">{data.title} </div>
+          
           <p className="text-[#333333] text-15 md:text-16 font-light md:leading-8 text-center md:text-center">
             {truncateText(data.description || '', 30)}
           </p>
         </div>
+
+
         <div className=" w-fit flex flex-col bg-secondary justify-center items-center text-sm mx-auto rounded-sm cursor-pointer">
-          <div
-            className="font-bold font-sans px-4 py-2 group-hover:border-gray-300 hover:bg-primary rounded-sm text-white"> View {data.title}
-          </div>
+          <Link href={`${href}`} className="font-bold font-sans px-4 py-2 group-hover:border-gray-300 hover:bg-primary rounded-sm text-white"> View {data.title}
+          </Link>
         </div>
-      </Link>
+      </div>
     </>
   );
 };

@@ -1,31 +1,34 @@
-'use client';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
-import { Fragment } from 'react';
-import { ICategory, IProduct } from 'types/types';
+import { IProduct } from 'types/types';
 
-const SubProduct = ({ products, categories, subCategories, filteredProduct, filteredSubCategory }: { products: IProduct[], subCategories: ICategory[], categories: ICategory[], filteredProduct: IProduct | undefined, filteredSubCategory: any }) => {
+interface ISubProduct { products: IProduct[],
+    filteredProduct: IProduct | undefined, 
+    filteredSubCategory: any
+   }
+
+
+const SubProduct = ({ products, filteredProduct, filteredSubCategory }:ISubProduct ) => {
 
   return (
     <>
       {filteredSubCategory ? (
-        <Fragment>
+        <>
           <RoomProducts
             title={`${filteredSubCategory.title}`}
             description={`${filteredSubCategory.description}`}
             category={`${filteredSubCategory.category.title}`}
             relatedProducts={filteredSubCategory?.products || []}
             products={products}
-            categories={categories || []}
-            subCategories={subCategories || []}
+       
           />
 
-        </Fragment>
+        </>
       ) : (
         <ProductDetailPage
           title={`${filteredProduct?.title}`}
           allprod={products}
-          categories={categories || []}
+          filterProduct={filteredProduct}
         />
       )}
     </>

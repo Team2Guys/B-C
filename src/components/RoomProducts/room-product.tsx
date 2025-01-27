@@ -12,27 +12,22 @@ import { subCategoryUrls, urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { generateSlug, subCategoryName } from 'data/data';
 
-interface IFilteredSubCategory {
-  bannerImage?: { imageUrl: string }
-}
 interface ICategoryPage {
   title: string;
   relatedProducts: IProduct[];
   description: string;
   category: string;
-  filteredSubCategory?: IFilteredSubCategory;
+  filteredSubCategory?: ICategory;
   products: IProduct[];
-  categories: ICategory[];
-  subCategories: ICategory[]
 }
 
 const RoomProducts = ({
   title,
   relatedProducts,
   description,
-  category,
   filteredSubCategory,
-  products, categories, subCategories
+  products,
+
 }: ICategoryPage) => {
   const pathname = usePathname();
   const [isNotFound, setIsNotFound] = useState(false);
@@ -41,8 +36,6 @@ const RoomProducts = ({
     url: string;
     name: string;
   }>();
-  console.log(category, 'category');
-
   useEffect(() => {
     if (pathname) {
       const matchingUrl = urls.find((url) => url.errorUrl === pathname);
@@ -66,17 +59,8 @@ const RoomProducts = ({
   const [productCategory, setProductCategory] = useState<string>('');
 
   const filterProducts = () => {
-    const filterSubCat = subCategories?.find(
-      (subCat) => subCat.title === title,
-    );
-    const filterCat = categories?.find(
-      (cat) => cat.id === filterSubCat?.CategoryId,
-    );
-
-    const filtered = products?.filter(
-      (product) => product.CategoryId === filterCat?.id,
-    );
-    setProductCategory(filterCat?.title || '');
+    const filtered = products?.filter((product) => product.CategoryId === filteredSubCategory?.category?.id);
+    setProductCategory(filteredSubCategory?.category?.title || '');
 
     setFilteredProducts(filtered || []);
   };
@@ -87,9 +71,7 @@ const RoomProducts = ({
     } else {
       if (title === 'Bedroom Blinds') {
         const updatedProducts = relatedProducts.map((product) => {
-          const updateTitle = subCategoryUrls.find(
-            (item) => item.url === generateSlug(product.title),
-          );
+          const updateTitle = subCategoryUrls.find((item) => item.url === generateSlug(product.title));
           if (updateTitle) {
             setUpdateSubCategoryName(updateTitle);
             return { ...product, title: updateTitle.name };
@@ -100,12 +82,9 @@ const RoomProducts = ({
       } else {
         setFilteredProducts(relatedProducts);
       }
-      const relatedCategory = categories?.find(
-        (cat) => cat.id === relatedProducts[0]?.CategoryId,
-      );
-      setProductCategory(relatedCategory?.title || '');
+      setProductCategory( filteredSubCategory?.category?.title || '');
     }
-  }, [title, products, subCategories, categories]);
+  }, [title, products,]);
 
   if (isNotFound) {
     return <NotFound />;

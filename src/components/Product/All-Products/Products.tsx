@@ -62,6 +62,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   );
 
   const byStyleItems = [...extendedByStyle, ...megaMenubyStyle].flat();
+
   const ByStyleItems = useMemo(
     () =>
       products.filter((product) =>
@@ -73,6 +74,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   );
 
   const byDynamic = [...extendedDynamic, ...megaMenuDynamic].flat();
+  
   const ByDynamicItems = useMemo(() => products.filter((product) =>
     byDynamic.some(
       (item) => item.productName === generateSlug(product.title)

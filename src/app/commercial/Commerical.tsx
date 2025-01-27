@@ -20,12 +20,10 @@ import { usePathname } from 'next/navigation';
 
 const Commercial = ({
   filteredProducts,
-  categories,
   filteredCatgory,
   mixProdCategeries
 }: {
   filteredProducts: IProduct[];
-  categories: ICategory[];
   filteredCatgory: ICategory
   mixProdCategeries: any[]
 }) => {
@@ -199,7 +197,7 @@ const Commercial = ({
               )}
           </ImageAntd.PreviewGroup>
         }
-        <RelatedProducts products={filteredProducts || []} categoriesList={categories} limit={4} />
+        <RelatedProducts products={filteredProducts || []} limit={4} />
 
       </Container>
     </>

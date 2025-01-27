@@ -7,16 +7,18 @@ import { links } from 'data/header_links';
 const HomeCard = ({ categories }: { categories: ICategory[] }) => {
 
   const customOrder = ['Blinds', 'Curtains', 'Shutters'];
+
   const sortedCategories = categories?.sort((a: ICategory, b: ICategory) => {
     const indexA = customOrder.indexOf(a.title);
     const indexB = customOrder.indexOf(b.title);
     return indexA - indexB;
   });
+  return (
 
-  if (categories?.length < 0)
-    return (
-      <div>
-        <Container className="py-12">
+    <Container className="py-12">
+
+      {
+        categories?.length < 0 ?
           <div className="flex justify-center">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3 w-full">
               {[...Array(3)].map((_, index) => (
@@ -34,24 +36,20 @@ const HomeCard = ({ categories }: { categories: ICategory[] }) => {
               ))}
             </div>
           </div>
-        </Container>
-      </div>
-    );
-  return (
-    <Container className="py-12">
-      <div className="flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
-          {sortedCategories &&
-            sortedCategories
-              .filter((cat: ICategory) => cat.title !== 'Commercial')
-              .map((cat: ICategory, index: number) => {
-                const filtered = links.find((item) => item.label === cat.title,);
-                return (
-                  <Card key={index} data={cat} href={filtered?.href} />
-                );
-              })}
-        </div>
-      </div>
+          :
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-3">
+              {sortedCategories && sortedCategories
+                .filter((cat: ICategory) => cat.title !== 'Commercial')
+                .map((cat: ICategory, index: number) => {
+                  const filtered = links.find((item) => item.label === cat.title,);
+                  return (
+                    <Card key={index} data={cat} href={filtered?.href} />
+                  );
+                })}
+            </div>
+          </div>
+      }
     </Container>
   );
 };
