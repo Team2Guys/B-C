@@ -30,14 +30,12 @@ const CommercialByRoom = ({
   title,
   relatedProducts,
   description,
-  category,
   filteredSubCategory,
   products,
   categories,
   subCategories
 }: ICategoryPage) => {
   const pathname = usePathname();
-  console.log(category, 'category');
   const [isNotFound, setIsNotFound] = useState(false);
   const [filteredProducts, setFilteredProducts] =useState<IProduct[]>(relatedProducts);
 
