@@ -140,7 +140,7 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EsProduct[], produc
         <div className="grid grid-cols-12 md:gap-10 xl:gap-14 2xl:md:h-[677px] space-y-4 md:space-y-0 md:px-2 xl:px-0">
           <div className="col-span-12 md:col-span-6 mt-2 sm:mt-0">
             <Image
-              src={selectedProduct?.posterImage?.imageUrl}
+              src={selectedProduct?.posterImage?.imageUrl || sortedProducts[0].posterImage.imageUrl}
               width={1000}
               height={1000}
               alt={selectedProduct?.title || 'Product Image'}
