@@ -73,14 +73,21 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
 
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50 py-2 sm:py-0">
 
-        <Container className="sm:hidden mb-2 pb-4 pt-2 text-center border-b border-[#0006]">
+        <Container className="sm:hidden mb-2 pb-4 pt-2 text-center w-full flex flex-wrap justify-between border-b border-[#0006]">
           <Link
-            className="py-3 px-6 rounded-md text-14 xs:text-15 whitespace-nowrap bg-primary text-black"
+            className="py-3 px-3 rounded-md text-14 xs:text-15 whitespace-nowrap bg-primary text-black"
             href="/request-appointment"
             onClick={handleLinkClick}
           >
             BOOK A FREE APPOINTMENT
           </Link>
+          <Link
+            className={`text-14 py-3 px-3 rounded-md text-black sm:hidden ${path === '/estimator'
+              ? 'bg-secondary text-white'
+              : 'bg-primary text-black'
+              }`}
+            href='/estimator'
+          >Estimator</Link>
         </Container>
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
           <Link href={'/'} className="w-5/12 xs:w-7/12 lg:w-1/12 ">
@@ -232,7 +239,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
             </div>
           </div>
 
-          <div className="lg:w-2/12 flex flex-1 justify-between xs:justify-end items-center gap-6">
+          <div className="lg:w-2/12  justify-between xs:justify-end items-center gap-6">
             <Link
               className="py-2 px-2 xl:px-5 hidden sm:block rounded-md text-10 xl:text-11 2xl:text-15 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
               href="/request-appointment"
@@ -240,14 +247,8 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
             >
               Book a free appointment
             </Link>
-            <Link
-              className={`text-14 py-2 px-3 rounded-md text-black sm:hidden ${path === '/estimator'
-                ? 'bg-secondary text-white'
-                : 'bg-primary text-black'
-                }`}
-              href='/estimator'
-            >Estimator</Link>
-            <div className="flex lg:hidden">
+
+            <div className="flex  lg:hidden">
               <Sheet
                 drawerName={<Image src={menuIcon} alt='menu icon' width={50} height={50} className='min-w-9 w-9 h-9' />}
                 open={drawerOpen}
