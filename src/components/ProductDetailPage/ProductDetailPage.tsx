@@ -48,6 +48,8 @@ const ProductDetailPage = ({ title, allprod , categories }: IProductDetail) => {
         image={`${filterProduct?.bannerImage?.imageUrl || bgBreadcrum.src}`}
         pagename={pathName}
       />
+        <Container className="mt-10">
+
       <DetailInfo
         title={title ? title : ''}
         description={filterProduct?.description || ''}
@@ -74,10 +76,12 @@ const ProductDetailPage = ({ title, allprod , categories }: IProductDetail) => {
       {!allprod ? (
         <CardSkeleton />
       ) : (
-        <Container className="mt-10">
           <RelatedProducts products={relatedProducts || []} limit={4} title={title} categoriesList={categories} />
-        </Container>
+   
       )}
+      </Container>
+
+
       <BookNowBanner className="mt-20" />
     </>
   );
