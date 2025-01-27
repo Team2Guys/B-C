@@ -395,7 +395,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               htmlFor="preferredDate"
               className="block text-10 2xl:text-11 font-light "
             >
-              Preferred Data
+              Preferred Date
             </label>
 
             <DatePicker
