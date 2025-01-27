@@ -32,25 +32,13 @@ const BathroomCategory = ({
   const pathname = usePathname();
   const getPath = (arr: IProduct, parent: string) => {
     categoryTitle === 'none' ? (categoryTitle = parent) : categoryTitle;
+
     const slug = ChangedProductUrl_handler(arr.title === updateSubCategoryName?.name ? updateSubCategoryName.url : arr.title);
-    const basePath =
-      arr.href &&
-        typeof categoryTitle &&
-        categoryTitle?.toLowerCase() === 'string'
-        ? `${window.origin}/${arr.href}`
-        : `/${slug}`;
+    const basePath =arr.href && typeof categoryTitle && categoryTitle?.toLowerCase() === 'string' ? `${window.origin}/${arr.href}` : `/${slug}`;
 
     const path =
-      predefinedPaths[slug as keyof typeof predefinedPaths] ||
-      (slug === 'hotels-restaurants-blinds-curtains'
-        ? basePath
-        : `/${(parent ? parent === 'Shutters' : categoryTitle === 'Shutters')
-          ? `${parent ? parent.toLowerCase() : categoryTitle?.toLowerCase()}-range`
-          : parent
-            ? parent?.toLowerCase()
-            : categoryTitle?.toLocaleLowerCase()
-        }${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
-          ? '/roller-blinds'
+      predefinedPaths[slug as keyof typeof predefinedPaths] || (slug === 'hotels-restaurants-blinds-curtains' ? basePath : `/${(parent ? parent === 'Shutters' : categoryTitle === 'Shutters') ? `${parent ? parent.toLowerCase() : categoryTitle?.toLowerCase()}-range`
+          : parent ? parent?.toLowerCase() : categoryTitle?.toLocaleLowerCase() }${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug) ? '/roller-blinds'
           : ''
         }/${slug}`);
     return path;

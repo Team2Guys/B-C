@@ -5,9 +5,9 @@ import ChooseUs from 'components/motorised-blinds/choose-us';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import Container from 'components/Res-usable/Container/Container';
-import { ICategory, IProduct } from 'types/types';
+import { IProduct } from 'types/types';
 
-const MotorisedPage = ({products, categories , pageData}:{products:IProduct[], categories:ICategory[] , pageData: any}) => {  
+const MotorisedPage = ({products, pageData}:{products:IProduct[], pageData: any}) => {  
   return (
     <>
       <TopHero
@@ -59,7 +59,7 @@ const MotorisedPage = ({products, categories , pageData}:{products:IProduct[], c
       )}
       <BookNowBanner />
       <Container className="mt-10 md:mt-20">
-        <RelatedProducts products={products || []} limit={4} categoriesList={categories} />
+        <RelatedProducts products={products || []} limit={4} />
       </Container>
     </>
   );

@@ -7,8 +7,6 @@ const CommercialPage = ({
   filteredProduct,
   filteredSubCategory,
   allprod,
-  categories,
-  subCategories
 }: PRODUCS_PROPS) => {
 
   return (
@@ -22,8 +20,7 @@ const CommercialPage = ({
             filteredSubCategory={filteredSubCategory}
             relatedProducts={filteredSubCategory?.products || []}
             products={allprod}
-            categories={categories || []}
-            subCategories={subCategories || []}
+
           />
 
         </>
@@ -31,7 +28,7 @@ const CommercialPage = ({
         <ProductDetailPage
           title={filteredProduct?.title || ''}
           allprod={allprod}
-          categories={categories}
+          filterProduct={filteredProduct }
         />
       )}
     </>

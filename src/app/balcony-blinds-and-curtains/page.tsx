@@ -78,8 +78,6 @@ const CommercialPage = async () => {
         relatedProducts={filteredSubCategory?.products || []}
         filteredSubCategory={filteredSubCategory}
         products={products}
-
-        subCategories={subCategories}
       />
 
     </>

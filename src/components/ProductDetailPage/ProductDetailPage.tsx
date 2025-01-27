@@ -4,7 +4,7 @@ import React from 'react';
 import DetailInfo from 'components/Detail/detail-info/detail-info';
 import DetailProduct from 'components/Detail/detail-product/detail-product';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { ICategory, IProduct } from 'types/types';
+import { IProduct } from 'types/types';
 import Container from 'components/Res-usable/Container/Container';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
@@ -16,14 +16,10 @@ import { customTitles } from 'data/urls';
 interface IProductDetail {
   title: string;
   allprod?: IProduct[];
-  categories?: ICategory[]
+  filterProduct: IProduct | any;
 }
-const ProductDetailPage = ({ title, allprod , categories }: IProductDetail) => {
+const ProductDetailPage = ({ title, allprod,filterProduct  }: IProductDetail) => {
   const pathName = usePathname();
-
-  const filterProduct = allprod?.find((product) => {
-    return product.title === title;
-  });
 
   const relatedProducts = allprod?.filter((product) => {
     return product.CategoryId === filterProduct?.CategoryId;
@@ -44,7 +40,6 @@ const ProductDetailPage = ({ title, allprod , categories }: IProductDetail) => {
       <TopHero
         title={title}
         pageTitle={customPageTitle}
-        //@ts-expect-error
         image={`${filterProduct?.bannerImage?.imageUrl || bgBreadcrum.src}`}
         pagename={pathName}
       />
@@ -76,7 +71,7 @@ const ProductDetailPage = ({ title, allprod , categories }: IProductDetail) => {
       {!allprod ? (
         <CardSkeleton />
       ) : (
-          <RelatedProducts products={relatedProducts || []} limit={4} title={title} categoriesList={categories} />
+          <RelatedProducts products={relatedProducts || []} limit={4} title={title} />
    
       )}
       </Container>

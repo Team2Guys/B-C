@@ -1,4 +1,4 @@
-import { fetchCategories, fetchProducts, fetchSubCategories } from "config/fetch";
+import {fetchProducts, fetchSubCategories } from "config/fetch";
 import SubProduct from "./Subproduct";
 import { ChangedProductUrl, urls } from "data/urls";
 import { generateSlug } from "data/data";
@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: { params: Promise<{ subproduc
 
 const Page = async ({ params }: { params: Promise<{ subproduct: string }> }) => {
   const slug = (await params).subproduct;
-  const [products, categories, subCategories] = await Promise.all([fetchProducts(), fetchCategories(),fetchSubCategories()]);
+  const [products, subCategories] = await Promise.all([fetchProducts(),fetchSubCategories()]);
   const Cateories = [2];
 
   const filteredSubCategory = subCategories?.find((sub:ICategory) => {
@@ -98,7 +98,8 @@ const Page = async ({ params }: { params: Promise<{ subproduct: string }> }) => 
     }
   return (
     <>
-      <SubProduct products={products} categories={categories} subCategories={subCategories}  filteredProduct={filteredProduct} filteredSubCategory={filteredSubCategory} />
+      <SubProduct products={products}
+       filteredProduct={filteredProduct} filteredSubCategory={filteredSubCategory} />
     </>
   );
 };

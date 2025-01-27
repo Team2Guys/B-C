@@ -24,16 +24,10 @@ interface ICategoryPage {
 const CategoryPage = ({ title, relatedProducts, products, categories , subCategories }: ICategoryPage) => {
   const pathname = usePathname();
 
-  const [filteredProducts, setFilteredProducts] =
-    useState<IProduct[]>(relatedProducts);
+  const [filteredProducts, setFilteredProducts] =useState<IProduct[]>(relatedProducts);
   let filterSubCat = subCategories?.find((subCat) => subCat.title === title);
   const filterProducts = () => {
-    const filterCat = categories?.find(
-      (cat) => cat.id === filterSubCat?.CategoryId,
-    );
-
-    const filtered = products?.filter(
-      (product) => product.CategoryId === filterCat?.id,
+    const filtered = products?.filter((product) => product.CategoryId === filterSubCat?.CategoryId,
     );
 
     setFilteredProducts(filtered || []);
@@ -138,7 +132,7 @@ const CategoryPage = ({ title, relatedProducts, products, categories , subCatego
       </Container>
       <BookNowBanner />
       <Container className=" py-3 sm:py-10">
-        <RelatedProducts products={(filteredProductList ?? []).slice(0, 4)} limit={4} categoriesList={categories} />
+        <RelatedProducts products={(filteredProductList ?? []).slice(0, 4)} limit={4} />
       </Container>
     </div>
   );

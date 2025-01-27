@@ -31,7 +31,6 @@ interface IProductProps {
 }
 
 const Product = ({
-  categories,
   selectedPage,
   matchedProduct,
   filteredItems,
@@ -47,7 +46,8 @@ const Product = ({
       <Info selectedPage={selectedPage} />
       <AllProducts products={filteredItems?.filter((prod) => !HiddenProducts_list.includes(prod.title)) || []} categoryType={`${title}`} />
       <Container className="mt-10 mb-10">
-        <RelatedProducts products={filteredItems || []} categoriesList={categories} limit={4} description={matchedProduct} />
+        <RelatedProducts products={filteredItems || []} 
+        limit={4} description={matchedProduct} />
       </Container>
       <BookNowBanner className="mt-10" />
       <VideoAutomation className=" mt-10" />

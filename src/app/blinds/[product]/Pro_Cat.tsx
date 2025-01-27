@@ -7,7 +7,6 @@ import { PRODUCS_PROPS } from 'types/interfaces';
 const CommercialPage = ({
   filteredProduct,
   filteredSubCategory,
-  // product,
   allprod,
   categories,
   subCategories
@@ -33,8 +32,7 @@ const CommercialPage = ({
               relatedProducts={filteredSubCategory?.products || []}
               filteredSubCategory={filteredSubCategory}
               products={allprod}
-              categories={categories || []}
-              subCategories={subCategories || []}
+  
             />
           )}
         </>
@@ -42,7 +40,7 @@ const CommercialPage = ({
         <ProductDetailPage
           title={`${filteredProduct?.title}`}
           allprod={allprod}
-          categories={categories}
+          filterProduct={filteredProduct}
         />
       )}
     </>

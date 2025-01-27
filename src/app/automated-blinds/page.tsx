@@ -1,7 +1,7 @@
 import React from 'react';
 import MotorisedPage from 'components/ui/MotorisedPage';
 import { Metadata } from 'next';
-import { fetchCategories, fetchProducts } from 'config/fetch';
+import {fetchProducts } from 'config/fetch';
 import { MoterisedContent } from 'data/data';
 import NotFound from 'app/not-found';
 
@@ -25,10 +25,7 @@ export const metadata: Metadata = {
 };
 
 const MotorisedBlinds = async () => {
-  const [products, categories ] = await Promise.all([
-      fetchProducts(),
-      fetchCategories(),
-    ]);
+  const [products] = await Promise.all([fetchProducts()]);
   const content = MoterisedContent.find(
       (item) => item.maintitle === '/automated-blinds/'
     );
@@ -38,7 +35,7 @@ const MotorisedBlinds = async () => {
   const { Data } = content;
   const pageData = Data[0];
   return (
-    <MotorisedPage products={products} categories={categories || []} pageData={pageData} />
+    <MotorisedPage products={products} pageData={pageData} />
   );
 };
 export default MotorisedBlinds;

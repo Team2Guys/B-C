@@ -1,4 +1,4 @@
-'use client';
+
 import BlogMain from 'components/Blogs/blog-main';
 import OurBlog from 'components/Blogs/our-blog';
 import Container from 'components/Res-usable/Container/Container';
@@ -6,7 +6,6 @@ import Comments from 'components/comments/Comments';
 import TopHero from 'components/ui/top-hero';
 import { formatDateMonth } from 'config';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import React from 'react';
 import { BlogInfo } from 'types/interfaces';
 import bgBreadcrum from '../../../../public/assets/images/Blog/blogbackground.png';
@@ -28,7 +27,6 @@ const Blog = ({
   blog?: BlogInfo;
   filterRelatedPosts?: BlogInfo[];
 }) => {
-  const pathName = usePathname();
   return (
     <>
       {category ? (
@@ -36,7 +34,6 @@ const Blog = ({
           <TopHero
             title={category?.title || 'blogs'}
             image={`${category?.bannerImage?.imageUrl || bgBreadcrum.src}`}
-            pagename={pathName}
           />
           <div className="my-5">
             <BlogMain blogs={filterCategoryBlogPosts || []} />{' '}

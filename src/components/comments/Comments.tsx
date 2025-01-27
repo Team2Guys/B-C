@@ -1,3 +1,5 @@
+"use client"
+
 import { Modal } from 'antd';
 import axios from 'axios';
 import Loader from 'components/Loader/Loader';
