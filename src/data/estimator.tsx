@@ -32,7 +32,7 @@ export const estimatorprod = [
   {
     id: 129,
     title: 'Zebra Blinds',
-    posterImage: { imageUrl: '/assets/images/estimator/Zebra.webp' },
+    posterImage: { imageUrl: '/assets/images/estimator/zebraBlinds.webp' },
     price: 250,
   },
   {
