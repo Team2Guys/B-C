@@ -2,7 +2,7 @@ export const estimatorprod = [
   {
     id: 1,
     title: 'Roller Blinds',
-    posterImage: { imageUrl: '/assets/images/estimator/roller.webp' },
+    posterImage: { imageUrl: '/assets/images/estimator/rollerblinds.webp' },
     price: 100,
   },
   {
