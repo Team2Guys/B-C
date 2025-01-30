@@ -120,7 +120,7 @@ export const WhatsAppInfo: PhoneNumber = {
   number: '+971 54 494 5339',
 };
 export const EmailInfo: Email = {
-  email: 'connect@twoguys.ae',
+  email: 'sales@blindsandcurtains.ae',
 };
 
 export const OurClientImage = [
