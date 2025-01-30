@@ -62,6 +62,7 @@ export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   buttonText: 'Read More',
 };
 
+
 export const heroSlider = [
   {
     id: 1,
@@ -73,7 +74,7 @@ export const heroSlider = [
   {
     id: 2,
     name: 'g3.webp',
-    imageUrl: '/assets/images/Hero/g3.webp',
+    imageUrl: '/assets/images/Hero/g3.png',
     heading: 'Made To Measure Window  ',
     subheading: 'Curtains In Dubai',
     content:"Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains make it simple. You can choose from 1000s of fabrics and colours - velvets, silks, and plain textures.",
@@ -81,11 +82,11 @@ export const heroSlider = [
   {
     id: 3,
     name: 'g1.webp',
-    imageUrl: '/assets/images/Hero/g1.webp',
+    imageUrl: '/assets/images/Hero/g1.png',
     heading: 'Perfect Fit Window',
     subheading: 'Shutters Dubai',
     content:
-      "Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains make it simple. You can choose from 1000s of fabrics and colours - velvets, silks, and plain textures.",
+      "You won't find a better deal than having shutters installed in your Dubai home or office, complete with free consultation, quick installation, and a 5-year warranty.",
   },
 ];
 
