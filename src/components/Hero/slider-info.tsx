@@ -13,7 +13,7 @@ import Container from 'components/Res-usable/Container/Container';
 const SliderInfo = () => {
   const [showModel, setshowModel] = useState<string>('');
   return (
-    
+
     <Swiper
       loop={true}
       pagination={{
@@ -69,7 +69,9 @@ const SliderInfo = () => {
                   <span id="modalHandler">why us?</span>
                 </div>
                 <Image
-                  className="w-full h-full object-cover max-sm:object-contain"
+                  className="w-full h-full
+                   object-cover max-sm:object-contain
+                   "
                   loading="eager"
                   priority
                   width={800}
