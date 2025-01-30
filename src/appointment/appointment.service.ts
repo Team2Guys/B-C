@@ -102,7 +102,7 @@ export class AppointmentService {
      <div class="contact-info">
       <p><strong>WhatsApp:</strong><a href="https://wa.me/0544945332" target="_blank"> 054 494 5339</a></p>
 <p><strong>Phone:</strong><a href="tel:042522025" target="_blank"> 04 252 2025</a></p>
-      <p><strong>Email:</strong> <a href="mailto:connect@twoguys.ae">connect@twoguys.ae</a></p>
+      <p><strong>Email:</strong> <a href="mailto:sales@blindsandcurtains.ae">sales@blindsandcurtains.ae</a></p>
       <p><strong>Instagram:</strong> <a href="https://www.instagram.com/blindsandcurtainsdubai" target="_blank">https://www.instagram.com/blindsandcurtainsdubai</a></p>
     </div>
     <div>
