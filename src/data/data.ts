@@ -66,14 +66,14 @@ export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
 export const heroSlider = [
   {
     id: 1,
-    name: 'g2.png',
-    imageUrl: '/assets/images/Hero/g2.png',
+    name: 'blinds.png',
+    imageUrl: '/assets/images/Hero/blinds.png',
     heading: 'The Home of Customised',
     subheading: 'Window Coverings',
     content:"Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete."  },
   {
     id: 2,
-    name: 'g3.webp',
+    name: 'Curtains.webp',
     imageUrl: '/assets/images/Hero/g3.png',
     heading: 'Made To Measure Window  ',
     subheading: 'Curtains In Dubai',
@@ -81,7 +81,7 @@ export const heroSlider = [
   },
   {
     id: 3,
-    name: 'g1.webp',
+    name: 'Shutters.webp',
     imageUrl: '/assets/images/Hero/g1.png',
     heading: 'Perfect Fit Window',
     subheading: 'Shutters Dubai',
