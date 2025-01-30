@@ -99,10 +99,10 @@ const ProductUs: React.FC = () => {
                   <MdEmail size={25} className="text-white w-1/12 " />
                   <Link
                     target="_blank"
-                    href="mailto:connect@twoguys.ae"
+                    href="mailto:sales@blindsandcurtains.ae"
                     className="hover:underline w-11/12"
                   >
-                    connect@twoguys.ae
+                    sales@blindsandcurtains.ae
                   </Link>
                 </div>
               </div>
