@@ -2,17 +2,16 @@
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import RelatedProductSkeleton from 'components/Skeleton/Related-product';
 import React, { useEffect, useState } from 'react';
-import { ICategory, IProduct } from 'types/types';
+import {IProduct } from 'types/types';
 
 interface relativeProps {
   products: IProduct[];
-  categoriesList?: ICategory[];
   limit?: number;
   className?: string;
   title?: string;
   description?: string
 }
-const RelatedProducts: React.FC<relativeProps> = ({ products, categoriesList, limit, title, description }) => {
+const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title, description }) => {
   const [selectedProducts, setSelectedProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
@@ -34,6 +33,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, categoriesList, li
     };
     const safeLimit = limit ?? 4;
     const randomProducts = getRandomUniqueProducts([...products], safeLimit, title);
+    console.log(randomProducts, "randomProducts")
     setSelectedProducts(randomProducts);
   }, [products, limit, title]);
 
@@ -48,16 +48,13 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, categoriesList, li
       </p>
       <div className="grid grid-cols-1 xs:grid-cols-2 md: lg:grid-cols-4 gap-6 lg:mt-10 mt-4 lg:mb-10">
         {selectedProducts.length > 0 ? selectedProducts.map((item) => {
-          const filteredCategory = categoriesList?.find(
-            (cat) => cat.id === item?.CategoryId,
-          );
           return (
             <GalleryCard
               card={item}
               key={item.id}
               relativeProducts={true}
               isLoading={false}
-              parent={filteredCategory?.title.toLowerCase()}
+              parent={item?.category?.title.toLowerCase()}
             />
           );
         }) : Array(4).fill(null).map((_, index) => (

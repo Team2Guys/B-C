@@ -10,9 +10,9 @@ const Callbutton = () => {
       target="_blank"
       rel="noopener noreferrer"
        aria-label="Call Phone Number"
-      className="fixed bottom-12 left-6 z-50 w-12 h-12 rounded-full"
+      className="fixed bottom-12 left-6 z-50 w-14 h-14 rounded-full "
     >
-      <Image width={100} height={100} className='w-12 h-12 rounded-full' src={phone} alt='phone'/>
+      <Image width={100} height={100} className='w-14 h-14 rounded-full' src={phone} alt='phone'/>
     </Link>
   )
 }

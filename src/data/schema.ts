@@ -29,7 +29,7 @@ export let schema: any = [
     "image": "https://blindsandcurtains.ae/_next/static/media/logomain.8dbb28bd.png",
     "description": "One of the UAE's leading blinds, curtains and shutters retailers. Specialising in all types of window furnishings, all made to measure, delivered and installed by our team of professional fitters.",
     "telephone": "+971 54 494 5339",
-    "email": "connect@twoguys.ae",
+    "email": "sales@blindsandcurtains.ae",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Unit 43 22nd St - Al Quoz - Ind 4",

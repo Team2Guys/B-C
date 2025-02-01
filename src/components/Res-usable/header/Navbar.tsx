@@ -82,7 +82,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
             BOOK A FREE APPOINTMENT
           </Link>
           <Link
-            className={`text-14 py-3 px-3 rounded-md text-black sm:hidden ${path === '/estimator'
+            className={`text-14 py-3 px-3 rounded-md uppercase text-black sm:hidden ${path === '/estimator'
               ? 'bg-secondary text-white'
               : 'bg-primary text-black'
               }`}

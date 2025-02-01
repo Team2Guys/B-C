@@ -62,6 +62,7 @@ export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   buttonText: 'Read More',
 };
 
+
 export const heroSlider = [
   {
     id: 1,
@@ -85,7 +86,7 @@ export const heroSlider = [
     heading: 'Perfect Fit Window',
     subheading: 'Shutters Dubai',
     content:
-      "Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains make it simple. You can choose from 1000s of fabrics and colours - velvets, silks, and plain textures.",
+      "You won't find a better deal than having shutters installed in your Dubai home or office, complete with free consultation, quick installation, and a 5-year warranty.",
   },
 ];
 
@@ -119,7 +120,7 @@ export const WhatsAppInfo: PhoneNumber = {
   number: '+971 54 494 5339',
 };
 export const EmailInfo: Email = {
-  email: 'connect@twoguys.ae',
+  email: 'sales@blindsandcurtains.ae',
 };
 
 export const OurClientImage = [
@@ -1591,28 +1592,6 @@ export const RelatedProductsdata = [
 export const HiddenProducts_list = [
   'Hotels & Restaurants , blinds & curtains',
   'Study Room Blinds',
-];
-
-export const estimator_data = [
-  {
-    id: 1,
-    title: 'Roller Blinds',
-    posterImage: { imageUrl: '/assets/images/estimator/roller.webp' },
-    price: 100,
-  },
-
-  {
-    id: 2,
-    title: 'Shutters MDF',
-    posterImage: { imageUrl: '/assets/images/estimator/white1.webp' },
-    price: 700,
-  },
-  {
-    id: 3,
-    title: 'Shutters Basswood',
-    posterImage: { imageUrl: '/assets/images/estimator/white2.webp' },
-    price: 900,
-  },
 ];
 
 export const footerData = [
