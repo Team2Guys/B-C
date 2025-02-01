@@ -75,7 +75,7 @@ function CustomSlider({
     autoplaySpeed: 6000,
     cssEase: 'linear',
   };
-
+// @ts-ignore
   return (
     <div className={`slider-container w-full ${className}`}>
       <Slider {...settings}>{children}</Slider>
@@ -84,3 +84,4 @@ function CustomSlider({
 }
 
 export default CustomSlider;
+//
