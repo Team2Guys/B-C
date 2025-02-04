@@ -22,7 +22,14 @@ const buttonVariants = cva(
           'text-black active:text-white active:bg-secondary hover:bg-secondary hover:text-white ',
         white:
           'text-black active:text-white bg-white active:bg-black hover:bg-black hover:text-white ',
+        black:
+          'text-white active:text-white bg-black active:bg-black hover:bg-primary dark:text-slate-50',
+        Green:
+          'text-white active:text-white bg-green-500 active:bg-green-500 hover:bg-primary dark:text-slate-50 flex',
+        Gray:
+          'text-white active:text-white bg-[#A9B4A4] active:bg-gray-500 hover:bg-primary dark:text-slate-50',
       },
+      
       size: {
         default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-md px-3',

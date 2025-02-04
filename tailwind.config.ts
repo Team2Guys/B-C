@@ -28,6 +28,7 @@ const config = {
         hero: "url('/assets/images/bg-hero.png')",
         men: "url('/assets/images/static/menimage.png')",
         appointment: "url('/assets/images/MotorisedBlind/appoint.png')",
+        keyimage: "url('/assets/images/Moterised-ads-blinds/Rectangle28.png')",
       },
       fontSize: {
         xsm: ['11px', '14px'],

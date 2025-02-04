@@ -13,6 +13,7 @@ interface GalleryProps {
   product_Images?: any;
   imagesOnly?: boolean;
   isLoading?: boolean;
+  bgcolor?: any;
 }
 
 const GalleryCard: React.FC<GalleryProps> = ({
@@ -22,7 +23,8 @@ const GalleryCard: React.FC<GalleryProps> = ({
   parent,
   product_Images,
   imagesOnly,
-  isLoading
+  isLoading,
+  bgcolor,
 }) => {
   const getPath = (arr: IProduct) => {
     const slug = ChangedProductUrl_handler(arr.title);
@@ -85,11 +87,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
 
             className="rounded-xl h-56 md:h-64 2xl:h-80 w-[100%] object-cover object-top"
           />
-          <div
-            className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide ? 'block' : ''
-              } ${relativeProducts ? 'justify-between' : 'justify-center'
-              } justify-center rounded-se-sm bg-secondary md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}
-          >
+        <div className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide ? 'block' : ''} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm ${bgcolor === true ? 'bg-white' : 'bg-secondary'} md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}>
             {card && (
               <>
                 <Link href={getPath(card)}>

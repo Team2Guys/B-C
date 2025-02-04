@@ -12,7 +12,6 @@ import { usePathname } from 'next/navigation';
 
 const MotorisedPage = ({products, categories , pageData}:{products:IProduct[], categories:ICategory[] , pageData: any}) => {
   const pathName = usePathname();
-  
   return (
     <>
       <TopHero
