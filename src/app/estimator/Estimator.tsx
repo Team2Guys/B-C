@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Modal } from 'antd';
 import { IProduct } from 'types/types';
-import estimateIMG from '../../../public/assets/images/getestimate.png';
+import estimateIMG from '../../../public/assets/images/getestimate_new.jpg';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
