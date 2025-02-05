@@ -45,7 +45,7 @@ const LandingPage= async () => {
       <MoterizedBlinds 
       title="Convenience and Privacy" 
       subtitle="at Your Fingertips" 
-      imageUrl="/assets/images/Moterised-ads-blinds/Rectangle884.png" 
+      imageUrl="/assets/images/Moterised-ads-blinds/curtain.jpg" 
       benefits={benefits.motorized_curtains}  />
       <MoterizedService TabData={TabData.motorized_curtains}/>
       <SellingFeatures data={MotorisedSellingData}/>

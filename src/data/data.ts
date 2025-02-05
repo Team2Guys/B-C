@@ -2046,75 +2046,135 @@ export const TabData = {
 
 
   // RollerMain
-  export const KeyFeaturesData=[
+  // RollerFeatures
+  export const KeyFeaturesRoller=[
     {
       icon:"/assets/images/Rollerblind/design1.png",
-      heading:"Lorem Ipsum",
-      para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+      heading:"Control Light, Your Way",
+      para:"Choose from blackout or light-filtering fabrics for maximum light control, privacy, and a peaceful sleep.",
     },
     {
       icon:"/assets/images/Rollerblind/design1.png",
-      heading:"Lorem Ipsum",
-      para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+      heading:"Energy Saving Design",
+      para:"Reduce energy costs by controlling sunlight and temperature with our smart designs.",
     },
     {
       icon:"/assets/images/Rollerblind/order1.png",
-      heading:"Lorem Ipsum",
-      para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+      heading:"Custom-Made to Fit",
+      para:"Every blind is measured and made to fit your windows, leaving no room for imperfections.",
     },
     {
       icon:"/assets/images/Rollerblind/design1.png",
-      heading:"Lorem Ipsum",
-      para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+      heading:"Motorised Options Available",
+      para:"Upgrade to motorised blinds for ultimate convenience—control them with your phone, voice or remote.",
     },
     {
       icon:"/assets/images/Rollerblind/design1.png",
-      heading:"Lorem Ipsum",
-      para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+      heading:"Durability Guaranteed",
+      para:"Our high-quality materials will make sure long-lasting use, with a 5-year warranty on all products.",
     },
     {
       icon:"/assets/images/Rollerblind/design1.png",
-      heading:"Lorem Ipsum",
-      para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+      heading:"Professional Installation",
+      para:"We offer expert guidance, custom fitting, and professional installation to guarantee a flawless fit for every window.",
+    },
+  ];
+  // SunscreenFeatures
+  export const KeyFeaturesSunScreen=[
+    {
+      icon:"/assets/images/Rollerblind/design1.png",
+      heading:"Reduce Heat Without Losing Natural Light",
+      para:"Sunscreen blinds filter sunlight and keep your home cooler while natural light fills the room.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/design1.png",
+      heading:"Daytime Privacy with an Open View",
+      para:"Enjoy full privacy during the day without shutting out the outside view. Perfect for rooms with large windows.",
     },
     {
       icon:"/assets/images/Rollerblind/order1.png",
-      heading:"Lorem Ipsum",
-      para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+      heading:"Protect Your Interiors from Fading",
+      para:"No one enjoys constant sun exposure, which can cause interiors to fade over time. But with sunscreen, you can keep them fresh for a long time.",
     },
     {
       icon:"/assets/images/Rollerblind/design1.png",
-      heading:"Lorem Ipsum",
-      para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ",
+      heading:"Energy-Efficient and Cost Saving",
+      para:"These blinds help lower your need for air conditioning. So you can save a little on energy bills without sacrificing comfort.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/design1.png",
+      heading:"Low Maintenance for a Busy Life",
+      para:"Sunscreen blinds are easy to maintain and naturally resist dust, making them perfect for Dubai's dry and dusty climate.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/design1.png",
+      heading:"Stylish and Functional",
+      para:"We offer an extensive selection of colours and textures, perfect for everything from living rooms and commercial spaces to your kid's room. So why not bring style into your space?",
     },
   ];
 
-  export const ReviewsData=[
+  //image section
+
+  export const Blackoutimages = [{
+  heading:"test1",
+  para: "test para1",
+  imgurl:  "/assets/images/Rollerblind/Rectangle895.png",
+  },
+  {
+    heading:"test2",
+    para: "test para2",
+    imgurl:"/assets/images/Rollerblind/Rectangle895.png",
+    },
     {
-    id: 1,
-    name:"Masuad Rana",
-    date:"jun 22, 2024",
-    text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
-  },
-  {
-    id: 1,
-    name:"Masuad Rana",
-    date:"jun 22, 2024",
-    text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
-  },
-  {
-    id: 1,
-    name:"Masuad Rana",
-    date:"jun 22, 2024",
-    text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
-  },
-  {
-    id: 1,
-    name:"Masuad Rana",
-    date:"jun 22, 2024",
-    text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
-  },
+      heading:"test3",
+      para: "test para3",
+      imgurl:  "/assets/images/largedd.png",
+    },
   ];
+  
+  export const Sunscreenimages = [{
+    heading:"test4",
+    para: "test para4",
+    imgurl:  "/assets/images/Rollerblind/Rectangle895.png",
+    },
+    {
+      heading:"test5",
+      para: "test para5",
+      imgurl:"/assets/images/Rollerblind/Rectangle895.png",
+      },
+      {
+        heading:"test6",
+        para: "test para6",
+        imgurl:  "/assets/images/largedd.png",
+      },
+    ];
+
+  // export const ReviewsData=[
+  //   {
+  //   id: 1,
+  //   name:"Masuad Rana",
+  //   date:"jun 22, 2024",
+  //   text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+  // },
+  // {
+  //   id: 1,
+  //   name:"Masuad Rana",
+  //   date:"jun 22, 2024",
+  //   text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+  // },
+  // {
+  //   id: 1,
+  //   name:"Masuad Rana",
+  //   date:"jun 22, 2024",
+  //   text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+  // },
+  // {
+  //   id: 1,
+  //   name:"Masuad Rana",
+  //   date:"jun 22, 2024",
+  //   text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+  // },
+  // ];
 
   export const ListData =[
     {
@@ -2180,6 +2240,68 @@ export const TabData = {
       ],
     },
     // Add more objects as needed
+    {
+      info: [
+        {
+          className: 'h-[493px]', // Example class name for height or any other style
+          imageurl: '/assets/images/Rollerblind/Rectangle907.png', // Example image URL
+          text: 'Thermal Blackout Black Roller Blind',
+        },
+        {
+          className: 'h-[308px]',
+          imageurl: '/assets/images/Rollerblind/Rectangle908.png',
+          text: 'Sunscreen Roller Blinds',
+          alt:"ss"
+        },
+      ],
+    },
+    {
+      info: [
+        {
+          className: 'h-[222px]',
+          imageurl: '/assets/images/Rollerblind/Rectangle906.png',
+          text: 'Patterned Roller Blinds',
+        },
+        {
+          className: 'h-[581px]',
+          imageurl: '/assets/images/Rollerblind/Rectangle900.png',
+          text: 'Plain Roller Blinds',
+        },
+      ],
+    },
+    {
+      info: [
+        {
+          className: 'h-[493px]', // Example class name for height or any other style
+          imageurl: '/assets/images/Rollerblind/Rectangle901.png', // Example image URL
+          text: 'Blackout Roller Blinds',
+        },
+        {
+          className: 'h-[308px]',
+          imageurl: '/assets/images/Rollerblind/Rectangle905.png',
+          text: 'Sunscreen Roller Blinds',
+        },
+      ],
+    },
+    {
+      info: [
+        {
+          className: 'h-[205px]',
+          imageurl: '/assets/images/Rollerblind/Rectangle902.png',
+          text: 'Patterned Roller Blinds',
+        },
+        {
+          className: 'h-[220px]',
+          imageurl: '/assets/images/Rollerblind/Rectangle903.png',
+          text: 'Plain Roller Blinds',
+        },
+        {
+          className: 'h-[356px]',
+          imageurl: '/assets/images/Rollerblind/Rectangle904.png',
+          text: 'Plain Roller Blinds',
+        },
+      ],
+    },
   ];
 
   export const BlackoutRollerData=[

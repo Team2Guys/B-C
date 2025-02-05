@@ -1,18 +1,19 @@
 'use client'
-import { KeyFeaturesData } from 'data/data';
+import {KeyFeaturesRoller,KeyFeaturesSunScreen  } from 'data/data';
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Image from 'next/image';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import React Icons
 import { BiSolidLeftArrow, BiSolidRightArrow } from 'react-icons/bi';
+interface KeyfeatureProps {
+  tabType:string
 
-const KeyFeatures: React.FC = () => {
+}
+  const KeyFeatures = ({tabType}:KeyfeatureProps) => {
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
-
   return (
     <div className="bg-secondary 2xl:max-w-screen-2xl mx-auto px-2 pb-7">
       <h2 className="font-serif font-normal text-25 sm:text-4xl lg:text-37 text-white text-center pt-7">
@@ -25,13 +26,12 @@ const KeyFeatures: React.FC = () => {
         <div ref={nextRef} className="absolute right-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer text-white">
           <BiSolidRightArrow className="text-3xl" />
         </div>
-
         <Swiper
           spaceBetween={30}
           slidesPerView={1}
           navigation={{
-            prevEl: prevRef.current, // Assign the custom previous button
-            nextEl: nextRef.current, // Assign the custom next button
+            prevEl: prevRef.current, 
+            nextEl: nextRef.current,
           }}
           onInit={(swiper) => {
             if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
@@ -49,9 +49,8 @@ const KeyFeatures: React.FC = () => {
             1024: { slidesPerView: 3 },
             1440: { slidesPerView: 4 },
           }}
-          className="mySwiper"
-        >
-          {KeyFeaturesData.map((arr, index) => (
+          className="mySwiper">
+           {(tabType === "Sunscreen Roller Blinds" ? KeyFeaturesSunScreen : KeyFeaturesRoller).map((arr, index) => (
             <SwiperSlide key={index}>
               <div className="space-y-4 flex flex-col justify-center items-center mx-3 p-4">
                 <Image
@@ -61,7 +60,7 @@ const KeyFeatures: React.FC = () => {
                   height={1024}
                   width={1024}
                 />
-                <h2 className="font-normal text-23 sm:text-29 font-serif text-center">
+                <h2 className="font-normal text-23 sm:text-27 font-serif text-center">
                   {arr.heading}
                 </h2>
                 <p className="text-14 font-normal text-center leading-6">{arr.para}</p>

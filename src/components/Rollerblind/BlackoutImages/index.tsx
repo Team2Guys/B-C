@@ -11,16 +11,18 @@ const BlackoutRollerGallary = () => {
       <Tabs
   className="flex  justify-start md:justify-center items-center text-12 sm:text-15 md:text-18  whitespace-nowrap overflow-scroll sm:overflow-hidden"
   tabs={[
-    { label: 'All', content: <TabData ListData={ListData} label="All" Text='1See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from' />
+    { label: 'All', content: <TabData ListData={ListData} label="All" Text='At Blinds and Curtains, we make them from a single piece of fabric that rolls up neatly when you pull the chain or press a button. This gives your window a clean and tidy look without the fabric hanging all over the place all over the place.'/>
    },
     { 
       label: 'BLACKOUT ROLLER BLINDS', 
       content: <TabData ListData={ListData} label={(<><strong>BLACKOUT</strong> ROLLER BLINDS</>)} 
-      Text='2See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from' /> 
+      Text= "Blackout roller blinds keep your kids' room dark during long summer days, helping them sleep better during the day. Our quick and reliable installation service means you'll have your no-glare blinds set up in no time."/> 
     },
     { 
       label: 'SUNSCREEN ROLLER BLINDS', 
-      content: <TabData ListData={ListData} label={(<><strong>SUNSCREEN</strong>ROLLER BLINDS</>)} Text='3See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from' />
+      content: <TabData ListData={ListData} label={(<><strong>SUNSCREEN</strong>ROLLER BLINDS</>)} Text=
+      'Not only do they preserve the beauty of your furnishings by blocking up to 98% of damaging rays, but they also regulate indoor temperatures, keeping the room cooler and more comfortable.' 
+      />
     },
   ]}
 />

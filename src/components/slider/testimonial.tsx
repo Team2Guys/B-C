@@ -10,7 +10,6 @@ import "swiper/swiper-bundle.css";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
-
 import { fetchReviewsHandler } from "config/fetch";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
@@ -112,13 +111,7 @@ function Testimonial() {
   );
 }
 
-function ReadMoreCard({
-  testimonial,
-  wordLimit,
-}: {
-  testimonial: any;
-  wordLimit: number;
-}) {
+function ReadMoreCard({testimonial,wordLimit,}: {testimonial: any;wordLimit: number;}) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -134,15 +127,14 @@ function ReadMoreCard({
         height={64}
         className="w-16 h-16 2xl:w-20 2xl:h-20 rounded-full object-cover hidden xs:block"
       />
-      <div className="flex gap-2 xs:hidden justify-between w-full">
-     <div className="w-9/12 flex gap-2">
-     <Image
+       <div className="flex gap-2 xs:hidden justify-between w-full">
+       <div className="w-9/12 flex gap-2">
+       <Image
         src={testimonial?.profile_photo_url}
         alt="testimonial-image"
         width={64}
         height={64}
-        className="w-12 h-12 xs:w-16 xs:h-16 2xl:w-20 2xl:h-20 rounded-full object-cover"
-      />
+        className="w-12 h-12 xs:w-16 xs:h-16 2xl:w-20 2xl:h-20 rounded-full object-cover"/>
           <div className="">
             <h3 className="text-12 xs:text-14 lg:text-14 2xl:text-lg font-semibold">
               {testimonial.author_name}
@@ -161,10 +153,7 @@ function ReadMoreCard({
                 </p>
               </div>
             </div>
-          </div>
-     </div>
-        <div>
-    
+          </div></div><div>
         </div>
       </div>
       <div>
