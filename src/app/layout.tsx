@@ -109,8 +109,12 @@ export default function RootLayout({
               }}
             />
 
-    {/* Google Analytics Script */}
-    <Script
+
+ 
+
+        </Head>
+            {/* Google Analytics Script */}
+        <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-2W1CWBHDRB"
       />
@@ -123,8 +127,6 @@ export default function RootLayout({
           gtag('config', 'G-2W1CWBHDRB');
         `}
       </Script>
-
-        </Head>
 
 
         <body className={` ${gotham.className} bg-lightgrey`}>

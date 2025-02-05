@@ -6,7 +6,7 @@ on:
       - live_main
   pull_request:
     branches:
-      - dev
+      - main
 
 jobs:
   build:
