@@ -33,6 +33,7 @@ async function bootstrap() {
       "http://localhost:3001",
       /\.vercel\.app$/,
       "http://localhost:5001",
+      "http://185.151.51.28:5004"
     ],
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     preflightContinue: false,
