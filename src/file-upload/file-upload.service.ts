@@ -18,7 +18,7 @@ async getFile(file: Express.Multer.File): Promise<any> {
         }
           
         console.log(result, "result")
-        resolve({imageUrl: result.url,public_id:result.public_id });
+        resolve({imageUrl: result.secure_url,public_id:result.public_id });
       });
 
       uploadStream.end(file.buffer);
