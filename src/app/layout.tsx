@@ -94,22 +94,6 @@ export default function RootLayout({
             `,
               }}
             />
-
-            {/* Google Analytics */}
-            <Script
-              id="gtag-init"
-
-              strategy='afterInteractive'
-              dangerouslySetInnerHTML={{
-                __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'UA-133442332-1');
-            `,
-              }}
-            />
-
             {/* Google Analytics Script */}
         <Script
         strategy="afterInteractive"
