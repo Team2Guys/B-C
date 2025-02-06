@@ -75,14 +75,14 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
 
         <Container className="sm:hidden mb-2 pb-4 pt-2 text-center w-full flex flex-wrap justify-between border-b border-[#0006]">
           <Link
-            className="py-3 px-3 rounded-md text-14 xs:text-15 whitespace-nowrap bg-primary text-black"
+            className="py-3 px-2 xs:px-3 rounded-md text-11 xsm:text-12 xs:text-15 whitespace-nowrap bg-primary text-black"
             href="/request-appointment"
             onClick={handleLinkClick}
           >
             BOOK A FREE APPOINTMENT
           </Link>
           <Link
-            className={`text-14 py-3 px-3 rounded-md text-black sm:hidden ${path === '/estimator'
+            className={`text-11 xsm:text-12 xs:text-15 py-3 px-2 xs:px-3 uppercase rounded-md text-black sm:hidden ${path === '/estimator'
               ? 'bg-secondary text-white'
               : 'bg-primary text-black'
               }`}
@@ -239,7 +239,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
             </div>
           </div>
 
-          <div className="lg:w-2/12  justify-between xs:justify-end items-center gap-6">
+          <div className="lg:w-2/12 flex justify-between xs:justify-end items-center gap-6">
             <Link
               className="py-2 px-2 xl:px-5 hidden sm:block rounded-md text-10 xl:text-11 2xl:text-15 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
               href="/request-appointment"
