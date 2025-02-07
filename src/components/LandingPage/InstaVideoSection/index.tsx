@@ -1,10 +1,15 @@
 'use client'
 import React, { useState, useRef } from 'react';
-import { InstaData} from 'data/data';
 import { FaPlay, FaPause } from 'react-icons/fa';
 import Container from 'components/Res-usable/Container/Container';
+interface VideoData {
+  video: string;
+}
+interface InstaVideoSectionProps {
+  data: VideoData[];
+}
 
-const InstaVideoSection = () => {
+const InstaVideoSection: React.FC<InstaVideoSectionProps> = ({ data }) => {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const videoRefs = useRef<HTMLVideoElement[]>([]);
 
@@ -35,7 +40,7 @@ const InstaVideoSection = () => {
         <h2 className='text-black text-2xl sm:text-3xl lg:text-5xl font-normal font-serif text-nowrap'>Explore Our Gallery</h2>
       </div>
       <div className='grid grid-cols-2 md:grid-cols-3 justify-center items-center gap-3 mx-auto pt-5 sm:pt-10 bg-white'>
-        {InstaData.map((item, index) => (
+        {data.map((item, index) => (
           <div key={index} className='relative' onClick={() => handlePlayPause(index)}>
             <video
               ref={(el: HTMLVideoElement | null) => {

@@ -8,17 +8,16 @@ import Button from 'components/LandingPage/ButtonSection';
 import MoterizedService from 'components/LandingPage/MoterizedService';
 import Header from 'components/LandingPage/Header';
 import CustomSection from '../../components/LandingPage/Custommade';
-import { KeyData } from 'data/data';
+import { InstacurtainData, KeyData, MotorisedSellingDataCurtain } from 'data/data';
 import { benefits } from 'data/data';
 import SellingFeatures from 'components/LandingPage/SellingFeatures';
-import { MotorisedSellingData } from 'data/data';
 import { TabData } from 'data/data';
 import { fetchCategories, fetchProducts } from 'config/fetch';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 
 
-const LandingPage= async () => {
+const Custommade_MoterisedCurtains= async () => {
   const [products, categories ] = await Promise.all([
       fetchProducts(),
       fetchCategories(),
@@ -48,9 +47,9 @@ const LandingPage= async () => {
       imageUrl="/assets/images/Moterised-ads-blinds/curtain.jpg" 
       benefits={benefits.motorized_curtains}  />
       <MoterizedService TabData={TabData.motorized_curtains}/>
-      <SellingFeatures data={MotorisedSellingData}/>
+      <SellingFeatures data={MotorisedSellingDataCurtain}/>
       <Button/>
-      <InstaVideoSection />
+      <InstaVideoSection data={InstacurtainData}  />
       <Container className="mt-10 md:mt-20">
       <RelatedProducts products={products || []} limit={4} categoriesList={categories} bgcolor={true} />
       </Container>
@@ -59,4 +58,4 @@ const LandingPage= async () => {
   );
 };
 
-export default LandingPage;
+export default Custommade_MoterisedCurtains;

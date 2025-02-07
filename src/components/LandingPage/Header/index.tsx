@@ -27,11 +27,10 @@ const Header = () => {
         </div>
       ))}
 
-      {/* Contact Info Section */}
       <div className='flex-col justify-center items-center space-y-3 bg-black col-span-6 md:col-span-6 lg:col-span-2 py-3 sm:pt-8'>
         <div className='flex gap-2 justify-center'>
           <LuPhone className='text-10 sm:text-14 text-center xl:text-16' />
-          <Link href="tel:+042522025" className='text-10 sm:text-12 text-center'>
+          <Link target='blank' href="tel:+971544945339" className='text-10 sm:text-12 text-center'>
             04 252 2025
           </Link>
         </div>
@@ -42,8 +41,6 @@ const Header = () => {
           </Link>
         </div>
       </div>
-
-      {/* Social Links */}
       <div className='bg-black col-span-6 md:col-span-6 lg:col-span-2 flex justify-center items-center pt-2 lg:pr-3'>
         <SocialLink />
       </div>

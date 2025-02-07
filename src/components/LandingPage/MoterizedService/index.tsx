@@ -1,11 +1,10 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Container from 'components/Res-usable/Container/Container';
 import Contant from '../Contant';
-import { TabData } from 'data/data';
 interface TabItem {
   icon: string;
+  activeicon: string;
   tab?: string;
   title: string;
   video: string;
@@ -21,7 +20,7 @@ const MoterizedService: React.FC<MoterizedServiceProps> = ({ TabData }) => {
 
   return (
     <div className='bg-light pt-5 relative mb-5 max-w-screen-2xl mx-auto'>
-      <Container className='2xl:max-w-[90%]'>
+      <div className='lg:max-w-[90%] mx-auto px-2'>
         <h2 className='pl-6 lg:pl-0 font-serif text-black text-lg md:text-3xl sm:text-2xl lg:text-4xl'>
           Like the <span className='font-extrabold'>idea</span> of going electric?
         </h2>
@@ -32,28 +31,22 @@ const MoterizedService: React.FC<MoterizedServiceProps> = ({ TabData }) => {
                 className={`px-4 py-2 text-lg flex flex-col space-y-2 justify-center items-center ${
                   activeTab === index ? 'text-black' : ' text-primary'
                 }`}
-                onClick={() => setActiveTab(index)}
-              >
+                onClick={() => setActiveTab(index)}>
                 <Image
-                  src={arr.icon}
+                  src={activeTab === index ? arr.icon : arr.activeicon}
                   width={50}
                   height={50}
-                  alt="icon"
-                  className={activeTab === index ? 'filter fill-black invert' : 'filter text-primary'}
-                />
-                <p className={activeTab === index ? 'text-black' : ' text-primary'}>
-                  {arr.tab}
-                </p>
+                  alt="icon"/>
+                <p className={`text-xs md:text-sm lg:text-lg ${activeTab === index ? 'text-black' : 'text-primary'}`}>{arr.tab}</p>
               </button>
             </div>
           ))}
         </div>
-
-        {/* Content Section */}
+        
         <div className='w-full '>
-          <Contant TabData={TabData[activeTab]} /> {/* Now correctly passes expected data */}
+          <Contant TabData={TabData[activeTab]} /> 
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

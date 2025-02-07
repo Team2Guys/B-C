@@ -21,7 +21,7 @@ const VideoSection : React.FC<VideoPageProps>  = ({ videoSrc, title, subtitle, d
   };
 
   return (
-    <div className='max-w-screen-2xl mx-auto'>
+    <div className='max-w-screen-2xl 2xl:max-w-screen-2xl mx-auto'>
     <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden`} onClick={handlePlayPause}>
       <video
       onClick={handlePlayPause}
@@ -34,8 +34,7 @@ const VideoSection : React.FC<VideoPageProps>  = ({ videoSrc, title, subtitle, d
         playsInline
         controls={false}
       />
-
-{!isPlaying && (
+      {!isPlaying && (
           <button onClick={handlePlayPause} className='absolute z-20 left-[50%] top-[50%] transform -translate-x-1/2 -translate-y-1/2 transition'>
             <div className='border border-white text-white rounded-full h-16 w-16 flex justify-center items-center'>
               <FaPlay size={25} />

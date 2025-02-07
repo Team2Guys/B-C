@@ -14,18 +14,18 @@ const MoterizedBlinds: React.FC<BlindsSectionProps> = ({ title, subtitle, imageU
     <div className='mb-5 px-0 max-w-screen-2xl mx-auto'>
       <div className="w-full flex flex-col sm:flex-row items-center justify-between">
         <div className="w-full sm:w-1/2 flex items-center">
-          <div className='bg-secondary h-auto sm:h-80 md:h-[380px] lg:h-96 sm:w-5'></div>
+          <div className='bg-secondary h-auto sm:h-80 lg:h-96 sm:w-5'></div>
           <div className='w-full md:w-12/12'>
           <Image
             src={imageUrl}
             alt={subtitle}
             width={800}
             height={500}
-            className="h-auto sm:h-[350px] md:h-[400px] lg:h-[420px]  w-full  object-fill"
+            className="h-auto sm:h-[350px] lg:h-[420px]  w-full  object-fill"
           />
           </div>
         </div>
-        <div className="pt-2 md:pl-7 sm:w-1/2 sm:h-80 md:h-[380px] lg:h-96 mt-2 lg:pt-7 md:pt-4 px-4 space-y-5 text-white w-full xl:w-[840px] bg-secondary">
+        <div className="pt-2 pb-3 sm:pb-0 md:pl-7 sm:w-1/2 sm:h-80 lg:h-96 mt-2 lg:pt-7 md:pt-4 px-4 space-y-5 text-white w-full xl:w-[840px] bg-secondary">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light font-serif text-nowrap xl:mt-6">
           {title}<br /> 
             <span className='text-1xl sm:text-3xl xl:text-4xl font-serif font-extrabold'>

@@ -1864,7 +1864,7 @@ export   const checkboxData = [
 // Landingpage content
 export const NavData = [
   {
-    image: '/assets/images/Moterised-ads-blinds/vector.png',
+    image: '/assets/images/Moterised-ads-blinds/visit.png',
    title:'We Can Visit you',
    description:'Take Measurements',
   },
@@ -1878,20 +1878,50 @@ export const NavData = [
   },
 ];
 
-export const InstaData = [
-  { video: "/assets/video/Agsons.mp4"
+export const InstablindData = [
+  { video: "/assets/instavideo/5.mp4"
   },
-  { video: "/assets/video/Agsons.mp4"
+  { video: "/assets/instavideo/6.mp4"
   },
-  { video: "/assets/video/Agsons.mp4"
+  { video: "/assets/instavideo/1.mp4"
   },
-  { video: "/assets/video/Agsons.mp4"
+  { video: "/assets/instavideo/4.mp4"
   },
-  { video: "/assets/video/Agsons.mp4"
+  { video: "/assets/instavideo/2.mp4"
   },
-  { video: "/assets/video/Agsons.mp4"
+  { video: "/assets/instavideo/3.mp4"
   },
 ];
+
+export const InstacurtainData = [
+  { video: "/assets/instavideo/10.mp4"
+  },
+  { video: "/assets/instavideo/11.mp4"
+  },
+  { video: "/assets/instavideo/12.mp4"
+  },
+  { video: "/assets/instavideo/7.mp4"
+  },
+  { video: "/assets/instavideo/8.mp4"
+  },
+  { video: "/assets/instavideo/9.mp4"
+  },
+];
+export const InstaRollerData = [
+  { video: "/assets/instavideo/5.mp4"
+  },
+  { video: "/assets/instavideo/6.mp4"
+  },
+  { video: "/assets/instavideo/1.mp4"
+  },
+  { video: "/assets/instavideo/4.mp4"
+  },
+  { video: "/assets/instavideo/2.mp4"
+  },
+  { video: "/assets/instavideo/3.mp4"
+  },
+];
+
 
 export const KeyData =[
   {
@@ -1904,11 +1934,11 @@ export const KeyData =[
   },
   {
     image:"/assets/images/Moterised-ads-blinds/ready.png",
-    para:"Our motor and blinds come with a 10-year warranty, giving you long-term peace of mind.",  
+    para:"Up to 10-year warranty for all mechanical parts and labour to give you peace of mind for a long time. ",  
   },
   {
     image:"/assets/images/Moterised-ads-blinds/loyalty.png",
-    para:"Every motor is backed by a 5 year warranty for added peace of mind.",  
+    para:"Every motor is backed by a 10-year warranty to save you from maintenance hassles.",  
   },
 ];
 
@@ -1937,7 +1967,7 @@ export const benefits = {
 
 
 
-export const MotorisedSellingData=[{
+export const MotorisedSellingDataBlinds=[{
   icon:"/assets/images/Moterised-ads-blinds/icon-automation1.png",
   title: "Motorised blinds make life easy…",
   list:[
@@ -1957,44 +1987,69 @@ list:[
 ],},
 ];
 
+export const MotorisedSellingDataCurtain=[{
+  icon:"/assets/images/Moterised-ads-blinds/icon-automation1.png",
+  title: "Motorised Curtains make life easy…",
+  list:[
+    {heading:"Effortless Control:" , para:"Use your phone, remote, or voice assistant to open or close them instantly."},
+    {heading:"Customised for You:" , para:" Pick fabrics, colours, and styles to match your space."},
+    {heading:"Privacy Anytime:" , para:"Close your curtains in seconds for complete privacy."},
+    {heading:"Energy Efficient:" , para:"Save on energy costs by scheduling your curtains to manage heat and light."},
+  ],},
+{
+icon:"/assets/images/Moterised-ads-blinds/icon-automation1.png",
+title: "With full automation at your command",
+list:[
+  {heading:"Cord-Free Safety:" , para:"Keep your home safe for kids and pets with no dangling cords."},
+  {heading:"Smooth & Silent:" , para:"Quiet motors are good for easy operation and peace of mind."},
+  {heading:"Convenient Scheduling:" , para:"Set them to open and close automatically, whether you're home or not."},
+  {heading:"Built to Last:" , para:"A 10-year warranty proves that we don't compromise on quality."},
+],},
+];
+
 export const TabData = { 
   motorized_blinds: [
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/smart.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/smart1.svg",
       title: "Control your windows anytime, anywhere!",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/moto.mp4",
       description:
         "Smart control systems from Somfy, Nice, and Motion make it easier than ever to manage your blinds from a smart hub, mobile device, voice assistant, or remote. All while blocking UV rays and offering precision light, privacy, and energy efficiency control.",
       tab: "Smart control",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/mobile.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/mobile1.svg",
       title: "Just tap your screen & control your blinds",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/moto.mp4",
       description:
         "Adjusting your blinds is now as easy as tapping a screen. No matter where you are—whether at home, the office, or even out running errands—you can control your blinds in real time.",
       tab: "Smartphone",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/voice.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/voice1.svg",
       title: "Just say the word & enjoy the morning sunshine!",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/moto.mp4",
       description:
         "Connect your blinds to a voice assistant like Alexa or Google Home. With a simple voice command like “Alexa, lower my blinds” you can open, close, or adjust the blinds without lifting a finger.",
       tab: "Voice assistant",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/remote.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/remote1.svg",
       title: "Quick, easy, and always within reach!",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/moto.mp4",
       description:
         "Whether you prefer the convenience of a handheld remote or a fixed wall switch, you get easy access to control light and privacy. No more fussing with cords—just a quick press to adjust your blinds exactly how you want them.",
       tab: "Remote or Wall switch",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/automated.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/automated1.svg",
       title: "Set timers for your blinds to open and close automatically",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/moto.mp4",
       description:
         "Set your blinds to open in the morning and close at night—without lifting a finger. Wake up to a natural light-filled morning or enjoy a moment of instant privacy at the exact moment you choose, all on autopilot.",
       tab: "Automated Scheduling",
@@ -2002,41 +2057,46 @@ export const TabData = {
   ],
   motorized_curtains: [
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/smart.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/smart1.svg",
       title: "Control your windows anytime, anywhere!",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/curto.mp4",
       description:
         "Smart control systems from Somfy, Nice, and Motion make it easier than ever to manage your curtains from a smart hub, mobile device, voice assistant, or remote. All while blocking UV rays and offering precision light, privacy, and energy efficiency control.",
         tab: "Smart control"
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/mobile.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/mobile1.svg",
       title: "Just tap your screen & control your curtains",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/curto.mp4",
       description:
         "Adjusting your curtains is now as easy as tapping a screen. No matter where you are—whether at home, the office, or even out running errands—you can control your curtains in real-time.",
       tab: "Smartphone",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/voice.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/voice1.svg",
       title: "Just say the word & enjoy the morning sunshine!",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/curto.mp4",
       description:
         "Connect with a voice assistant like Alexa or Google Home. With a simple voice command like “Alexa, close my curtains” you can open, close, or adjust the curtains without lifting a finger.",
       tab: "Voice assistant",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/remote.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/remote1.svg",
       title: "Quick, easy, and always within reach!",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/curto.mp4",
       description:
         "Whether you prefer the convenience of a handheld remote or a fixed wall switch, you get easy access to control light and privacy. No more fussing with cords—just a quick press to adjust your curtains exactly how you want them.",
         tab: "Remote or Wall switch"
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/iconremote1.svg",
+      icon: "/assets/images/Moterised-ads-blinds/landing/automated.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/automated1.svg",
       title: "Set timers for your curtains to open and close automatically",
-      video: "/assets/video/Agsons.mp4",
+      video: "/assets/video/curto.mp4",
       description:
         "Set your curtains to open in the morning and close at night—without lifting a finger. Wake up to a natural light-filled morning or enjoy a moment of instant privacy at the exact moment you choose, all on autopilot.",
       tab: "Automated Scheduling",
@@ -2045,7 +2105,90 @@ export const TabData = {
 };
 
 
-  // RollerMain
+// RollerMainContent
+export const tabsData = [
+  {
+    id: 0,
+    title: 'Blackout Roller Blinds',
+    subtitle: 'Made-to-measure for a perfect fit in any window size',
+    heading: "Total Darkness & Maximum Comfort",
+    content: [
+      {
+        title1: '100% Light Blockage:',
+        description: 'No light can pass through the material. Add side channels to completely block light from entering from the edges too.'
+      },
+      {
+        title1: 'Energy Efficient:',
+        description: 'Insulated fabric keeps your room warmer in winter, cooler in summer and lower energy bills.'
+      },
+      {
+        title1: 'Noise Reduction:',
+        description: 'Thick blackout fabric helps to absorb sound and keeps your home quiet and peaceful all day long.'
+      },
+    ],
+    iconSrc: '/assets/images/Rollerblind/roller.png',
+    videoSrc: '/assets/video/Agsons.mp4', 
+  },
+  {
+    id: 1,
+    title: 'Sunscreen Roller Blinds',
+    subtitle:'Enjoy Natural Light Without the Harsh Glare',
+    heading: "Light Control with UV Protection",
+    content: [
+      {
+        title1: 'UV Protection:',
+        description: 'UV roller blinds block up to 98% of harmful UV rays and help protect your furniture, floors, and interior décor from fading.'
+      },
+      {
+        title1: 'Energy Efficiency:',
+        description: 'Blocking excessive sunlight reduces the need for air conditioning and reduces energy costs.'
+      },
+      {
+        title1: 'Custom Fit & Style:',
+        description: ' Various fabrics and colours are available to complement your interior while providing functional advantages.'
+      },
+    ],
+    iconSrc: '/assets/images/Rollerblind/roller.png',
+    videoSrc: '/assets/video/Agsons.mp4', 
+  },
+];
+
+  // BlackoutimagesSection
+  export const Blackoutimages = [{
+    heading:"test1",
+    para: "test para1",
+    imgurl:  "/assets/images/Rollerblind/Rectangle895.png",
+    },
+    {
+      heading:"test2",
+      para: "test para2",
+      imgurl:"/assets/images/Rollerblind/Rectangle895.png",
+      },
+      {
+        heading:"test3",
+        para: "test para3",
+        imgurl:  "/assets/images/largedd.png",
+      },
+    ];
+  
+    // SunscreenimagesSection  
+    export const Sunscreenimages = [{
+      heading:"test4",
+      para: "test para4",
+      imgurl:  "/assets/images/Rollerblind/Rectangle895.png",
+      },
+      {
+        heading:"test5",
+        para: "test para5",
+        imgurl:"/assets/images/Rollerblind/Rectangle895.png",
+        },
+        {
+          heading:"test6",
+          para: "test para6",
+          imgurl:  "/assets/images/largedd.png",
+        },
+      ];
+
   // RollerFeatures
   export const KeyFeaturesRoller=[
     {
@@ -2113,42 +2256,6 @@ export const TabData = {
     },
   ];
 
-  //image section
-
-  export const Blackoutimages = [{
-  heading:"test1",
-  para: "test para1",
-  imgurl:  "/assets/images/Rollerblind/Rectangle895.png",
-  },
-  {
-    heading:"test2",
-    para: "test para2",
-    imgurl:"/assets/images/Rollerblind/Rectangle895.png",
-    },
-    {
-      heading:"test3",
-      para: "test para3",
-      imgurl:  "/assets/images/largedd.png",
-    },
-  ];
-  
-  export const Sunscreenimages = [{
-    heading:"test4",
-    para: "test para4",
-    imgurl:  "/assets/images/Rollerblind/Rectangle895.png",
-    },
-    {
-      heading:"test5",
-      para: "test para5",
-      imgurl:"/assets/images/Rollerblind/Rectangle895.png",
-      },
-      {
-        heading:"test6",
-        para: "test para6",
-        imgurl:  "/assets/images/largedd.png",
-      },
-    ];
-
   // export const ReviewsData=[
   //   {
   //   id: 1,
@@ -2176,12 +2283,12 @@ export const TabData = {
   // },
   // ];
 
-  export const ListData =[
+  export const GallaryData =[
     {
       info: [
         {
-          className: 'h-[493px]', // Example class name for height or any other style
-          imageurl: '/assets/images/Rollerblind/Rectangle907.png', // Example image URL
+          className: 'h-[493px]', 
+          imageurl: '/assets/images/Rollerblind/Rectangle907.png', 
           text: 'Thermal Blackout Black Roller Blind',
         },
         {
@@ -2209,8 +2316,8 @@ export const TabData = {
     {
       info: [
         {
-          className: 'h-[493px]', // Example class name for height or any other style
-          imageurl: '/assets/images/Rollerblind/Rectangle901.png', // Example image URL
+          className: 'h-[493px]', 
+          imageurl: '/assets/images/Rollerblind/Rectangle901.png', 
           text: 'Blackout Roller Blinds',
         },
         {
@@ -2243,8 +2350,8 @@ export const TabData = {
     {
       info: [
         {
-          className: 'h-[493px]', // Example class name for height or any other style
-          imageurl: '/assets/images/Rollerblind/Rectangle907.png', // Example image URL
+          className: 'h-[493px]', 
+          imageurl: '/assets/images/Rollerblind/Rectangle907.png', 
           text: 'Thermal Blackout Black Roller Blind',
         },
         {
@@ -2267,50 +2374,42 @@ export const TabData = {
           imageurl: '/assets/images/Rollerblind/Rectangle900.png',
           text: 'Plain Roller Blinds',
         },
-      ],
-    },
-    {
-      info: [
-        {
-          className: 'h-[493px]', // Example class name for height or any other style
-          imageurl: '/assets/images/Rollerblind/Rectangle901.png', // Example image URL
-          text: 'Blackout Roller Blinds',
-        },
-        {
-          className: 'h-[308px]',
-          imageurl: '/assets/images/Rollerblind/Rectangle905.png',
-          text: 'Sunscreen Roller Blinds',
-        },
-      ],
-    },
-    {
-      info: [
-        {
-          className: 'h-[205px]',
-          imageurl: '/assets/images/Rollerblind/Rectangle902.png',
-          text: 'Patterned Roller Blinds',
-        },
-        {
-          className: 'h-[220px]',
-          imageurl: '/assets/images/Rollerblind/Rectangle903.png',
-          text: 'Plain Roller Blinds',
-        },
-        {
-          className: 'h-[356px]',
-          imageurl: '/assets/images/Rollerblind/Rectangle904.png',
-          text: 'Plain Roller Blinds',
-        },
-      ],
-    },
-  ];
+        ],
+      },
+    ];
+    // not needed
+    // {
+    //   info: [
+    //     {
+    //       className: 'h-[493px]', 
+    //       imageurl: '/assets/images/Rollerblind/Rectangle901.png', 
+    //       text: 'Blackout Roller Blinds',
+    //     },
+    //     {
+    //       className: 'h-[308px]',
+    //       imageurl: '/assets/images/Rollerblind/Rectangle905.png',
+    //       text: 'Sunscreen Roller Blinds',
+    //     },
+    //   ],
+    // },
+    // {
+    //   info: [
+    //     {
+    //       className: 'h-[205px]',
+    //       imageurl: '/assets/images/Rollerblind/Rectangle902.png',
+    //       text: 'Patterned Roller Blinds',
+    //     },
+    //     {
+    //       className: 'h-[220px]',
+    //       imageurl: '/assets/images/Rollerblind/Rectangle903.png',
+    //       text: 'Plain Roller Blinds',
+    //     },
+    //     {
+    //       className: 'h-[356px]',
+    //       imageurl: '/assets/images/Rollerblind/Rectangle904.png',
+    //       text: 'Plain Roller Blinds',
+    //     },
+      // ],
+  //   },
+  // ];
 
-  export const BlackoutRollerData=[
-    {
-      heading:"All",
-      text:"See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from",},
-      {
-        heading:"BLACKOUT ROLLER BLINDS",
-        text:"See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from",},
-        {
-          heading:"SUNSCREEN ROLLER BLINDS",
-          text:"See our comprehensive Blinds range Find the perfect made-to-measure  ds within our exclusive range. There are many shades and stunning patterns to select from",}];
