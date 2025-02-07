@@ -47,6 +47,8 @@ const Custommade_MoterisedBlinds = async () => {
       subtitle="at Your Fingertips" 
       imageUrl="/assets/images/Moterised-ads-blinds/Rectangle884.png" 
       benefits={benefits.motorized_blinds}  />
+
+      
       <MoterizedService TabData={TabData.motorized_blinds}/>
       <SellingFeatures data={MotorisedSellingDataBlinds}/>
       <Button/>
