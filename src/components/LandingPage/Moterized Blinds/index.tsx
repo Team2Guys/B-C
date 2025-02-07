@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import {benefits } from 'data/data';
 
 interface BlindsSectionProps {
   title: string;

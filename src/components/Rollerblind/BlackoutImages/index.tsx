@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+
 import React from 'react';
 import {GallaryData } from 'data/data';
 import Tabs from 'components/ui/Tabs';

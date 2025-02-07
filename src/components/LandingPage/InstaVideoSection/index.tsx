@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useRef } from 'react';
-import { FaPlay, FaPause } from 'react-icons/fa';
+import { FaPlay } from 'react-icons/fa';
 import Container from 'components/Res-usable/Container/Container';
 interface VideoData {
   video: string;

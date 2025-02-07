@@ -1,5 +1,4 @@
 "use client";
-import { GallaryData } from 'data/data';
 import React, { useEffect, useRef, useState } from 'react';
 import { FaPlus } from "react-icons/fa6";
 
