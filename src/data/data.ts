@@ -1879,10 +1879,7 @@ export const NavData = [
 ];
 
 export const InstablindData = [
-  { video: "/assets/instavideo/5.mp4"
-  },
-  { video: "/assets/instavideo/6.mp4"
-  },
+
   { video: "/assets/instavideo/1.mp4"
   },
   { video: "/assets/instavideo/4.mp4"
@@ -1908,10 +1905,7 @@ export const InstacurtainData = [
   },
 ];
 export const InstaRollerData = [
-  { video: "/assets/instavideo/5.mp4"
-  },
-  { video: "/assets/instavideo/6.mp4"
-  },
+
   { video: "/assets/instavideo/1.mp4"
   },
   { video: "/assets/instavideo/4.mp4"
