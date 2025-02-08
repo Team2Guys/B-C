@@ -1839,8 +1839,6 @@ export const items = [
   },
 ];
 
-
-
 export   const checkboxData = [
   { name: 'canAddProduct', label: 'Can Add Product' },
   { name: 'canEditProduct', label: 'Can Edit Product' },
@@ -1915,7 +1913,6 @@ export const InstaRollerData = [
   { video: "/assets/instavideo/3.mp4"
   },
 ];
-
 
 export const KeyData =[
   {
