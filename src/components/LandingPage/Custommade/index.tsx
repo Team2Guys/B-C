@@ -22,7 +22,7 @@ const CustomSection: React.FC<CustomSectionProps> = ({
 }) => {
   return (
     <div className='w-full flex flex-col sm:flex-row justify-center max-w-screen-2xl 2xl:max-screen-full mx-auto'>
-    <Container className='flex flex-col w-full sm:w-1/2 justify-center h-auto sm:h-96 md:h-[400px] lg:h-96 space-y-3 bg-white lg:p-6 my-2 md:mt-3 p-5 py-4 border'>
+    <Container className='flex flex-col w-full sm:w-1/2 justify-center h-auto sm:h-96 md:h-[440px] lg:h-[420px] space-y-3 bg-white lg:p-6 my-2 md:mt-3 p-5 py-4 border'>
     <div className='mx-8 xl:pl-12 2xl:pl-28'>
     <h2 className="text-black text-2xl sm:text-3xl lg:text-4xl font-light font-serif text-nowrap">{title}<br />
     <span className="text-black text-1xl sm:text-3xl lg:text-4xl font-serif font-extrabold">{subtitle}</span></h2>
@@ -44,10 +44,10 @@ const CustomSection: React.FC<CustomSectionProps> = ({
             alt={imageAlt}
             width={800}
             height={500}
-            className="h-full w-full sm:h-[410px] object-cover lg:h-[420px] xl:max-h-full"
+            className="h-full w-full sm:h-[470px] object-cover lg:h-[450px] xl:max-h-full"
           />
         </div>
-        <div className='bg-white h-auto sm:h-96 lg:h-96 xl:h-96 sm:w-3'></div>
+        <div className='bg-white h-auto sm:h-[440px] lg:h-[420px]  sm:w-3'></div>
       </div>
     </div>
   );

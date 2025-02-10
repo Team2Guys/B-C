@@ -19,7 +19,7 @@ const MoterizedService: React.FC<MoterizedServiceProps> = ({ TabData }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className='bg-light pt-5 relative mb-5 max-w-screen-2xl mx-auto'>
+    <div className='bg-light pt-5 relative mb-5 max-w-screen-2xl mx-auto md:pb-5'>
       <div className='lg:max-w-[90%] mx-auto px-2'>
         <h2 className='pl-6 lg:pl-0 font-serif text-black text-lg md:text-3xl sm:text-2xl lg:text-4xl'>
           Like the <span className='font-extrabold'>idea</span> of going electric?
