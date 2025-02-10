@@ -49,13 +49,13 @@ export default function ReviewBanner() {
                 <br /> in Every Detail
               </h3>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10 ">
               <Link
                 href="https://g.page/r/Cb5WvqhjNT4iEAE/"
                 target="_blank"
                 className="w-fit mx-auto"
               >
-                <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit mb-9">
+                <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit  border">
                   <span>
                     <FcGoogle className="lg:text-3xl text-14" />
                   </span>
@@ -65,7 +65,7 @@ export default function ReviewBanner() {
                 </div>
               </Link>
             </div>
-            <div className="bg-primary lg:mt-0 mt-10">
+            {/* <div className="bg-primary lg:mt-0 mt-10">
               <div className="container h-auto w-full">
                 <Image
                   className="absolute lg:-top-4 top-[36%] lg:bottom-60  lg:right-[13%] lg:translate-x-[15%] 2xl:right-[14%] right-[50%] translate-x-[50%] sm:right-[50%] sm:translate-x-[50%]  z-10 "
@@ -121,7 +121,7 @@ export default function ReviewBanner() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>
