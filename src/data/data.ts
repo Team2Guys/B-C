@@ -1877,30 +1877,35 @@ export const NavData = [
 ];
 
 export const InstablindData = [
-
-  { video: "/assets/instavideo/1.mp4"
+  {
+   video:"https://player.vimeo.com/video/1055115625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
-  { video: "/assets/instavideo/4.mp4"
+  {
+    video:"https://player.vimeo.com/video/1055115695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+   },
+   { video:"https://player.vimeo.com/video/1055115555?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+   },
+  { video:"https://player.vimeo.com/video/1055115449?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
   },
-  { video: "/assets/instavideo/2.mp4"
+  { video: "https://player.vimeo.com/video/1055115492?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
-  { video: "/assets/instavideo/3.mp4"
+  { video:"https://player.vimeo.com/video/1055115524?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
 ];
 
 export const InstacurtainData = [
-  { video: "/assets/instavideo/10.mp4"
+  { video: "https://player.vimeo.com/video/1055113938?h=ee041f419c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
-  { video: "/assets/instavideo/11.mp4"
+  { video:"https://player.vimeo.com/video/1055113888?h=bf0480c871&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
-  { video: "/assets/instavideo/12.mp4"
+  { video: "https://player.vimeo.com/video/1055113913?h=15d0c4c019&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
-  { video: "/assets/instavideo/7.mp4"
+  { video: "https://player.vimeo.com/video/1055113770?h=60a0d27ace&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
-  { video: "/assets/instavideo/8.mp4"
+  { video:"https://player.vimeo.com/video/1055113824?h=b785d67083&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
   },
-  { video: "/assets/instavideo/9.mp4"
-  },
+  { video:"https://player.vimeo.com/video/1055113856?h=ecfdbe3d6d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  }, 
 ];
 export const InstaRollerData = [
 
