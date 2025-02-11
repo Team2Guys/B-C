@@ -31,13 +31,13 @@ const Header = () => {
         <div className='flex gap-2 justify-center'>
           <LuPhone className='text-10 sm:text-14 text-center xl:text-16' />
           <Link target='blank' href="tel:+971544945339" className='text-10 sm:text-12 text-center'>
-            04 252 2025
+          +971 54 494 5339
           </Link>
         </div>
         <div className='flex gap-2 justify-center items-center'>
           <IoMailOpenOutline className='text-10 sm:text-12 text-center xl:text-16' />
-          <Link href="mailto:connect@twoguys.ae" className='text-10 sm:text-14 text-center'>
-            connect@twoguys.ae
+          <Link href="mailto:sales@blindsandcurtains.ae" className='text-10 sm:text-14 text-center'>
+          sales@blindsandcurtains.ae
           </Link>
         </div>
       </div>
