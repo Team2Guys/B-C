@@ -42,10 +42,10 @@ export const SocialData: SocialDataType[] = [
 
 const SocialLink: React.FC = () => {
   return (
-    <div className="flex gap-3 items-center">
+    <div className="flex gap-3 items-center text-white">
       {SocialData.map((social, index) => (
         <Link key={index} href={social.href} target="_blank" aria-label={`Visit our ${social.plateform} page`}>
-          <div className=" text-white bg-secondary" >
+          <div className="" >
             <div className={`flex justify-center items-center rounded-full h-7 w-7 ${social.href.includes("pinterest.com") || social.href.includes("instagram.com") ? 'border border-white' : ''}`}>{social.icon}</div>
           </div>
         </Link>

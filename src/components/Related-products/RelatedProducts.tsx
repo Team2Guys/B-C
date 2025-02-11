@@ -10,6 +10,7 @@ interface relativeProps {
   className?: string;
   title?: string;
   description?: string
+  bgcolor?:boolean
 }
 const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title, description }) => {
   const [selectedProducts, setSelectedProducts] = useState<IProduct[]>([]);
