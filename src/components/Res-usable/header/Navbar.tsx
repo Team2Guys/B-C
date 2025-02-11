@@ -241,7 +241,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
 
           <div className="lg:w-2/12 flex justify-between xs:justify-end items-center gap-6">
             <Link
-              className="py-2 px-2 xl:px-5 hidden sm:block rounded-md text-10 xl:text-11 2xl:text-15 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
+              className="py-2 px-2 xl:px-5 hidden sm:block rounded-md text-[9px] xl:text-10 2xl:text-15 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
               href="/request-appointment"
               onClick={handleLinkClick}
             >

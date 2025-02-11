@@ -1,6 +1,5 @@
 'use client'
-import React, { useState, useRef } from 'react';
-import { FaPlay } from 'react-icons/fa';
+import React from 'react';
 import Container from 'components/Res-usable/Container/Container';
 interface VideoData {
   video: string;
@@ -10,7 +9,7 @@ interface InstaVideoSectionProps {
 }
 
 const InstaVideoSection: React.FC<InstaVideoSectionProps> = ({ data }) => {
-  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+ 
 
   return (
     <>
