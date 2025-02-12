@@ -28,8 +28,8 @@ const RollerTabContant = ({setTabType}:ROOLER_TAB) => {
 
   return (
     <>
-      <div className="bg-white 2xl:max-w-screen-2xl mx-auto pt-14 pb-5">
-        <Container className="grid md:grid-cols-2 md:gap-4 xl:gap-10">
+      <div className="bg-white 2xl:max-w-screen-2xl mx-auto pt-9 md:pt-14 pb-5">
+        <div className="mx-auto px-2 lg:max-w-[90%] grid md:grid-cols-2 md:gap-4 xl:gap-10">
           <div className="space-y-5">
             {/* Tab Buttons */}
             <div className="flex justify-evenly 2xl:justify-normal gap-5 lg:gap-10 px-2">
@@ -81,7 +81,7 @@ const RollerTabContant = ({setTabType}:ROOLER_TAB) => {
               onClick={handlePlayPause}
             />
           </div>
-        </Container>
+        </div>
       </div>
     </>
   );

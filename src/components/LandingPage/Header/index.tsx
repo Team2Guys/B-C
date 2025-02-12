@@ -8,6 +8,7 @@ import SocialLink from 'components/Res-usable/social-link/social-link';
 
 const Header = () => {
   return (
+    <div className='bg-black'>
     <div className='bg-black 2xl:max-w-screen-2xl mx-auto'>
     <div className='grid grid-cols-12 lg:grid-cols-10 gap-1 bg-white text-white lg:max-w-[97%] 2xl:max-w-screen-full mx-auto'>
       {NavData.map((arr, index) => (
@@ -27,23 +28,24 @@ const Header = () => {
         </div>
       ))}
 
-      <div className='flex-col justify-center items-center space-y-3 bg-black col-span-6 md:col-span-6 lg:col-span-2 py-3 sm:pt-8'>
+      <div className='flex-col justify-center items-center space-y-3 bg-black col-span-12 md:col-span-6 lg:col-span-2 py-3 sm:pt-8'>
         <div className='flex gap-2 justify-center'>
-          <LuPhone className='text-10 sm:text-14 text-center xl:text-16' />
-          <Link target='blank' href="tel:+971544945339" className='text-10 sm:text-12 text-center'>
-            04 252 2025
+          <LuPhone className='text-12 xs:text-14 text-center sm:text-16 md:text-18' />
+          <Link target='blank' href="tel:+971544945339" className='text-10 sm:text-12 md:text-14 text-center'>
+          +971 54 494 5339
           </Link>
         </div>
-        <div className='flex gap-2 justify-center items-center'>
-          <IoMailOpenOutline className='text-10 sm:text-12 text-center xl:text-16' />
-          <Link href="mailto:connect@twoguys.ae" className='text-10 sm:text-14 text-center'>
-            connect@twoguys.ae
+        <div className='flex gap-1 xs:gap-2 justify-center items-center'>
+          <IoMailOpenOutline className='text-12 xs:text-14 text-center sm:text-16 md:text-18 lg:hidden xl:block' />
+          <Link href="mailto:sales@blindsandcurtains.ae" className='text-10 sm:text-14 lg:text-13 xl:text-14 text-center'>
+          sales@blindsandcurtains.ae
           </Link>
         </div>
       </div>
-      <div className='bg-black col-span-6 md:col-span-6 lg:col-span-2 flex justify-center items-center pt-2 lg:pr-3'>
+      <div className='bg-black col-span-6 md:col-span-6 lg:col-span-2 md:flex justify-center items-center pt-2 lg:pr-3 hidden'>
         <SocialLink />
       </div>
+    </div>
     </div>
     </div>
   );

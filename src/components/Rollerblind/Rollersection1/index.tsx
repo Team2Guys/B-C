@@ -18,11 +18,11 @@ const RollerBlinds = () => {
   return (
     <div className="bg-white 2xl:max-w-screen-2xl mx-auto">
       {rollerSection1.map((blind,index) => (
-        <Container key={index} className="flex flex-col justify-center items-center pt-6 space-y-6 text-center">
+        <Container key={index} className="flex flex-col justify-center items-center pt-6 space-y-4 md:space-y-6 text-center">
           <h2 className="text-20 sm:text-3xl xl:text-5xl font-serif font-black underline decoration-secondary decoration-2">
             {blind.title}
           </h2>
-          <p className="font-normal text-12 sm:text-14 lg:text-lg leading-5 sm:leading-6 max-w-screen-lg">
+          <p className="text-center px-2 font-normal text-12 sm:text-14 lg:text-lg leading-5 sm:leading-6 max-w-screen-lg xl:max-w-screen-xl">
             {blind.description}
           </p>
           <Link

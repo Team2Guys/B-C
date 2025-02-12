@@ -19,9 +19,6 @@ interface TabDataProps {
 const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
   const [visibleGroups, setVisibleGroups] = useState(3); 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); 
-  console.log(isModalOpen, "ismodal")
-
   const handleViewMore = () => {
     setVisibleGroups((prev) => prev + 3); 
   };
@@ -34,11 +31,9 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
 
   const openModal = (imageurl: string) => {
     setSelectedImage(imageurl);
-    setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
     setSelectedImage(null);
   };
 

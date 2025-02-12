@@ -10,8 +10,8 @@ interface BlindsSectionProps {
 
 const MoterizedBlinds: React.FC<BlindsSectionProps> = ({ title, subtitle, imageUrl,benefits }) => {
   return (
-    <div className='mb-5 px-0 max-w-screen-2xl mx-auto'>
-      <div className="w-full flex flex-col sm:flex-row items-center justify-between">
+    <div className='mb-5 px-0'>
+      <div className="w-full flex flex-col sm:flex-row items-center">
         <div className="w-full sm:w-1/2 flex items-center">
           <div className='bg-secondary h-auto sm:h-80 lg:h-96 sm:w-5'></div>
           <div className='w-full md:w-12/12'>
@@ -24,7 +24,7 @@ const MoterizedBlinds: React.FC<BlindsSectionProps> = ({ title, subtitle, imageU
           />
           </div>
         </div>
-        <div className="pt-2 pb-3 sm:pb-0 md:pl-7 sm:w-1/2 sm:h-80 lg:h-96 mt-2 lg:pt-7 md:pt-4 px-4 space-y-5 text-white w-full xl:w-[840px] bg-secondary">
+        <div className="pt-2 pb-3 sm:pb-0 md:pl-7 sm:w-1/2 sm:h-80 lg:h-96 mt-2 lg:pt-7 md:pt-4 px-4 space-y-5 text-white w-full xl:w-[840px] 2xl:w-1/2 bg-secondary">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light font-serif text-nowrap xl:mt-6">
           {title}<br /> 
             <span className='text-1xl sm:text-3xl xl:text-4xl font-serif font-extrabold'>

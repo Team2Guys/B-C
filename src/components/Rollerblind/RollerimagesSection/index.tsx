@@ -30,13 +30,13 @@ const RollerImageSection = ({ tabType }: BlackOutRollerBlindsProps) => {
       <span className="font-normal flex text-nowrap">Roller Blinds</span>
       <HiArrowLongRight /></h2>
       
-      <div className="relative w-full h-auto">
+      <div className="relative w-full h-auto bg-cover bg-center">
       <Image
-          className="2xl:w-[1600px]"
+          className="2xl:w-[1600px] h-[200px] xs:h-[250px] sm:h-[300px] xl:h-[477px]"
           src={images[currentImageIndex].imgurl || ""}
           alt="image"
           width={1441}
-          height={477}
+          height={1441}
         />
         <div className="absolute bottom-2 sm:bottom-4 px-6 lg:px-14 xl:px-20 text-white">
           <h2 className="font-normal text-14 sm:text-22 lg:text-26 font-serif">

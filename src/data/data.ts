@@ -1853,13 +1853,13 @@ export const NavData = [
    },
    {image: '/assets/images/Moterised-ads-blinds/Group.png',
     title:'GUARANTEE',
-    description:'3-YEAR',
+    description:'10-YEAR',
   },
 ];
 
 export const InstablindData = [
   {
-   video:"https://player.vimeo.com/video/1055115625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+   video:"https://player.vimeo.com/video/1055115625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
   },
   {
     video:"https://player.vimeo.com/video/1055115695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
@@ -2140,17 +2140,17 @@ export const tabsData = [
   export const Blackoutimages = [{
     heading:"test1",
     para: "test para1",
-    imgurl:  "/assets/images/Rollerblind/Rectangle895.png",
+    imgurl:  "/assets/images/Rollerblind/SB/b4.jpg",
     },
     {
       heading:"test2",
       para: "test para2",
-      imgurl:"/assets/images/Rollerblind/Rectangle895.png",
+      imgurl:"/assets/images/Rollerblind/SB/b3.jpg",
       },
       {
         heading:"test3",
         para: "test para3",
-        imgurl:  "/assets/images/largedd.png",
+        imgurl: "/assets/images/Rollerblind/SB/b5.jpg",
       },
     ];
   
@@ -2158,17 +2158,17 @@ export const tabsData = [
     export const Sunscreenimages = [{
       heading:"test4",
       para: "test para4",
-      imgurl:  "/assets/images/Rollerblind/Rectangle895.png",
+      imgurl:  "/assets/images/Rollerblind/SB/s1.jpg",
       },
       {
         heading:"test5",
         para: "test para5",
-        imgurl:"/assets/images/Rollerblind/Rectangle895.png",
+        imgurl:"/assets/images/Rollerblind/SB/s2.jpg",
         },
         {
           heading:"test6",
           para: "test para6",
-          imgurl:  "/assets/images/largedd.png",
+          imgurl:"/assets/images/Rollerblind/SB/s3.jpg",
         },
       ];
 
