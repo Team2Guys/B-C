@@ -1,4 +1,3 @@
-import Container from 'components/Res-usable/Container/Container';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -26,10 +25,9 @@ const DetailInfo: React.FC<detailprops> = ({
   heading,
 }) => {
   return (
-    <Container className="mt-10 lg:mt-20 border-b-2 pb-10 md:pb-20 border-[#6F747F]">
-      {title ? (
+      title ? (
         <div
-          className={`flex flex-wrap lg:flex-nowrap lg:gap-4 xl:gap-20 ${className} items-center`}
+          className={`flex flex-wrap lg:flex-nowrap lg:gap-4 xl:gap-20 ${className} items-center mt-10 lg:mt-20 border-b-2 pb-10 md:pb-20 border-[#6F747F]`}
         >
 
           <div className="w-full xl:w-5/12">
@@ -46,6 +44,7 @@ const DetailInfo: React.FC<detailprops> = ({
                   dangerouslySetInnerHTML={{ __html: description }}
                 ></p>
               </div>
+
               <div className='pb-2 lg:pb-0 lg:pt-4  w-full flex justify-center lg:justify-start'>
                 <Link href={"/request-appointment"}
                   target='_blank' rel="noopener"
@@ -86,8 +85,9 @@ const DetailInfo: React.FC<detailprops> = ({
         </div>
       ) : (
         'loading'
-      )}
-    </Container>
+      )
+
+
   );
 };
 

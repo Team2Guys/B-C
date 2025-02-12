@@ -12,15 +12,30 @@ import { InstacurtainData, KeyData, MotorisedSellingDataCurtain } from 'data/dat
 import { benefits } from 'data/data';
 import SellingFeatures from 'components/LandingPage/SellingFeatures';
 import { TabData } from 'data/data';
-import { fetchCategories, fetchProducts } from 'config/fetch';
+import { fetchProducts } from 'config/fetch';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
+import { Metadata } from 'next';
 
+export const metadata:Metadata  = {
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
 
 const Custommade_MoterisedCurtains= async () => {
-  const [products, categories ] = await Promise.all([
+  const [products,  ] = await Promise.all([
       fetchProducts(),
-      fetchCategories(),
     ]);
   return (
     <>
@@ -51,7 +66,7 @@ const Custommade_MoterisedCurtains= async () => {
       <Button/>
       <InstaVideoSection data={InstacurtainData}  />
       <Container className="mt-10 md:mt-20">
-      <RelatedProducts products={products || []} limit={4} categoriesList={categories} bgcolor={true} />
+      <RelatedProducts products={products || []} limit={4} bgcolor={true} />
       </Container>
       
     </>

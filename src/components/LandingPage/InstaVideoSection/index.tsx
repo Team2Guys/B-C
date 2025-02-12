@@ -25,7 +25,7 @@ const InstaVideoSection: React.FC<InstaVideoSectionProps> = ({ data }) => {
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+            className='h-full w-full absolute top-0 left-0'
           ></iframe>
           </div>
         ))}

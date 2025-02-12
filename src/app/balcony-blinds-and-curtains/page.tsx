@@ -1,5 +1,5 @@
 import NotFound from 'app/not-found';
-import { fetchCategories, fetchProducts, fetchSubCategories } from 'config/fetch';
+import { fetchProducts, fetchSubCategories } from 'config/fetch';
 import dynamic from 'next/dynamic'
 const CommercialByRoom = dynamic(() => import('components/RoomProducts/commercial-by-room'), {})
 import { Metadata } from 'next';
@@ -57,9 +57,8 @@ export async function generateMetadata(): Promise<Metadata> {
 const CommercialPage = async () => {
   let product = "Balcony Blinds And Curtains"
 
-  const [products, categories, subCategories] = await Promise.all([
+  const [products, subCategories] = await Promise.all([
     fetchProducts(),
-    fetchCategories(),
     fetchSubCategories(),
   ]);
 
@@ -79,8 +78,6 @@ const CommercialPage = async () => {
         relatedProducts={filteredSubCategory?.products || []}
         filteredSubCategory={filteredSubCategory}
         products={products}
-        categories={categories}
-        subCategories={subCategories}
       />
 
     </>

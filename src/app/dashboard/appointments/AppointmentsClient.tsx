@@ -164,7 +164,7 @@ const AppointmentsClient = ({ appointments }: { appointments: IAppointments[] })
                   </span>
                 </div>
               }
-              visible={isModalVisible}
+              open={isModalVisible}
               onCancel={handleCloseModal}
               onOk={handleCloseModal}
               footer={null}

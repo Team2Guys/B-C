@@ -9,8 +9,6 @@ const CommercialPage = ({
   filteredProduct,
   filteredSubCategory,
   allprod,
-  categories,
-  subCategories,
   colorPage
 }: PRODUCS_PROPS) => {
 
@@ -27,8 +25,6 @@ const CommercialPage = ({
               relatedProducts={filteredSubCategory?.products || []}
               filteredSubCategory={filteredSubCategory}
               products={allprod}
-              categories={categories || []}
-              subCategories={subCategories || []}
             />
           </>
         ) : (
@@ -36,7 +32,7 @@ const CommercialPage = ({
             <ProductDetailPage
               title={`${filteredProduct?.title}`}
               allprod={allprod}
-              categories={categories}
+              filterProduct={filteredProduct}
             />
           )
         )
@@ -45,7 +41,6 @@ const CommercialPage = ({
           title={colorPage.name}
           subCategory={filteredSubCategory}
           products={allprod}
-          categories={categories}
         />
       )}
     </>

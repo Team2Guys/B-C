@@ -7,7 +7,7 @@ import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import { ByColorContent, colorData } from 'data/data';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { ICategory, IProduct } from 'types/types';
+import { IProduct } from 'types/types';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
 import TopHero from 'components/ui/top-hero';
 import { IColorData } from 'types/interfaces';
@@ -15,14 +15,12 @@ import ThumbImage from 'components/Detail/ThumbImage/ThumbImage';
 interface ShuttersByColorProps {
   title: string;
   subCategory?: any;
-  categories?: ICategory[]
   products?: IProduct[]
 }
 const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
   title,
   subCategory,
   products,
-  categories
 }) => {
   const [selectedPage, setSelectedPage] = useState<{
     heading: string;
@@ -141,7 +139,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
         )}
       </Container>
       <Container className="my-10">
-        <RelatedProducts products={relaiveProducts || []} limit={4} categoriesList={categories} />
+        <RelatedProducts products={relaiveProducts || []} limit={4} />
       </Container>
       <VideoAutomation />
       <Support />

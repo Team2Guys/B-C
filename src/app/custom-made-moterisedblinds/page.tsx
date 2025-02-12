@@ -14,15 +14,28 @@ import SellingFeatures from 'components/LandingPage/SellingFeatures';
 import { TabData } from 'data/data';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import Container from 'components/Res-usable/Container/Container';
-import { fetchCategories, fetchProducts } from 'config/fetch';
+import { fetchProducts } from 'config/fetch';
+import { Metadata } from 'next';
 
 
+export const metadata:Metadata  = {
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
 
 const Custommade_MoterisedBlinds = async () => {
-  const [products, categories ] = await Promise.all([
-      fetchProducts(),
-      fetchCategories(),
-    ]);
+  const [products] = await Promise.all([fetchProducts()]);
   return (
     <>
       <Header/>
@@ -54,7 +67,7 @@ const Custommade_MoterisedBlinds = async () => {
       <Button/>
       <InstaVideoSection data={InstablindData}/>
       <Container className="mt-10 md:mt-20">
-      <RelatedProducts products={products || []} limit={4} categoriesList={categories} bgcolor={true} />
+      <RelatedProducts products={products || []} limit={4} bgcolor={true} />
       </Container>
     </>
   );

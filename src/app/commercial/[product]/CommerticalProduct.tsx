@@ -14,12 +14,11 @@ const CommercialProduct = ({
   product,
   products,
   subCategories,
-  categories
+  
 }: {
   product: string;
   products: IProduct[];
   subCategories: ICategory[];
-  categories?: ICategory[]
 }) => {
   const [isNotFound, setIsNotFound] = useState(false);
   const [loading, setloading] = useState(false);
@@ -82,15 +81,13 @@ const CommercialProduct = ({
             relatedProducts={filteredSubCategory?.products || []}
             filteredSubCategory={filteredSubCategory}
             products={products}
-            categories={categories}
-            subCategories={subCategories}
           />
         </>
       ) : (
         <ProductDetailPage
           title={`${filteredProduct?.title}`}
           allprod={products}
-          categories={categories}
+          filterProduct={filteredProduct}
         />
       )}
     </>

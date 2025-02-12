@@ -1,7 +1,6 @@
 import { IProduct } from 'types/types';
 import Curtain from './Curtain';
 import {
-  fetchCategories,
   fetchProducts,
   fetchSubCategories,
   filtereCategory,
@@ -82,8 +81,7 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: meta_props) => {
   const product = (await params).product;
-  const [products, cateories, subCategories] = await Promise.all([fetchProducts(), fetchCategories(), fetchSubCategories()]);
-
+  const [products, subCategories] = await Promise.all([fetchProducts(), fetchSubCategories()]);
 
   const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(subCategories, product, Cateories);
@@ -110,7 +108,6 @@ const CommercialPage = async ({ params }: meta_props) => {
       filteredSubCategory={filteredSubCategory}
       product={product}
       allprod={products}
-      categories={cateories}
       subCategories={subCategories}
     />
   );

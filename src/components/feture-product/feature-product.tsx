@@ -17,8 +17,8 @@ const FeatureProduct: React.FC<Productsprops> = ({ products, categories }) => {
   const [activeCategory, setActiveCategory] = useState<ICategory | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(8);
   const categoryOrder = ['All', 'Blinds', 'Curtains', 'Shutters', 'Commercial'];
-  const categoryMap = categories?.reduce(
-    (acc: any, category: ICategory) => {
+
+  const categoryMap = categories?.reduce((acc: any, category: ICategory) => {
       acc[category?.title] = category;
       return acc;
     },

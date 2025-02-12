@@ -26,7 +26,7 @@ const Guarrenty = () => {
           <p className="text-14 xl:text-16 leading-4">
             {description}
           </p>
-          <Link href={'/product-guarantees'} className="mt-4 block w-fit">
+          <Link href={'/product-guarantees'} className="mt-4 block w-fit mx-auto sm:m-0">
             <Button className="shadow-slate-400 shadow-md w-32 bg-secondary hover:bg-primary text-white" variant={'white'}>
               Read More
             </Button>
