@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useRef } from 'react';
-import { FaPlay } from 'react-icons/fa';
 
 interface VideoPageProps {
   videoSrc: string;
@@ -10,16 +9,6 @@ interface VideoPageProps {
 }
 
 const VideoSection : React.FC<VideoPageProps>  = ({ videoSrc, title, subtitle, description }) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      isPlaying ? videoRef.current.pause() : videoRef.current.play();
-      setIsPlaying(!isPlaying);
-    }
-  };
-
   return (
     <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden`} >
       <video
