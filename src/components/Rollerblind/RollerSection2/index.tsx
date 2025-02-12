@@ -1,5 +1,4 @@
 'use client';
-import Container from 'components/Res-usable/Container/Container';
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import CButton from 'components/LandingPage/Custommade/Cbutton';
