@@ -19,7 +19,7 @@ const SellingFeatures: React.FC<FeaturesSectionProps> = ({ data }) => {
         {data.map((item, index) => (
           <div
             key={index}
-            className={`space-y-4 md:px-8 pt-4 ${index === 0 ? 'border-b-2 md:border-b-0 md:border-r-2' : ''}`}
+            className={`space-y-4  pt-4 ${index === 0 ? 'border-b-2 md:border-b-0 md:border-r-2' : ''}`}
           >
             <Image src={item.icon} alt="icon" width={50} height={50} className='h-[40.7px] w-[31.89px]' />
             <h2 className='font-serif font-extrabold text-xl md:text-2xl lg:text-3xl'>{item.title}</h2>
