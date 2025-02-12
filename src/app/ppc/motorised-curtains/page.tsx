@@ -1,13 +1,10 @@
 
 import React from 'react';
-import KeyFeature from '../../components/LandingPage/KeyFeature';
-import MoterizedBlinds from '../../components/LandingPage/Moterized Blinds';
 import VideoSection from 'components/LandingPage/video-section';
 import InstaVideoSection from 'components/LandingPage/InstaVideoSection';
 import Button from 'components/LandingPage/ButtonSection';
 import MoterizedService from 'components/LandingPage/MoterizedService';
 import Header from 'components/LandingPage/Header';
-import CustomSection from '../../components/LandingPage/Custommade';
 import { InstacurtainData, KeyData, MotorisedSellingDataCurtain } from 'data/data';
 import { benefits } from 'data/data';
 import SellingFeatures from 'components/LandingPage/SellingFeatures';
@@ -16,6 +13,9 @@ import { fetchProducts } from 'config/fetch';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { Metadata } from 'next';
+import CustomSection from 'components/LandingPage/Custommade';
+import KeyFeature from 'components/LandingPage/KeyFeature';
+import MoterizedBlinds from 'components/LandingPage/Moterized Blinds';
 
 export const metadata:Metadata  = {
   robots: {
