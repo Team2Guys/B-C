@@ -5,7 +5,7 @@ import { capitalizeWords, CustomErrorHandler } from '../utils/helperFunctions';
 import * as nodemailer from 'nodemailer';
 @Injectable()
 export class AppointmentService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
   private transporter = nodemailer.createTransport({
     host: 'mail.blindsandcurtains.ae',
     port: 587,
@@ -25,18 +25,78 @@ export class AppointmentService {
         data: user_data,
       });
 
+      const dateObject = new Date(user_data.prefered_Date);
+      const hours = String(dateObject.getHours()).padStart(2, '0');
+      const minutes = String(dateObject.getMinutes()).padStart(2, '0');
+
+      const extractedTime = `${hours}:${minutes}`;
+      const year = dateObject.getFullYear();
+      const month = String(dateObject.getMonth() + 1).padStart(2, '0'); 
+      const day = String(dateObject.getDate()).padStart(2, '0');
+      const formattedDate = `${year}-${month}-${day}`;
+
+
+      const windowDressingTypes = {
+        roller_blinds: "roller_blinds",
+        wooden_blinds: "wooden_blinds",
+        curtains: "curtains",
+        other_blinds: "other_blinds",
+        plantation_shutters: "plantation_shutters",
+        others: "others",
+      };
+
+      let params  = {
+        "name": user_data.name,
+        "phone_number": user_data.phone_number,
+        "whatsapp_number": user_data.whatsapp_number,
+        "email": user_data.email,
+        "availability": {
+          "date": formattedDate,
+          "time": extractedTime
+        },
+        "number_of_windows": user_data.windows,
+        "referral_source": user_data.how_user_find_us,
+        "location": "Downtown, Dubai",
+        window_dressing_types: Object.keys(windowDressingTypes).reduce((acc, key) => {
+          acc[key] = Array.isArray(user_data.product_type)
+            ? user_data.product_type.includes(windowDressingTypes[key])
+            : false;
+          return acc;
+        }, {}),
+        "additional_requirements": user_data.user_query
+      }
+
+
       await this.sendConfirmationEmail(user_data, null, newAppointment);
-      await this.sendConfirmationEmail(
-        user_data,
-        user_data.email,
-        newAppointment,
-      );
+      await this.sendConfirmationEmail(user_data,user_data.email,newAppointment,);
+
+      const response = await fetch('https://stage.twoguys.ae/blindcurtains/lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ params})
+      });
+      
+      const data = await response.json();
+console.log(data, "data")
 
       return { message: 'Appointment created successfully🎉', newAppointment };
     } catch (error) {
+      if (error.response) {
+        console.error('Error response data:', error.response.data);
+        console.error('Error status:', error.response.status);
+        console.error('Error headers:', error.response.headers);
+      } else if (error.request) {
+        console.error('Error request:', error.request);
+      } else {
+        console.error('Error message:', error.message);
+      }
       return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR');
     }
   }
+
+
 
   getAllPointments() {
     try {
@@ -53,7 +113,7 @@ export class AppointmentService {
   ) {
     try {
       console.log(user_data.product_type)
-      const product_type=capitalizeWords(user_data.product_type);
+      const product_type = capitalizeWords(user_data.product_type);
       const recipients = user_mail
         ? `${user_mail}`
         : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL2}, ${process.env.RECEIVER_MAIL3}`;
