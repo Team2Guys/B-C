@@ -9,10 +9,10 @@ interface relativeProps {
   limit?: number;
   className?: string;
   title?: string;
-  description?: string;
-  bgcolor?: boolean;
+  description?: string
+  bgcolor?:boolean
 }
-const RelatedProducts: React.FC<relativeProps> = ({ products, categoriesList, limit, title, description,bgcolor }) => {
+const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title, description }) => {
   const [selectedProducts, setSelectedProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
@@ -55,8 +55,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, categoriesList, li
               key={item.id}
               relativeProducts={true}
               isLoading={false}
-              parent={filteredCategory?.title.toLowerCase()}
-              bgcolor={bgcolor}
+              parent={item?.category?.title.toLowerCase()}
             />
           );
         }) : Array(4).fill(null).map((_, index) => (
