@@ -32,7 +32,7 @@ const RollerImageSection = ({ tabType }: BlackOutRollerBlindsProps) => {
       
       <div className="relative w-full h-auto bg-cover bg-center">
       <Image
-          className="2xl:w-[1600px] h-[477px]"
+          className="2xl:w-[1600px] h-[200px] xs:h-[250px] sm:h-[300px] xl:h-[477px]"
           src={images[currentImageIndex].imgurl || ""}
           alt="image"
           width={1441}

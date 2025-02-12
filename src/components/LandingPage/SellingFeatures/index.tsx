@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Container from 'components/Res-usable/Container/Container';
 
 interface FeatureItem {
   icon: string;
@@ -13,8 +14,8 @@ interface FeaturesSectionProps {
 
 const SellingFeatures: React.FC<FeaturesSectionProps> = ({ data }) => {
   return (
-    <div className='relative w-full bg-white text-black p-4 md:p-8 lg:p-16 max-w-screen-2xl mx-auto'>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+    <div className='w-full bg-white text-black py-4 sm:py-8 '>
+      <Container className='grid grid-cols-1 md:grid-cols-2 gap-5'>
         {data.map((item, index) => (
           <div
             key={index}
@@ -31,7 +32,7 @@ const SellingFeatures: React.FC<FeaturesSectionProps> = ({ data }) => {
             </ul>
           </div>
         ))}
-      </div>
+      </Container>
     </div>
   );
 };

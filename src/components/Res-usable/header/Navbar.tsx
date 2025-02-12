@@ -21,6 +21,7 @@ import { links } from 'data/header_links';
 import downIcon from '../../../../public/assets/images/icon/Vector@2x.png';
 import menuIcon from '../../../../public/assets/images/icon/menu.png';
 
+
 const Navbar = ({ products, subCategories }: { products: IProduct[], subCategories: ICategory[] }) => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
@@ -35,7 +36,6 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
     setDrawerOpen(false);
     setSelectedLabel(undefined);
   };
-
   const handleCloseDrawer = () => {
     setDrawerOpen(false);
   };
@@ -58,19 +58,22 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
 
   return (
     <>
-      <div className="w-full bg-secondary">
-        <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center min-h-12 pb-0">
-          <div></div>
-          <p className="text-white py-2 text-10 sm:text-12 2xl:text-15 font-medium tracking-[2px] leading-relaxed 2xl:leading-loose text-center md:text-start max-sm:font-semibold">
-            We can visit you, take measurements, help select fabrics & install
-            in 2-3 days.
-          </p>
-          <div className="hidden md:block">
-            <SocialLink />
+          {
+            path === '/custom-made-moterisedblinds/' || path === '/custom-made-moterisedcurtains/' ? "":
+            <div className="w-full bg-secondary">
+            <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center min-h-12 pb-0">
+              <div></div>
+              <p className="text-white py-2 text-10 sm:text-12 2xl:text-15 font-medium tracking-[2px] leading-relaxed 2xl:leading-loose text-center md:text-start max-sm:font-semibold">
+                We can visit you, take measurements, help select fabrics & install
+                in 2-3 days.
+              </p>
+              <div className="hidden md:block">
+                <SocialLink />
+              </div>
+            </Container>
           </div>
-        </Container>
-      </div>
-
+          }
+     
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50 py-2 sm:py-0">
 
         <Container className="sm:hidden mb-2 pb-4 pt-2 text-center w-full flex flex-wrap justify-between border-b border-[#0006]">

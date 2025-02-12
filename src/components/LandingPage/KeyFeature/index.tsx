@@ -27,7 +27,7 @@ const KeyFeature: React.FC<KeyProps> = ({ title, data }) => {
   }, []);
 
   return (
-    <div className='w-full h-full text-center pt-4 bg-keyimage bg-cover max-w-screen-2xl mx-auto'>
+    <div className='w-full h-full text-center pt-4 bg-keyimage bg-cover'>
       <Container>
         <div>
           <h2 className='font-serif font-extrabold text-1xl sm:text-2xl md:text-3xl lg:text-4xl text-black'>
