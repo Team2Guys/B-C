@@ -20,11 +20,11 @@ const InstaVideoSection: React.FC<InstaVideoSectionProps> = ({ data }) => {
           <div key={index} className='relative w-full' style={{ paddingTop: '177.78%', position: 'relative' }}>
           <iframe
             loading='lazy'
-            src={`${item.video}?background=1&muted=1&controls=1&title=0&byline=0&portrait=0`}
+            src={`${item.video}?background=1&muted=1&controls=1&title=0&byline=0&portrait=0&loop=1`}
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+            className='h-full w-full absolute top-0 left-0'
           ></iframe>
           </div>
         ))}

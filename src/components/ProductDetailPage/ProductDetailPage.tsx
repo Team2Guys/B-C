@@ -67,6 +67,7 @@ const ProductDetailPage = ({ title, allprod,filterProduct  }: IProductDetail) =>
           products={filterProduct}
         />
       )}
+      <div className='mt-10'>
 
       {!allprod ? (
         <CardSkeleton />
@@ -74,6 +75,7 @@ const ProductDetailPage = ({ title, allprod,filterProduct  }: IProductDetail) =>
           <RelatedProducts products={relatedProducts || []} limit={4} title={title} />
    
       )}
+      </div>
       </Container>
 
 

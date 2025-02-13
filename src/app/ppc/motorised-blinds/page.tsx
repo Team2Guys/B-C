@@ -5,7 +5,6 @@ import InstaVideoSection from 'components/LandingPage/InstaVideoSection';
 import Button from 'components/LandingPage/ButtonSection';
 import MoterizedService from 'components/LandingPage/MoterizedService';
 import Header from 'components/LandingPage/Header';
-
 import { InstablindData, KeyData, MotorisedSellingDataBlinds } from 'data/data';
 import { benefits } from 'data/data';
 import SellingFeatures from 'components/LandingPage/SellingFeatures';
