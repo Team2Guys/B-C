@@ -16,7 +16,7 @@ const rollerSection1= [
   
 const RollerBlinds = () => {
   return (
-    <div className="bg-white 2xl:max-w-screen-2xl mx-auto">
+    <div className="bg-white">
       {rollerSection1.map((blind,index) => (
         <Container key={index} className="flex flex-col justify-center items-center pt-6 space-y-4 md:space-y-6 text-center">
           <h2 className="text-20 sm:text-3xl xl:text-5xl font-serif font-black underline decoration-secondary decoration-2">

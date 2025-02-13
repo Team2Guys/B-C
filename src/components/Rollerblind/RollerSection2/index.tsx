@@ -12,22 +12,10 @@ interface ROOLER_TAB {
 const RollerTabContant = ({setTabType}:ROOLER_TAB) => {
   const [activeTab, setActiveTab] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
 
   return (
     <>
-      <div className="bg-white 2xl:max-w-screen-2xl mx-auto pt-9 md:pt-14 pb-5">
+      <div className="bg-white  pt-9 md:pt-14 md:pb-5">
         <div className="mx-auto px-2 lg:max-w-[90%] grid md:grid-cols-2 md:gap-4 xl:gap-10">
           <div className="space-y-5">
             {/* Tab Buttons */}
@@ -65,10 +53,7 @@ const RollerTabContant = ({setTabType}:ROOLER_TAB) => {
             <strong>{item.title1}</strong> {item.description}</li>))}
             </ul>
             </div>
-            <div className='sm:pl-6 flex flex-col pb-4 lg:pb-0 sm:flex-row md:flex-wrap lg:flex-nowrap gap-2 sm:gap- lg:gap-2 xl:gap-4 uppercase'>
-           <CButton/>
-          </div></div>
-          <div className="w-full h-auto md:h-full">
+            <div className="w-full h-auto md:h-full block md:hidden">
             <video
               ref={videoRef}
               src={tabsData[activeTab].videoSrc}
@@ -77,7 +62,21 @@ const RollerTabContant = ({setTabType}:ROOLER_TAB) => {
               muted playsInline
               controls={false}
               loop
-              onClick={handlePlayPause}
+            />
+          </div>
+
+            <div className='sm:pl-6 flex flex-col lg:pb-0 sm:flex-row md:flex-wrap lg:flex-nowrap gap-2 sm:gap- lg:gap-2 xl:gap-4 uppercase'>
+           <CButton/>
+          </div></div>
+          <div className="w-full h-auto md:h-full hidden md:block">
+            <video
+              ref={videoRef}
+              src={tabsData[activeTab].videoSrc}
+              className="w-full h-full object-cover"
+              autoPlay
+              muted playsInline
+              controls={false}
+              loop
             />
           </div>
         </div>

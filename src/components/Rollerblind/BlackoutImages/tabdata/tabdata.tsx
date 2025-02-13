@@ -41,7 +41,7 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
     <>
       <div className="py-5 space-y-5">
         <div className="text-center">
-          <p className="text-20 md:text-[36px] font-serif">{label}</p>
+          <p className="sm:text-20 md:text-[24px] lg:text-[36px] font-serif">{label}</p>
           <div className="max-w-screen-md mx-auto">
             <p className="text-12 lg:text-15 font-normal mt-2">{Text}</p>
           </div>

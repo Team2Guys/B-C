@@ -24,21 +24,21 @@ const RollerImageSection = ({ tabType }: BlackOutRollerBlindsProps) => {
   };
 
   return (
-    <div className="2xl:max-w-screen-2xl mx-auto">
-      <h2 className="font-serif sm:text-4xl font-black bg-white pt-5 md:pt-8 flex justify-center items-center gap-2   text-center pb-7">
+    <>
+      <h2 className="font-serif sm:text-4xl font-black bg-white pt-5 md:pt-8 flex justify-center items-center gap-2 text-center pb-4 sm:pb-7">
       <HiArrowLongLeft /> {tabType === "Sunscreen Roller Blinds" ? "Sunscreen" : "Blackout"}
       <span className="font-normal flex text-nowrap">Roller Blinds</span>
       <HiArrowLongRight /></h2>
       
       <div className="relative w-full h-auto bg-cover bg-center">
       <Image
-          className="2xl:w-[1600px] h-[200px] xs:h-[250px] sm:h-[300px] xl:h-[477px]"
+          className="2xl:w-full h-[200px] xs:h-[250px] sm:h-[300px] xl:h-[477px]"
           src={images[currentImageIndex].imgurl || ""}
           alt="image"
           width={1441}
           height={1441}
         />
-        <div className="absolute bottom-2 sm:bottom-4 px-6 lg:px-14 xl:px-20 text-white">
+        <div className="absolute bottom-2 sm:bottom-4 px-6 lg:px-14 xl:px-20 2xl:pl-32 text-white">
           <h2 className="font-normal text-14 sm:text-22 lg:text-26 font-serif">
             {images[currentImageIndex].heading}
           </h2>
@@ -56,7 +56,7 @@ const RollerImageSection = ({ tabType }: BlackOutRollerBlindsProps) => {
           </button>
         </div>
       </div>
-    </div>
+      </>
   );
 };
 export default RollerImageSection;
