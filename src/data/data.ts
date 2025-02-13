@@ -1917,11 +1917,11 @@ export const KeyData =[
   },
   {
     image:"/assets/images/Moterised-ads-blinds/ready.png",
-    para:"Up to 10-year warranty for all mechanical parts and labour to give you peace of mind for a long time. ",  
+    para:"Our motor and blinds come with a 10-year warranty, giving you long-term peace of mind.",  
   },
   {
     image:"/assets/images/Moterised-ads-blinds/loyalty.png",
-    para:"Every motor is backed by a 10-year warranty to save you from maintenance hassles.",  
+    para:"Every motor is backed by a 5 year warranty for added peace of mind.",  
   },
 ];
 
