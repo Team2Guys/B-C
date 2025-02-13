@@ -59,7 +59,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
   return (
     <>
           {
-            path === '/custom-made-moterisedblinds/' || path === '/custom-made-moterisedcurtains/' ? "":
+            path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/'  || path === '/ppc/roller-blinds/' ? "" :
             <div className="w-full bg-secondary">
             <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center min-h-12 pb-0">
               <div></div>

@@ -24,7 +24,7 @@ const MoterizedBlinds: React.FC<BlindsSectionProps> = ({ title, subtitle, imageU
           />
           </div>
         </div>
-        <div className=" sm:w-1/2 sm:h-80 lg:h-96 text-white w-full xl:w-[840px] 2xl:w-1/2 bg-secondary ">
+        <div className=" sm:w-1/2 sm:h-80 lg:h-96 text-white w-full xl:w-[840px] 2xl:w-1/2 bg-secondary max-sm:p-4">
          <div className='max-w-screen-md md:pt-4 space-y-5  lg:pt-7 sm:pb-0 md:pl-7 pr-2 2xl:pr-4'>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light font-serif text-nowrap xl:mt-6 ">

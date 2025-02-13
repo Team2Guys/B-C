@@ -21,7 +21,7 @@ const MoterizedService: React.FC<MoterizedServiceProps> = ({ TabData }) => {
 
   return (
     <div className='bg-light pt-5 relative mb-5 md:pb-5'>
-      <Container className=' px-1 sm:px-2'>
+      <Container className='sm:px-2'>
         <h2 className='pl-6 lg:pl-0 font-serif text-black text-lg md:text-3xl sm:text-2xl lg:text-4xl'>
           Like the <span className='font-extrabold'>idea</span> of going electric?
         </h2>
@@ -29,7 +29,7 @@ const MoterizedService: React.FC<MoterizedServiceProps> = ({ TabData }) => {
           {TabData.map((arr, index) => (
             <div key={index} className='flex flex-col justify-center items-center space-y-2 sm:space-y-3 lg:space-y-4'>
               <button
-                className={`sm:px-2 py-2 text-lg flex flex-col space-y-2 justify-center items-center ${
+                className={`px-0 sm:px-2 py-2 text-lg flex flex-col space-y-2 justify-center items-center ${
                   activeTab === index ? 'text-black' : ' text-primary'
                 }`}
                 onClick={() => setActiveTab(index)}>

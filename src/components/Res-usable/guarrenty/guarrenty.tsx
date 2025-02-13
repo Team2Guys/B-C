@@ -8,9 +8,9 @@ const Guarrenty = () => {
   const pathname = usePathname(); 
 
   let description;
-  if (pathname === "/ppc/motorised-blinds/" || pathname === "/ppc/motorised-curtains/" || pathname === "/ppc/roller-blinds/") {
+  if (pathname === "/ppc/motorised-blinds/" || pathname === "/ppc/roller-blinds/") {
     description = "All our made-to-measure blinds, curtains and shutters come with a 5-year guarantee, so you can rest assured you’re investing in quality products. Contact us today for a free consultation and discover the best custom-made blinds for your space.";
-  } else if (pathname === "/custom-made-moterisedcurtains/") {
+  } else if (pathname === "/ppc/motorised-curtains/") {
     description = "Our motorised curtain comes with a 10-year warranty, so you can feel confident in their quality, durability, and performance. Contact us today for a free consultation and discover the best custom-made curtains for your space.";
   } else {
     description = "All our made-to-measure shutters, blinds and curtains come with a 10-year warranty on all hardware and a 5-year warranty on all fabrics. You can rest assured you’re investing in quality products.";
