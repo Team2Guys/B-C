@@ -2110,7 +2110,7 @@ export const tabsData = [
       },
     ],
     iconSrc: '/assets/images/Rollerblind/roller.png',
-    videoSrc: '/assets/video/blinds.mp4', 
+    videoSrc: '/assets/video/blackoutroller.mp4', 
   },
   {
     id: 1,
@@ -2132,7 +2132,7 @@ export const tabsData = [
       },
     ],
     iconSrc: '/assets/images/Rollerblind/roller.png',
-    videoSrc: '/assets/video/blinds.mp4', 
+    videoSrc: '/assets/video/blackoutroller.mp4', 
   },
 ];
 
