@@ -14,8 +14,8 @@ import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { Metadata } from 'next';
 import CustomSection from 'components/LandingPage/Custommade';
-import KeyFeature from 'components/LandingPage/KeyFeature';
 import MoterizedBlinds from 'components/LandingPage/Moterized Blinds';
+import KeyFeature from 'components/LandingPage/KeyFeature';
 
 export const metadata:Metadata  = {
   robots: {
@@ -56,7 +56,7 @@ const Custommade_MoterisedCurtains= async () => {
       imageSrc="/assets/images/Moterised-ads-blinds/Rectangle.png"
       imageAlt="Motorized Curtains"/>
       <KeyFeature title="Make Every Day More Comfortable" data={KeyData} />
-      <MoterizedBlinds 
+      <MoterizedBlinds
       title="Convenience and Privacy" 
       subtitle="at Your Fingertips" 
       imageUrl="/assets/images/Moterised-ads-blinds/curtain.jpg" 

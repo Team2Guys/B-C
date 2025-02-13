@@ -1,5 +1,6 @@
 'use client';
-import React from 'react';
+
+import React from "react";
 
 interface VideoPageProps {
   videoSrc: string;
@@ -9,6 +10,9 @@ interface VideoPageProps {
 }
 
 const VideoSection : React.FC<VideoPageProps>  = ({ videoSrc, title, subtitle, description }) => {
+
+
+
   return (
     <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden`} >
       <video
