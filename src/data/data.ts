@@ -2196,7 +2196,7 @@ export const tabsData = [
   // RollerFeatures
   export const KeyFeaturesRoller=[
     {
-      icon:"/assets/images/Rollerblind/design1.png",
+      icon:"/assets/images/Rollerblind/keyfeatures/",
       heading:"Control Light, Your Way",
       para:"Choose from blackout or light-filtering fabrics for maximum light control, privacy, and a peaceful sleep.",
     },
