@@ -62,18 +62,19 @@ export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
   buttonText: 'Read More',
 };
 
+
 export const heroSlider = [
   {
     id: 1,
     name: 'blinds.png',
-    imageUrl: '/assets/images/Hero/blinds.png',
+    imageUrl: '/assets/images/Hero/blinshd.png',
     heading: 'The Home of Customised',
     subheading: 'Window Coverings',
     content:"Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete."  },
   {
     id: 2,
     name: 'curtains.png',
-    imageUrl: '/assets/images/Hero/curtains.png',
+    imageUrl: '/assets/images/Hero/curtainshd.png',
     heading: 'Made To Measure Window  ',
     subheading: 'Curtains In Dubai',
     content:"Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains make it simple. You can choose from 1000s of fabrics and colours - velvets, silks, and plain textures.",
@@ -81,11 +82,11 @@ export const heroSlider = [
   {
     id: 3,
     name: 'shutters.png',
-    imageUrl: '/assets/images/Hero/shutters.png',
+    imageUrl: '/assets/images/Hero/shuttershd.png',
     heading: 'Perfect Fit Window',
     subheading: 'Shutters Dubai',
     content:
-      "Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains make it simple. You can choose from 1000s of fabrics and colours - velvets, silks, and plain textures.",
+      "You won't find a better deal than having shutters installed in your Dubai home or office, complete with free consultation, quick installation, and a 5-year warranty.",
   },
 ];
 
@@ -119,7 +120,7 @@ export const WhatsAppInfo: PhoneNumber = {
   number: '+971 54 494 5339',
 };
 export const EmailInfo: Email = {
-  email: 'connect@twoguys.ae',
+  email: 'sales@blindsandcurtains.ae',
 };
 
 export const OurClientImage = [
@@ -1593,28 +1594,6 @@ export const HiddenProducts_list = [
   'Study Room Blinds',
 ];
 
-export const estimator_data = [
-  {
-    id: 1,
-    title: 'Roller Blinds',
-    posterImage: { imageUrl: '/assets/images/estimator/roller.webp' },
-    price: 100,
-  },
-
-  {
-    id: 2,
-    title: 'Shutters MDF',
-    posterImage: { imageUrl: '/assets/images/estimator/white1.webp' },
-    price: 700,
-  },
-  {
-    id: 3,
-    title: 'Shutters Basswood',
-    posterImage: { imageUrl: '/assets/images/estimator/white2.webp' },
-    price: 900,
-  },
-];
-
 export const footerData = [
   {
     key:"1",
@@ -1860,3 +1839,560 @@ export   const checkboxData = [
   { name: 'canDeleteBlog', label: 'Can Delete Blog' },
   { name: 'canEditBlog', label: 'Can Edit Blog' },
 ];
+
+// Landingpage content
+export const NavData = [
+  {
+    image: '/assets/images/Moterised-ads-blinds/visit.png',
+   title:'We Can Visit you',
+   description:'Take Measurements',
+  },
+  { image: '/assets/images/Moterised-ads-blinds/Vector1.png',
+    title:'Help Select Fabrics',
+    description:'install in 1-2 days ',
+   },
+   {image: '/assets/images/Moterised-ads-blinds/Group.png',
+    title:'GUARANTEE',
+    description:'10-YEAR',
+  },
+];
+
+export const InstablindData = [
+  {
+   video:"https://player.vimeo.com/video/1055115625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+  },
+  {
+    video:"https://player.vimeo.com/video/1055115695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+   },
+   { video:"https://player.vimeo.com/video/1055115555?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+   },
+  { video:"https://player.vimeo.com/video/1055115449?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+  },
+  { video: "https://player.vimeo.com/video/1055115492?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  },
+  { video:"https://player.vimeo.com/video/1055115524?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  },
+];
+
+export const InstacurtainData = [
+  { video: "https://player.vimeo.com/video/1055113938?h=ee041f419c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  },
+  { video:"https://player.vimeo.com/video/1055113888?h=bf0480c871&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  },
+  { video: "https://player.vimeo.com/video/1055113913?h=15d0c4c019&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  },
+  { video: "https://player.vimeo.com/video/1055113770?h=60a0d27ace&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  },
+  { video:"https://player.vimeo.com/video/1055113824?h=b785d67083&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  },
+  { video:"https://player.vimeo.com/video/1055113856?h=ecfdbe3d6d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  }, 
+];
+export const InstaRollerData = [
+
+  {
+    video:"https://player.vimeo.com/video/1055115625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+   },
+   {
+     video:"https://player.vimeo.com/video/1055115695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+    },
+    { video:"https://player.vimeo.com/video/1055115555?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+    },
+   { video:"https://player.vimeo.com/video/1055115449?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+   },
+   { video: "https://player.vimeo.com/video/1055115492?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+   },
+   { video:"https://player.vimeo.com/video/1055115524?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+   },
+];
+
+export const KeyData =[
+  {
+    image:"/assets/images/Moterised-ads-blinds/guarantee.png",
+    para:"Trusted by over 700+ happy customers with glowing 5-star reviews for quality and service.",  
+  },
+  {
+    image: "/assets/images/Moterised-ads-blinds/businessmen.png",
+    para:"Our expert installers will make sure you have the perfect setup along with a hassle-free, clean installation.",  
+  },
+  {
+    image:"/assets/images/Moterised-ads-blinds/ready.png",
+    para:"Our motor and blinds come with a 10-year warranty, giving you long-term peace of mind.",  
+  },
+  {
+    image:"/assets/images/Moterised-ads-blinds/loyalty.png",
+    para:"Every motor is backed by a 5 year warranty for added peace of mind.",  
+  },
+];
+
+export const benefits = {
+  motorized_blinds: [
+    { 
+      heading: "Control your blinds", 
+      description: "with just a tap on your phone or voice command, making life easier and more comfortable." 
+    },
+    { 
+      heading: "Save energy and stay cool", 
+      description: "by scheduling your blinds to block heat during the day, helping reduce your energy bills." 
+    }
+  ],
+  motorized_curtains: [
+    { 
+      heading: "Convenience", 
+      description: "Control them from anywhere—your couch, your office, even on vacation." 
+    },
+    { 
+      heading: "Energy Efficiency", 
+      description: "Keep your home cool in the summer and warm in the winter with automated schedules." 
+    }
+  ]
+};
+
+
+
+export const MotorisedSellingDataBlinds=[{
+  icon:"/assets/images/Moterised-ads-blinds/icon-automation1.png",
+  title: "Motorised blinds make life easy…",
+  list:[
+    {heading:"Easy Control:" , para:"Adjust light or privacy using your phone, remote, or even voice commands like Alexa or Google Home."},
+    {heading:"Energy Savings:" , para:"Reduce heating and cooling costs by automatically adjusting your blinds."},
+    {heading:"Safety First:" , para:"No cords means a safer environment for children and pets, eliminating the risks of entanglement."},
+    {heading:"Customised Solutions:" , para:"A wide range of fabric and design choices to personalise your motorised blinds."},
+  ],},
+{
+icon:"/assets/images/Moterised-ads-blinds/icon-automation1.png",
+title: "With full automation at your command",
+list:[
+  {heading:"Quiet Operation:" , para:"Designed to operate softly, so you can enjoy smooth operation without the racket."},
+  {heading:"Convenient Scheduling:" , para:"You can set timers for your blinds to open and close at certain times."},
+  {heading:"Professional Installation:" , para:"We make sure your blinds are measured, installed, and programmed perfectly for your home."},
+  {heading:"Durable and Reliable:" , para:"With a 5-year warranty so you can be sure they will work smoothly for as long as you need them."},
+],},
+];
+
+export const MotorisedSellingDataCurtain=[{
+  icon:"/assets/images/Moterised-ads-blinds/icon-automation1.png",
+  title: "Motorised Curtains make life easy…",
+  list:[
+    {heading:"Effortless Control:" , para:"Use your phone, remote, or voice assistant to open or close them instantly."},
+    {heading:"Customised for You:" , para:" Pick fabrics, colours, and styles to match your space."},
+    {heading:"Privacy Anytime:" , para:"Close your curtains in seconds for complete privacy."},
+    {heading:"Energy Efficient:" , para:"Save on energy costs by scheduling your curtains to manage heat and light."},
+  ],},
+{
+icon:"/assets/images/Moterised-ads-blinds/icon-automation1.png",
+title: "With full automation at your command",
+list:[
+  {heading:"Cord-Free Safety:" , para:"Keep your home safe for kids and pets with no dangling cords."},
+  {heading:"Smooth & Silent:" , para:"Quiet motors are good for easy operation and peace of mind."},
+  {heading:"Convenient Scheduling:" , para:"Set them to open and close automatically, whether you're home or not."},
+  {heading:"Built to Last:" , para:"A 10-year warranty proves that we don't compromise on quality."},
+],},
+];
+
+export const TabData = { 
+  motorized_blinds: [
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/smart.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/smart1.svg",
+      title: "Control your windows anytime, anywhere!",
+      video: "/assets/video/moto.mp4",
+      description:
+        "Smart control systems from Somfy, Nice, and Motion make it easier than ever to manage your blinds from a smart hub, mobile device, voice assistant, or remote. All while blocking UV rays and offering precision light, privacy, and energy efficiency control.",
+      tab: "Smart control",
+    },
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/mobile.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/mobile1.svg",
+      title: "Just tap your screen & control your blinds",
+      video: "/assets/video/moto.mp4",
+      description:
+        "Adjusting your blinds is now as easy as tapping a screen. No matter where you are—whether at home, the office, or even out running errands—you can control your blinds in real time.",
+      tab: "Smartphone",
+    },
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/voice.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/voice1.svg",
+      title: "Just say the word & enjoy the morning sunshine!",
+      video: "/assets/video/moto.mp4",
+      description:
+        "Connect your blinds to a voice assistant like Alexa or Google Home. With a simple voice command like “Alexa, lower my blinds” you can open, close, or adjust the blinds without lifting a finger.",
+      tab: "Voice assistant",
+    },
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/remote.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/remote1.svg",
+      title: "Quick, easy, and always within reach!",
+      video: "/assets/video/moto.mp4",
+      description:
+        "Whether you prefer the convenience of a handheld remote or a fixed wall switch, you get easy access to control light and privacy. No more fussing with cords—just a quick press to adjust your blinds exactly how you want them.",
+      tab: "Remote or Wall switch",
+    },
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/automated.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/automated1.svg",
+      title: "Set timers for your blinds to open and close automatically",
+      video: "/assets/video/moto.mp4",
+      description:
+        "Set your blinds to open in the morning and close at night—without lifting a finger. Wake up to a natural light-filled morning or enjoy a moment of instant privacy at the exact moment you choose, all on autopilot.",
+      tab: "Automated Scheduling",
+    },
+  ],
+  motorized_curtains: [
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/smart.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/smart1.svg",
+      title: "Control your windows anytime, anywhere!",
+      video: "/assets/video/curto.mp4",
+      description:
+        "Smart control systems from Somfy, Nice, and Motion make it easier than ever to manage your curtains from a smart hub, mobile device, voice assistant, or remote. All while blocking UV rays and offering precision light, privacy, and energy efficiency control.",
+        tab: "Smart control"
+    },
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/mobile.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/mobile1.svg",
+      title: "Just tap your screen & control your curtains",
+      video: "/assets/video/curto.mp4",
+      description:
+        "Adjusting your curtains is now as easy as tapping a screen. No matter where you are—whether at home, the office, or even out running errands—you can control your curtains in real-time.",
+      tab: "Smartphone",
+    },
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/voice.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/voice1.svg",
+      title: "Just say the word & enjoy the morning sunshine!",
+      video: "/assets/video/curto.mp4",
+      description:
+        "Connect with a voice assistant like Alexa or Google Home. With a simple voice command like “Alexa, close my curtains” you can open, close, or adjust the curtains without lifting a finger.",
+      tab: "Voice assistant",
+    },
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/remote.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/remote1.svg",
+      title: "Quick, easy, and always within reach!",
+      video: "/assets/video/curto.mp4",
+      description:
+        "Whether you prefer the convenience of a handheld remote or a fixed wall switch, you get easy access to control light and privacy. No more fussing with cords—just a quick press to adjust your curtains exactly how you want them.",
+        tab: "Remote or Wall switch"
+    },
+    {
+      icon: "/assets/images/Moterised-ads-blinds/landing/automated.svg",
+      activeicon: "/assets/images/Moterised-ads-blinds/landing/automated1.svg",
+      title: "Set timers for your curtains to open and close automatically",
+      video: "/assets/video/curto.mp4",
+      description:
+        "Set your curtains to open in the morning and close at night—without lifting a finger. Wake up to a natural light-filled morning or enjoy a moment of instant privacy at the exact moment you choose, all on autopilot.",
+      tab: "Automated Scheduling",
+    },
+  ],
+};
+
+
+// RollerMainContent
+export const tabsData = [
+  {
+    id: 0,
+    title: 'Blackout Roller Blinds',
+    subtitle: 'Made-to-measure for a perfect fit in any window size',
+    heading: "Total Darkness & Maximum Comfort",
+    content: [
+      {
+        title1: '100% Light Blockage:',
+        description: 'No light can pass through the material. Add side channels to completely block light from entering from the edges too.'
+      },
+      {
+        title1: 'Energy Efficient:',
+        description: 'Insulated fabric keeps your room warmer in winter, cooler in summer and lower energy bills.'
+      },
+      {
+        title1: 'Noise Reduction:',
+        description: 'Thick blackout fabric helps to absorb sound and keeps your home quiet and peaceful all day long.'
+      },
+    ],
+    iconSrc: '/assets/images/Rollerblind/roller.png',
+    videoSrc: '/assets/video/blackoutroller.mp4', 
+  },
+  {
+    id: 1,
+    title: 'Sunscreen Roller Blinds',
+    subtitle:'Enjoy Natural Light Without the Harsh Glare',
+    heading: "Light Control with UV Protection",
+    content: [
+      {
+        title1: 'UV Protection:',
+        description: 'UV roller blinds block up to 98% of harmful UV rays and help protect your furniture, floors, and interior décor from fading.'
+      },
+      {
+        title1: 'Energy Efficiency:',
+        description: 'Blocking excessive sunlight reduces the need for air conditioning and reduces energy costs.'
+      },
+      {
+        title1: 'Custom Fit & Style:',
+        description: ' Various fabrics and colours are available to complement your interior while providing functional advantages.'
+      },
+    ],
+    iconSrc: '/assets/images/Rollerblind/roller.png',
+    videoSrc: '/assets/video/blackoutroller.mp4', 
+  },
+];
+
+  // BlackoutimagesSection
+  export const Blackoutimages = [{
+    heading:"test1",
+    para: "test para1",
+    imgurl:  "/assets/images/Rollerblind/SB/b4.jpg",
+    },
+    {
+      heading:"test2",
+      para: "test para2",
+      imgurl:"/assets/images/Rollerblind/SB/b3.jpg",
+      },
+      {
+        heading:"test3",
+        para: "test para3",
+        imgurl: "/assets/images/Rollerblind/SB/b5.jpg",
+      },
+    ];
+  
+    // SunscreenimagesSection  
+    export const Sunscreenimages = [{
+      heading:"test4",
+      para: "test para4",
+      imgurl:  "/assets/images/Rollerblind/SB/s1.jpg",
+      },
+      {
+        heading:"test5",
+        para: "test para5",
+        imgurl:"/assets/images/Rollerblind/SB/s2.jpg",
+        },
+        {
+          heading:"test6",
+          para: "test para6",
+          imgurl:"/assets/images/Rollerblind/SB/s3.png",
+        },
+      ];
+
+  // RollerFeatures
+  export const KeyFeaturesRoller=[
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/lightbulb.png",
+      heading:"Control Light, Your Way",
+      para:"Choose from blackout or light-filtering fabrics for maximum light control, privacy, and a peaceful sleep.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/energy.png",
+      heading:"Energy Saving Design",
+      para:"Reduce energy costs by controlling sunlight and temperature with our smart designs.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/custom.png",
+      heading:"Custom-Made to Fit",
+      para:"Every blind is measured and made to fit your windows, leaving no room for imperfections.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/moterised.png",
+      heading:"Motorised Options Available",
+      para:"Upgrade to motorised blinds for ultimate convenience—control them with your phone, voice or remote.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/gurantee.png",
+      heading:"Durability Guaranteed",
+      para:"Our high-quality materials will make sure long-lasting use, with a 5-year warranty on all products.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/installation.png",
+      heading:"Professional Installation",
+      para:"We offer expert guidance, custom fitting, and professional installation to guarantee a flawless fit for every window.",
+    },
+  ];
+  // SunscreenFeatures
+  export const KeyFeaturesSunScreen=[
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/natural.png",
+      heading:"Reduce Heat Without Losing Natural Light",
+      para:"Sunscreen blinds filter sunlight and keep your home cooler while natural light fills the room.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/privacy.png",
+      heading:"Daytime Privacy with an Open View",
+      para:"Enjoy full privacy during the day without shutting out the outside view. Perfect for rooms with large windows.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/fading.png",
+      heading:"Protect Your Interiors from Fading",
+      para:"No one enjoys constant sun exposure, which can cause interiors to fade over time. But with sunscreen, you can keep them fresh for a long time.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/cost.png",
+      heading:"Energy-Efficient and Cost Saving",
+      para:"These blinds help lower your need for air conditioning. So you can save a little on energy bills without sacrificing comfort.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/maintance.png",
+      heading:"Low Maintenance for a Busy Life",
+      para:"Sunscreen blinds are easy to maintain and naturally resist dust, making them perfect for Dubai's dry and dusty climate.",
+    },
+    {
+      icon:"/assets/images/Rollerblind/keyfeatures/stylish.png",
+      heading:"Stylish and Functional",
+      para:"We offer an extensive selection of colours and textures, perfect for everything from living rooms and commercial spaces to your kid's room. So why not bring style into your space?",
+    },
+  ];
+
+  // export const ReviewsData=[
+  //   {
+  //   id: 1,
+  //   name:"Masuad Rana",
+  //   date:"jun 22, 2024",
+  //   text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+  // },
+  // {
+  //   id: 1,
+  //   name:"Masuad Rana",
+  //   date:"jun 22, 2024",
+  //   text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+  // },
+  // {
+  //   id: 1,
+  //   name:"Masuad Rana",
+  //   date:"jun 22, 2024",
+  //   text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+  // },
+  // {
+  //   id: 1,
+  //   name:"Masuad Rana",
+  //   date:"jun 22, 2024",
+  //   text:"This is very good website . I highly recomit👍 adipiscing elit. Sagittis, sagittis neque egesta velit, nec, malesuada tellus. Urna"
+  // },
+  // ];
+
+  export const GallaryData =[
+    {
+      info: [
+        {
+          className: 'h-[493px]', 
+          imageurl: '/assets/images/galleryimages/b1.png', 
+          text: 'Thermal Blackout Black Roller Blind',
+        },
+        {
+          className: 'h-[308px]',
+          imageurl: '/assets/images/galleryimages/b2.png',
+          text: 'Sunscreen Roller Blinds',
+          alt:"ss"
+        },
+      ],
+    },
+    {
+      info: [
+        {
+          className: 'h-[222px]',
+          imageurl: '/assets/images/galleryimages/b3.png',
+          text: 'Patterned Roller Blinds',
+        },
+        {
+          className: 'h-[581px]',
+          imageurl: '/assets/images/galleryimages/b4.png',
+          text: 'Plain Roller Blinds',
+        },
+      ],
+    },
+    {
+      info: [
+        {
+          className: 'h-[493px]', 
+          imageurl: '/assets/images/galleryimages/b5.png', 
+          text: 'Blackout Roller Blinds',
+        },
+        {
+          className: 'h-[308px]',
+          imageurl: '/assets/images/galleryimages/b6.png',
+          text: 'Sunscreen Roller Blinds',
+        },
+      ],
+    },
+    {
+      info: [
+        {
+          className: 'h-[205px]',
+          imageurl: '/assets/images/galleryimages/b7.png',
+          text: 'Patterned Roller Blinds',
+        },
+        {
+          className: 'h-[220px]',
+          imageurl: '/assets/images/galleryimages/b7.png',
+          text: 'Plain Roller Blinds',
+        },
+        {
+          className: 'h-[356px]',
+          imageurl: '/assets/images/galleryimages/b8.png',
+          text: 'Plain Roller Blinds',
+        },
+      ],
+    },
+    // Add more objects as needed
+    {
+      info: [
+        {
+          className: 'h-[493px]', 
+          imageurl: '/assets/images/galleryimages/s1.png', 
+          text: 'Thermal Blackout Black Roller Blind',
+        },
+        {
+          className: 'h-[308px]',
+          imageurl: '/assets/images/galleryimages/s2.png',
+          text: 'Sunscreen Roller Blinds',
+          alt:"ss"
+        },
+      ],
+    },
+    {
+      info: [
+        {
+          className: 'h-[222px]',
+          imageurl: '/assets/images/galleryimages/s3.png',
+          text: 'Patterned Roller Blinds',
+        },
+        {
+          className: 'h-[581px]',
+          imageurl: '/assets/images/galleryimages/s4.png',
+          text: 'Plain Roller Blinds',
+        },
+        ],
+      },
+    ];
+    // not needed
+    // {
+    //   info: [
+    //     {
+    //       className: 'h-[493px]', 
+    //       imageurl: '/assets/images/Rollerblind/Rectangle901.png', 
+    //       text: 'Blackout Roller Blinds',
+    //     },
+    //     {
+    //       className: 'h-[308px]',
+    //       imageurl: '/assets/images/Rollerblind/Rectangle905.png',
+    //       text: 'Sunscreen Roller Blinds',
+    //     },
+    //   ],
+    // },
+    // {
+    //   info: [
+    //     {
+    //       className: 'h-[205px]',
+    //       imageurl: '/assets/images/Rollerblind/Rectangle902.png',
+    //       text: 'Patterned Roller Blinds',
+    //     },
+    //     {
+    //       className: 'h-[220px]',
+    //       imageurl: '/assets/images/Rollerblind/Rectangle903.png',
+    //       text: 'Plain Roller Blinds',
+    //     },
+    //     {
+    //       className: 'h-[356px]',
+    //       imageurl: '/assets/images/Rollerblind/Rectangle904.png',
+    //       text: 'Plain Roller Blinds',
+    //     },
+      // ],
+  //   },
+  // ];
+

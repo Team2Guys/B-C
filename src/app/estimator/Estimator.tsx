@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Modal } from 'antd';
-import { IProduct } from 'types/types';
 import estimateIMG from '../../../public/assets/images/getestimate_new.jpg';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import VideoAutomation from 'components/video-Automation/video-Automation';
@@ -14,20 +13,20 @@ import Container from 'components/Res-usable/Container/Container';
 import { PiGreaterThan } from 'react-icons/pi';
 import UnitSelector from '../../components/estimator-product/UnitSelector';
 import EstimatorProduct from 'components/estimator-product/estimator-product';
-import { EsProduct } from 'types/interfaces';
+import {EstimatorProductTypes } from 'types/interfaces';
 import showToast from 'components/Toaster/Toaster';
 
-const EstimatorPage = ({ sortedProducts }: { sortedProducts: EsProduct[], products: IProduct[] }) => {
-  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
-  const [activeProduct, setActiveProduct] = useState<IProduct | null>(null);
+const EstimatorPage = ({ sortedProducts }: { sortedProducts: EstimatorProductTypes[]}) => {
+  const [selectedProduct, setSelectedProduct] = useState<EstimatorProductTypes | null>(null);
+  const [activeProduct, setActiveProduct] = useState<EstimatorProductTypes | null>(null);
   const [selectedUnit, setSelectedUnit] = useState<string>('cm');
   const [modalVisible, setModalVisible] = useState(false);
   const [width, setWidth] = useState<number | ''>('');
   const [height, setHeight] = useState<number | ''>('');
   const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
   const route = useRouter();
-
-
+const [productError, setproductError] = useState<string>("")
+console.log(productError,"product error")
   useEffect(() => {
     calculatePrice(width, height);
     setSelectedProduct(activeProduct);
@@ -55,7 +54,13 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EsProduct[], produc
     if (Number(width) > 0 && Number(height) > 0 && !activeProduct) {
       if (!toastTimeout.current) {
         toastTimeout.current = setTimeout(() => {
+          setproductError("Please select a product");  // Set the error message
           showToast('error', 'Please select a product');
+          
+          // setTimeout(() => {
+          //   setproductError("");  // Clear the error message after 1 second
+          // }, 1000);
+          
           toastTimeout.current = null;
         }, 1000);
       }
@@ -64,6 +69,7 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EsProduct[], produc
       toastTimeout.current = null;
     }
   };
+  
 
   const calculatePrice = (width: number | '', height: number | '') => {
 
@@ -134,13 +140,15 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EsProduct[], produc
     return unitPlaceholders[selectedUnit] || `Enter ${dimension}`;
   };
 
+
+
   return (
     <>
       <Container className="md:mt-10">
         <div className="grid grid-cols-12 md:gap-10 xl:gap-14 2xl:md:h-[677px] space-y-4 md:space-y-0 md:px-2 xl:px-0">
           <div className="col-span-12 md:col-span-6 mt-2 sm:mt-0">
             <Image
-              src={selectedProduct?.posterImage?.imageUrl}
+              src={selectedProduct?.posterImage?.imageUrl || sortedProducts[0].posterImage.imageUrl}
               width={1000}
               height={1000}
               alt={selectedProduct?.title || 'Product Image'}
@@ -215,6 +223,8 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EsProduct[], produc
               <li>All blinds & shutters are charged at a minimum of 1.5m².</li>
             </ul>
 
+{/* 
+        {productError ? <p className='mt-0 p-0 text-15' style={{marginTop: "0px", marginBottom: "0px"}}>{productError}</p> : null} */}
 
             <Button
               variant={'default'}
@@ -227,7 +237,7 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EsProduct[], produc
         </div>
         <Modal
           title="How to Measure"
-          visible={modalVisible}
+          open={modalVisible}
           onCancel={handleCloseModal}
           footer={null}
         >

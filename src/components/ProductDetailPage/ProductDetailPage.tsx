@@ -4,7 +4,7 @@ import React from 'react';
 import DetailInfo from 'components/Detail/detail-info/detail-info';
 import DetailProduct from 'components/Detail/detail-product/detail-product';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { ICategory, IProduct } from 'types/types';
+import { IProduct } from 'types/types';
 import Container from 'components/Res-usable/Container/Container';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import CardSkeleton from 'components/Skeleton/card-skeleton';
@@ -16,14 +16,10 @@ import { customTitles } from 'data/urls';
 interface IProductDetail {
   title: string;
   allprod?: IProduct[];
-  categories?: ICategory[]
+  filterProduct: IProduct | any;
 }
-const ProductDetailPage = ({ title, allprod , categories }: IProductDetail) => {
+const ProductDetailPage = ({ title, allprod,filterProduct  }: IProductDetail) => {
   const pathName = usePathname();
-
-  const filterProduct = allprod?.find((product) => {
-    return product.title === title;
-  });
 
   const relatedProducts = allprod?.filter((product) => {
     return product.CategoryId === filterProduct?.CategoryId;
@@ -44,10 +40,11 @@ const ProductDetailPage = ({ title, allprod , categories }: IProductDetail) => {
       <TopHero
         title={title}
         pageTitle={customPageTitle}
-        //@ts-expect-error
         image={`${filterProduct?.bannerImage?.imageUrl || bgBreadcrum.src}`}
         pagename={pathName}
       />
+        <Container className="mt-10">
+
       <DetailInfo
         title={title ? title : ''}
         description={filterProduct?.description || ''}
@@ -70,14 +67,18 @@ const ProductDetailPage = ({ title, allprod , categories }: IProductDetail) => {
           products={filterProduct}
         />
       )}
+      <div className='mt-10'>
 
       {!allprod ? (
         <CardSkeleton />
       ) : (
-        <Container className="mt-10">
-          <RelatedProducts products={relatedProducts || []} limit={4} title={title} categoriesList={categories} />
-        </Container>
+          <RelatedProducts products={relatedProducts || []} limit={4} title={title} />
+   
       )}
+      </div>
+      </Container>
+
+
       <BookNowBanner className="mt-20" />
     </>
   );

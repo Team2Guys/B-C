@@ -24,7 +24,7 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({ selectProduct, setActivePr
                   }`}
                 width={200}
                 height={200}
-                loading='lazy'
+                loading='eager'
                 src={product.posterImage?.imageUrl}
                 alt={product.title || 'Product Image'}
               />

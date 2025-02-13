@@ -81,7 +81,6 @@ const CommercialPage = async () => {
     <Commercial
       filteredCatgory={filteredCatgory}
       filteredProducts={filtered}
-      categories={categories}
       mixProdCategeries={mixed_prod_cats}
     />
     </>
