@@ -442,3 +442,17 @@ export interface EstimatorProps {
   setActiveProduct: React.DispatchM<SetStateAction<EsProduct | null>>;
   activeProduct: EsProduct | null;
 }
+
+
+
+interface PosterImage {
+  imageUrl: string;
+}
+
+// Interface for each product in estimator_data
+export interface EstimatorProductTypes {
+  id: number;
+  title: string;
+  posterImage: PosterImage;
+  price: number;
+}

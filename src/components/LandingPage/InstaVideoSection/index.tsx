@@ -1,6 +1,5 @@
 'use client'
 import React from 'react';
-import Container from 'components/Res-usable/Container/Container';
 interface VideoData {
   video: string;
 }

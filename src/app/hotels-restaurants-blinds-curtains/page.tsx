@@ -1,6 +1,6 @@
 
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
-import { fetchCategories, fetchProducts } from 'config/fetch';
+import { fetchProducts } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 const CommercialPage = async () => {
-  const [products, categories] = await Promise.all([fetchProducts(), fetchCategories()]);
+  const [products] = await Promise.all([fetchProducts()]);
   const filtereProdcts = ["Hotels & Restaurants"]
 
   const filteredProduct = products?.find((prod: any) => filtereProdcts.includes(prod.title));
@@ -63,7 +63,8 @@ const CommercialPage = async () => {
     <ProductDetailPage
       title={`${filteredProduct?.title}`}
       allprod={products}
-      categories={categories}
+      filterProduct={filteredProduct}
+    
     />
   );
 };

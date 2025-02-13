@@ -1,12 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
-import CardSkeleton from 'components/Skeleton/card-skeleton';
-import { fetchCategories } from 'config/fetch';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { ICategory } from 'types/types';
 
 interface ProductCardDataProps {
   products: any[];
@@ -21,18 +17,6 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
   renderDescription,
 }) => {
   const [scrollEnabled, setScrollEnabled] = useState(false);
-  const {
-    data: categories,
-    isLoading: isLoadingCategories,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories
-  });
-
-  if (isLoadingCategories)
-    return (
-      <CardSkeleton isSizeSmall={isSizeSmall} />
-    );
   const getTrimmedTitle = (title: string) => {
     return title.replace(/^Made to measure\s+/i, '');
   };
@@ -40,16 +24,10 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
 
   const getPath = (product: any, parent: string) => {
     const slug = ChangedProductUrl_handler(product.title);
-    const basePath =
-      product.href && parent
-        ? `${window.origin}/${product.href}`
-        : `/${slug}`;
+    const basePath =product.href && parent? `${window.origin}/${product.href}`: `/${slug}`;
 
     const path = predefinedPaths[slug as keyof typeof predefinedPaths] ||
-      (slug === 'hotels-restaurants-blinds-curtains'
-        ? basePath
-        : `/${parent?.toLowerCase() === 'shutters'
-          ? `${parent.toLowerCase()}-range`
+      (slug === 'hotels-restaurants-blinds-curtains'? basePath : `/${parent?.toLowerCase() === 'shutters' ? `${parent.toLowerCase()}-range`
           : parent?.toLowerCase()
         }${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
           ? '/roller-blinds'
@@ -73,11 +51,9 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
     >
       {products &&
         products.map((product: any) => {
-          const category = categories?.find((cat) => cat.id == product.CategoryId);
-          if (!category) return null;
 
           const trimmedProductTitle = getTrimmedTitle(product.title);
-          const parent = generateSlug(category?.title);
+          const parent = generateSlug(product.category?.title);
 
           return (
             <div

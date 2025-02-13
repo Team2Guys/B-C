@@ -456,12 +456,6 @@ const Footer: React.FC = () => {
                     </div>
                   </div>
                   <div className="overflow-hidden grow">
-                    {/* <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14450.034204416814!2d55.2256!3d25.1275!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f698d0b075de1%3A0x223e3563a8be56be!2sTwo%20Guys%20-%20Blinds%20%26%20Curtains%20Dubai!5e0!3m2!1sen!2sus!4v1727335871755!5m2!1sen!2sus"
-                      className="w-full h-full min-h-30"
-                      loading="lazy"
-                    ></iframe> */}
-
                     <GoogleMap/>
                   </div>
                 </div>

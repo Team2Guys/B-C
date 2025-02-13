@@ -4,7 +4,7 @@ import Container from 'components/Res-usable/Container/Container';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import React, { useEffect, useState } from 'react';
-import { ICategory, IProduct } from 'types/types';
+import {IProduct } from 'types/types';
 import bgBreadcrum from '../../../public/assets/images/Breadcrum/modern.png';
 import TopHero from 'components/ui/top-hero';
 import { usePathname } from 'next/navigation';
@@ -21,8 +21,6 @@ interface ICategoryPage {
   description: string;
   category: string;
   filteredSubCategory?: IFilteredSubCategory ;
-  subCategories:ICategory[];
-  categories?:ICategory[];
   products?:IProduct[];
 }
 
@@ -30,14 +28,10 @@ const CommercialByRoom = ({
   title,
   relatedProducts,
   description,
-  category,
   filteredSubCategory,
   products,
-  categories,
-  subCategories
 }: ICategoryPage) => {
   const pathname = usePathname();
-  console.log(category, 'category');
   const [isNotFound, setIsNotFound] = useState(false);
   const [filteredProducts, setFilteredProducts] =useState<IProduct[]>(relatedProducts);
 
@@ -72,7 +66,7 @@ const CommercialByRoom = ({
 
   useEffect(() => {
     filterProducts();
-  }, [title, products, subCategories, categories]);
+  }, [title, products ]);
 
   if (isNotFound) {
     return <NotFound />;

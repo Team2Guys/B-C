@@ -37,9 +37,17 @@ export default function RootLayout({
     <Providers>
       <html lang="en">
         <Head>
-          <>
-            {/* Google Tag Manager */}
-            <Script
+            {/* Google Site Verification */}
+            <meta name="google-site-verification" content="kY94RrP8_rfkJPW-jgK6GaWAfX9BUykeQ5Q7WFxmGyY" />
+
+            {/* Pinterest Domain Verification */}
+            <meta name="p:domain_verify" content="58b7c4e018c53c00c2cd12f5f838b47a" />
+
+
+        </Head>
+
+             {/* Google Tag Manager */}
+             <Script
             strategy='afterInteractive'
               id="google-tag-manager"
               dangerouslySetInnerHTML={{
@@ -67,15 +75,8 @@ export default function RootLayout({
             `,
               }}
             />
-
-            {/* Google Site Verification */}
-            <meta name="google-site-verification" content="kY94RrP8_rfkJPW-jgK6GaWAfX9BUykeQ5Q7WFxmGyY" />
-
-            {/* Pinterest Domain Verification */}
-            <meta name="p:domain_verify" content="58b7c4e018c53c00c2cd12f5f838b47a" />
-
-            {/* Meta Pixel */}
-            <Script
+        {/* Meta Pixel */}
+        <Script
               id="meta-pixel"
               strategy='afterInteractive'
               dangerouslySetInnerHTML={{
@@ -93,23 +94,21 @@ export default function RootLayout({
             `,
               }}
             />
+            {/* Google Analytics Script */}
+        <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-2W1CWBHDRB"
+      />
+      
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-            {/* Google Analytics */}
-            <Script
-              id="gtag-init"
-
-              strategy='afterInteractive'
-              dangerouslySetInnerHTML={{
-                __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'UA-133442332-1');
-            `,
-              }}
-            />
-          </>
-        </Head>
+          gtag('config', 'G-2W1CWBHDRB');
+        `}
+      </Script>
 
 
         <body className={` ${gotham.className} bg-lightgrey`}>

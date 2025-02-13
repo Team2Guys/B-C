@@ -1,5 +1,3 @@
-'use client';
-import React from 'react';
 import TopHero from 'components/ui/top-hero';
 import MotorisedInfo from 'components/motorised-blinds/motorised-info';
 import Measure from 'components/motorised-blinds/measure';
@@ -7,18 +5,15 @@ import ChooseUs from 'components/motorised-blinds/choose-us';
 import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import Container from 'components/Res-usable/Container/Container';
-import { ICategory, IProduct } from 'types/types';
-import { usePathname } from 'next/navigation';
+import { IProduct } from 'types/types';
 
-const MotorisedPage = ({products, categories , pageData}:{products:IProduct[], categories:ICategory[] , pageData: any}) => {
-  const pathName = usePathname();
-  
+const MotorisedPage = ({products, pageData}:{products:IProduct[], pageData: any}) => {  
   return (
     <>
       <TopHero
         title={pageData.title}
         Video={pageData.heroVideo}
-        pagename={pathName}
+
       />
       <MotorisedInfo
         title={pageData.infoTitle}
@@ -64,7 +59,7 @@ const MotorisedPage = ({products, categories , pageData}:{products:IProduct[], c
       )}
       <BookNowBanner />
       <Container className="mt-10 md:mt-20">
-        <RelatedProducts products={products || []} limit={4} categoriesList={categories} />
+        <RelatedProducts products={products || []} limit={4} />
       </Container>
     </>
   );
