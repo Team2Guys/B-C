@@ -683,11 +683,11 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         desc: 'Wood panel window shutters are excellent for complete light control and privacy. They don’t have any gaps or slats, so they completely cover your dining room windows. These shutters are perfect for formal dining rooms where you want a more classic and traditional style. They come in different wood finishes that match your dining room decor.',
       },
       {
-        product_name: 'Bi Fold Shutters',
-        altText: 'Bi Fold Shutters',
+        product_name: 'Bi-Fold Shutters',
+        altText: 'Bi-Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
-        desc: 'Bifold window shutters are an excellent option for large dining room windows. They allow you to easily fold the shutters to one side and open up your space, creating a smooth connection between your indoor and outdoor dining area. These shutters are also perfect for smaller spaces as they don&apos;t occupy much room. Plus, their sleek design adds a touch of modernity to any dining area',
+        desc: 'Bi-fold window shutters are an excellent option for large dining room windows. They allow you to easily fold the shutters to one side and open up your space, creating a smooth connection between your indoor and outdoor dining area. These shutters are also perfect for smaller spaces as they don&apos;t occupy much room. Plus, their sleek design adds a touch of modernity to any dining area',
       },
       {
         product_name: 'Special Shape Shutters',
@@ -711,11 +711,11 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         desc: 'Sliding bypass shutters patio doors are popular for bedrooms with patio doors. They operate on a track, allowing you to slide them open or closed, giving you easy access to your outdoor space. These shutters also provide excellent insulation, making your bedroom more energy-efficient and reducing noise from outside. Plus, they add a modern touch to any bedroom design.',
       },
       {
-        product_name: 'Bi Fold Shutters',
-        altText: 'Bi Fold Shutters',
+        product_name: 'Bi-Fold Shutters',
+        altText: 'Bi-Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/shutters/bedroom/Tracked-Shutters.jpg',
-        desc: 'Bifold interior shutters are about style and functionality. They allow you to control the light in your bedroom, and when opened, they fold up neatly out of the way. This feature is perfect if you have limited space in your bedroom or want a clean, minimalist look. Bi-fold shutters are also easy to maintain and can be customised to fit any window size.',
+        desc: 'Bi-fold interior shutters are about style and functionality. They allow you to control the light in your bedroom, and when opened, they fold up neatly out of the way. This feature is perfect if you have limited space in your bedroom or want a clean, minimalist look. Bi-fold shutters are also easy to maintain and can be customised to fit any window size.',
       },
       {
         product_name: 'Tier On Tier Shutters',
@@ -906,8 +906,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         desc: 'Pergola Aluminium blinds are a great mix of style and usefulness, made to fit any outdoor space. Our outdoor blinds for pergolas are built from strong, high-quality materials that last a long time. They’re designed for Dubai’s tough weather, so they resist mildew, mold, and dust, making them easy to care for. These blinds are perfect if you want to make your outdoor area look nicer or add more shade and privacy.',
       },
       {
-        product_name: 'Bi Fold Shutters',
-        altText: 'Bi Fold Shutters',
+        product_name: 'Bi-Fold Shutters',
+        altText: 'Bi-Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Pergola/Blackout-curtains-for-Pergola.jpg',
         desc: 'Pergola Bi-Fold shutters make your outdoor space look great and work even better. These sliding shutters for pergolas can slide open or closed so that you can use them differently. You can attach them to walls or leave them free-standing, making your outdoor area more flexible. They protect you from bad weather like heavy rain, strong wind, and hot sunlight, keeping you comfy all year.',
@@ -1166,8 +1166,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     Product: [
    
       {
-        product_name: 'Bi Fold Shutters',
-        altText: 'Bi Fold Shutters',
+        product_name: 'Bi-Fold Shutters',
+        altText: 'Bi-Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/Color/Grey-color/Grey color Bifold shutters.webp',
         desc: '',
@@ -1193,8 +1193,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         desc: '',
       },
       {
-        product_name: 'Bi Fold Shutters',
-        altText: 'Bi Fold Shutters',
+        product_name: 'Bi-Fold Shutters',
+        altText: 'Bi-Fold Shutters',
         Imagesurl:
           '/assets/images/optimized-images/Color/Black-shutters/Off white tracked window shutters.webp',
         desc: '',

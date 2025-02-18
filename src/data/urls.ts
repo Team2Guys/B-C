@@ -274,7 +274,7 @@ export const getProduct = [
   'Kitchen Shutters',
   'Bedroom Shutters',
   'Bathroom Shutters',
-  'Bi Fold Shutters',
+  'Bi-Fold Shutters',
   'Outdoor Shutters',
   'Staircase Shutters',
 ];

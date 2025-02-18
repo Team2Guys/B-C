@@ -1,23 +1,21 @@
-
 import React from 'react';
 import VideoSection from 'components/LandingPage/video-section';
 import InstaVideoSection from 'components/LandingPage/InstaVideoSection';
 import Button from 'components/LandingPage/ButtonSection';
 import MoterizedService from 'components/LandingPage/MoterizedService';
 import Header from 'components/LandingPage/Header';
-import { InstacurtainData, KeyData, MotorisedSellingDataCurtain } from 'data/data';
-import { benefits } from 'data/data';
-import SellingFeatures from 'components/LandingPage/SellingFeatures';
-import { TabData } from 'data/data';
+import { InstacurtainData, KeyData, MotorisedSellingDataCurtain, benefits, TabData } from 'data/data';
 import { fetchProducts } from 'config/fetch';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { Metadata } from 'next';
 import CustomSection from 'components/LandingPage/Custommade';
-import MoterizedBlinds from 'components/LandingPage/Moterized Blinds';
+import { IProduct } from 'types/types';
+import SellingFeatures from 'components/LandingPage/SellingFeatures';
 import KeyFeature from 'components/LandingPage/KeyFeature';
+import MoterizedBlinds from 'components/LandingPage/Moterized Blinds';
 
-export const metadata:Metadata  = {
+export const metadata: Metadata = {
   robots: {
     index: false,
     follow: false,
@@ -33,10 +31,23 @@ export const metadata:Metadata  = {
   },
 };
 
-const Custommade_MoterisedCurtains= async () => {
-  const [products,  ] = await Promise.all([
-      fetchProducts(),
-    ]);
+const Custommade_MoterisedCurtains = async () => {
+  const [products] = await Promise.all([fetchProducts()]);
+
+const curtainsTitles = [
+    "Sheer Curtains",
+    "Modern Curtains",
+    "Office Curtains",
+    "Home Curtains"
+  ];
+  
+  const getcurtainProducts = (filterproduct: IProduct[]) => {
+    return filterproduct.filter(product =>
+      curtainsTitles.includes(product?.title)
+    );
+  };
+
+  const curtainProducts = getcurtainProducts(products || []);
   return (
     <>
       <Header/>
@@ -66,7 +77,7 @@ const Custommade_MoterisedCurtains= async () => {
       <Button/>
       <InstaVideoSection data={InstacurtainData}  />
       <Container className="mt-10 md:mt-20">
-      <RelatedProducts products={products || []} limit={4} bgcolor={true} />
+      <RelatedProducts products={curtainProducts || []} limit={4} bgcolor={true} description='Explore our collection, each piece a showcase of exceptional window curtains design.' />
       </Container>
       
     </>
