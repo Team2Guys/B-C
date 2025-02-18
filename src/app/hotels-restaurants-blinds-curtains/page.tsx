@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
   let title = Product?.Meta_Title || 'blindsandcurtains';
   let description = Product?.Meta_description || 'Welcome to blindsandcurtains';
 
-  let url = `${fullUrl}/blinds/${generateSlug(Product.title)}`;
+  let url = `${fullUrl}blinds/${generateSlug(Product.title)}`;
 
   return {
     title: title,

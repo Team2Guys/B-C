@@ -41,9 +41,7 @@ export async function generateMetadata({
   let Product = filteredProduct as IProduct;
 
   let ImageUrl =
-    Product?.posterImage?.imageUrl ||
-    filteredSubCategory?.posterImage?.imageUrl ||
-    'blindsandcurtains';
+    Product?.posterImage?.imageUrl ||filteredSubCategory?.posterImage?.imageUrl ||'blindsandcurtains';
   let alt =
     Product?.posterImage.altText ||
     filteredSubCategory?.posterImage?.altText ||
@@ -63,7 +61,9 @@ export async function generateMetadata({
     Product?.Meta_description ||
     filteredSubCategory?.Meta_description ||
     'Welcome to blindsandcurtains';
-  let url = `${fullUrl}/blinds/${product}`;
+  let url = `${fullUrl}blinds/${product}`;
+
+  console.log(url, "url")
 
   return {
     title: title,
