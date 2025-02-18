@@ -1058,6 +1058,36 @@ export const colorData: IColorData[] = [
           '/assets/images/optimized-images/Color/Off-white/Off white tracked window shutters.webp',
         altText: 'Off White Shutters',
       },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Off-white/Off White Shutters 1.jpg',
+        altText: 'Off White Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Off-white/Off White Shutters 2.jpg',
+        altText: 'Off White Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Off-white/Off White Shutters 3.jpg',
+        altText: 'Off White Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Off-white/Off White Shutters 4.jpg',
+        altText: 'Off White Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Off-white/Off White Shutters 5.jpg',
+        altText: 'Off White Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Off-white/Off White Shutters 6.jpg',
+        altText: 'Off White Shutters',
+      },
     ],
   },
   {
@@ -1144,6 +1174,16 @@ export const colorData: IColorData[] = [
           '/assets/images/optimized-images/Color/Black-shutters/Cold color shutters (1).webp',
         altText: 'Black Shutters',
       },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black Shutters 3.jpg',
+        altText: 'Black Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Black-shutters/Black Shutters 1-min.jpg',
+        altText: 'Black Shutters',
+      },
     ],
   },
   {
@@ -1172,6 +1212,26 @@ export const colorData: IColorData[] = [
           '/assets/images/optimized-images/Color/Grey-color/Grey Shutters (3).webp',
         altText: 'Grey Shutters',
       },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Grey-color/Grey Shutters 1.jpg',
+        altText: 'Grey Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Grey-color/Grey Shutters 2.jpg',
+        altText: 'Grey Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Grey-color/Grey Shutters 4.jpg',
+        altText: 'Grey Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Grey-color/Grey Shutters 5.jpg',
+        altText: 'Grey Shutters',
+      },
     ],
   },
   {
@@ -1190,6 +1250,40 @@ export const colorData: IColorData[] = [
           '/assets/images/optimized-images/Color/Dark-wood/Special shaped shutters ( Dark wood).webp',
         altText: 'Dark Woods Shutters',
       },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Dark-wood/Dark Wood Shutters 1.jpg',
+        altText: 'Dark Woods Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Dark-wood/Dark Wood Shutters 2.jpg',
+        altText: 'Dark Woods Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Dark-wood/Dark Wood Shutters 3.jpg',
+        altText: 'Dark Woods Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Dark-wood/Dark Wood Shutters 4.jpg',
+        altText: 'Dark Woods Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Dark-wood/Dark Wood Shutters 5.jpg',
+        altText: 'Dark Woods Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Dark-wood/Dark Wood Shutters 6.jpg',
+        altText: 'Dark Woods Shutters',
+      },
+
+
+
+
     ],
   },
   {
@@ -1218,6 +1312,28 @@ export const colorData: IColorData[] = [
           '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (3).webp',
         altText: 'Light Woods Shutters',
       },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Light-wood/Light Wood Shutters 1.jpg',
+        altText: 'Light Woods Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Light-wood/Light Wood Shutters 5 (1).jpg',
+        altText: 'Light Woods Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Light-wood/Light Wood Shutters 3.jpg',
+        altText: 'Light Woods Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Light-wood/Light Wood Shutters 4.jpg',
+        altText: 'Light Woods Shutters',
+      },
+
+
     ],
   },
   {
@@ -1229,6 +1345,11 @@ export const colorData: IColorData[] = [
       {
         imageUrl:
           '/assets/images/optimized-images/Color/Bold-colors/Bold color shutters (1).webp',
+        altText: 'Bold Colour Shutters',
+      },
+      {
+        imageUrl:
+          '/assets/images/optimized-images/Color/Bold-colors/Bold Colour Shutters 1 (1).jpg',
         altText: 'Bold Colour Shutters',
       },
       {
