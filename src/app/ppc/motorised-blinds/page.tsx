@@ -16,6 +16,7 @@ import { Metadata } from 'next';
 import CustomSection from 'components/LandingPage/Custommade';
 import MoterizedBlinds from 'components/LandingPage/Moterized Blinds';
 import KeyFeature from 'components/LandingPage/KeyFeature';
+import { IProduct } from 'types/types';
 
 
 export const metadata:Metadata  = {
@@ -36,6 +37,22 @@ export const metadata:Metadata  = {
 
 const Custommade_MoterisedBlinds = async () => {
   const [products] = await Promise.all([fetchProducts()]);
+  console.log("products",products)
+  const blindsTitles = [
+    "Roman Blinds",
+    "Blackout Roller Blinds",
+    "Zebra Blinds",
+    "Wooden Blinds"
+  ];
+
+  const getBlindsProducts = (filterproduct: IProduct[]) => {
+    return filterproduct.filter(product =>
+      blindsTitles.includes(product?.title)
+    );
+  };
+  
+  const blindsProducts = getBlindsProducts(products || [])
+
   return (
     <>
       <Header/>
@@ -43,11 +60,11 @@ const Custommade_MoterisedBlinds = async () => {
        videoSrc="/assets/video/blinds.mp4"
        title="Motorised Blinds"
        subtitle="Control the light with a tap on your phone screen"
-       description="Enjoy the benefits of comfortable modern living coupled with the long lasting style of Roman, Roller and Venetian Blinds. "/>
+       description="Enjoy the benefits of comfortable modern living coupled with the long lasting style of Roman, Roller and Venetian Blinds."/>
       <CustomSection
-      title="Custom Made"
+      title="Custom-Made"
       subtitle="Motorized Blinds"
-      description1="Upgrade your windows with Motorized Day/Night blinds with Blinds & Curtains!"
+      description1="Upgrade your windows with motorized zebra blinds from Blinds & Curtains!"
       description2={[
         "Smart Home Integration",
         "Expert measuring and fitting",
@@ -67,7 +84,7 @@ const Custommade_MoterisedBlinds = async () => {
       <Button/>
       <InstaVideoSection data={InstablindData}/>
       <Container className="mt-10 md:mt-20">
-      <RelatedProducts products={products || []} limit={4} bgcolor={true} />
+      <RelatedProducts products={blindsProducts || []} limit={4} bgcolor={true} isPPc ={true}/>
       </Container>
     </>
   );

@@ -1,7 +1,10 @@
 import { blogPostUrl } from 'data/urls';
 import { permanentRedirect} from 'next/navigation';
 import React from 'react'
-import { Props } from 'react-select';
+type Props = {
+  params: Promise<{ projectsName: string[] }>
+}
+
 
 const ProjectName = async  ({ params }: Props) => {
   const slug = (await params).projectsName;

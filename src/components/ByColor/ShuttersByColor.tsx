@@ -31,8 +31,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
       content: string;
     }[];
   } | null>(null);
-  const [loadingFilteredProducts, setLoadingFilteredProducts] =
-    useState<boolean>(false);
+  const [loadingFilteredProducts, setLoadingFilteredProducts] = useState<boolean>(false);
   const [relaiveProducts, setRelaiveProducts] = useState<IProduct[]>([]);
   const [colorImages, setcolorImages] = useState<IColorData>();
   const pathname = usePathname();

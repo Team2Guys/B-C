@@ -57,9 +57,9 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
                 style={{ backgroundImage: `url(${item.imageurl})` }}
                 onClick={() => openModal(item.imageurl)} 
               >
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
+                {/* <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
                   <div className="bg-white p-2 mx-4 text-center text-15 font-light">{item.text}</div>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>

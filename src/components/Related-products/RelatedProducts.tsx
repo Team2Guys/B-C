@@ -12,8 +12,9 @@ interface relativeProps {
   title?: string;
   description?: string;
   bgcolor?: boolean;
+  isPPc?:boolean
 }
-const RelatedProducts: React.FC<relativeProps> = ({ products, categoriesList, limit, title, description,bgcolor }) => {
+const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title, description,bgcolor, isPPc,  }) => {
   const [selectedProducts, setSelectedProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
@@ -49,9 +50,8 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, categoriesList, li
       </p>
       <div className="grid grid-cols-1 xs:grid-cols-2 md: lg:grid-cols-4 gap-6 lg:mt-10 mt-4 lg:mb-10">
         {selectedProducts.length > 0 ? selectedProducts.map((item) => {
-          const filteredCategory = categoriesList?.find(
-            (cat) => cat.id === item?.CategoryId,
-          );
+          console.log(item, 'item')
+          const filteredCategory = item?.category;
           return (
             <GalleryCard
               card={item}
@@ -60,6 +60,7 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, categoriesList, li
               isLoading={false}
               parent={filteredCategory?.title.toLowerCase()}
               bgcolor={bgcolor}
+              isPPc ={isPPc}
             />
           );
         }) : Array(4).fill(null).map((_, index) => (

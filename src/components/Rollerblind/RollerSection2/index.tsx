@@ -68,11 +68,11 @@ const RollerTabContant = ({setTabType}:ROOLER_TAB) => {
             <div className='sm:pl-6 flex flex-col lg:pb-0 sm:flex-row md:flex-wrap lg:flex-nowrap gap-2 sm:gap- lg:gap-2 xl:gap-4 uppercase'>
            <CButton/>
           </div></div>
-          <div className="w-full h-auto md:h-full hidden md:block">
+          <div className="w-full h-auto md:h-[450px] lg:h-[530px] xl:h-[455px] 2xl:h-[400px] hidden md:block">
             <video
               ref={videoRef}
               src={tabsData[activeTab].videoSrc}
-              className="w-full h-full object-cover"
+              className="w-full h-auto md:h-[450px] lg:h-[530px] xl:h-[455px] 2xl:h-[400px] object-fill"
               autoPlay
               muted playsInline
               controls={false}
