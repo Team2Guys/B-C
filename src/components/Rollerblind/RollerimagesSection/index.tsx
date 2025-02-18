@@ -30,9 +30,9 @@ const RollerImageSection = ({ tabType }: BlackOutRollerBlindsProps) => {
       <span className="font-normal flex text-nowrap">Roller Blinds</span>
       <HiArrowLongRight /></h2>
       
-      <div className="relative w-full h-auto bg-cover bg-center">
+      <div className="relative w-full h-auto bg-fill bg-center">
       <Image
-          className="2xl:w-full h-[200px] xs:h-[250px] sm:h-[300px] xl:h-[477px]"
+          className="2xl:w-full h-[200px] xs:h-[250px] sm:h-[300px] xl:h-[477px] object-cover"
           src={images[currentImageIndex].imgurl || ""}
           alt="image"
           width={1441}
@@ -42,7 +42,7 @@ const RollerImageSection = ({ tabType }: BlackOutRollerBlindsProps) => {
           <h2 className="font-normal text-14 sm:text-22 lg:text-26 font-serif">
             {images[currentImageIndex].heading}
           </h2>
-          <p className="font-normal text-10">{images[currentImageIndex].para}</p>
+          {/* <p className="font-normal text-10">{images[currentImageIndex].para}</p> */}
         </div>
         <div className="absolute inset-1 sm:inset-2 lg:inset-7 flex justify-between items-center">
           <button

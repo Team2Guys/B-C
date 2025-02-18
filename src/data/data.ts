@@ -2122,37 +2122,37 @@ export const tabsData = [
 
   // BlackoutimagesSection
   export const Blackoutimages = [{
-    heading:"test1",
-    para: "test para1",
+    heading:"Stylish & Functional Blackout Blinds for Any Space",
+    para: "Upgrade your home or office with sleek blackout blinds",
     imgurl:  "/assets/images/Rollerblind/sliderimg/b4.jpg",
     },
     {
-      heading:"test2",
-      para: "test para2",
+      heading:"Total Darkness, Maximum Comfort",
+      para: "ultimate privacy with our high-quality blackout roller blinds",
       imgurl:"/assets/images/Rollerblind/sliderimg/b3.jpg",
       },
       {
-        heading:"test3",
-        para: "test para3",
+        heading:"Enhance Your Space with Premium Blackout Blinds",
+        para: "Enjoy a perfect balance of function and design with our blackout blinds",
         imgurl: "/assets/images/Rollerblind/sliderimg/b5.jpg",
       },
     ];
   
     // SunscreenimagesSection  
     export const Sunscreenimages = [{
-      heading:"test4",
-      para: "test para4",
+      heading:"Modern Sunscreen Blinds for Stylish Spaces",
+      para: "Blinds",
       imgurl:  "/assets/images/Rollerblind/sliderimg/s1.jpg",
       },
       {
-        heading:"test5",
-        para: "test para5",
+        heading:"Smart Sun Protection with a Modern Touch",
+        para: "Blinds",
         imgurl:"/assets/images/Rollerblind/sliderimg/s2.jpg",
         },
         {
-          heading:"test6",
-          para: "test para6",
-          imgurl:"/assets/images/Rollerblind/sliderimg/s3.png",
+          heading:"Sunscreen Roller Blinds – Style Meets Functionality",
+          para: "Blinds",
+          imgurl:"/assets/images/Rollerblind/sliderimg/s3.jpg",
         },
       ];
 
@@ -2229,12 +2229,12 @@ export const tabsData = [
         {
           className: 'h-[493px]', 
           imageurl: '/assets/images/galleryimages/all/b1.png', 
-          text: 'Thermal Blackout Black Roller Blind',
+          text: 'Blackout Roller Blinds',
         },
         {
           className: 'h-[308px]',
           imageurl: '/assets/images/galleryimages/all/b2.png',
-          text: 'Sunscreen Roller Blinds',
+          text: 'Blackout Roller Blinds',
           alt:"ss"
         },
       ],
@@ -2244,12 +2244,12 @@ export const tabsData = [
         {
           className: 'h-[222px]',
           imageurl: '/assets/images/galleryimages/all/b3.png',
-          text: 'Patterned Roller Blinds',
+          text: 'Blackout Roller Blinds',
         },
         {
           className: 'h-[581px]',
           imageurl: '/assets/images/galleryimages/all/b4.png',
-          text: 'Plain Roller Blinds',
+          text: 'Blackout Roller Blinds',
         },
       ],
     },
@@ -2263,7 +2263,7 @@ export const tabsData = [
         {
           className: 'h-[308px]',
           imageurl: '/assets/images/galleryimages/all/b6.png',
-          text: 'Sunscreen Roller Blinds',
+          text: 'BBlackout Roller Blinds',
         },
       ],
     },
@@ -2272,17 +2272,17 @@ export const tabsData = [
         {
           className: 'h-[205px]',
           imageurl: '/assets/images/galleryimages/all/b7.png',
-          text: 'Patterned Roller Blinds',
+          text: 'Blackout Roller Blinds',
         },
         {
           className: 'h-[220px]',
           imageurl: '/assets/images/galleryimages/all/b8.png',
-          text: 'Plain Roller Blinds',
+          text: 'Blackout Roller Blinds',
         },
         {
           className: 'h-[356px]',
           imageurl: '/assets/images/galleryimages/all/s1.png',
-          text: 'Plain Roller Blinds',
+          text: 'Sunscreen Roller Blinds',
         },
       ],
     },
@@ -2292,7 +2292,7 @@ export const tabsData = [
         {
           className: 'h-[493px]', 
           imageurl: '/assets/images/galleryimages/all/s2.png', 
-          text: 'Thermal Blackout Black Roller Blind',
+          text: 'Sunscreen Roller Blinds',
         },
         {
           className: 'h-[308px]',
@@ -2307,12 +2307,12 @@ export const tabsData = [
         {
           className: 'h-[222px]',
           imageurl: '/assets/images/galleryimages/all/s4.png',
-          text: 'Patterned Roller Blinds',
+          text: 'Sunscreen Roller Blinds',
         },
         {
           className: 'h-[581px]',
           imageurl: '/assets/images/galleryimages/all/s5.png',
-          text: 'Plain Roller Blinds',
+          text: 'Sunscreen Roller Blinds',
         },
         ],
       },
@@ -2323,13 +2323,12 @@ export const tabsData = [
           {
             className: 'h-[493px]', 
             imageurl: '/assets/images/galleryimages/blackout/BO1.jpg', 
-            text: 'Thermal Blackout Black Roller Blind1',
+            text: 'Blackout Roller Blinds',
           },
           {
             className: 'h-[308px]',
-            imageurl: '/assets/images/galleryimages/blackout/BO2.jpg',
-            text: 'Honeycomb Blinds',
-            alt:"ss"
+            imageurl: '/assets/images/galleryimages/blackout/BO1.jpg',
+            text: 'Blackout Roller Blinds',
           },
         ],
       },
@@ -2338,12 +2337,12 @@ export const tabsData = [
           {
             className: 'h-[222px]',
             imageurl: '/assets/images/galleryimages//blackout/BO3.jpg',
-            text: 'Patterned Roller Blinds',
+            text: 'Blackout Roller Blinds',
           },
           {
             className: 'h-[581px]',
             imageurl: '/assets/images/galleryimages//blackout/BO4.jpg',
-            text: 'Roman Blinds',
+            text: 'Blackout Roller Blinds',
           },
         ],
       },
@@ -2357,7 +2356,7 @@ export const tabsData = [
           {
             className: 'h-[308px]',
             imageurl: '/assets/images/galleryimages/blackout/BO6.jpg',
-            text: 'Sunscreen Roller Blinds',
+            text: 'Blackout Roller Blinds',
           },
         ],
       },
@@ -2366,17 +2365,17 @@ export const tabsData = [
           {
             className: 'h-[205px]',
             imageurl: '/assets/images/galleryimages/blackout/BO7.jpg',
-            text: 'Patterned Roller Blinds',
+            text: 'Blackout Roller Blinds',
           },
           {
             className: 'h-[220px]',
             imageurl: '/assets/images/galleryimages/blackout/BO8.jpg',
-            text: 'Eton Blinds',
+            text: 'Blackout Roller Blinds',
           },
           {
             className: 'h-[356px]',
             imageurl: '/assets/images/galleryimages/blackout/BO9.jpg',
-            text: 'Vertical Blinds',
+            text: 'Blackout Roller Blinds',
           },
         ],
       },
@@ -2386,12 +2385,12 @@ export const tabsData = [
           {
             className: 'h-[493px]', 
             imageurl: '/assets/images/galleryimages/blackout/BO10.jpg', 
-            text: 'Thermal Blackout Black Roller Blind',
+            text: 'Blackout Roller Blinds',
           },
           {
             className: 'h-[308px]',
             imageurl: '/assets/images/galleryimages/blackout/BO11.jpg',
-            text: 'Sunscreen Roller Blinds',
+            text: 'Blackout Roller Blinds',
             alt:"ss"
           },
         ],
@@ -2401,12 +2400,12 @@ export const tabsData = [
           {
             className: 'h-[222px]',
             imageurl: '/assets/images/galleryimages/blackout/BO12.jpg',
-            text: 'Patterned Roller Blinds',
+            text: 'Blackout Roller Blinds',
           },
           {
             className: 'h-[581px]',
             imageurl: '/assets/images/galleryimages/blackout/BO13.jpg',
-            text: 'Plain Roller Blinds',
+            text: 'Blackout Roller Blinds',
           },
           ],
         },
@@ -2417,7 +2416,7 @@ export const tabsData = [
             {
               className: 'h-[493px]', 
               imageurl: '/assets/images/galleryimages/sunscreen/sunscreen1.jpg', 
-              text: 'Thermal Blackout Black Roller Blind2',
+              text: 'Sunscreen Roller Blinds',
             },
             {
               className: 'h-[308px]',
@@ -2432,12 +2431,12 @@ export const tabsData = [
             {
               className: 'h-[222px]',
               imageurl: '/assets/images/galleryimages/sunscreen/sunscreen3.jpg',
-              text: 'Patterned Roller Blinds',
+              text: 'Sunscreen Roller Blinds',
             },
             {
               className: 'h-[581px]',
               imageurl: '/assets/images/galleryimages/sunscreen/sunscreen4.jpg',
-              text: 'Plain Roller Blinds',
+              text: 'Sunscreen Roller Blinds',
             },
           ],
         },
@@ -2446,7 +2445,7 @@ export const tabsData = [
             {
               className: 'h-[493px]', 
               imageurl: '/assets/images/galleryimages/sunscreen/sunscreen5.jpg', 
-              text: 'Blackout Roller Blinds',
+              text: 'Sunscreen Roller Blinds',
             },
             {
               className: 'h-[308px]',
@@ -2460,17 +2459,17 @@ export const tabsData = [
             {
               className: 'h-[205px]',
               imageurl: '/assets/images/galleryimages/sunscreen/sunscreen7.jpg',
-              text: 'Patterned Roller Blinds',
+              text: 'Sunscreen Roller Blinds',
             },
             {
               className: 'h-[220px]',
               imageurl: '/assets/images/galleryimages/sunscreen/sunscreen8.jpg',
-              text: 'Plain Roller Blinds',
+              text: 'Sunscreen Roller Blinds',
             },
             {
               className: 'h-[356px]',
               imageurl: '/assets/images/galleryimages/all/s1.png',
-              text: 'Plain Roller Blinds',
+              text: 'Sunscreen Roller Blinds',
             },
           ],
         },
@@ -2480,7 +2479,7 @@ export const tabsData = [
             {
               className: 'h-[493px]', 
               imageurl: '/assets/images/galleryimages/all/s2.png', 
-              text: 'Thermal Blackout Black Roller Blind',
+              text: 'Sunscreen Roller Blinds',
             },
             {
               className: 'h-[308px]',
@@ -2495,12 +2494,12 @@ export const tabsData = [
             {
               className: 'h-[222px]',
               imageurl: '/assets/images/galleryimages/all/s4.png',
-              text: 'Patterned Roller Blinds',
+              text: 'Sunscreen Roller Blinds',
             },
             {
               className: 'h-[581px]',
               imageurl: '/assets/images/galleryimages/all/s5.png',
-              text: 'Plain Roller Blinds',
+              text: 'Sunscreen Roller Blinds',
             },
             ],
           },

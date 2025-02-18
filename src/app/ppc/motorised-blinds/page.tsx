@@ -51,7 +51,7 @@ const Custommade_MoterisedBlinds = async () => {
     );
   };
   
-  const blindsProducts = getBlindsProducts(products || []);
+  const blindsProducts = getBlindsProducts(products || [])
 
   return (
     <>
@@ -84,7 +84,7 @@ const Custommade_MoterisedBlinds = async () => {
       <Button/>
       <InstaVideoSection data={InstablindData}/>
       <Container className="mt-10 md:mt-20">
-      <RelatedProducts products={blindsProducts || []} limit={4} bgcolor={true}/>
+      <RelatedProducts products={blindsProducts || []} limit={4} bgcolor={true} isPPc ={true}/>
       </Container>
     </>
   );

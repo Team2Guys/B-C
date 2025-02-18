@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
               </Link>
               <p className="text-sm text-white text-center sm:text-start">
                 The most trusted window treatment company in Dubai with a decade
-                of experience and 700+ positive reviews.
+                of experience and 700+ of positive reviews.
               </p>
               <div className="flex items-center space-x-4 mt-4">
                 <Link

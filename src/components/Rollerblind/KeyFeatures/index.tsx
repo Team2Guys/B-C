@@ -52,7 +52,7 @@ interface KeyfeatureProps {
           className="mySwiper">
            {(tabType === "Sunscreen Roller Blinds" ? KeyFeaturesSunScreen : KeyFeaturesRoller).map((arr, index) => (
             <SwiperSlide key={index}>
-              <div className="space-y-4 flex flex-col justify-center items-center mx-3 p-4">
+              <div className="space-y-4 flex flex-col justify-center items-center mx-3 p-4 lg:p-6">
                 <Image
                   className="h-[70px] w-[65.62px]"
                   src={arr.icon}
@@ -60,10 +60,10 @@ interface KeyfeatureProps {
                   height={1024}
                   width={1024}
                 />
-                <h2 className="font-normal text-18 xs:text-20 md:text-20 font-serif text-center px-1 xl:px-2 xl:text-23">
+                <h2 className="font-normal text-18 xs:text-20 md:text-20 font-serif text-center px-1 xl:px-5 xl:text-23">
                   {arr.heading}
                 </h2>
-                <p className="text-12 font-normal text-center leading-6 xl:px-4">{arr.para}</p>
+                <p className="text-12 font-normal text-center leading-6 xl:px-5">{arr.para}</p>
               </div>
             </SwiperSlide>
           ))}
