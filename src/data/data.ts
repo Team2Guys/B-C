@@ -848,7 +848,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-blinds',
     content: {
       heading: 'Made to Measure Blinds',
-      src: '/assets/video/blinds.mp4',
+      src: '/assets/video/mainblinds.mp4',
       paragraph:
         'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
       subheading1: 'Custom Window Blinds ',
