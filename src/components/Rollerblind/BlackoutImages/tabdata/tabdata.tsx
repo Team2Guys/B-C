@@ -1,16 +1,8 @@
 "use client";
-// import { Image } from "antd";
 import React, { useState } from "react";
 import "../../../../style/gallery.css";
 import Image from "next/image";
 import SelectedImage from "./SelectedImage";
-
-// interface ListItemInfo {
-//   className?: string;
-//   imageurl: string;
-//   text: string;
-// }
-
 interface TabDataProps {
   label: React.ReactNode;
   Text: string;
