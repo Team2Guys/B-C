@@ -30,16 +30,18 @@ const RollerImageSection = ({ tabType }: BlackOutRollerBlindsProps) => {
       <span className="font-normal flex text-nowrap">Roller Blinds</span>
       <HiArrowLongRight /></h2>
       
-      <div className="relative w-full h-auto bg-fill bg-center">
+      <div className="relative w-full h-auto bg-fill bg-center border-red-800">
       <Image
-          className="2xl:w-full h-[200px] xs:h-[250px] sm:h-[300px] xl:h-[477px] object-cover"
+          className="2xl:w-full max-h-[600px] h-full  "
           src={images[currentImageIndex].imgurl || ""}
           alt="image"
+          loading='eager'
           width={1441}
           height={1441}
+      
         />
         <div className="absolute bottom-2 sm:bottom-4 px-6 lg:px-14 xl:px-20 2xl:pl-32 text-white">
-        <h2 className={`font-normal text-14 sm:text-22 lg:text-26 font-serif ${ tabType === "Sunscreen Roller Blinds" ? "text-black" : "text-white"}`}>
+        <h2 className={`font-normal text-14 sm:text-22 lg:text-26 font-serif bg-black  px-4 rounded-sm ${ tabType === "Sunscreen Roller Blinds" ? "text-white" : "text-white"}`}>
        {images[currentImageIndex].heading}
        </h2>
         </div>

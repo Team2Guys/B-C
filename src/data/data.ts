@@ -2344,7 +2344,8 @@ export const tabsData = [
       para:"We offer an extensive selection of colours and textures, perfect for everything from living rooms and commercial spaces to your kid's room. So why not bring style into your space?",
     },
   ];
-// RollerGallaryData
+
+
   export const GallaryData =[
     {
       info: [
@@ -2439,211 +2440,77 @@ export const tabsData = [
         ],
       },
     ];
-    export const GallaryData1 =[
-      {
-        info: [
-          {
-            className: 'h-[493px]', 
-            imageurl: '/assets/images/galleryimages/blackout/BO1.jpg', 
-            text: 'Blackout Roller Blinds',
-          },
-          {
-            className: 'h-[308px]',
-            imageurl: '/assets/images/galleryimages/blackout/BO1.jpg',
-            text: 'Blackout Roller Blinds',
-          },
-        ],
-      },
-      {
-        info: [
-          {
-            className: 'h-[222px]',
-            imageurl: '/assets/images/galleryimages//blackout/BO3.jpg',
-            text: 'Blackout Roller Blinds',
-          },
-          {
-            className: 'h-[581px]',
-            imageurl: '/assets/images/galleryimages//blackout/BO4.jpg',
-            text: 'Blackout Roller Blinds',
-          },
-        ],
-      },
-      {
-        info: [
-          {
-            className: 'h-[493px]', 
-            imageurl: '/assets/images/galleryimages//blackout/BO5.jpg', 
-            text: 'Blackout Roller Blinds',
-          },
-          {
-            className: 'h-[308px]',
-            imageurl: '/assets/images/galleryimages/blackout/BO6.jpg',
-            text: 'Blackout Roller Blinds',
-          },
-        ],
-      },
-      {
-        info: [
-          {
-            className: 'h-[205px]',
-            imageurl: '/assets/images/galleryimages/blackout/BO7.jpg',
-            text: 'Blackout Roller Blinds',
-          },
-          {
-            className: 'h-[220px]',
-            imageurl: '/assets/images/galleryimages/blackout/BO8.jpg',
-            text: 'Blackout Roller Blinds',
-          },
-          {
-            className: 'h-[356px]',
-            imageurl: '/assets/images/galleryimages/blackout/BO9.jpg',
-            text: 'Blackout Roller Blinds',
-          },
-        ],
-      },
-      // Add more objects as needed
-      {
-        info: [
-          {
-            className: 'h-[493px]', 
-            imageurl: '/assets/images/galleryimages/blackout/BO10.jpg', 
-            text: 'Blackout Roller Blinds',
-          },
-          {
-            className: 'h-[308px]',
-            imageurl: '/assets/images/galleryimages/blackout/BO11.jpg',
-            text: 'Blackout Roller Blinds',
-            alt:"ss"
-          },
-        ],
-      },
-      {
-        info: [
-          {
-            className: 'h-[222px]',
-            imageurl: '/assets/images/galleryimages/blackout/BO12.jpg',
-            text: 'Blackout Roller Blinds',
-          },
-          {
-            className: 'h-[581px]',
-            imageurl: '/assets/images/galleryimages/blackout/BO13.jpg',
-            text: 'Blackout Roller Blinds',
-          },
+
+      export const GallaryData1 = [
+        {
+          text: "Blackout Roller Blinds",
+          images: [
+            { imageurl: "/assets/images/galleryimages/blackout/b1.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/B3.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO4.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO5.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO6.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO7.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO8.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO9.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO10.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO11.webp", alt: "ss" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO12.jpg" },
+            { imageurl: "/assets/images/galleryimages/blackout/BO13.jpg" },
           ],
         },
       ];
-    export const GallaryData2 =[
-        {
-          info: [
-            {
-              className: 'h-[493px]', 
-              imageurl: '/assets/images/galleryimages/sunscreen/sunscreen1.jpg', 
-              text: 'Sunscreen Roller Blinds',
-            },
-            {
-              className: 'h-[308px]',
-              imageurl: '/assets/images/galleryimages/sunscreen/sunscreen2.jpg',
-              text: 'Sunscreen Roller Blinds',
-              alt:"ss"
-            },
-          ],
-        },
-        {
-          info: [
-            {
-              className: 'h-[222px]',
-              imageurl: '/assets/images/galleryimages/sunscreen/sunscreen3.jpg',
-              text: 'Sunscreen Roller Blinds',
-            },
-            {
-              className: 'h-[581px]',
-              imageurl: '/assets/images/galleryimages/sunscreen/sunscreen4.jpg',
-              text: 'Sunscreen Roller Blinds',
-            },
-          ],
-        },
-        {
-          info: [
-            {
-              className: 'h-[493px]', 
-              imageurl: '/assets/images/galleryimages/sunscreen/sunscreen5.jpg', 
-              text: 'Sunscreen Roller Blinds',
-            },
-            {
-              className: 'h-[308px]',
-              imageurl: '/assets/images/galleryimages/sunscreen/sunscreen6.jpg',
-              text: 'Sunscreen Roller Blinds',
-            },
-          ],
-        },
-        {
-          info: [
-            {
-              className: 'h-[205px]',
-              imageurl: '/assets/images/galleryimages/sunscreen/sunscreen7.jpg',
-              text: 'Sunscreen Roller Blinds',
-            },
-            {
-              className: 'h-[220px]',
-              imageurl: '/assets/images/galleryimages/sunscreen/sunscreen8.jpg',
-              text: 'Sunscreen Roller Blinds',
-            },
-            {
-              className: 'h-[356px]',
-              imageurl: '/assets/images/galleryimages/all/s1.png',
-              text: 'Sunscreen Roller Blinds',
-            },
-          ],
-        },
-        // Add more objects as needed
-        {
-          info: [
-            {
-              className: 'h-[493px]', 
-              imageurl: '/assets/images/galleryimages/all/s2.png', 
-              text: 'Sunscreen Roller Blinds',
-            },
-            {
-              className: 'h-[308px]',
-              imageurl: '/assets/images/galleryimages/all/s3.png',
-              text: 'Sunscreen Roller Blinds',
-              alt:"ss"
-            },
-          ],
-        },
-        {
-          info: [
-            {
-              className: 'h-[222px]',
-              imageurl: '/assets/images/galleryimages/all/s4.png',
-              text: 'Sunscreen Roller Blinds',
-            },
-            {
-              className: 'h-[581px]',
-              imageurl: '/assets/images/galleryimages/all/s5.png',
-              text: 'Sunscreen Roller Blinds',
-            },
-            ],
-          },
-        ];
+      
+
+
+
+export const GallaryData2 =[ {
+  text: "Sunscreen Roller Blinds",
+  images: [
+    { className: "h-[493px]", imageurl: "/assets/images/galleryimages/sunscreen/sunscreen1.jpg" },
+    { className: "h-[308px]", imageurl: "/assets/images/galleryimages/sunscreen/sunscreen2.jpg", alt: "ss" },
+    { className: "h-[222px]", imageurl: "/assets/images/galleryimages/sunscreen/sunscreen3.jpg" },
+    { className: "h-[581px]", imageurl: "/assets/images/galleryimages/sunscreen/sunscreen4.jpg" },
+    { className: "h-[493px]", imageurl: "/assets/images/galleryimages/sunscreen/sunscreen5.jpeg" },
+    { className: "h-[308px]", imageurl: "/assets/images/galleryimages/sunscreen/sunscreen6.webp" },
+    { className: "h-[205px]", imageurl: "/assets/images/galleryimages/sunscreen/sunscreen7.jpg" },
+    { className: "h-[220px]", imageurl: "/assets/images/galleryimages/sunscreen/sunscreen8.jpg" },
+    { className: "h-[356px]", imageurl: "/assets/images/galleryimages/all/s1.webp" },
+    { className: "h-[493px]", imageurl: "/assets/images/galleryimages/all/s2.png" },
+    { className: "h-[308px]", imageurl: "/assets/images/galleryimages/all/s3.png", alt: "ss" },
+    { className: "h-[222px]", imageurl: "/assets/images/galleryimages/all/s4.png" },
+    { className: "h-[581px]", imageurl: "/assets/images/galleryimages/all/s5.png" },
+  ],
+},]
+
+        
+        
 
 // Rollervideos
     export const InstaRollerData = [
         
           {
-            video:"https://player.vimeo.com/video/1058126501?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-           },
+            video:"https://player.vimeo.com/video/1058587348?h=16d3d85879&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"},
            {
-            video:"https://player.vimeo.com/video/1058126559?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            video:"https://player.vimeo.com/video/1058587916?h=29c4ff74ec&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
             },
-            { video:"https://player.vimeo.com/video/1058126588?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            { video:"https://player.vimeo.com/video/1058588359?h=f073412e6f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
             },
-           { video:"https://player.vimeo.com/video/1058126215?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+
+
+
+           { video:"https://player.vimeo.com/video/1058590233?h=21068feea6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
            },
-           { video:"https://player.vimeo.com/video/1058126248?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-},
-           { video:"https://player.vimeo.com/video/1058126272?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+           { video:"https://player.vimeo.com/video/1058590498?h=56444f8e8d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+
            },
+
+
+           { video:"https://player.vimeo.com/video/1058590867?h=29efc694ca&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+           },
+
+
+
         ];
         
   

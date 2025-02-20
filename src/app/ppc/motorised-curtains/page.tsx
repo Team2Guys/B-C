@@ -1,19 +1,22 @@
 import React from 'react';
-import VideoSection from 'components/LandingPage/video-section';
-import InstaVideoSection from 'components/LandingPage/InstaVideoSection';
-import Button from 'components/LandingPage/ButtonSection';
-import MoterizedService from 'components/LandingPage/MoterizedService';
-import Header from 'components/LandingPage/Header';
+import dynamic from 'next/dynamic';
 import { InstacurtainData, KeyData, MotorisedSellingDataCurtain, benefits, TabData } from 'data/data';
 import { fetchProducts } from 'config/fetch';
-import Container from 'components/Res-usable/Container/Container';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { Metadata } from 'next';
-import CustomSection from 'components/LandingPage/Custommade';
 import { IProduct } from 'types/types';
-import SellingFeatures from 'components/LandingPage/SellingFeatures';
-import KeyFeature from 'components/LandingPage/KeyFeature';
-import MoterizedBlinds from 'components/LandingPage/Moterized Blinds';
+
+// Dynamic imports
+const VideoSection = dynamic(() => import('components/LandingPage/video-section'));
+const InstaVideoSection = dynamic(() => import('components/LandingPage/InstaVideoSection'));
+const Button = dynamic(() => import('components/LandingPage/ButtonSection'));
+const MoterizedService = dynamic(() => import('components/LandingPage/MoterizedService'));
+const Header = dynamic(() => import('components/LandingPage/Header'));
+const SellingFeatures = dynamic(() => import('components/LandingPage/SellingFeatures'));
+const RelatedProducts = dynamic(() => import('components/Related-products/RelatedProducts'));
+const Container = dynamic(() => import('components/Res-usable/Container/Container'));
+const CustomSection = dynamic(() => import('components/LandingPage/Custommade'));
+const KeyFeature = dynamic(() => import('components/LandingPage/KeyFeature'));
+const MoterizedBlinds = dynamic(() => import('components/LandingPage/Moterized Blinds'));
 
 export const metadata: Metadata = {
   robots: {

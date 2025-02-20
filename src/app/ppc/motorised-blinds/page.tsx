@@ -1,23 +1,23 @@
 
 import React from 'react';
-import VideoSection from 'components/LandingPage/video-section';
-import InstaVideoSection from 'components/LandingPage/InstaVideoSection';
-import Button from 'components/LandingPage/ButtonSection';
-import MoterizedService from 'components/LandingPage/MoterizedService';
-import Header from 'components/LandingPage/Header';
-import { InstablindData, KeyData, MotorisedSellingDataBlinds } from 'data/data';
-import { benefits } from 'data/data';
-import SellingFeatures from 'components/LandingPage/SellingFeatures';
-import { TabData } from 'data/data';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
-import Container from 'components/Res-usable/Container/Container';
+import dynamic from 'next/dynamic';
+import { InstablindData, KeyData, MotorisedSellingDataBlinds, benefits, TabData } from 'data/data';
 import { fetchProducts } from 'config/fetch';
 import { Metadata } from 'next';
-import CustomSection from 'components/LandingPage/Custommade';
-import MoterizedBlinds from 'components/LandingPage/Moterized Blinds';
-import KeyFeature from 'components/LandingPage/KeyFeature';
 import { IProduct } from 'types/types';
 
+// Dynamic imports
+const VideoSection = dynamic(() => import('components/LandingPage/video-section'));
+const InstaVideoSection = dynamic(() => import('components/LandingPage/InstaVideoSection'));
+const Button = dynamic(() => import('components/LandingPage/ButtonSection'));
+const MoterizedService = dynamic(() => import('components/LandingPage/MoterizedService'));
+const Header = dynamic(() => import('components/LandingPage/Header'));
+const SellingFeatures = dynamic(() => import('components/LandingPage/SellingFeatures'));
+const RelatedProducts = dynamic(() => import('components/Related-products/RelatedProducts'));
+const Container = dynamic(() => import('components/Res-usable/Container/Container'));
+const CustomSection = dynamic(() => import('components/LandingPage/Custommade'));
+const MoterizedBlinds = dynamic(() => import('components/LandingPage/Moterized Blinds'));
+const KeyFeature = dynamic(() => import('components/LandingPage/KeyFeature'));
 
 export const metadata:Metadata  = {
   robots: {
@@ -86,6 +86,7 @@ const Custommade_MoterisedBlinds = async () => {
       <Container className="mt-10 md:mt-20">
       <RelatedProducts products={blindsProducts || []} limit={4} bgcolor={true} isPPc ={true}/>
       </Container>
+
     </>
   );
 };

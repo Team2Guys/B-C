@@ -1,24 +1,26 @@
 "use client";
-import { Image } from "antd";
+// import { Image } from "antd";
 import React, { useState } from "react";
+import "../../../../style/gallery.css";
+import Image from "next/image";
+import SelectedImage from "./SelectedImage";
 
-interface ListItemInfo {
-  className?: string;
-  imageurl: string;
-  text: string;
-}
+// interface ListItemInfo {
+//   className?: string;
+//   imageurl: string;
+//   text: string;
+// }
 
 interface TabDataProps {
   label: React.ReactNode;
   Text: string;
-  GallaryData: {
-    info: ListItemInfo[];
-  }[];
+  GallaryData: any[];
 }
 
 const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
   const [visibleGroups, setVisibleGroups] = useState(3); 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const handleViewMore = () => {
     setVisibleGroups((prev) => prev + 3); 
   };
@@ -27,15 +29,30 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
     setVisibleGroups(3); 
   };
 
-  const totalGroups = GallaryData.length;
+  const totalGroups = GallaryData[0].images.length;
 
   const openModal = (imageurl: string) => {
     setSelectedImage(imageurl);
   };
 
+
   const closeModal = () => {
     setSelectedImage(null);
   };
+
+
+  
+
+
+  const splitIntoColumns = (images: any[], numColumns: number): any[][] => {
+    const columns: any[][] = Array.from({ length: numColumns }, () => []);
+    images?.forEach((image, index) => {
+      columns[index % numColumns].push(image);
+    });
+    return columns;
+  };
+
+  const columns = splitIntoColumns(GallaryData[0].images, 3);
 
   return (
     <>
@@ -47,21 +64,40 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 h-fit">
-        {GallaryData.slice(0, visibleGroups).map((array, arrayIndex) => (
-          <div key={arrayIndex} className="space-y-2">
-            {array.info.map((item, itemIndex) => (
-              <div
-                key={itemIndex}
-                className={`w-full ${item.className} relative bg-cover bg-no-repeat flex flex-col justify-between items-center rounded-md group`}
-                style={{ backgroundImage: `url(${item.imageurl})` }}
-                onClick={() => openModal(item.imageurl)} 
-              >
-                {/* <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                  <div className="bg-white p-2 mx-4 text-center text-15 font-light">{item.text}</div>
-                </div> */}
-              </div>
-            ))}
+      <div className="row">
+        {columns.map((column, arrayIndex) => (
+          // <div key={arrayIndex} className="space-y-2">
+          //   {array.info.map((item, itemIndex) => (
+          //     <div
+          //       key={itemIndex}
+          //       className={`w-full ${item.className} relative bg-cover bg-no-repeat flex flex-col justify-between items-center rounded-md group`}
+          //       style={{ backgroundImage: `url(${item.imageurl})` }}
+          //       onClick={() => openModal(item.imageurl)} 
+          //     >
+          //       {/* <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
+          //         <div className="bg-white p-2 mx-4 text-center text-15 font-light">{item.text}</div>
+          //       </div> */}
+          //     </div>
+          //   ))}
+          // </div>
+
+          <div className="Gallery_column" key={arrayIndex}>
+            {column.slice(0, visibleGroups).map((image, index) => {
+              return (
+                <div key={index} className="image-container cursor-pointer bg-black">
+                  <Image                    key={index}
+                    src={image.imageurl}
+                    alt={`Image ${index}`}
+                    style={{ width: '100%', height: 'auto' }}
+                    width={500}
+                    height={500}
+                    loading='eager'
+                    className="object-cover"
+                    onClick={() => openModal(image.imageurl)} 
+                  />
+                </div>
+              ) 
+            })}
           </div>
         ))}
       </div>
@@ -84,16 +120,9 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
         )}
       </div>
       { selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="relative">
-            <Image
-            src={selectedImage}
-            alt="Zoomed"
-            className="max-w-[90vh] max-h-[90vh] object-contain"
-            preview={{ visible: true, onVisibleChange: (visible) => !visible && closeModal() }}/>
-            </div>
-            </div>
+      <SelectedImage selectedImage={selectedImage} closeModal={closeModal} />
           )}
+
           </>
 );
 };
