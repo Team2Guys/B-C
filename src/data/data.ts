@@ -251,7 +251,7 @@ export const UsHistoryPara = {
   id: 1,
   paragraph: [
     'This cycle ran successfully for many years but by 2021, with covid out the way, we figured it was time to push the barriers further. We had already introduced flooring, wallpaper and other items to our list of services offered, but the name felt restrictive. It was also around this time that lots of other companies turned up with copycat versions of our name (we guess blindsandcurtains.ae can’t really be expected to be exclusive) and it was quite confusing for our existing customers and quite a few were misled into buying from companies claiming to be us.',
-    'With this in mind, we decided on a brand and image change. After weeks of deliberating, Shiraz’s brother Valy, (who had since followed his brother and made the move to Dubai), came up with Two Guys. It was instant love for both brothers and that is the name we trade as today. But with <a href="http://www.blindsandcurtains.ae" target="_blank" style="text-decoration: underline">www.blindsandcurtains.ae</a> having so many loyal customers, it would have been suicidal to wrap up and bury, so the brand is still alive and kicking today, albeit under the Two Guys Home Furnishings brand.',
+    'With this in mind, we decided on a brand and image change. After weeks of deliberating, Shiraz’s brother Valy, (who had since followed his brother and made the move to Dubai), came up with Two Guys. It was instant love for both brothers and that is the name we trade as today. But with <a href="https://www.blindsandcurtains.ae" target="_blank" style="text-decoration: underline">www.blindsandcurtains.ae</a> having so many loyal customers, it would have been suicidal to wrap up and bury, so the brand is still alive and kicking today, albeit under the Two Guys Home Furnishings brand.',
     'Today we employ over 60 staff, dedicated to giving our customers the level of satisfaction that the owners themselves would accept (Shiraz literally has OCD). Our staff are trained to give impartial advice, to NEVER be pushy in their sales pitch and to NEVER “up-sell” when not required. Once we have you as a customer, our goal is to keep you for life, so you will find that the service doesn’t end once the final payments have been made. Your journey is a part of our journey, and we believe we have a long way to go before reaching the end of the road.',
   ],
 };
@@ -269,7 +269,7 @@ export const OurHistoryData: OurHistory[] = [
     id: 2,
     year: '2014',
     heading:
-      '<a href="http://www.blindsandcurtains.ae" target="_blank" style="text-decoration: underline">www.blindsandcurtains.ae</a> is born',
+      '<a href="https://www.blindsandcurtains.ae" target="_blank" style="text-decoration: underline">www.blindsandcurtains.ae</a> is born',
     discription:
       'We entered the online world with blindsandcurtains.ae to expand our reach and redefine the way we interact with our customers.',
   },

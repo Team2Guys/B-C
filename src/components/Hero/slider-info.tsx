@@ -33,11 +33,11 @@ const SliderInfo = () => {
                   Blinds & Curtains Dubai
                 </h2>
               </div>
-              <h3 className="text-black font-extrabold mb-2 xs:mb-0 text-20 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
+              <h1 className="text-black font-extrabold mb-2 xs:mb-0 text-20 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
                 {item.heading}
                 <br />
                 {item.subheading}
-              </h3>
+              </h1>
               <p className="font-normal text-13 xs:text-14 mt-0 md:mt-5 mb-2 md:mb-5 text-center md:text-start">
                 {item.content}
               </p>

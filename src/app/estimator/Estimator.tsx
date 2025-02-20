@@ -157,9 +157,9 @@ console.log(productError,"product error")
           </div>
 
           <div className="flex flex-col space-y-3 col-span-12 md:col-span-6 px-2 md:px-0">
-            <h2 className="lg:text-[30px] lg:font-black text-2xl font-bold capitalize">
+            <h1 className="lg:text-[30px] lg:font-black text-2xl font-bold capitalize">
               Select Product
-            </h2>
+            </h1>
 
             <EstimatorProduct
               selectProduct={sortedProducts}
