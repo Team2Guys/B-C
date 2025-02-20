@@ -29,8 +29,6 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
     setVisibleGroups(3); 
   };
 
-  const totalGroups = GallaryData[0].images.length;
-
   const openModal = (imageurl: string) => {
     setSelectedImage(imageurl);
   };
@@ -39,8 +37,6 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
   const closeModal = () => {
     setSelectedImage(null);
   };
-
-
   
 
 
@@ -54,6 +50,12 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
 
   const columns = splitIntoColumns(GallaryData[0].images, 3);
 
+  const totalGroups = columns.length;
+
+  console.log(totalGroups, "totalGroups")
+
+
+
   return (
     <>
       <div className="py-5 space-y-5">
@@ -66,22 +68,8 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
       </div>
       <div className="row">
         {columns.map((column, arrayIndex) => (
-          // <div key={arrayIndex} className="space-y-2">
-          //   {array.info.map((item, itemIndex) => (
-          //     <div
-          //       key={itemIndex}
-          //       className={`w-full ${item.className} relative bg-cover bg-no-repeat flex flex-col justify-between items-center rounded-md group`}
-          //       style={{ backgroundImage: `url(${item.imageurl})` }}
-          //       onClick={() => openModal(item.imageurl)} 
-          //     >
-          //       {/* <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-          //         <div className="bg-white p-2 mx-4 text-center text-15 font-light">{item.text}</div>
-          //       </div> */}
-          //     </div>
-          //   ))}
-          // </div>
-
           <div className="Gallery_column" key={arrayIndex}>
+
             {column.slice(0, visibleGroups).map((image, index) => {
               return (
                 <div key={index} className="image-container cursor-pointer bg-black">
@@ -103,7 +91,7 @@ const TabData: React.FC<TabDataProps> = ({ GallaryData, label, Text }) => {
       </div>
 
       <div className="flex justify-center items-center mt-5">
-        {visibleGroups < totalGroups ? (
+        {visibleGroups <= totalGroups ? (
           <button
             className="bg-secondary text-white px-4 py-3 text-15 font-bold hover:bg-primary transition-all rounded-sm"
             onClick={handleViewMore}

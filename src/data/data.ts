@@ -2479,7 +2479,7 @@ export const GallaryData2 =[ {
     { className: "h-[493px]", imageurl: "/assets/images/galleryimages/all/s2.png" },
     { className: "h-[308px]", imageurl: "/assets/images/galleryimages/all/s3.png", alt: "ss" },
     { className: "h-[222px]", imageurl: "/assets/images/galleryimages/all/s4.png" },
-    { className: "h-[581px]", imageurl: "/assets/images/galleryimages/all/s5.png" },
+    { className: "h-[581px]", imageurl: "/assets/images/galleryimages/all/s5.jpg" },
   ],
 },]
 
