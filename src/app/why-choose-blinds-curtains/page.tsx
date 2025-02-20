@@ -31,7 +31,7 @@ const ChooseUs = () => {
     <>
       <TopHero title="Why Choose Us" image={second.src} className='max-xs:bg-current' />
       <Container className='mt-10 mb-10 md:mb-20'>
-        <h1 className='text-[28px] md:text-[36px] font-black'>Why Choose Blinds & Curtains</h1>
+        <h2 className='text-[28px] md:text-[36px] font-black'>Why Choose Blinds & Curtains</h2>
         <h2 className='text-[18px] md:text-[24px] font-bold mt-5 md:mt-10'>What Makes Blinds & Curtains Different?</h2>
 
         <div className=' grid grid-cols-1 md:grid-cols-2 px-4 max-sm:text-14 text-16'>

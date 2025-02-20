@@ -51,9 +51,9 @@ const Gallery = ({ products, categories }: { products: IProduct[], categories: I
 
       <Container className="pt-16 pb-12 px-4 md:px-0">
         <div className="flex flex-col justify-between items-center pb-4 mb-6 overflow-hidden md:px-5">
-          <h2 className="text-2xl xs:text-3xl font-medium text-gray-800 m-auto">
+          <h1 className="text-2xl xs:text-3xl font-medium text-gray-800 m-auto">
             GALLERY
-          </h2>
+          </h1>
           <p className='text-center max-w-[70%] mt-4'>
 
             Window Treatment Inspiration Gallery
