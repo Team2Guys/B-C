@@ -76,8 +76,6 @@ const ViewProduct: React.FC<CategoryProps> = ({
     const lowercasedSearchTerm = searchTerm.toLowerCase();
 
     if (Categories) {
-      console.log(Categories, 'Categories');
-
       const filtered = Categories?.sort(
         (a: Product, b: Product) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
