@@ -65,6 +65,7 @@ const DetailInfo: React.FC<detailprops> = ({
                 height={1000}
                 src={image?.imageUrl}
                 alt={image?.altText || 'Image'}
+                loading='lazy'
               />
               <div className="block lg:hidden mt-4 space-y-3 md:space-y-10">
                 <p

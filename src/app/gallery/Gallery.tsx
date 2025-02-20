@@ -98,13 +98,13 @@ const Gallery = ({ products, categories }: { products: IProduct[], categories: I
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 xs:mt-20 mt-5 md:px-4">
             {currentItems &&
-              currentItems.map((product: any) => {
+              currentItems.map((product: any , index:number) => {
                 if (!product.category) {
                   return null;
                 }
                 return (
                   <>
-                    <div className="relative rounded-lg  transition-shadow duration-300 group">
+                    <div className="relative rounded-lg  transition-shadow duration-300 group w-full" key={index}>
                       <Image
                         src={product.posterImage.imageUrl}
                         alt={product.posterImage.altText || 'Image'}
