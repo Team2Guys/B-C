@@ -291,32 +291,32 @@ html {
 }
 .ant-image {
   position: relative;
-  width: 98% !important;
+  width: 100% !important;
   height: 280px !important;
 }
 .ant-image-img {
-  width: 98% !important;
+  width: 100% !important;
   height: 280px !important;
   object-fit: cover !important;
   object-position: right bottom !important;
 }
 .ant-image .ant-image-mask {
   border-radius: 16px !important;
-  width: 98% !important;
+  width: 100% !important;
 }
 .ant-image .ant-image-mask:hover {
   border-radius: 16px !important;
-  width: 98% !important;
+  width: 100% !important;
 }
 
 @media only screen and (max-width: 1300px) {
   .ant-image {
     position: relative;
-    width: 96% !important;
+    width: 100% !important;
     height: 250px !important;
   }
   .ant-image-img {
-    width: 96% !important;
+    width: 100% !important;
     height: 250px !important;
   }
 }
@@ -324,22 +324,22 @@ html {
 @media only screen and (max-width: 1024px) {
   .ant-image {
     position: relative;
-    width: 98% !important;
+    width: 100% !important;
     height: 200px !important;
   }
   .ant-image-img {
-    width: 98% !important;
+    width: 100% !important;
     height: 200px !important;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .ant-image {
-    width: 98% !important;
+    width: 100% !important;
     height: 12rem !important;
   }
   .ant-image .ant-image-img {
-    width: 98% !important;
+    width: 100% !important;
     height: 12rem !important;
   }
   .ant-image-preview-root .ant-image-preview-img{

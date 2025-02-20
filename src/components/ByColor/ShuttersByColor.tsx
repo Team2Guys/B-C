@@ -126,9 +126,7 @@ const ShuttersByColor: React.FC<ShuttersByColorProps> = ({
                   }}
                 ></p>
               </div>
-              <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
                 <ThumbImage card={colorImages} />
-              </div>
             </>
           ) : (
             <p className="text-18 font-medium">No Products found😢</p>

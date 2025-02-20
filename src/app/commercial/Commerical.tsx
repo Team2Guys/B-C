@@ -149,7 +149,7 @@ const Commercial = ({
         <h2 className="text-16 xs:text-3xl sm:text-4xl font-semibold md:font-normal uppercase text-center py-10">
           COMMERCIAL OFFICE BLINDS installations
         </h2>
-
+        <div className='mb-10'>
         {
           <ImageAntd.PreviewGroup
             preview={{
@@ -159,10 +159,8 @@ const Commercial = ({
             }}
           >
             {
-
-
               (
-                <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
+                <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 2xl:grid-cols-4 xs:mt-14 mt-5 md:px-4 gap-4 w-full">
                   {filteredProducts?.map((product) => {
                     if (!product.category) return null;
                     const { posterImage } = product;
@@ -171,7 +169,7 @@ const Commercial = ({
                     return (
                       <div
                         key={product.id}
-                        className="max-sm:flex-shrink-0 relative rounded-lg transition-shadow duration-300 group max-sm:gap-4 w-8/12 xs:w-5/12 sm:w-3/12 mt-2"
+                        className="max-sm:flex-shrink-0 relative rounded-lg transition-shadow duration-300 group  mt-2"
                       >
                         <ImageAntd
                           src={posterImage?.imageUrl || '/default-image.jpg'}
@@ -179,6 +177,7 @@ const Commercial = ({
                           className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px] w-full"
                           width={500}
                           height={500}
+                          loading='lazy'
                           preview={{
                             mask: (
                               <div>
@@ -197,8 +196,10 @@ const Commercial = ({
               )}
           </ImageAntd.PreviewGroup>
         }
-        <RelatedProducts products={filteredProducts || []} limit={4} />
+        </div>
+        
 
+        <RelatedProducts  products={filteredProducts || []} limit={4} />
       </Container>
     </>
   );
