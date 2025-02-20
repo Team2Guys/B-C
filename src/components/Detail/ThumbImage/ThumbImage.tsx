@@ -15,7 +15,7 @@ interface GalleryProps {
 
 const ThumbImage: React.FC<GalleryProps> = ({ card }) => {
   return (
-    <div className="flex flex-wrap max-sm:flex-nowrap xs:mt-14 mt-5 md:px-4 max-sm:overflow-x-auto w-full justify-between">
+    <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 2xl:grid-cols-4 xs:mt-14 mt-5 md:px-4 gap-4 w-full">
       <ImageAntd.PreviewGroup
         preview={{
           onChange: (current, prev) =>
@@ -26,7 +26,7 @@ const ThumbImage: React.FC<GalleryProps> = ({ card }) => {
           card.imageUrls.map((item, index) => (
             <div
               key={index}
-              className="max-sm:flex-shrink-0 relative rounded-lg transition-shadow duration-300 group max-sm:gap-4 w-8/12 xs:w-5/12 sm:w-3/12 mt-2"
+              className="relative rounded-lg transition-shadow duration-300 group mt-2 w-full"
             >
               <ImageAntd
                 src={item.imageUrl || '/default-image.jpg'}
@@ -34,6 +34,7 @@ const ThumbImage: React.FC<GalleryProps> = ({ card }) => {
                 className="rounded-xl h-[240px] sm:h-[264px] md:h-[280px] lg:h-[364px] w-full"
                 width={500}
                 height={500}
+                loading='lazy'
                 preview={{
                   mask: (
                     <div>
