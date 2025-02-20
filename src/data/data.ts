@@ -843,6 +843,7 @@ export const TopHeroLink: ITopHeroLink[] = [
   },
 ];
 
+
 export const categoriesContent = [
   {
     slug: 'made-to-measure-blinds',

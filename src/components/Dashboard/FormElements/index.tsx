@@ -101,6 +101,11 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
           ...EditInitialProductValues,
           name: EditInitialProductValues.title,
         });
+      setBannerImageUrl(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
+    setposterimageUrl(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage]);
+
+
+
       } catch (err) {
         console.log(err, 'err');
       }
