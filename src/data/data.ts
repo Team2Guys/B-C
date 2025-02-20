@@ -2631,18 +2631,18 @@ export const tabsData = [
     export const InstaRollerData = [
         
           {
-            video:"https://player.vimeo.com/video/1055115625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            video:"https://player.vimeo.com/video/1058126501?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
            },
            {
-             video:"https://player.vimeo.com/video/1055115695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            video:"https://player.vimeo.com/video/1058126559?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
             },
-            { video:"https://player.vimeo.com/video/1055115555?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            { video:"https://player.vimeo.com/video/1058126588?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
             },
-           { video:"https://player.vimeo.com/video/1055115449?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+           { video:"https://player.vimeo.com/video/1058126215?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
            },
-           { video: "https://player.vimeo.com/video/1055115492?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-           },
-           { video:"https://player.vimeo.com/video/1055115524?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+           { video:"https://player.vimeo.com/video/1058126248?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+},
+           { video:"https://player.vimeo.com/video/1058126272?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
            },
         ];
         
