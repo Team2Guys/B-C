@@ -1,6 +1,7 @@
 User-agent: *
-Disallow: /cdn-cgi/
-Disallow: /wp-admin/
-Disallow: /wp-includes/
+Disallow: /dashboard/
+Disallow: /comments/feed/
+Disallow: /search/{search_term_string}/
+
 
 Sitemap: https://blindsandcurtains.ae/sitemap.xml
