@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Container from "components/Res-usable/Container/Container";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,8 +10,8 @@ import "swiper/swiper-bundle.css";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import { testimonials } from "data/data";
 
-import { fetchReviewsHandler } from "config/fetch";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 
@@ -23,23 +23,23 @@ const getExcerpt = (text: string, wordLimit: number) => {
 };
 
 function Testimonial() {
-  const [testimonials, setTestimonials] = useState<any[]>([]);
+  // const [testimonials, setTestimonials] = useState<any[]>([]);
   const swiperRef = useRef<SwiperCore | null>(null);
 
-  useEffect(() => {
-    fetchReviewsHandler(setTestimonials);
-  }, []);
+  // useEffect(() => {
+  //   fetchReviewsHandler(setTestimonials);
+  // }, []);
 
-  const filteredTestimonials = testimonials.filter(
-    (testimonial: any) => testimonial.rating >= 4
-  );
+  // const filteredTestimonials = testimonials.filter(
+  //   (testimonial: any) => testimonial.rating >= 4
+  // );
 
   return (
     <Container className="lg:mt-16 mt-5 py-8 mx-auto">
       <h2 className="text-center text-2xl lg:text-3xl font-semibold mb-8">
         Our Happy Customers
       </h2>
-      {filteredTestimonials.length > 0 && (
+      {testimonials.length > 0 && (
         <>
           <div className="">
             <Swiper
@@ -77,7 +77,7 @@ function Testimonial() {
                 },
               }}
             >
-              {filteredTestimonials.map((testimonial: any, index: number) => (
+              {testimonials.map((testimonial: any, index: number) => (
                 <SwiperSlide className="" key={index}>
                   <div className="flex flex-col">
                     <ReadMoreCard testimonial={testimonial} wordLimit={34} />
@@ -128,7 +128,7 @@ function ReadMoreCard({
           ? "h-auto max-h-max"
           : "md:h-[300px] lg:h-[370px] xl:h-[300px] md:max-h-[300px] lg:max-h-[370px] xl:max-h-80" }`}>
              <Image
-        src={testimonial?.profile_photo_url}
+        src={testimonial?.image}
         alt="testimonial-image"
         width={64}
         height={64}
@@ -145,7 +145,7 @@ function ReadMoreCard({
       />
           <div className="">
             <h3 className="text-12 xs:text-14 lg:text-14 2xl:text-lg font-semibold">
-              {testimonial.author_name}
+              {testimonial.name}
             </h3>
             <div className="flex gap-2">
                 <FcGoogle className="text-2xl xs:text-4xl" />
@@ -171,7 +171,7 @@ function ReadMoreCard({
         <div className="hidden xs:flex gap-4 justify-between ">
           <div>
             <h3 className="text-14 lg:text-14 2xl:text-lg font-semibold">
-              {testimonial.author_name}
+              {testimonial.name}
             </h3>
             <div className="flex gap-2">
 
