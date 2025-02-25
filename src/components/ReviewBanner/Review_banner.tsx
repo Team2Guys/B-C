@@ -1,6 +1,5 @@
 'use client';
-// import React, { useEffect, useRef, useState } from 'react';
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { FcGoogle } from 'react-icons/fc';
@@ -8,36 +7,36 @@ import { RatingSlider, testimonials } from 'data/data';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
 import Link from 'next/link';
-// import { fetchReviewsHandler } from 'config/fetch';
+import { fetchReviewsHandler } from 'config/fetch';
 import { FaStar } from 'react-icons/fa';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
-// interface Review {
-//   author_name: string;
-//   author_url: string;
-//   language: string;
-//   original_language: string;
-//   profile_photo_url: string;
-//   rating?: number;
-//   relative_time_description?: string;
-//   text?: string;
-//   time?: number;
-//   translated?: boolean;
-// }
+interface Review {
+  author_name: string;
+  author_url: string;
+  language: string;
+  original_language: string;
+  profile_photo_url: string;
+  rating?: number;
+  relative_time_description?: string;
+  text?: string;
+  time?: number;
+  translated?: boolean;
+}
 
 export default function ReviewBanner() {
-  // const [reviews, setReviews] = useState<Review[]>([]);
+  const [reviews, setReviews] = useState<Review[]>([]);
   const swiperRef = useRef<any>(null);
-  // useEffect(() => {
-  //   fetchReviewsHandler(setReviews);
-  // }, []);
+  useEffect(() => {
+    fetchReviewsHandler(setReviews);
+  }, []);
 
-  // // // const filteredTestimonials = reviews.filter(
-  // // //   (testimonial: any) => testimonial.rating >= 4,
-  // // );
+  const filteredTestimonials = reviews.filter(
+    (testimonial: any) => testimonial.rating >= 4,
+  );
 
   return (
     <>
@@ -103,7 +102,7 @@ export default function ReviewBanner() {
                         <SwiperSlide key={index}>
                           <div className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5">
                             <h3 className="text-xl font-semibold text-white">
-                              {slide.name}
+                              {slide.author_name}
                             </h3>
                             <p className="mt-2 text-white overflow-x-auto max-h-36 text-ellipsis slider-text">
                               {slide.text}

@@ -20,9 +20,10 @@ const InstaVideoSection: React.FC<InstaVideoSectionProps> = ({ data }) => {
           <div key={index} className=' w-full' >
             <video
               src={item.video}
-             muted
-             autoPlay
-             controls
+              muted
+              autoPlay
+              controls
+              preload='none'
               className='h-full w-full xl:h-[616.68px] object-cover'
             ></video>
           </div>

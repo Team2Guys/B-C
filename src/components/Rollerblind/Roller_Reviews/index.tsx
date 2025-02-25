@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaStar } from 'react-icons/fa';
@@ -11,19 +11,19 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import "swiper/css";
 import "swiper/css/navigation";
-// import { fetchReviewsHandler } from 'config/fetch';
+import { fetchReviewsHandler } from 'config/fetch';
 import { testimonials } from 'data/data';
 
 
 const RollerReviews = () => {
-  // const [testimonials, setTestimonials] = useState<any[]>([]);
-  // useEffect(() => {
-  //   fetchReviewsHandler(setTestimonials);
-  // }, []);
+  const [testimonial, setTestimonials] = useState<any[]>([]);
+  useEffect(() => {
+    fetchReviewsHandler(setTestimonials);
+  }, []);
 
-  // const filteredTestimonials = testimonials.filter(
-  //   (testimonial: any) => testimonial.rating >= 4
-  // );
+  const filteredTestimonials = testimonials.filter(
+    (testimonial: any) => testimonial.rating >= 4
+  );
   return (
     <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-center my-5 testimonial-back 2xl:max-w-screen-2xl mx-auto'>
       
@@ -54,8 +54,8 @@ const RollerReviews = () => {
                 <SwiperSlide key={index}>
                   <div className='flex flex-col bg-white px-2 py-3 max-w-96 mx-auto w-fit my-4 '>
                     <div className='flex justify-between items-center'>
-                      <h3 className='text-17 md:text-4 font-medium font-gotham'>{testimonial.name}</h3>
-                      <p className='text-11 font-normal font-gotham'>{testimonial.date}</p>
+                      <h3 className='text-17 md:text-4 font-medium font-gotham'>{testimonial.author_name}</h3>
+                      <p className='text-11 font-normal font-gotham'>{testimonial.time}</p>
                     </div>
                     <p className='flex gap-1 text-yellow-500 mb-4 text-10 md:text-10'>
                      {[...Array(testimonial.rating)].map((_, i) => (
