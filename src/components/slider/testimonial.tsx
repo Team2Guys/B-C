@@ -46,6 +46,8 @@ function Testimonial() {
               onSwiper={(swiper) => (swiperRef.current = swiper)}
               pagination={{
                 clickable: true,
+                dynamicBullets: true,
+                dynamicMainBullets: 2,
               }}
               className="mySwiper testimonial_slider"
               modules={[Pagination, Autoplay]}
@@ -123,7 +125,7 @@ function ReadMoreCard({
 
   return (
     <div
-      className={`flex max-xs:flex-col  items-start xs:gap-4 justify-between bg-white p-4 2xl:p-6 ${
+      className={`flex max-xs:flex-col  items-start xs:gap-4 justify-between bg-white p-4 2xl:p-6 lg:mb-5 ${
         isExpanded
           ? "h-auto max-h-max"
           : "md:h-[300px] lg:h-[370px] xl:h-[300px] md:max-h-[300px] lg:max-h-[370px] xl:max-h-80" }`}>
@@ -137,7 +139,7 @@ function ReadMoreCard({
       <div className="flex gap-2 xs:hidden justify-between w-full">
      <div className="w-9/12 flex gap-2">
      <Image
-        src={testimonial?.profile_photo_url}
+        src={testimonial?.image}
         alt="testimonial-image"
         width={64}
         height={64}

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaStar } from 'react-icons/fa';
@@ -11,18 +11,19 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import "swiper/css";
 import "swiper/css/navigation";
-import { fetchReviewsHandler } from 'config/fetch';
+// import { fetchReviewsHandler } from 'config/fetch';
+import { testimonials } from 'data/data';
 
 
 const RollerReviews = () => {
-  const [testimonials, setTestimonials] = useState<any[]>([]);
-  useEffect(() => {
-    fetchReviewsHandler(setTestimonials);
-  }, []);
+  // const [testimonials, setTestimonials] = useState<any[]>([]);
+  // useEffect(() => {
+  //   fetchReviewsHandler(setTestimonials);
+  // }, []);
 
-  const filteredTestimonials = testimonials.filter(
-    (testimonial: any) => testimonial.rating >= 4
-  );
+  // const filteredTestimonials = testimonials.filter(
+  //   (testimonial: any) => testimonial.rating >= 4
+  // );
   return (
     <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-center my-5 testimonial-back 2xl:max-w-screen-2xl mx-auto'>
       
@@ -49,12 +50,12 @@ const RollerReviews = () => {
               modules={[Navigation]}
               className="mySwiper"
             >
-              {filteredTestimonials.map((testimonial: any, index: number) => (
+              {testimonials.map((testimonial: any, index: number) => (
                 <SwiperSlide key={index}>
                   <div className='flex flex-col bg-white px-2 py-3 max-w-96 mx-auto w-fit my-4 '>
                     <div className='flex justify-between items-center'>
-                      <h3 className='text-17 md:text-4 font-medium font-gotham'>{testimonial.author_name}</h3>
-                      <p className='text-11 font-normal font-gotham'>{testimonial.relative_time_description}</p>
+                      <h3 className='text-17 md:text-4 font-medium font-gotham'>{testimonial.name}</h3>
+                      <p className='text-11 font-normal font-gotham'>{testimonial.date}</p>
                     </div>
                     <p className='flex gap-1 text-yellow-500 mb-4 text-10 md:text-10'>
                      {[...Array(testimonial.rating)].map((_, i) => (
@@ -68,9 +69,12 @@ const RollerReviews = () => {
         </Container>
       </div>  
       {/* Right Side */}
-      <div className='h-auto w-full'>
+      <div className='h-auto flex w-full'>
         <Image className=' h-auto md:h-[350px] lg:h-[570px] w-full lg:w-[470px] xl:w-[650px] xl:h-[570px] px-2' src='/assets/images/Rollerblind/Rectangle898.png' alt="img" height={550} width={703} />
+        <div className='bg-light w-7 lg:h-[520px] '>
       </div>
+      </div>
+      
       </div>
   );
 };

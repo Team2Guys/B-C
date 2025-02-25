@@ -17,15 +17,14 @@ const InstaVideoSection: React.FC<InstaVideoSectionProps> = ({ data }) => {
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto pt-5 sm:pt-10 bg-white'>
         {data.map((item, index) => (
-          <div key={index} className='relative w-full' style={{ paddingTop: '177.78%', position: 'relative' }}>
-            <iframe
-              loading='lazy'
-              src={`${item.video}?background=1&muted=1&controls=1&title=0&byline=0&portrait=0&loop=1`} // ✅ Corrected
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-              className='h-full w-full absolute top-0 left-0'
-            ></iframe>
+          <div key={index} className=' w-full' >
+            <video
+              src={item.video}
+             muted
+             autoPlay
+             controls
+              className='h-full w-full xl:h-[616.68px] object-cover'
+            ></video>
           </div>
         ))}
       </div>

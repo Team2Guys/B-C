@@ -2080,35 +2080,35 @@ export const NavData = [
 ];
 
 export const InstablindData = [
-  {
-   video:"https://player.vimeo.com/video/1055115625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-  },
-  {
-    video:"https://player.vimeo.com/video/1055115695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+
+   { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463491/q2lkmj2j6yykt4ua7vy4.mp4"
    },
-   { video:"https://player.vimeo.com/video/1055115555?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+   { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740463487/nxgmnfzo1idekgvx4iht.mp4"
    },
-  { video:"https://player.vimeo.com/video/1055115449?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-  },
-  { video: "https://player.vimeo.com/video/1055115492?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-  },
-  { video:"https://player.vimeo.com/video/1055115524?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+   { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463490/zujafsyibhpmtf824jt0.mp4" 
+   },
+   {
+    video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463490/g3kfznq9zip1xflaxhbz.mp4" 
+   },
+   { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463485/pbs113jkd41fnmtugzid.mp4"
+   },
+  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463488/afxpwp7bsxfxx7jl2p2q.mp4" 
   },
 ];
 
 export const InstacurtainData = [
-  { video: "https://player.vimeo.com/video/1055113938?h=ee041f419c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740464417/bt5wzojvuuwvsnrmer16.mp4"
   },
-  { video:"https://player.vimeo.com/video/1055113888?h=bf0480c871&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740464418/vdku00i2lwzk8zenkt4m.mp4"
   },
-  { video: "https://player.vimeo.com/video/1055113913?h=15d0c4c019&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740464414/eiofsyh4ve2kdxnh83v6.mp4"
   },
-  { video: "https://player.vimeo.com/video/1055113770?h=60a0d27ace&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-  },
-  { video:"https://player.vimeo.com/video/1055113824?h=b785d67083&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-  },
-  { video:"https://player.vimeo.com/video/1055113856?h=ecfdbe3d6d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740464418/lkld7zhksn5hlnhsc2a0.mp4"
   }, 
+  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740464415/mjwfffdn0lnfspcruvbq.mp4"
+  },
+  { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740464421/tdkj4f1xp5nipiennqde.mp4"
+  },  
 ];
 
 
@@ -2585,29 +2585,21 @@ export const GallaryData2 =[ {
 
 // Rollervideos
     export const InstaRollerData = [
-        
           {
-            video:"https://player.vimeo.com/video/1058587348?h=16d3d85879&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"},
-           {
-            video:"https://player.vimeo.com/video/1058587916?h=29c4ff74ec&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-            },
-            { video:"https://player.vimeo.com/video/1058588359?h=f073412e6f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-            },
+            video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463175/oia6zvep9gdfrd9j6rjz.mp4"
+          },
+          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/sciaw96yn0xoxn0pdngg.mp4" 
+          },
+          {
+            video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/xf5i8scoozukd9uqlyvn.mp4" 
+          },  
+          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/z1v3be02vdgxldghipvs.mp4"
+          },
+          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/yuiaysdykkpqggzcdows.mp4" 
 
-
-
-           { video:"https://player.vimeo.com/video/1058590233?h=21068feea6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-           },
-           { video:"https://player.vimeo.com/video/1058590498?h=56444f8e8d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-
-           },
-
-
-           { video:"https://player.vimeo.com/video/1058590867?h=29efc694ca&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-           },
-
-
-
-        ];
+          },
+          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/v4z4a86bk8qbrh1dzfnq.mp4" 
+          },
+];
         
   

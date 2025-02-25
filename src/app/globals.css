@@ -462,3 +462,13 @@ padding-bottom: 60px;
     display: none;
   }
 }
+
+.vp-title{
+  display: none !important;
+}
+
+.vp-title .Title_module_title__c87a7c0c{
+  display: none !important;
+  visibility: hidden !important;
+}
+
