@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaStar } from 'react-icons/fa';
@@ -11,19 +11,19 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import "swiper/css";
 import "swiper/css/navigation";
-import { fetchReviewsHandler } from 'config/fetch';
+// import { fetchReviewsHandler } from 'config/fetch';
 import { testimonials } from 'data/data';
 
 
 const RollerReviews = () => {
-  const [testimonial, setTestimonials] = useState<any[]>([]);
-  useEffect(() => {
-    fetchReviewsHandler(setTestimonials);
-  }, []);
+  // const [testimonial, setTestimonials] = useState<any[]>([]);
+  // useEffect(() => {
+  //   fetchReviewsHandler(setTestimonials);
+  // }, []);
 
-  const filteredTestimonials = testimonials.filter(
-    (testimonial: any) => testimonial.rating >= 4
-  );
+  // const filteredTestimonials = testimonials.filter(
+  //   (testimonial: any) => testimonial.rating >= 4
+  // );
   return (
     <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-center my-5 testimonial-back 2xl:max-w-screen-2xl mx-auto'>
       
