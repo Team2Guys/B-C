@@ -5,16 +5,15 @@ import React from "react";
 interface VideoPageProps {
   videoSrc: string;
   title: string;
-  subtitle: string;
-  description: string;
+  subtitle: string | any;
+  description: string | any;
+  width?: any;
+  height?:any;
 }
 
-const VideoSection : React.FC<VideoPageProps>  = ({ videoSrc, title, subtitle, description }) => {
-
-
-
+const VideoSection : React.FC<VideoPageProps>  = ({ videoSrc, title, subtitle, description, width,height }) => {
   return (
-    <div className={`relative w-full h-[300px] sm:h-[681px] overflow-hidden`} >
+    <div className={`relative w-full ${height || "h-[300px] sm:h-[681px]"} overflow-hidden`}>
       <video
         className="absolute inset-0 object-cover w-full h-full"
         src={videoSrc}
@@ -24,11 +23,9 @@ const VideoSection : React.FC<VideoPageProps>  = ({ videoSrc, title, subtitle, d
         playsInline
         controls={false}
       />
-   
-
         <div className='relative z-10 flex items-center h-full'>
         <div
-              className=" bg-black/35 w-[300px] sm:w-[579px] 2xl:w-[635px] rounded-e-2xl py-2 md:py-5"
+               className={`bg-black/35 ${width || "w-[300px] sm:w-[579px] 2xl:w-[635px]"} rounded-e-2xl py-2 md:py-5`}
             >
               <div className="py-2 md:py-4 text-start px-2 md:pl-20 2xl:pl-48 text-white drop-shadow-lg">
                 <h2 className="lg:text-[44px] text-25 font-black drop-shadow-lg capitalize">
