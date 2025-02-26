@@ -78,9 +78,9 @@ const Blog = ({
           </div>
           <div className="">
             <Image
-              className="w-full rounded-md h-[270px] sm:h-[416px] xl:h-[467px] 2xl:sm:h-[526px]  xl:object-cover "
-              width={1000}
-              height={608}
+              className="w-full rounded-md"
+              width={2000}
+              height={600}
               src={blog?.posterImage?.imageUrl}
               alt="Blog Image"
             />
