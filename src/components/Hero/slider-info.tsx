@@ -35,13 +35,13 @@ const SliderInfo = () => {
               </div>
               {index === 0 ? (
               <h1 className="text-black font-extrabold mb-2 xs:mb-0 text-20 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
-                {item.heading}
+                {item.heading}{' '}
                 <br />
                 {item.subheading}
               </h1>
             ) : (
               <h2 className="text-black font-extrabold mb-2 xs:mb-0 text-20 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
-                {item.heading}
+                {item.heading}{' '}
                 <br />
                 {item.subheading}
               </h2>
