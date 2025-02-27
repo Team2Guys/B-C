@@ -33,8 +33,9 @@ const BlogCard = ({ blog }: IBlogCard) => {
         <Image
           src={posterImage?.imageUrl}
           alt={title}
-          width={100}
-          height={100}
+          width={400}
+          height={400}
+          loading='lazy'
           className="rounded-xl md:object-cover w-full sm:w-[160px] sm:h-[160px] h-[160px]"
         />
         </div>
