@@ -23,6 +23,8 @@ const config = {
       },
       fontFamily: {
         gotham: ['var(--font-gotham)', 'sans-serif'],
+        juana: ["Juana Alt Black", "sans-serif"],
+        proxima: ['"Proxima Nova Alt"', 'sans-serif'],
       },
       backgroundSize: {
         'custom-size': '100% 500px',
