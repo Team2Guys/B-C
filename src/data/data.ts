@@ -2768,7 +2768,9 @@ export const curtainsData = {
   button1Text: "GET DIRECTION",
   button2Text: "WHATSAPP",
   secondaryHeading: "Explore Our Range Of Blinds And Curtains",
+  para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
   subheading: "Explore Our Range Of Blinds And Curtains1",
+  para1:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s1",
   bulletPoints: [
     "Is simply dummy text of the printing and typesetting industry.",
     "Is simply dummy text of the printing and typesetting industry.",
@@ -2781,4 +2783,139 @@ export const curtainsData = {
     "Is simply dummy text of the printing and typesetting industry.",
     "Is simply dummy text of the printing and typesetting industry.",
   ],
+};
+
+
+export const Blindbannerfeatures = [
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+    ];
+
+export const Curtainbannerfeatures = [
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+    ];
+
+  // 
+ export const BlindvideoData = [
+    { src: "/assets/video/moto.mp4"
+
+    },
+    { src: "/assets/video/moto.mp4"
+
+    },
+    { src: "/assets/video/moto.mp4"
+
+    },
+  ];
+
+  export const CurtainvideoData = [
+    { src: "/assets/video/moto.mp4"
+
+    },
+    { src: "/assets/video/moto.mp4"
+
+    },
+    { src: "/assets/video/moto.mp4"
+
+    },
+  ];
+
+//Tabdata
+export const Tab1categories = [
+    { label: "ALL", value: "all" },
+    { label: "Blinds By Type", value: "type" },
+    { label: "Blinds By Room", value: "room" },
+    { label: "Blinds By Material", value: "material" },
+  ];
+  export const Tab2categories = [
+    { label: "ALL", value: "all" },
+    { label: "Blinds By Type", value: "type" },
+    { label: "Blinds By Room", value: "room" },
+    { label: "Blinds By Material", value: "material" },
+  ];
+
+export const BlindsTabData= [
+    { id: 1, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 2, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 3, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 4, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 5, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 6, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 7, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 8, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 9, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 10, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 11, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 12, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 13, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 14, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 15, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 16, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 17, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 18, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 19, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 20, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 21, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 22, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 23, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 24, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 25, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 26, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 27, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+  ];
+
+export const CurtainTabData= [
+    { id: 1, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 2, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 3, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 4, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 5, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 6, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 7, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 8, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 9, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 10, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 11, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 12, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 13, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 14, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 15, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 16, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 17, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 18, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 19, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 20, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 21, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 22, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 23, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 24, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 25, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 26, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 27, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+  ];
+
+//whychoosedata
+export const chooseus= [
+  { text: "Up To 06 Months Warranty",
+    image:"/assets/images/ppc-blinds/icon1.png" },
+  { text: "High Quality Material From Trusted Brands",
+    image:"/assets/images/ppc-blinds/icon2.png" },
+  { text: "Passionate & Dedicated Staff", 
+    image:"/assets/images/ppc-blinds/icon3.png"},
+  { text: "Cost Efficient & Budget Friendly",
+  image:"/assets/images/ppc-blinds/icon4.png" },
+  { text: "Streamlined & Effortless Process",
+  image:"/assets/images/ppc-blinds/icon5.png" },
+];
+
+export const sectionContent = {
+  heading: "Why Choose Us?",
+  paragraph: `Indulge in the allure of 10X Curtains, where each thread weaves a tale of timeless beauty. 
+              Elevate your living spaces with our curated collections, meticulously crafted to transform windows into exquisite focal points. 
+              Choose 10X Curtains for a harmonious blend of opulence and functionality.`,
 };

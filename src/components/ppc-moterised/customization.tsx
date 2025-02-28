@@ -4,24 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
-
-interface PageData {
-  heading: string;
-  description: string;
-  image: string;
-  button1Text: string;
-  button2Text: string;
-  subheading: string;
-  secondaryHeading: string;
-  bulletPoints: string[];
-  bulletPoints1: string[];
-  para: string;
-  para1: string;
-}
-
-interface CommonSectionProps {
-  data: PageData;
-}
+import { RiVerifiedBadgeFill } from "react-icons/ri";
+import { CommonSectionProps } from "types/types";
 
 const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
   const {
@@ -39,7 +23,7 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
   } = data;
 
   return (
-  
+
     <div className="w-full bg-white py-10">
     <Container>
       {/* Top Section with Image + Text */}
@@ -51,10 +35,10 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
           <h2 className="text-2xl xl:text-[36px] font-black font-juana">{heading}</h2>
           <p className="lg:text-20 font-normal font-proxima">{description}</p>
           <div className="flex gap-4 mt-4">
-            <Link href="/" className="bg-black text-white py-2 px-4 rounded hover:bg-primary">
+            <Link href="/" className="bg-black text-white py-3 px-6 rounded hover:bg-primary flex justify-center items-center ">
               {button1Text}
             </Link>
-            <Link className='w-full sm:gap-1 text-sm sm:text-17 sm:w-fit flex justify-center items-center text-white  bg-green-500 py-3 px-4 rounded-sm font-medium hover:bg-primary' href="https://wa.me/+971544945339" target='_blank'>
+            <Link className='w-fit sm:gap-1 sm:text-17 sm:w-fit flex justify-center items-center text-white  bg-green-500 py-3 px-4 rounded-sm font-medium hover:bg-primary' href="https://wa.me/+971544945339" target='_blank'>
             <FaWhatsapp size={20} />
             {button2Text}</Link>
           </div>
@@ -66,24 +50,27 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
       <div className="px-4 shadow-lg border border-gray-200 p-4 rounded-md">
       <h3 className="text-xl font-semibold mb-2">{secondaryHeading}</h3>
       <p className="mb-2 lg:text-20 font-proxima font-normal">{para}</p>
-      <ul className="list-disc list-inside text-gray-700 space-y-1">
-      {bulletPoints.map((point, index) => (
-        <li key={index}>{point}</li>
-      ))}
-    </ul>
-    </div>
-
-     <div className="px-4 shadow-lg border border-gray-200 p-4 rounded-md">
-     <h3 className="text-xl font-semibold mb-2">{subheading}</h3>
-     <p className="mb-2 lg:text-20 font-proxima font-normal">{para1}</p>
-     <ul className="list-disc list-inside text-gray-700 space-y-1">
-      {bulletPoints1.map((point, index) => (
-        <li key={index}>{point}</li>
-      ))}
-    </ul>
-  </div>
+      <ul className="space-y-2"> 
+    {bulletPoints.map((point, index) => (
+      <li key={index} className="flex items-center gap-2">
+        <RiVerifiedBadgeFill className="text-secondary text-20 md:text-[30px]" />
+        <span>{point}</span>
+      </li>
+    ))}
+  </ul></div>
+  <div className="px-4 shadow-lg border border-gray-200 p-4 rounded-md">
+  <h3 className="text-xl font-semibold mb-2">{subheading}</h3>
+  <p className="mb-2 lg:text-20 font-proxima font-normal">{para1}</p>
+  <ul className="space-y-2"> 
+    {bulletPoints1.map((point, index) => (
+      <li key={index} className="flex items-center gap-2">
+        <RiVerifiedBadgeFill className="text-secondary text-20 md:text-[30px]" />
+        <span>{point}</span>
+      </li>
+    ))}
+  </ul>
 </div>
-
+</div>
 </Container>
 
 </div>

@@ -196,3 +196,60 @@ export interface AppointmentProps {
   singlePage?: boolean;
   className?: string;
 }
+export interface PageData {
+  heading: string;
+  description: string;
+  image: string;
+  button1Text: string;
+  button2Text: string;
+  subheading: string;
+  secondaryHeading: string;
+  bulletPoints: string[];
+  bulletPoints1: string[];
+  para: string;
+  para1: string;
+}
+
+export interface CommonSectionProps {
+  data: PageData;
+}
+
+export interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface FeaturesCarouselProps {
+  title: string;
+  subtitle: string;
+  features: Feature[];
+  defaultVisibleItems?: number;
+}
+export interface Title {
+  heading: string;
+}
+export interface Video {
+  src: string;
+}
+
+interface VideoSectionProps {
+  videos: Video[];
+  heading?: string;
+}
+export interface Blind {
+  id: number;
+  name: string;
+  image: string;
+  category: string;
+}
+
+export interface Category {
+  label: string;
+  value: string;
+}
+
+export interface BlindsTabsProps {
+  blindsData: Blind[];
+  tabCategories: Category[];
+}

@@ -2,19 +2,7 @@
 import Container from "components/Res-usable/Container/Container";
 import { useState, useEffect } from "react";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
-
-interface Feature {
-  title: string;
-  description: string;
-  icon: string;
-}
-
-interface FeaturesCarouselProps {
-  title: string;
-  subtitle: string;
-  features: Feature[];
-  defaultVisibleItems?: number;
-}
+import { FeaturesCarouselProps } from "types/types";
 
 const FeaturesCarousel: React.FC<FeaturesCarouselProps> = ({
   title,
