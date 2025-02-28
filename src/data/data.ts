@@ -2601,5 +2601,448 @@ export const GallaryData2 =[ {
           { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/v4z4a86bk8qbrh1dzfnq.mp4" 
           },
 ];
-        
   
+// ppc-made-to-measure-blinds
+export const ShopItems = [
+  {
+    imgUrl: "/assets/images/ppc-blinds/image4.png",
+    text: "Blinds",
+  },
+  {
+    imgUrl: "/assets/images/ppc-blinds/image1.png",
+    text: "Curtains",
+  },
+  {
+    imgUrl: "/assets/images/ppc-blinds/image3.png",
+    text: "Shutters",
+  },
+  {
+    imgUrl: "/assets/images/ppc-blinds/image2.png",
+    text: "Motorised",
+  },
+];
+
+// Featuresblinds
+export const Blindsfeatures = [
+  {
+    title: "Made To Measure",
+    description:
+      "Custom blinds are designed for every window, from large floor-to-ceiling panels to arched and uniquely shaped frames.",
+    icon: "/assets/images/ppc-blinds/features/1.png", 
+  },
+  {
+    title: "Free Consultation Visit",
+    description:
+      "Our experts visit your home and give you advice, fabric samples, and precise measurements at no cost.",
+      icon: "/assets/images/ppc-blinds/features/2.png", 
+  },
+  {
+    title: "Motorised Options",
+    description:
+      "Enjoy hassle-free operation with a remote, smartphone, or voice-activated blinds for ultimate convenience.",
+      icon: "/assets/images/ppc-blinds/features/3.png", 
+  },
+  {
+    title: "Quality You Can Trust",
+    description:
+      "These blinds are built to last with high-quality and durable materials and will never go out of style.",
+      icon: "/assets/images/ppc-blinds/features/4.png", 
+  },
+  {
+    title: "Energy Efficient",
+    description:
+      "Blinds help to regulate temperature, keeping your home warm in winter and cool in summer.",
+      icon: "/assets/images/ppc-blinds/features/5.png", 
+  },
+  {
+    title: "Child Safety",
+    description:
+      "Designed with safety features such as cordless options to ensure the well-being of children and pets.",
+      icon: "/assets/images/ppc-blinds/features/1.png",   
+  },
+  {
+    title: "Wide Range of Fabrics",
+    description:
+      "Choose from an extensive collection of fabrics, textures, and colors to match your home decor.",
+      icon: "/assets/images/ppc-blinds/features/2.png",   
+  },
+  {
+    title: "Easy Maintenance",
+    description:
+      "Our blinds are easy to clean and maintain, ensuring they stay fresh and new-looking for years.",
+    icon: "/assets/images/ppc-blinds/features/3.png",
+  },
+];
+//curtainfeatures
+export const Curtainfeatures = [
+  {
+    title: "Made To Measure",
+    description:
+      "Custom blinds are designed for every window, from large floor-to-ceiling panels to arched and uniquely shaped frames.",
+    icon: "/assets/images/ppc-blinds/features/1.png", 
+  },
+  {
+    title: "Free Consultation Visit",
+    description:
+      "Our experts visit your home and give you advice, fabric samples, and precise measurements at no cost.",
+      icon: "/assets/images/ppc-blinds/features/2.png", 
+  },
+  {
+    title: "Motorised Options",
+    description:
+      "Enjoy hassle-free operation with a remote, smartphone, or voice-activated blinds for ultimate convenience.",
+      icon: "/assets/images/ppc-blinds/features/3.png", 
+  },
+  {
+    title: "Quality You Can Trust",
+    description:
+      "These blinds are built to last with high-quality and durable materials and will never go out of style.",
+      icon: "/assets/images/ppc-blinds/features/4.png", 
+  },
+  {
+    title: "Energy Efficient",
+    description:
+      "Blinds help to regulate temperature, keeping your home warm in winter and cool in summer.",
+      icon: "/assets/images/ppc-blinds/features/5.png", 
+  },
+  {
+    title: "Child Safety",
+    description:
+      "Designed with safety features such as cordless options to ensure the well-being of children and pets.",
+      icon: "/assets/images/ppc-blinds/features/1.png",   
+  },
+  {
+    title: "Wide Range of Fabrics",
+    description:
+      "Choose from an extensive collection of fabrics, textures, and colors to match your home decor.",
+      icon: "/assets/images/ppc-blinds/features/2.png",   
+  },
+  {
+    title: "Easy Maintenance",
+    description:
+      "Our blinds are easy to clean and maintain, ensuring they stay fresh and new-looking for years.",
+    icon: "/assets/images/ppc-blinds/features/3.png",
+  },
+];
+
+// customdata
+
+export const blindsData = {
+  heading: "Customization We Offer Made To Measure Blinds",
+  description: `
+    Is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever
+    since the 1500s, when an unknown printer took a galley of type
+    and scrambled it to make a type specimen book.
+  `,
+  image:"/assets/images/ppc-blinds/C1.png",
+  button1Text: "GET DIRECTION",
+  button2Text: "WHATSAPP",
+  secondaryHeading: "Explore Our Range Of Blinds And Curtains",
+  para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+  subheading: "Explore Our Range Of Blinds And Curtains1",
+  para1:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s1",
+  bulletPoints: [
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+  ],
+  bulletPoints1: [
+    "Is simply dummy text of the printing and typesetting industry1.",
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+  ],
+};
+
+export const curtainsData = {
+  heading: "Customization We Offer Made To Measure Curtains",
+  description: `
+    Is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever
+    since the 1500s, when an unknown printer took a galley of type
+    and scrambled it to make a type specimen book.
+  `,
+  image: "/assets/images/curtains-hero.jpg",
+  button1Text: "GET DIRECTION",
+  button2Text: "WHATSAPP",
+  secondaryHeading: "Explore Our Range Of Blinds And Curtains",
+  para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+  subheading: "Explore Our Range Of Blinds And Curtains1",
+  para1:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s1",
+  bulletPoints: [
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+  ],
+  bulletPoints1: [
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+    "Is simply dummy text of the printing and typesetting industry.",
+  ],
+};
+
+
+export const Blindbannerfeatures = [
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+    ];
+
+export const Curtainbannerfeatures = [
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+      "Customizable, Affordable, and Delivered to Your Doorstep",
+    ];
+
+  // 
+ export const BlindvideoData = [
+    { src: "/assets/video/moto.mp4"
+
+    },
+    { src: "/assets/video/moto.mp4"
+
+    },
+    { src: "/assets/video/moto.mp4"
+
+    },
+  ];
+
+  export const CurtainvideoData = [
+    { src: "/assets/video/moto.mp4"
+
+    },
+    { src: "/assets/video/moto.mp4"
+
+    },
+    { src: "/assets/video/moto.mp4"
+
+    },
+  ];
+
+//Tabdata
+export const Tab1categories = [
+    { label: "ALL", value: "all" },
+    { label: "Blinds By Type", value: "type" },
+    { label: "Blinds By Room", value: "room" },
+    { label: "Blinds By Material", value: "material" },
+  ];
+  export const Tab2categories = [
+    { label: "ALL", value: "all" },
+    { label: "Blinds By Type", value: "type" },
+    { label: "Blinds By Room", value: "room" },
+    { label: "Blinds By Material", value: "material" },
+  ];
+
+export const BlindsTabData= [
+    { id: 1, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 2, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 3, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 4, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 5, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 6, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 7, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 8, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 9, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 10, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 11, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 12, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 13, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 14, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 15, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 16, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 17, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 18, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 19, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 20, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 21, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 22, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 23, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 24, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 25, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 26, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 27, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+  ];
+
+export const CurtainTabData= [
+    { id: 1, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 2, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 3, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 4, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 5, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 6, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 7, name: "Roller Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "type" },
+    { id: 8, name: "Roman Blinds", image: "/assets/images/ppc-blinds/tab2.png", category: "type" },
+    { id: 9, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 10, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 11, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 12, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 13, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 14, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 15, name: "Zipline Outdoor Blinds", image: "/assets/images/ppc-blinds/tab7.png", category: "room" },
+    { id: 16, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 17, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 18, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 19, name: "Panel Blinds", image: "/assets/images/ppc-blinds/tab1.png", category: "room" },
+    { id: 20, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 21, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 22, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 23, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 24, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 25, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+    { id: 26, name: "Wooden Blinds", image: "/assets/images/ppc-blinds/tab4.png", category: "material" },
+    { id: 27, name: "Aluminum Blinds", image: "/assets/images/ppc-blinds/tab5.png", category: "material" },
+  ];
+
+//whychoosedata
+export const chooseus= [
+  { text: "Up To 06 Months Warranty",
+    image:"/assets/images/ppc-blinds/icon1.png" },
+  { text: "High Quality Material From Trusted Brands",
+    image:"/assets/images/ppc-blinds/icon2.png" },
+  { text: "Passionate & Dedicated Staff", 
+    image:"/assets/images/ppc-blinds/icon3.png"},
+  { text: "Cost Efficient & Budget Friendly",
+  image:"/assets/images/ppc-blinds/icon4.png" },
+  { text: "Streamlined & Effortless Process",
+  image:"/assets/images/ppc-blinds/icon5.png" },
+];
+
+export const sectionContent = {
+  heading: "Why Choose Us?",
+  paragraph: `Indulge in the allure of 10X Curtains, where each thread weaves a tale of timeless beauty. 
+              Elevate your living spaces with our curated collections, meticulously crafted to transform windows into exquisite focal points. 
+              Choose 10X Curtains for a harmonious blend of opulence and functionality.`,
+};
+
+// explore section for blinds
+export const exploreblindData = [
+  {
+    title: "Explore Our Range Of Blinds And Curtains",
+    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    image: "/assets/images/ppc-blinds/blindrange.png",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+  {
+    title: "Explore Our Range Of Blinds And Curtains",
+    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    image: "/assets/images/ppc-blinds/revblind.png",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+];
+//working process
+export const workingProcessblindData = [
+  {
+    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w2.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w3.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w4.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+];
+
+export const workingProcesscurtainData = [
+  {
+    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w2.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w3.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w4.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+];
+// Consultation both data
+export const consultationblindData = [
+  {
+    title: "Explore Our Range Of Blinds And Curtains",
+    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    image: "/assets/images/ppc-blinds/conblind.png",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+  {
+    title: "PERSONAL CONSULTATION",
+    description: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry.  standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry. ",
+    image: "/assets/images/ppc-blinds/conblind.png",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+];
