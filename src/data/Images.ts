@@ -88,7 +88,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     static_Title: 'Bespoke Conservatory Blinds',
     Product: [
       {
-        product_name: 'Skylight blinds',
+        product_name: 'Skylight Blinds',
         altText: 'Skylight blinds dubai',
         Imagesurl: '/assets/images/optimized-images/blinds/Conservatory/s.jpg',
         desc: 'Skylight Thermal Blinds are a popular and practical choice for conservatories, loft conversions, and other spaces with angled or hard-to-reach windows. Our skylight blinds are made to fit just right and help keep your home cosy in the winter and cool in the summer. They also give you more privacy and control over light, setting the perfect vibe. Check out our range of Skylight roller blinds for even more options to suit your needs.',
@@ -198,7 +198,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         desc: '<a target="_blank" style="text-decoration: underline" href="/blinds/vertical-blinds">Vertical blinds</a> are an excellent bathroom option, especially if you have large windows or sliding doors. They give your bathroom a modern and stylish look while being super practical. You can easily adjust the slats to control how much light comes in or ensure privacy when needed. Plus, our bathroom vertical blinds come in many colours, patterns, and materials like PVC and fabric so that you can find the perfect match for your bathroom.',
       },
       {
-        product_name: 'Skylight blinds',
+        product_name: 'Skylight Blinds',
         altText: 'Skylight blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/s.webp',

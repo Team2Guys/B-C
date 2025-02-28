@@ -164,140 +164,140 @@ export const supportItems: SupportItem[] = [
 export const testimonials = [
   {
     id: 1,
-    name: 'Fatima Seedat',
-    date: '3 months ago',
-    image: '/assets/images/static/testimonial/1.png',
+    author_name:'Fatima Seedat',
+    time: '3 months ago',
+    profile_photo_url: '/assets/images/static/testimonial/1.png',
     text: `
       The Meditation and Holistic Counseling course provided valuable insights and information. Nevine, our facilitator, was truly inspiring. I gained a wealth of knowledge and am eager to apply the skills I've acquired. This experience has not only broadened my understanding but also motivated me to integrate these new techniques into my practice. Overall, it was a rewarding learning journey that I am excited on my journey ahead.`,
     rating: 5,
   },
   {
     id: 2,
-    name: 'Marlyn Hoffman',
-    date: '2 years ago',
-    image: '/assets/images/static/testimonial/2.png',
+    author_name: 'Marlyn Hoffman',
+    time: '2 years ago',
+    profile_photo_url: '/assets/images/static/testimonial/2.png',
     text: `Excellent service from the team! Both Adeel and Robert were very helpful starting from the measurements, providing us options and  discussing what's best for our home. We also had great communication with Shiraz who gave us assurance that we will receive great service, good quality of work and reasonable price. And sure they delivered as promised! Very happy with Blinds & Curtains and will surely avail their services for our future needs! Thank you.`,
     rating: 5,
   },
   {
     id: 3,
-    name: 'Katherine G. Tan Casis',
-    date: '5 months ago',
-    image: '/assets/images/static/testimonial/3.png',
+    author_name: 'Katherine G. Tan Casis',
+    time: '5 months ago',
+    profile_photo_url: '/assets/images/static/testimonial/3.png',
     text: `Very happy with their customer service as they were very responsive when I was inquiring and scheduling the ocular. They have a wide variety of fabric selections and Jayson provided us so much assistance in the measurements and discussing the fabric options. He provided inputs that helped us decide which one to get.The curtains were ordered on Saturday and were delivered and installed by Thursday.Jayson and Robert did the installation and they did a wonderful job. We are very happy with the curtains they have delivered and installed. Highly recommended 👍🏻`,
     rating: 5,
   },
   {
     id: 4,
-    name: 'Menna Hisham Essa',
-    date: 'a year ago',
-    image: '/assets/images/static/testimonial/4.png',
+    author_name: 'Menna Hisham Essa',
+    time: 'a year ago',
+    profile_photo_url: '/assets/images/static/testimonial/4.png',
     text: `One of the best companies, the quality of the curtains are very good and 100% black out comparing to the price they gave and very big variety of colors and materials to choose.Arshad and Shafiq came on time and they were very professional and very fast, they finished installing 4 curtains in only 40mins.I would highly recommend this company and for sure will deal with them again in future.`,
     rating: 5,
   },
   {
     id: 5,
-    name: 'Sunny Collins',
-    date: '2 years ago',
-    image: '/assets/images/static/testimonial/5.png',
+    author_name: 'Sunny Collins',
+    time: '2 years ago',
+    profile_photo_url: '/assets/images/static/testimonial/5.png',
     text: `I used this company for my black-out roller blinds with sheers. I had such an AMAZING experience with this company from start to end! I cannot praise this team enough.The sales team- especially Mir- was very patient and attentive, answered all my many of questions and offered great suggestions of fabrics and products based on my needs. There were doubts about the initial measurements so they sent the team again to triple check everything. Abdul was so helpful when it came to giving technical information and what to expect for my space if I chose a specific design or material- for example, how much black out I'd have with 1 roller blind vs 2 roller blinds, and the ideal curtain length for my windows. He shared lots of photos of examples so I could visualize what he was talking about and the potential problems I could face if I went with my initial design ideas. I'm so grateful for his suggestions and don't regret changing the design based on his suggestions a single bit.Next was the installation- the guys were SUPER. Everything was installed perfectly, and the guys were VERY clean- washing their hands before touching the curtains to avoid dirtying the fabrics, and they left my apartment spotless. They are so very good at keeping the space dust-free while doing their work.The finished product is gorgeous and great quality too! I've definitely found my go-to place for curtains, and will highly recommed them to anyone else.`,
     rating: 5,
   },
   {
     id: 6,
-    name: 'Maya Smadi',
-    date: 'a year ago',
-    image: '/assets/images/static/testimonial/6.png',
+    author_name: 'Maya Smadi',
+    time: 'a year ago',
+    profile_photo_url: '/assets/images/static/testimonial/6.png',
     text: `Highly recommend using Blinds & Curtains. I came across them by coincidence through a google search. I was very hesitant in the beginning, but when the team came for a site visit, I was completely confident in their service.Yahweh and the team came on time, provided us with many samples, shared with us different pictures, explained the different mechanisms and got us the price on the spot through their iPads. They were truly very informed and really gave us peace of mind. And Once we paid the advance, installation was within a couple of days and they were so fast and efficient. Really excellent service, professional team and reasonable prices. `,
     rating: 5,
   },
   {
     id: 8,
-    name: 'renren evans',
-    date: '3 years ago',
-    image: '/assets/images/static/testimonial/8.png',
+    author_name: 'renren evans',
+    time: '3 years ago',
+    profile_photo_url: '/assets/images/static/testimonial/8.png',
     text: `I have a very good experience with Blinds and Curtains from day one (measurement/site visit) up to the installation. Kudos to Mr. Yahweh and his Assistant Robert who has done an excellent job to our new office. They have provided us with a very good service and these guys are really professional. Highly recommended!!! Attached are our sample photos. Thank you Blinds and curtains.`,
     rating: 5,
   },
   {
     id: 9,
-    name: 'Phyllis Murray',
-    date: 'a year ago',
-    image: '/assets/images/static/testimonial/9.png',
+    author_name: 'Phyllis Murray',
+    time: 'a year ago',
+    profile_photo_url: '/assets/images/static/testimonial/9.png',
     text: `Great experience dealing with these guys. Very easy and straightforward process from initial enquiry to the installation of the curtains.Wahab and Tashiyana were very efficient in installing the curtains and very friendly as well. They cleaned up after themselves, too, and left no mess behind.Very happy customer here. Won't hesitate to use them again at all. Highly recommend!`,
     rating: 5,
   },
   {
     id: 10,
-    name: 'Damian Seneviratne',
-    date: 'a year ago',
-    image: '/assets/images/static/testimonial/10.png',
+    author_name: 'Damian Seneviratne',
+    time: 'a year ago',
+    profile_photo_url: '/assets/images/static/testimonial/10.png',
     text: `Had awesome work done by Yahweh and Arvin on 03/20/2023. Exceeding expectations and very professional all the way. Very courteous and really good at what they were doing. Neat and tidy. Thank you guys for making my new place much more beautiful than it was and able to make it home.. Cheers...`,
     rating: 5,
   },
   {
     id: 11,
-    name: 'Alisha Alwany',
-    date: '2 years ago',
-    image: '/assets/images/static/testimonial/11.png',
+    author_name: 'Alisha Alwany',
+    time: '2 years ago',
+    profile_photo_url: '/assets/images/static/testimonial/11.png',
     text: `Amazing Service. From the initial appointment to measure and choose materials to the installation. Perfect finish and so happy with the quality of the material too. Tanveer and Ray were very polite and cleaned up after the installation. Highly recommend!
     2 years on, I used blinds and curtains again to fit some shutters in our bedroom. Yahweh and Jayson were fantastic at installation but a special shout out to Yahweh who dealt with the whole process from measuring to installation. He put up with my messages to find out when the shutters will arrive in the UAE and was very patient. Both Yahweh and Jayson are a credit to your company! Would definitely recommend this company and have done to our friends and family.`,
     rating: 5,
   },
   {
     id: 12,
-    name: 'Leisha Clark',
-    date: '2 years ago',
-    image: '/assets/images/static/testimonial/12.png',
+    author_name: 'Leisha Clark',
+    time: '2 years ago',
+    profile_photo_url: '/assets/images/static/testimonial/12.png',
     text: `A huge thank you to Yahweh & Arvin for doing a fantastic job putting up our curtains & blinds. They went above and beyond to make sure every curtain and blind was to my liking and perfect. I am very pleased with the quality of the curtains. I highly recommend them and would definitely use them again. ⭐️⭐️⭐️⭐️⭐️`,
     rating: 5,
   },
   {
     id: 13,
-    name: 'James Spearman',
-    date: 'a year ago',
-    image: '/assets/images/static/testimonial/13.png',
+    author_name: 'James Spearman',
+    time: 'a year ago',
+    profile_photo_url: '/assets/images/static/testimonial/13.png',
     text: `Lots of choice, easy to deal with and very professional.  The team came to measure and provide a quote, once I was ready we selected the final material and paid the deposit.. 2 days later blinds were ready Humayoun and Arvin quickly, efficiently and very cleanly installed the blinds.  Everything was super easy, even getting the security passes to my tower was handled without me getting involved.  Great service and love the end result.`,
     rating: 5,
   },
   {
     id: 14,
-    name: 'Karolina Vaseva',
-    date: '2 years ago',
-    image: '/assets/images/static/testimonial/14.png',
+    author_name: 'Karolina Vaseva',
+    time: '2 years ago',
+    profile_photo_url: '/assets/images/static/testimonial/14.png',
     text: `Outstanding service from Abdul and Roy! From measuring, helping to pick the fabrics to setting everything up, the process was very smooth and fast. We love our blackout curtains in all rooms and we are very happy with Blinds and Curtains service, you got us as your loyal clients from now on.`,
     rating: 5,
   },
   {
     id: 15,
-    name: 'Bintang A',
-    date: '3 years ago',
-    image: '/assets/images/static/testimonial/17.png',
+    author_name: 'Bintang A',
+    time: '3 years ago',
+    profile_photo_url: '/assets/images/static/testimonial/17.png',
     text: `Amazing guys working very hard, from the start of choosing the curtains and installation. Yahweh is very patient helping me with colour curtains as I can't decided 😊. Great choices for curtains with any budget. Yahweh and his installation team Jayson and Reagan very polite and professional.
     Definitely recommend them!`,
     rating: 5,
   },
   {
     id: 16,
-    name: 'Eliska Mundell',
-    date: '4 years ago',
-    image: '/assets/images/static/testimonial/18.png',
+    author_name: 'Eliska Mundell',
+    time: '4 years ago',
+    profile_photo_url: '/assets/images/static/testimonial/18.png',
     text: `I had two sets of curtains and a kitchen blind made, very impressed with the speed to deliver and the quality of the items. Tanveer was very easy to talk to and understood the requirements. The prices are reasonable, I would rather pay for quality. The installation job was done very quickly and the team is very professional. A small problem with the blind was rectified immediately. I certainly would use them again!`,
     rating: 5,
   },
   {
     id: 17,
-    name: 'Eisa Alhabib',
-    date: 'a year ago',
-    image: '/assets/images/static/testimonial/15.png',
+    author_name: 'Eisa Alhabib',
+    time: 'a year ago',
+    profile_photo_url: '/assets/images/static/testimonial/15.png',
     text: `Great place to get your curtains set up! They came to my apartment , took measurements then a few days later they set up my curtains and they look amazing! Very good quality and service. So happy with the final result`,
     rating: 5,
   },
   {
     id: 18,
-    name: 'Carey Boucher Erasmus',
-    date: 'a year ago',
-    image: '/assets/images/static/testimonial/16.png',
+    author_name: 'Carey Boucher Erasmus',
+    time: 'a year ago',
+    profile_photo_url: '/assets/images/static/testimonial/16.png',
     text: `Excellent service, so professional. Yahweh was brilliant and precise with our blind requirements. Fair, affordable prices too.`,
     rating: 5,
   }, 
@@ -1030,7 +1030,7 @@ export const MoterisedContent = [
         infoTitle: 'Automatic Blinds with Remote',
         infoSubtitle: 'Convert your windows into Smart Windows ',
         infoDescription:
-          'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These motorised blinds give you the option to control your <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">window covering</a> with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer <a href="/blinds/motorised-blinds" target="_blank" style="text-decoration:underline">remote control blinds</a> that are smooth, reliable, and long-lasting. Whether you want simple automated or fully connected, we’ve got the right custom smart blinds for you.',
+          'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These Automated Blinds give you the option to control your <a href="/" target="_blank" style="text-decoration:underline">window covering</a> with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer <a href="/blinds/motorised-blinds" target="_blank" style="text-decoration:underline">remote control blinds</a> that are smooth, reliable, and long-lasting. Whether you want simple automated or fully connected, we’ve got the right custom smart blinds for you.',
         infoImage: moto1,
         measureTitle: '“Hey Alexa, lower my Blinds”',
         measureDescription:
@@ -1075,7 +1075,7 @@ export const MoterisedContent = [
         additionalImage: moto3,
         additionalDescription2: `We believe in making your experience as stress-free as possible. Our team members are paid a fair living wage, meaning they are here for you. Rest assured, no one is working on commission here. <a href="/" target="_blank" style="text-decoration:underline">Blinds and Curtains Dubai’s</a> priority is to provide honest, helpful advice that’s best for you—not to push for a sale. If you choose to go with us, congratulations. If not we’ll send you your quotation by email and one follow up call. Then it's up to you to decide.`,
         additionalDescription3:
-          'We approach every consultation the way we’d like to be treated: with honesty and zero pressure. Contact our friendly team if you would like a no-obligation quote on our home automation window blinds, or fill out the online contact form, and we will get back to you as soon as possible.',
+          'We approach every consultation the way we’d like to be treated: with honesty and zero pressure. Contact our friendly team if you would like a no-obligation quote on our home automation <a href="/made-to-measure-blinds/" target="_blank" style="text-decoration:underline">window blinds</a>, or fill out the online contact form, and we will get back to you as soon as possible.',
       },
     ],
   },
@@ -1087,14 +1087,14 @@ export const MoterisedContent = [
         heroVideo: '/assets/video/automated_curtains.mp4',
         infoTitle: 'Modern Automatic Curtains',
         infoSubtitle: 'Convert your windows into Smart Windows',
-        infoDescription: `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
+        infoDescription: `Our passion for high-quality products makes us more than just a <a href="/" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your curtains? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
         infoImage: moto4,
-        measureTitle: 'Made to Measure Motorised Curtains',
+        measureTitle: 'Made to Measure Automated Curtains',
         measureDescription: `Just say the word, and let your motorisation system do the rest. It's now easier to control auto curtains with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
         chooseustitle: 'Why Choose Us For Your Motorisation?',
         chooseustitle1: 'Control your windows anytime, anywhere!',
         measureTitle1: 'Set Your Own Schedule or Control Remotely',
-        measureDescription1: `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use automatic window curtains so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants, and options like <a href="/curtains/blackout-curtains-dubai" target="_blank" style="text-decoration:underline">blackout curtains</a> for added convenience.`,
+        measureDescription1: `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use automatic <a href="/made-to-measure-curtains/" target="_blank" style="text-decoration:underline">window curtains</a> so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants, and options like <a href="/curtains/blackout-curtains-dubai" target="_blank" style="text-decoration:underline">blackout curtains</a> for added convenience.`,
         chooseUsItems: [
           {
             image: img1,
@@ -2080,35 +2080,35 @@ export const NavData = [
 ];
 
 export const InstablindData = [
-  {
-   video:"https://player.vimeo.com/video/1055115625?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-  },
-  {
-    video:"https://player.vimeo.com/video/1055115695?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+
+   { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463491/q2lkmj2j6yykt4ua7vy4.mp4"
    },
-   { video:"https://player.vimeo.com/video/1055115555?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+   { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740463487/nxgmnfzo1idekgvx4iht.mp4"
    },
-  { video:"https://player.vimeo.com/video/1055115449?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-  },
-  { video: "https://player.vimeo.com/video/1055115492?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-  },
-  { video:"https://player.vimeo.com/video/1055115524?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+   { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463490/zujafsyibhpmtf824jt0.mp4" 
+   },
+   {
+    video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463490/g3kfznq9zip1xflaxhbz.mp4" 
+   },
+   { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463485/pbs113jkd41fnmtugzid.mp4"
+   },
+  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463488/afxpwp7bsxfxx7jl2p2q.mp4" 
   },
 ];
 
 export const InstacurtainData = [
-  { video: "https://player.vimeo.com/video/1055113938?h=ee041f419c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740464417/bt5wzojvuuwvsnrmer16.mp4"
   },
-  { video:"https://player.vimeo.com/video/1055113888?h=bf0480c871&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740464418/vdku00i2lwzk8zenkt4m.mp4"
   },
-  { video: "https://player.vimeo.com/video/1055113913?h=15d0c4c019&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740464414/eiofsyh4ve2kdxnh83v6.mp4"
   },
-  { video: "https://player.vimeo.com/video/1055113770?h=60a0d27ace&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-  },
-  { video:"https://player.vimeo.com/video/1055113824?h=b785d67083&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-  },
-  { video:"https://player.vimeo.com/video/1055113856?h=ecfdbe3d6d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740464418/lkld7zhksn5hlnhsc2a0.mp4"
   }, 
+  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740464415/mjwfffdn0lnfspcruvbq.mp4"
+  },
+  { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740464421/tdkj4f1xp5nipiennqde.mp4"
+  },  
 ];
 
 
@@ -2585,29 +2585,21 @@ export const GallaryData2 =[ {
 
 // Rollervideos
     export const InstaRollerData = [
-        
           {
-            video:"https://player.vimeo.com/video/1058587348?h=16d3d85879&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"},
-           {
-            video:"https://player.vimeo.com/video/1058587916?h=29c4ff74ec&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-            },
-            { video:"https://player.vimeo.com/video/1058588359?h=f073412e6f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-            },
+            video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463175/oia6zvep9gdfrd9j6rjz.mp4"
+          },
+          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/sciaw96yn0xoxn0pdngg.mp4" 
+          },
+          {
+            video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/xf5i8scoozukd9uqlyvn.mp4" 
+          },  
+          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/z1v3be02vdgxldghipvs.mp4"
+          },
+          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/yuiaysdykkpqggzcdows.mp4" 
 
-
-
-           { video:"https://player.vimeo.com/video/1058590233?h=21068feea6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-           },
-           { video:"https://player.vimeo.com/video/1058590498?h=56444f8e8d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-
-           },
-
-
-           { video:"https://player.vimeo.com/video/1058590867?h=29efc694ca&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-           },
-
-
-
-        ];
+          },
+          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/v4z4a86bk8qbrh1dzfnq.mp4" 
+          },
+];
         
   

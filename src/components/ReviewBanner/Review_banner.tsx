@@ -1,5 +1,4 @@
 'use client';
-// import React, { useEffect, useRef, useState } from 'react';
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -35,9 +34,9 @@ export default function ReviewBanner() {
   //   fetchReviewsHandler(setReviews);
   // }, []);
 
-  // // // const filteredTestimonials = reviews.filter(
-  // // //   (testimonial: any) => testimonial.rating >= 4,
-  // // );
+  // const filteredTestimonials = reviews.filter(
+  //   (testimonial: any) => testimonial.rating >= 4,
+  // );
 
   return (
     <>
@@ -103,7 +102,7 @@ export default function ReviewBanner() {
                         <SwiperSlide key={index}>
                           <div className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5">
                             <h3 className="text-xl font-semibold text-white">
-                              {slide.name}
+                              {slide.author_name}
                             </h3>
                             <p className="mt-2 text-white overflow-x-auto max-h-36 text-ellipsis slider-text">
                               {slide.text}
