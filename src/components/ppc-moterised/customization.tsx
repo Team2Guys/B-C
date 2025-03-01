@@ -35,7 +35,7 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
           <h2 className="text-2xl xl:text-[36px] font-black font-juana">{heading}</h2>
           <p className="lg:text-20 font-normal font-proxima">{description}</p>
           <div className="flex gap-4 mt-4">
-            <Link href="/" className="bg-black text-white py-3 px-6 rounded hover:bg-primary flex justify-center items-center ">
+            <Link href="/" className="bg-black text-white py-3 px-3 xs:px-6 rounded hover:bg-primary flex justify-center items-center text-center ">
               {button1Text}
             </Link>
             <Link className='w-fit sm:gap-1 sm:text-17 sm:w-fit flex justify-center items-center text-white  bg-green-500 py-3 px-4 rounded-sm font-medium hover:bg-primary' href="https://wa.me/+971544945339" target='_blank'>

@@ -253,3 +253,19 @@ export interface BlindsTabsProps {
   blindsData: Blind[];
   tabCategories: Category[];
 }
+export interface ExploreBlindsCurtainsProps {
+  data: {
+    title: string;
+    description: string;
+    image: string;
+    viewlink: string;
+    features: { icon: string; title: string; text: string }[];
+    buttonLinks: { href: string; text: string }[];
+  };
+  reverse?: boolean;
+}
+export interface WorkingProcessProps {
+  title: string;
+  description: string;
+  data: { icon: string; title: string; description: string }[];
+}

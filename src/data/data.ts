@@ -2919,3 +2919,130 @@ export const sectionContent = {
               Elevate your living spaces with our curated collections, meticulously crafted to transform windows into exquisite focal points. 
               Choose 10X Curtains for a harmonious blend of opulence and functionality.`,
 };
+
+// explore section for blinds
+export const exploreblindData = [
+  {
+    title: "Explore Our Range Of Blinds And Curtains",
+    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    image: "/assets/images/ppc-blinds/blindrange.png",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+  {
+    title: "Explore Our Range Of Blinds And Curtains",
+    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    image: "/assets/images/ppc-blinds/revblind.png",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+];
+//working process
+export const workingProcessblindData = [
+  {
+    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w2.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w3.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w4.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+];
+
+export const workingProcesscurtainData = [
+  {
+    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w2.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w3.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w4.png",
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    title: "Roman Blinds",
+    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+  },
+];
+// Consultation both data
+export const consultationblindData = [
+  {
+    title: "Explore Our Range Of Blinds And Curtains",
+    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    image: "/assets/images/ppc-blinds/conblind.png",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+  {
+    title: "PERSONAL CONSULTATION",
+    description: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry.  standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry. ",
+    image: "/assets/images/ppc-blinds/conblind.png",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+];
