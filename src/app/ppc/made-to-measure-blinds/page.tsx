@@ -5,7 +5,7 @@ import Bullets from './bullets'
 import LButton from './button';
 import Shop from 'components/ppc-moterised/shop';
 import FeaturesCarousel from 'components/ppc-moterised/features';
-import {banners, Blindbannerfeatures, blindcrousal, blindsData, Blindsfeatures, BlindsTabData, BlindvideoData, consultationblindData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
+import {banners, Blindbannerfeatures, blindcrousal, Blindgallery, blindsData, Blindsfeatures, BlindsTabData, BlindvideoData, consultationblindData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
 import CustomSection from 'components/ppc-moterised/customization';
 import Videoblind from 'components/ppc-moterised/videosection';
 import Blindtype from 'components/ppc-moterised/blindtype';
@@ -14,7 +14,7 @@ import WhyChooseUs from 'components/ppc-moterised/whychoose';
 import ExploreBlinds from 'components/ppc-moterised/blindsrange';
 import WorkingProcess from 'components/ppc-moterised/working';
 import Carousel from 'components/ppc-moterised/blindcrousal';
-// import ImageGrid from 'components/ppc-moterised/Imagegrid';
+import ImageGrid from 'components/ppc-moterised/Imagegrid';
 // import HeroSection from 'components/ppc-moterised/hero';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
@@ -24,6 +24,7 @@ import ServiceLocations from 'components/ppc-moterised/servicelocation';
 import RollerReviews from 'components/Rollerblind/Roller_Reviews/Review';
 import Banner from 'components/HomeBanner/Home_Banner';
 import BookingForm from 'components/ppc-moterised/Bookingform';
+import HeroBanner from 'components/ppc-moterised/hero';
 
 
 const Made_to_Measure_Blinds = async () => {
@@ -67,8 +68,8 @@ const Made_to_Measure_Blinds = async () => {
       <ExploreBlinds data={consultationblindData[1]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
       <Carousel data={blindcrousal} />
       <Blindtype heading="Professional Installation Services For Your Interior" />
-      {/* <ImageGrid title={Blindgallery.title} images={Blindgallery.images} />
-      <HeroSection /> */}
+      <ImageGrid title={Blindgallery.title} images={Blindgallery.images} />
+      <HeroBanner/>
       <div className='bg-white'>
       <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">
       <RelatedProducts products={Products} limit={4}/>

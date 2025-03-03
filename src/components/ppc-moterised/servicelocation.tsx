@@ -19,14 +19,14 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({ title, description,
               </Link>
             </div>
           </div>
-          <div className="md:w-[60%] lg:w-1/2 bg-gray-200 p-6 rounded-2xl shadow-md">
+          <div className="md:w-[60%] lg:w-1/2 bg-[#EBEBEB] p-6 rounded-3xl shadow-md">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {locations.map((location, index) => (
                 <div key={index} className="flex items-center bg-white border-2 border-primary rounded-full shadow-sm">
-                  <div className='p-3 bg-primary rounded-full'>
+                  <div className='p-2 xl:p-4 bg-primary rounded-full'>
                     <MapPin className="text-white" size={18} />
                   </div>
-                  <span className="text-sm xl:text-20 font-bold p-3">{location}</span>
+                  <span className="text-xs xl:text-20 font-bold py-1 px-2 xl:px-4 xl:leading-6">{location}</span>
                 </div>
               ))}
             </div>

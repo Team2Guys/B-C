@@ -2645,13 +2645,13 @@ export const Blindsfeatures = [
     title: "Made To Measure",
     description:
       "Custom blinds are designed for every window size. We also specialise in large, double height windows.",
-    icon: "/assets/images/ppc-blinds/features/1.png", 
+      icon: "/assets/images/ppc-blinds/features/5.png", 
   },
   {
     title: "Free consultation & Visit",
     description:
       "Our experts visit your home with gorgeous samples,  give you impartial advice, and take precise measurements, all free of charge.",
-      icon: "/assets/images/ppc-blinds/features/2.png", 
+      icon: "/assets/images/ppc-blinds/features/4.png", 
   },
   {
     title: "Motorised Options",
@@ -2663,7 +2663,7 @@ export const Blindsfeatures = [
     title: "Quality You Can Trust",
     description:
       "These blinds are built to last with high-quality and durable materials and will never go out of style. 3 year warranty on fabrics and 10 years on mechanisms.",
-      icon: "/assets/images/ppc-blinds/features/4.png", 
+      icon: "/assets/images/ppc-blinds/features/1.png", 
   },
   {
     title: "Professionally Installed",
@@ -3038,7 +3038,7 @@ export const blindcrousal = [
 ];
 
 export const Blindgallery = {
-  title: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry.",
+  title: "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.",
   images: [
     { src: "/assets/images/ppc-blinds/g5.png", className: "h-[301px] row-span-1" },
     { src: "/assets/images/ppc-blinds/g4.png", className: "h-[241px] row-span-1" },
@@ -3050,32 +3050,32 @@ export const Blindgallery = {
   ],
 };
 
-
-
-export const Curtaingallery = [
-  { title: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing"},
-  "/assets/images/ppc-blinds/g8.png", 
-  "/assets/images/ppc-blinds/g9.png",
-  "/assets/images/ppc-blinds/g10.png",
-  "/assets/images/ppc-blinds/g11.png",
-  "/assets/images/ppc-blinds/g12.png",
-  "/assets/images/ppc-blinds/g13.png",
-  "/assets/images/ppc-blinds/g14.png",
-];
+export const Curtaingallery = {
+  title: "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.",
+  images: [
+  {src: "/assets/images/ppc-blinds/g8.png" , className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g9.png", className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g10.png",className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g11.png",className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g12.png",className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g13.png",className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g14.png",className: "h-[301px] row-span-1" },
+]
+};
 
 export const serviceLocationsData = [
   {
     id: 1,
     title: "We Deliver Blinds All Over Dubai",
     description: "Our blinds are made-to-order and delivered right to your door in any part of Dubai. We offer fast, reliable service and installation with expert expertise—convenience and quality combined!",
-    locations: Array(12).fill('Ajman'),
+    locations: ['Albarsha', 'Arabian Ranches', 'Business Bay', 'Downtown Dubai', 'Dubai Hills', 'Jumeirah Bay Island','Jumeirah Beach','Palm Jumeirah','Academic City','DIFC','Damac Hills','Discovery Gardens'],
     mapLink:"https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/@25.117715,55.235686,2562m/data=!3m1!1e3!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
   },
   {
     id: 2,
     title: "We Deliver Curtains All Over Dubai",
     description: "Our curtains are made-to-order and delivered right to your door in any part of Dubai. We offer fast, reliable service and installation with expert expertise—convenience and quality combined!",
-    locations: ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Fujairah', 'Ras Al Khaimah'],
-    mapLink: "https://www.google.com/maps/place/Our-Locations/"
+    locations: ['Al Barari', 'The Greens', 'Al Quoz', 'Al Qusais', 'Al Reem', 'Al Sufouh','Alvorada','Arjan','Barsha Heights','Villa Nova','Bur Dubai','The Lakes'],
+    mapLink:"https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/@25.117715,55.235686,2562m/data=!3m1!1e3!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
   }
 ];

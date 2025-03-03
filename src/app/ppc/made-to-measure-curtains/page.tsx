@@ -3,7 +3,7 @@ import VideoSection from 'components/LandingPage/video-section'
 import React from 'react'
 import Shop from 'components/ppc-moterised/shop';
 import FeaturesCarousel from 'components/ppc-moterised/features';
-import {banners, blindcrousal, BlindsTabData, BlindvideoData, consultationblindData, Curtainbannerfeatures, Curtainfeatures, curtainsData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
+import {banners, blindcrousal, Blindgallery, BlindsTabData, BlindvideoData, consultationblindData, Curtainbannerfeatures, Curtainfeatures, curtainsData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
 import CustomSection from 'components/ppc-moterised/customization';
 import Videoblind from 'components/ppc-moterised/videosection';
 import Blindtype from 'components/ppc-moterised/blindtype';
@@ -24,10 +24,12 @@ import Banner from 'components/HomeBanner/Home_Banner';
 import BookingForm from 'components/ppc-moterised/Bookingform';
 import Bullets from '../made-to-measure-blinds/bullets';
 import LButton from '../made-to-measure-blinds/button';
+import ImageGrid from 'components/ppc-moterised/Imagegrid';
+import HeroBanner from 'components/ppc-moterised/hero';
 
 
 const Made_to_Measure_Curtains = async () => {
-  const locationData = serviceLocationsData[0];
+  const locationData = serviceLocationsData[1];
   const [products] = await Promise.all([fetchProducts()]);
     const getBlindsProducts = (filterproduct: IProduct[]) => {
       return filterproduct.filter(product =>
@@ -67,8 +69,8 @@ const Made_to_Measure_Curtains = async () => {
       <ExploreBlinds data={consultationblindData[1]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
       <Carousel data={blindcrousal} />
       <Blindtype heading="Professional Installation Services For Your Interior" />
-      {/* <ImageGrid title={Blindgallery.title} images={Blindgallery.images} />
-      <HeroSection /> */}
+      <ImageGrid title={Blindgallery.title} images={Blindgallery.images} />
+      <HeroBanner/>
       <div className='bg-white'>
       <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">
       <RelatedProducts products={Products} limit={4}/>
