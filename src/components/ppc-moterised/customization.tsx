@@ -27,12 +27,12 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
     <div className="w-full bg-white py-10">
     <Container>
       {/* Top Section with Image + Text */}
-      <div className="flex flex-col md:flex-row gap-8 p-4">
+      <div className="flex flex-col md:flex-row gap-8 px-1">
         <div className="flex-1">
-          <Image height={500} width={500} src={image} alt={heading} className="w-full h-[346px] rounded-md" />
+          <Image height={500} width={500} src={image} alt={heading} className="w-full h-[380px] xl:h-[346px] rounded-md" />
         </div>
         <div className="flex-1 space-y-4">
-          <h2 className="text-2xl xl:text-[36px] font-black font-juana">{heading}</h2>
+          <h2 className="text-2xl xl:text-[36px] font-black font-juana leading-8 sm:leading-10">{heading}</h2>
           <p className="lg:text-20 font-normal font-proxima">{description}</p>
           <div className="flex gap-4 mt-4">
             <Link href="/" className="bg-black text-white py-3 px-3 xs:px-6 rounded hover:bg-primary flex justify-center items-center text-center ">
@@ -52,8 +52,8 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
       <p className="mb-2 lg:text-20 font-proxima font-normal">{para}</p>
       <ul className="space-y-2"> 
     {bulletPoints.map((point, index) => (
-      <li key={index} className="flex items-center gap-2">
-        <RiVerifiedBadgeFill className="text-secondary text-20 md:text-[30px]" />
+      <li key={index} className="flex items-start gap-2">
+        <RiVerifiedBadgeFill size={18} className="text-secondary text-20 md:text-[30px]" />
         <span>{point}</span>
       </li>
     ))}
@@ -63,8 +63,8 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
   <p className="mb-2 lg:text-20 font-proxima font-normal">{para1}</p>
   <ul className="space-y-2"> 
     {bulletPoints1.map((point, index) => (
-      <li key={index} className="flex items-center gap-2">
-        <RiVerifiedBadgeFill className="text-secondary text-20 md:text-[30px]" />
+      <li key={index} className="flex items-start gap-2">
+        <RiVerifiedBadgeFill size={18} className="text-secondary" />
         <span>{point}</span>
       </li>
     ))}

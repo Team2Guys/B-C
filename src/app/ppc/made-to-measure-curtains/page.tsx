@@ -1,11 +1,9 @@
 import Header from 'components/LandingPage/Header'
 import VideoSection from 'components/LandingPage/video-section'
 import React from 'react'
-import Bullets from './bullets'
-import LButton from './button';
 import Shop from 'components/ppc-moterised/shop';
 import FeaturesCarousel from 'components/ppc-moterised/features';
-import {banners, Blindbannerfeatures, blindcrousal, blindsData, Blindsfeatures, BlindsTabData, BlindvideoData, consultationblindData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
+import {banners, blindcrousal, BlindsTabData, BlindvideoData, consultationblindData, Curtainbannerfeatures, Curtainfeatures, curtainsData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
 import CustomSection from 'components/ppc-moterised/customization';
 import Videoblind from 'components/ppc-moterised/videosection';
 import Blindtype from 'components/ppc-moterised/blindtype';
@@ -24,9 +22,11 @@ import ServiceLocations from 'components/ppc-moterised/servicelocation';
 import RollerReviews from 'components/Rollerblind/Roller_Reviews/Review';
 import Banner from 'components/HomeBanner/Home_Banner';
 import BookingForm from 'components/ppc-moterised/Bookingform';
+import Bullets from '../made-to-measure-blinds/bullets';
+import LButton from '../made-to-measure-blinds/button';
 
 
-const Made_to_Measure_Blinds = async () => {
+const Made_to_Measure_Curtains = async () => {
   const locationData = serviceLocationsData[0];
   const [products] = await Promise.all([fetchProducts()]);
     const getBlindsProducts = (filterproduct: IProduct[]) => {
@@ -39,9 +39,9 @@ const Made_to_Measure_Blinds = async () => {
     <>
     <Header/>
     <VideoSection 
-       videoSrc="/assets/video/blinds1.mp4"
-       title="Stylish, Customised Blinds – Free Measurement & Installation"
-       subtitle={<Bullets features={Blindbannerfeatures}/>}
+       videoSrc="/assets/video/curtains.mp4"
+       title="Fastest, Made-To-Measure Curtain Service In Dubai"
+       subtitle={<Bullets features={Curtainbannerfeatures}/>}
        description={<LButton/>}
        width='w-[500px] sm:w-[630px] md:w-[715px] lg:w-[850px] 2xl:w-[990px]'
        height="h-[700px] sm:h-[681px]"/>
@@ -49,11 +49,11 @@ const Made_to_Measure_Blinds = async () => {
       <FeaturesCarousel
       title="What Do Blinds & Curtains Offer You?"
       subtitle="Features"
-      features={Blindsfeatures}
+      features={Curtainfeatures}
       defaultVisibleItems={4}
     />
-    <CustomSection data={blindsData} />
-    <Videoblind videos={BlindvideoData} heading="Our Recent Blinds Dubai Projects" />
+    <CustomSection data={curtainsData} />
+    <Videoblind videos={BlindvideoData} heading="Our Recent Curtains Dubai Projects" />
     <Blindtype heading="Browse Our Top-Selling Products" />
     <BlindsTabs blindsData={BlindsTabData} tabCategories={Tab1categories} />
     <WhyChooseUs/>
@@ -84,4 +84,4 @@ const Made_to_Measure_Blinds = async () => {
   )
 }
 
-export default Made_to_Measure_Blinds
+export default Made_to_Measure_Curtains 

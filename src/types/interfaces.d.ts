@@ -216,11 +216,6 @@ export type BannerData = {
   title: string;
   buttonText: string;
 };
-
-export type BannerProps = {
-  data: BannerData;
-};
-
 export interface GalleryItems {
   id: number;
   imageUrl: string | any;
@@ -448,11 +443,17 @@ export interface EstimatorProps {
 interface PosterImage {
   imageUrl: string;
 }
-
-// Interface for each product in estimator_data
 export interface EstimatorProductTypes {
   id: number;
   title: string;
   posterImage: PosterImage;
   price: number;
+}
+
+interface CarouselProps {
+  data: { title: string; description: string; icon: string }[]; 
+}
+export interface ImageGridProps {
+    title: string;
+    images: string[];
 }

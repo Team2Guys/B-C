@@ -20,7 +20,6 @@ import {
   TProductGuarantees,
 } from 'types/interfaces';
 import { BlindsAndCurtainsTypes } from 'types/interfaces';
-import { BannerData } from 'types/interfaces';
 import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
@@ -90,10 +89,28 @@ export const heroSlider = [
   },
 ];
 
-export const bannerData: BannerData = {
-  imageUrl: '/assets/images/measure_shutter/measure_shutter.png',
-  title: 'MADE TO MEASURE SHUTTERS FOR YOU..',
-  buttonText: 'Book A Free Home Design Visit',
+export const banners = {
+  Home: {
+    imageSrc: "/assets/images/measure_shutter/measure_shutter.png",
+    paraText: "From Bay Windows to Patio Doors..",
+    linkHref: "/contact-us",
+    linkText: "Contact Us",
+    linkBgColor: "bg-secondary",
+  },
+  Blind: {
+    imageSrc:  "/assets/images/measure_shutter/measure_shutter.png",
+    paraText: " Let's Measure, Select, Quote and Fit in a Few Easy Steps. ",
+    linkHref: "/services",
+    linkText: "Get In touch",
+    linkBgColor: "bg-black",
+  },
+  Curtain: {
+    imageSrc:  "/assets/images/measure_shutter/measure_shutter.png",
+    paraText: "Let's Measure, Select, Quote and Fit in a few easy steps.",
+    linkHref: "/services",
+    linkText: "Get In touch",
+    linkBgColor: "bg-black",
+  },
 };
 
 export const footerLinks: TFooterSection[] = [
@@ -2627,65 +2644,47 @@ export const Blindsfeatures = [
   {
     title: "Made To Measure",
     description:
-      "Custom blinds are designed for every window, from large floor-to-ceiling panels to arched and uniquely shaped frames.",
+      "Custom blinds are designed for every window size. We also specialise in large, double height windows.",
     icon: "/assets/images/ppc-blinds/features/1.png", 
   },
   {
-    title: "Free Consultation Visit",
+    title: "Free consultation & Visit",
     description:
-      "Our experts visit your home and give you advice, fabric samples, and precise measurements at no cost.",
+      "Our experts visit your home with gorgeous samples,  give you impartial advice, and take precise measurements, all free of charge.",
       icon: "/assets/images/ppc-blinds/features/2.png", 
   },
   {
     title: "Motorised Options",
     description:
-      "Enjoy hassle-free operation with a remote, smartphone, or voice-activated blinds for ultimate convenience.",
+      "Enjoy hassle-free operation with a remote, smartphone, or voice-activated blinds for ultimate convenience. We can also integrate with your smart home automation system.",
       icon: "/assets/images/ppc-blinds/features/3.png", 
   },
   {
     title: "Quality You Can Trust",
     description:
-      "These blinds are built to last with high-quality and durable materials and will never go out of style.",
+      "These blinds are built to last with high-quality and durable materials and will never go out of style. 3 year warranty on fabrics and 10 years on mechanisms.",
       icon: "/assets/images/ppc-blinds/features/4.png", 
   },
   {
-    title: "Energy Efficient",
+    title: "Professionally Installed",
     description:
-      "Blinds help to regulate temperature, keeping your home warm in winter and cool in summer.",
+      "We can help you with all window sizes, including bay windows, skylights, and oversized glass doors.",
       icon: "/assets/images/ppc-blinds/features/5.png", 
-  },
-  {
-    title: "Child Safety",
-    description:
-      "Designed with safety features such as cordless options to ensure the well-being of children and pets.",
-      icon: "/assets/images/ppc-blinds/features/1.png",   
-  },
-  {
-    title: "Wide Range of Fabrics",
-    description:
-      "Choose from an extensive collection of fabrics, textures, and colors to match your home decor.",
-      icon: "/assets/images/ppc-blinds/features/2.png",   
-  },
-  {
-    title: "Easy Maintenance",
-    description:
-      "Our blinds are easy to clean and maintain, ensuring they stay fresh and new-looking for years.",
-    icon: "/assets/images/ppc-blinds/features/3.png",
   },
 ];
 //curtainfeatures
 export const Curtainfeatures = [
   {
-    title: "Made To Measure",
+    title: "Customisation for an Ideal Fit",
     description:
-      "Custom blinds are designed for every window, from large floor-to-ceiling panels to arched and uniquely shaped frames.",
-    icon: "/assets/images/ppc-blinds/features/1.png", 
+      "No matter what size your window is, you can get customised curtains. Find the perfect colour fabric, and style for multiple windows.",
+    icon: "/assets/images/ppc-blinds/features/7.png", 
   },
   {
-    title: "Free Consultation Visit",
+    title: "Light & Privacy Control",
     description:
-      "Our experts visit your home and give you advice, fabric samples, and precise measurements at no cost.",
-      icon: "/assets/images/ppc-blinds/features/2.png", 
+      "Sheer fabrics can let in natural light and blackout fabrics gives complete privacy. Multiple pleat options for style and comfort.",
+      icon: "/assets/images/ppc-blinds/features/6.png", 
   },
   {
     title: "Motorised Options",
@@ -2694,112 +2693,97 @@ export const Curtainfeatures = [
       icon: "/assets/images/ppc-blinds/features/3.png", 
   },
   {
-    title: "Quality You Can Trust",
+    title: "Energy Efficiency & Comfort",
     description:
-      "These blinds are built to last with high-quality and durable materials and will never go out of style.",
-      icon: "/assets/images/ppc-blinds/features/4.png", 
+      "You'll keep your home cooler in the summer with insulating fabrics. Blocks out the UV rays,  perfect for summer afternoons.",
+      icon: "/assets/images/ppc-blinds/features/8.png", 
   },
   {
-    title: "Energy Efficient",
+    title: "Motorised for Convenience",
     description:
-      "Blinds help to regulate temperature, keeping your home warm in winter and cool in summer.",
+      "Control your blinds with a remote, smartphone, or voice assistant for total convenience. A neat, modern look.",
+      icon: "/assets/images/ppc-blinds/features/9.png", 
+  },
+  {
+    title: "Free Reinstallation",
+    description:
+      "Free uninstall and reinstallation within 2 years, so you don’t need to add the stress of this when moving home again.",
       icon: "/assets/images/ppc-blinds/features/5.png", 
-  },
-  {
-    title: "Child Safety",
-    description:
-      "Designed with safety features such as cordless options to ensure the well-being of children and pets.",
-      icon: "/assets/images/ppc-blinds/features/1.png",   
-  },
-  {
-    title: "Wide Range of Fabrics",
-    description:
-      "Choose from an extensive collection of fabrics, textures, and colors to match your home decor.",
-      icon: "/assets/images/ppc-blinds/features/2.png",   
-  },
-  {
-    title: "Easy Maintenance",
-    description:
-      "Our blinds are easy to clean and maintain, ensuring they stay fresh and new-looking for years.",
-    icon: "/assets/images/ppc-blinds/features/3.png",
   },
 ];
 
 // customdata
 
 export const blindsData = {
-  heading: "Customization We Offer Made To Measure Blinds",
+  heading: "Customisation Made Easy: Choose Blinds That Fit Your Window Size, And Interior",
   description: `
-    Is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever
-    since the 1500s, when an unknown printer took a galley of type
-    and scrambled it to make a type specimen book.
+    Make your space look stylish with custom blinds, including Roller, Roman, Wooden, and Zebra blinds, as well as vertical blinds. We design these for living rooms, bedrooms, kitchens, and more with options such as blackout, dim-out, and sunscreen.
   `,
   image:"/assets/images/ppc-blinds/C1.png",
   button1Text: "GET DIRECTION",
   button2Text: "WHATSAPP",
-  secondaryHeading: "Explore Our Range Of Blinds And Curtains",
-  para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-  subheading: "Explore Our Range Of Blinds And Curtains1",
-  para1:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s1",
+  secondaryHeading: "Select a material of your choice",
+  para:"Whether you want total darkness for a peaceful night, a soft glow for cosy afternoons, or gentle sunlight without heat, we’ve got the perfect fabric for you.",
+  subheading: "Choose a style that suits you",
+  para1:"Whether you love the clean and simple look of roller blinds, the soft elegance of Roman folds, or the natural feel of wooden blinds, we make sure every detail is just right.",
   bulletPoints: [
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
+    "Blackout Blinds – Sleep better with zero light penetration through the material.",
+    "Dimout Blinds – Enjoy diffused light without the harsh glare.",
+    "Sunscreen Blinds – Let the view  in while keeping out harmful UV rays.",
+    "Keeps You Comfortable – Helps keep rooms cool in summer, and warm in winter.",
+    "Made to Last – High-quality fabrics that stay beautiful for years."
   ],
   bulletPoints1: [
-    "Is simply dummy text of the printing and typesetting industry1.",
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
+    "Roller Blinds – Simple, stylish, and convenient.",
+    "Roman Blinds – Soft folds for a timeless, elegant touch.",
+    "Wooden & Aluminum Venetian Blinds – Natural, classic, and full of character.",
+    "Vertical Blinds – Perfect for large windows and patio doors.",
+    " Zebra Blinds or Day/Night Blinds – A mix of sheer and solid for flexible light control.",
   ],
 };
 
 export const curtainsData = {
-  heading: "Customization We Offer Made To Measure Curtains",
+  heading: " Customization Made Easy: Choose Curtains That Fit Your Window Size & Interior",
   description: `
-    Is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever
-    since the 1500s, when an unknown printer took a galley of type
-    and scrambled it to make a type specimen book.
+   It's our speciality to dress up your windows the way you want. We can make custom pinch pleat curtains, triple pinch pleat curtains, pencil pleat curtains, tab top curtains, and wave curtains in blackout or sheer fabrics. We offer free home visits with samples and measurements without extra charges.
   `,
-  image: "/assets/images/curtains-hero.jpg",
+  image:"/assets/images/ppc-blinds/B1.png",
   button1Text: "GET DIRECTION",
   button2Text: "WHATSAPP",
-  secondaryHeading: "Explore Our Range Of Blinds And Curtains",
-  para:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-  subheading: "Explore Our Range Of Blinds And Curtains1",
-  para1:"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s1",
+  secondaryHeading: "The Fabric You Love",
+  para:"We have a big selection of high-quality fabrics, like blackout, sheers, and textured materials, to suit your windows and needs.",
+  subheading: "The Style You Need",
+  para1:"With a wide range of curtain types to choose from, you're sure to find the perfect curtain to compliment your decor.",
   bulletPoints: [
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
+    "Blackout fabrics for complete light control.",
+    "Sheer options for soft, elegant lighting.",
+    "Durable, long-lasting materials.",
+    " Variety of colours and textures available.",
+    "Custom-made for a perfect fit.",
   ],
   bulletPoints1: [
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
-    "Is simply dummy text of the printing and typesetting industry.",
+    "Timeless and elegant with a pinch pleat.",
+    "Fullness and luxury in a triple pleat.",
+    "Simple and versatile pencil pleat.",
+    "Casual and contemporary look with tab top.",
+    " Smooth, flowing design with wave/ripplefold curtains."
   ],
 };
 
-
+//Banner features
 export const Blindbannerfeatures = [
-      "Customizable, Affordable, and Delivered to Your Doorstep",
-      "Customizable, Affordable, and Delivered to Your Doorstep",
-      "Customizable, Affordable, and Delivered to Your Doorstep",
-      "Customizable, Affordable, and Delivered to Your Doorstep",
-    ];
+  "Made-to-measure blinds for any window size.",
+  "You'll get it delivered and professionally installed.",
+  "Only superior quality work by our expert team.",
+  "Choose from a wide range of designs, fabrics, and styles.",
+];
 
 export const Curtainbannerfeatures = [
-      "Customizable, Affordable, and Delivered to Your Doorstep",
-      "Customizable, Affordable, and Delivered to Your Doorstep",
-      "Customizable, Affordable, and Delivered to Your Doorstep",
-      "Customizable, Affordable, and Delivered to Your Doorstep",
-    ];
-
+  "Free expert advice",
+  "Free home visits with free installation",
+  "Installation in just 2 to 3 Days",
+  "More than 3000 fabrics and colours to choose from",
+];
   // 
  export const BlindvideoData = [
     { src: "/assets/video/moto.mp4"
@@ -2901,37 +2885,35 @@ export const CurtainTabData= [
 
 //whychoosedata
 export const chooseus= [
-  { text: "Up To 06 Months Warranty",
+  { text: "With a team of 50+ experts, we pay attention to detail on every project.",
     image:"/assets/images/ppc-blinds/icon1.png" },
-  { text: "High Quality Material From Trusted Brands",
+  { text: "Premium in-house production with the highest quality materials",
     image:"/assets/images/ppc-blinds/icon2.png" },
-  { text: "Passionate & Dedicated Staff", 
+  { text: "Free home visits & installation, no hidden costs, just expert advice and service.", 
     image:"/assets/images/ppc-blinds/icon3.png"},
-  { text: "Cost Efficient & Budget Friendly",
+  { text: "Fast & professional installation, enjoy quick, clean, and hassle-free fitting.",
   image:"/assets/images/ppc-blinds/icon4.png" },
-  { text: "Streamlined & Effortless Process",
+  { text: "10-year warranty for peace of mind, durability and reliability you can trust.",
   image:"/assets/images/ppc-blinds/icon5.png" },
 ];
 
 export const sectionContent = {
   heading: "Why Choose Us?",
-  paragraph: `Indulge in the allure of 10X Curtains, where each thread weaves a tale of timeless beauty. 
-              Elevate your living spaces with our curated collections, meticulously crafted to transform windows into exquisite focal points. 
-              Choose 10X Curtains for a harmonious blend of opulence and functionality.`,
+  paragraph: `Why are we the leading blinds suppliers in Dubai? Unlike other companies, with British owners, we value service and satisfaction above all else. We are proud to have over twenty years of experience with seamless installation and hassle-free customer service from start to finish. Our commitment to quality and customer satisfaction has earned us 750+ 5-star reviews and the trust of countless happy customers.`,
 };
 
 // explore section for blinds
 export const exploreblindData = [
   {
-    title: "Explore Our Range Of Blinds And Curtains",
-    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    title: "Sleep Peacefully With Blackout Roller Blinds",
+    description: "Experience complete privacy and light control with blackout roller blinds, designed to block 100% of external light. Perfect for bedrooms, nurseries, and media rooms, these blinds create a cosy, undisturbed environment any time of the day.",
     image: "/assets/images/ppc-blinds/blindrange.png",
     viewlink: "/",
     features: [
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Light Blockage", text: "No gaps, no glare, just darkness." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
     ],
     buttonLinks: [
       { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
@@ -2939,15 +2921,15 @@ export const exploreblindData = [
     ],
   },
   {
-    title: "Explore Our Range Of Blinds And Curtains",
-    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    title: "Sunscreen Roller Blinds for Sunlight, Without the Heat",
+    description: "Let natural light brighten your space while blocking harmful UV rays and reducing glare. Sunscreen roller blinds provide the perfect balance of visibility, heat control, and sun protection, making them ideal for living rooms and workspaces.",
     image: "/assets/images/ppc-blinds/revblind.png",
     viewlink: "/",
     features: [
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "UV Protection", text: "Blocks up to 98% of harmful rays for protection." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Glare Reduction", text: "Enjoy natural light without eye strain or screen glare." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Heat Control", text: "Keeps rooms cooler by filtering harsh sunlight." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Stylish & Functional", text: "Sleek designs that enhance any modern space." },
     ],
     buttonLinks: [
       { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
@@ -2959,34 +2941,34 @@ export const exploreblindData = [
 export const workingProcessblindData = [
   {
     icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    title: "Book an Appointment",
+    description: "Call us or fill out our online form to schedule your free home visit at a time that suits you.",
   },
   {
     icon: "/assets/images/ppc-blinds/w2.png",
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    title: "Free Consultation",
+    description: "We'll visit your home with fabric samples, take accurate measurements, and suggest options.",
   },
   {
     icon: "/assets/images/ppc-blinds/w3.png",
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    title: "Measurements & Selection",
+    description: "We take precise measurements and help you choose the perfect style and material.",
   },
   {
     icon: "/assets/images/ppc-blinds/w4.png",
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    title: "Custom Production",
+    description: "Your blinds are made-to-measure for a flawless fit and premium finish.",
   },
   {
-    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    icon: "/assets/images/ppc-blinds/w1.png",
+    title: "Delivery & Installation",
+    description: "We'll make sure your installation is hassle-free and without any mess or stress.",
   },
 ];
 
 export const workingProcesscurtainData = [
   {
-    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    icon: "/assets/images/ppc-blinds/w1.png",
     title: "Roman Blinds",
     description: "Remote control options available Remote control options available Remote control options available Remote control options.",
   },
@@ -3030,8 +3012,8 @@ export const consultationblindData = [
     ],
   },
   {
-    title: "PERSONAL CONSULTATION",
-    description: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry.  standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry. ",
+    title: "Request A Free Consultation & Price Estimate",
+    description: "We shouldn't let finding the right blinds stress us out - it should be fun.  With our expert advice, material samples, and precise measurements, we make it easy to make the right choice. There are no hidden costs, no guesswork-just beautifully fitted blinds.",
     image: "/assets/images/ppc-blinds/conblind.png",
     viewlink: "/",
     features: [
@@ -3045,4 +3027,55 @@ export const consultationblindData = [
       { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
     ],
   },
+];
+
+export const blindcrousal = [
+  { title: "Free Home Visit ", description: "We come to you with samples, ideas, and expert guidance.", icon: "/assets/images/ppc-blinds/lore.png"},
+  { title: "Custom Measurements", description: "No more worrying about fit, we measure everything precisely.", icon: "/assets/images/ppc-blinds/lore.png" },
+  { title: "Transparent Pricing", description: "Honest, upfront quotes with no surprises or hidden fees.", icon: "/assets/images/ppc-blinds/lore.png"},
+  { title: "Expert Installation", description: "We handle everything, so you can sit back and enjoy your new blinds.", icon: "/assets/images/ppc-blinds/lore.png"},
+  { title: "Free reinstall", description: "We offer free uninstall and reinstall within 2 years, so if you end up moving, we’ll help make your investment last longer.", icon: "/assets/images/ppc-blinds/lore.png"},
+];
+
+export const Blindgallery = {
+  title: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry.",
+  images: [
+    { src: "/assets/images/ppc-blinds/g5.png", className: "h-[301px] row-span-1" },
+    { src: "/assets/images/ppc-blinds/g4.png", className: "h-[241px] row-span-1" },
+    { src: "/assets/images/ppc-blinds/g6.png", className: "h-[322px] row-span-2" },
+    { src: "/assets/images/ppc-blinds/g7.png", className: "h-[322px] row-span-1" },
+    { src: "/assets/images/ppc-blinds/g1.png", className: "h-[466px] row-span-2" },
+    { src: "/assets/images/ppc-blinds/g7.png", className: "h-[526px] row-span-3" },
+    { src: "/assets/images/ppc-blinds/g3.png", className: "h-[445px] row-span-2" },
+  ],
+};
+
+
+
+export const Curtaingallery = [
+  { title: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown is simply dummy text of the printing"},
+  "/assets/images/ppc-blinds/g8.png", 
+  "/assets/images/ppc-blinds/g9.png",
+  "/assets/images/ppc-blinds/g10.png",
+  "/assets/images/ppc-blinds/g11.png",
+  "/assets/images/ppc-blinds/g12.png",
+  "/assets/images/ppc-blinds/g13.png",
+  "/assets/images/ppc-blinds/g14.png",
+];
+
+export const serviceLocationsData = [
+  {
+    id: 1,
+    title: "We Deliver Blinds All Over Dubai",
+    description: "Our blinds are made-to-order and delivered right to your door in any part of Dubai. We offer fast, reliable service and installation with expert expertise—convenience and quality combined!",
+    locations: Array(12).fill('Ajman'),
+    mapLink:"https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/@25.117715,55.235686,2562m/data=!3m1!1e3!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    id: 2,
+    title: "We Deliver Curtains All Over Dubai",
+    description: "Our curtains are made-to-order and delivered right to your door in any part of Dubai. We offer fast, reliable service and installation with expert expertise—convenience and quality combined!",
+    locations: ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Fujairah', 'Ras Al Khaimah'],
+    mapLink: "https://www.google.com/maps/place/Our-Locations/"
+  }
 ];

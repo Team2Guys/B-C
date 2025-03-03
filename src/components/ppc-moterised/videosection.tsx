@@ -5,7 +5,7 @@ import { VideoSectionProps } from 'types/types';
 
 const Videoblind: React.FC<VideoSectionProps> = ({ videos, heading }) => {
   return (
-    <div className="mt-3 sm:mt-10 bg-white py-10">
+    <div className="mt-3 sm:mt-10 bg-white py-5 sm:py-10">
       <Container>
         {heading && (
           <h2 className="font-black text-2xl lg:text-[36px] font-juana text-center px-2">

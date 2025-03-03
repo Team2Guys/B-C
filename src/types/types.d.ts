@@ -228,6 +228,7 @@ export interface FeaturesCarouselProps {
 }
 export interface Title {
   heading: string;
+  className?:string;
 }
 export interface Video {
   src: string;
@@ -268,4 +269,18 @@ export interface WorkingProcessProps {
   title: string;
   description: string;
   data: { icon: string; title: string; description: string }[];
+}
+
+interface ServiceLocationsProps {
+  title: string;
+  description: string;
+  locations: string[];
+  mapLink: string;
+}
+interface BannerProps {
+  imageSrc: string;
+  paraText: string;
+  linkHref: string;
+  linkText: string;
+  linkBgColor: string;
 }

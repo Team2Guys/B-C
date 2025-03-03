@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Container from "components/Res-usable/Container/Container";
 import { CgArrowLongRight } from "react-icons/cg";
@@ -22,11 +22,11 @@ const WorkingProcess: React.FC<WorkingProcessProps> = ({ title, description, dat
     <section className="py-12 bg-white relative">
       <Container className="!px-6">
         {/* Title & Description */}
-        <div className="sm:grid sm:grid-cols-2 flex flex-col items-center">
-          <h2 className="text-3xl xl:text-[48px] font-juana font-black text-black mb-8 text-center lg:text-start">
+        <div className="sm:grid sm:grid-cols-2 flex flex-col items-center md:gap-3">
+          <h2 className="text-3xl xl:text-[48px] font-juana font-black text-black mb-8 text-center lg:text-start leading-[48px]">
             {title}
           </h2>
-          <p className="lg:text-20 font-normal font-proxima text-center lg:text-start">
+          <p className="lg:text-20 font-normal font-proxima text-center lg:text-start leading-[26px]">
             {description}
           </p>
         </div>
@@ -47,12 +47,12 @@ const WorkingProcess: React.FC<WorkingProcessProps> = ({ title, description, dat
           >
             {data.map((step, index) => (
               <SwiperSlide key={index}>
-                <div className="relative bg-secondary p-6 border border-black flex flex-col items-center text-center mx-8 sm:mx-10 lg:mx-4 xl:mx-7">
+                <div className="relative bg-secondary p-6 border border-black flex flex-col items-center text-center mx-8 sm:mx-10 lg:mx-4 xl:mx-7 sm:h-[250px] xl:h-[325px] ">
                   <Image src={step.icon} alt={step.title} width={50} height={50} />
                   <h3 className="text-lg xl:text-24 font-bold mt-3 text-white">
                     {step.title}
                   </h3>
-                  <p className="text-sm xl:text-20 font-normal font-juana text-white mt-2">
+                  <p className="text-sm xl:text-20 font-normal font-juana text-white mt-2 leading-6">
                     {step.description}
                   </p>
 

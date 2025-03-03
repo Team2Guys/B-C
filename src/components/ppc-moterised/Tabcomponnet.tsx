@@ -1,7 +1,8 @@
 "use client";
 import Container from "components/Res-usable/Container/Container";
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 import { BlindsTabsProps } from "types/types";
 
 const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) => {
@@ -15,7 +16,7 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
   return (
     <div className="bg-white">
       <Container>
-        <div className="mx-auto lg:mb-10 pt-6 pb-10 bg-white">
+        <div className="mx-auto lg:mb-10 pt-6 pb-5 sm:pb-10 bg-white">
           {/* Tabs */}
           <div className="flex justify-center items-center space-x-4 mb-6 px-2">
             {tabCategories.map((tab) => (
@@ -34,12 +35,12 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:mt-12">
             {filteredBlinds.map((blind) => (
               <div key={blind.id} className="relative overflow-hidden">
-                <img src={blind.image} alt={blind.name} className="relative w-full h-[348px] object-cover" />
+                <Image src={blind.image} alt={blind.name} height={500} width={500} className="relative w-full h-[348px] object-cover" />
                 <div className="flex justify-center items-center">
                   <div className="absolute bottom-28 lg:bottom-32">
                     <Link
                       href="/request-appointment/"
-                      className="px-7 py-3 bg-black font-semibold font-proxima border border-white shadow-md text-white rounded-full xl:text-20"
+                      className="px-7 py-3 bg-black font-semibold font-proxima border border-white shadow-md text-white rounded-full lg:text-sm xl:text-20"
                     >
                       REQUEST A QUOTE
                     </Link>
