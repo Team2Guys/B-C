@@ -453,7 +453,14 @@ export interface EstimatorProductTypes {
 interface CarouselProps {
   data: { title: string; description: string; icon: string }[]; 
 }
-export interface ImageGridProps {
-    title: string;
-    images: string[];
+interface ImageType {
+  src: string;
+  width?: number;
+  height?: number;
+}
+
+interface GalleryProps {
+  title?: string;
+  images: ImageType[];
+  columns?: number;
 }

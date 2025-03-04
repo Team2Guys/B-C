@@ -2811,13 +2811,11 @@ export const Curtainbannerfeatures = [
 
 //Tabdata
 export const Tab1categories = [
-    { label: "ALL", value: "all" },
     { label: "Blinds By Type", value: "type" },
     { label: "Blinds By Room", value: "room" },
     { label: "Blinds By Material", value: "material" },
   ];
   export const Tab2categories = [
-    { label: "ALL", value: "all" },
     { label: "Blinds By Type", value: "type" },
     { label: "Blinds By Room", value: "room" },
     { label: "Blinds By Material", value: "material" },
@@ -2910,10 +2908,10 @@ export const exploreblindData = [
     image: "/assets/images/ppc-blinds/blindrange.png",
     viewlink: "/",
     features: [
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Light Blockage", text: "No gaps, no glare, just darkness." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
+      { icon: "/assets/images/ppc-blinds/l1.png", title: "Light Blockage", text: "No gaps, no glare, just darkness." },
+      { icon: "/assets/images/ppc-blinds/p1.png", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
+      { icon: "/assets/images/ppc-blinds/e1.png", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
+      { icon: "/assets/images/ppc-blinds/h1.png", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
     ],
     buttonLinks: [
       { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
@@ -2926,7 +2924,7 @@ export const exploreblindData = [
     image: "/assets/images/ppc-blinds/revblind.png",
     viewlink: "/",
     features: [
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "UV Protection", text: "Blocks up to 98% of harmful rays for protection." },
+      { icon: "/assets/images/ppc-blinds/u1.png", title: "UV Protection", text: "Blocks up to 98% of harmful rays for protection." },
       { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Glare Reduction", text: "Enjoy natural light without eye strain or screen glare." },
       { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Heat Control", text: "Keeps rooms cooler by filtering harsh sunlight." },
       { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Stylish & Functional", text: "Sleek designs that enhance any modern space." },
@@ -2940,27 +2938,27 @@ export const exploreblindData = [
 //working process
 export const workingProcessblindData = [
   {
-    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
+    icon: "/assets/images/ppc-blinds/1.png", // Replace with actual icon paths
     title: "Book an Appointment",
     description: "Call us or fill out our online form to schedule your free home visit at a time that suits you.",
   },
   {
-    icon: "/assets/images/ppc-blinds/w2.png",
+    icon: "/assets/images/ppc-blinds/2.png",
     title: "Free Consultation",
     description: "We'll visit your home with fabric samples, take accurate measurements, and suggest options.",
   },
   {
-    icon: "/assets/images/ppc-blinds/w3.png",
+    icon: "/assets/images/ppc-blinds/3.png",
     title: "Measurements & Selection",
     description: "We take precise measurements and help you choose the perfect style and material.",
   },
   {
-    icon: "/assets/images/ppc-blinds/w4.png",
+    icon: "/assets/images/ppc-blinds/4.png",
     title: "Custom Production",
     description: "Your blinds are made-to-measure for a flawless fit and premium finish.",
   },
   {
-    icon: "/assets/images/ppc-blinds/w1.png",
+    icon: "/assets/images/ppc-blinds/5.png",
     title: "Delivery & Installation",
     description: "We'll make sure your installation is hassle-free and without any mess or stress.",
   },
@@ -3030,23 +3028,23 @@ export const consultationblindData = [
 ];
 
 export const blindcrousal = [
-  { title: "Free Home Visit ", description: "We come to you with samples, ideas, and expert guidance.", icon: "/assets/images/ppc-blinds/lore.png"},
-  { title: "Custom Measurements", description: "No more worrying about fit, we measure everything precisely.", icon: "/assets/images/ppc-blinds/lore.png" },
-  { title: "Transparent Pricing", description: "Honest, upfront quotes with no surprises or hidden fees.", icon: "/assets/images/ppc-blinds/lore.png"},
-  { title: "Expert Installation", description: "We handle everything, so you can sit back and enjoy your new blinds.", icon: "/assets/images/ppc-blinds/lore.png"},
-  { title: "Free reinstall", description: "We offer free uninstall and reinstall within 2 years, so if you end up moving, we’ll help make your investment last longer.", icon: "/assets/images/ppc-blinds/lore.png"},
+  { title: "Free Home Visit ", description: "We come to you with samples, ideas, and expert guidance.", icon: "/assets/images/ppc-blinds/h6.png"},
+  { title: "Custom Measurements", description: "No more worrying about fit, we measure everything precisely.", icon: "/assets/images/ppc-blinds/h2.png" },
+  { title: "Transparent Pricing", description: "Honest, upfront quotes with no surprises or hidden fees.", icon: "/assets/images/ppc-blinds/h3.png"},
+  { title: "Expert Installation", description: "We handle everything, so you can sit back and enjoy your new blinds.", icon: "/assets/images/ppc-blinds/h4.png"},
+  { title: "Free reinstall", description: "We offer free uninstall and reinstall within 2 years, so if you end up moving, we’ll help make your investment last longer.", icon: "/assets/images/ppc-blinds/h5.png"},
 ];
 
 export const Blindgallery = {
   title: "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.",
   images: [
-    { src: "/assets/images/ppc-blinds/g5.png", className: "h-[301px] row-span-1" },
-    { src: "/assets/images/ppc-blinds/g4.png", className: "h-[241px] row-span-1" },
-    { src: "/assets/images/ppc-blinds/g6.png", className: "h-[322px] row-span-2" },
-    { src: "/assets/images/ppc-blinds/g7.png", className: "h-[322px] row-span-1" },
-    { src: "/assets/images/ppc-blinds/g1.png", className: "h-[466px] row-span-2" },
-    { src: "/assets/images/ppc-blinds/g7.png", className: "h-[526px] row-span-3" },
-    { src: "/assets/images/ppc-blinds/g3.png", className: "h-[445px] row-span-2" },
+    { src: "/assets/images/ppc-blinds/g5.png" },
+    { src: "/assets/images/ppc-blinds/g1.png" },
+    { src: "/assets/images/ppc-blinds/g4.png" },
+    { src: "/assets/images/ppc-blinds/g2.png" },
+    { src: "/assets/images/ppc-blinds/g6.png" },
+    { src: "/assets/images/ppc-blinds/g3.png" },
+    { src: "/assets/images/ppc-blinds/g7.png" },
   ],
 };
 

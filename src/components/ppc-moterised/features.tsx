@@ -1,6 +1,7 @@
 "use client";
 import Container from "components/Res-usable/Container/Container";
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import React, { useState, useEffect } from "react";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 import { FeaturesCarouselProps } from "types/types";
 
@@ -78,9 +79,11 @@ const FeaturesCarousel: React.FC<FeaturesCarouselProps> = ({
                 className="lg:h-[190px] xl:h-[171px] border border-white/50 rounded-lg p-5 flex flex-col justify-start items-start mx-8 lg:mx-0"
               >
                 <div className="flex text-start gap-2  text-4xl">
-                  <img
+                  <Image
                     src={feature.icon}
                     alt={feature.title}
+                    height={600}
+                    width={600}
                     className="w-8 h-8 object-contain"
                   />
                   <h3 className="text-lg lg:text-26 font-normal font-juana">

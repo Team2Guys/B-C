@@ -29,7 +29,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
   return (
     <section className="py-3 lg:py-6 xl:py-12 px-3 xl:px-5">
       <Container>
-        <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Image Section */}
           <div className={`w-full ${reverse ? "lg:order-2" : "lg:order-1"}`}>
           <Image 
@@ -64,12 +64,12 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
             {!hidefeatures && (
             <div className="grid grid-cols-2 gap-6 mt-6">
               {data.features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-3">
+                <div key={index} className="flex items-start gap-3 lg:gap-5">
                   <Image 
                     src={feature.icon} 
                     alt={feature.title} 
                     width={40} 
-                    height={40} className="w-8 h-8"
+                    height={40} className="w-8 h-8 lg:h-12 lg:w-12 xl:h-14 xl:w-14"
                   />
                   <div className="space-y-3">
                     <h3 className="text-lg xl:text-29 font-normal">{feature.title}</h3>

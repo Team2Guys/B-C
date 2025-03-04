@@ -6,10 +6,10 @@ import React, { useState } from "react";
 import { BlindsTabsProps } from "types/types";
 
 const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) => {
-  const [activeTab, setActiveTab] = useState<string>("all");
+  const [activeTab, setActiveTab] = useState<string>("type");
 
   const filteredBlinds =
-    activeTab === "all"
+    activeTab === "type"
       ? blindsData.slice(0, 8)
       : blindsData.filter((blind) => blind.category === activeTab);
 

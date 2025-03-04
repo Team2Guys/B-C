@@ -55,7 +55,6 @@ const WorkingProcess: React.FC<WorkingProcessProps> = ({ title, description, dat
                   <p className="text-sm xl:text-20 font-normal font-juana text-white mt-2 leading-6">
                     {step.description}
                   </p>
-
                   {/* Decorative Arrows */}
                   {index !== data.length - 1 && (
                     <div className="absolute top-[20%] right-[-20px] transform -translate-y-1/2 text-black z-20 hidden xs:block">

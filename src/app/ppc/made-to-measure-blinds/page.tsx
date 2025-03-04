@@ -14,8 +14,6 @@ import WhyChooseUs from 'components/ppc-moterised/whychoose';
 import ExploreBlinds from 'components/ppc-moterised/blindsrange';
 import WorkingProcess from 'components/ppc-moterised/working';
 import Carousel from 'components/ppc-moterised/blindcrousal';
-import ImageGrid from 'components/ppc-moterised/Imagegrid';
-// import HeroSection from 'components/ppc-moterised/hero';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { IProduct } from 'types/types';
@@ -25,6 +23,7 @@ import RollerReviews from 'components/Rollerblind/Roller_Reviews/Review';
 import Banner from 'components/HomeBanner/Home_Banner';
 import BookingForm from 'components/ppc-moterised/Bookingform';
 import HeroBanner from 'components/ppc-moterised/hero';
+import Gallery from 'components/ppc-moterised/Grid';
 
 
 const Made_to_Measure_Blinds = async () => {
@@ -68,7 +67,7 @@ const Made_to_Measure_Blinds = async () => {
       <ExploreBlinds data={consultationblindData[1]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
       <Carousel data={blindcrousal} />
       <Blindtype heading="Professional Installation Services For Your Interior" />
-      <ImageGrid title={Blindgallery.title} images={Blindgallery.images} />
+      <Gallery title={Blindgallery.title} images={Blindgallery.images} columns={4} />;
       <HeroBanner/>
       <div className='bg-white'>
       <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">

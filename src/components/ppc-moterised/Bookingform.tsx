@@ -1,145 +1,534 @@
-"use client";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { useState } from "react";
-import Container from "components/Res-usable/Container/Container";
+'use client';
+import React, { useState } from 'react';
+import Select from 'react-select';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
+import axios from 'axios';
+import Loader from 'components/Loader/Loader';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import showToast from 'components/Toaster/Toaster';
+import { AppointmentProps, ContactMethods, ProductOptions } from 'types/types';
+interface IAppointments {
+  name: string;
+  phone_number: string;
+  area: string;
+  email: string;
+  whatsapp_number: string;
+  windows: string;
+  prefered_Date: Date;
+  prefered_contact_method: string[];
+  how_user_find_us: string;
+  user_query: string;
+  product_type: string[];
+  other: string;
+  prefered_time: string;
+}
 
-const timeSlots = ["09:00 - 10:30 am", "11:00 - 12:30 pm", "01:00 - 02:30 pm", "03:00 - 04:30 pm"];
-const windowOptions = ["1 Window", "2 Windows", "3 Windows", "More than 3"];
 
-const schema = yup.object().shape({
-  date: yup.string().required("Date is required"),
-  time: yup.string().required("Time is required"),
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
-  phone: yup.string().matches(/^\+?[0-9]{10,}$/, "Enter a valid phone number").required("Phone number is required"),
-  email: yup.string().email("Enter a valid email").required("Email is required"),
-  address: yup.string().required("Address is required"),
-  windows: yup.string().required("Select the number of windows"),
-  message: yup.string().optional(),
-});
+const BookingForm: React.FC<AppointmentProps> = ({
+  singlePage,
+  className,
+}) => {
+  const [loading, setLoading] = useState<boolean>(false);
 
-const BookingForm = () => {
-  const { register, handleSubmit, control, formState: { errors } } = useForm({
-    resolver: yupResolver(schema),
+  const PostAppointments = async (appointmentData: IAppointments) => {
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
+        appointmentData,
+      );
+      return response.data;
+    } catch (error: any) {
+      showToast('error', error.message || JSON.stringify(error));
+    }
+  };
+
+  const getInitialSelectedOptions = (): ProductOptions => {
+    if (singlePage) {
+      return {
+        curtains: false,
+        blinds: false,
+        roller_blinds: false,
+        wooden_blinds: false,
+        other_blinds: false,
+        shutters: false,
+        others: false,
+      };
+    } else {
+      return {
+        shutters: false,
+        curtains: false,
+        blinds: false,
+      };
+    }
+  };
+
+  const [selectedOptions, setSelectedOptions] = useState<ProductOptions>(
+    getInitialSelectedOptions(),
+  );
+  const initialContactMethods = {
+    email: false,
+    telephone: false,
+    whatsapp: false,
+  };
+  const [contactMethods, setContactMethods] = useState<ContactMethods>(initialContactMethods);
+  const [successMessage, setSuccessMessage] = useState<string>('');
+
+  const formInitialValues = {
+    name: '',
+    phone_number: '',
+    area: '',
+    email: '',
+    whatsapp_number: '',
+    windows: '',
+    prefered_Date: new Date(),
+    prefered_contact_method: contactMethods,
+    how_user_find_us: '',
+    user_query: '',
+    productoption: selectedOptions,
+    other: '',
+    prefered_time: '',
+  };
+
+  const [formData, setFormData] = useState(formInitialValues);
+  const [wordCount, setWordCount] = useState(0);
+  const [errors, setErrors] = useState({
+    name: '',
+    phone_number: '',
+    email: '',
+    windows: '',
+    area: '',
   });
 
-  const [loading, setLoading] = useState(false);
+  const handleCheckboxChange = (option: keyof ProductOptions) => {
+    setSelectedOptions((prevOptions) => {
+      const updatedOptions = { ...prevOptions, [option]: !prevOptions[option] };
+      setFormData({
+        ...formData,
+        productoption: updatedOptions,
+      });
+      return updatedOptions;
+    });
+  };
 
-  const onSubmit = async (data: any) => {
-    setLoading(true);
-    console.log("Form Data:", data);
 
-    // Simulate API call
-    setTimeout(() => {
-      alert("Form submitted successfully!");
-      setLoading(false);
-    }, 2000);
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleDateChange = (date: Date | null) => {
+    if (date) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (date >= today) {
+        setFormData({ ...formData, prefered_Date: date });
+      } else {
+        alert('Please select a date that is today or later.');
+      }
+    }
+  };
+
+  const validate = () => {
+    let isValid = true;
+    const newErrors = {
+      name: '',
+      phone_number: '',
+      email: '',
+      windows: '',
+      area: '',
+    };
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required.';
+      isValid = false;
+    } else if (/\d/.test(formData.name)) {
+      newErrors.name = 'Name cannot contain numbers.';
+      isValid = false;
+    }
+
+    if (!formData.phone_number.trim()) {
+      newErrors.phone_number = 'Phone number is required.';
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required.';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email is invalid.';
+      isValid = false;
+    }
+
+    if (!formData.windows.trim()) {
+      newErrors.windows = 'Select Windows is required.';
+      isValid = false;
+    }
+
+    if (!formData.area.trim()) {
+      newErrors.area = 'Address  is required.';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      try {
+        setLoading(true);
+        const {
+          productoption,
+          prefered_contact_method,
+          prefered_time,
+          ...withoutproductoption
+        } = formData;
+        console.log(
+          productoption,
+          prefered_contact_method,
+          prefered_time,
+          withoutproductoption,
+        );
+        let productTypeArray: any = Object.keys(formData.productoption)
+          .map((item) => {
+            const key = item as keyof ProductOptions;
+            if (formData.productoption[key]) return item;
+          })
+          .filter((item) => item !== undefined);
+
+        let prefered_contact_method_list: any = Object.keys(
+          formData.prefered_contact_method,
+        )
+          .map((item) => {
+            const key = item as keyof ContactMethods;
+            if (formData.prefered_contact_method[key]) return item;
+          })
+          .filter((item) => item !== undefined);
+
+        const response = await PostAppointments({
+          ...withoutproductoption,
+          prefered_time,
+          prefered_contact_method: prefered_contact_method_list,
+          product_type: productTypeArray,
+        });
+        console.log('response:', response);
+        setFormData({
+          ...formInitialValues,
+          how_user_find_us: '',
+
+        });
+        setTimeout(() => setFormData(formInitialValues), 0);
+        setSelectedOptions(getInitialSelectedOptions());
+        setContactMethods(initialContactMethods)
+        setWordCount(0)
+        setSuccessMessage('Form Submitted Successfully🎉');
+      } catch (error) {
+        toast.error('Failed to submit the appointment. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
+  const preferTimeOptions = [
+    { value: 'am', label: 'AM' },
+    { value: 'pm', label: 'PM' },
+  ];
+
+  const referralOptions = [
+    { value: 'google', label: 'Google' },
+    { value: 'Facebook', label: 'Facebook' },
+    { value: 'Instagram', label: 'Instagram' },
+    { value: 'TikTok', label: 'TikTok' },
+    { value: 'Friends', label: 'Friends' },
+    { value: 'Returning Customers', label: 'Returning Customers' },
+    { value: 'Radio', label: 'Radio' },
+    { value: 'Others', label: 'Others' },
+  ];
+
+  const handleInputChange = (e: any) => {
+    const value = e.target.value;
+    if (value.length <= 350) {
+      handleSelectChange('user_query', value);
+      setWordCount(value.length);
+    }
   };
 
   return (
-    <div className="relative flex items-center justify-center bg-[url('/assets/images/ppc-blinds/bgform.png')] bg-cover bg-center mt-5 sm:mt-12 lg:h-[815px]">
+    <div
+      className={`bg-white  text-left text-black ${className} ${singlePage ? 'w-full rounded-lg px-3 py-4' : 'xl:w-6/12 2xl:w-5/12 py-4 bg-white drop-shadow-md rounded-xl  mt-5'}`}
+    >
+      {!singlePage && (
+             <h2 className="text-center font-juana text-2xl md:text-3xl xl:text-[40px] font-black mb-6">BOOK YOUR FREE CONSULTATION</h2>
+      )}
+      <form 
+        onSubmit={handleSubmit}
+        className={` bg-white rounded-md ${singlePage ? 'w-full p-4 ' : ' px-4 py-2'}`}
+      >
+        <div
+          className={`xs:grid  mb-3 ${singlePage ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-6' : 'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-5'}`}
+        >
+           <div className="w-full custom-datepicker">
+            <label
+              htmlFor="preferredDate"
+              className="block text-10 2xl:text-11 font-light "
+            >
+            Select Date*
+            </label>
+
+            <DatePicker
+              id='preferredDate'
+              selected={formData.prefered_Date}
+              onChange={handleDateChange}
+              className="h-[38px] mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
+              dateFormat="dd/MM/yy"
+              minDate={new Date()}
+            />
+          </div>
+          <div className="w-full custom-datepicker">
+            <label
+              htmlFor="preferredTime"
+              className="block text-10 2xl:text-11 font-light "
+            >
+             Select Time*
+            </label>
+            <Select
+              instanceId="window-options-select"
+              isSearchable={false}
+              options={preferTimeOptions}
+              defaultValue={preferTimeOptions.find(
+                (option) => option.value === 'pm',
+              )}
+              onChange={(option: any) =>
+                handleSelectChange('prefered_time', option?.value || '')
+              }
+              value={preferTimeOptions.find(
+                (option) => option.value === formData.prefered_time,
+              )}
+              className="mt-1 w-full text-10 2xl:text-11"
+            />
+          </div>
+          <div>
+            <label htmlFor="name" className="block font-normal font-proxima lg:text-16 mb-1">
+              Name *
+            </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter Your Name"
+              id="name"
+              className="w-full border border-primary rounded-md p-2 bg-[#FFFDEE] font-normal font-proxima lg:text-16"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            {errors.name && (
+              <p className="text-red-500 text-xs">{errors.name}</p>
+            )}
+          </div>
         
-      <Container className="w-full bg-white bg-opacity-90 shadow-lg rounded-3xl p-6 md:p-10 my-10 lg:my-0 mx-5 lg:mx-16 xl:mx-20">
-        <h2 className="text-center font-juana text-2xl md:text-3xl xl:text-[40px] font-black mb-6">BOOK YOUR FREE CONSULTATION</h2>
+          <div>
+            <label
+              htmlFor="phone_number"
+              className="block text-10 2xl:text-11 font-light mb-1 "
+            >
+              Phone Number *
+            </label>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          {/* Date & Time */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block font-normal font-proxima lg:text-16 mb-1">Select Date*</label>
-              <input type="date" {...register("date")} className="w-full border border-primary rounded-md p-2 bg-[#FFFDEE] focus:ring focus:ring-primary" />
-              <p className="text-red-500 text-sm">{errors.date?.message}</p>
-            </div>
-
-            <div>
-              <label className="block font-normal font-proxima lg:text-16 mb-1">Select Time*</label>
-              <Controller
-                name="time"
-                control={control}
-                render={({ field }) => (
-                  <select {...field} className="w-full border border-primary rounded-md p-2 bg-[#FFFDEE]">
-                    <option value="" className="font-normal font-proxima lg:text-16">Select Time</option>
-                    {timeSlots.map((time) => (
-                      <option key={time} value={time}>{time}</option>
-                    ))}
-                  </select>
-                )}
-              />
-              <p className="text-red-500 text-sm">{errors.time?.message}</p>
-            </div>
-          </div>
-
-          {/* Contact Details */}
-          <h3 className="text-lg font-juana lg:text-24 font-black">Please enter your contact details</h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block font-normal font-proxima lg:text-16 mb-1">First Name*</label>
-              <input type="text" {...register("firstName")} className="w-full border border-primary rounded-md p-2 bg-[#FFFDEE] font-normal font-proxima lg:text-16" placeholder="Enter Your Full Name" />
-              <p className="text-red-500 text-sm">{errors.firstName?.message}</p>
-            </div>
-
-            <div>
-              <label className="block font-normal font-proxima lg:text-16 mb-1">Last Name*</label>
-              <input type="text" {...register("lastName")} className="w-full border border-primary rounded-md p-2 bg-[#FFFDEE] font-normal font-proxima lg:text-16" placeholder="Enter Your Full Name" />
-              <p className="text-red-500 text-sm">{errors.lastName?.message}</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block font-normal font-proxima lg:text-16 mb-1">Phone Number*</label>
-              <input type="text" {...register("phone")} className="w-full border border-primary rounded-md p-2 bg-[#FFFDEE] font-normal font-proxima lg:text-16" placeholder="+971" />
-              <p className="text-red-500 text-sm">{errors.phone?.message}</p>
-            </div>
-
-            <div>
-              <label className="block font-normal font-proxima lg:text-16 mb-1">Email*</label>
-              <input type="email" {...register("email")} className="w-full border border-primary rounded-md p-2 bg-[#FFFDEE] font-normal font-proxima lg:text-16" placeholder="Enter Your Email" />
-              <p className="text-red-500 text-sm">{errors.email?.message}</p>
-            </div>
+            <PhoneInput
+              className="h-9 p-2 border border-gray-300 w-full rounded text-xsm outline-none"
+              international
+              aria-label="Phone Number"
+              defaultCountry="AE"
+              limitMaxLength
+              countryCallingCodeEditable={false}
+              value={formData.phone_number}
+              onChange={(phone: any) =>
+                setFormData({ ...formData, phone_number: phone })
+              }
+            />
+            {errors.phone_number && (
+              <p className="text-red-500 text-xs">{errors.phone_number}</p>
+            )}
           </div>
 
           <div>
-            <label className="block font-normal font-proxima lg:text-16 mb-1">Address*</label>
-            <input type="text" {...register("address")} className="w-full border border-primary rounded-md p-2 bg-[#FFFDEE] font-normal font-proxima lg:text-16" placeholder="Enter Your Address" />
-            <p className="text-red-500 text-sm">{errors.address?.message}</p>
+            <label htmlFor="email" className="block text-10 2xl:text-11 font-light ">
+              E-Mail *
+            </label>
+            <input
+              type="email"
+              placeholder="Enter Your E-Mail"
+              name="email"
+              id="email"
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.email ? 'border-red-500' : ''}`}
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-xs">{errors.email}</p>
+            )}
           </div>
+          <div className="relative overflow-hidden">
+            <label
+              htmlFor="whatsapp_number"
+              className="block text-10 2xl:text-11 font-light mb-1 "
+            >
+              WhatsApp No. If Different
+            </label>
+            <PhoneInput
+              className="mt-1 h-9 p-2 border border-gray-300 w-full rounded text-xsm outline-none"
+              international
 
-          {/* Windows & Message */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block font-normal font-proxima lg:text-16 mb-1">Number Of Windows*</label>
-              <Controller
-                name="windows"
-                control={control}
-                render={({ field }) => (
-                  <select {...field} className="w-full  border border-primary rounded-md p-2 bg-[#FFFDEE] font-normal font-proxima lg:text-16">
-                    {windowOptions.map((option) => (
-                      <option key={option} value={option}>{option}</option>
-                    ))}
-                  </select>
-                )}
-              />
-              <p className="text-red-500 text-sm">{errors.windows?.message}</p>
+              defaultCountry="AE"
+              limitMaxLength
+              countryCallingCodeEditable={false}
+              value={formData.whatsapp_number}
+              onChange={(phone: any) =>
+                setFormData({ ...formData, whatsapp_number: phone })
+              }
+            />
+          </div>
+          <div>
+            <label htmlFor="windows " className="block text-10 2xl:text-11 font-light ">
+              How Many Windows *
+            </label>
+            <input
+              type="number"
+              placeholder="Enter No of Windows"
+              name="windows"
+              id="windows"
+              className={`mt-1 h-9 px-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.windows ? 'border-red-500' : ''}`}
+              value={formData.windows}
+              onChange={handleChange}
+            />
+
+            {errors.windows && (
+              <p className="text-red-500 text-xs">{errors.windows}</p>
+            )}
+          </div>
+         
+
+          <div
+            className={`w-full   ${singlePage ? 'col-span-4' : 'xl:col-span-2 2xl:col-span-1 '}`}
+          >
+            <label
+              htmlFor="how_user_find_us"
+              className="block text-10 2xl:text-11 font-light "
+            >
+              How Did You Hear About Us?
+            </label>
+            <Select
+              instanceId="window-options-select"
+              isSearchable={false}
+              options={referralOptions}
+              onChange={(option: any) =>
+                handleSelectChange('how_user_find_us', option?.value || null)
+              }
+              value={
+                referralOptions.find(
+                  (option) => option.value === formData.how_user_find_us,
+                ) || null
+              }
+              className="mt-1 w-full text-10 2xl:text-11"
+            />
+          </div>
+          <div
+            className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}
+          >
+            <label htmlFor="Address " className="block text-10 2xl:text-11 font-light ">
+              Address *
+            </label>
+            <input
+              type="text"
+              name="area"
+              placeholder="Enter Your Address"
+              id="area"
+              className={`mt-1 h-9 p-2 border border-gray-300 w-full rounded text-10 2xl:text-11 ${errors.name ? 'border-red-500' : ''}`}
+              value={formData.area}
+              onChange={handleChange}
+            />
+
+            {errors.area && (
+              <p className="text-red-500 text-xs">{errors.area}</p>
+            )}
+          </div>
+        </div>
+        {singlePage && (
+          <>
+            <div className="w-full  mx-auto my-6">
+              <label className="block text-10 2xl:text-11 font-light ">
+                Window Dressing Type
+              </label>
+              <div className="flex flex-row flex-wrap md:flex-nowrap justify-start md:justify-between gap-5 mt-2">
+                {Object.keys(selectedOptions).map((option) => (
+                  <div
+                    key={option}
+                    className="flex items-center whitespace-nowrap"
+                  >
+                    <input
+                      type="checkbox"
+                      id={option}
+                      name={option}
+                      className="appearance-none w-4 h-4 border-2 border-secondary flex justify-center items-center rounded-sm checked:bg-secondary checked:border-secondary checked:before:content-['✔'] checked:before:text-white checked:before:text-xs"
+                      checked={selectedOptions[option as keyof ProductOptions]}
+                      onChange={() =>
+                        handleCheckboxChange(option as keyof ProductOptions)
+                      }
+                    />
+                    <label htmlFor={option} className="ml-2 text-10 2xl:text-11">
+                      {option.replace('_', ' ').toUpperCase()}
+                    </label>
+                  </div>
+                ))}
+              </div>
             </div>
+          </>
+        )}
 
-            <div>
-              <label className="block font-normal font-proxima lg:text-16 mb-1">Message</label>
-              <textarea {...register("message")} className="w-full  border border-primary rounded-md p-2 bg-[#FFFDEE] font-normal font-proxima lg:text-16" placeholder="Message" />
+        <div className={`w-full   ${singlePage ? 'col-span-4' : 'col-span-3'}`}>
+          <label htmlFor="user_query" className="block text-10 2xl:text-11 font-light ">
+            Any Other Requirements
+          </label>
+          <textarea
+            id="user_query"
+            name="user_query"
+            value={formData.user_query}
+            onChange={handleInputChange}
+            className="mt-1 w-full text-10 2xl:text-11 border p-2 rounded-md border-[#D1D5DB]"
+            placeholder="Enter your query (max 350 characters)"
+            rows={2}
+          />
+          {wordCount > 0 && (
+            <div className="text-sm text-gray-400 mt-1">
+              {wordCount}
             </div>
-          </div>
-
-          {/* Submit Button */}
-          <div className="text-center">
-            <button type="submit" className="bg-primary text-white px-6 py-2 rounded-md hover:bg-secondary transition" disabled={loading}>
-              {loading ? "Submitting..." : "Submit"}
-            </button>
-          </div>
-        </form>
-      </Container>
+          )}
+        </div>
+        <div className="text-center mt-4">
+          <button
+            type="submit"
+            className="w-fit bg-secondary hover:bg-primary text-white py-2 px-8 sm:px-14 rounded"
+            disabled={loading}
+          >
+            {loading ? <Loader color="#fff" /> : 'Submit Request'}
+          </button>
+          {successMessage && (
+            <p className=" text-xs mt-2">{successMessage}
+            </p>
+          )}
+        </div>
+      </form>
     </div>
   );
 };
