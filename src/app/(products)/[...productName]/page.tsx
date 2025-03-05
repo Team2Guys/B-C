@@ -71,6 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const Products = async ({ params }: Props) => {
   const slug = (await params).productName[0];
+  let urls = (await params).productName
   const redirectUrl: any = (await params).productName;
   const splited = redirectUrl.join('/')
   const matchingUrl = blogPostUrl.find((item) => item.url === `/${splited}`);
@@ -90,14 +91,21 @@ const Products = async ({ params }: Props) => {
   );
 
   const matchingLink: any = links.find((link) => slug.includes(link.href.replace(/^\//, '')),);
+
   const selectedProductName = matchingLink ? matchingLink.label : slug;
+
   const filterCat = categories?.find((cat: ICategory) => cat.title.toLowerCase() === selectedProductName.toLowerCase());
   const filteredProducts = products.filter((product: IProduct) => product.CategoryId === filterCat?.id) || [];
   const filteredSubCategories = subCategories?.filter((subCat: ICategory) => subCat.CategoryId === filterCat?.id) || [];
+
   const filteredItems = [...filteredProducts, ...filteredSubCategories];
-  if (!selectedPage || filteredItems.length < 1) {
+
+  if ((!selectedPage || filteredItems.length < 1) || urls?.length > 1) {
     return <NotFound />;
   }
+
+
+  console.log(urls)
 
   return (
     <>
