@@ -7,6 +7,8 @@ import { headers } from "next/headers";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import NotFound from "app/not-found";
+import Script from "next/script";
+import { schemaMap } from "data/products-schema";
 
 
 export async function generateMetadata({ params }: { params: Promise<{ subproduct: string}>}): Promise<Metadata> {
@@ -96,8 +98,15 @@ const Page = async ({ params }: { params: Promise<{ subproduct: string }> }) => 
     if (!filteredSubCategory && !filteredProduct) {
       return <NotFound />;
     }
+    const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
+      const matchedSchema = schemaMap[productTitle];
   return (
     <>
+     {matchedSchema && (
+        <Script type="application/ld+json" id="blinds-json-ld">
+          {JSON.stringify(matchedSchema)}
+        </Script>
+      )}
       <SubProduct products={products}
        filteredProduct={filteredProduct} filteredSubCategory={filteredSubCategory} />
     </>
