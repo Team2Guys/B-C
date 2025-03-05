@@ -2,18 +2,8 @@
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import RelatedProductSkeleton from 'components/Skeleton/Related-product';
 import React, { useEffect, useState } from 'react';
-import { ICategory, IProduct } from 'types/types';
+import { ICategory, IProduct, relativeProps } from 'types/types'
 
-interface relativeProps {
-  products: IProduct[];
-  categoriesList?: ICategory[];
-  limit?: number;
-  className?: string;
-  title?: string;
-  description?: string;
-  bgcolor?: boolean;
-  isPPc?:boolean
-}
 const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title, description,bgcolor, isPPc,  }) => {
   const [selectedProducts, setSelectedProducts] = useState<IProduct[]>([]);
 

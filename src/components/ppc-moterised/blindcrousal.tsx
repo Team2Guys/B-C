@@ -20,7 +20,6 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
   return (
     <section className="relative py-8">
       <Container>
-        {/* Custom Navigation Buttons */}
         <button className="absolute left-0 xl:left-3 2xl:left-36 top-10 sm:top-20 xl:top-12 text-black z-10" id="prevBtn">
           <IoMdArrowDropleft className="w-10 h-10" />
         </button>

@@ -26,7 +26,6 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
 
     <div className="w-full bg-white py-10">
     <Container>
-      {/* Top Section with Image + Text */}
       <div className="flex flex-col md:flex-row gap-8 px-1">
         <div className="flex-1">
           <Image height={500} width={500} src={image} alt={heading} className="w-full h-[380px] xl:h-[346px] rounded-md" />
@@ -44,8 +43,6 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
           </div>
         </div>
       </div>
-
-      {/* Bottom Section with Bullets */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 px-2">
       <div className="px-4 shadow-lg border border-gray-200 p-4 rounded-md">
       <h3 className="text-xl font-semibold mb-2">{secondaryHeading}</h3>

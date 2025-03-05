@@ -32,7 +32,6 @@ const actionLinks = [
 const WhyChooseUs = () => {
   return (
     <section className="relative bg-cover bg-center text-white py-16 px-6">
-      {/* Background Image */}
       <div className="absolute inset-0">
         <Image 
           src="/assets/images/ppc-blinds/chooseus.png" 
@@ -116,7 +115,6 @@ const WhyChooseUs = () => {
               </motion.div>
             ))}
           </motion.div>
-
         </motion.div>
       </Container>
     </section>

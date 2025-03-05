@@ -8,12 +8,7 @@ import { Navigation } from "swiper/modules";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
-
-interface WorkingProcessProps {
-  title: string;
-  description: string;
-  data: { icon: string; title: string; description: string }[];
-}
+import { WorkingProcessProps } from "types/types";
 
 const WorkingProcess: React.FC<WorkingProcessProps> = ({ title, description, data }) => {
   const swiperRef = useRef<any>(null);

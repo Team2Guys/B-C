@@ -1,15 +1,7 @@
 'use client';
 
 import React from "react";
-
-interface VideoPageProps {
-  videoSrc: string;
-  title: string;
-  subtitle: string | any;
-  description: string | any;
-  width?: any;
-  height?:any;
-}
+import { VideoPageProps } from "types/types";
 
 const VideoSection : React.FC<VideoPageProps>  = ({ videoSrc, title, subtitle, description, width,height }) => {
   return (

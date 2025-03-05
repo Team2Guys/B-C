@@ -17,7 +17,7 @@ const Videoblind: React.FC<VideoSectionProps> = ({ videos, heading }) => {
             <div key={index} className="w-full">
               <video
                 src={video.src}
-                className="w-full sm:h-[275px] rounded-md shadow-lg border border-red-500"
+                className="w-full sm:h-[275px] rounded-md shadow-lg "
                 controls
                 autoPlay
                 muted

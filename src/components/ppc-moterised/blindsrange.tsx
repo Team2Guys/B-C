@@ -5,19 +5,7 @@ import Link from "next/link";
 import Container from "components/Res-usable/Container/Container";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { ExploreBlindsCurtainsProps } from "types/types";
-
-interface ExploreBlindsProps extends ExploreBlindsCurtainsProps {
-  imageHeights?: {
-    sm?: string;
-    md?: string;
-    lg?: string;
-    xl?: string;
-  };
-  imageHeight?: string;
-  hideViewMore?: boolean;
-  hidefeatures?: boolean;
-}
+import { ExploreBlindsCurtainsProps, ExploreBlindsProps } from "types/types";
 
 const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
   data,
@@ -30,7 +18,6 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
     <section className="py-3 lg:py-6 xl:py-12 px-3 xl:px-5">
       <Container>
         <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Image Section */}
           <div className={`w-full ${reverse ? "lg:order-2" : "lg:order-1"}`}>
           <Image 
           src={data.image}
@@ -42,7 +29,6 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
           />
           </div>
 
-          {/* Content Section */}
           <div className={`2xl:w-[80%] lg:space-y-5 xl:space-y-9 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
             <h2 className="text-2xl md:text-3xl xl:text-36 font-black font-juana leading-[43.2px]">
               {data.title}
@@ -50,7 +36,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
             <p className="mt-3 lg:text-20 font-normal font-proxima">
               {data.description}
             </p>
-            {/* Conditionally Hide View More Section */}
+         
             {!hideViewMore && (
               <Link 
                 href={data.viewlink}
@@ -60,7 +46,6 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
               </Link>
             )}
 
-            {/* Features Grid */}
             {!hidefeatures && (
             <div className="grid grid-cols-2 gap-6 mt-6">
               {data.features.map((feature, index) => (
@@ -80,7 +65,6 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
             </div>
              )}
 
-            {/* Buttons Section */}
             <div className="mt-6 xl:mt-14 flex gap-4">
               {data.buttonLinks.map((button, index) => (
                 <Link 

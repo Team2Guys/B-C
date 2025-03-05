@@ -243,6 +243,7 @@ export interface Blind {
   name: string;
   image: string;
   category: string;
+  href?: string;
 }
 
 export interface Category {
@@ -283,4 +284,39 @@ interface BannerProps {
   linkHref: string;
   linkText: string;
   linkBgColor: string;
+}
+export interface ExploreBlindsProps extends ExploreBlindsCurtainsProps {
+  imageHeights?: {
+    sm?: string;
+    md?: string;
+    lg?: string;
+    xl?: string;
+  };
+  imageHeight?: string;
+  hideViewMore?: boolean;
+  hidefeatures?: boolean;
+}
+
+export interface VideoPageProps {
+  videoSrc: string;
+  title: string;
+  subtitle: string | any;
+  description: string | any;
+  width?: any;
+  height?:any;
+}
+export interface WorkingProcessProps {
+  title: string;
+  description: string;
+  data: { icon: string; title: string; description: string }[];
+}
+export interface relativeProps {
+  products: IProduct[];
+  categoriesList?: ICategory[];
+  limit?: number;
+  className?: string;
+  title?: string;
+  description?: string;
+  bgcolor?: boolean;
+  isPPc?:boolean
 }
