@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/automated-blinds/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
+        url:"/assets/images/MotorisedBlind/blind.png",
         alt: 'blindsandcurtains',
       },
     ],
@@ -34,6 +34,7 @@ const MotorisedBlinds = async () => {
   }
   const { Data } = content;
   const pageData = Data[0];
+
   return (
     <MotorisedPage products={products} pageData={pageData} />
   );

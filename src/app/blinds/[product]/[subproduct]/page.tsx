@@ -9,19 +9,27 @@ import { notFound } from "next/navigation";
 import NotFound from "app/not-found";
 
 
-export async function generateMetadata({ params }: { params: Promise<{ subproduct: string}>}): Promise<Metadata> {
+interface SlugPageProps {
+  params: Promise<{
+    product: string;
+    subproduct: string
+  }>;
+}
+
+
+
+export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
   const  subproduct = (await params).subproduct;
+  const  category = (await params).product;
   const Cateories = [2];
   const products = await fetchProducts();
 
-  const filteredProduct = products?.find(
-    (prod:any) =>
+  const filteredProduct = products?.find((prod:any) =>
       generateSlug(prod.title) === ChangedProductUrl(subproduct as string) &&
       Cateories.some((item: number) => item == prod.CategoryId),
   );
   const headersList = await headers();
-  const domain =
-    headersList.get('x-forwarded-host') || headersList.get('host') || '';
+  const domain =headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
   const pathname = headersList.get('x-invoke-path') || '/';
 
@@ -32,6 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ subproduc
   }
 
   let Product = filteredProduct as IProduct;
+  console.log(fullUrl, "rull", category)
 
   let ImageUrl =
   Product?.posterImage.imageUrl ||
@@ -52,7 +61,8 @@ export async function generateMetadata({ params }: { params: Promise<{ subproduc
   let description =
   Product?.Meta_description ||
     'Welcome to blindsandcurtains';
-  let url = `${fullUrl}${subproduct}`;
+  let url = `${fullUrl}blinds/${category}/${subproduct}`;
+console.log(url, "urls")
   return {
     title: title,
     description: description,
@@ -70,8 +80,9 @@ export async function generateMetadata({ params }: { params: Promise<{ subproduc
 }
 
 
-const Page = async ({ params }: { params: Promise<{ subproduct: string }> }) => {
-  const slug = (await params).subproduct;
+const Page = async ({ params }:SlugPageProps) => {
+  const newurls  = (await params);
+  let slug = newurls.subproduct
   const [products, subCategories] = await Promise.all([fetchProducts(),fetchSubCategories()]);
   const Cateories = [2];
 
@@ -83,13 +94,14 @@ const Page = async ({ params }: { params: Promise<{ subproduct: string }> }) => 
     );
   });
 
+
   const filteredProduct = products?.find(
     (prod:any) =>
       generateSlug(prod.title) === ChangedProductUrl(slug as string) &&
       Cateories.some((item: number) => item == prod.CategoryId),
   );
-
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/roller-blinds/${slug}/`);
+
     if (matchingUrl) {
       return <NotFound />
     }

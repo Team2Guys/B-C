@@ -33,12 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   let Category = filterCategory as ICategory;
 
-  let ImageUrl =
-    Category?.posterImage.imageUrl ||
-    'blindsandcurtains';
-  let alt =
-    Category?.posterImage.altText ||
-    'blindsandcurtains';
+  let ImageUrl = Category?.posterImage.imageUrl || 'blindsandcurtains';
+  let alt = Category?.posterImage.altText || 'blindsandcurtains';
 
   let NewImage = [
     {
@@ -104,9 +100,6 @@ const Products = async ({ params }: Props) => {
     return <NotFound />;
   }
 
-
-  console.log(urls)
-
   return (
     <>
       <Script type="application/ld+json" id="categories-json-ld">
@@ -114,7 +107,14 @@ const Products = async ({ params }: Props) => {
       </Script>
 
 
-      <Product productName={slug} products={products} categories={categories} subCategories={subCategories} selectedPage={selectedPage.content} matchedProduct={matchedProduct?.para} filteredItems={filteredItems} title={selectedProductName} />
+      <Product productName={slug}
+        products={products}
+        categories={categories}
+        subCategories={subCategories}
+        selectedPage={selectedPage.content}
+        matchedProduct={matchedProduct?.para}
+        filteredItems={filteredItems}
+        title={selectedProductName} />
     </>
   );
 };
