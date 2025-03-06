@@ -13,8 +13,9 @@ import { meta_props } from 'types/interfaces';
 import { CommercialUrl, urls } from 'data/urls';
 import { permanentRedirect, } from 'next/navigation';
 import NotFound from 'app/not-found';
-
+import { schemaMap } from 'data/products-schema';
 const Cateories = [2];
+
 
 
 export async function generateMetadata({
@@ -104,6 +105,10 @@ const CommercialPage = async ({ params }: meta_props) => {
   if (!filteredSubCategory && !filteredProduct) {
     return <NotFound />;
   }
+  const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
+  const matchedSchema = schemaMap[productTitle];
+
+  console.log(filteredProduct,"filteredProduct")
   return (
     <>
       <Products_Categories
@@ -113,6 +118,7 @@ const CommercialPage = async ({ params }: meta_props) => {
         allprod={products}
         categories={cateories}
         subCategories={subCategories}
+        matchedSchema={matchedSchema}
       />
     </>
   );

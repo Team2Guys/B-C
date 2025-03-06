@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import {fetchProducts } from 'config/fetch';
 import { MoterisedContent } from 'data/data';
 import NotFound from 'app/not-found';
+import og from '../../../public/assets/images/MotorisedBlind/blind.png'
 
 export const metadata: Metadata = {
   title: 'Premium Automated Blinds in Dubai | Blinds & Curtains Dubai',
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/automated-blinds/',
     images: [
       {
-        url:"/assets/images/MotorisedBlind/blind.png",
+        url:og.src,
         alt: 'blindsandcurtains',
       },
     ],
