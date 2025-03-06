@@ -10,6 +10,8 @@ import { IProduct } from 'types/types';
 const MotorisedPage = ({products, pageData}:{products:IProduct[], pageData: any}) => {  
   return (
     <>
+
+
       <TopHero
         title={pageData.title}
         Video={pageData.heroVideo}

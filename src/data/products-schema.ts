@@ -35,7 +35,7 @@ export const schemaMap: Record<string, object> = {
     "Conservatory Blinds": ConservatoryBlinds,
     "Staircase Blinds": StaircaseBlinds,
     "Aluminium Blinds": AlimininumBlinds,
-    "Outdoor blinds": OutdoorBlinds,
+    "Outdoor Blinds And Curtains": OutdoorBlinds,
     "Automated Blinds": AutomatedBlinds,
   };
   

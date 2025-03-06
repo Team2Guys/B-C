@@ -5,8 +5,10 @@ import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
 import SubCategoryPageSkeleton from 'components/Skeleton/SubCategoryPageSkeleton';
 import { filterProd } from 'config/fetch';
 import { generateSlug } from 'data/data';
+import { schemaMap } from 'data/products-schema';
 import { ChangedProductUrl, urls } from 'data/urls';
 import { usePathname } from 'next/navigation';
+import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { ICategory, IProduct } from 'types/types';
 
@@ -68,12 +70,22 @@ const CommercialProduct = ({
   if (isNotFound || (!filteredProduct && !filteredSubCategory)) {
     return <NotFound />;
   }
+
+    const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
+    const matchedSchema = schemaMap[productTitle];
+  
+    console.log(productTitle,"filteredProduct", matchedSchema)
   return (
     <>
       {loading ? (
         <SubCategoryPageSkeleton />
       ) : filteredSubCategory ? (
         <>
+          {matchedSchema && (
+        <Script type="application/ld+json" id="blinds-json-ld">
+          {JSON.stringify(matchedSchema)}
+        </Script>
+      )}
           <CommercialByRoom
             title={`${filteredSubCategory.title}`}
             description={`${filteredSubCategory.description}`}
