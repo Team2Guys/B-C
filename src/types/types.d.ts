@@ -261,7 +261,7 @@ export interface ExploreBlindsCurtainsProps {
     description: string;
     image: string;
     viewlink: string;
-    features: { icon: string; title: string; text: string }[];
+    features: { icon: string; title: string; text: string, width:string; height:string }[];
     buttonLinks: { href: string; text: string }[];
   };
   reverse?: boolean;

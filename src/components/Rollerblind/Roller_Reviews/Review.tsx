@@ -31,7 +31,7 @@ const RollerReviews = () => {
           Customer Feedback <br /> You Can Trust
         </h2>
         <div className='max-w-[90%] space-y-8'>
-          <Link href='/'>
+          <Link href='https://maps.app.goo.gl/9rgRcp86AAP9K8Hw8' target='blank'>
             <div className='bg-white w-fit h-fit rounded-full shadow-lg py-3 px-4 flex justify-center items-center gap-3'>
               <FcGoogle className='h-[27.22px] w-[28.57px]' />
               <p className='text-16 font-bold'>4.8 | <span className='font-normal'>See all reviews</span></p>

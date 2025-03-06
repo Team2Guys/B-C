@@ -2088,7 +2088,7 @@ export const NavData = [
   },
   { image: '/assets/images/Moterised-ads-blinds/Vector1.png',
     title:'Help Select Fabrics',
-    description:'install in 2-3 days ',
+    description:'Install in 2-3 Days ',
    },
    {image: '/assets/images/Moterised-ads-blinds/Group.png',
     title:'Warranty',
@@ -2687,28 +2687,22 @@ export const Curtainfeatures = [
       icon: "/assets/images/ppc-blinds/features/6.png", 
   },
   {
-    title: "Motorised Options",
-    description:
-      "Enjoy hassle-free operation with a remote, smartphone, or voice-activated blinds for ultimate convenience.",
-      icon: "/assets/images/ppc-blinds/features/3.png", 
-  },
-  {
     title: "Energy Efficiency & Comfort",
     description:
       "You'll keep your home cooler in the summer with insulating fabrics. Blocks out the UV rays,  perfect for summer afternoons.",
-      icon: "/assets/images/ppc-blinds/features/8.png", 
+      icon: "/assets/images/ppc-blinds/features/3.png", 
   },
   {
     title: "Motorised for Convenience",
     description:
       "Control your blinds with a remote, smartphone, or voice assistant for total convenience. A neat, modern look.",
-      icon: "/assets/images/ppc-blinds/features/9.png", 
+      icon: "/assets/images/ppc-blinds/features/8.png", 
   },
   {
     title: "Free Reinstallation",
     description:
       "Free uninstall and reinstallation within 2 years, so you don’t need to add the stress of this when moving home again.",
-      icon: "/assets/images/ppc-blinds/features/5.png", 
+      icon: "/assets/images/ppc-blinds/features/9.png", 
   },
 ];
 
@@ -2717,8 +2711,7 @@ export const Curtainfeatures = [
 export const blindsData = {
   heading: "Customisation Made Easy: Choose Blinds That Fit Your Window Size, And Interior",
   description: `
-    Make your space look stylish with custom blinds, including Roller, Roman, Wooden, and Zebra blinds, as well as vertical blinds. We design these for living rooms, bedrooms, kitchens, and more with options such as blackout, dim-out, and sunscreen.
-  `,
+    Make your space look stylish with custom blinds, including Roller, Roman, Wooden, and Zebra blinds, as well as vertical blinds. We design these for living rooms, bedrooms, kitchens, and more with options such as blackout, dim-out, and sunscreen.`,
   image:"/assets/images/ppc-blinds/C1.png",
   button1Text: "GET DIRECTION",
   button2Text: "WHATSAPP",
@@ -2786,7 +2779,7 @@ export const Curtainbannerfeatures = [
 ];
   // 
  export const BlindvideoData = [
-    { src: "/assets/video/moto.mp4"
+    { src: "/assets/video/1.mp4"
 
     },
     { src: "/assets/video/moto.mp4"
@@ -2816,9 +2809,9 @@ export const Tab1categories = [
     { label: "Blinds By Material", value: "material" },
   ];
   export const Tab2categories = [
-    { label: "Blinds By Type", value: "type" },
-    { label: "Blinds By Room", value: "room" },
-    { label: "Blinds By Material", value: "material" },
+    { label: "Curtains By Style", value: "style" },
+    { label: "Curtains By Room", value: "room" },
+    { label: "Curtains By Fabric", value: "fabric" },
   ];
 
 export const BlindsTabData= [
@@ -2885,7 +2878,7 @@ export const CurtainTabData= [
   ];
 
 //whychoosedata
-export const chooseus= [
+export const chooseusblind= [
   { text: "With a team of 50+ experts, we pay attention to detail on every project.",
     image:"/assets/images/ppc-blinds/icon1.png" },
   { text: "Premium in-house production with the highest quality materials",
@@ -2897,6 +2890,19 @@ export const chooseus= [
   { text: "10-year warranty for peace of mind, durability and reliability you can trust.",
   image:"/assets/images/ppc-blinds/icon5.png" },
 ];
+export const chooseuscurtain= [
+  { text: "Dedicated team of 50+ Experts",
+    image:"/assets/images/ppc-blinds/icon6.png" },
+  { text: "High-Quality In-House Production",
+    image:"/assets/images/ppc-blinds/icon7.png" },
+  { text: "Free home visits/free installation", 
+    image:"/assets/images/ppc-blinds/icon8.png"},
+  { text: "Quick installation, and a 10-year warranty",
+  image:"/assets/images/ppc-blinds/icon9.png" },
+  { text: "750+ 5-star reviews and counting",
+  image:"/assets/images/ppc-blinds/icon10.png" },
+];
+
 
 export const sectionContent = {
   heading: "Why Choose Us?",
@@ -2911,10 +2917,10 @@ export const exploreblindData = [
     image: "/assets/images/ppc-blinds/blindrange.png",
     viewlink: "/ppc/roller-blinds/",
     features: [
-      { icon: "/assets/images/ppc-blinds/l1.png", title: "Light Blockage", text: "No gaps, no glare, just darkness." },
-      { icon: "/assets/images/ppc-blinds/p1.png", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
-      { icon: "/assets/images/ppc-blinds/e1.png", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
-      { icon: "/assets/images/ppc-blinds/h1.png", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
+      { icon: "/assets/images/ppc-blinds/l1.png",height:"h-8", width:"w-8", title: "Light Blockage", text: "No gaps, no glare, just darkness." },
+      { icon: "/assets/images/ppc-blinds/p1.png",height:"h-8", width:"w-8", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
+      { icon: "/assets/images/ppc-blinds/e1.png",height:"h-8", width:"w-8", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
+      { icon: "/assets/images/ppc-blinds/h1.png",height:"h-8", width:"w-8", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
     ],
     buttonLinks: [
       { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
@@ -2938,10 +2944,46 @@ export const exploreblindData = [
     ],
   },
 ];
+
+// explore section for curtains
+export const explorecurtainData = [
+  {
+    title: "Sheer Curtains",
+    description: "With sheer curtains, natural light can fill your space and maintain privacy at the same time. Sheer curtains have something very inviting about them.",
+    image: "/assets/images/ppc-blinds/curtain1.png",
+    viewlink: "/curtains/blackout-curtains-dubai/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/14.png", title: "Soft Light", text: "Gently diffuses sunlight for a warm, inviting glow." },
+      { icon: "/assets/images/ppc-blinds/13.png", title: "Privacy Balance", text: "Enjoy daytime privacy without blocking your view whilst keeping UV rays at bay" },
+      { icon: "/assets/images/ppc-blinds/12.png", title: "Airy & Elegant", text: "A flowing, light fabric enhances any decor." },
+      { icon: "/assets/images/ppc-blinds/11.png", title: "Layering Option", text: "Pairs beautifully with blackout curtains for that luxury finish." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+  {
+    title: "Blackout Curtains",
+    description: "A blackout curtain helps block out sunlight, reduce noise, and regulate the temperature in a room, providing a cosy, restful atmosphere.",
+    image: "/assets/images/ppc-blinds/curtain1.png",
+    viewlink: "/curtains/blackout-curtains-dubai/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/15.png", title: "Complete  Darkness", text: "Blocks all light for better sleep and relaxation." },
+      { icon: "/assets/images/ppc-blinds/16.png", title: "Energy Efficient", text: "Keeps rooms cooler in summer and warmer in winter." },
+      { icon: "/assets/images/ppc-blinds/17.png", title: "Noise Reduction", text: "The thick fabric absorbs sound for a quieter home." },
+      { icon: "/assets/images/ppc-blinds/13.png", title: "Privacy & Comfort", text: "Gives you complete privacy night and day." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+];
 //working process
 export const workingProcessblindData = [
   {
-    icon: "/assets/images/ppc-blinds/1.png", // Replace with actual icon paths
+    icon: "/assets/images/ppc-blinds/1.png", 
     title: "Book an Appointment",
     description: "Call us or fill out our online form to schedule your free home visit at a time that suits you.",
   },
@@ -2951,7 +2993,7 @@ export const workingProcessblindData = [
     description: "We'll visit your home with fabric samples, take accurate measurements, and suggest options.",
   },
   {
-    icon: "/assets/images/ppc-blinds/31.png",
+    icon: "/assets/images/ppc-blinds/3.png",
     title: "Measurements & Selection",
     description: "We take precise measurements and help you choose the perfect style and material.",
   },
@@ -2969,43 +3011,44 @@ export const workingProcessblindData = [
 
 export const workingProcesscurtainData = [
   {
-    icon: "/assets/images/ppc-blinds/w1.png",
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    icon: "/assets/images/ppc-blinds/1.png", 
+    title: "Book a Free Consultation",
+    description: "Call us or fill out our online form to schedule your free home visit at a time that suits you.",
   },
   {
-    icon: "/assets/images/ppc-blinds/w2.png",
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    icon: "/assets/images/ppc-blinds/6.png",
+    title: "Free Home Visit",
+    description: "We'll visit your home with fabric samples, take accurate measurements, and give advice.",
   },
   {
-    icon: "/assets/images/ppc-blinds/w3.png",
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    icon: "/assets/images/ppc-blinds/3.png",
+    title: "Measurements & Selection",
+    description: "We take precise measurements and help you choose the perfect fabric and style.",
   },
   {
-    icon: "/assets/images/ppc-blinds/w4.png",
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    icon: "/assets/images/ppc-blinds/4.png",
+    title: "Custom Production",
+    description: "We make curtains to your exact measurements so their fit is perfect.",
   },
   {
-    icon: "/assets/images/ppc-blinds/w1.png", // Replace with actual icon paths
-    title: "Roman Blinds",
-    description: "Remote control options available Remote control options available Remote control options available Remote control options.",
+    icon: "/assets/images/ppc-blinds/5.png",
+    title: "Delivery & Installation",
+    description: "Our team makes sure the installation goes smoothly and hassle-free.",
   },
 ];
 // Consultation both data
 export const consultationblindData = [
   {
     title: "Explore Our Range Of Blinds And Curtains",
-    description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
-    image: "/assets/images/ppc-blinds/conblind.png",
+    description: "Get expert advice, fabric samples, and precise measurements. All from the comfort of your home. Our team will guide you through the best options, making sure they're a perfect fit for your window. No hidden costs, just reliable service and high-quality results.",
+    image: "/assets/images/ppc-blinds/curtain.png",
     viewlink: "/",
     features: [
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Free Home Visit", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Measurements", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Transparent Pricing", text: "Luxury blinds at budget-friendly rates." },
       { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Extensive Collection", text: "There are a variety of styles, colours, as well as fabrics available." },
     ],
     buttonLinks: [
       { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
@@ -3015,7 +3058,7 @@ export const consultationblindData = [
   {
     title: "Request A Free Consultation & Price Estimate",
     description: "We shouldn't let finding the right blinds stress us out - it should be fun.  With our expert advice, material samples, and precise measurements, we make it easy to make the right choice. There are no hidden costs, no guesswork-just beautifully fitted blinds.",
-    image: "/assets/images/ppc-blinds/conblind.png",
+    image: "/assets/images/ppc-blinds/blind.png",
     viewlink: "/",
     features: [
       { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
@@ -3030,6 +3073,7 @@ export const consultationblindData = [
   },
 ];
 
+//blind
 export const blindcrousal = [
   { title: "Free Home Visit ", description: "We come to you with samples, ideas, and expert guidance.", icon: "/assets/images/ppc-blinds/h6.png"},
   { title: "Custom Measurements", description: "No more worrying about fit, we measure everything precisely.", icon: "/assets/images/ppc-blinds/h2.png" },
@@ -3037,6 +3081,15 @@ export const blindcrousal = [
   { title: "Expert Installation", description: "We handle everything, so you can sit back and enjoy your new blinds.", icon: "/assets/images/ppc-blinds/h4.png"},
   { title: "Free reinstall", description: "We offer free uninstall and reinstall within 2 years, so if you end up moving, we’ll help make your investment last longer.", icon: "/assets/images/ppc-blinds/h5.png"},
 ];
+//curtain
+export const curtaincrousal = [
+  { icon: "/assets/images/ppc-blinds/h6.png", title: "Free Home Visit", description: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/h2.png", title: "Custom Measurements", description: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/h3.png", title: "Transparent Pricing", description: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/h7.png", title: "Expert Installation", description: "Professional fitting by our team." },
+      { icon: "/assets/images/ppc-blinds/h5.png", title: "Extensive Collection", description: "There are a variety of styles, colours, as well as fabrics available." },
+];
+
 
 export const Blindgallery = {
   title: "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.",

@@ -1,16 +1,16 @@
 "use client";
-import Container from "components/Res-usable/Container/Container";
-import { chooseus, sectionContent } from "data/data";
-import Image from "next/image";
-import Link from "next/link";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa6";
 import { IoCallOutline } from "react-icons/io5";
+import Container from "components/Res-usable/Container/Container";
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion"; 
+import { WhyChooseUsProps } from "types/interfaces";
 
 const actionLinks = [
   {
-    href: "https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/",
+    href: "https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/@25.117715,55.235686,4118m/data=!3m1!1e3!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDMwMi4wIKXMDSoASAFQAw%3D%3D",
     text: "GET DIRECTION",
     icon: <FaMapMarkerAlt />,
     bgColor: "bg-black hover:bg-primary",
@@ -29,15 +29,15 @@ const actionLinks = [
   },
 ];
 
-const WhyChooseUs = () => {
+const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgroundImage }) => {
   return (
     <section className="relative bg-cover bg-center text-white py-16 px-6">
       <div className="absolute inset-0">
         <Image 
-          src="/assets/images/ppc-blinds/chooseus.png" 
+          src={backgroundImage} 
           alt="Background"
           fill 
-          className="object-contain"
+          className="object-cover"
         />
       </div>
       <div className="absolute inset-0 bg-black/60"></div>
@@ -55,7 +55,7 @@ const WhyChooseUs = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            {sectionContent.heading}
+           Why Choose Us?
           </motion.h2>
           <motion.p 
             className="mt-4 text-sm md:text-base xl:text-20 text-white"
@@ -63,7 +63,7 @@ const WhyChooseUs = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            {sectionContent.paragraph}
+            {paragraph}
           </motion.p>
 
           <motion.div 
@@ -72,7 +72,7 @@ const WhyChooseUs = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            {chooseus.map((feature, index) => (
+            {features.map((feature, index) => (
               <motion.div 
                 key={index} 
                 className={`flex flex-col items-center text-center px-4 border-white border-r ${ (index + 1) % 5 === 0 ? "border-r-0" : "" }`}
@@ -84,7 +84,7 @@ const WhyChooseUs = () => {
                   src={feature.image} 
                   height={56} 
                   width={56} 
-                  alt={feature.text} 
+                  alt="image" 
                   className="w-14 h-14 object-contain"
                 />
                 <p className="text-sm lg:text-20 font-bold leading-7 mt-2">{feature.text}</p>
@@ -106,7 +106,7 @@ const WhyChooseUs = () => {
                 transition={{ delay: 0.8 + index * 0.2, duration: 0.5 }}
               >
                 <Link 
-                  href={link.href} 
+                  href={link.href} target="blank"
                   className={`flex items-center gap-2 ${link.bgColor} text-white px-6 py-3 rounded-lg`}
                 >
                   {link.icon}
@@ -122,4 +122,3 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
-

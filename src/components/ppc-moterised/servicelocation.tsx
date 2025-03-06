@@ -14,7 +14,7 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({ title, description,
             <h2 className="text-2xl md:text-4xl font-black font-juana sm:leading-10">{title}</h2>
             <p className="font-normal md:text-base lg:text-20">{description}</p>
             <div className='text-center md:text-left'>
-              <Link href={mapLink} className="px-6 py-3 bg-black hover:bg-primary text-white rounded-md">
+              <Link href={mapLink} target='blank' className="px-6 py-3 bg-black hover:bg-primary text-white rounded-md">
                 GET DIRECTION
               </Link>
             </div>
@@ -26,7 +26,7 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({ title, description,
                   <div className='p-2 xl:p-4 bg-primary rounded-full'>
                     <MapPin className="text-white" size={18} />
                   </div>
-                  <span className="text-xs xl:text-20 font-bold py-1 px-2 xl:px-4 xl:leading-6">{location}</span>
+                  <span className="text-xs xl:text-15 font-bold py-1 px-2 xl:px-3 xl:leading-6">{location}</span>
                 </div>
               ))}
             </div>

@@ -39,7 +39,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
          
             {!hideViewMore && (
               <Link 
-                href={data.viewlink}
+                href={data.viewlink} target="blank"
                 className="inline-flex items-center gap-2 text-black lg:text-20 font-bold mt-4"
               >
                 View More <IoArrowForwardOutline size={18} />
@@ -54,10 +54,10 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
                     src={feature.icon} 
                     alt={feature.title} 
                     width={40} 
-                    height={40} className="w-8 h-8 lg:h-12 lg:w-12 xl:h-14 xl:w-14"
+                    height={40} className="w-8 h-8 lg:h-12 lg:w-12 xl:w-11"
                   />
                   <div className="space-y-3">
-                    <h3 className="text-lg xl:text-29 font-normal">{feature.title}</h3>
+                    <h3 className="text-lg xl:text-27 font-normal">{feature.title}</h3>
                     <p className="text-sm lg:text-base xl:text-20 font-normal leading-[30px]">{feature.text}</p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
               {data.buttonLinks.map((button, index) => (
                 <Link 
                   key={index}
-                  href={button.href}
+                  href={button.href} target="blank"
                   className={`flex items-center text-center gap-2 text-12 sm:text-sm
                     
                     xl:text-17 text-white px-3 xs:px-6 py-3 rounded-md ${

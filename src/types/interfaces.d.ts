@@ -464,3 +464,12 @@ interface GalleryProps {
   images: ImageType[];
   columns?: number;
 }
+interface Feature {
+  image: string;
+  text: string;
+}
+export interface WhyChooseUsProps {
+  paragraph: string;
+  features: Feature[];
+  backgroundImage: string;
+}

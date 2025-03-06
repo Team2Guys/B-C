@@ -9,29 +9,29 @@ import { RootState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { ReactNode } from 'react';
 
-
 const PathnameWrapper = ({ children }: { children: ReactNode }) => {
   const isNotFoundPage = useSelector((state: RootState) => state.pageState.isNotFoundPage);
   const pathname = usePathname();
-  const withoutHeaderPages = ['/blog',];
+  const withoutHeaderPages = ['/blog'];
+  const hiddenTestimonialPages = [
+    '/ppc/made-to-measure-blinds/',
+    '/ppc/made-to-measure-curtains/',
+    '/ppc/roller-blinds/'
+    
+  ];
 
   const splited_urls = pathname.split('/');
 
-
   return (
     <>
-      {withoutHeaderPages.includes(pathname) ||
-        splited_urls.includes('dashboard') ? null : (
-        <Header />
-      )}
+      {withoutHeaderPages.includes(pathname) || splited_urls.includes('dashboard') ? null : <Header />}
       {children}
-      {withoutHeaderPages.includes(pathname) ||
-        splited_urls.includes('dashboard') ? null : (
+      {withoutHeaderPages.includes(pathname) || splited_urls.includes('dashboard') ? null : (
         <>
           {splited_urls.includes('blog') || splited_urls.includes('product-guarantees') || isNotFoundPage ? null : (
             <>
               <Guarrenty />
-              <Testimonial />
+              {!hiddenTestimonialPages.includes(pathname) && <Testimonial />}
               <OurClient />
             </>
           )}

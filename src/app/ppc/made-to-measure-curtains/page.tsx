@@ -3,7 +3,7 @@ import VideoSection from 'components/LandingPage/video-section'
 import React from 'react'
 import Shop from 'components/ppc-moterised/shop';
 import FeaturesCarousel from 'components/ppc-moterised/features';
-import {banners, blindcrousal, Blindgallery, BlindsTabData, BlindvideoData, consultationblindData, Curtainbannerfeatures, Curtainfeatures, curtainsData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
+import {banners, blindcrousal, BlindsTabData, BlindvideoData, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainsData, exploreblindData, explorecurtainData, serviceLocationsData, Tab1categories, workingProcessblindData, workingProcesscurtainData} from 'data/data';
 import CustomSection from 'components/ppc-moterised/customization';
 import Videoblind from 'components/ppc-moterised/videosection';
 import Blindtype from 'components/ppc-moterised/blindtype';
@@ -12,8 +12,6 @@ import WhyChooseUs from 'components/ppc-moterised/whychoose';
 import ExploreBlinds from 'components/ppc-moterised/blindsrange';
 import WorkingProcess from 'components/ppc-moterised/working';
 import Carousel from 'components/ppc-moterised/blindcrousal';
-// import ImageGrid from 'components/ppc-moterised/Imagegrid';
-// import HeroSection from 'components/ppc-moterised/hero';
 import Container from 'components/Res-usable/Container/Container';
 import RelatedProducts from 'components/Related-products/RelatedProducts';
 import { IProduct } from 'types/types';
@@ -24,8 +22,8 @@ import Banner from 'components/HomeBanner/Home_Banner';
 import BookingForm from 'components/ppc-moterised/Bookingform';
 import Bullets from '../made-to-measure-blinds/bullets';
 import LButton from '../made-to-measure-blinds/button';
-import ImageGrid from 'components/ppc-moterised/Imagegrid';
 import HeroBanner from 'components/ppc-moterised/hero';
+import ImageGallery from 'components/ppc-moterised/Grid';
 
 
 const Made_to_Measure_Curtains = async () => {
@@ -33,7 +31,7 @@ const Made_to_Measure_Curtains = async () => {
   const [products] = await Promise.all([fetchProducts()]);
     const getBlindsProducts = (filterproduct: IProduct[]) => {
       return filterproduct.filter(product =>
-        product.category?.title?.toLowerCase() === "blinds"
+        product.category?.title?.toLowerCase() === "curtains"
       );
     };
     const Products = getBlindsProducts(products || []);
@@ -58,18 +56,21 @@ const Made_to_Measure_Curtains = async () => {
     <Videoblind videos={BlindvideoData} heading="Our Recent Curtains Dubai Projects" />
     <Blindtype heading="Browse Our Top-Selling Products" />
     <BlindsTabs blindsData={BlindsTabData} tabCategories={Tab1categories} />
-    <WhyChooseUs/>
-    <ExploreBlinds data={exploreblindData[0]} />
-    <ExploreBlinds data={exploreblindData[1]} reverse />
+    <WhyChooseUs
+     paragraph="Choosing Blinds & Curtains Dubai means getting custom-made window treatments, with transparent pricing and hassle free a-z service. With over 20 years of experience, our expert team guarantees a top-notch fit.  Customer satisfaction and quality have earned us hundreds of 5-star reviews."
+     features={chooseuscurtain}
+     backgroundImage="/assets/images/ppc-blinds/chooseus.png"/>
+    <ExploreBlinds data={explorecurtainData[0]} />
+    <ExploreBlinds data={explorecurtainData[1]} reverse />
     <WorkingProcess
       title="Our Working Process"
       description="Hassle-free process from selection to installation. We make choosing and installing blinds effortless with our simple, step-by-step process."
-      data={workingProcessblindData}
+      data={workingProcesscurtainData}
     />
-      <ExploreBlinds data={consultationblindData[1]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
-      <Carousel data={blindcrousal} />
+      <ExploreBlinds data={consultationblindData[0]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
+      <Carousel data={curtaincrousal} />
       <Blindtype heading="Professional Installation Services For Your Interior" />
-      <ImageGrid title={Blindgallery.title} images={Blindgallery.images} />
+      <ImageGallery/>
       <HeroBanner/>
       <div className='bg-white'>
       <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">

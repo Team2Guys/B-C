@@ -5,7 +5,7 @@ import Bullets from './bullets'
 import LButton from './button';
 import Shop from 'components/ppc-moterised/shop';
 import FeaturesCarousel from 'components/ppc-moterised/features';
-import {banners, Blindbannerfeatures, blindcrousal, blindsData, Blindsfeatures, BlindsTabData, BlindvideoData, consultationblindData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
+import {banners, Blindbannerfeatures, blindcrousal, blindsData, Blindsfeatures, BlindsTabData, BlindvideoData, chooseusblind, consultationblindData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
 import CustomSection from 'components/ppc-moterised/customization';
 import Videoblind from 'components/ppc-moterised/videosection';
 import Blindtype from 'components/ppc-moterised/blindtype';
@@ -56,7 +56,10 @@ const Made_to_Measure_Blinds = async () => {
     <Videoblind videos={BlindvideoData} heading="Our Recent Blinds Dubai Projects" />
     <Blindtype heading="Browse Our Top-Selling Products" />
     <BlindsTabs blindsData={BlindsTabData} tabCategories={Tab1categories} />
-    <WhyChooseUs/>
+    <WhyChooseUs
+     paragraph="Why are we the leading blinds suppliers in Dubai? Unlike other companies, with British owners, we value service and satisfaction above all else. We are proud to have over twenty years of experience with seamless installation and hassle-free customer service from start to finish. Our commitment to quality and customer satisfaction has earned us 750+ 5-star reviews and the trust of countless happy customers."
+     features={chooseusblind}
+     backgroundImage="/assets/images/ppc-blinds/chooseus.png"/>
     <ExploreBlinds data={exploreblindData[0]} />
     <ExploreBlinds data={exploreblindData[1]} reverse />
     <WorkingProcess

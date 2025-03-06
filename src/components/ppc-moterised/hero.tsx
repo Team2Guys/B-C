@@ -15,14 +15,13 @@ import React from "react";
               height={500}
                 className="w-full min-h-[400px] md:h-[626px] object-cover"
             />
-            {/* Overlay Text */}
             <div className="absolute inset-0 flex items-center px-6 md:px-10">
             <div className="text-white space-y-7 max-w-md">
             <h2 className="text-xl md:text-3xl font-juana xl:text-36 font-black xl:leading-10">
             We Bring the Finest to You, In 2-3 days, Right at Your Door!
             </h2>
             <div>
-            <Link href="/request-appointment/" className="bg-primary text-black px-5 py-3 xl:text-17 font-semibold rounded-md hover:bg-opacity-90 transition">
+            <Link href="/request-appointment/" target="blank" className="bg-primary text-black px-5 py-3 xl:text-17 font-semibold rounded-md hover:bg-opacity-90 transition">
             GET A FREE QUOTE
             </Link></div>
               </div>
