@@ -3,7 +3,7 @@ import VideoSection from 'components/LandingPage/video-section'
 import React from 'react'
 import Shop from 'components/ppc-moterised/shop';
 import FeaturesCarousel from 'components/ppc-moterised/features';
-import {banners, BlindsTabData, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainimages, curtainsData, CurtainTabData, CurtainvideoData, exploreblindData, explorecurtainData, serviceLocationsData, Tab1categories, Tab2categories, workingProcessblindData, workingProcesscurtainData} from 'data/data';
+import {banners, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainImages, curtainsData, CurtainTabData, CurtainvideoData, explorecurtainData, serviceLocationsData, Tab2categories, workingProcesscurtainData} from 'data/data';
 import CustomSection from 'components/ppc-moterised/customization';
 import Videoblind from 'components/ppc-moterised/videosection';
 import Blindtype from 'components/ppc-moterised/blindtype';
@@ -70,8 +70,8 @@ const Made_to_Measure_Curtains = async () => {
     />
       <ExploreBlinds data={consultationblindData[0]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
       <Carousel data={curtaincrousal} />
-      <Blindtype heading="Professional Installation Services For Your Interior" />
-      <ImageGallery images={curtainimages} columns={4} />;
+      <Blindtype heading="Professional Installation Services For Your Interior" className='text-white' />
+      <ImageGallery images={curtainImages} columns={4} />
       <HeroBanner/>
       <div className='bg-white'>
       <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">

@@ -2645,7 +2645,7 @@ export const Blindsfeatures = [
     title: "Made To Measure",
     description:
       "Custom blinds are designed for every window size. We also specialise in large, double height windows.",
-      icon: "/assets/images/ppc-blinds/features/5.png", 
+      icon: "/assets/images/ppc-blinds/features/7.png", 
   },
   {
     title: "Free consultation & Visit",
@@ -3141,7 +3141,9 @@ export const serviceLocationsData = [
   }
 ];
 
-export const curtainimages = [
+export const gallerypara = "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.";
+
+export const curtainImages = [
   { src: "/assets/images/ppc-blinds/g8.png", width: 397, height: 301 },
   { src: "/assets/images/ppc-blinds/g10.png", width: 397, height: 466 },
   { src: "/assets/images/ppc-blinds/g13.png", width: 322, height: 241 },

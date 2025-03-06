@@ -13,7 +13,7 @@ import React from "react";
               alt="Van Left"
               width={800}
               height={500}
-                className="w-full min-h-[400px] md:h-[626px] object-cover"
+                className="w-full min-h-[400px] md:h-[626px] object-fill sm:object-cover"
             />
             <div className="absolute inset-0 flex items-center px-6 md:px-10">
             <div className="text-white space-y-7 max-w-md">

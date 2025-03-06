@@ -306,11 +306,6 @@ export interface VideoPageProps {
   width?: any;
   height?:any;
 }
-export interface WorkingProcessProps {
-  title: string;
-  description: string;
-  data: { icon: string; title: string; description: string }[];
-}
 export interface relativeProps {
   products: IProduct[];
   categoriesList?: ICategory[];
@@ -320,4 +315,8 @@ export interface relativeProps {
   description?: string;
   bgcolor?: boolean;
   isPPc?:boolean
+}
+export interface ImageGalleryProps {
+  images: ImageData[];
+  columns?: number;
 }

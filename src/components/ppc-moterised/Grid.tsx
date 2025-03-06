@@ -6,14 +6,13 @@ import Image from "next/image";
 import SelectedImage from "components/Rollerblind/BlackoutImages/tabdata/SelectedImage";
 import "../../style/gallery.css";
 import Container from "components/Res-usable/Container/Container";
-
-interface ImageData {
+import { gallerypara } from "data/data";
+export interface ImageData {
   src: string;
   width: number;
   height: number;
 }
-
-interface ImageGalleryProps {
+export interface ImageGalleryProps {
   images: ImageData[];
   columns?: number;
 }
@@ -36,7 +35,8 @@ export default function ImageGallery({ images, columns = 4 }: ImageGalleryProps)
 
   return (
     <Container>
-      <div className="p-4 my-7">
+      <div className="xl:text-20 font-proxima font-normal text-center mt-7">{gallerypara}</div>
+      <div className="px-2 mt- lg:my-7">
         <div className="row">
           {columnsData.map((column, colIndex) => (
             <div className="Gallery_column" key={colIndex}>

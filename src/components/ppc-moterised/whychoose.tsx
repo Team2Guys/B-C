@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion"; 
 import { WhyChooseUsProps } from "types/interfaces";
+import React from "react";
 
 const actionLinks = [
   {
@@ -67,7 +68,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
           </motion.p>
 
           <motion.div 
-            className="mt-10 grid grid-cols-2 md:grid-cols-5 gap-6"
+            className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
@@ -75,7 +76,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
             {features.map((feature, index) => (
               <motion.div 
                 key={index} 
-                className={`flex flex-col items-center text-center px-4 border-white border-r ${ (index + 1) % 5 === 0 ? "border-r-0" : "" }`}
+                className={`flex flex-col items-center text-center px-4 sm:border-white sm:border-r ${ (index + 1) % 5 === 0 ? "border-r-0" : "" }`}
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
@@ -93,7 +94,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
           </motion.div>
 
           <motion.div 
-            className="mt-8 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="mt-8 md:mt-14 flex flex-col sm:justify-center sm:items-center sm:flex-row sm:items-center gap-4"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
@@ -107,7 +108,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
               >
                 <Link 
                   href={link.href} target="blank"
-                  className={`flex items-center gap-2 ${link.bgColor} text-white px-6 py-3 rounded-lg`}
+                  className={`flex items-center justify-center gap-2 ${link.bgColor} text-white px-6 py-3 rounded-lg`}
                 >
                   {link.icon}
                   {link.text}

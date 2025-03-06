@@ -22,11 +22,11 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({ title, description,
           <div className="md:w-[60%] lg:w-1/2 bg-[#EBEBEB] p-6 rounded-3xl shadow-md">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {locations.map((location, index) => (
-                <div key={index} className="flex items-center bg-white border-2 border-primary rounded-full shadow-sm">
-                  <div className='p-2 xl:p-4 bg-primary rounded-full'>
-                    <MapPin className="text-white" size={18} />
+                <div key={index} className="flex justify-normal items-center bg-white border-2 border-primary rounded-full shadow-sm">
+                  <div className='p-1 xl:p-3 bg-primary rounded-full'>
+                    <MapPin className="text-white text-18 xl:text-20"  />
                   </div>
-                  <span className="text-xs xl:text-15 font-bold py-1 px-2 xl:px-3 xl:leading-6">{location}</span>
+                  <span className="text-10 xl:text-14 font-bold py-0 px-1 xs:px-2 xl:px-3 xl:leading-6">{location}</span>
                 </div>
               ))}
             </div>

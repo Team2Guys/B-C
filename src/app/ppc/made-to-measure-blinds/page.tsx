@@ -70,8 +70,8 @@ const Made_to_Measure_Blinds = async () => {
     />
       <ExploreBlinds data={consultationblindData[1]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
       <Carousel data={blindcrousal} />
-      <Blindtype heading="Professional Installation Services For Your Interior" />
-      <ImageGallery images={blindimages} columns={4} />;
+      <Blindtype heading="Professional Installation Services For Your Interior" className='text-white' />
+      <ImageGallery images={blindimages} columns={4}/>
       <HeroBanner/>
       <div className='bg-white'>
       <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">

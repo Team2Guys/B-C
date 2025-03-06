@@ -24,7 +24,7 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
 
   return (
 
-    <div className="w-full bg-white py-10">
+    <div className="w-full bg-white py-10 mt-3 sm:mt-10 xl:mt-14">
     <Container>
       <div className="flex flex-col md:flex-row gap-8 px-1">
         <div className="flex-1">
