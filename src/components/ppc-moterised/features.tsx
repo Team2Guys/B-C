@@ -84,7 +84,7 @@ const FeaturesCarousel: React.FC<FeaturesCarouselProps> = ({
                     alt={feature.title}
                     height={600}
                     width={600}
-                    className="w-8 h-8 object-contain"
+                    className="w-8 h-8 xl:h-10 xl:w-10 object-contain"
                   />
                   <h3 className="text-lg lg:text-26 font-normal font-juana">
                     {feature.title}

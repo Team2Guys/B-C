@@ -53,8 +53,9 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
                   <Image 
                     src={feature.icon} 
                     alt={feature.title} 
-                    width={40} 
-                    height={40} className="w-8 h-8 lg:h-12 lg:w-12 xl:w-11"
+                    width={800} 
+                    height={800}
+                    className={feature.className}
                   />
                   <div className="space-y-3">
                     <h3 className="text-lg xl:text-27 font-normal">{feature.title}</h3>

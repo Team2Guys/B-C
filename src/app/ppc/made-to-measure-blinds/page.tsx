@@ -5,7 +5,7 @@ import Bullets from './bullets'
 import LButton from './button';
 import Shop from 'components/ppc-moterised/shop';
 import FeaturesCarousel from 'components/ppc-moterised/features';
-import {banners, Blindbannerfeatures, blindcrousal, blindsData, Blindsfeatures, BlindsTabData, BlindvideoData, chooseusblind, consultationblindData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
+import {banners, Blindbannerfeatures, blindcrousal, blindimages, blindsData, Blindsfeatures, BlindsTabData, BlindvideoData, chooseusblind, consultationblindData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
 import CustomSection from 'components/ppc-moterised/customization';
 import Videoblind from 'components/ppc-moterised/videosection';
 import Blindtype from 'components/ppc-moterised/blindtype';
@@ -35,6 +35,7 @@ const Made_to_Measure_Blinds = async () => {
       );
     };
     const Products = getBlindsProducts(products || []);
+
   return (
     <>
     <Header/>
@@ -70,7 +71,7 @@ const Made_to_Measure_Blinds = async () => {
       <ExploreBlinds data={consultationblindData[1]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
       <Carousel data={blindcrousal} />
       <Blindtype heading="Professional Installation Services For Your Interior" />
-      <ImageGallery/>
+      <ImageGallery images={blindimages} columns={4} />;
       <HeroBanner/>
       <div className='bg-white'>
       <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">

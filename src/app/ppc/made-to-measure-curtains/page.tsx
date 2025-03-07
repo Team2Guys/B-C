@@ -3,7 +3,7 @@ import VideoSection from 'components/LandingPage/video-section'
 import React from 'react'
 import Shop from 'components/ppc-moterised/shop';
 import FeaturesCarousel from 'components/ppc-moterised/features';
-import {banners, blindcrousal, BlindsTabData, BlindvideoData, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainsData, exploreblindData, explorecurtainData, serviceLocationsData, Tab1categories, workingProcessblindData, workingProcesscurtainData} from 'data/data';
+import {banners, BlindsTabData, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainimages, curtainsData, CurtainTabData, CurtainvideoData, exploreblindData, explorecurtainData, serviceLocationsData, Tab1categories, Tab2categories, workingProcessblindData, workingProcesscurtainData} from 'data/data';
 import CustomSection from 'components/ppc-moterised/customization';
 import Videoblind from 'components/ppc-moterised/videosection';
 import Blindtype from 'components/ppc-moterised/blindtype';
@@ -35,6 +35,7 @@ const Made_to_Measure_Curtains = async () => {
       );
     };
     const Products = getBlindsProducts(products || []);
+
   return (
     <>
     <Header/>
@@ -53,9 +54,9 @@ const Made_to_Measure_Curtains = async () => {
       defaultVisibleItems={4}
     />
     <CustomSection data={curtainsData} />
-    <Videoblind videos={BlindvideoData} heading="Our Recent Curtains Dubai Projects" />
+    <Videoblind videos={CurtainvideoData} heading="Our Recent Curtains Dubai Projects" />
     <Blindtype heading="Browse Our Top-Selling Products" />
-    <BlindsTabs blindsData={BlindsTabData} tabCategories={Tab1categories} />
+    <BlindsTabs blindsData={CurtainTabData} tabCategories={Tab2categories} />
     <WhyChooseUs
      paragraph="Choosing Blinds & Curtains Dubai means getting custom-made window treatments, with transparent pricing and hassle free a-z service. With over 20 years of experience, our expert team guarantees a top-notch fit.  Customer satisfaction and quality have earned us hundreds of 5-star reviews."
      features={chooseuscurtain}
@@ -70,7 +71,7 @@ const Made_to_Measure_Curtains = async () => {
       <ExploreBlinds data={consultationblindData[0]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
       <Carousel data={curtaincrousal} />
       <Blindtype heading="Professional Installation Services For Your Interior" />
-      <ImageGallery/>
+      <ImageGallery images={curtainimages} columns={4} />;
       <HeroBanner/>
       <div className='bg-white'>
       <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">
@@ -80,7 +81,7 @@ const Made_to_Measure_Curtains = async () => {
       <ServiceLocations {...locationData} />
       <RollerReviews/>
       <div className='bg-white py-3 md:py-9'></div>
-      <Banner {...banners.Blind} />
+      <Banner {...banners.Curtain} />
       <BookingForm />
     </>
     

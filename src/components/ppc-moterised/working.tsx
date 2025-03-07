@@ -43,7 +43,7 @@ const WorkingProcess: React.FC<WorkingProcessProps> = ({ title, description, dat
             {data.map((step, index) => (
               <SwiperSlide key={index}>
                 <div className="relative bg-secondary p-6 border border-black flex flex-col items-center text-center mx-8 sm:mx-10 lg:mx-4 xl:mx-7 sm:h-[250px] xl:h-[325px] ">
-                  <Image src={step.icon} alt={step.title} width={50} height={50} />
+                  <Image src={step.icon} alt={step.title} width={50} height={50} className="xl:h-16 xl:w-16"/>
                   <h3 className="text-lg xl:text-24 font-bold mt-3 text-white">
                     {step.title}
                   </h3>
