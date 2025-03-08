@@ -296,6 +296,7 @@ export interface ExploreBlindsProps extends ExploreBlindsCurtainsProps {
   imageHeight?: string;
   hideViewMore?: boolean;
   hidefeatures?: boolean;
+  className?:string;
 }
 
 export interface VideoPageProps {

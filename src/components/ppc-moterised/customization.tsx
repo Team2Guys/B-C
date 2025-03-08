@@ -45,9 +45,9 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 px-2">
       <div className="px-4 shadow-lg border border-gray-200 p-4 rounded-md">
-      <h3 className="text-xl font-semibold mb-2">{secondaryHeading}</h3>
+      <h3 className="mb-2 text-xl font-black font-juana">{secondaryHeading}</h3>
       <p className="mb-2 lg:text-20 font-proxima font-normal">{para}</p>
-      <ul className="space-y-2"> 
+      <ul className="space-y-2 xl:pt-6"> 
     {bulletPoints.map((point, index) => (
       <li key={index} className="flex items-start gap-2">
         <RiVerifiedBadgeFill size={18} className="text-secondary text-20 md:text-[30px]" />
@@ -56,12 +56,13 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
     ))}
   </ul></div>
   <div className="px-4 shadow-lg border border-gray-200 p-4 rounded-md">
-  <h3 className="text-xl font-semibold mb-2">{subheading}</h3>
+  <h3 className="text-xl font-black font-juana mb-2">{subheading}</h3>
   <p className="mb-2 lg:text-20 font-proxima font-normal">{para1}</p>
   <ul className="space-y-2"> 
     {bulletPoints1.map((point, index) => (
       <li key={index} className="flex items-start gap-2">
-        <RiVerifiedBadgeFill size={18} className="text-secondary" />
+        <RiVerifiedBadgeFill size={18} className="text-secondary text-20 md:text-[30px]
+        " />
         <span>{point}</span>
       </li>
     ))}

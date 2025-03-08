@@ -2712,7 +2712,7 @@ export const blindsData = {
   heading: "Customisation Made Easy: Choose Blinds That Fit Your Window Size, And Interior",
   description: `
     Make your space look stylish with custom blinds, including Roller, Roman, Wooden, and Zebra blinds, as well as vertical blinds. We design these for living rooms, bedrooms, kitchens, and more with options such as blackout, dim-out, and sunscreen.`,
-  image:"/assets/images/ppc-blinds/C1.png",
+  image:"/assets/images/ppc-blinds/C1.jpeg",
   button1Text: "GET DIRECTION",
   button2Text: "WHATSAPP",
   secondaryHeading: "Select a material of your choice",
@@ -2740,7 +2740,7 @@ export const curtainsData = {
   description: `
    It's our speciality to dress up your windows the way you want. We can make custom pinch pleat curtains, triple pinch pleat curtains, pencil pleat curtains, tab top curtains, and wave curtains in blackout or sheer fabrics. We offer free home visits with samples and measurements without extra charges.
   `,
-  image:"/assets/images/ppc-blinds/B1.png",
+  image:"/assets/images/ppc-blinds/B1.jpeg",
   button1Text: "GET DIRECTION",
   button2Text: "WHATSAPP",
   secondaryHeading: "The Fabric You Love",
@@ -2791,13 +2791,13 @@ export const Curtainbannerfeatures = [
   ];
 
   export const CurtainvideoData = [
-    { src: "/assets/video/c1.mp4"
+    { src: "/assets/video/curtains.mp4"
 
     },
-    { src: "/assets/video/c2.mp4"
+    { src: "/assets/video/C1.mp4"
 
     },
-    { src: "/assets/video/c3.mp4"
+    { src: "/assets/video/C2.mp4"
 
     },
   ];
@@ -2957,7 +2957,7 @@ export const explorecurtainData = [
   {
     title: "Sheer Curtains",
     description: "With sheer curtains, natural light can fill your space and maintain privacy at the same time. Sheer curtains have something very inviting about them.",
-    image: "/assets/images/ppc-blinds/sheer.jpg",
+    image: "/assets/images/ppc-blinds/sheer1.jpeg",
     viewlink: "/curtains/made-to-measure-sheer-curtains/",
     features: [
       { icon: "/assets/images/ppc-blinds/14.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Soft Light", text: "Gently diffuses sunlight for a warm, inviting glow." },

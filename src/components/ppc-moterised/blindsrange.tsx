@@ -10,22 +10,20 @@ import { ExploreBlindsCurtainsProps, ExploreBlindsProps } from "types/types";
 const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
   data,
   reverse = false,
-  imageHeight = "709px", 
   hideViewMore = false, 
   hidefeatures= false,
 }) => {
   return (
     <section className="py-3 lg:py-6 xl:py-12 px-3 xl:px-5">
       <Container>
-        <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className={`w-full ${reverse ? "lg:order-2" : "lg:order-1"}`}>
+        <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 md:gap-8">
+          <div className={`w-full flex lg:justify-center lg:items-center ${reverse ? "lg:order-2" : "lg:order-1"}`}>
           <Image 
           src={data.image}
           alt="Blinds and Curtains" 
-          width={600} 
-          height={400} 
-          className="bg-contain w-full h-[348px] xl:h-auto"
-          style={{ height: imageHeight }}
+          width={1000} 
+          height={1000} 
+          className=" w-full sm:h-[400px] lg:h-[500px] xl:h-[635px]"
           />
           </div>
 
