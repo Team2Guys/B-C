@@ -51,7 +51,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
           transition={{ duration: 0.6 }}
         >
           <motion.h2 
-            className="text-3xl md:text-4xl xl:text-[40px] font-juana font-black"
+            className="text-3xl md:text-4xl xl:text-[40px] font-serif font-black"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -94,7 +94,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
           </motion.div>
 
           <motion.div 
-            className="mt-8 md:mt-14 flex flex-col sm:justify-center sm:items-center sm:flex-row sm:items-center gap-4"
+            className="mt-8 md:mt-14 flex flex-col sm:justify-center sm:flex-row sm:items-center gap-4"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}

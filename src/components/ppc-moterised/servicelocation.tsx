@@ -11,7 +11,7 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({ title, description,
       <Container>
         <div className='flex flex-col md:flex-row items-center justify-between pt-6 py-14 gap-7 px-2'>
           <div className="md:w-[40%] lg:w-1/2 space-y-4 sm:space-y-7">
-            <h2 className="text-2xl md:text-4xl font-black font-juana sm:leading-10">{title}</h2>
+            <h2 className="text-2xl md:text-4xl font-black font-serif sm:leading-10">{title}</h2>
             <p className="font-normal md:text-base lg:text-20">{description}</p>
             <div className='text-center md:text-left'>
               <Link href={mapLink} target='blank' className="px-6 py-3 bg-black hover:bg-primary text-white rounded-md">

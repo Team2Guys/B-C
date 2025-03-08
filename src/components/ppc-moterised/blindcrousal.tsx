@@ -50,7 +50,7 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
                 (index + 1) % 5 === 0 ? "lg:border-r-0" : ""
               }`}
             >
-              <div className="flex items-start gap-4 px-1">
+              <div className="flex justify-center items-start px-5 gap-4">
                 <Image src={item.icon} alt={item.title} width={40} height={40} className="w-10 h-10" />
                 <div>
                   <h3 className="text-lg lg:text-20 font-bold">{item.title}</h3>

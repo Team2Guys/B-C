@@ -285,6 +285,7 @@ interface BannerProps {
   linkHref: string;
   linkText: string;
   linkBgColor: string;
+  className?: string;
 }
 export interface ExploreBlindsProps extends ExploreBlindsCurtainsProps {
   imageHeights?: {

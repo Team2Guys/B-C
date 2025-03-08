@@ -103,6 +103,7 @@ export const banners = {
     linkHref: "/contact-us/",
     linkText: "Get In touch",
     linkBgColor: "bg-black",
+    className: "font-serif",
   },
   Curtain: {
     imageSrc:  "/assets/images/measure_shutter/measure_shutter.png",
@@ -110,6 +111,7 @@ export const banners = {
     linkHref: "/contact-us/",
     linkText: "Get In touch",
     linkBgColor: "bg-black",
+    className: "font-serif",
   },
 };
 

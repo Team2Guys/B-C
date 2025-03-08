@@ -5,7 +5,7 @@ import Link from "next/link";
 import Container from "components/Res-usable/Container/Container";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { ExploreBlindsCurtainsProps, ExploreBlindsProps } from "types/types";
+import { ExploreBlindsProps } from "types/types";
 
 const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
   data,
@@ -14,7 +14,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
   hidefeatures= false,
 }) => {
   return (
-    <section className="py-3 lg:py-6 xl:py-12 px-3 xl:px-5">
+    <section className="py-3 lg:py-6 xl:py-12 xl:px-5">
       <Container>
         <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 md:gap-8">
           <div className={`w-full flex lg:justify-center lg:items-center ${reverse ? "lg:order-2" : "lg:order-1"}`}>
@@ -28,7 +28,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
           </div>
 
           <div className={`2xl:w-[80%] lg:space-y-5 xl:space-y-9 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
-            <h2 className="text-2xl md:text-3xl xl:text-36 font-black font-juana leading-[43.2px]">
+            <h2 className="text-2xl md:text-3xl xl:text-36 font-black font-serif leading-[43.2px]">
               {data.title}
             </h2>
             <p className="mt-3 lg:text-20 font-normal font-proxima">
@@ -56,7 +56,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
                     className={feature.className}
                   />
                   <div className="space-y-3">
-                    <h3 className="text-lg xl:text-27 font-normal">{feature.title}</h3>
+                    <h3 className="text-lg xl:text-27 font-normal font-serif">{feature.title}</h3>
                     <p className="text-sm lg:text-base xl:text-20 font-normal leading-[30px]">{feature.text}</p>
                   </div>
                 </div>

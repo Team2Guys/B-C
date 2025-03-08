@@ -13,11 +13,11 @@ import React from "react";
               alt="Van Left"
               width={800}
               height={500}
-                className="w-full min-h-[400px] md:h-[626px] object-fill sm:object-cover"
+              className="w-full min-h-[240px] xs:min-h-[400px] md:h-[626px] object-fill sm:object-cover"
             />
             <div className="absolute inset-0 flex items-center px-6 md:px-10">
             <div className="text-white space-y-7 max-w-md">
-            <h2 className="text-xl md:text-3xl font-juana xl:text-36 font-black xl:leading-10">
+            <h2 className=" w-44 sm:w-auto text-xl md:text-3xl font-serif xl:text-36 font-black xl:leading-10">
             We Bring the Finest to You, In 2-3 days, Right at Your Door!
             </h2>
             <div>
@@ -27,7 +27,7 @@ import React from "react";
               </div>
               <Image
                src="/assets/images/ppc-blinds/vanright.png"
-                alt="Van Left"
+                alt="Van right"
                 width={800}
                 height={500}
                 className="w-full h-[626px] object-contain hidden md:block"

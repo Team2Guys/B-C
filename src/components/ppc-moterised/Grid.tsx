@@ -37,7 +37,7 @@ export default function ImageGallery({ images, columns = 4 }: ImageGalleryProps)
     <Container>
       <div className="xl:text-20 font-proxima font-normal text-center mt-7">{gallerypara}</div>
       <div className="px-2 mt- lg:my-7">
-        <div className="row">
+        <div className="row mt-5">
           {columnsData.map((column, colIndex) => (
             <div className="Gallery_column" key={colIndex}>
               {column.map((image, index) => (

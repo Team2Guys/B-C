@@ -16,18 +16,15 @@ const WorkingProcess: React.FC<WorkingProcessProps> = ({ title, description, dat
   return (
     <section className="py-12 bg-white relative">
       <Container className="!px-6">
-        {/* Title & Description */}
         <div className="sm:grid sm:grid-cols-2 flex flex-col items-center md:gap-3">
-          <h2 className="text-3xl xl:text-[48px] font-juana font-black text-black mb-8 text-center lg:text-start leading-[48px]">
+          <h2 className="text-3xl xl:text-[48px] font-serif font-black text-black mb-8 text-center lg:text-start leading-[48px]">
             {title}
           </h2>
           <p className="lg:text-20 font-normal font-proxima text-center lg:text-start leading-[26px]">
             {description}
           </p>
         </div>
-
         <div className="relative mt-7">
-          {/* Swiper Container */}
           <Swiper
             modules={[Navigation]}
             spaceBetween={20}
@@ -42,7 +39,7 @@ const WorkingProcess: React.FC<WorkingProcessProps> = ({ title, description, dat
           >
             {data.map((step, index) => (
               <SwiperSlide key={index}>
-                <div className="relative bg-secondary p-6 border border-black flex flex-col items-center text-center mx-8 sm:mx-10 lg:mx-4 xl:mx-7 sm:h-[250px] xl:h-[325px] ">
+                <div className="relative bg-secondary p-6 border border-black flex flex-col items-center text-center mx-8 sm:mx-10 lg:mx-4 xl:mx-7 sm:h-[250px] xl:h-[335px] ">
                   <Image src={step.icon} alt={step.title} width={50} height={50} className="xl:h-16 xl:w-16"/>
                   <h3 className="text-lg xl:text-24 font-bold mt-3 text-white">
                     {step.title}
@@ -60,8 +57,6 @@ const WorkingProcess: React.FC<WorkingProcessProps> = ({ title, description, dat
               </SwiperSlide>
             ))}
           </Swiper>
-
-          {/* Custom Navigation Buttons */}
           <button
             onClick={() => swiperRef.current?.slidePrev()}
             className="absolute top-[50%] transform -translate-y-1/2 z-10 

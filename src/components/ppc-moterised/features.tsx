@@ -60,7 +60,7 @@ const FeaturesCarousel: React.FC<FeaturesCarouselProps> = ({
         </h2>
       )}
       {subtitle && (
-        <h1 className="text-3xl lg:text-[35px] font-black font-juana mt-5">
+        <h1 className="text-3xl lg:text-[35px] font-black font-serif mt-5">
           {subtitle} <span className="text-white/80">Benefits</span>
         </h1>
       )}
@@ -76,7 +76,7 @@ const FeaturesCarousel: React.FC<FeaturesCarouselProps> = ({
             .map((feature, index) => (
               <div
                 key={index}
-                className="lg:h-[190px] border border-white/50 rounded-lg p-3 sm:p-5 flex flex-col justify-center items-center sm:items-start sm:justify-start mx-8 lg:mx-0"
+                className="w-full border border-white/50 rounded-lg p-3 sm:p-5 flex flex-col justify-center items-center sm:items-start sm:justify-start mx-8 lg:mx-0"
               >
                 <div className="flex justify-center items-center sm:items-start sm:text-start gap-2 sm:gap-4  text-4xl">
                   <Image
@@ -86,7 +86,7 @@ const FeaturesCarousel: React.FC<FeaturesCarouselProps> = ({
                     width={600}
                     className="w-8 h-8 xl:h-10 xl:w-10 object-contain"
                   />
-                  <h3 className="text-lg lg:text-26 font-normal font-juana">
+                  <h3 className="text-lg lg:text-26 font-normal font-serif">
                     {feature.title}
                   </h3>
                 </div>

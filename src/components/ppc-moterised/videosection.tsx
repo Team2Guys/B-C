@@ -8,7 +8,7 @@ const Videoblind: React.FC<VideoSectionProps> = ({ videos, heading }) => {
     <div className="mt-3 sm:mt-10 xl:mt-14 bg-white py-5 sm:py-10">
       <Container>
         {heading && (
-          <h2 className="font-black text-2xl lg:text-[36px] font-juana text-center px-2">
+          <h2 className="font-black text-2xl lg:text-[36px] font-serif text-center px-2">
             {heading}
           </h2>
         )}
@@ -17,7 +17,7 @@ const Videoblind: React.FC<VideoSectionProps> = ({ videos, heading }) => {
             <div key={index} className="w-full">
               <video
                 src={video.src}
-                className="w-full sm:h-[275px] rounded-md shadow-lg"
+                className="w-full h-auto rounded-md shadow-lg"
                 controls
                 autoPlay
                 muted

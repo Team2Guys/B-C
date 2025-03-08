@@ -75,7 +75,7 @@ const Made_to_Measure_Blinds = async () => {
       <HeroBanner/>
       <div className='bg-white'>
       <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">
-      <RelatedProducts products={Products} limit={4}/>
+      <RelatedProducts className='font-serif font-black' products={Products} limit={4}/>
       </Container></div>
       <Blindtype heading="LOCATION" />
       <ServiceLocations {...locationData} />

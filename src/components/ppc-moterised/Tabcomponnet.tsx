@@ -69,7 +69,7 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
                 </div>
 
                 <div className="py-4 text-start space-y-2">
-                  <Link href={`${blind.href}`}><h3 className="text-lg font-black lg:text-24 font-juana">{blind.name}</h3></Link>
+                  <Link href={`${blind.href}`}><h3 className="text-lg font-black lg:text-24 font-serif">{blind.name}</h3></Link>
                   <p className="text-sm lg:text-16 font-normal text-gray-500">Remote control options available</p>
                 </div>
               </div>

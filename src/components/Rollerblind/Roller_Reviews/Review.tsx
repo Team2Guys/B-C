@@ -27,7 +27,7 @@ const RollerReviews = () => {
     <Container>
     <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-center bg-[#F5EDE5] py-10 lg:py-0'>
       <div className='flex flex-col items-start px-6 lg:px-12'>
-        <h2 className="text-2xl md:text-4xl font-black font-juana mb-6 text-gray-900">
+        <h2 className="text-2xl md:text-4xl font-black font-serif mb-6 text-gray-900">
           Customer Feedback <br /> You Can Trust
         </h2>
         <div className='max-w-[90%] space-y-8'>
