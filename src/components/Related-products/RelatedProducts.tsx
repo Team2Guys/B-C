@@ -2,19 +2,9 @@
 import GalleryCard from 'components/Res-usable/Cards/GalleryCard';
 import RelatedProductSkeleton from 'components/Skeleton/Related-product';
 import React, { useEffect, useState } from 'react';
-import { ICategory, IProduct } from 'types/types';
+import { IProduct, relativeProps } from 'types/types'
 
-interface relativeProps {
-  products: IProduct[];
-  categoriesList?: ICategory[];
-  limit?: number;
-  className?: string;
-  title?: string;
-  description?: string;
-  bgcolor?: boolean;
-  isPPc?:boolean
-}
-const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title, description,bgcolor, isPPc,  }) => {
+const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title, description,bgcolor, isPPc,className  }) => {
   const [selectedProducts, setSelectedProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
@@ -38,11 +28,13 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title, desc
     const randomProducts = getRandomUniqueProducts([...products], safeLimit, title);
     setSelectedProducts(randomProducts);
   }, [products, limit, title]);
-
+  
   return (
     <div className='px-2 md:px-4'>
       <div className="flex items-center gap-1">
-        <h3 className="lg:text-4xl text-2xl text-nowrap">Related Products</h3>
+      <h3 className={`lg:text-4xl text-2xl text-nowrap ${className}`}>
+       Related Products
+       </h3>
         <div className="w-full border-t-[1px] border-[#BDC9BD] mt-2"></div>
       </div>
       <p className="font-normal text-12 lg:text-18 mt-2 lg:mt-4">

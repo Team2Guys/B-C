@@ -10,7 +10,7 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
     <div className={`relative w-full h-auto md:h-[397px] px-1 overflow-hidden mt-10 ${className}`}>
       <video
         className="absolute inset-0 object-cover w-full h-full"
-        src="/assets/video/home.mp4"
+        src="https://res.cloudinary.com/de6owjeap/video/upload/v1741168765/home_eqn21j.mp4"
         autoPlay
         loop
         muted

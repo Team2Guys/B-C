@@ -2,6 +2,7 @@
 import CategoryPage from 'components/CategoryPage/CategoryPage';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
+import Script from 'next/script';
 import { PRODUCS_PROPS } from 'types/interfaces';
 
 const CommercialPage = ({
@@ -9,11 +10,18 @@ const CommercialPage = ({
   filteredSubCategory,
   allprod,
   categories,
-  subCategories
+  subCategories,
+  matchedSchema
 }: PRODUCS_PROPS) => {
 
   return (
+
     <>
+       {matchedSchema && (
+        <Script type="application/ld+json" id="blinds-json-ld">
+          {JSON.stringify(matchedSchema)}
+        </Script>
+      )}
       {filteredSubCategory ? (
         <>
           {filteredSubCategory.title === 'Roller Blinds' ? (

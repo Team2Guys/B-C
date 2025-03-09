@@ -8,7 +8,7 @@ import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import Review_banner from 'components/ReviewBanner/Review_banner';
 import Banner from 'components/HomeBanner/Home_Banner';
-import { bannerData } from 'data/data';
+import { banners } from 'data/data';
 import type { Metadata } from 'next'
 import { fetchCategories, fetchProducts } from 'config/fetch';
 import Script from 'next/script';
@@ -51,7 +51,7 @@ export default async function Home() {
       <Review_banner />
       <HomeCard categories={categories} />
       <BlindsAndCurtainssection />
-      <Banner data={bannerData} />
+      <Banner {...banners.Home} />
       <FeatureProduct products={products} categories={categories} />
       <VideoAutomation />
       <Support />

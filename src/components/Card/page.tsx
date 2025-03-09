@@ -8,11 +8,14 @@ const HomeCard = ({ categories }: { categories: ICategory[] }) => {
 
   const customOrder = ['Blinds', 'Curtains', 'Shutters'];
 
-  const sortedCategories = categories?.sort((a: ICategory, b: ICategory) => {
+  const sortedCategories = categories?.filter((item)=>customOrder.includes(item.title))?.sort((a: ICategory, b: ICategory) => {
     const indexA = customOrder.indexOf(a.title);
     const indexB = customOrder.indexOf(b.title);
     return indexA - indexB;
   });
+
+
+  console.log(sortedCategories, "sortedCategories")
   return (
 
     <Container className="py-12">
