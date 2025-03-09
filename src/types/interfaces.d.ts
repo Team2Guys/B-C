@@ -399,6 +399,7 @@ export interface PRODUCS_PROPS {
   categories?: ICategory[]
   subCategories?: ICategory[]
   colorPage?: IColorData
+  matchedSchema?: any;
 }
 
 export interface EsProduct {
