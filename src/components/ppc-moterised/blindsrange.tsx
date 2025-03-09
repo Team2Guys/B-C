@@ -12,9 +12,11 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
   reverse = false,
   hideViewMore = false, 
   hidefeatures= false,
+  className,
+  buttonsClassName,
 }) => {
   return (
-    <section className="py-3 lg:py-6 xl:py-12 xl:px-5">
+    <section className="py-3 lg:py-12 xl:px-5">
       <Container>
         <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 md:gap-8">
           <div className={`w-full flex lg:justify-center lg:items-center ${reverse ? "lg:order-2" : "lg:order-1"}`}>
@@ -23,7 +25,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
           alt="Blinds and Curtains" 
           width={1000} 
           height={1000} 
-          className=" w-full sm:h-[400px] lg:h-[500px] xl:h-[635px]"
+          className={`w-full h-[350px] sm:h-[400px] lg:h-[709px] ${className}`}
           />
           </div>
 
@@ -64,7 +66,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
             </div>
              )}
 
-            <div className="mt-6 xl:mt-14 flex gap-4">
+              <div className={`mt-6 xl:mt-14 flex gap-4 ${buttonsClassName}`}>
               {data.buttonLinks.map((button, index) => (
                 <Link 
                   key={index}

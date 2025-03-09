@@ -3,7 +3,7 @@ import VideoSection from 'components/LandingPage/video-section'
 import React from 'react'
 import Shop from 'components/ppc-moterised/shop';
 import FeaturesCarousel from 'components/ppc-moterised/features';
-import {banners, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainImages, curtainsData, CurtainTabData, CurtainvideoData, explorecurtainData, serviceLocationsData, Tab2categories, workingProcesscurtainData} from 'data/data';
+import {banners, Chooseuscurtain, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainImages, curtainsData, CurtainTabData, CurtainvideoData, explorecurtainData, serviceLocationsData, Tab2categories, workingProcesscurtainData} from 'data/data';
 import CustomSection from 'components/ppc-moterised/customization';
 import Videoblind from 'components/ppc-moterised/videosection';
 import Blindtype from 'components/ppc-moterised/blindtype';
@@ -58,17 +58,13 @@ const Made_to_Measure_Curtains = async () => {
     <Blindtype heading="Browse Our Top-Selling Products" />
     <BlindsTabs blindsData={CurtainTabData} tabCategories={Tab2categories} />
     <WhyChooseUs
-     paragraph="Choosing Blinds & Curtains Dubai means getting custom-made window treatments, with transparent pricing and hassle free a-z service. With over 20 years of experience, our expert team guarantees a top-notch fit.  Customer satisfaction and quality have earned us hundreds of 5-star reviews."
+     paragraph={Chooseuscurtain.text}
      features={chooseuscurtain}
      backgroundImage="/assets/images/ppc-blinds/chooseus.png"/>
     <ExploreBlinds data={explorecurtainData[0]} />
     <ExploreBlinds data={explorecurtainData[1]} reverse />
-    <WorkingProcess
-      title="Our Working Process"
-      description="Hassle-free process from selection to installation. We make choosing and installing blinds effortless with our simple, step-by-step process."
-      data={workingProcesscurtainData}
-    />
-      <ExploreBlinds data={consultationblindData[0]} reverse  imageHeight={"xl:521px"} hideViewMore  hidefeatures/>
+    <WorkingProcess data={workingProcesscurtainData}/>
+      <ExploreBlinds data={consultationblindData[0]} reverse  className='lg:!h-[521px] xl:!h-[521px]' buttonsClassName='lg:!mt-40 xl:!mt-60' hideViewMore  hidefeatures/>
       <Carousel data={curtaincrousal} />
       <Blindtype heading="Professional Installation Services For Your Interior" className='text-white' />
       <ImageGallery images={curtainImages} columns={4} />

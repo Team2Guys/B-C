@@ -50,7 +50,8 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
       <ul className="space-y-2 xl:pt-6"> 
     {bulletPoints.map((point, index) => (
       <li key={index} className="flex items-start gap-2">
-        <RiVerifiedBadgeFill size={18} className="text-secondary text-20 md:text-[30px]" />
+        <div className="h-6 w-6">
+        <RiVerifiedBadgeFill className="text-secondary h-6 w-6"/></div>
         <span>{point}</span>
       </li>
     ))}
@@ -61,8 +62,8 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
   <ul className="space-y-2"> 
     {bulletPoints1.map((point, index) => (
       <li key={index} className="flex items-start gap-2">
-        <RiVerifiedBadgeFill size={18} className="text-secondary text-20 md:text-[30px]
-        " />
+        <div className="w-6 h-6">
+       <RiVerifiedBadgeFill size={18} className="text-secondary w-6 h-6"/></div>
         <span>{point}</span>
       </li>
     ))}

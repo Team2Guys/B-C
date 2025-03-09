@@ -2887,6 +2887,14 @@ export const CurtainTabData= [
 
 
 //whychoosedata
+export const Chooseusblind = {
+  text: "Why are we the leading blinds suppliers in Dubai? Unlike other companies, with British owners, we value service and satisfaction above all else. We are proud to have over twenty years of experience with seamless installation and hassle-free customer service from start to finish. Our commitment to quality and customer satisfaction has earned us 750+ 5-star reviews and the trust of countless happy customers."
+};
+export const Chooseuscurtain = {
+  text: "Choosing Blinds & Curtains Dubai means getting custom-made window treatments, with transparent pricing and hassle free a-z service. With over 20 years of experience, our expert team guarantees a top-notch fit.  Customer satisfaction and quality have earned us hundreds of 5-star reviews."
+};
+
+
 export const chooseusblind= [
   { text: "With a team of 50+ experts, we pay attention to detail on every project.",
     image:"/assets/images/ppc-blinds/icon1.png" },
@@ -2926,10 +2934,10 @@ export const exploreblindData = [
     image: "/assets/images/ppc-blinds/blackout.jpg",
     viewlink: "/ppc/roller-blinds/",
     features: [
-      { icon: "/assets/images/ppc-blinds/l1.png",className:"h-8 w-8 xl:h-14 xl:w-14" ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
+      { icon: "/assets/images/ppc-blinds/l1.png",className:"h-9 w-9 xl:h-14 xl:w-14" ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
       { icon: "/assets/images/ppc-blinds/p1.png",className:"h-8 w-8 xl:h-10 xl:w-10", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
       { icon: "/assets/images/ppc-blinds/e1.png",className:"h-8 w-8 xl:h-10 xl:w-10", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
-      { icon: "/assets/images/ppc-blinds/h1.png",className:"h-8 w-8 xl:h-8 xl:w-12", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
+      { icon: "/assets/images/ppc-blinds/h1.png",className:"h-7 w-8 xl:h-8 xl:w-12", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
     ],
     buttonLinks: [
       { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
@@ -3092,10 +3100,10 @@ export const blindcrousal = [
 ];
 //curtain
 export const curtaincrousal = [
-  { icon: "/assets/images/ppc-blinds/h6.png", title: "Free Home Visit", description: "We use premium quality fabrics." },
-      { icon: "/assets/images/ppc-blinds/h2.png", title: "Custom Measurements", description: "Tailored to fit your space perfectly." },
-      { icon: "/assets/images/ppc-blinds/h3.png", title: "Transparent Pricing", description: "Luxury blinds at budget-friendly rates." },
-      { icon: "/assets/images/ppc-blinds/h7.png", title: "Expert Installation", description: "Professional fitting by our team." },
+  { icon: "/assets/images/ppc-blinds/h6.png", title: "Free Home Visit", description: "We come to you with samples and expert advice, at no cost." },
+      { icon: "/assets/images/ppc-blinds/h2.png", title: "Custom Measurements", description: "Precise measuring gets you a flawless fit for your curtains." },
+      { icon: "/assets/images/ppc-blinds/h3.png", title: "Transparent Pricing", description: "Get a clear, upfront quote with no hidden fees." },
+      { icon: "/assets/images/ppc-blinds/h7.png", title: "Expert Installation", description: "Our professional team handles everything for a hassle-free setup." },
       { icon: "/assets/images/ppc-blinds/h5.png", title: "Extensive Collection", description: "There are a variety of styles, colours, as well as fabrics available." },
 ];
 

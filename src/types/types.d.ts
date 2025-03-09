@@ -268,8 +268,6 @@ export interface ExploreBlindsCurtainsProps {
   reverse?: boolean;
 }
 export interface WorkingProcessProps {
-  title: string;
-  description: string;
   data: { icon: string; title: string; description: string }[];
 }
 
@@ -288,16 +286,10 @@ interface BannerProps {
   className?: string;
 }
 export interface ExploreBlindsProps extends ExploreBlindsCurtainsProps {
-  imageHeights?: {
-    sm?: string;
-    md?: string;
-    lg?: string;
-    xl?: string;
-  };
-  imageHeight?: string;
   hideViewMore?: boolean;
   hidefeatures?: boolean;
   className?:string;
+  buttonsClassName?:string,
 }
 
 export interface VideoPageProps {

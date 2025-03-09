@@ -10,18 +10,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { WorkingProcessProps } from "types/types";
 
-const WorkingProcess: React.FC<WorkingProcessProps> = ({ title, description, data }) => {
+const WorkingProcess: React.FC<WorkingProcessProps> = ({data }) => {
   const swiperRef = useRef<any>(null);
-
   return (
     <section className="py-12 bg-white relative">
       <Container className="!px-6">
         <div className="sm:grid sm:grid-cols-2 flex flex-col items-center md:gap-3">
           <h2 className="text-3xl xl:text-[48px] font-serif font-black text-black mb-8 text-center lg:text-start leading-[48px]">
-            {title}
+          Our Working Process
           </h2>
           <p className="lg:text-20 font-normal font-proxima text-center lg:text-start leading-[26px]">
-            {description}
+          Hassle-free process from selection to installation. We make choosing and installing blinds effortless with our simple, step-by-step process.
           </p>
         </div>
         <div className="relative mt-7">
