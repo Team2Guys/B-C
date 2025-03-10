@@ -11,9 +11,6 @@ const groupitems = [
      
   },
 ];
-
-
-
 const RollerGallary = () => {
   return (
     <>

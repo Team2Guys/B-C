@@ -21,28 +21,33 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
     queryFn: fetchCategories,
   });
   
-  const getPath = (arr: IProduct, parent: string) => {
+  const getPath = (arr: IProduct, parent: string | undefined) => {
+    if (!arr || !arr.title) return '/';
+  
     const slug = ChangedProductUrl_handler(arr.title);
     const basePath =
       arr.href && parent
         ? `${window.origin}/${arr.href}`
         : `/${slug}`;
-
+        
+    const formattedParent = parent
+      ? parent.toLowerCase() === 'shutters'
+        ? `${parent.toLowerCase()}-range`
+        : parent.toLowerCase()
+      : 'products'; 
     const path =
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
         ? basePath
-        : `/${
-            parent?.toLowerCase() === 'shutters'
-              ? `${parent.toLowerCase()}-range`
-              : parent?.toLowerCase()
-          }${
-            ['dimout-roller-blinds', 'sunscreen-roller-blinds','blackout-roller-blinds'].includes(slug)
+        : `/${formattedParent}${
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
               ? '/roller-blinds'
               : ''
           }/${slug}`);
+  
     return path;
   };
+  
 
   console.log(categories, "filtered")
   return (

@@ -80,7 +80,7 @@ const curtainsTitles = [
       <Button/>
       <InstaVideoSection data={InstacurtainData}  />
       <Container className="mt-10 md:mt-20">
-      <RelatedProducts products={curtainProducts || []} limit={4} bgcolor={true} isPPc={true} description='Explore our collection, each piece a showcase of exceptional window curtains design.' />
+      <RelatedProducts className='font-serif font-black' products={curtainProducts || []} limit={4} bgcolor={true} isPPc={true} description='Explore our collection, each piece a showcase of exceptional window curtains design.' />
       </Container>
       
     </>

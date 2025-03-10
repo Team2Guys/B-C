@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/automated-curtains/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
-        alt: 'blindsandcurtains',
+        url: '/assets/images/MotorisedBlind/curtain1.png',
+        alt: 'motorized Curtains',
       },
     ],
   },

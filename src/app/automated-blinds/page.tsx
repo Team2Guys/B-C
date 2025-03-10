@@ -4,6 +4,9 @@ import { Metadata } from 'next';
 import {fetchProducts } from 'config/fetch';
 import { MoterisedContent } from 'data/data';
 import NotFound from 'app/not-found';
+import og from '../../../public/assets/images/MotorisedBlind/blind.png'
+import Script from 'next/script';
+import { schemaMap } from 'data/products-schema';
 
 export const metadata: Metadata = {
   title: 'Premium Automated Blinds in Dubai | Blinds & Curtains Dubai',
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/automated-blinds/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
+        url:og.src,
         alt: 'blindsandcurtains',
       },
     ],
@@ -34,8 +37,14 @@ const MotorisedBlinds = async () => {
   }
   const { Data } = content;
   const pageData = Data[0];
+
   return (
+    <>
+    <Script type="application/ld+json" id="blinds-json-ld">
+    {JSON.stringify(schemaMap["Automated Blinds"])}
+  </Script>
     <MotorisedPage products={products} pageData={pageData} />
+    </>
   );
 };
 export default MotorisedBlinds;

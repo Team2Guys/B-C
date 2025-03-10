@@ -10,7 +10,7 @@ const rollerSection1= [
       description:
         'Our custom-made roller blind collection is made to last and expertly fitted to make you smile. Our roller blinds are both practical and stylish, with options like blackout, sunscreen, and even translucent to suit every window in your home.',
       linkText: 'See All Collection',
-      linkHref: '/made-to-measure-blinds/',
+      linkHref: '/ppc/made-to-measure-blinds/',
     },
   ];
   
