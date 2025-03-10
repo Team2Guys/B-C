@@ -198,6 +198,7 @@ export interface AppointmentProps {
 }
 export interface PageData {
   heading: string;
+  heading1: string;
   description: string;
   image: string;
   button1Text: string;

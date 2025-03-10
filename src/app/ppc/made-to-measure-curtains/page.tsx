@@ -1,30 +1,50 @@
-import Header from 'components/LandingPage/Header'
-import VideoSection from 'components/LandingPage/video-section'
+
 import React from 'react'
-import Shop from 'components/ppc-moterised/shop';
-import FeaturesCarousel from 'components/ppc-moterised/features';
 import {banners, Chooseuscurtain, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainImages, curtainsData, CurtainTabData, CurtainvideoData, explorecurtainData, serviceLocationsData, Tab2categories, workingProcesscurtainData} from 'data/data';
-import CustomSection from 'components/ppc-moterised/customization';
-import Videoblind from 'components/ppc-moterised/videosection';
-import Blindtype from 'components/ppc-moterised/blindtype';
-import BlindsTabs from 'components/ppc-moterised/Tabcomponnet';
-import WhyChooseUs from 'components/ppc-moterised/whychoose';
-import ExploreBlinds from 'components/ppc-moterised/blindsrange';
-import WorkingProcess from 'components/ppc-moterised/working';
-import Carousel from 'components/ppc-moterised/blindcrousal';
-import Container from 'components/Res-usable/Container/Container';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
-import { IProduct } from 'types/types';
-import { fetchProducts } from 'config/fetch';
-import ServiceLocations from 'components/ppc-moterised/servicelocation';
-import RollerReviews from 'components/Rollerblind/Roller_Reviews/Review';
-import Banner from 'components/HomeBanner/Home_Banner';
-import BookingForm from 'components/ppc-moterised/Bookingform';
 import Bullets from '../made-to-measure-blinds/bullets';
 import LButton from '../made-to-measure-blinds/button';
-import HeroBanner from 'components/ppc-moterised/hero';
-import ImageGallery from 'components/ppc-moterised/Grid';
+import { IProduct } from 'types/types';
+import { fetchProducts } from 'config/fetch';
+import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 
+//Dynamic imports
+const CustomSection = dynamic(() => import('components/ppc-moterised/customization'));
+const FeaturesCarousel = dynamic(() => import('components/ppc-moterised/features'));
+const VideoSection = dynamic(() => import('components/LandingPage/video-section'));
+const Header = dynamic(() => import('components/LandingPage/Header'));
+const Videoblind = dynamic(() => import('components/ppc-moterised/videosection'));
+const Blindtype = dynamic(() => import('components/ppc-moterised/blindtype'));
+const BlindsTabs = dynamic(() => import('components/ppc-moterised/Tabcomponnet'));
+const WhyChooseUs = dynamic(() => import('components/ppc-moterised/whychoose'));
+const ExploreBlinds = dynamic(() => import('components/ppc-moterised/blindsrange'));
+const WorkingProcess = dynamic(() => import('components/ppc-moterised/working'));
+const Carousel  = dynamic(() => import('components/ppc-moterised/blindcrousal'));
+const Container = dynamic(() => import('components/Res-usable/Container/Container'));
+const RelatedProducts = dynamic(() => import('components/Related-products/RelatedProducts'));
+const ServiceLocations = dynamic(() => import('components/ppc-moterised/servicelocation'));
+const RollerReviews = dynamic(() => import('components/Rollerblind/Roller_Reviews/Review'));
+const Banner = dynamic(() => import('components/HomeBanner/Home_Banner'));
+const BookingForm = dynamic(() => import('components/ppc-moterised/Bookingform'));
+const HeroBanner = dynamic(() => import('components/ppc-moterised/hero'));
+const ImageGallery = dynamic(() => import('components/ppc-moterised/Grid'));
+const Shop = dynamic(() => import('components/ppc-moterised/shop'));
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
 
 const Made_to_Measure_Curtains = async () => {
   const locationData = serviceLocationsData[1];
@@ -64,21 +84,21 @@ const Made_to_Measure_Curtains = async () => {
     <ExploreBlinds data={explorecurtainData[0]} />
     <ExploreBlinds data={explorecurtainData[1]} reverse />
     <WorkingProcess data={workingProcesscurtainData}/>
-      <ExploreBlinds data={consultationblindData[0]} reverse  className='lg:!h-[521px] xl:!h-[521px]' buttonsClassName='lg:!mt-40 xl:!mt-60' hideViewMore  hidefeatures/>
-      <Carousel data={curtaincrousal} />
-      <Blindtype heading="Professional Installation Services For Your Interior" className='text-white' />
-      <ImageGallery images={curtainImages} columns={4} />
-      <HeroBanner/>
-      <div className='bg-white'>
-      <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">
-      <RelatedProducts className='font-serif font-black' products={Products} limit={4}/>
-      </Container></div>
-      <Blindtype heading="LOCATION" />
-      <ServiceLocations {...locationData} />
-      <RollerReviews/>
-      <div className='bg-white py-3 md:py-9'></div>
-      <Banner {...banners.Curtain} />
-      <BookingForm />
+    <ExploreBlinds data={consultationblindData[0]} reverse  className='lg:!h-[521px] xl:!h-[521px]' buttonsClassName='lg:!mt-40 xl:!mt-60' hideViewMore  hidefeatures/>
+    <Carousel data={curtaincrousal} />
+    <Blindtype heading="Professional Installation Services For Your Interior" className='text-white' />
+    <ImageGallery images={curtainImages} columns={4} />
+    <HeroBanner/>
+    <div className='bg-white'>
+    <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">
+    <RelatedProducts className='font-serif font-black' products={Products} limit={4}/>
+    </Container></div>
+    <Blindtype heading="LOCATION" />
+    <ServiceLocations {...locationData} />
+    <RollerReviews/>
+    <div className='bg-white py-3 md:py-9'></div>
+    <Banner {...banners.Curtain} />
+    <BookingForm />
     </>
     
   )

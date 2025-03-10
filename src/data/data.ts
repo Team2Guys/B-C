@@ -2711,7 +2711,8 @@ export const Curtainfeatures = [
 // customdata
 
 export const blindsData = {
-  heading: "Customisation Made Easy: Choose Blinds That Fit Your Window Size, And Interior",
+  heading: "Customisation Made Easy",
+  heading1:"Choose Blinds That Fit Your Window Size, And Interior",
   description: `
     Make your space look stylish with custom blinds, including Roller, Roman, Wooden, and Zebra blinds, as well as vertical blinds. We design these for living rooms, bedrooms, kitchens, and more with options such as blackout, dim-out, and sunscreen.`,
   image:"/assets/images/ppc-blinds/C1.jpeg",
@@ -2738,7 +2739,8 @@ export const blindsData = {
 };
 
 export const curtainsData = {
-  heading: " Customization Made Easy: Choose Curtains That Fit Your Window Size & Interior",
+  heading: " Customisation Made Easy",
+  heading1:"Choose Curtains That Fit Your Window Size & Interior",
   description: `
    It's our speciality to dress up your windows the way you want. We can make custom pinch pleat curtains, triple pinch pleat curtains, pencil pleat curtains, tab top curtains, and wave curtains in blackout or sheer fabrics. We offer free home visits with samples and measurements without extra charges.
   `,
@@ -2819,7 +2821,7 @@ export const Tab1categories = [
 export const BlindsTabData= [
     { id: 1, name: "3D Blinds", image: "/assets/images/bytype/3d-blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/3d-blinds/" },
     { id: 2, name: "Aluminium Blinds", image: "/assets/images/bytype/Aluminium-Blinds.webp", category: "type",href:"https://blindsandcurtains.ae/blinds/aluminium-venetian-blinds-dubai/" },
-    { id: 3, name: "DayNight Blinds", image: "/assets/images/bytype/DayNight-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/duplex-blinds/" },                    
+    { id: 3, name: "Day/Night Blinds", image: "/assets/images/bytype/DayNight-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/duplex-blinds/" },                    
     { id: 4, name: "Eton Blinds", image: "/assets/images/bytype/Eton-Blinds.webp", category: "type" ,href:"https://blindsandcurtains.ae/blinds/eton-blinds/"},
     { id: 5, name: "Honeycomb Blinds", image: "/assets/images/bytype/Honeycomb-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/colby-honeycomb-blinds/"},
     { id: 6, name: "Panel Blinds", image: "/assets/images/bytype/Panel-Blinds.webp", category: "type",href:"https://blindsandcurtains.ae/blinds/panel-blinds/" },
@@ -2909,15 +2911,19 @@ export const chooseusblind= [
 ];
 export const chooseuscurtain= [
   { text: "Dedicated team of 50+ Experts",
-    image:"/assets/images/ppc-blinds/icon6.png" },
+    image:"/assets/images/ppc-blinds/icon6.png", className:"xl:!h-12 xl:!w-12" },
+
   { text: "High-Quality In-House Production",
     image:"/assets/images/ppc-blinds/icon7.png" },
+
   { text: "Free home visits/free installation", 
-    image:"/assets/images/ppc-blinds/icon8.png"},
+    image:"/assets/images/ppc-blinds/icon8.png", className:"xl:h-11 xl:w-11"},
+
   { text: "Quick installation, and a 10-year warranty",
-  image:"/assets/images/ppc-blinds/icon9.png" },
+  image:"/assets/images/ppc-blinds/icon9.png" ,className:"xl:h-12 xl:w-12"},
+
   { text: "750+ 5-star reviews and counting",
-  image:"/assets/images/ppc-blinds/icon10.png" },
+  image:"/assets/images/ppc-blinds/icon10.png",className:"xl:h-12 xl:w-20" },
 ];
 
 

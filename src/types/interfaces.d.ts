@@ -468,6 +468,7 @@ interface GalleryProps {
 interface Feature {
   image: string;
   text: string;
+  className?:string;
 }
 export interface WhyChooseUsProps {
   paragraph: string;

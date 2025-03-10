@@ -69,9 +69,17 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
                 </div>
 
                 <div className="py-4 text-start space-y-2">
-                  <Link href={`${blind.href}`}><h3 className="text-lg font-black lg:text-24 font-serif">{blind.name}</h3></Link>
-                  <p className="text-sm lg:text-16 font-normal text-gray-500">Remote control options available</p>
-                </div>
+                <Link href={`${blind.href}`}>
+                <h3 className="text-lg font-black lg:text-24 font-serif">{blind.name}</h3>
+                </Link>
+
+                {["Roller Blinds", "Wooden Blinds", "Roman Blinds", "Day/Night Blinds","Triple Pinch Pleat Curtains","Double Pinch Pleat Curtains","Pencil Pleat Curtains","Ripplefold/Wave Curtains"].includes(blind.name) && (
+                <p className="text-sm lg:text-16 font-normal text-gray-500">
+                 Remote control options available
+                </p>
+                )}
+              </div>
+
               </div>
             ))}
           </div>

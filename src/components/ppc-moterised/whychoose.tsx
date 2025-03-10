@@ -18,7 +18,7 @@ const actionLinks = [
   },
   {
     href: "tel:+971544945339",
-    text: "+971544945339",
+    text: "CALL US",
     icon: <IoCallOutline size={20} />,
     bgColor: "bg-primary",
   },
@@ -30,7 +30,7 @@ const actionLinks = [
   },
 ];
 
-const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgroundImage }) => {
+const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgroundImage}) => {
   return (
     <section className="relative bg-cover bg-center text-white py-16 px-6">
       <div className="absolute inset-0">
@@ -81,13 +81,14 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
               >
-                <Image 
-                  src={feature.image} 
-                  height={56} 
-                  width={56} 
-                  alt="image" 
-                  className="w-14 h-14 object-contain"
-                />
+               <Image 
+               src={feature.image} 
+               alt="image" 
+               width={100}
+               height={100}
+               className={`object-contain w-14 h-14 ${feature.className || ""}`}
+               />
+
                 <p className="text-sm lg:text-20 font-bold leading-7 mt-2">{feature.text}</p>
               </motion.div>
             ))}
