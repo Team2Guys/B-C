@@ -35,7 +35,7 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
           breakpoints={{
             640: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
+            1280: { slidesPerView: 4 },
           }}
           navigation={{
             prevEl: "#prevBtn",
@@ -46,7 +46,7 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
           {data.map((item, index) => (
             <SwiperSlide
               key={index}
-              className={`flex flex-col items-center lg:border-black lg:border-r px-5 lg:px-0 ${
+              className={`flex flex-col items-center lg:border-black lg:border-r !min-h-32 px-5 lg:px-0 ${
                 (index + 1) % 5 === 0 ? "lg:border-r-0" : ""
               }`}
             >

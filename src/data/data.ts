@@ -2940,10 +2940,10 @@ export const exploreblindData = [
     image: "/assets/images/ppc-blinds/blackout.jpg",
     viewlink: "/ppc/roller-blinds/",
     features: [
-      { icon: "/assets/images/ppc-blinds/l1.png", className:"h-9 w-9 xl:h-14 xl:w-14 " ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
-      { icon: "/assets/images/ppc-blinds/p1.png",className:"h-8 w-8 xl:h-10 xl:w-10", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
-      { icon: "/assets/images/ppc-blinds/e1.png",className:"h-8 w-8 xl:h-10 xl:w-10", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
-      { icon: "/assets/images/ppc-blinds/h1.png",className:"h-7 w-8 xl:h-8 xl:w-10", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
+      { icon: "/assets/images/ppc-blinds/l1.png", className:"h-9 w-9 lg:h-16 lg:w-14 " ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
+      { icon: "/assets/images/ppc-blinds/p1.png",className:"h-10 w-24 lg:h-16 lg:w-36", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
+      { icon: "/assets/images/ppc-blinds/e1.png",className:"h-7 w-7 lg:h-11 lg:w-11", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
+      { icon: "/assets/images/ppc-blinds/h1.png",className:"h-8 w-8 sm:h-10 sm:w-20 lg:h-11 lg:w-24", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
     ],
     buttonLinks: [
       { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
@@ -2956,10 +2956,10 @@ export const exploreblindData = [
     image: "/assets/images/ppc-blinds/sunscreen.jpg",
     viewlink: "/ppc/roller-blinds/",
     features: [
-      { icon: "/assets/images/ppc-blinds/u1.png",className:"h-8 w-8 xl:h-10 xl:w-10",  title: "UV Protection", text: "Blocks up to 98% of harmful rays for protection." },
-      { icon: "/assets/images/ppc-blinds/glare.png", className:"h-8 w-8 xl:h-10 xl:w-12", title: "Glare Reduction", text: "Enjoy natural light without eye strain or screen glare." },
-      { icon: "/assets/images/ppc-blinds/heat.png", className:"h-8 w-8 xl:h-10 xl:w-10", title: "Heat Control", text: "Keeps rooms cooler by filtering harsh sunlight." },
-      { icon: "/assets/images/ppc-blinds/stylish.png", className:"h-8 w-8 xl:h-10 xl:w-10", title: "Stylish & Functional", text: "Sleek designs that enhance any modern space." },
+      { icon: "/assets/images/ppc-blinds/u1.png",className:"h-8 w-8 lg:h-10 lg:w-10",  title: "UV Protection", text: "Blocks up to 98% of harmful rays for protection." },
+      { icon: "/assets/images/ppc-blinds/glare.png", className:"h-8 w-8 lg:h-10 lg:w-12", title: "Glare Reduction", text: "Enjoy natural light without eye strain or screen glare." },
+      { icon: "/assets/images/ppc-blinds/heat.png", className:"h-8 w-8 lg:h-14 lg:w-10", title: "Heat Control", text: "Keeps rooms cooler by filtering harsh sunlight." },
+      { icon: "/assets/images/ppc-blinds/stylish.png", className:"h-8 w-8 lg:h-10 lg:w-10", title: "Stylish & Functional", text: "Sleek designs that enhance any modern space." },
     ],
     buttonLinks: [
       { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
