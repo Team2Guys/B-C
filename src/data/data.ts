@@ -2783,25 +2783,25 @@ export const Curtainbannerfeatures = [
 ];
   // 
  export const BlindvideoData = [
-    { src: "/assets/video/b1.mp4"
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675361/b1_xea6e8.mp4"
 
     },
-    { src: "/assets/video/b2.mp4"
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675385/b2_ptvbgq.mp4"
 
     },
-    { src: "/assets/video/b3.mp4"
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675421/b3_z55dyu.mp4"
 
     },
   ];
 
   export const CurtainvideoData = [
-    { src: "/assets/video/curtains.mp4"
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675330/curtains_pimxt2.mp4"
 
     },
-    { src: "/assets/video/C1.mp4"
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675186/C1_ybhdi1.mp4"
 
     },
-    { src: "/assets/video/C2.mp4"
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675260/C2_dudbtk.mp4"
 
     },
   ];
