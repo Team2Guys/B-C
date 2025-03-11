@@ -61,7 +61,7 @@ const FeaturesCarousel: React.FC<FeaturesCarouselProps> = ({
       )}
       {subtitle && (
         <h1 className="text-3xl lg:text-[35px] font-black font-serif mt-5">
-          {subtitle} <span className="text-white/80">Benefits</span>
+          {subtitle} <span className="text-white/80">& Benefits</span>
         </h1>
       )}
     

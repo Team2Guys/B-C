@@ -50,14 +50,16 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
             <div className="grid grid-cols-2 gap-6 mt-6">
               {data.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3 lg:gap-5">
+                  <div className="w-[15%]">
                   <Image 
                     src={feature.icon} 
                     alt={feature.title} 
                     width={800} 
                     height={800}
-                    className={feature.className}
+                    className={`${feature.className} object-contain`}
                   />
-                  <div className="space-y-3">
+                    </div>
+                  <div className="space-y-3 w-[85%]">
                     <h3 className="text-lg xl:text-27 font-normal font-serif">{feature.title}</h3>
                     <p className="text-sm lg:text-base xl:text-20 font-normal leading-[30px]">{feature.text}</p>
                   </div>

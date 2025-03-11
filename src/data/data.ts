@@ -2940,13 +2940,13 @@ export const exploreblindData = [
     image: "/assets/images/ppc-blinds/blackout.jpg",
     viewlink: "/ppc/roller-blinds/",
     features: [
-      { icon: "/assets/images/ppc-blinds/l1.png",className:"h-9 w-9 xl:h-14 xl:w-14" ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
+      { icon: "/assets/images/ppc-blinds/l1.png", className:"h-9 w-9 xl:h-14 xl:w-14 " ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
       { icon: "/assets/images/ppc-blinds/p1.png",className:"h-8 w-8 xl:h-10 xl:w-10", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
       { icon: "/assets/images/ppc-blinds/e1.png",className:"h-8 w-8 xl:h-10 xl:w-10", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
-      { icon: "/assets/images/ppc-blinds/h1.png",className:"h-7 w-8 xl:h-8 xl:w-12", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
+      { icon: "/assets/images/ppc-blinds/h1.png",className:"h-7 w-8 xl:h-8 xl:w-10", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
     ],
     buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
       { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
     ],
   },
@@ -2962,7 +2962,7 @@ export const exploreblindData = [
       { icon: "/assets/images/ppc-blinds/stylish.png", className:"h-8 w-8 xl:h-10 xl:w-10", title: "Stylish & Functional", text: "Sleek designs that enhance any modern space." },
     ],
     buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
       { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
     ],
   },
@@ -2982,7 +2982,7 @@ export const explorecurtainData = [
       { icon: "/assets/images/ppc-blinds/11.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Layering Option", text: "Pairs beautifully with blackout curtains for that luxury finish." },
     ],
     buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
       { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
     ],
   },
@@ -2998,7 +2998,7 @@ export const explorecurtainData = [
       { icon: "/assets/images/ppc-blinds/13.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Privacy & Comfort", text: "Gives you complete privacy night and day." },
     ],
     buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
       { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
     ],
   },
@@ -3074,7 +3074,7 @@ export const consultationblindData = [
       { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Extensive Collection", text: "There are a variety of styles, colours, as well as fabrics available." },
     ],
     buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
       { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
     ],
   },
@@ -3090,7 +3090,7 @@ export const consultationblindData = [
       { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
     ],
     buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK AN APPOINTMENT" },
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
       { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
     ],
   },

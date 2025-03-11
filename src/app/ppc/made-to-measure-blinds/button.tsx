@@ -7,7 +7,7 @@ const LButton = () => {
   return (
     <div className='w-full flex flex-wrap sm:flex-nowrap justify-start items-start gap-2'>
     <Link className='w-full sm:w-fit text-sm sm:text-17 text-white text-center bg-black py-3 px-4 rounded-sm font-medium hover:bg-primary' href="/request-appointment/">
-    BOOK AN APPOINTMENT
+    BOOK A FREE APPOINTMENT
     </Link>
     <Link className='w-full flex justify-center items-center  sm:w-fit text-sm sm:text-17 text-center bg-secondary px-4 py-3 rounded-sm font-medium hover:bg-primary text-white' href="tel:+971544945339" target='_blank'>
     <IoCallOutline size={20} />CALL US
