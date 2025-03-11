@@ -14,7 +14,7 @@ const LButton = () => {
     </Link>
     <Link className='w-full sm:gap-1 text-sm sm:text-17 sm:w-fit flex justify-center items-center text-white  bg-green-500 py-3 px-4 rounded-sm font-medium hover:bg-primary' href="https://wa.me/+971544945339" target='_blank'>
     <FaWhatsapp size={20} />
-    WATSAPP </Link>
+    WHATSAPP </Link>
    </div>
   )
 }
