@@ -84,7 +84,7 @@ const Made_to_Measure_Curtains = async () => {
     <ExploreBlinds data={explorecurtainData[0]} />
     <ExploreBlinds data={explorecurtainData[1]} reverse />
     <WorkingProcess data={workingProcesscurtainData}/>
-    <ExploreBlinds data={consultationblindData[0]} reverse  className='lg:!h-[521px] xl:!h-[521px]' buttonsClassName='lg:!mt-40 xl:!mt-60' hideViewMore  hidefeatures/>
+    <ExploreBlinds data={consultationblindData[0]} reverse  className='lg:!h-[370px] xl:!h-[370px]' buttonsClassName='xl:!mt-20' hideViewMore  hidefeatures/>
     <Carousel data={curtaincrousal} />
     <Blindtype heading="Professional Installation Services For Your Interior" className='text-white' />
     <ImageGallery images={curtainImages} columns={4} />
