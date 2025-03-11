@@ -60,7 +60,7 @@ const Made_to_Measure_Curtains = async () => {
     <>
     <Header/>
     <VideoSection 
-       videoSrc="/assets/video/curtains.mp4"
+       videoSrc="https://res.cloudinary.com/drqv25wjx/video/upload/v1741675330/curtains_pimxt2.mp4"
        title="Fastest, Made-To-Measure Curtain Service In Dubai"
        subtitle={<Bullets features={Curtainbannerfeatures}/>}
        description={<LButton/>}
