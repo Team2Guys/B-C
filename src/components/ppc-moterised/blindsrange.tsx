@@ -29,7 +29,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
           />
           </div>
 
-          <div className={`2xl:w-[85%] space-y-3 mt-3 md:mt-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
+          <div className={`2xl:w-[85%] space-y-3 xl:space-y-9 mt-3 md:mt-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
             <h2 className="text-2xl xl:text-36 w- font-black font-serif xl:leading-[43.2px]">
               {data.title}
             </h2>
@@ -70,7 +70,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
             </div>
              )}
 
-              <div className={`mt-6 lg:!mt-8 xl:!mt-14 flex gap-4 ${buttonsClassName}`}>
+              <div className={`mt-6 lg:!mt-14 xl:!mt-20 flex gap-4 ${buttonsClassName}`}>
               {data.buttonLinks.map((button, index) => (
                 <Link 
                   key={index}
