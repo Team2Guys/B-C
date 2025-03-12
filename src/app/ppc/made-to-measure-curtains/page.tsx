@@ -3,8 +3,6 @@ import React from 'react'
 import {banners, Chooseuscurtain, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainImages, curtainsData, CurtainTabData, CurtainvideoData, explorecurtainData, serviceLocationsData, Tab2categories, workingProcesscurtainData} from 'data/data';
 import Bullets from '../made-to-measure-blinds/bullets';
 import LButton from '../made-to-measure-blinds/button';
-import { IProduct } from 'types/types';
-import { fetchProducts } from 'config/fetch';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
@@ -20,8 +18,6 @@ const WhyChooseUs = dynamic(() => import('components/ppc-moterised/whychoose'));
 const ExploreBlinds = dynamic(() => import('components/ppc-moterised/blindsrange'));
 const WorkingProcess = dynamic(() => import('components/ppc-moterised/working'));
 const Carousel  = dynamic(() => import('components/ppc-moterised/blindcrousal'));
-const Container = dynamic(() => import('components/Res-usable/Container/Container'));
-const RelatedProducts = dynamic(() => import('components/Related-products/RelatedProducts'));
 const ServiceLocations = dynamic(() => import('components/ppc-moterised/servicelocation'));
 const RollerReviews = dynamic(() => import('components/Rollerblind/Roller_Reviews/Review'));
 const Banner = dynamic(() => import('components/HomeBanner/Home_Banner'));
@@ -48,14 +44,6 @@ export const metadata: Metadata = {
 
 const Made_to_Measure_Curtains = async () => {
   const locationData = serviceLocationsData[1];
-  const [products] = await Promise.all([fetchProducts()]);
-    const getBlindsProducts = (filterproduct: IProduct[]) => {
-      return filterproduct.filter(product =>
-        product.category?.title?.toLowerCase() === "curtains"
-      );
-    };
-    const Products = getBlindsProducts(products || []);
-
   return (
     <>
     <Header/>
@@ -89,16 +77,14 @@ const Made_to_Measure_Curtains = async () => {
     <Blindtype heading="Professional Installation Services For Your Interior" className='text-white' />
     <ImageGallery images={curtainImages} columns={4} />
     <HeroBanner/>
-    <div className='bg-white'>
-    <Container className="lg:mt-10 my-5 lg:mb-14 py-5 md:py-10 bg-white">
-    <RelatedProducts className='font-serif font-black' products={Products} limit={4}/>
-    </Container></div>
     <Blindtype heading="LOCATION" />
     <ServiceLocations {...locationData} />
     <RollerReviews/>
     <div className='bg-white py-3 md:py-9'></div>
     <Banner {...banners.Curtain} />
+    <div id="booking-form">
     <BookingForm />
+    </div>
     </>
     
   )

@@ -34,7 +34,7 @@ const RollerReviews = () => {
           <Link href='https://maps.app.goo.gl/9rgRcp86AAP9K8Hw8' target='blank'>
             <div className='bg-white w-fit h-fit rounded-full shadow-lg py-3 px-4 flex justify-center items-center gap-3'>
               <FcGoogle className='h-[27.22px] w-[28.57px]' />
-              <p className='text-16 font-bold'>4.8 | <span className='font-normal'>See all reviews</span></p>
+              <p className='text-16 font-bold'>4.9 | <span className='font-normal'>See all reviews</span></p>
             </div>
           </Link>   
           <div className='w-full max-w-md mx-auto'>
@@ -62,7 +62,6 @@ const RollerReviews = () => {
                   <div className='bg-white px-4 py-5 max-w-96 mx-auto rounded-lg shadow-lg'>
                     <div className='flex justify-between items-center'>
                       <h3 className='text-17 md:text-lg font-medium'>{testimonial.author_name}</h3>
-                      <p className='text-xs text-gray-500'>{testimonial.time}</p>
                     </div>
                     <p className='flex gap-1 text-yellow-500 mb-3 text-sm'>
                       {[...Array(testimonial.rating)].map((_, i) => (

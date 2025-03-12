@@ -28,6 +28,13 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
     }
   };
 
+  const scrollToBookingForm = () => {
+    const formElement = document.getElementById("booking-form");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="bg-white">
       <Container>
@@ -58,21 +65,21 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
                 <Image src={blind.image} alt={blind.name} height={500} width={500} className="w-full h-[348px] object-cover" />
                 <div className="flex justify-center items-center">
                   <div className="absolute bottom-8">
-                    <Link
-                      href="/request-appointment/"
-                      className="px-7 py-3 bg-black font-semibold font-proxima border border-white shadow-md text-white rounded-full lg:text-sm xl:text-20"
-                    >
-                      REQUEST A QUOTE
-                    </Link>
+                  <button
+                  onClick={scrollToBookingForm}
+                  className="px-7 py-3 bg-black font-semibold font-proxima border border-white shadow-md text-white rounded-full lg:text-sm xl:text-20"
+                >
+                  REQUEST A QUOTE
+                </button>
                   </div>
                   </div>
                 </div>
 
-                <div className="py-4 text-start space-y-2">
+                <div className="py-4 flex flex-col justify-center items-center space-y-2">
                 <Link href={`${blind.href}`}>
-               <h3 className="text-lg font-black lg:text-24 font-serif">{blind.name}</h3>
+               <h3 className="text-center text-lg font-black lg:text-24 font-serif">{blind.name}</h3>
               </Link>
-              <p className="text-sm lg:text-16 font-normal text-gray-500">
+              <p className="text-center text-sm lg:text-16 font-normal text-gray-500">
               {["Roller Blinds", "Wooden Blinds", "Roman Blinds", "Day/Night Blinds", "Triple Pinch Pleat Curtains", "Double Pinch Pleat Curtains", "Pencil Pleat Curtains", "Ripplefold/Wave Curtains"].includes(blind.name)
                ? "Remote control options available"
                : "Custom options available"}
