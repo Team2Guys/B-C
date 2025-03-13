@@ -47,6 +47,7 @@ const Made_to_Measure_Curtains = async () => {
   return (
     <>
     <Header/>
+    <div id="Main">
     <VideoSection 
        videoSrc="https://res.cloudinary.com/drqv25wjx/video/upload/v1741675330/curtains_pimxt2.mp4"
        title="Fastest, Made-To-Measure Curtain Service In Dubai"
@@ -54,6 +55,7 @@ const Made_to_Measure_Curtains = async () => {
        description={<LButton/>}
        width='w-[500px] sm:w-[630px] md:w-[715px] lg:w-[850px] 2xl:w-[990px]'
        height="h-[700px] sm:h-[681px]"/>
+       </div>
       <Shop/>
       <FeaturesCarousel
       title="What Do Blinds & Curtains Offer You?"
@@ -68,18 +70,18 @@ const Made_to_Measure_Curtains = async () => {
     <WhyChooseUs
      paragraph={Chooseuscurtain.text}
      features={chooseuscurtain}
-     backgroundImage="/assets/images/ppc-blinds/chooseus.png"/>
+     backgroundImage="https://res.cloudinary.com/drqv25wjx/image/upload/v1741847309/chooseus_ptz9id.png"/>
     <ExploreBlinds data={explorecurtainData[0]} />
     <ExploreBlinds data={explorecurtainData[1]} reverse />
     <WorkingProcess data={workingProcesscurtainData}/>
-    <ExploreBlinds data={consultationblindData[0]} reverse  className='lg:!h-[370px] xl:!h-[370px]' buttonsClassName='xl:!mt-20' hideViewMore  hidefeatures/>
+    <ExploreBlinds data={consultationblindData[0]} reverse  className='h-auto lg:!h-[370px] xl:!h-[370px]' buttonsClassName='xl:!mt-20' hideViewMore  hidefeatures/>
     <Carousel data={curtaincrousal} />
     <Blindtype heading="Professional Installation Services For Your Interior" className='text-white' />
     <ImageGallery images={curtainImages} columns={4} />
     <HeroBanner/>
     <Blindtype heading="LOCATION" />
     <ServiceLocations {...locationData} />
-    <RollerReviews/>
+    <RollerReviews imageSrc='https://res.cloudinary.com/drqv25wjx/image/upload/v1741862801/curtains_d7k1fd.jpg'/>
     <div className='bg-white py-3 md:py-9'></div>
     <Banner {...banners.Curtain} />
     <div id="booking-form">

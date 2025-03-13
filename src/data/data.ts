@@ -98,7 +98,7 @@ export const banners = {
     linkBgColor: "bg-secondary",
   },
   Blind: {
-    imageSrc:  "/assets/images/measure_shutter/measure_shutter.png",
+    imageSrc:  "https://res.cloudinary.com/drqv25wjx/image/upload/v1741856043/blind_ttxdyn.png",
     paraText: " Let's Measure, Select, Quote and Fit in a Few Easy Steps. ",
     linkHref: "/contact-us/",
     linkText: "Get In touch",
@@ -106,7 +106,7 @@ export const banners = {
     className: "font-serif",
   },
   Curtain: {
-    imageSrc:  "/assets/images/measure_shutter/measure_shutter.png",
+    imageSrc:  "https://res.cloudinary.com/drqv25wjx/image/upload/v1741856069/curtain_q8wpxn.png",
     paraText: "Let's Measure, Select, Quote and Fit in a few easy steps.",
     linkHref: "/contact-us/",
     linkText: "Get In touch",
@@ -968,7 +968,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-blinds',
     content: {
       heading: 'Made to Measure Blinds',
-      src: '/assets/video/mainblinds.mp4',
+      src: 'https://res.cloudinary.com/drqv25wjx/video/upload/v1741848607/blinds1_cdiar8.mp4',
       paragraph:
         'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
       subheading1: 'Custom Window Blinds ',
@@ -994,7 +994,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-curtains',
     content: {
       heading: 'Made to Measure Curtains',
-      src: '/assets/video/curtains.mp4',
+      src: 'https://res.cloudinary.com/drqv25wjx/video/upload/v1741675330/curtains_pimxt2.mp4',
       paragraph:
         '1000s of colour and style choices—voiles, velvets, silks, and plain textured fabrics. Get curtains installed in your Dubai home or office, with free consultation, quick installation, and 5-year warranty.',
       subheading1: 'Custom Window Curtains ',
@@ -2624,19 +2624,19 @@ export const GallaryData2 =[ {
 // ppc-made-to-measure-blinds
 export const ShopItems = [
   {
-    imgUrl: "/assets/images/ppc-blinds/image4.png",
+    imgUrl: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847035/image2_cf6cfz.webp",
     text: "Blinds",
   },
   {
-    imgUrl: "/assets/images/ppc-blinds/image1.png",
+    imgUrl: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741846972/image1_vr75uq.png",
     text: "Curtains",
   },
   {
-    imgUrl: "/assets/images/ppc-blinds/image3.png",
+    imgUrl: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847067/image3_vrxafy.webp",
     text: "Shutters",
   },
   {
-    imgUrl: "/assets/images/ppc-blinds/image2.png",
+    imgUrl: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741855859/image4_wwiom9.png",
     text: "Motorised",
   },
 ];
@@ -2721,20 +2721,20 @@ export const blindsData = {
   secondaryHeading: "Select a material of your choice",
   para:"Whether you want total darkness for a peaceful night, a soft glow for cosy afternoons, or gentle sunlight without heat, we’ve got the perfect fabric for you.",
   subheading: "Choose a style that suits you",
-  para1:"Whether you love the clean and simple look of roller blinds, the soft elegance of Roman folds, or the natural feel of wooden blinds, we make sure every detail is just right.",
+  para1:"Whether you love clean and simple look of roller blinds, soft elegance of Roman folds, or the natural feel of wooden blinds, we make sure every detail is right.",
   bulletPoints: [
-    "Blackout Blinds – Sleep better with zero light penetration through the material.",
-    "Dimout Blinds – Enjoy diffused light without the harsh glare.",
-    "Sunscreen Blinds – Let the view  in while keeping out harmful UV rays.",
-    "Keeps You Comfortable – Helps keep rooms cool in summer, and warm in winter.",
-    "Made to Last – High-quality fabrics that stay beautiful for years."
+    "Blackout Blinds – Zero light penetration through the material.",
+    "Dimout Blinds – Diffused light without harsh glare.",
+    "Sunscreen Blinds – Keep out harmful UV rays.",
+    "Helps keep rooms cool in summer, and warm in winter.",
+    "High-quality fabrics that stay beautiful for years."
   ],
   bulletPoints1: [
     "Roller Blinds – Simple, stylish, and convenient.",
-    "Roman Blinds – Soft folds for a timeless, elegant touch.",
-    "Wooden & Aluminum Venetian Blinds – Natural, classic, and full of character.",
+    "Roman Blinds – Soft folds for a timeless touch.",
+    "Wooden & Aluminum Venetian Blinds – Natural and classic.",
     "Vertical Blinds – Perfect for large windows and patio doors.",
-    " Zebra Blinds or Day/Night Blinds – A mix of sheer and solid for flexible light control.",
+    "Zebra Blinds – For flexible light control.",
   ],
 };
 
@@ -2744,7 +2744,7 @@ export const curtainsData = {
   description: `
    It's our speciality to dress up your windows the way you want. We can make custom pinch pleat curtains, triple pinch pleat curtains, pencil pleat curtains, tab top curtains, and wave curtains in blackout or sheer fabrics. We offer free home visits with samples and measurements without extra charges.
   `,
-  image:"/assets/images/ppc-blinds/B1.jpeg",
+  image:"https://res.cloudinary.com/drqv25wjx/image/upload/v1741856520/sheer_lk2wt9.png",
   button1Text: "GET DIRECTION",
   button2Text: "WHATSAPP",
   secondaryHeading: "The Fabric You Love",
@@ -2819,21 +2819,22 @@ export const Tab1categories = [
   ];
 
 export const BlindsTabData= [
-    { id: 1, name: "3D Blinds", image: "/assets/images/bytype/3d-blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/3d-blinds/" },
+   
+    { id: 8, name: "Roller Blinds", image: "/assets/images/bytype/Roller-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/ppc/roller-blinds/" },
+    { id: 9, name: "Roman Blinds", image: "/assets/images/bytype/Roman-Blinds.webp", category: "type" ,href:"https://blindsandcurtains.ae/blinds/roman-blinds/"},
+    { id: 12,name: "Vertical Blindss", image: "/assets/images/bytype/Vertical-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/vertical-blinds/" },
+    { id: 14, name: "Zebra Blinds", image: "/assets/images/bytype/Zebra-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/zebra-blinds/" },
+    { id: 13, name: "Wooden Blinds", image: "/assets/images/bytype/Wooden-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/wooden-venetian/" },
     { id: 2, name: "Aluminium Blinds", image: "/assets/images/bytype/Aluminium-Blinds.webp", category: "type",href:"https://blindsandcurtains.ae/blinds/aluminium-venetian-blinds-dubai/" },
+    { id: 15, name: "Zipline-Outdoor Blinds", image: "/assets/images/bytype/Zipline-Outdoor-Blinds.webp", category: "type" , href:"https://blindsandcurtains.ae/blinds/zipline-blinds/"},
+    { id: 6, name: "Panel Blinds", image: "/assets/images/bytype/Panel-Blinds.webp", category: "type",href:"https://blindsandcurtains.ae/blinds/panel-blinds/" },
+    { id: 1, name: "3D Blinds", image: "/assets/images/bytype/3d-blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/3d-blinds/" },
     { id: 3, name: "Day/Night Blinds", image: "/assets/images/bytype/DayNight-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/duplex-blinds/" },                    
     { id: 4, name: "Eton Blinds", image: "/assets/images/bytype/Eton-Blinds.webp", category: "type" ,href:"https://blindsandcurtains.ae/blinds/eton-blinds/"},
     { id: 5, name: "Honeycomb Blinds", image: "/assets/images/bytype/Honeycomb-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/colby-honeycomb-blinds/"},
-    { id: 6, name: "Panel Blinds", image: "/assets/images/bytype/Panel-Blinds.webp", category: "type",href:"https://blindsandcurtains.ae/blinds/panel-blinds/" },
     { id: 7, name: "Patricia Blinds", image: "/assets/images/bytype/Patricia-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/patricia-blinds/" },
-    { id: 8, name: "Roller Blinds", image: "/assets/images/bytype/Roller-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/ppc/roller-blinds/" },
-    { id: 9, name: "Roman Blinds", image: "/assets/images/bytype/Roman-Blinds.webp", category: "type" ,href:"https://blindsandcurtains.ae/blinds/roman-blinds/"},
     { id: 10, name: "Sheer Horizon Blinds", image: "/assets/images/bytype/Sheer-Horizon-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/sheer-horizon-blinds/" },
     { id: 11, name: "Sierra Blinds", image: "/assets/images/bytype/Sierra-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/sierra-blinds/" },
-    { id: 12,name: "Vertical Blindss", image: "/assets/images/bytype/Vertical-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/vertical-blinds/" },
-    { id: 13, name: "Wooden Blinds", image: "/assets/images/bytype/Wooden-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/wooden-venetian/" },
-    { id: 14, name: "Zebra Blinds", image: "/assets/images/bytype/Zebra-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/zebra-blinds/" },
-    { id: 15, name: "Zipline-Outdoor Blinds", image: "/assets/images/bytype/Zipline-Outdoor-Blinds.webp", category: "type" , href:"https://blindsandcurtains.ae/blinds/zipline-blinds/"},
     { id: 16, name: "Pleated Blinds", image: "/assets/images/bytype/Pleated-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/pleated-blinds/" },
     { id: 17, name: "Bathroom Blinds", image: "/assets/images/byroom/Bathroom-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/bathroom-blinds-dubai/" },
     { id: 18, name: "Bedroom Blinds", image: "/assets/images/byroom/Bedroom-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/bedroom-blinds/" },
@@ -2846,45 +2847,46 @@ export const BlindsTabData= [
     { id: 25, name: "Staircase Blinds", image: "/assets/images/byroom/Staircase-Blinds.webp", category: "room" , href:"https://blindsandcurtains.ae/blinds/staircase-blinds/"},
     { id: 26, name: "Kitchen Blinds", image: "/assets/images/byroom/Kitchen-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/kitchen-blinds/" },
     { id: 27, name: "Blackout Roller Blinds", image: "/assets/images/bymaterial/Blackout-Roller-Blinds.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/blackout-blinds/" },
-    { id: 28, name: "Dimout Blinds", image: "/assets/images/bymaterial/Dimout-Blinds.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/roller-blinds/dimout-roller-blinds/"},
     { id: 29, name: "Motorised blinds", image: "/assets/images/bymaterial/Motorised-blinds.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/translucent-blinds/" },
+    { id: 28, name: "Dimout Blinds", image: "/assets/images/bymaterial/Dimout-Blinds.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/roller-blinds/dimout-roller-blinds/"},
     { id: 30, name: "Translucent Blinds", image: "/assets/images/bymaterial/Translucent-Blinds.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/motorised-blinds/" },
   ];
 
 export const CurtainTabData= [
-    { id: 5, name: "Motorised curtains", image: "/assets/images/bystyle/Motorised-curtains.webp", category: "type", href:"https://blindsandcurtains.ae/curtains/motorised-curtains/" },
-    { id: 6, name: "Pelmet Curtains", image: "/assets/images/bystyle/Pelmet-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pelmet-curtains/", },
-    { id: 7, name: "Pencil Pleat Curtains", image: "/assets/images/bystyle/Pencil-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pencil-pleat-curtains/"  },
-    { id: 8, name: "Pinch Pleat Curtains", image: "/assets/images/bystyle/Pinch-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pinch-pleat-curtains/"  },
-    { id: 9, name: "Ripplefold/Wave Curtains", image: "/assets/images/bystyle/RipplefoldWave-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/wave-curtains/"  },
-    { id: 10, name: "Tab Top Curtains", image: "/assets/images/bystyle/Tab-Top-Curtains.webp", category: "style" ,href:"https://blindsandcurtains.ae/curtains/tab-top-curtains/"  },
-    { id: 11, name: "Triple Pinch Pleat Curtains", image: "/assets/images/bystyle/Triple-Pinch-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/triple-pinch-pleat-curtains/"  },
-    { id: 1, name: "Double Pinch Pleat Curtains", image: "/assets/images/bystyle/Double-Pinch-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/double-pleat-curtains/"  },
-    { id: 2, name: "Eyelet Curtains", image: "/assets/images/bystyle/Eyelet-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/eyelet-curtains/"  },
-    { id: 3, name: "Modern Curtains", image: "/assets/images/bystyle/Modern-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/modern-curtains/"  },
-    { id: 4, name: "Goblet Pleat Curtains", image: "/assets/images/bystyle/Goblet-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/goblet-pleat-curtains/"  },
-    { id: 12, name: "Bedroom Curtains", image: "/assets/images/byroom1/Bedroom-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-bed-room-curtains/"  },
-    { id: 13, name: "Conservatory Curtains", image: "/assets/images/byroom1/Conservatory-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/conservatory-curtains/"  },
-    { id: 14, name: "Dining Room Curtains", image: "/assets/images/byroom1/Dining-Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/dining-room-curtains-dubai/"  },
-    { id: 15, name: "Staircase Curtains", image: "/assets/images/byroom1/Staircase-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/staircase-curtains/"  },
-    { id: 16, name: "Home Curtains", image: "/assets/images/byroom1/Home-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/home-curtains/"  },
-    { id: 17, name: "Hotel Curtains", image: "/assets/images/byroom1/Hotel-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/hotel-curtains-dubai/"  },
-    { id: 18, name: "Kids Room Curtains", image: "/assets/images/byroom1/Kids-Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/kids-room-curtains/"  },
-    { id: 19, name: "Living Room Curtains", image: "/assets/images/byroom1/Living-Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-living-room-curtains/"  },
-    { id: 20, name: "Office Curtains", image: "/assets/images/byroom1/Office-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/office-window-curtains/"  },
-    { id: 21, name: "Room Curtains", image: "/assets/images/byroom1/Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/room-curtains/"  },
-    { id: 22, name: "Blackout Curtains", image: "/assets/images/byfabric/Blackout-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/blackout-curtains-dubai/"  },
-    { id: 23, name: "Chiffon Curtains", image: "/assets/images/byfabric/Chiffon-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-chiffon-curtains/"  },
-    { id: 24, name: "Geometric Curtains", image: "/assets/images/byfabric/Geometric-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/geometric-curtains/"  },
-    { id: 25, name: "Kids Prints Curtains", image: "/assets/images/byfabric/Kids-Prints-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/curtain-prints-for-kids/"  },
-    { id: 26, name: "Linen Curtains", image: "/assets/images/byfabric/Linen-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-linen-curtains/"  },
-    { id: 27, name: "Natural Fabric Curtains", image: "/assets/images/byfabric/Natural-Fabric-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/natural-fabric-curtains/"  },
-    { id: 28, name: "Patterned Curtains", image: "/assets/images/byfabric/Patterned-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/patterned-curtains/"  },
-    { id: 29, name: "Plain Curtains", image: "/assets/images/byfabric/Plain-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/plain-curtains/"  },
-    { id: 30, name: "Sheer Curtains", image: "/assets/images/byfabric/Sheer-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-sheer-curtains/"  },
-    { id: 31, name: "Stripes Curtains", image: "/assets/images/byfabric/Stripes-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/stripes-curtains/"  },
-    { id: 32, name: "Textured Curtains", image: "/assets/images/byfabric/Textured-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/textured-curtains/"  },
-    { id: 33, name: "Velvet Curtains", image: "/assets/images/byfabric/Velvet-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/velvet-curtains/"  },
+  { id: 11, name: "Triple Pinch Pleat Curtains", image: "/assets/images/bystyle/Triple-Pinch-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/triple-pinch-pleat-curtains/"  },
+  { id: 1, name: "Double Pinch Pleat Curtains", image: "/assets/images/bystyle/Double-Pinch-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/double-pleat-curtains/"  },
+  { id: 7, name: "Pencil Pleat Curtains", image: "/assets/images/bystyle/Pencil-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pencil-pleat-curtains/"  },
+  { id: 9, name: "Ripplefold/Wave Curtains", image: "/assets/images/bystyle/RipplefoldWave-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/wave-curtains/"  },
+  { id: 2, name: "Eyelet Curtains", image: "/assets/images/bystyle/Eyelet-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/eyelet-curtains/"  },
+  { id: 10, name: "Tab Top Curtains", image: "/assets/images/bystyle/Tab-Top-Curtains.webp", category: "style" ,href:"https://blindsandcurtains.ae/curtains/tab-top-curtains/"  },
+  { id: 3, name: "Modern Curtains", image: "/assets/images/bystyle/Modern-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/modern-curtains/"  },
+  { id: 8, name: "Pinch Pleat Curtains", image: "/assets/images/bystyle/Pinch-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pinch-pleat-curtains/"  },
+  { id: 4, name: "Goblet Pleat Curtains", image: "/assets/images/bystyle/Goblet-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/goblet-pleat-curtains/"  },
+  { id: 5, name: "Motorised curtains", image: "/assets/images/bystyle/Motorised-curtains.webp", category: "type", href:"https://blindsandcurtains.ae/curtains/motorised-curtains/" },
+  { id: 6, name: "Pelmet Curtains", image: "/assets/images/bystyle/Pelmet-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pelmet-curtains/", },
+  { id: 18, name: "Kids Room Curtains", image: "/assets/images/byroom1/Kids-Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/kids-room-curtains/"  }, 
+  { id: 19, name: "Living Room Curtains", image: "/assets/images/byroom1/Living-Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-living-room-curtains/"  },
+  { id: 12, name: "Bedroom Curtains", image: "/assets/images/byroom1/Bedroom-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-bed-room-curtains/"  }, 
+  { id: 14, name: "Dining Room Curtains", image: "/assets/images/byroom1/Dining-Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/dining-room-curtains-dubai/"  },
+  { id: 15, name: "Staircase Curtains", image: "/assets/images/byroom1/Staircase-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/staircase-curtains/"  },
+  { id: 13, name: "Conservatory Curtains", image: "/assets/images/byroom1/Conservatory-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/conservatory-curtains/"  },
+  { id: 17, name: "Hotel Curtains", image: "/assets/images/byroom1/Hotel-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/hotel-curtains-dubai/"  },
+  { id: 34, name: "Door Curtains", image: "/assets/images/byroom1/Door-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/door-curtains/"  },
+  { id: 20, name: "Office Curtains", image: "/assets/images/byroom1/Office-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/office-window-curtains/"  }, 
+  { id: 16, name: "Home Curtains", image: "/assets/images/byroom1/Home-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/home-curtains/"  },
+  { id: 21, name: "Room Curtains", image: "/assets/images/byroom1/Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/room-curtains/"  }, 
+  { id: 22, name: "Blackout Curtains", image: "/assets/images/byfabric/Blackout-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/blackout-curtains-dubai/"  },
+  { id: 30, name: "Sheer Curtains", image: "/assets/images/byfabric/Sheer-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-sheer-curtains/"  },
+  { id: 27, name: "Natural Fabric Curtains", image: "/assets/images/byfabric/Natural-Fabric-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/natural-fabric-curtains/"  },
+  { id: 32, name: "Textured Curtains", image: "/assets/images/byfabric/Textured-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/textured-curtains/"  },
+  { id: 24, name: "Geometric Curtains", image: "/assets/images/byfabric/Geometric-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/geometric-curtains/"  }, 
+  { id: 29, name: "Plain Curtains", image: "/assets/images/byfabric/Plain-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/plain-curtains/"  },
+  { id: 31, name: "Stripes Curtains", image: "/assets/images/byfabric/Stripes-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/stripes-curtains/"  },
+  { id: 25, name: "Kids Prints Curtains", image: "/assets/images/byfabric/Kids-Prints-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/curtain-prints-for-kids/"  },
+  { id: 28, name: "Patterned Curtains", image: "/assets/images/byfabric/Patterned-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/patterned-curtains/"  },
+  { id: 26, name: "Linen Curtains", image: "/assets/images/byfabric/Linen-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-linen-curtains/"  },
+  { id: 23, name: "Chiffon Curtains", image: "/assets/images/byfabric/Chiffon-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-chiffon-curtains/"  },
+  { id: 33, name: "Velvet Curtains", image: "/assets/images/byfabric/Velvet-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/velvet-curtains/"  },
 ];
 
 
@@ -2937,7 +2939,7 @@ export const exploreblindData = [
   {
     title: "Sleep Peacefully With Blackout Roller Blinds",
     description: "Experience complete privacy and light control with blackout roller blinds, designed to block 100% of external light. Perfect for bedrooms, nurseries, and media rooms, these blinds create a cosy, undisturbed environment any time of the day.",
-    image: "/assets/images/ppc-blinds/blackout.jpg",
+    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847445/blackout_xqen2i.jpg",
     viewlink: "/ppc/roller-blinds/",
     features: [
       { icon: "/assets/images/ppc-blinds/l1.png", className:"h-9 w-9 lg:h-16 lg:w-14 " ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
@@ -2953,7 +2955,7 @@ export const exploreblindData = [
   {
     title: "Sunscreen Roller Blinds for Sunlight, Without the Heat",
     description: "Let natural light brighten your space while blocking harmful UV rays and reducing glare. Sunscreen roller blinds provide the perfect balance of visibility, heat control, and sun protection, making them ideal for living rooms and workspaces.",
-    image: "/assets/images/ppc-blinds/sunscreen.jpg",
+    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847508/sunscreen_ksarbf.jpg",
     viewlink: "/ppc/roller-blinds/",
     features: [
       { icon: "/assets/images/ppc-blinds/u1.png",className:"h-8 w-8 lg:h-10 lg:w-10",  title: "UV Protection", text: "Blocks up to 98% of harmful rays for protection." },
@@ -3064,7 +3066,7 @@ export const consultationblindData = [
   {
     title: "Request A Free Consultation & Price Estimate",
     description: "Get expert advice, fabric samples, and precise measurements. All from the comfort of your home. Our team will guide you through the best options, making sure they're a perfect fit for your window. No hidden costs, just reliable service and high-quality results.",
-    image: "/assets/images/ppc-blinds/curtain.webp",
+    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741861527/curtain_bcfoeo.jpg",
     viewlink: "/",
     features: [
       { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Free Home Visit", text: "We use premium quality fabrics." },
@@ -3081,7 +3083,7 @@ export const consultationblindData = [
   {
     title: "Request A Free Consultation & Price Estimate",
     description: "We shouldn't let finding the right blinds stress us out - it should be fun.  With our expert advice, material samples, and precise measurements, we make it easy to make the right choice. There are no hidden costs, no guesswork-just beautifully fitted blinds.",
-    image: "/assets/images/ppc-blinds/b3.webp",
+    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741861351/blind_ymg9c4.jpg",
     viewlink: "/",
     features: [
       { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
@@ -3145,14 +3147,14 @@ export const serviceLocationsData = [
     id: 1,
     title: "We Deliver Blinds All Over Dubai",
     description: "Our blinds are made-to-order and delivered right to your door in any part of Dubai. We offer fast, reliable service and installation with expert expertise—convenience and quality combined!",
-    locations: ['Albarsha', 'Arabian Ranches', 'Business Bay', 'Downtown Dubai', 'Dubai Hills', 'Jumeirah Bay Island','Jumeirah Beach','Palm Jumeirah','Academic City','DIFC','Damac Hills','40+ Projects'],
+    locations: ['Albarsha', 'Arabian Ranches', 'Business Bay', 'Downtown Dubai', 'Dubai Hills', 'Jumeirah Bay Island','Jumeirah Beach','Palm Jumeirah','Academic City','DIFC','Damac Hills','Discovery Gardens'],
     mapLink:"https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/@25.117715,55.235686,2562m/data=!3m1!1e3!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
   },
   {
     id: 2,
     title: "We Deliver Curtains All Over Dubai",
     description: "Our curtains are made-to-order and delivered right to your door in any part of Dubai. We offer fast, reliable service and installation with expert expertise—convenience and quality combined!",
-    locations: ['Al Barari', 'The Greens', 'Al Quoz', 'Al Qusais', 'Al Reem', 'Al Sufouh','Alvorada','Arjan','Barsha Heights','Villa Nova','Bur Dubai','40+ Projects'],
+    locations: ['Al Barari', 'The Greens', 'Al Quoz', 'Al Qusais', 'Al Reem', 'Al Sufouh','Alvorada','Arjan','Barsha Heights','Villa Nova','Bur Dubai','The Lakes'],
     mapLink:"https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/@25.117715,55.235686,2562m/data=!3m1!1e3!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
   }
 ];

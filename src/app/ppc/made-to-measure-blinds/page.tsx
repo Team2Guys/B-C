@@ -47,13 +47,15 @@ const Made_to_Measure_Blinds = async () => {
   return (
     <>
     <Header/>
+    <div id="Main">
     <VideoSection 
-       videoSrc="/assets/video/blinds1.mp4"
+       videoSrc="https://res.cloudinary.com/drqv25wjx/video/upload/v1741848607/blinds1_cdiar8.mp4"
        title="Stylish, Customised Blinds – Free Measurement & Installation"
        subtitle={<Bullets features={Blindbannerfeatures}/>}
        description={<LButton/>}
        width='w-[500px] sm:w-[630px] md:w-[715px] lg:w-[850px] 2xl:w-[990px]'
        height="h-[700px] sm:h-[681px]"/>
+      </div>
       <Shop/>
       <FeaturesCarousel
       title="What Do Blinds & Curtains Offer You?"
@@ -68,18 +70,18 @@ const Made_to_Measure_Blinds = async () => {
     <WhyChooseUs
      paragraph={Chooseusblind.text}
      features={chooseusblind}
-     backgroundImage="/assets/images/ppc-blinds/chooseus.png"/>
+     backgroundImage="https://res.cloudinary.com/drqv25wjx/image/upload/v1741847309/chooseus_ptz9id.png"/>
     <ExploreBlinds data={exploreblindData[0]} />
     <ExploreBlinds data={exploreblindData[1]} reverse />
     <WorkingProcess data={workingProcessblindData}/>
-    <ExploreBlinds data={consultationblindData[1]} reverse className='lg:!h-[370px] xl:!h-[370px]' buttonsClassName='xl:!mt-20' hideViewMore  hidefeatures/>
+    <ExploreBlinds data={consultationblindData[1]} reverse className='h-auto lg:!h-[370px] xl:!h-[370px]' buttonsClassName='xl:!mt-20' hideViewMore  hidefeatures/>
     <Carousel data={blindcrousal} />
     <Blindtype heading="Professional Installation Services For Your Interior" className='text-white' />
     <ImageGallery images={blindimages} columns={4}/>
     <HeroBanner/>
     <Blindtype heading="LOCATION" />
     <ServiceLocations {...locationData} />
-    <RollerReviews/>
+    <RollerReviews imageSrc='https://res.cloudinary.com/drqv25wjx/image/upload/v1741862530/blinds_vrysqv.jpg'/>
     <div className='bg-white py-3 md:py-9'></div>
     <Banner {...banners.Blind} />
     <div id="booking-form">

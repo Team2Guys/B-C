@@ -13,7 +13,13 @@ import { testimonials } from 'data/data';
 // import { fetchReviewsHandler } from 'config/fetch';
 import Container from 'components/Res-usable/Container/Container';
 
-const RollerReviews = () => {
+
+interface RollerReviewsProps {
+  imageSrc?: string;
+}
+
+const RollerReviews: React.FC<RollerReviewsProps> = ({ imageSrc = '/assets/images/Rollerblind/Rectangle898.png' }) => {
+
   // const [testimonial, setTestimonials] = useState<any[]>([]);
   // useEffect(() => {
   //   fetchReviewsHandler(setTestimonials);
@@ -22,6 +28,7 @@ const RollerReviews = () => {
   // const filteredTestimonials = testimonials.filter(
   //   (testimonial: any) => testimonial.rating >= 4
   // );
+  
   return (
     <div className='bg-[#F5EDE5]'>
     <Container>
@@ -79,7 +86,7 @@ const RollerReviews = () => {
       <div className='flex w-full justify-center items-center rounded-lg mt-7 lg:mt-0'>
         <Image 
           className='h-auto md:h-[350px] lg:h-[520px] w-full max-w-[650px]  shadow-md' 
-          src='/assets/images/Rollerblind/Rectangle898.png' 
+          src={imageSrc} 
           alt="Customer Review Image" 
           height={550} 
           width={703} 

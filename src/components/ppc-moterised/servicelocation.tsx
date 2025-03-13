@@ -13,9 +13,12 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({ title, description,
           <div className="md:w-[40%] lg:w-1/2 space-y-4 sm:space-y-7">
             <h2 className="text-2xl md:text-4xl font-black font-serif sm:leading-10">{title}</h2>
             <p className="font-normal md:text-base lg:text-20">{description}</p>
-            <div className='text-center md:text-left'>
-              <Link href={mapLink} target='blank' className="px-6 py-3 bg-black hover:bg-primary text-white rounded-md">
+            <div className='flex gap-5 text-center justify-center items-center lg:justify-start mditems-start'>
+              <Link href={mapLink} target='blank' className="px-6 py-3 text-12 lg:text-17 bg-black hover:bg-primary text-white rounded-md">
                 GET DIRECTION
+              </Link>
+              <Link href="/projects/" target='blank' className="px-6 py-3 text-12 lg:text-17 bg-black hover:bg-primary text-white rounded-md">
+              40+ LOCATIONS
               </Link>
             </div>
           </div>
@@ -29,15 +32,10 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({ title, description,
                 <div className='p-1 xl:p-3 bg-primary rounded-full'>
                   <MapPin className="text-white text-18 xl:text-20" />
                   </div>
-                  {location === "40+ Projects" ? (
-                    <a href="/projects/" target="_blank" rel="noopener noreferrer"
-                    className="text-10 xl:text-14 font-bold py-0 px-1 xs:px-2 xl:px-3 xl:leading-6 text-primary underline">
-                      {location}</a>) : (
-                        <span className="text-10 xl:text-14 font-bold py-0 px-1 xs:px-2 xl:px-3 xl:leading-6">
-                          {location}
-                          </span>
-                        )}
-                        </div>
+                  <span className="text-10 xl:text-14 font-bold py-0 px-1 xs:px-2 xl:px-3 xl:leading-6">
+                  {location}
+                  </span>
+                   </div>
                       ))}
                       </div>
                       </div>

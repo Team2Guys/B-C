@@ -1,4 +1,4 @@
-// import BookAppointment from 'components/Book-appointment/BookAppointment'
+
 import BookAppointment from 'components/Book-appointment/BookAppointment'
 import Container from 'components/Res-usable/Container/Container'
 import React from 'react'
