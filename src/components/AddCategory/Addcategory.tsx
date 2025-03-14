@@ -15,6 +15,7 @@ import ProtectedRoute from 'hooks/AuthHookAdmin';
 import Loader from 'components/Loader/Loader';
 import { Category } from 'types/interfaces';
 import Cookies from 'js-cookie';
+import revalidateTag from 'components/ServerActons/ServerAction';
 interface editCategoryNameType {
   name: string;
   description: string;
@@ -85,21 +86,20 @@ const FormLayout = ({
         : null;
       let url = `${process.env.NEXT_PUBLIC_BASE_URL}${updateFlag ? addProductUrl : '/api/categories/AddCategory'
         }`;
-      let response;
+
       if (updateFlag) {
-        response = await axios.put(url, newValue, {
+        await axios.put(url, newValue, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
       } else {
-        response = await axios.post(url, newValue, {
+        await axios.post(url, newValue, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
       }
-      console.log(response, 'response');
       setloading(false);
       Toaster(
         'success',
@@ -110,7 +110,7 @@ const FormLayout = ({
       updateFlag ? seteditCategory(null) : null;
       setposterimageUrl(null);
       setBannerImageUrl(null);
-
+      revalidateTag("categories")
       resetForm();
       setMenuType('Categories');
     } catch (err) {

@@ -416,6 +416,14 @@ export const blogPostUrl = [
     url: "/portfolio-item/aamina",
     redirectUrl: "/projects"
   },
+  {
+    url: "/blinds",
+    redirectUrl: "/made-to-measure-blinds"
+  },
+  {
+    url: "/curtains",
+    redirectUrl: "/made-to-measure-curtains"
+  },
 
 
 
