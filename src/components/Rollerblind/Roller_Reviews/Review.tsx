@@ -70,9 +70,9 @@ const RollerReviews: React.FC<RollerReviewsProps> = ({ imageSrc = '/assets/image
                     <div className='flex justify-between items-center'>
                       <h3 className='text-17 md:text-lg font-medium'>{testimonial.author_name}</h3>
                     </div>
-                    <p className='flex gap-1 text-yellow-500 mb-3 text-sm'>
+                    <p className='flex gap-1 text-yellow-500 mb-3 '>
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <FaStar key={i} />
+                        <FaStar key={i} size={14}  />
                       ))}
                     </p>
                     <p className='font-light italic text-gray-600 leading-5 max-h-20  overflow-x-auto slider-text'>{testimonial.text}</p>

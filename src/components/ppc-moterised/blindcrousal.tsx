@@ -20,10 +20,10 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
   return (
     <section className="relative py-4 sm:py-8">
       <Container>
-        <button className="absolute left-0 xl:left-3 2xl:left-36 top-10 sm:top-20 xl:top-12 text-black z-10" id="prevBtn">
+        <button className="absolute left-0 xl:left-3 2xl:left-36 top-10 sm:top-20 xl:top-12 text-black z-10" id="prevBtn" name="left-button">
           <IoMdArrowDropleft className="w-10 h-10" />
         </button>
-        <button className="absolute right-0 xl:right-3 2xl:right-36 top-10 sm:top-20 xl:top-12 text-black z-10" id="nextBtn">
+        <button className="absolute right-0 xl:right-3 2xl:right-36 top-10 sm:top-20 xl:top-12 text-black z-10" id="nextBtn" name="right-button">
           <IoMdArrowDropright className="w-10 h-10" />
         </button>
 
