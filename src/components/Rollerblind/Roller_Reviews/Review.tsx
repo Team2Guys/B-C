@@ -88,8 +88,8 @@ const RollerReviews: React.FC<RollerReviewsProps> = ({ imageSrc = '/assets/image
           className='h-auto md:h-[350px] lg:h-[520px] w-full max-w-[650px]  shadow-md' 
           src={imageSrc} 
           alt="Customer Review Image" 
-          height={550} 
-          width={703} 
+          height={1000} 
+          width={1000} 
         />
     </div>
     </div>

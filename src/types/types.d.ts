@@ -229,6 +229,7 @@ export interface FeaturesCarouselProps {
 }
 export interface Title {
   heading: string;
+  id?:string;
   className?:string;
 }
 export interface Video {

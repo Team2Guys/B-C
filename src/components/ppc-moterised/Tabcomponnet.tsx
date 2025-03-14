@@ -7,17 +7,13 @@ import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import { BlindsTabsProps } from "types/types";
+import Blindtype from "./blindtype";
 
 const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) => {
   const [activeTab, setActiveTab] = useState<string>("type");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
-
-  const filteredBlinds =
-    activeTab === "type"
-      ? blindsData
-      : blindsData.filter((blind) => blind.category === activeTab);
-
+  const filteredBlinds = blindsData.filter((blind) => blind.category === activeTab);
   const totalPages = Math.min(2, Math.ceil(filteredBlinds.length / itemsPerPage));
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedBlinds = filteredBlinds.slice(startIndex, startIndex + itemsPerPage);
@@ -35,12 +31,21 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
     }
   };
 
+  const scrollToTop = () => {
+    const formElement = document.getElementById("Top");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }
   return (
-    <div className="bg-white">
+    <>
+   <Blindtype heading="Browse Our Top-Selling Products" id="Top" />
+    <div className="bg-white" >
       <Container>
+
         <div className="mx-auto lg:mb-10 pt-6 pb-5 sm:pb-10 bg-white">
-          {/* Tabs */}
-          <div className="flex justify-center items-center space-x-4 mb-6 px-2">
+
+          <div className="flex justify-center items-center space-x-4 mb-6 px-2" >
             {tabCategories.map((tab) => (
               <button
                 key={tab.value}
@@ -93,7 +98,7 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
               <Button
                 variant="secondary"
                 className="w-14 sm:w-[55px] h-8 sm:h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
-                onClick={() => handlePageChange(currentPage - 1)}
+                onClick={() => { handlePageChange(currentPage - 1); scrollToTop(); }}
                 disabled={currentPage === 1}
               >
                 <FaArrowLeft size={16} />
@@ -106,7 +111,7 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
                       ? "bg-secondary text-white"
                       : "bg-transparent text-black"
                   }`}
-                  onClick={() => handlePageChange(index + 1)}
+                  onClick={() =>{ handlePageChange(index + 1); scrollToTop();}}
                 >
                   {index + 1}
                 </Button>
@@ -115,7 +120,7 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
               <Button
                 variant="secondary"
                 className="w-14 sm:w-[55px] h-8 sm:h-[55px] bg-transparent text-black hover:bg-secondary hover:text-white text-16"
-                onClick={() => handlePageChange(currentPage + 1)}
+                onClick={() => {handlePageChange(currentPage + 1); scrollToTop();}}
                 disabled={currentPage === totalPages}
               >
                 <FaArrowRight size={16} />
@@ -125,6 +130,7 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
         </div>
       </Container>
     </div>
+    </>
   );
 };
 

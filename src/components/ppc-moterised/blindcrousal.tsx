@@ -53,8 +53,8 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
               <div className="flex justify-center items-start px-5 gap-4">
                 <Image src={item.icon} alt={item.title} width={40} height={40} className="w-10 h-10" />
                 <div>
-                  <h3 className="text-lg lg:text-20 font-bold">{item.title}</h3>
-                  <p className="text-sm lg:text-16 text-gray-600">{item.description}</p>
+                  <div className="min-h-14 2xl:min-h-0"><h3 className="text-lg lg:text-20 font-bold">{item.title}</h3></div>
+                  <p className="text-sm lg:text-16 text-gray-600 2xl:mt-2">{item.description}</p>
                 </div>
               </div>
             </SwiperSlide>

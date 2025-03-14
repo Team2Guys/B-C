@@ -65,7 +65,6 @@ const Made_to_Measure_Blinds = async () => {
     />
     <CustomSection data={blindsData} />
     <Videoblind videos={BlindvideoData} heading="Our Recent Blinds Dubai Projects" />
-    <Blindtype heading="Browse Our Top-Selling Products" />
     <BlindsTabs blindsData={BlindsTabData} tabCategories={Tab1categories} />
     <WhyChooseUs
      paragraph={Chooseusblind.text}

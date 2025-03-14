@@ -65,7 +65,6 @@ const Made_to_Measure_Curtains = async () => {
     />
     <CustomSection data={curtainsData} />
     <Videoblind videos={CurtainvideoData} heading="Our Recent Curtains Dubai Projects" />
-    <Blindtype heading="Browse Our Top-Selling Products" />
     <BlindsTabs blindsData={CurtainTabData} tabCategories={Tab2categories} />
     <WhyChooseUs
      paragraph={Chooseuscurtain.text}
@@ -87,8 +86,7 @@ const Made_to_Measure_Curtains = async () => {
     <div id="booking-form">
     <BookingForm />
     </div>
-    </>
-    
+    </>   
   )
 }
 
