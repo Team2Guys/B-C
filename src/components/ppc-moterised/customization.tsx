@@ -49,7 +49,7 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 px-2">
       <div className="px-4 shadow-lg border border-gray-200 p-4 rounded-md">
       <h3 className="mb-2 text-xl font-black font-serif">{secondaryHeading}</h3>
-      <p className="mb-2 lg:text-20 font-proxima font-normal lg:min-h-[90px]">{para}</p>
+      <p className="mb-2 lg:text-20 font-proxima font-normal lg:min-h-[65px]">{para}</p>
       <ul className="space-y-2"> 
     {bulletPoints.map((point, index) => (
       <li key={index} className="flex items-start gap-2">
@@ -61,7 +61,7 @@ const CustomSection: React.FC<CommonSectionProps> = ({ data }) => {
   </ul></div>
   <div className="px-4 shadow-lg border border-gray-200 p-4 rounded-md">
   <h3 className="text-xl font-black font-serif mb-2">{subheading}</h3>
-  <p className="mb-2 lg:text-20 font-proxima font-normal lg:min-h-[90px]">{para1}</p>
+  <p className="mb-2 lg:text-20 font-proxima font-normal lg:min-h-[65px]">{para1}</p>
   <ul className="space-y-2"> 
     {bulletPoints1.map((point, index) => (
       <li key={index} className="flex items-start gap-2">

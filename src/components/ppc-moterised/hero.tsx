@@ -7,7 +7,7 @@ import React from "react";
   const HeroBanner = () => {
   return (
     <Container>
-        <div className="relative px-2">
+        <div className="relative px-2 mb-5 lg:mb-10">
             <Image
               src="/assets/images/ppc-blinds/leftvan.png"
               alt="Van Left"
