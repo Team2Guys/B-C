@@ -133,7 +133,7 @@ export const footerLinks: TFooterSection[] = [
 export const footerInfo = 'Blinds & Curtains 2025 All Rights Reserved';
 
 export const phoneNumberInfo: PhoneNumber = {
-  number: '+971 54 494 5339',
+  number: '04 252 2025',
 };
 export const WhatsAppInfo: PhoneNumber = {
   number: '+971 54 494 5339',

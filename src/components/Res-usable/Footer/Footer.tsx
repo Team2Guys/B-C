@@ -8,6 +8,7 @@ import {
   phoneNumberInfo,
   EmailInfo,
   footerData,
+  WhatsAppInfo,
 } from 'data/data';
 import { IoLogoPinterest } from 'react-icons/io5';
 import { AiOutlineInstagram } from 'react-icons/ai';
@@ -417,11 +418,11 @@ const Footer: React.FC = () => {
                             />
                           </span>
                           <Link
-                            href={`https://wa.me/${phoneNumberInfo.number.replaceAll(' ', '')}`}
+                            href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ', '')}`}
                             target="_blank"
                             className="text-12 2xl:text-sm font-medium text-nowrap"
                           >
-                            {phoneNumberInfo.number}
+                            {WhatsAppInfo.number}
                           </Link>
                         </li>
                         <li className="flex gap-2 flex-nowrap">
