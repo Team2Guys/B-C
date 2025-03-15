@@ -13,7 +13,7 @@ import { WorkingProcessProps } from "types/types";
 const WorkingProcess: React.FC<WorkingProcessProps> = ({data }) => {
   const swiperRef = useRef<any>(null);
   return (
-    <section className="py-12 bg-white relative">
+    <section className="py-12 bg-white ">
       <Container className="!px-6">
         <div className="sm:grid sm:grid-cols-2 flex flex-col items-center md:gap-3">
           <h2 className="text-3xl xl:text-[48px] font-serif font-black text-black mb-8 text-center lg:text-start leading-[48px]">

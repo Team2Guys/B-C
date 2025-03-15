@@ -18,12 +18,12 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
   }, []);
   
   return (
-    <section className="relative py-8">
+    <section className="relative py-4 sm:py-8">
       <Container>
-        <button className="absolute left-0 xl:left-3 2xl:left-36 top-10 sm:top-20 xl:top-12 text-black z-10" id="prevBtn">
+        <button className="absolute left-0 xl:left-3 2xl:left-36 xxll:left-[430px] top-10 sm:top-20 xl:top-12 text-black z-10" id="prevBtn" name="left-button">
           <IoMdArrowDropleft className="w-10 h-10" />
         </button>
-        <button className="absolute right-0 xl:right-3 2xl:right-36 top-10 sm:top-20 xl:top-12 text-black z-10" id="nextBtn">
+        <button className="absolute right-0 xl:right-3 2xl:right-36 xxll:right-[430px] top-10 sm:top-20 xl:top-12 text-black z-10" id="nextBtn" name="right-button">
           <IoMdArrowDropright className="w-10 h-10" />
         </button>
 
@@ -53,8 +53,8 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
               <div className="flex justify-center items-start px-5 gap-4">
                 <Image src={item.icon} alt={item.title} width={40} height={40} className="w-10 h-10" />
                 <div>
-                  <h3 className="text-lg lg:text-20 font-bold">{item.title}</h3>
-                  <p className="text-sm lg:text-16 text-gray-600">{item.description}</p>
+                  <div className="min-h-14 2xl:min-h-0"><h3 className="text-lg lg:text-20 font-bold">{item.title}</h3></div>
+                  <p className="text-sm lg:text-16 text-gray-600 2xl:mt-2">{item.description}</p>
                 </div>
               </div>
             </SwiperSlide>

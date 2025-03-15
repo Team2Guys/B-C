@@ -20,6 +20,7 @@ const config = {
     extend: {
       screens: {
         'xxl': '1921px',  
+        'xxll':'2560px'
       },
       fontFamily: {
         gotham: ['var(--font-gotham)', 'sans-serif'],

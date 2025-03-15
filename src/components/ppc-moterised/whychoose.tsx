@@ -46,13 +46,13 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
       <Container>
         <motion.div 
           className="relative z-10 mx-auto text-center"
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
           <motion.h2 
             className="text-3xl md:text-4xl xl:text-[40px] font-serif font-black"
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
@@ -60,7 +60,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
           </motion.h2>
           <motion.p 
             className="mt-4 text-sm md:text-base xl:text-20 text-white"
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
@@ -69,7 +69,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
 
           <motion.div 
             className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6"
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
@@ -77,7 +77,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
               <motion.div 
                 key={index} 
                 className={`flex flex-col items-center text-center px-4 sm:border-white sm:border-r ${ (index + 1) % 5 === 0 ? "border-r-0" : "" }`}
-                initial={{ opacity: 0, x: 100 }}
+                initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
               >
@@ -96,14 +96,14 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ paragraph, features, backgrou
 
           <motion.div 
             className="mt-8 md:mt-14 flex flex-col sm:justify-center sm:flex-row sm:items-center gap-4"
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
             {actionLinks.map((link, index) => (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, x: 100 }}
+                initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8 + index * 0.2, duration: 0.5 }}
               >

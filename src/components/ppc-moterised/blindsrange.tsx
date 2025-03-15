@@ -18,7 +18,7 @@ const ExploreBlinds: React.FC<ExploreBlindsProps> = ({
   return (
     <section className="py-3 lg:py-6 xl:py-12">
       <Container>
-        <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 md:gap-5 xl:px-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-5 xl:px-2">
           <div className={`w-full flex lg:justify-center lg:items-center ${reverse ? "lg:order-2" : "lg:order-1"}`}>
           <Image 
           src={data.image}
