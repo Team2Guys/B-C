@@ -39,7 +39,7 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
             <p className={`text-12 md:text-16 leading-6 md:leading-8  ${decClass}`} dangerouslySetInnerHTML={{ __html: description || "" }}></p>
             <div className="space-y-3 hidden lg:block">
               <p className="text-12 md:text-16 leading-6 md:leading-8 " dangerouslySetInnerHTML={{ __html: description2 || "" }}></p>
-              <p className="text-12 md:text-16 leading-6 md:leading-8 ">{description3}</p>
+              <p className="text-12 md:text-16 leading-6 md:leading-8 " dangerouslySetInnerHTML={{ __html: description3 || "" }}></p>
             </div>
             <span className="hidden md:block mb-3">
 

@@ -8,12 +8,13 @@ import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import Review_banner from 'components/ReviewBanner/Review_banner';
 import Banner from 'components/HomeBanner/Home_Banner';
-import { bannerData } from 'data/data';
+import { banners } from 'data/data';
 import type { Metadata } from 'next'
 import { fetchCategories, fetchProducts } from 'config/fetch';
 import Script from 'next/script';
 import { schema } from 'data/schema';
 import MainHero from 'components/Hero/main-hero';
+import logo from '../../public/assets/images/blind-curtains-dubai/blinds-curtains-dubai1.png';
 
 export const metadata: Metadata = {
   title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
@@ -21,10 +22,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
     description: 'If you are looking for blinds in dubai, or maybe curtains in Dubai, look no further. Our ZERO pressure appointment guarantee will ensure you are.....',
-    url: 'https://blindsandcurtains.ae/why-choose-blinds-curtains/',
+    url: 'https://blindsandcurtains.ae/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
+        url: `${logo.src}`,
         alt: 'blindsandcurtains',
       },
     ],
@@ -51,7 +52,7 @@ export default async function Home() {
       <Review_banner />
       <HomeCard categories={categories} />
       <BlindsAndCurtainssection />
-      <Banner data={bannerData} />
+      <Banner {...banners.Home} />
       <FeatureProduct products={products} categories={categories} />
       <VideoAutomation />
       <Support />

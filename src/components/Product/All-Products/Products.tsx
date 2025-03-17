@@ -213,7 +213,7 @@ const AllProducts: React.FC<relativeProps> = ({ products, categoryType }) => {
   return (
     <Container className="mt-10 md:mt-16">
       <div className="mt-10">
-        <div className="flex lg:gap-10 gap-1 md:gap-3 justify-center whitespace-nowrap overflow-x-auto ">
+        <div className="flex lg:gap-10 gap-1 md:gap-3 justify-center whitespace-nowrap overflow-x-auto">
           {categories.map((category) => {
             const parent = generateSlug(categoryType);
             return (

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/product-guarantees/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
+        url: `${second.src}`,
         alt: 'Blinds and Curtains Dubai | Product Guarantee',
       },
     ],

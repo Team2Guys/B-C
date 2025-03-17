@@ -4,11 +4,11 @@ import { ICategory, IProduct } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { links } from "data/header_links";
-import { permanentRedirect, RedirectType, } from "next/navigation";
 import { blogPostUrl } from "data/urls";
 import { categoriesContent, generateSlug, RelatedProductsdata } from "data/data";
 import NotFound from "app/not-found";
 import Script from "next/script";
+import { redirect, RedirectType } from "next/navigation";
 
 
 type Props = {
@@ -33,12 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   let Category = filterCategory as ICategory;
 
-  let ImageUrl =
-    Category?.posterImage.imageUrl ||
-    'blindsandcurtains';
-  let alt =
-    Category?.posterImage.altText ||
-    'blindsandcurtains';
+  let ImageUrl = Category?.posterImage.imageUrl || 'blindsandcurtains';
+  let alt = Category?.posterImage.altText || 'blindsandcurtains';
 
   let NewImage = [
     {
@@ -71,11 +67,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const Products = async ({ params }: Props) => {
   const slug = (await params).productName[0];
+  let urls = (await params).productName
   const redirectUrl: any = (await params).productName;
   const splited = redirectUrl.join('/')
   const matchingUrl = blogPostUrl.find((item) => item.url === `/${splited}`);
   if (matchingUrl) {
-    permanentRedirect(matchingUrl.redirectUrl, 'push' as RedirectType);
+    redirect(matchingUrl.redirectUrl, 'push' as RedirectType);
   }
   const [products, categories, subCategories] = await Promise.all([
     fetchProducts(),
@@ -90,12 +87,16 @@ const Products = async ({ params }: Props) => {
   );
 
   const matchingLink: any = links.find((link) => slug.includes(link.href.replace(/^\//, '')),);
+
   const selectedProductName = matchingLink ? matchingLink.label : slug;
+
   const filterCat = categories?.find((cat: ICategory) => cat.title.toLowerCase() === selectedProductName.toLowerCase());
   const filteredProducts = products.filter((product: IProduct) => product.CategoryId === filterCat?.id) || [];
   const filteredSubCategories = subCategories?.filter((subCat: ICategory) => subCat.CategoryId === filterCat?.id) || [];
+
   const filteredItems = [...filteredProducts, ...filteredSubCategories];
-  if (!selectedPage || filteredItems.length < 1) {
+
+  if ((!selectedPage || filteredItems.length < 1) || urls?.length > 1) {
     return <NotFound />;
   }
 
@@ -106,7 +107,14 @@ const Products = async ({ params }: Props) => {
       </Script>
 
 
-      <Product productName={slug} products={products} categories={categories} subCategories={subCategories} selectedPage={selectedPage.content} matchedProduct={matchedProduct?.para} filteredItems={filteredItems} title={selectedProductName} />
+      <Product productName={slug}
+        products={products}
+        categories={categories}
+        subCategories={subCategories}
+        selectedPage={selectedPage.content}
+        matchedProduct={matchedProduct?.para}
+        filteredItems={filteredItems}
+        title={selectedProductName} />
     </>
   );
 };

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/blog/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
+        url: `${bgBreadcrum.src}`,
         alt: 'blindsandcurtains',
       },
     ],

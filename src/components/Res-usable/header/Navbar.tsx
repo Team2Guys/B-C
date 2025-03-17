@@ -59,7 +59,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
   return (
     <>
           {
-            path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/'  || path === '/ppc/roller-blinds/' ? "" :
+            path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/'  || path === '/ppc/roller-blinds/'||path === '/ppc/made-to-measure-blinds/'||path === '/ppc/made-to-measure-curtains/' ? "" :
             <div className="w-full bg-secondary">
             <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center min-h-12 pb-0">
               <div></div>
@@ -205,20 +205,20 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
                       href={link.href}
                       className={
                         link.label === 'Commercial' && isBalconyActive
-                          ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                          ? 'font-bold px-2 2xl:px-3 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                           : link.label === 'Motorised' && ismoterised
-                            ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                            ? 'font-bold px-2 2xl:px-3 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                             : link.label === 'Blinds' && isblindsmoter
-                              ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                              ? 'font-bold px-2 2xl:px-3 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                               : link.label === 'Curtains' && iscurtainsmoter
-                                ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                                ? 'font-bold px-2 2xl:px-3 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
                                 : !isBalconyActive &&
                                   !ismoterised &&
                                   !isblindsmoter &&
                                   !iscurtainsmoter &&
                                   (isBlogActive || isActive)
-                                  ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
-                                  : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-4'
+                                  ? 'font-bold px-2 2xl:px-3 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
+                                  : 'hover:bg-secondary hover:text-white pb-9 pt-1 px-2 2xl:px-3'
                       }
                     />
                   </Fragment>
@@ -226,10 +226,10 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
                   <Fragment key={index} >
                     <Link
                       className={`lg:text-10 text-12 xl:text-15 px-1 transition-all duration-200 ${link.label === 'Motorised' && ismoterised
-                        ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
+                        ? 'font-bold px-2 2xl:px-3 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
                         : isBlogActive || isActive
-                          ? 'font-bold px-2 2xl:px-4 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
-                          : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-4'
+                          ? 'font-bold px-2 2xl:px-3 py-1 rounded-md text-white bg-secondary hover:bg-secondary hover:text-white hover:pb-10 hover:rounded-none'
+                          : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-3'
                         }`}
                       onClick={handleCloseDrawer}
                       href={link.href}
@@ -244,7 +244,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
 
           <div className="lg:w-2/12 flex justify-between xs:justify-end items-center gap-6">
             <Link
-              className="py-2 px-2 xl:px-5 hidden sm:block rounded-md text-[9px] xl:text-10 2xl:text-15 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
+              className="py-2 px-2 xl:px-5 hidden sm:block rounded-md text-[9px] xl:text-10 2xl:text-14 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
               href="/request-appointment"
               onClick={handleLinkClick}
             >

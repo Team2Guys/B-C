@@ -20,7 +20,6 @@ import {
   TProductGuarantees,
 } from 'types/interfaces';
 import { BlindsAndCurtainsTypes } from 'types/interfaces';
-import { BannerData } from 'types/interfaces';
 import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Product, Category, FormValues } from 'types/interfaces';
@@ -90,10 +89,30 @@ export const heroSlider = [
   },
 ];
 
-export const bannerData: BannerData = {
-  imageUrl: '/assets/images/measure_shutter/measure_shutter.png',
-  title: 'MADE TO MEASURE SHUTTERS FOR YOU..',
-  buttonText: 'Book A Free Home Design Visit',
+export const banners = {
+  Home: {
+    imageSrc: "/assets/images/measure_shutter/measure_shutter.png",
+    paraText: "From Bay Windows to Patio Doors..",
+    linkHref: "/contact-us",
+    linkText: "Contact Us",
+    linkBgColor: "bg-secondary",
+  },
+  Blind: {
+    imageSrc:  "/assets/images/measure_shutter/measure_shutter.png",
+    paraText: " Let's Measure, Select, Quote and Fit in a Few Easy Steps. ",
+    linkHref: "/contact-us/",
+    linkText: "Get In touch",
+    linkBgColor: "bg-black",
+    className: "font-serif",
+  },
+  Curtain: {
+    imageSrc:  "/assets/images/measure_shutter/measure_shutter.png",
+    paraText: "Let's Measure, Select, Quote and Fit in a few easy steps.",
+    linkHref: "/contact-us/",
+    linkText: "Get In touch",
+    linkBgColor: "bg-black",
+    className: "font-serif",
+  },
 };
 
 export const footerLinks: TFooterSection[] = [
@@ -1030,7 +1049,7 @@ export const MoterisedContent = [
         infoTitle: 'Automatic Blinds with Remote',
         infoSubtitle: 'Convert your windows into Smart Windows ',
         infoDescription:
-          'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These motorised blinds give you the option to control your <a href="/made-to-measure-curtains" target="_blank" style="text-decoration:underline">window covering</a> with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer <a href="/blinds/motorised-blinds" target="_blank" style="text-decoration:underline">remote control blinds</a> that are smooth, reliable, and long-lasting. Whether you want simple automated or fully connected, we’ve got the right custom smart blinds for you.',
+          'Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. These Automated Blinds give you the option to control your <a href="/" target="_blank" style="text-decoration:underline">window covering</a> with the use of a single remote. Unlike off-the-shelf blinds found online, you just have to speak to our team and we measure your windows with precision. We offer the full service from initial advice, followed by professional installation to complete instructions and programming. We work with expert companies like Somfy, Nice, and Motion, known for their high-quality motors and integration with smart home systems. With these brands on our side, we offer <a href="/blinds/motorised-blinds" target="_blank" style="text-decoration:underline">remote control blinds</a> that are smooth, reliable, and long-lasting. Whether you want simple automated or fully connected, we’ve got the right custom smart blinds for you.',
         infoImage: moto1,
         measureTitle: '“Hey Alexa, lower my Blinds”',
         measureDescription:
@@ -1075,7 +1094,7 @@ export const MoterisedContent = [
         additionalImage: moto3,
         additionalDescription2: `We believe in making your experience as stress-free as possible. Our team members are paid a fair living wage, meaning they are here for you. Rest assured, no one is working on commission here. <a href="/" target="_blank" style="text-decoration:underline">Blinds and Curtains Dubai’s</a> priority is to provide honest, helpful advice that’s best for you—not to push for a sale. If you choose to go with us, congratulations. If not we’ll send you your quotation by email and one follow up call. Then it's up to you to decide.`,
         additionalDescription3:
-          'We approach every consultation the way we’d like to be treated: with honesty and zero pressure. Contact our friendly team if you would like a no-obligation quote on our home automation window blinds, or fill out the online contact form, and we will get back to you as soon as possible.',
+          'We approach every consultation the way we’d like to be treated: with honesty and zero pressure. Contact our friendly team if you would like a no-obligation quote on our home automation <a href="/made-to-measure-blinds/" target="_blank" style="text-decoration:underline">window blinds</a>, or fill out the online contact form, and we will get back to you as soon as possible.',
       },
     ],
   },
@@ -1087,14 +1106,14 @@ export const MoterisedContent = [
         heroVideo: '/assets/video/automated_curtains.mp4',
         infoTitle: 'Modern Automatic Curtains',
         infoSubtitle: 'Convert your windows into Smart Windows',
-        infoDescription: `Our passion for high-quality products makes us more than just a <a href="/made-to-measure-blinds" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your blinds? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
+        infoDescription: `Our passion for high-quality products makes us more than just a <a href="/" target="_blank" style="text-decoration:underline">window covering</a> company. Everything else in your life is automated, why not your curtains? There are so many reasons to go electric. Set timers for your curtains to open and close at certain times so you can enjoy the warmth of natural sunlight. Make your everyday life easier with <a href="/curtains/motorised-curtains" target="_blank" style="text-decoration:underline">motorised curtains</a>. It's great for people who have mobility problems or are away from home a lot. It's much easier to close modern automated curtains for windows that are high or hard to reach. Our salespeople won't push you to buy; we'll help you find the one that's right for you. With whisper-quiet motors, our automated curtains operate smoothly for years to come. Since we're confident in our products, we offer free uninstall and reinstall services within the first 2 years, plus a 10-year warranty that covers all mechanical parts and labor.`,
         infoImage: moto4,
-        measureTitle: 'Made to Measure Motorised Curtains',
+        measureTitle: 'Made to Measure Automated Curtains',
         measureDescription: `Just say the word, and let your motorisation system do the rest. It's now easier to control auto curtains with a remote, a smartphone, or even a voice command ("Alexa, close the curtains") using Amazon Alexa, Apple HomeKit, or Google Home. From anywhere in the house, you can open and close your curtains. It's all about making things simpler and more flexible for you.`,
         chooseustitle: 'Why Choose Us For Your Motorisation?',
         chooseustitle1: 'Control your windows anytime, anywhere!',
         measureTitle1: 'Set Your Own Schedule or Control Remotely',
-        measureDescription1: `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use automatic window curtains so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants, and options like <a href="/curtains/blackout-curtains-dubai" target="_blank" style="text-decoration:underline">blackout curtains</a> for added convenience.`,
+        measureDescription1: `We handle everything, from consultation to installation. Besides setting up, we'll teach you how to use automatic <a href="/made-to-measure-curtains/" target="_blank" style="text-decoration:underline">window curtains</a> so you feel confident. We work with industry leaders like Somfy, Nice, and Motion to give you control over your smart home through apps, remotes, and voice assistants, and options like <a href="/curtains/blackout-curtains-dubai" target="_blank" style="text-decoration:underline">blackout curtains</a> for added convenience.`,
         chooseUsItems: [
           {
             image: img1,
@@ -2071,7 +2090,7 @@ export const NavData = [
   },
   { image: '/assets/images/Moterised-ads-blinds/Vector1.png',
     title:'Help Select Fabrics',
-    description:'install in 2-3 days ',
+    description:'Install in 2-3 Days ',
    },
    {image: '/assets/images/Moterised-ads-blinds/Group.png',
     title:'Warranty',
@@ -2601,5 +2620,561 @@ export const GallaryData2 =[ {
           { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/v4z4a86bk8qbrh1dzfnq.mp4" 
           },
 ];
-        
   
+// ppc-made-to-measure-blinds
+export const ShopItems = [
+  {
+    imgUrl: "/assets/images/ppc-blinds/image4.png",
+    text: "Blinds",
+  },
+  {
+    imgUrl: "/assets/images/ppc-blinds/image1.png",
+    text: "Curtains",
+  },
+  {
+    imgUrl: "/assets/images/ppc-blinds/image3.png",
+    text: "Shutters",
+  },
+  {
+    imgUrl: "/assets/images/ppc-blinds/image2.png",
+    text: "Motorised",
+  },
+];
+
+// Featuresblinds
+export const Blindsfeatures = [
+  {
+    title: "Made To Measure",
+    description:
+      "Custom blinds are designed for every window size. We also specialise in large, double height windows.",
+      icon: "/assets/images/ppc-blinds/features/7.png", 
+  },
+  {
+    title: "Free consultation & Visit",
+    description:
+      "Our experts visit your home with gorgeous samples,  give you impartial advice, and take precise measurements, all free of charge.",
+      icon: "/assets/images/ppc-blinds/features/4.png", 
+  },
+  {
+    title: "Motorised Options",
+    description:
+      "Enjoy hassle-free operation with a remote, smartphone, or voice-activated blinds for ultimate convenience. We can also integrate with your smart home automation system.",
+      icon: "/assets/images/ppc-blinds/features/3.png", 
+  },
+  {
+    title: "Quality You Can Trust",
+    description:
+      "These blinds are built to last with high-quality and durable materials and will never go out of style. 3 year warranty on fabrics and 10 years on mechanisms.",
+      icon: "/assets/images/ppc-blinds/features/1.png", 
+  },
+  {
+    title: "Professionally Installed",
+    description:
+      "We can help you with all window sizes, including bay windows, skylights, and oversized glass doors.",
+      icon: "/assets/images/ppc-blinds/features/5.png", 
+  },
+];
+//curtainfeatures
+export const Curtainfeatures = [
+  {
+    title: "Customisation for an Ideal Fit",
+    description:
+      "No matter what size your window is, you can get customised curtains. Find the perfect colour fabric, and style for multiple windows.",
+    icon: "/assets/images/ppc-blinds/features/7.png", 
+  },
+  {
+    title: "Light & Privacy Control",
+    description:
+      "Sheer fabrics can let in natural light and blackout fabrics gives complete privacy. Multiple pleat options for style and comfort.",
+      icon: "/assets/images/ppc-blinds/features/6.png", 
+  },
+  {
+    title: "Energy Efficiency & Comfort",
+    description:
+      "You'll keep your home cooler in the summer with insulating fabrics. Blocks out the UV rays,  perfect for summer afternoons.",
+      icon: "/assets/images/ppc-blinds/features/8.png", 
+  },
+  {
+    title: "Motorised for Convenience",
+    description:
+      "Control your blinds with a remote, smartphone, or voice assistant for total convenience. A neat, modern look.",
+      icon: "/assets/images/ppc-blinds/features/3.png", 
+  },
+  {
+    title: "Free Reinstallation",
+    description:
+      "Free uninstall and reinstallation within 2 years, so you don’t need to add the stress of this when moving home again.",
+      icon: "/assets/images/ppc-blinds/features/10.png", 
+  },
+];
+
+// customdata
+
+export const blindsData = {
+  heading: "Customisation Made Easy",
+  heading1:"Choose Blinds That Fit Your Window Size, And Interior",
+  description: `
+    Make your space look stylish with custom blinds, including Roller, Roman, Wooden, and Zebra blinds, as well as vertical blinds. We design these for living rooms, bedrooms, kitchens, and more with options such as blackout, dim-out, and sunscreen.`,
+  image:"/assets/images/ppc-blinds/C1.jpeg",
+  button1Text: "GET DIRECTION",
+  button2Text: "WHATSAPP",
+  secondaryHeading: "Select a material of your choice",
+  para:"Whether you want total darkness for a peaceful night, a soft glow for cosy afternoons, or gentle sunlight without heat, we’ve got the perfect fabric for you.",
+  subheading: "Choose a style that suits you",
+  para1:"Whether you love the clean and simple look of roller blinds, the soft elegance of Roman folds, or the natural feel of wooden blinds, we make sure every detail is just right.",
+  bulletPoints: [
+    "Blackout Blinds – Sleep better with zero light penetration through the material.",
+    "Dimout Blinds – Enjoy diffused light without the harsh glare.",
+    "Sunscreen Blinds – Let the view  in while keeping out harmful UV rays.",
+    "Keeps You Comfortable – Helps keep rooms cool in summer, and warm in winter.",
+    "Made to Last – High-quality fabrics that stay beautiful for years."
+  ],
+  bulletPoints1: [
+    "Roller Blinds – Simple, stylish, and convenient.",
+    "Roman Blinds – Soft folds for a timeless, elegant touch.",
+    "Wooden & Aluminum Venetian Blinds – Natural, classic, and full of character.",
+    "Vertical Blinds – Perfect for large windows and patio doors.",
+    " Zebra Blinds or Day/Night Blinds – A mix of sheer and solid for flexible light control.",
+  ],
+};
+
+export const curtainsData = {
+  heading: " Customisation Made Easy",
+  heading1:"Choose Curtains That Fit Your Window Size & Interior",
+  description: `
+   It's our speciality to dress up your windows the way you want. We can make custom pinch pleat curtains, triple pinch pleat curtains, pencil pleat curtains, tab top curtains, and wave curtains in blackout or sheer fabrics. We offer free home visits with samples and measurements without extra charges.
+  `,
+  image:"/assets/images/ppc-blinds/B1.jpeg",
+  button1Text: "GET DIRECTION",
+  button2Text: "WHATSAPP",
+  secondaryHeading: "The Fabric You Love",
+  para:"We have a big selection of high-quality fabrics, like blackout, sheers, and textured materials, to suit your windows and needs.",
+  subheading: "The Style You Need",
+  para1:"With a wide range of curtain types to choose from, you're sure to find the perfect curtain to compliment your decor.",
+  bulletPoints: [
+    "Blackout fabrics for complete light control.",
+    "Sheer options for soft, elegant lighting.",
+    "Durable, long-lasting materials.",
+    " Variety of colours and textures available.",
+    "Custom-made for a perfect fit.",
+  ],
+  bulletPoints1: [
+    "Timeless and elegant with a pinch pleat.",
+    "Fullness and luxury in a triple pleat.",
+    "Simple and versatile pencil pleat.",
+    "Casual and contemporary look with tab top.",
+    " Smooth, flowing design with wave/ripplefold curtains."
+  ],
+};
+
+//Banner features
+export const Blindbannerfeatures = [
+  "Made-to-measure blinds for any window size.",
+  "You'll get it delivered and professionally installed.",
+  "Only superior quality work by our expert team.",
+  "Choose from a wide range of designs, fabrics, and styles.",
+];
+
+export const Curtainbannerfeatures = [
+  "Free expert advice",
+  "Free home visits with free installation",
+  "Installation in just 2 to 3 Days",
+  "More than 3000 fabrics and colours to choose from",
+];
+  // 
+ export const BlindvideoData = [
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675361/b1_xea6e8.mp4"
+
+    },
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675385/b2_ptvbgq.mp4"
+
+    },
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675421/b3_z55dyu.mp4"
+
+    },
+  ];
+
+  export const CurtainvideoData = [
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675330/curtains_pimxt2.mp4"
+
+    },
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675186/C1_ybhdi1.mp4"
+
+    },
+    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675260/C2_dudbtk.mp4"
+
+    },
+  ];
+
+//Tabdata
+export const Tab1categories = [
+    { label: "Blinds By Type", value: "type" },
+    { label: "Blinds By Room", value: "room" },
+    { label: "Blinds By Material", value: "material" },
+  ];
+  export const Tab2categories = [
+    { label: "Curtains By Style", value: "type" },
+    { label: "Curtains By Room", value: "room" },
+    { label: "Curtains By Fabric", value: "fabric" },
+  ];
+
+export const BlindsTabData= [
+    { id: 1, name: "3D Blinds", image: "/assets/images/bytype/3d-blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/3d-blinds/" },
+    { id: 2, name: "Aluminium Blinds", image: "/assets/images/bytype/Aluminium-Blinds.webp", category: "type",href:"https://blindsandcurtains.ae/blinds/aluminium-venetian-blinds-dubai/" },
+    { id: 3, name: "Day/Night Blinds", image: "/assets/images/bytype/DayNight-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/duplex-blinds/" },                    
+    { id: 4, name: "Eton Blinds", image: "/assets/images/bytype/Eton-Blinds.webp", category: "type" ,href:"https://blindsandcurtains.ae/blinds/eton-blinds/"},
+    { id: 5, name: "Honeycomb Blinds", image: "/assets/images/bytype/Honeycomb-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/colby-honeycomb-blinds/"},
+    { id: 6, name: "Panel Blinds", image: "/assets/images/bytype/Panel-Blinds.webp", category: "type",href:"https://blindsandcurtains.ae/blinds/panel-blinds/" },
+    { id: 7, name: "Patricia Blinds", image: "/assets/images/bytype/Patricia-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/patricia-blinds/" },
+    { id: 8, name: "Roller Blinds", image: "/assets/images/bytype/Roller-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/ppc/roller-blinds/" },
+    { id: 9, name: "Roman Blinds", image: "/assets/images/bytype/Roman-Blinds.webp", category: "type" ,href:"https://blindsandcurtains.ae/blinds/roman-blinds/"},
+    { id: 10, name: "Sheer Horizon Blinds", image: "/assets/images/bytype/Sheer-Horizon-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/sheer-horizon-blinds/" },
+    { id: 11, name: "Sierra Blinds", image: "/assets/images/bytype/Sierra-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/sierra-blinds/" },
+    { id: 12,name: "Vertical Blindss", image: "/assets/images/bytype/Vertical-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/vertical-blinds/" },
+    { id: 13, name: "Wooden Blinds", image: "/assets/images/bytype/Wooden-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/wooden-venetian/" },
+    { id: 14, name: "Zebra Blinds", image: "/assets/images/bytype/Zebra-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/zebra-blinds/" },
+    { id: 15, name: "Zipline-Outdoor Blinds", image: "/assets/images/bytype/Zipline-Outdoor-Blinds.webp", category: "type" , href:"https://blindsandcurtains.ae/blinds/zipline-blinds/"},
+    { id: 16, name: "Pleated Blinds", image: "/assets/images/bytype/Pleated-Blinds.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/pleated-blinds/" },
+    { id: 17, name: "Bathroom Blinds", image: "/assets/images/byroom/Bathroom-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/bathroom-blinds-dubai/" },
+    { id: 18, name: "Bedroom Blinds", image: "/assets/images/byroom/Bedroom-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/bedroom-blinds/" },
+    { id: 19, name: "Conservatory Blinds", image: "/assets/images/byroom/Conservatory-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/conservatory-blinds/" },
+    { id: 20, name: "Dining Room Blinds", image: "/assets/images/byroom/Dining-Room-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/dining-room-blinds/" },
+    { id: 21, name: "Door Blinds", image: "/assets/images/byroom/Door-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/door-blinds/" },
+    { id: 22, name: "Kids Room Blinds", image: "/assets/images/byroom/Kids-Room-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/blinds-for-kids-room/" },
+    { id: 23, name: "Living Room Blinds", image: "/assets/images/byroom/Living-Room-Blinds.webp", category: "room",href:"https://blindsandcurtains.ae/blinds/living-room-blinds/" },
+    { id: 24, name: "School Blinds", image: "/assets/images/byroom/School-Blinds.webp", category: "room" ,href:"https://blindsandcurtains.ae/blinds/school-blinds/"},
+    { id: 25, name: "Staircase Blinds", image: "/assets/images/byroom/Staircase-Blinds.webp", category: "room" , href:"https://blindsandcurtains.ae/blinds/staircase-blinds/"},
+    { id: 26, name: "Kitchen Blinds", image: "/assets/images/byroom/Kitchen-Blinds.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/kitchen-blinds/" },
+    { id: 27, name: "Blackout Roller Blinds", image: "/assets/images/bymaterial/Blackout-Roller-Blinds.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/blackout-blinds/" },
+    { id: 28, name: "Dimout Blinds", image: "/assets/images/bymaterial/Dimout-Blinds.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/roller-blinds/dimout-roller-blinds/"},
+    { id: 29, name: "Motorised blinds", image: "/assets/images/bymaterial/Motorised-blinds.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/translucent-blinds/" },
+    { id: 30, name: "Translucent Blinds", image: "/assets/images/bymaterial/Translucent-Blinds.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/motorised-blinds/" },
+  ];
+
+export const CurtainTabData= [
+    { id: 5, name: "Motorised curtains", image: "/assets/images/bystyle/Motorised-curtains.webp", category: "type", href:"https://blindsandcurtains.ae/curtains/motorised-curtains/" },
+    { id: 6, name: "Pelmet Curtains", image: "/assets/images/bystyle/Pelmet-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pelmet-curtains/", },
+    { id: 7, name: "Pencil Pleat Curtains", image: "/assets/images/bystyle/Pencil-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pencil-pleat-curtains/"  },
+    { id: 8, name: "Pinch Pleat Curtains", image: "/assets/images/bystyle/Pinch-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pinch-pleat-curtains/"  },
+    { id: 9, name: "Ripplefold/Wave Curtains", image: "/assets/images/bystyle/RipplefoldWave-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/wave-curtains/"  },
+    { id: 10, name: "Tab Top Curtains", image: "/assets/images/bystyle/Tab-Top-Curtains.webp", category: "style" ,href:"https://blindsandcurtains.ae/curtains/tab-top-curtains/"  },
+    { id: 11, name: "Triple Pinch Pleat Curtains", image: "/assets/images/bystyle/Triple-Pinch-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/triple-pinch-pleat-curtains/"  },
+    { id: 1, name: "Double Pinch Pleat Curtains", image: "/assets/images/bystyle/Double-Pinch-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/double-pleat-curtains/"  },
+    { id: 2, name: "Eyelet Curtains", image: "/assets/images/bystyle/Eyelet-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/eyelet-curtains/"  },
+    { id: 3, name: "Modern Curtains", image: "/assets/images/bystyle/Modern-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/modern-curtains/"  },
+    { id: 4, name: "Goblet Pleat Curtains", image: "/assets/images/bystyle/Goblet-Pleat-Curtains.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/goblet-pleat-curtains/"  },
+    { id: 12, name: "Bedroom Curtains", image: "/assets/images/byroom1/Bedroom-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-bed-room-curtains/"  },
+    { id: 13, name: "Conservatory Curtains", image: "/assets/images/byroom1/Conservatory-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/conservatory-curtains/"  },
+    { id: 14, name: "Dining Room Curtains", image: "/assets/images/byroom1/Dining-Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/dining-room-curtains-dubai/"  },
+    { id: 15, name: "Staircase Curtains", image: "/assets/images/byroom1/Staircase-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/staircase-curtains/"  },
+    { id: 16, name: "Home Curtains", image: "/assets/images/byroom1/Home-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/home-curtains/"  },
+    { id: 17, name: "Hotel Curtains", image: "/assets/images/byroom1/Hotel-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/hotel-curtains-dubai/"  },
+    { id: 18, name: "Kids Room Curtains", image: "/assets/images/byroom1/Kids-Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/kids-room-curtains/"  },
+    { id: 19, name: "Living Room Curtains", image: "/assets/images/byroom1/Living-Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-living-room-curtains/"  },
+    { id: 20, name: "Office Curtains", image: "/assets/images/byroom1/Office-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/office-window-curtains/"  },
+    { id: 21, name: "Room Curtains", image: "/assets/images/byroom1/Room-Curtains.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/room-curtains/"  },
+    { id: 22, name: "Blackout Curtains", image: "/assets/images/byfabric/Blackout-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/blackout-curtains-dubai/"  },
+    { id: 23, name: "Chiffon Curtains", image: "/assets/images/byfabric/Chiffon-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-chiffon-curtains/"  },
+    { id: 24, name: "Geometric Curtains", image: "/assets/images/byfabric/Geometric-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/geometric-curtains/"  },
+    { id: 25, name: "Kids Prints Curtains", image: "/assets/images/byfabric/Kids-Prints-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/curtain-prints-for-kids/"  },
+    { id: 26, name: "Linen Curtains", image: "/assets/images/byfabric/Linen-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-linen-curtains/"  },
+    { id: 27, name: "Natural Fabric Curtains", image: "/assets/images/byfabric/Natural-Fabric-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/natural-fabric-curtains/"  },
+    { id: 28, name: "Patterned Curtains", image: "/assets/images/byfabric/Patterned-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/patterned-curtains/"  },
+    { id: 29, name: "Plain Curtains", image: "/assets/images/byfabric/Plain-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/plain-curtains/"  },
+    { id: 30, name: "Sheer Curtains", image: "/assets/images/byfabric/Sheer-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-sheer-curtains/"  },
+    { id: 31, name: "Stripes Curtains", image: "/assets/images/byfabric/Stripes-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/stripes-curtains/"  },
+    { id: 32, name: "Textured Curtains", image: "/assets/images/byfabric/Textured-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/textured-curtains/"  },
+    { id: 33, name: "Velvet Curtains", image: "/assets/images/byfabric/Velvet-Curtains.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/velvet-curtains/"  },
+];
+
+
+//whychoosedata
+export const Chooseusblind = {
+  text: "Why are we the leading blinds suppliers in Dubai? Unlike other companies, with British owners, we value service and satisfaction above all else. We are proud to have over twenty years of experience with seamless installation and hassle-free customer service from start to finish. Our commitment to quality and customer satisfaction has earned us 750+ 5-star reviews and the trust of countless happy customers."
+};
+export const Chooseuscurtain = {
+  text: "Choosing Blinds & Curtains Dubai means getting custom-made window treatments, with transparent pricing and hassle free a-z service. With over 20 years of experience, our expert team guarantees a top-notch fit.  Customer satisfaction and quality have earned us hundreds of 5-star reviews."
+};
+
+
+export const chooseusblind= [
+  { text: "With a team of 50+ experts, we pay attention to detail on every project.",
+    image:"/assets/images/ppc-blinds/icon1.png" },
+  { text: "Premium in-house production with the highest quality materials",
+    image:"/assets/images/ppc-blinds/icon2.png" },
+  { text: "Free home visits & installation, no hidden costs, just expert advice and service.", 
+    image:"/assets/images/ppc-blinds/icon3.png"},
+  { text: "Fast & professional installation, enjoy quick, clean, and hassle-free fitting.",
+  image:"/assets/images/ppc-blinds/icon4.png" },
+  { text: "10-year warranty for peace of mind, durability and reliability you can trust.",
+  image:"/assets/images/ppc-blinds/icon5.png" },
+];
+export const chooseuscurtain= [
+  { text: "Dedicated team of 50+ Experts",
+    image:"/assets/images/ppc-blinds/icon6.png", className:"xl:!h-12 xl:!w-12" },
+
+  { text: "High-Quality In-House Production",
+    image:"/assets/images/ppc-blinds/icon7.png" },
+
+  { text: "Free home visits/free installation", 
+    image:"/assets/images/ppc-blinds/icon8.png", className:"xl:h-11 xl:w-11"},
+
+  { text: "Quick installation, and a 10-year warranty",
+  image:"/assets/images/ppc-blinds/icon9.png" ,className:"xl:h-12 xl:w-12"},
+
+  { text: "750+ 5-star reviews and counting",
+  image:"/assets/images/ppc-blinds/icon10.png",className:"xl:h-12 xl:w-20" },
+];
+
+
+export const sectionContent = {
+  heading: "Why Choose Us?",
+  paragraph: `Why are we the leading blinds suppliers in Dubai? Unlike other companies, with British owners, we value service and satisfaction above all else. We are proud to have over twenty years of experience with seamless installation and hassle-free customer service from start to finish. Our commitment to quality and customer satisfaction has earned us 750+ 5-star reviews and the trust of countless happy customers.`,
+};
+
+// explore section for blinds
+export const exploreblindData = [
+  {
+    title: "Sleep Peacefully With Blackout Roller Blinds",
+    description: "Experience complete privacy and light control with blackout roller blinds, designed to block 100% of external light. Perfect for bedrooms, nurseries, and media rooms, these blinds create a cosy, undisturbed environment any time of the day.",
+    image: "/assets/images/ppc-blinds/blackout.jpg",
+    viewlink: "/ppc/roller-blinds/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/l1.png", className:"h-9 w-9 lg:h-16 lg:w-14 " ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
+      { icon: "/assets/images/ppc-blinds/p1.png",className:"h-10 w-24 lg:h-16 lg:w-36", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
+      { icon: "/assets/images/ppc-blinds/e1.png",className:"h-7 w-7 lg:h-11 lg:w-11", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
+      { icon: "/assets/images/ppc-blinds/h1.png",className:"h-8 w-8 sm:h-10 sm:w-20 lg:h-11 lg:w-24", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+  {
+    title: "Sunscreen Roller Blinds for Sunlight, Without the Heat",
+    description: "Let natural light brighten your space while blocking harmful UV rays and reducing glare. Sunscreen roller blinds provide the perfect balance of visibility, heat control, and sun protection, making them ideal for living rooms and workspaces.",
+    image: "/assets/images/ppc-blinds/sunscreen.jpg",
+    viewlink: "/ppc/roller-blinds/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/u1.png",className:"h-8 w-8 lg:h-10 lg:w-10",  title: "UV Protection", text: "Blocks up to 98% of harmful rays for protection." },
+      { icon: "/assets/images/ppc-blinds/glare.png", className:"h-8 w-8 lg:h-10 lg:w-12", title: "Glare Reduction", text: "Enjoy natural light without eye strain or screen glare." },
+      { icon: "/assets/images/ppc-blinds/heat.png", className:"h-8 w-8 lg:h-14 lg:w-10", title: "Heat Control", text: "Keeps rooms cooler by filtering harsh sunlight." },
+      { icon: "/assets/images/ppc-blinds/stylish.png", className:"h-8 w-8 lg:h-10 lg:w-10", title: "Stylish & Functional", text: "Sleek designs that enhance any modern space." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+];
+
+// explore section for curtains
+export const explorecurtainData = [
+  {
+    title: "Sheer Curtains",
+    description: "With sheer curtains, natural light can fill your space and maintain privacy at the same time. Sheer curtains have something very inviting about them.",
+    image: "/assets/images/ppc-blinds/sheer1.jpeg",
+    viewlink: "/curtains/made-to-measure-sheer-curtains/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/14.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Soft Light", text: "Gently diffuses sunlight for a warm, inviting glow." },
+      { icon: "/assets/images/ppc-blinds/13.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Privacy Balance", text: "Enjoy daytime privacy without blocking your view whilst keeping UV rays at bay" },
+      { icon: "/assets/images/ppc-blinds/12.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Airy & Elegant", text: "A flowing, light fabric enhances any decor." },
+      { icon: "/assets/images/ppc-blinds/11.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Layering Option", text: "Pairs beautifully with blackout curtains for that luxury finish." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+  {
+    title: "Blackout Curtains",
+    description: "A blackout curtain helps block out sunlight, reduce noise, and regulate the temperature in a room, providing a cosy, restful atmosphere.",
+    image: "/assets/images/ppc-blinds/black.jpg",
+    viewlink: "/curtains/blackout-curtains-dubai/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/15.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Complete  Darkness", text: "Blocks all light for better sleep and relaxation." },
+      { icon: "/assets/images/ppc-blinds/16.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Energy Efficient", text: "Keeps rooms cooler in summer and warmer in winter." },
+      { icon: "/assets/images/ppc-blinds/17.png", className:"h-8 w-8 xl:h-10 xl:w-9" , title: "Noise Reduction", text: "The thick fabric absorbs sound for a quieter home." },
+      { icon: "/assets/images/ppc-blinds/13.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Privacy & Comfort", text: "Gives you complete privacy night and day." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+];
+//working process
+export const workingProcessblindData = [
+  {
+    icon: "/assets/images/ppc-blinds/1.png", 
+    title: "Book an Appointment",
+    description: "Call us or fill out our online form to schedule your free home visit at a time that suits you.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/2.png",
+    title: "Free Consultation",
+    description: "We'll visit your home with fabric samples, take accurate measurements, and suggest options.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/3.png",
+    title: "Measurements & Selection",
+    description: "We take precise measurements and help you choose the perfect style and material.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/4.png",
+    title: "Custom Production",
+    description: "Your blinds are made-to-measure for a flawless fit and premium finish.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/5.png",
+    title: "Delivery & Installation",
+    description: "We'll make sure your installation is hassle-free and without any mess or stress.",
+  },
+];
+
+export const workingProcesscurtainData = [
+  {
+    icon: "/assets/images/ppc-blinds/1.png", 
+    title: "Book a Free Consultation",
+    description: "Call us or fill out our online form to schedule your free home visit at a time that suits you.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/6.png",
+    title: "Free Home Visit",
+    description: "We'll visit your home with fabric samples, take accurate measurements, and give advice.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/3.png",
+    title: "Measurements & Selection",
+    description: "We take precise measurements and help you choose the perfect fabric and style.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/4.png",
+    title: "Custom Production",
+    description: "We make curtains to your exact measurements so their fit is perfect.",
+  },
+  {
+    icon: "/assets/images/ppc-blinds/5.png",
+    title: "Delivery & Installation",
+    description: "Our team makes sure the installation goes smoothly and hassle-free.",
+  },
+];
+// Consultation both data
+export const consultationblindData = [
+  {
+    title: "Request A Free Consultation & Price Estimate",
+    description: "Get expert advice, fabric samples, and precise measurements. All from the comfort of your home. Our team will guide you through the best options, making sure they're a perfect fit for your window. No hidden costs, just reliable service and high-quality results.",
+    image: "/assets/images/ppc-blinds/curtain.webp",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Free Home Visit", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Measurements", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Transparent Pricing", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Extensive Collection", text: "There are a variety of styles, colours, as well as fabrics available." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+  {
+    title: "Request A Free Consultation & Price Estimate",
+    description: "We shouldn't let finding the right blinds stress us out - it should be fun.  With our expert advice, material samples, and precise measurements, we make it easy to make the right choice. There are no hidden costs, no guesswork-just beautifully fitted blinds.",
+    image: "/assets/images/ppc-blinds/b3.webp",
+    viewlink: "/",
+    features: [
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
+      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
+    ],
+    buttonLinks: [
+      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
+      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
+    ],
+  },
+];
+
+//blind
+export const blindcrousal = [
+  { title: "Free Home Visit ", description: "We come to you with samples, ideas, and expert guidance.", icon: "/assets/images/ppc-blinds/h6.png"},
+  { title: "Custom Measurements", description: "No more worrying about fit, we measure everything precisely.", icon: "/assets/images/ppc-blinds/h2.png" },
+  { title: "Transparent Pricing", description: "Honest, upfront quotes with no surprises or hidden fees.", icon: "/assets/images/ppc-blinds/h3.png"},
+  { title: "Expert Installation", description: "We handle everything, so you can sit back and enjoy your new blinds.", icon: "/assets/images/ppc-blinds/h4.png"},
+  { title: "Free reinstall", description: "We offer free uninstall and reinstall within 2 years, so if you end up moving, we’ll help make your investment last longer.", icon: "/assets/images/ppc-blinds/h5.png"},
+];
+//curtain
+export const curtaincrousal = [
+  { icon: "/assets/images/ppc-blinds/h6.png", title: "Free Home Visit", description: "We come to you with samples and expert advice, at no cost." },
+      { icon: "/assets/images/ppc-blinds/h2.png", title: "Custom Measurements", description: "Precise measuring gets you a flawless fit for your curtains." },
+      { icon: "/assets/images/ppc-blinds/h3.png", title: "Transparent Pricing", description: "Get a clear, upfront quote with no hidden fees." },
+      { icon: "/assets/images/ppc-blinds/h7.png", title: "Expert Installation", description: "Our professional team handles everything for a hassle-free setup." },
+      { icon: "/assets/images/ppc-blinds/h5.png", title: "Extensive Collection", description: "There are a variety of styles, colours, as well as fabrics available." },
+];
+
+
+export const Blindgallery = {
+  title: "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.",
+  images: [
+    { src: "/assets/images/ppc-blinds/g5.png" },
+    { src: "/assets/images/ppc-blinds/g1.png" },
+    { src: "/assets/images/ppc-blinds/g4.png" },
+    { src: "/assets/images/ppc-blinds/g2.png" },
+    { src: "/assets/images/ppc-blinds/g6.png" },
+    { src: "/assets/images/ppc-blinds/g3.png" },
+    { src: "/assets/images/ppc-blinds/g7.png" },
+  ],
+};
+
+export const Curtaingallery = {
+  title: "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.",
+  images: [
+  {src: "/assets/images/ppc-blinds/g8.png" , className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g9.png", className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g10.png",className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g11.png",className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g12.png",className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g13.png",className: "h-[301px] row-span-1" },
+   {src: "/assets/images/ppc-blinds/g14.png",className: "h-[301px] row-span-1" },
+]
+};
+
+export const serviceLocationsData = [
+  {
+    id: 1,
+    title: "We Deliver Blinds All Over Dubai",
+    description: "Our blinds are made-to-order and delivered right to your door in any part of Dubai. We offer fast, reliable service and installation with expert expertise—convenience and quality combined!",
+    locations: ['Albarsha', 'Arabian Ranches', 'Business Bay', 'Downtown Dubai', 'Dubai Hills', 'Jumeirah Bay Island','Jumeirah Beach','Palm Jumeirah','Academic City','DIFC','Damac Hills','Discovery Gardens'],
+    mapLink:"https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/@25.117715,55.235686,2562m/data=!3m1!1e3!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    id: 2,
+    title: "We Deliver Curtains All Over Dubai",
+    description: "Our curtains are made-to-order and delivered right to your door in any part of Dubai. We offer fast, reliable service and installation with expert expertise—convenience and quality combined!",
+    locations: ['Al Barari', 'The Greens', 'Al Quoz', 'Al Qusais', 'Al Reem', 'Al Sufouh','Alvorada','Arjan','Barsha Heights','Villa Nova','Bur Dubai','The Lakes'],
+    mapLink:"https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/@25.117715,55.235686,2562m/data=!3m1!1e3!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+  }
+];
+
+export const gallerypara = "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.";
+
+export const curtainImages = [
+  { src: "/assets/images/ppc-blinds/g8.png", width: 397, height: 301 },
+  { src: "/assets/images/ppc-blinds/g10.png", width: 397, height: 466 },
+  { src: "/assets/images/ppc-blinds/g13.png", width: 322, height: 241 },
+  { src: "/assets/images/ppc-blinds/vanright.png", width: 323, height: 526 },
+  { src: "/assets/images/ppc-blinds/g9.png", width: 236, height: 322 },
+  { src: "/assets/images/ppc-blinds/g11.png", width: 482, height: 445 },
+  { src: "/assets/images/ppc-blinds/g14.png", width: 236, height: 322 },
+];
+
+export const blindimages = [
+  { src: "/assets/images/ppc-blinds/g5.png", width: 397, height: 301 },
+  { src: "/assets/images/ppc-blinds/g1.png", width: 397, height: 466 },
+  { src: "/assets/images/ppc-blinds/g4.png", width: 322, height: 241 },
+  { src: "/assets/images/ppc-blinds/vanright.png", width: 323, height: 526 },
+  { src: "/assets/images/ppc-blinds/g6.png", width: 236, height: 322 },
+  { src: "/assets/images/ppc-blinds/g3.png", width: 482, height: 445 },
+  { src: "/assets/images/ppc-blinds/g7.png", width: 236, height: 322 },
+];

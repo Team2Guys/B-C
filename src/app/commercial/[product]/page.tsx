@@ -85,6 +85,8 @@ const CommercialPage = async ({ params }: meta_props) => {
       if (redirected_product) {
         permanentRedirect(redirected_product.Redirect);
       }
+
+      
   return (
     <>
       <CommercialProduct product={slug} products={products} subCategories={subCategories}  />

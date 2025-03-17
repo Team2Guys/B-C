@@ -100,7 +100,7 @@ function Testimonial() {
                   Google Rating
                 </p>
                 <Link
-                  href="https://g.page/r/Cb5WvqhjNT4iEAE/"
+                  href="https://maps.app.goo.gl/9rgRcp86AAP9K8Hw8"
                   className="text-[#008CFF] text-[7px] 2xl:text-[9px] pt-1"
                   target="_blank"
                 >

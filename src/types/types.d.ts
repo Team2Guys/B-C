@@ -196,3 +196,122 @@ export interface AppointmentProps {
   singlePage?: boolean;
   className?: string;
 }
+export interface PageData {
+  heading: string;
+  heading1: string;
+  description: string;
+  image: string;
+  button1Text: string;
+  button2Text: string;
+  subheading: string;
+  secondaryHeading: string;
+  bulletPoints: string[];
+  bulletPoints1: string[];
+  para: string;
+  para1: string;
+}
+
+export interface CommonSectionProps {
+  data: PageData;
+}
+
+export interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface FeaturesCarouselProps {
+  title: string;
+  subtitle: string;
+  features: Feature[];
+  defaultVisibleItems?: number;
+}
+export interface Title {
+  heading: string;
+  className?:string;
+}
+export interface Video {
+  src: string;
+}
+
+interface VideoSectionProps {
+  videos: Video[];
+  heading?: string;
+}
+export interface Blind {
+  id: number;
+  name: string;
+  image: string;
+  category: string;
+  href?: string;
+}
+
+export interface Category {
+  label: string;
+  value: string;
+}
+
+export interface BlindsTabsProps {
+  blindsData: Blind[];
+  tabCategories: Category[];
+}
+export interface ExploreBlindsCurtainsProps {
+  data: {
+    title: string;
+    description: string;
+    image: string;
+    viewlink: string;
+    features: { icon: string; title: string; text: string,className?:string;}[];
+    buttonLinks: { href: string; text: string }[];
+    className?: string;
+  };
+  reverse?: boolean;
+}
+export interface WorkingProcessProps {
+  data: { icon: string; title: string; description: string }[];
+}
+
+interface ServiceLocationsProps {
+  title: string;
+  description: string;
+  locations: string[];
+  mapLink: string;
+}
+interface BannerProps {
+  imageSrc: string;
+  paraText: string;
+  linkHref: string;
+  linkText: string;
+  linkBgColor: string;
+  className?: string;
+}
+export interface ExploreBlindsProps extends ExploreBlindsCurtainsProps {
+  hideViewMore?: boolean;
+  hidefeatures?: boolean;
+  className?:string;
+  buttonsClassName?:string,
+}
+
+export interface VideoPageProps {
+  videoSrc: string;
+  title: string;
+  subtitle: string | any;
+  description: string | any;
+  width?: any;
+  height?:any;
+}
+export interface relativeProps {
+  products: IProduct[];
+  categoriesList?: ICategory[];
+  limit?: number;
+  className?: string;
+  title?: string;
+  description?: string;
+  bgcolor?: boolean;
+  isPPc?:boolean
+}
+export interface ImageGalleryProps {
+  images: ImageData[];
+  columns?: number;
+}

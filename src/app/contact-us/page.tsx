@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/contact-us/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
+        url: `${second.src}`,
         alt: 'Blind And Curtains Dubai | Contact Us',
       },
     ],
