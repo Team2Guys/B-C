@@ -22,7 +22,7 @@ const RollerBlinds = () => {
           <h2 className="text-20 sm:text-3xl xl:text-5xl font-serif font-black underline decoration-secondary decoration-2">
             {blind.title}
           </h2>
-          <p className="text-center px-2 font-normal text-12 sm:text-14 lg:text-lg leading-5 sm:leading-6 max-w-screen-lg xl:max-w-screen-xl">
+          <p className="text-center sm:px-2 font-normal text-14 sm:text-16  sm:leading-6 max-w-screen-xl">
             {blind.description}
           </p>
           <Link
