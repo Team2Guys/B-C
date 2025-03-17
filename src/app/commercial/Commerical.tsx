@@ -94,7 +94,7 @@ const Commercial = ({
             >
               office curtains
             </Link>{' '}
-            and blinds. We are also trusted by office owners with over 700+
+            and blinds. We are also trusted by office owners with over 750+
             5-star reviews. Our professional team perfectly fit office{' '}
             <Link
               className="underline"

@@ -27,8 +27,8 @@ const Videoblind: React.FC<VideoSectionProps> = ({ videos, heading }) => {
           ))}
         </div>
         <div className='flex justify-center gap-2 sm:gap-3'>
-        <Link href="/request-appointment/" className='px-4 py-2 text-center font-proxima font-semibold lg:text-17 text-white bg-secondary hover:bg-primary rounded-sm'>BOOK A FREE CONSULTATION</Link>
-        <Link href="/estimator/" className='px-4 py-2 font-proxima text-center font-semibold lg:text-17 rounded-sm border border-gray-300 hover:bg-primary '>GET ESTIMATE</Link>
+        <Link href="/request-appointment/" className='px-4 py-2 text-center font-proxima font-medium lg:text-17 text-white bg-black hover:bg-primary rounded-sm'>BOOK A FREE CONSULTATION</Link>
+        <Link href="/estimator/" className='px-4 py-2 font-proxima text-center font-semibold lg:text-17 rounded-sm border border-gray-400 hover:bg-primary '>GET ESTIMATE</Link>
         </div>
       </Container>
     </div>

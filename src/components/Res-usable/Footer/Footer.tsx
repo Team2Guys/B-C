@@ -8,6 +8,7 @@ import {
   phoneNumberInfo,
   EmailInfo,
   footerData,
+  WhatsAppInfo,
 } from 'data/data';
 import { IoLogoPinterest } from 'react-icons/io5';
 import { AiOutlineInstagram } from 'react-icons/ai';
@@ -106,7 +107,7 @@ const Footer: React.FC = () => {
               </Link>
               <p className="text-sm text-white text-center sm:text-start">
                 The most trusted window treatment company in Dubai with a decade
-                of experience and 700+ of positive reviews.
+                of experience and 750+ of positive reviews.
               </p>
               <div className="flex items-center space-x-4 mt-4">
                 <Link
@@ -417,11 +418,11 @@ const Footer: React.FC = () => {
                             />
                           </span>
                           <Link
-                            href={`https://wa.me/${phoneNumberInfo.number.replaceAll(' ', '')}`}
+                            href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ', '')}`}
                             target="_blank"
                             className="text-12 2xl:text-sm font-medium text-nowrap"
                           >
-                            {phoneNumberInfo.number}
+                            {WhatsAppInfo.number}
                           </Link>
                         </li>
                         <li className="flex gap-2 flex-nowrap">

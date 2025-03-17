@@ -87,10 +87,10 @@ const ProductUs: React.FC = () => {
                   <IoCall size={25} className="text-white w-1/12 " />
                   <Link
                     target="_blank"
-                    href={'tel:+971544945339'}
+                    href={'tel:042522025'}
                     className="hover:underline w-11/12"
                   >
-                    +971 54 494 5339
+                    04 252 2025
                   </Link>
                 </div>
                 <div className="text-14 md:text-15 2xl:text-18 flex gap-3 items-start">

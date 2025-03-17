@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavData } from 'data/data';
+import { NavData, phoneNumberInfo } from 'data/data';
 import Image from 'next/image';
 import { LuPhone } from "react-icons/lu";
 import Link from 'next/link';
@@ -31,8 +31,8 @@ const Header = () => {
       <div className='flex-col justify-center items-center space-y-3 bg-black col-span-12 md:col-span-6 lg:col-span-2 py-3 sm:pt-8'>
         <div className='flex gap-2 justify-center'>
           <LuPhone className='text-12 xs:text-14 text-center sm:text-16 md:text-18' />
-          <Link target='blank' href="tel:+971544945339" className='text-10 sm:text-12 md:text-14 text-center'>
-          +971 54 494 5339
+          <Link target='blank' href={`tel:${phoneNumberInfo.number.replaceAll(' ', '')}`} className='text-10 sm:text-12 md:text-14 text-center'>
+         {phoneNumberInfo.number}
           </Link>
         </div>
         <div className='flex gap-1 xs:gap-2 justify-center items-center'>

@@ -76,6 +76,7 @@ const RollerTabContant = ({setTabType}:ROOLER_TAB) => {
               autoPlay
               muted playsInline
               controls={false}
+              preload='none'
               loop
             />
           </div>
