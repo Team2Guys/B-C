@@ -244,7 +244,7 @@ export interface Blind {
   id: number;
   name: string;
   image: string;
-  category: string;
+  category?: string;
   href?: string;
 }
 

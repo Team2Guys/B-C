@@ -6,7 +6,7 @@ import phone from "../../../../public/assets/images/phone.jpg"
 const Callbutton = () => {
   return (
     <Link
-      href="tel:+971544945339"
+      href="tel:+04 252 2025"
       target="_blank"
       rel="noopener noreferrer"
        aria-label="Call Phone Number"

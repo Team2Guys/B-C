@@ -66,7 +66,7 @@ const FeaturesCarousel: React.FC<FeaturesCarouselProps> = ({
       )}
     
       <div className="relative flex items-center justify-center mt-9">
-        <button onClick={handlePrev} className="absolute left-0">
+        <button onClick={handlePrev} className="absolute left-0 2xl:left-24 xxll:left-96">
           <IoMdArrowDropleft size={45} className="text-white" />
         </button>
         <Container>
@@ -97,7 +97,7 @@ const FeaturesCarousel: React.FC<FeaturesCarouselProps> = ({
             ))}
         </div>
         </Container>
-        <button onClick={handleNext} className="absolute right-0">
+        <button onClick={handleNext} className="absolute right-0 2xl:right-24 xxl:right-96">
           <IoMdArrowDropright size={45} className="text-white" />
         </button>
       </div>

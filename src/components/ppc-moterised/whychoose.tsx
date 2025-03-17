@@ -17,7 +17,7 @@ const actionLinks = [
     bgColor: "bg-black hover:bg-primary",
   },
   {
-    href: "tel:+971544945339",
+    href: "tel:+04 252 2025",
     text: "CALL US",
     icon: <IoCallOutline size={20} />,
     bgColor: "bg-primary",

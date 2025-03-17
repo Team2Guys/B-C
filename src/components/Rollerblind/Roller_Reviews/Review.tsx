@@ -33,26 +33,28 @@ const RollerReviews: React.FC<RollerReviewsProps> = ({ imageSrc = '/assets/image
     <div className='bg-[#F5EDE5]'>
     <Container>
     <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-center bg-[#F5EDE5] py-10 lg:py-0'>
-      <div className='flex flex-col items-start px-6 lg:px-12'>
+      <div className='flex flex-col items-center lg:items-start px-6 lg:px-12'>
+        
+        <div className='max-w-[95%] space-y-8'>
         <h2 className="text-2xl md:text-4xl font-black font-serif mb-6 text-gray-900">
           Customer Feedback <br /> You Can Trust
         </h2>
-        <div className='max-w-[90%] space-y-8'>
           <Link href='https://maps.app.goo.gl/9rgRcp86AAP9K8Hw8' target='blank'>
             <div className='bg-white w-fit h-fit rounded-full shadow-lg py-3 px-4 flex justify-center items-center gap-3'>
               <FcGoogle className='h-[27.22px] w-[28.57px]' />
               <p className='text-16 font-bold'>4.9 | <span className='font-normal'>See all reviews</span></p>
             </div>
           </Link>   
-          <div className='w-full max-w-md mx-auto'>
-            <div className='flex justify-between px-4'>
-              <div className='testimonial-prev cursor-pointer h-7 w-7 bg-white rounded-full shadow-md flex items-center justify-center z-40'>
-                <FaArrowLeftLong />
-              </div>
-              <div className='testimonial-next cursor-pointer h-7 w-7 bg-white rounded-full shadow-md flex items-center justify-center z-40'>
-                <FaArrowRightLong />
-              </div>
-            </div>
+          <div className='relative w-full max-w-md mx-auto'>
+  {/* Navigation Arrows */}
+  <div className='absolute top-1/2 left-[-50px] lg:left-[-70px] right-[-50px] lg:right-[-70px] flex justify-between px-4 -translate-y-12'>
+    <div className='testimonial-prev cursor-pointer w-7 h-7 sm:h-10 sm:w-10 bg-white rounded-full shadow-md flex items-center justify-center z-40'>
+      <FaArrowLeftLong />
+    </div>
+    <div className='testimonial-next cursor-pointer w-7 h-7 sm:h-10 sm:w-10 bg-white rounded-full shadow-md flex items-center justify-center z-40'>
+      <FaArrowRightLong />
+    </div>
+  </div>
             
             <Swiper
               loop={true}
