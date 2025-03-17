@@ -1,10 +1,13 @@
 
 import React from 'react'
-import {banners, Chooseuscurtain, chooseuscurtain, consultationblindData, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainImages, curtainsData, CurtainTabData, CurtainvideoData, explorecurtainData, serviceLocationsData, Tab2categories, workingProcesscurtainData} from 'data/data';
+import {banners, Chooseuscurtain, chooseuscurtain, Curtainbannerfeatures, curtaincrousal, Curtainfeatures, curtainImages, curtainsData, CurtainvideoData, serviceLocationsData, Tab2categories, workingProcesscurtainData} from 'data/data';
 import Bullets from '../made-to-measure-blinds/bullets';
 import LButton from '../made-to-measure-blinds/button';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import { CurtainTabData } from 'data/CurtainTabData';
+import { explorecurtainData } from 'data/explorecurtaindata';
+import { consultationblindData } from 'data/consultationdata';
 
 //Dynamic imports
 const CustomSection = dynamic(() => import('components/ppc-moterised/customization'));

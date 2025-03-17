@@ -2464,102 +2464,6 @@ export const tabsData = [
     },
   ];
 
-
-  export const GallaryData =[
-    {
-      info: [
-        {
-          className: 'h-[493px]', 
-          imageurl: '/assets/images/galleryimages/all/b1.png', 
-          text: 'Blackout Roller Blinds',
-        },
-        {
-          className: 'h-[308px]',
-          imageurl: '/assets/images/galleryimages/all/b2.png',
-          text: 'Blackout Roller Blinds',
-          alt:"ss"
-        },
-      ],
-    },
-    {
-      info: [
-        {
-          className: 'h-[222px]',
-          imageurl: '/assets/images/galleryimages/all/b3.png',
-          text: 'Blackout Roller Blinds',
-        },
-        {
-          className: 'h-[581px]',
-          imageurl: '/assets/images/galleryimages/all/b4.png',
-          text: 'Blackout Roller Blinds',
-        },
-      ],
-    },
-    {
-      info: [
-        {
-          className: 'h-[493px]', 
-          imageurl: '/assets/images/galleryimages/all/b5.png', 
-          text: 'Blackout Roller Blinds',
-        },
-        {
-          className: 'h-[308px]',
-          imageurl: '/assets/images/galleryimages/all/b6.png',
-          text: 'BBlackout Roller Blinds',
-        },
-      ],
-    },
-    {
-      info: [
-        {
-          className: 'h-[205px]',
-          imageurl: '/assets/images/galleryimages/all/b7.png',
-          text: 'Blackout Roller Blinds',
-        },
-        {
-          className: 'h-[220px]',
-          imageurl: '/assets/images/galleryimages/all/b8.png',
-          text: 'Blackout Roller Blinds',
-        },
-        {
-          className: 'h-[356px]',
-          imageurl: '/assets/images/galleryimages/all/s1.png',
-          text: 'Sunscreen Roller Blinds',
-        },
-      ],
-    },
-    // Add more objects as needed
-    {
-      info: [
-        {
-          className: 'h-[493px]', 
-          imageurl: '/assets/images/galleryimages/all/s2.png', 
-          text: 'Sunscreen Roller Blinds',
-        },
-        {
-          className: 'h-[308px]',
-          imageurl: '/assets/images/galleryimages/all/s3.png',
-          text: 'Sunscreen Roller Blinds',
-          alt:"ss"
-        },
-      ],
-    },
-    {
-      info: [
-        {
-          className: 'h-[222px]',
-          imageurl: '/assets/images/galleryimages/all/s4.png',
-          text: 'Sunscreen Roller Blinds',
-        },
-        {
-          className: 'h-[581px]',
-          imageurl: '/assets/images/galleryimages/all/s5.png',
-          text: 'Sunscreen Roller Blinds',
-        },
-        ],
-      },
-    ];
-
       export const GallaryData1 = [
         {
           text: "Blackout Roller Blinds",
@@ -2600,8 +2504,6 @@ export const GallaryData2 =[ {
 },]
 
         
-        
-
 // Rollervideos
     export const InstaRollerData = [
           {
@@ -2818,82 +2720,6 @@ export const Tab1categories = [
     { label: "Curtains By Fabric", value: "fabric" },
   ];
 
-export const BlindsTabData= [
-   
-    { id: 8, name: "Roller Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019364/Roller-Blinds_rfbctn.webp", category: "type", href:"https://blindsandcurtains.ae/ppc/roller-blinds/" },
-    { id: 9, name: "Roman Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019469/Roman-Blinds_dtkrwg.webp", category: "type" ,href:"https://blindsandcurtains.ae/blinds/roman-blinds/"},
-    { id: 12,name: "Vertical Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022396/Conservatory-Curtains_yihh5v.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/vertical-blinds/" },
-    { id: 14, name: "Zebra Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019648/Zebra-Blinds_oq9nzf.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/zebra-blinds/" },
-    { id: 13, name: "Wooden Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019618/Wooden-Blinds_mvxxga.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/wooden-venetian/" },
-    { id: 2, name: "Aluminium Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742018965/Aluminium-Blinds_fw46rb.webp", category: "type",href:"https://blindsandcurtains.ae/blinds/aluminium-venetian-blinds-dubai/" },
-    { id: 15, name: "Zipline-Outdoor Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019687/Zipline-Outdoor-Blinds_rjldcj.webp",category: "type",href:"https://blindsandcurtains.ae/blinds/zipline-blinds/" },
-    { id: 6, name: "Panel Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019152/Panel-Blinds_vd0gii.webp", category: "type",href:"https://blindsandcurtains.ae/blinds/panel-blinds/" },
-    { id: 1, name: "3D Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742018805/3d-blinds_jo3zwm.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/3d-blinds/" },
-    { id: 3, name: "Day/Night Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019000/DayNight-Blinds_le1q31.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/duplex-blinds/" },                    
-    { id: 4, name: "Eton Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019059/Eton-Blinds_e3wcgo.webp", category: "type" ,href:"https://blindsandcurtains.ae/blinds/eton-blinds/"},
-    { id: 5, name: "Honeycomb Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019090/Honeycomb-Blinds_uzmevk.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/colby-honeycomb-blinds/"},
-    { id: 7, name: "Patricia Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019233/Patricia-Blinds_dnv80x.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/patricia-blinds/" },
-    { id: 10, name: "Sheer Horizon Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019501/Sheer-Horizon-Blinds_mpxfvt.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/sheer-horizon-blinds/" },
-    { id: 11, name: "Sierra Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019547/Sierra-Blinds_gifdrb.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/sierra-blinds/" },
-    { id: 16, name: "Pleated Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019301/Pleated-Blinds_oa6hye.webp", category: "type", href:"https://blindsandcurtains.ae/blinds/pleated-blinds/" },
-    { id: 17, name: "Bathroom Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742019993/Bathroom-Blinds_pngigf.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/bathroom-blinds-dubai/" },
-    { id: 18, name: "Bedroom Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020029/Bedroom-Blinds_mekf2j.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/bedroom-blinds/" },
-    { id: 19, name: "Conservatory Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020059/Conservatory-Blinds_xxer0c.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/conservatory-blinds/" },
-    { id: 20, name: "Dining Room Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020089/Dining-Room-Blinds_b5okuo.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/dining-room-blinds/" },
-    { id: 21, name: "Door Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020124/Door-Blinds_qefrf9.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/door-blinds/" },
-    { id: 22, name: "Kids Room Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020176/Kids-Room-Blinds_or7wj3.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/blinds-for-kids-room/" },
-    { id: 23, name: "Living Room Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020205/Living-Room-Blinds_hbfjlk.webp", category: "room",href:"https://blindsandcurtains.ae/blinds/living-room-blinds/" },
-    { id: 24, name: "School Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020234/School-Blinds_d1l0ms.webp", category: "room" ,href:"https://blindsandcurtains.ae/blinds/school-blinds/"},
-    { id: 25, name: "Staircase Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020269/Staircase-Blinds_eykk34.webp", category: "room" , href:"https://blindsandcurtains.ae/blinds/staircase-blinds/"},
-    { id: 26, name: "Kitchen Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020301/Kitchen-Blinds_d5groi.webp", category: "room", href:"https://blindsandcurtains.ae/blinds/kitchen-blinds/" },
-    { id: 27, name: "Blackout Roller Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020419/Blackout-Roller-Blinds_yvvjmo.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/blackout-blinds/" },
-    { id: 29, name: "Motorised blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020461/Motorised-blinds_rr2ir4.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/motorised-blinds/" },
-    { id: 28, name: "Dimout Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020493/Dimout-Blinds_m72awd.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/roller-blinds/dimout-roller-blinds/"},
-    { id: 30, name: "Translucent Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020521/Translucent-Blinds_yspfe3.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/translucent-blinds/" },
-    { id: 31, name: "Blackout Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020377/Blackout-Blinds_myrsiv.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/blackout-blinds/" },
-    { id: 32, name: "Sunscreen/Transparent Blinds", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742020565/Sunscreen-Transparent-Blinds_qrtwmg.webp", category: "material", href:"https://blindsandcurtains.ae/blinds/roller-blinds/sunscreen-roller-blinds/" },
-  ];
-
-export const CurtainTabData= [
-  { id: 1, name: "Triple Pinch Pleat Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021672/Triple-Pinch-Pleat-Curtains_m51aew.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/triple-pinch-pleat-curtains/"   },
-  { id: 2, name: "Double Pinch Pleat Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021313/Double-Pinch-Pleat-Curtains_exmnzx.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/double-pleat-curtains/"  },
-  { id: 3, name: "Pencil Pleat Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021559/Pencil-Pleat-Curtains_ggmhau.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pencil-pleat-curtains/"  },
-  { id: 4, name: "Ripplefold/Wave Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021598/RipplefoldWave-Curtains_e4whzg.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/wave-curtains/"  },
-  { id: 5, name: "Eyelet Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021371/Eyelet-Curtains_alwb8l.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/eyelet-curtains/"  },
-  { id: 6, name: "Tab Top Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021636/Tab-Top-Curtains_bb66ez.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/tab-top-curtains/"  },
-  { id: 7, name: "Modern Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021468/Modern-Curtains_t3bssn.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/modern-curtains/"  },
-  { id: 8, name: "Pinch Pleat Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021710/Pinch-Pleat-Curtains_hi96ki.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pinch-pleat-curtains/"  },
-  { id: 9, name: "Goblet Pleat Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021440/Goblet-Pleat-Curtains_wqimz8.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/goblet-pleat-curtains/"  },
-  { id: 10, name: "Motorised curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021501/Motorised-curtains_jzh3br.webp", category: "type", href:"https://blindsandcurtains.ae/curtains/motorised-curtains/" },
-  { id: 11, name: "Pelmet Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021531/Pelmet-Curtains_t5mvfg.webp", category: "type" ,href:"https://blindsandcurtains.ae/curtains/pelmet-curtains/", },
-
-  { id: 12, name: "Kids Room Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022277/Kids-Room-Curtains_dmictn.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/kids-room-curtains/"  }, 
-  { id: 13, name: "Living Room Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022307/Living-Room-Curtains_whwi3r.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-living-room-curtains/"  },
-  { id: 14, name: "Bedroom Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022240/Bedroom-Curtains_tewnpe.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-bed-room-curtains/"  }, 
-  { id: 15, name: "Dining Room Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022336/Dining-Room-Curtains_nonwa7.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/dining-room-curtains-dubai/"  },
-  { id: 16, name: "Staircase Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022365/Staircase-Curtains_vlnc1k.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/staircase-curtains/"  },
-  { id: 17, name: "Conservatory Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022396/Conservatory-Curtains_yihh5v.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/conservatory-curtains/"  },
-  { id: 18, name: "Hotel Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022422/Hotel-Curtains_pdauvo.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/hotel-curtains-dubai/"  },
-  { id: 19, name: "Door Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022458/Door-Curtains_xmttkv.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/door-curtains/"  },
-  { id: 20, name: "Office Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022561/Office-Curtains_weugfp.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/office-window-curtains/"  }, 
-  { id: 21, name: "Home Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022609/Home-Curtains_a5xwwh.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/home-curtains/"  },
-  { id: 22, name: "Room Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022636/Room-Curtains_q6phgo.webp", category: "room" ,href:"https://blindsandcurtains.ae/curtains/room-curtains/"  }, 
-
-  { id: 23, name: "Blackout Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021824/Blackout-Curtains_onabeh.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/blackout-curtains-dubai/"  },
-  { id: 24, name: "Sheer Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021850/Sheer-Curtains_q9uabu.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-sheer-curtains/"  },
-  { id: 25, name: "Natural Fabric Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021877/Natural-Fabric-Curtains_dktni7.webp",  category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/natural-fabric-curtains/" },
-  { id: 26, name: "Textured Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021920/Textured-Curtains_qmv8ol.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/textured-curtains/"  },
-  { id: 27, name: "Geometric Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021947/Geometric-Curtains_yqc5at.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/geometric-curtains/"  }, 
-  { id: 28, name: "Plain Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021984/Plain-Curtains_tbtepc.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/plain-curtains/"  },
-  { id: 29, name: "Stripes Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022011/Stripes-Curtains_flp5nz.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/stripes-curtains/"  },
-  { id: 30, name: "Kids Prints Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742021774/Kids-Prints-Curtains_a2dz9j.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/curtain-prints-for-kids/"  },
-  { id: 31, name: "Patterned Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022067/Patterned-Curtains_laeh8s.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/patterned-curtains/"  },
-  { id: 32, name: "Linen Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022112/Linen-Curtains_qdcxei.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-linen-curtains/"  },
-  { id: 33, name: "Chiffon Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022140/Chiffon-Curtains_xjgp07.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/made-to-measure-chiffon-curtains/"  },
-  { id: 34, name: "Velvet Curtains", image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742022167/Velvet-Curtains_nqxaif.webp", category: "fabric" ,href:"https://blindsandcurtains.ae/curtains/velvet-curtains/"  },
-];
-
-
 //whychoosedata
 export const Chooseusblind = {
   text: "Why are we the leading blinds suppliers in Dubai? Unlike other companies, with British owners, we value service and satisfaction above all else. We are proud to have over twenty years of experience with seamless installation and hassle-free customer service from start to finish. Our commitment to quality and customer satisfaction has earned us 750+ 5-star reviews and the trust of countless happy customers."
@@ -2938,77 +2764,7 @@ export const sectionContent = {
   paragraph: `Why are we the leading blinds suppliers in Dubai? Unlike other companies, with British owners, we value service and satisfaction above all else. We are proud to have over twenty years of experience with seamless installation and hassle-free customer service from start to finish. Our commitment to quality and customer satisfaction has earned us 750+ 5-star reviews and the trust of countless happy customers.`,
 };
 
-// explore section for blinds
-export const exploreblindData = [
-  {
-    title: "Sleep Peacefully With Blackout Roller Blinds",
-    description: "Experience complete privacy and light control with blackout roller blinds, designed to block 100% of external light. Perfect for bedrooms, nurseries, and media rooms, these blinds create a cosy, undisturbed environment any time of the day.",
-    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847445/blackout_xqen2i.jpg",
-    viewlink: "/ppc/roller-blinds/",
-    features: [
-      { icon: "/assets/images/ppc-blinds/l1.png", className:"h-9 w-9 lg:h-16 lg:w-14 " ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
-      { icon: "/assets/images/ppc-blinds/p1.png",className:"h-10 w-24 lg:h-16 lg:w-36", title: "Privacy", text: "Keep your home hidden from the public eye, day and night." },
-      { icon: "/assets/images/ppc-blinds/e1.png",className:"h-7 w-7 lg:h-11 lg:w-11", title: "Energy Efficient", text: "Helps regulate room temperature and reduce energy bills." },
-      { icon: "/assets/images/ppc-blinds/h1.png",className:"h-8 w-8 sm:h-10 sm:w-20 lg:h-11 lg:w-24", title: "Huge Choices", text: "We have one of the largest collections in the UAE. You’ll be spoilt for choice." },
-    ],
-    buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
-      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
-    ],
-  },
-  {
-    title: "Sunscreen Roller Blinds for Sunlight, Without the Heat",
-    description: "Let natural light brighten your space while blocking harmful UV rays and reducing glare. Sunscreen roller blinds provide the perfect balance of visibility, heat control, and sun protection, making them ideal for living rooms and workspaces.",
-    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847508/sunscreen_ksarbf.jpg",
-    viewlink: "/ppc/roller-blinds/",
-    features: [
-      { icon: "/assets/images/ppc-blinds/u1.png",className:"h-8 w-8 lg:h-10 lg:w-10",  title: "UV Protection", text: "Blocks up to 98% of harmful rays for protection." },
-      { icon: "/assets/images/ppc-blinds/glare.png", className:"h-8 w-8 lg:h-10 lg:w-12", title: "Glare Reduction", text: "Enjoy natural light without eye strain or screen glare." },
-      { icon: "/assets/images/ppc-blinds/heat.png", className:"h-8 w-8 lg:h-14 lg:w-10", title: "Heat Control", text: "Keeps rooms cooler by filtering harsh sunlight." },
-      { icon: "/assets/images/ppc-blinds/stylish.png", className:"h-8 w-8 lg:h-10 lg:w-10", title: "Stylish & Functional", text: "Sleek designs that enhance any modern space." },
-    ],
-    buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
-      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
-    ],
-  },
-];
 
-// explore section for curtains
-export const explorecurtainData = [
-  {
-    title: "Sheer Curtains",
-    description: "With sheer curtains, natural light can fill your space and maintain privacy at the same time. Sheer curtains have something very inviting about them.",
-    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741929020/sheer_by2mh5.png",
-    viewlink: "/curtains/made-to-measure-sheer-curtains/",
-    features: [
-      { icon: "/assets/images/ppc-blinds/14.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Soft Light", text: "Gently diffuses sunlight for a warm, inviting glow." },
-      { icon: "/assets/images/ppc-blinds/13.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Privacy Balance", text: "Enjoy daytime privacy without blocking your view whilst keeping UV rays at bay" },
-      { icon: "/assets/images/ppc-blinds/12.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Airy & Elegant", text: "A flowing, light fabric enhances any decor." },
-      { icon: "/assets/images/ppc-blinds/11.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Layering Option", text: "Pairs beautifully with blackout curtains for that luxury finish." },
-    ],
-    buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
-      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
-    ],
-  },
-  {
-    title: "Blackout Curtains",
-    description: "A blackout curtain helps block out sunlight, reduce noise, and regulate the temperature in a room, providing a cosy, restful atmosphere.",
-    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742025892/black_p82au0.jpg",
-    viewlink: "/curtains/blackout-curtains-dubai/",
-    features: [
-      { icon: "/assets/images/ppc-blinds/15.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Complete  Darkness", text: "Blocks all light for better sleep and relaxation." },
-      { icon: "/assets/images/ppc-blinds/16.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Energy Efficient", text: "Keeps rooms cooler in summer and warmer in winter." },
-      { icon: "/assets/images/ppc-blinds/17.png", className:"h-8 w-8 xl:h-10 xl:w-9" , title: "Noise Reduction", text: "The thick fabric absorbs sound for a quieter home." },
-      { icon: "/assets/images/ppc-blinds/13.png", className:"h-8 w-8 xl:h-10 xl:w-10" , title: "Privacy & Comfort", text: "Gives you complete privacy night and day." },
-    ],
-    buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
-      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
-    ],
-  },
-];
 //working process
 export const workingProcessblindData = [
   {
@@ -3063,42 +2819,6 @@ export const workingProcesscurtainData = [
     icon: "/assets/images/ppc-blinds/5.png",
     title: "Delivery & Installation",
     description: "Our team makes sure the installation goes smoothly and hassle-free.",
-  },
-];
-// Consultation both data
-export const consultationblindData = [
-  {
-    title: "Request A Free Consultation & Price Estimate",
-    description: "Get expert advice, fabric samples, and precise measurements. All from the comfort of your home. Our team will guide you through the best options, making sure they're a perfect fit for your window. No hidden costs, just reliable service and high-quality results.",
-    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741861527/curtain_bcfoeo.jpg",
-    viewlink: "/",
-    features: [
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Free Home Visit", text: "We use premium quality fabrics." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Measurements", text: "Tailored to fit your space perfectly." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Transparent Pricing", text: "Luxury blinds at budget-friendly rates." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Extensive Collection", text: "There are a variety of styles, colours, as well as fabrics available." },
-    ],
-    buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
-      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
-    ],
-  },
-  {
-    title: "Request A Free Consultation & Price Estimate",
-    description: "We shouldn't let finding the right blinds stress us out - it should be fun.  With our expert advice, material samples, and precise measurements, we make it easy to make the right choice. There are no hidden costs, no guesswork-just beautifully fitted blinds.",
-    image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741861351/blind_ymg9c4.jpg",
-    viewlink: "/",
-    features: [
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Quality Materials", text: "We use premium quality fabrics." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Custom Designs", text: "Tailored to fit your space perfectly." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Affordable Prices", text: "Luxury blinds at budget-friendly rates." },
-      { icon: "/assets/images/ppc-blinds/rangeicon.png", title: "Expert Installation", text: "Professional fitting by our team." },
-    ],
-    buttonLinks: [
-      { href: "/request-appointment/", text: "BOOK A FREE APPOINTMENT" },
-      { href: "https://wa.me/+971544945339", text: "WHATSAPP" },
-    ],
   },
 ];
 

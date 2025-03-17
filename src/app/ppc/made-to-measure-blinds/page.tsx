@@ -2,9 +2,12 @@
 import React from 'react'
 import Bullets from './bullets'
 import LButton from './button';
-import {banners, Blindbannerfeatures, blindcrousal, blindimages, blindsData, Blindsfeatures, BlindsTabData, BlindvideoData, Chooseusblind, chooseusblind, consultationblindData, exploreblindData, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
+import {banners, Blindbannerfeatures, blindcrousal, blindimages, blindsData, Blindsfeatures, BlindvideoData, Chooseusblind, chooseusblind, serviceLocationsData, Tab1categories, workingProcessblindData} from 'data/data';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import { BlindsTabData } from 'data/BlindsTabData';
+import { exploreblindData } from 'data/exploreblindsdata';
+import { consultationblindData } from 'data/consultationdata';
 
 //Dynamic imports
 const CustomSection = dynamic(() => import('components/ppc-moterised/customization'));

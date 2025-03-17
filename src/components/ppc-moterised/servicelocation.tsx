@@ -32,7 +32,7 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({ title, description,
       
       {location === "40+ Locations" ? (
         <a 
-          href={mapLink} 
+          href='/projects/'
           target="_blank" 
           rel="noopener noreferrer"
           className="text-10 xl:text-14 font-bold py-0 px-1 xs:px-2 xl:px-3 xl:leading-6 text-black"
