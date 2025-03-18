@@ -55,7 +55,7 @@ const curtainsTitles = [
     <>
       <Header/>
       <VideoSection 
-       videoSrc="/assets/video/curtains.mp4"
+       videoSrc="/assets/video/automated_curtains.mp4"
        title="Motorised Curtains"
        subtitle="Experience luxury and convenience with a single tap!"
        description="Wake up to sunlight naturally with automated timers and easy-to-use control options like remotes, wall switches, and smartphone apps."/>

@@ -57,7 +57,7 @@ const Custommade_MoterisedBlinds = async () => {
     <>
       <Header/>
       <VideoSection 
-       videoSrc="/assets/video/blinds1.mp4"
+       videoSrc="/assets/video/Automated_Blinds.mp4"
        title="Motorised Blinds"
        subtitle="Control the light with a tap on your phone screen"
        description="Enjoy the benefits of comfortable modern living coupled with the long lasting style of Roman, Roller and Venetian Blinds."/>
