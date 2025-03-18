@@ -52,7 +52,6 @@ const Custommade_MoterisedBlinds = async () => {
   };
   
   const blindsProducts = getBlindsProducts(products || [])
-
   return (
     <>
       <Header/>
