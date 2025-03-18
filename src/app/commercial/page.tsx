@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { commercialPagesItems, generateSlug } from "data/data";
 import Script from "next/script";
 import { commererical } from "data/schema";
+import logo from '../../../public/assets/images/logomain.webp';
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,18 +18,17 @@ export async function generateMetadata(): Promise<Metadata> {
     headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
   const pathname = headersList.get('x-invoke-path') || '/';
-
   const fullUrl = `${protocol}://${domain}${pathname}`;
 
   let CommercialCategory = filteredCatgory as ICategory;
 
   let ImageUrl =
-    CommercialCategory?.posterImage.imageUrl ||
-    'blindsandcurtains';
+    CommercialCategory.bannerImage?.imageUrl ||
+    `${logo.src}`;
   let alt =
-    CommercialCategory?.posterImage.altText ||
+    CommercialCategory.posterImage.altText ||
     'blindsandcurtains';
-
+console.log(ImageUrl)
   let NewImage = [
     {
       url: ImageUrl,

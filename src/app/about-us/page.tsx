@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     title: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
     description:
       'Learn all about Blinds and Curtains Dubai. We make custom blinds and curtains just for you. Stylish, high-quality, and perfect for your home or office.',
-    url: 'fullUrl',
+    url: 'https://blindsandcurtains.ae/about-us/',
     images: [
       {
-        url: 'imageUrl',
+        url: `${bgBreadcrum.src}`,
         alt: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
       },
     ],

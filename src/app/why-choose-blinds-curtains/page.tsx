@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/why-choose-blinds-curtains/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
+        url: `${second.src}`,
         alt: 'Why Choose Us | Blinds and Curtains',
       },
     ],

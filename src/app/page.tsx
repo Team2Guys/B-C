@@ -14,6 +14,7 @@ import { fetchCategories, fetchProducts } from 'config/fetch';
 import Script from 'next/script';
 import { schema } from 'data/schema';
 import MainHero from 'components/Hero/main-hero';
+import logo from '../../public/assets/images/blind-curtains-dubai/blinds-curtains-dubai1.png';
 
 export const metadata: Metadata = {
   title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
@@ -21,10 +22,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blinds and Curtains Dubai | Book a Free Appointment Today',
     description: 'If you are looking for blinds in dubai, or maybe curtains in Dubai, look no further. Our ZERO pressure appointment guarantee will ensure you are.....',
-    url: 'https://blindsandcurtains.ae/why-choose-blinds-curtains/',
+    url: 'https://blindsandcurtains.ae/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
+        url: `${logo.src}`,
         alt: 'blindsandcurtains',
       },
     ],

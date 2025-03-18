@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blind And Curtains Dubai | Book Appointment',
     description: 'Spruce up your space with stylish blinds and curtains in Dubai. Book an appointment today for expert advice, custom designs, and perfect fits.',
-    url: 'fullUrl',
+    url: 'https://blindsandcurtains.ae/request-appointment/',
     images: [
       {
-        url: 'imageUrl',
+        url: `${bgBreadcrum.src}`,
         alt: 'Blind And Curtains Dubai | Book Appointment',
       },
     ],
