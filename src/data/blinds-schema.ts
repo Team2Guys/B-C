@@ -778,12 +778,8 @@ export const MotorisedBlinds = {
     },{
       "@type": "ListItem", 
       "position": 2, 
-      "name": "Blinds",
-      "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 3, 
       "name": "Automated Blinds",
       "item": "https://blindsandcurtains.ae/automated-blinds/"  
     }]
   }
+  
