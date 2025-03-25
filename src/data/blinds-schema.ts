@@ -44,43 +44,81 @@ export const MotorisedBlinds = {
   }
   
   export const RollerBlinds = {
-    "@context": "https://schema.org/", 
-    "@type": "Product", 
-    "name": "Custom Window Roller Blinds - Blinds and Curtains Dubai",
-    "image": "https://blindsandcurtains.ae/_next/image/?url=%2Fassets%2Fimages%2Foptimized-images%2Fblinds%2FRoller%2FBlackout.jpg&w=640&q=75",
-    "description": "Give your home or office a beautiful make-over with our stunning range of Roller Blinds In Dubai. Available as Blackout and sunscreen. Call Us Now.",
-    "brand": {
-      "@type": "Brand",
-      "name": "Blinds and Curtains Dubai"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "url": "https://blindsandcurtains.ae/blinds/roller-blinds/",
-      "priceCurrency": "AED",
-      "lowPrice": "250"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "bestRating": "5",
-      "worstRating": "",
-      "ratingCount": "750",
-      "reviewCount": "750"
-    },
-    "review": {
-      "@type": "Review",
-      "name": "Alisha Alwany",
-      "reviewBody": "Amazing Service. From the initial appointment to measure and choose materials to the installation. Perfect finish and so happy with the quality of the material too. Tanveer and Ray were very polite and cleaned up after the installation. Highly recommend! 2 years on, I used blinds and curtains again to fit some shutters in our bedroom. Yahweh and Jayson were fantastic at installation but a special shout out to Yahweh who dealt with the whole process from measuring to installation. He put up with my messages to find out when the shutters will arrive in the UAE and was very patient. Both Yahweh and Jayson are a credit to your company! Would definitely recommend this company and have done to our friends and family.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5",
-        "worstRating": ""
-      },
-      "datePublished": "2025-03-20",
-      "author": {"@type": "Person", "name": "Alisha Alwany"},
-      "publisher": {"@type": "Organization", "name": "Alisha Alwany"}
-    }
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://blindsandcurtains.ae/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blinds",
+              "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Roller Blinds",
+              "item": "https://blindsandcurtains.ae/blinds/roller-blinds/"
+            }
+          ]
+        },
+        {
+          "@type": "Product",
+          "name": "Custom Window Roller Blinds - Blinds and Curtains Dubai",
+          "image": "https://blindsandcurtains.ae/_next/image/?url=%2Fassets%2Fimages%2Foptimized-images%2Fblinds%2FRoller%2FBlackout.jpg&w=640&q=75",
+          "description": "Give your home or office a beautiful make-over with our stunning range of Roller Blinds In Dubai. Available as Blackout and sunscreen. Call Us Now.",
+          "brand": {
+            "@type": "Brand",
+            "name": "Blinds and Curtains Dubai"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://blindsandcurtains.ae/blinds/roller-blinds/",
+            "priceCurrency": "AED",
+            "price": "250",
+            "priceValidUntil": "2025-12-31"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "750",
+            "reviewCount": "750"
+          },
+          "review": {
+            "@type": "Review",
+            "name": "Alisha Alwany",
+            "reviewBody": "Amazing Service. From the initial appointment to measure and choose materials to the installation. Perfect finish and so happy with the quality of the material too. Tanveer and Ray were very polite and cleaned up after the installation. Highly recommend! 2 years on, I used blinds and curtains again to fit some shutters in our bedroom. Yahweh and Jayson were fantastic at installation but a special shout out to Yahweh who dealt with the whole process from measuring to installation. He put up with my messages to find out when the shutters will arrive in the UAE and was very patient. Both Yahweh and Jayson are a credit to your company! Would definitely recommend this company and have done to our friends and family.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "datePublished": "2025-03-20",
+            "author": {
+              "@type": "Person",
+              "name": "Alisha Alwany"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Blinds and Curtains Dubai"
+            }
+          }
+        }
+      ]
+
+    
+    
+
   }
   
   export const SunscreenBlinds = {

@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { ICategory } from 'types/types';
 import NotFound from 'app/not-found';
 import HTMLReactParser from "html-react-parser";
+import Script from 'next/script';
 
 
 const Blog = ({
@@ -27,8 +28,81 @@ const Blog = ({
   blog?: BlogInfo;
   filterRelatedPosts?: BlogInfo[];
 }) => {
+
+  const matchedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://blindsandcurtains.ae/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://blindsandcurtains.ae/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Lined vs Unlined Curtains",
+            "item": "https://blindsandcurtains.ae/blog/lined-vs-unlined-curtains/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Are Lined Curtains Better?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It depends on what you want from your curtain. However, lined curtains are heavy and durable, look more elegant, and are perfect for larger spaces and rooms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do Unlined Curtains Look Cheap?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not all the unlined curtains look cheap. It is always recommended to get your curtain lined but velvet curtains look decent even without lining."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should Living Room Curtains be Lined?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In addition to blocking sunlight, it guards the curtain against wear and tear. If you don’t line your curtains, replacing them will cost you more once damaged. Thus, the lining is important!"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do Lined Curtains Block Light Completely?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can block out light completely with lined curtains. Different lined curtains provide different light-filtering features."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  
   return (
     <>
+
+{matchedSchema && (
+        <Script type="application/ld+json" id="blinds-json-ld">
+          {JSON.stringify(matchedSchema)}
+        </Script>
+      )}
       {category ? (
         <>
           <TopHero

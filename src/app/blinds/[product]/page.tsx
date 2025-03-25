@@ -108,7 +108,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
   const matchedSchema = schemaMap[productTitle];
 
-  console.log(filteredProduct,"filteredProduct")
+  console.log(product,"product")
   return (
     <>
       <Products_Categories
