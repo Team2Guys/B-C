@@ -36,8 +36,6 @@ const Product = ({
   filteredItems,
   title
 }: IProductProps) => {
-
-  console.log(selectedPage, "selectedPage")
   return (
     <>
       <VideoBanner
