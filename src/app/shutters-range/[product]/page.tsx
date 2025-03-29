@@ -10,7 +10,7 @@ import { IProduct } from 'types/types';
 import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
-import { permanentRedirect } from 'next/navigation';
+import { permanentRedirect, RedirectType } from 'next/navigation';
 import { CommercialUrl, urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { colorData } from 'data/data';
@@ -89,7 +89,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   );
 
   if (redirected_product) {
-    permanentRedirect(redirected_product.Redirect);
+    permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
   }
   const Cateories = [9];
 

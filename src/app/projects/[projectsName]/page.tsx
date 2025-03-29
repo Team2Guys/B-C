@@ -11,7 +11,7 @@ const ProjectName = async  ({ params }: Props) => {
   const slug = (await params).projectsName;
     const matchingUrl = blogPostUrl.find((item) => item.url === `/${slug}`);
     if (matchingUrl) {
-      permanentRedirect(matchingUrl.redirectUrl, 'push' as RedirectType);
+      permanentRedirect(matchingUrl.redirectUrl, 'replace' as RedirectType);
       return;
     }
     else{

@@ -10,7 +10,7 @@ import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
 import { CommercialUrl, urls } from 'data/urls';
-import { permanentRedirect } from 'next/navigation';
+import { permanentRedirect, RedirectType } from 'next/navigation';
 import NotFound from 'app/not-found';
 
 const Cateories = [5];
@@ -93,7 +93,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   );
 
   if (redirected_product) {
-    permanentRedirect(redirected_product.Redirect);
+    permanentRedirect(redirected_product.Redirect,"replace" as RedirectType);
   }
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/curtains/${product}/`);
   if (matchingUrl) {

@@ -72,7 +72,7 @@ const Products = async ({ params }: Props) => {
   const splited = redirectUrl.join('/')
   const matchingUrl = blogPostUrl.find((item) => item.url === `/${splited}`);
   if (matchingUrl) {
-    permanentRedirect(matchingUrl.redirectUrl, 'push' as RedirectType);
+    permanentRedirect(matchingUrl.redirectUrl, 'replace' as RedirectType);
   }
   const [products, categories, subCategories] = await Promise.all([
     fetchProducts(),
