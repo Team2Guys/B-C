@@ -1,0 +1,114 @@
+'use client';
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Toaster from 'components/Toaster/Toaster';
+import { useAppDispatch } from 'components/Others/HelperRedux';
+import { loggedInAdminAction } from '../../../../redux/slices/AdminsSlice';
+import USRcomponent from 'components/userComponent/userComponent';
+import { IoIosLock, IoMdMail } from 'react-icons/io';
+import NoneAuth from 'hooks/None-AuthHook';
+import Cookies from 'js-cookie';
+import { Api_handler } from 'utils/helperFunctions';
+
+const DashboardLogin = () => {
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const intialvalue = {
+    email: '',
+    password: '',
+  };
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const [formData, setFormData] = useState(intialvalue);
+
+
+  const [error, setError] = useState<string | undefined>();
+  const [loading, setloading] = useState<boolean | null | undefined>(false);
+  const [adminType, setadminType] = useState<string | undefined>('Admin');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError('');
+    if (!formData.email || !formData.password) {
+      return setError('All fields are rquired');
+    }
+    try {
+      setloading(true);
+      let url = adminType === 'Admin' ? 'admins/admin-login': 'admins/super_admin_login-login';
+      console.log(url, 'url')
+      const response = await Api_handler(url,formData,"post",)
+      console.log(response, "response")
+
+      Cookies.set(adminType == "Admin" ? '2guysAdminToken' : "superAdminToken", response.token, { expires: 1 }) 
+      setloading(false);
+      dispatch(loggedInAdminAction(response.user));
+      setFormData(intialvalue);
+      Toaster('success', 'You have sucessfully login');
+      setTimeout(() => {
+        router.push('/dashboard');
+      }, 1000);
+    } catch (err: any) {
+      console.log(err, 'err');
+
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.response);
+      } else if (err.message) {
+        setError(err.message);
+      } else {
+        setError('An unexpected error occurred.');
+      }
+    } finally {
+      setloading(false);
+    }
+  };
+
+  const inputFields = [
+    {
+      type: 'email',
+      name: 'email',
+      id: 'email',
+      placeholder: 'Email',
+      value: formData.email,
+      onChange: handleChange,
+      Icon: IoMdMail,
+      iconClassName: 'text-red',
+    },
+    {
+      type: 'password',
+      name: 'password',
+      id: 'password',
+      placeholder: 'Enter Password',
+      value: formData.password,
+      onChange: handleChange,
+      Icon: IoIosLock,
+      iconClassName: 'text-red',
+    },
+  ];
+
+  return (
+    <>
+      <div>
+        <USRcomponent
+          handleSubmit={handleSubmit}
+          error={error}
+          loading={loading}
+          inputFields={inputFields}
+          title="Sign In as Admin"
+          buttonTitle="Sign In"
+          setadminType={setadminType}
+          adminType={adminType}
+        />
+      </div>
+    </>
+  );
+};
+
+export default NoneAuth(DashboardLogin);
