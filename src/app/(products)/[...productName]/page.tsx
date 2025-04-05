@@ -1,5 +1,5 @@
 import { fetchCategories, fetchProducts, fetchSubCategories, } from "config/fetch";
-import Product from "./Product";
+import Product from "../../../components/Product";
 import { ICategory, IProduct } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
