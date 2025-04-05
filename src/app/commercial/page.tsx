@@ -41,7 +41,7 @@ console.log(ImageUrl)
   let description =
     CommercialCategory?.Meta_description ||
     'Welcome to blindsandcurtains';
-  let url = `${fullUrl}commerical`;
+  let url = `${fullUrl}commercial`;
   return {
     title: title,
     description: description,
