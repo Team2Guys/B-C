@@ -11,7 +11,7 @@ import { headers } from 'next/headers';
 import { IProduct } from 'types/types';
 import { meta_props } from 'types/interfaces';
 import { CommercialUrl, urls } from 'data/urls';
-import { permanentRedirect, } from 'next/navigation';
+import { permanentRedirect, RedirectType, } from 'next/navigation';
 import NotFound from 'app/not-found';
 import { schemaMap } from 'data/products-schema';
 const Cateories = [2];
@@ -95,7 +95,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   );
 
   if (redirected_product) {
-    permanentRedirect(redirected_product.Redirect);
+    permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
   }
 
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/${product}/`);
@@ -108,7 +108,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
   const matchedSchema = schemaMap[productTitle];
 
-  console.log(filteredProduct,"filteredProduct")
+  console.log(product,"product")
   return (
     <>
       <Products_Categories

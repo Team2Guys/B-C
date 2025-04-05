@@ -8,7 +8,7 @@ import { blogPostUrl } from "data/urls";
 import { categoriesContent, generateSlug, RelatedProductsdata } from "data/data";
 import NotFound from "app/not-found";
 import Script from "next/script";
-import { redirect, RedirectType } from "next/navigation";
+import { permanentRedirect, RedirectType } from "next/navigation";
 
 
 type Props = {
@@ -72,7 +72,7 @@ const Products = async ({ params }: Props) => {
   const splited = redirectUrl.join('/')
   const matchingUrl = blogPostUrl.find((item) => item.url === `/${splited}`);
   if (matchingUrl) {
-    redirect(matchingUrl.redirectUrl, 'push' as RedirectType);
+    permanentRedirect(matchingUrl.redirectUrl, 'replace' as RedirectType);
   }
   const [products, categories, subCategories] = await Promise.all([
     fetchProducts(),
