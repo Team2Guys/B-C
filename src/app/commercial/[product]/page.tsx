@@ -3,10 +3,9 @@ import CommercialProduct from "./CommerticalProduct";
 import { headers } from "next/headers";
 import { ICategory, IProduct } from "types/types";
 import { Metadata } from "next";
-import { CommercialUrl, urls } from "data/urls";
+import { urls } from "data/urls";
 import { reverseSlug } from "data/data";
 import { meta_props } from "types/interfaces";
-import { RedirectType, permanentRedirect } from "next/navigation";
 
 export async function generateMetadata({ params }:meta_props): Promise<Metadata> {
   const product  = (await params).product;
@@ -75,18 +74,6 @@ const CommercialPage = async ({ params }: meta_props) => {
     fetchProducts(),
     fetchSubCategories(),
   ]);
-
-   const redirected_product = CommercialUrl.find(
-        (prod: { urlName: string; Redirect: string }) => {
-          return prod.urlName == String(slug)?.toLowerCase();
-        },
-      );
-    
-      if (redirected_product) {
-        permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
-      }
-
-      
   return (
     <>
       <CommercialProduct product={slug} products={products} subCategories={subCategories}  />

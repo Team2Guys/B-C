@@ -10,8 +10,7 @@ import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { IProduct } from 'types/types';
 import { meta_props } from 'types/interfaces';
-import { CommercialUrl, urls } from 'data/urls';
-import { permanentRedirect, RedirectType, } from 'next/navigation';
+import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { schemaMap } from 'data/products-schema';
 const Cateories = [2];
@@ -42,7 +41,7 @@ export async function generateMetadata({
   let Product = filteredProduct as IProduct;
 
   let ImageUrl =
-    Product?.posterImage?.imageUrl ||filteredSubCategory?.posterImage?.imageUrl ||'blindsandcurtains';
+    Product?.posterImage?.imageUrl || filteredSubCategory?.posterImage?.imageUrl || 'blindsandcurtains';
   let alt =
     Product?.posterImage.altText ||
     filteredSubCategory?.posterImage?.altText ||
@@ -89,14 +88,14 @@ const CommercialPage = async ({ params }: meta_props) => {
   const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(subCategories, product, Cateories);
 
-  const redirected_product = product !== 'school-blinds' && CommercialUrl.find((prod: { urlName: string; Redirect: string }) => {
-    return prod.urlName == String(product)?.toLowerCase();
-  },
-  );
+  // const redirected_product = product !== 'school-blinds' && CommercialUrl.find((prod: { urlName: string; Redirect: string }) => {
+  //   return prod.urlName == String(product)?.toLowerCase();
+  // },
+  // );
 
-  if (redirected_product) {
-    permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
-  }
+  // if (redirected_product) {
+  //   permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
+  // }
 
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/${product}/`);
   if (matchingUrl) {
@@ -108,7 +107,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
   const matchedSchema = schemaMap[productTitle];
 
-  console.log(product,"product")
+  console.log(product, "product")
   return (
     <>
       <Products_Categories

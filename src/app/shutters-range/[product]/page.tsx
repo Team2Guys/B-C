@@ -10,8 +10,7 @@ import { IProduct } from 'types/types';
 import { headers } from 'next/headers';
 import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
-import { permanentRedirect, RedirectType } from 'next/navigation';
-import { CommercialUrl, urls } from 'data/urls';
+import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
 import { colorData } from 'data/data';
 
@@ -82,15 +81,15 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: meta_props) => {
   const product = (await params).product;
-  const redirected_product = CommercialUrl.find(
-    (prod: { urlName: string; Redirect: string }) => {
-      return prod.urlName == String(product)?.toLowerCase();
-    },
-  );
+  // const redirected_product = CommercialUrl.find(
+  //   (prod: { urlName: string; Redirect: string }) => {
+  //     return prod.urlName == String(product)?.toLowerCase();
+  //   },
+  // );
 
-  if (redirected_product) {
-    permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
-  }
+  // if (redirected_product) {
+  //   permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
+  // }
   const Cateories = [9];
 
   const [products, Subcategories, categories] = await Promise.all([
