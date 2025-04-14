@@ -968,7 +968,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-blinds',
     content: {
       heading: 'Made to Measure Blinds',
-      src: 'https://res.cloudinary.com/drqv25wjx/video/upload/v1741848607/blinds1_cdiar8.mp4',
+      src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4',
       paragraph:
         'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
       subheading1: 'Custom Window Blinds ',
@@ -994,7 +994,7 @@ export const categoriesContent = [
     slug: 'made-to-measure-curtains',
     content: {
       heading: 'Made to Measure Curtains',
-      src: 'https://res.cloudinary.com/drqv25wjx/video/upload/v1741675330/Curtains_pimxt2.mp4',
+      src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/c1.mp4',
       paragraph:
         '1000s of colour and style choices—voiles, velvets, silks, and plain textured fabrics. Get curtains installed in your Dubai home or office, with free consultation, quick installation, and 5-year warranty.',
       subheading1: 'Custom Window Curtains ',
@@ -2507,19 +2507,19 @@ export const GallaryData2 =[ {
 // Rollervideos
     export const InstaRollerData = [
           {
-            video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463175/oia6zvep9gdfrd9j6rjz.mp4"
+            video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/Blackout+1.mp4"
           },
-          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/sciaw96yn0xoxn0pdngg.mp4" 
+          { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/Blackout+2.mp4" 
           },
           {
-            video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/xf5i8scoozukd9uqlyvn.mp4" 
+            video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/Blackout+3.mp4" 
           },  
-          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/z1v3be02vdgxldghipvs.mp4"
+          { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/Sunscreen+2.mp4"
           },
-          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/yuiaysdykkpqggzcdows.mp4" 
+          { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/Sunscreen+3.mp4" 
 
           },
-          { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740462481/v4z4a86bk8qbrh1dzfnq.mp4" 
+          { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/Sunscreen+5.mp4" 
           },
 ];
   
@@ -2685,28 +2685,29 @@ export const Curtainbannerfeatures = [
 ];
   // 
  export const BlindvideoData = [
-    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675361/b1_xea6e8.mp4"
+    { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/b1.mp4"
 
     },
-    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675385/b2_ptvbgq.mp4"
+    { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/b2.mp4"
 
     },
-    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675421/b3_z55dyu.mp4"
+    { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/b3.mp4"
 
     },
   ];
 
   export const CurtainvideoData = [
-    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675330/curtains_pimxt2.mp4"
+    { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/c1.mp4"
 
     },
-    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675186/C1_ybhdi1.mp4"
+    { src: " https://bncvidoes.s3.eu-north-1.amazonaws.com/c2.mp4"
 
     },
-    { src: "https://res.cloudinary.com/drqv25wjx/video/upload/v1741675260/C2_dudbtk.mp4"
+    { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/c3.mp4"
 
     },
   ];
+ 
 
 //Tabdata
 export const Tab1categories = [
