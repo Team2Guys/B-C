@@ -98,7 +98,7 @@ export const banners = {
     linkBgColor: "bg-secondary",
   },
   Blind: {
-    imageSrc:  "https://res.cloudinary.com/drqv25wjx/image/upload/v1741856043/blind_ttxdyn.png",
+    imageSrc:  "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/banner.webp",
     paraText: "Let's measure, select, quote, and fit your blinds in a few easy steps. ",
     linkHref: "/contact-us/",
     linkText: "Get In touch",
@@ -106,7 +106,7 @@ export const banners = {
     className: "font-serif",
   },
   Curtain: {
-    imageSrc:  "https://res.cloudinary.com/drqv25wjx/image/upload/v1741856069/curtain_q8wpxn.png",
+    imageSrc:  "https://bncvidoes.s3.eu-north-1.amazonaws.com/curtain-images/curtain_banner.webp",
     paraText: "Let's measure, select, quote, and fit your curtains in a few easy steps.",
     linkHref: "/contact-us/",
     linkText: "Get In touch",
@@ -2531,19 +2531,19 @@ export const GallaryData2 =[ {
 // ppc-made-to-measure-blinds
 export const ShopItems = [
   {
-    imgUrl: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847035/image2_cf6cfz.webp",
+    imgUrl: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/1.webp",
     text: "Blinds",
   },
   {
-    imgUrl: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741846972/image1_vr75uq.png",
+    imgUrl: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/2.webp",
     text: "Curtains",
   },
   {
-    imgUrl: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847067/image3_vrxafy.webp",
+    imgUrl: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/3.webp",
     text: "Shutters",
   },
   {
-    imgUrl: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741855859/image4_wwiom9.png",
+    imgUrl: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/4.webp",
     text: "Motorised",
   },
 ];
@@ -2622,7 +2622,7 @@ export const blindsData = {
   heading1:"Choose Blinds That Fit Your Window Size, And Interior",
   description: `
     Make your space look stylish with custom blinds, including Roller, Roman, Wooden, and Zebra blinds, as well as vertical blinds. We design these for living rooms, bedrooms, kitchens, and more with options such as blackout, dim-out, and sunscreen.`,
-  image:"https://res.cloudinary.com/drqv25wjx/image/upload/v1742018501/C1_dn5ur9.jpg",
+  image:"https://bncvidoes.s3.eu-north-1.amazonaws.com/images/custom1.webp",
   button1Text: "GET DIRECTION",
   button2Text: "WHATSAPP",
   secondaryHeading: "Select a material of your choice",
@@ -2651,7 +2651,7 @@ export const curtainsData = {
   description: `
    It's our speciality to dress up your windows the way you want. We can make custom pinch pleat curtains, triple pinch pleat curtains, pencil pleat curtains, tab top curtains, and wave curtains in blackout or sheer fabrics. We offer free home visits with samples and measurements without extra charges.
   `,
-  image:"https://res.cloudinary.com/drqv25wjx/image/upload/v1741856520/sheer_lk2wt9.png",
+  image:"https://bncvidoes.s3.eu-north-1.amazonaws.com/curtain-images/cusm-curtain.webp",
   button1Text: "GET DIRECTION",
   button2Text: "WHATSAPP",
   secondaryHeading: "The Fabric You Love",
@@ -2892,21 +2892,21 @@ export const serviceLocationsData = [
 export const gallerypara = "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.";
 
 export const curtainImages = [
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024599/g8_n5r2ui.png", width: 397, height: 301 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024793/g10_o2uhdv.png", width: 397, height: 466 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024860/g13_j9xi1k.png", width: 322, height: 241 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024554/vanright_tvj54n.png", width: 323, height: 526 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024935/g9_wwsmn6.png", width: 236, height: 322 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024995/g11_yjm6k2.png", width: 482, height: 445 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742025029/g14_ubtncv.png", width: 236, height: 322 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/curtain-images/c1.webp", width: 397, height: 301 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/curtain-images/c2.webp", width: 397, height: 466 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/curtain-images/c3.webp", width: 322, height: 241 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/curtain-images/c7.webp", width: 323, height: 526 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/curtain-images/c4.webp", width: 236, height: 322 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/curtain-images/c5.webp", width: 482, height: 445 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/curtain-images/c6.webp", width: 236, height: 322 },
 ];
 
 export const blindimages = [
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024337/g5_edd6ej.png", width: 397, height: 301 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024384/g1_m2f8us.png", width: 397, height: 466 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024413/g4_fsmra8.png", width: 322, height: 241 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024554/vanright_tvj54n.png", width: 323, height: 526 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024455/g6_vmt4n7.png", width: 236, height: 322 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024478/g3_ripg0z.png", width: 482, height: 445 },
-  { src: "https://res.cloudinary.com/drqv25wjx/image/upload/v1742024504/g7_jqwc8v.png", width: 236, height: 322 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/b1.webp", width: 397, height: 301 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/b2.webp", width: 397, height: 466 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/b3.webp", width: 322, height: 241 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/b7.webp", width: 323, height: 526 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/b4.webp", width: 236, height: 322 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/b5.webp", width: 482, height: 445 },
+  { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/b6.webp", width: 236, height: 322 },
 ];
