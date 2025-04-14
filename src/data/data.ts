@@ -2100,34 +2100,39 @@ export const NavData = [
 
 export const InstablindData = [
 
-   { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463491/q2lkmj2j6yykt4ua7vy4.mp4"
+   { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/bb1.mp4"
    },
-   { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740463487/nxgmnfzo1idekgvx4iht.mp4"
-   },
-   { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463490/zujafsyibhpmtf824jt0.mp4" 
+   { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/bb5.mp4"
    },
    {
-    video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463490/g3kfznq9zip1xflaxhbz.mp4" 
+    video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/bb4.mp4" 
    },
-   { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463485/pbs113jkd41fnmtugzid.mp4"
+   
+   { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/bb3.mp4" 
    },
-  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740463488/afxpwp7bsxfxx7jl2p2q.mp4" 
+   
+  
+  { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/bb6.mp4" 
+  },
+  { video: "https://bncvidoes.s3.eu-north-1.amazonaws.com/bb2.mp4"
   },
 ];
 
 export const InstacurtainData = [
-  { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740464417/bt5wzojvuuwvsnrmer16.mp4"
-  },
-  { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740464418/vdku00i2lwzk8zenkt4m.mp4"
-  },
-  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740464414/eiofsyh4ve2kdxnh83v6.mp4"
-  },
-  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740464418/lkld7zhksn5hlnhsc2a0.mp4"
-  }, 
-  { video:"https://res.cloudinary.com/drqv25wjx/video/upload/v1740464415/mjwfffdn0lnfspcruvbq.mp4"
-  },
-  { video: "https://res.cloudinary.com/drqv25wjx/video/upload/v1740464421/tdkj4f1xp5nipiennqde.mp4"
+  { video: "https://bncvidoes.s3.eu-north-1.amazonaws.com/cc6.mp4"
   },  
+  { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/cc4.mp4"
+  },
+  { video: "https://bncvidoes.s3.eu-north-1.amazonaws.com/cc1.mp4"
+  },
+  { video: "https://bncvidoes.s3.eu-north-1.amazonaws.com/cc2.mp4"
+  },
+  { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/cc3.mp4"
+  },
+   
+  { video:"https://bncvidoes.s3.eu-north-1.amazonaws.com/cc5.mp4"
+  },
+  
 ];
 
 
