@@ -343,8 +343,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                 title.toLowerCase(),
                               );
                               return (
-                                <>
-                                  {' '}
+                          
+                              
                                   <Link
                                     href={path}
                                     key={index}
@@ -383,7 +383,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                                               )
                                               : item.title}
                                   </Link>
-                                </>
+                               
                               );
                             },
                           )
@@ -429,6 +429,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
           }
           className="bg-transparent"
         >
+
+
           {title === 'Motorised' ? (
             <div className="flex justify-between">
               <div className="flex flex-col py-2 w-fit space-y-2">
@@ -506,6 +508,8 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
               })}
             </>
           )}
+
+
         </Collapse>
       </div>
     </>

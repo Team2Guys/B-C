@@ -95,6 +95,7 @@ const AddBlogs = ({
       );
     },
 
+  
     onSuccess: () => {
       if (typingTimeout.current) {
         clearTimeout(typingTimeout.current);
@@ -118,6 +119,8 @@ const AddBlogs = ({
       showToast('error', error.data.message + '☹');
       console.error('Error adding blog:', error);
     },
+
+
   });
 
   const handleDebouncedMutation = (newValues: typeof blogInitialValues) => {
@@ -177,6 +180,8 @@ const AddBlogs = ({
                 }
               },
             });
+
+            revalidateTag('blogs');
           }}
         >
           {({ setFieldValue, values }) => (
