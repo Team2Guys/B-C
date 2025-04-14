@@ -3,7 +3,7 @@ export const exploreblindData = [
     {
       title: "Sleep Peacefully With Blackout Roller Blinds",
       description: "Experience complete privacy and light control with blackout roller blinds, designed to block 100% of external light. Perfect for bedrooms, nurseries, and media rooms, these blinds create a cosy, undisturbed environment any time of the day.",
-      image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847445/blackout_xqen2i.jpg",
+      image: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/custom-black.webp",
       viewlink: "/ppc/roller-blinds/",
       features: [
         { icon: "/assets/images/ppc-blinds/l1.png", className:"h-9 w-9 lg:h-16 lg:w-14 " ,title: "Light Blockage", text: "No gaps, no glare, just darkness." },
@@ -19,7 +19,7 @@ export const exploreblindData = [
     {
       title: "Sunscreen Roller Blinds for Sunlight, Without the Heat",
       description: "Let natural light brighten your space while blocking harmful UV rays and reducing glare. Sunscreen roller blinds provide the perfect balance of visibility, heat control, and sun protection, making them ideal for living rooms and workspaces.",
-      image: "https://res.cloudinary.com/drqv25wjx/image/upload/v1741847508/sunscreen_ksarbf.jpg",
+      image: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/custom-sunscreen.webp",
       viewlink: "/ppc/roller-blinds/",
       features: [
         { icon: "/assets/images/ppc-blinds/u1.png",className:"h-8 w-8 lg:h-10 lg:w-10",  title: "UV Protection", text: "Blocks up to 98% of harmful rays for protection." },
