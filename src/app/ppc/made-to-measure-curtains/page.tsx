@@ -72,7 +72,7 @@ const Made_to_Measure_Curtains = async () => {
     <WhyChooseUs
      paragraph={Chooseuscurtain.text}
      features={chooseuscurtain}
-     backgroundImage="https://res.cloudinary.com/drqv25wjx/image/upload/v1741847309/chooseus_ptz9id.png"/>
+     backgroundImage="https://bncvidoes.s3.eu-north-1.amazonaws.com/image+(12).png"/>
     <ExploreBlinds data={explorecurtainData[0]} />
     <ExploreBlinds data={explorecurtainData[1]} reverse />
     <WorkingProcess data={workingProcesscurtainData}/>
@@ -83,7 +83,7 @@ const Made_to_Measure_Curtains = async () => {
     <HeroBanner/>
     <Blindtype heading="LOCATION" />
     <ServiceLocations {...locationData} />
-    <RollerReviews imageSrc='https://res.cloudinary.com/drqv25wjx/image/upload/v1741862801/curtains_d7k1fd.jpg'/>
+    <RollerReviews imageSrc='https://bncvidoes.s3.eu-north-1.amazonaws.com/images/custom-feedback.webp'/>
     <div className='bg-white py-3 md:py-9'></div>
     <Banner {...banners.Curtain} />
     <div id="booking-form">
