@@ -52,7 +52,7 @@ const Made_to_Measure_Blinds = async () => {
     <Header/>
     <div id="Main">
     <VideoSection 
-       videoSrc="https://res.cloudinary.com/drqv25wjx/video/upload/v1741848607/blinds1_cdiar8.mp4"
+       videoSrc="https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4"
        title="Stylish, Customised Blinds – Free Measurement & Installation"
        subtitle={<Bullets features={Blindbannerfeatures}/>}
        description={<LButton/>}
