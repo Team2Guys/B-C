@@ -72,7 +72,7 @@ const Made_to_Measure_Blinds = async () => {
     <WhyChooseUs
      paragraph={Chooseusblind.text}
      features={chooseusblind}
-     backgroundImage="https://res.cloudinary.com/drqv25wjx/image/upload/v1741847309/chooseus_ptz9id.png"/>
+     backgroundImage="https://bncvidoes.s3.eu-north-1.amazonaws.com/image+(12).png"/>
     <ExploreBlinds data={exploreblindData[0]} />
     <ExploreBlinds data={exploreblindData[1]} reverse />
     <WorkingProcess data={workingProcessblindData}/>
