@@ -7,21 +7,40 @@ import { links } from "data/header_links";
 import { categoriesContent, generateSlug, RelatedProductsdata } from "data/data";
 import NotFound from "app/not-found";
 import Script from "next/script";
+import { notFound } from "next/navigation";
 
 
 type Props = {
   params: Promise<{ productName: string[] }>
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata > {
   const productName = (await params).productName[0];
   const matchingLink = links.find((link) =>
     productName?.includes(link.href.replace(/^\//, '')),
   );
-  const categories = await fetchCategories()
+
+  let urls = (await params).productName
+  const [products, categories, subCategories] = await Promise.all([
+    fetchProducts(),
+    fetchCategories(),
+    fetchSubCategories(),
+  ]);
+
+
 
 
   const filterCategory = categories.find((category: ICategory) => category.title === matchingLink?.label);
+
+  const filteredProducts = products.filter((product: IProduct) => product.CategoryId === filterCategory?.id) || [];
+  const filteredSubCategories = subCategories?.filter((subCat: ICategory) => subCat.CategoryId === filterCategory?.id) || [];
+  const selectedPage = categoriesContent.find((page) => page.slug === generateSlug(productName),);
+
+  const filteredItems = [...filteredProducts, ...filteredSubCategories];
+
+  if ((!selectedPage || filteredItems.length < 1) || urls?.length > 1) {
+    notFound();
+  }
   const headersList = await headers();
   const domain = headersList.get('x-forwarded-host') || headersList.get('host') || '';
   const protocol = headersList.get('x-forwarded-proto') || 'https';
