@@ -92,6 +92,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
             href='/estimator/'
           >Estimator</Link>
         </Container>
+
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
           <Link href={'/'} className="w-5/12 xs:w-7/12 lg:w-1/12 ">
             <Image
@@ -202,7 +203,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
                       onClick={handleCloseDrawer}
                       title={link.label || ''}
                       sliderData={combinedSliderData}
-                      href={link.href}
+                      href={link.href+"/"}
                       className={
                         link.label === 'Commercial' && isBalconyActive
                           ? 'font-bold px-2 2xl:px-3 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
