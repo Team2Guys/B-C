@@ -56,16 +56,11 @@ const BathroomCategory = ({
     );
   
     const basePath =
-      arr.href && typeof categoryTitle === 'string'
-        ? `${window.origin}/${arr.href}`
-        : `/${slug}`;
+      arr.href && typeof categoryTitle === 'string'? `${window.origin}/${arr.href}`: `/${slug}`;
   
     const path =
-      predefinedPaths[slug as keyof typeof predefinedPaths] ||
-      (slug === 'hotels-restaurants-blinds-curtains'
-        ? basePath
-        : `/${
-            parent?.toLowerCase() === 'shutters' || categoryTitle?.toLowerCase() === 'shutters'
+      predefinedPaths[slug as keyof typeof predefinedPaths] || (slug === 'hotels-restaurants-blinds-curtains' ? basePath
+        : `/${parent?.toLowerCase() === 'shutters' || categoryTitle?.toLowerCase() === 'shutters'
               ? `${parent?.toLowerCase() || categoryTitle?.toLowerCase()}-range`
               : parent
               ? parent.toLowerCase()
@@ -76,7 +71,6 @@ const BathroomCategory = ({
               : ''
           }/${slug}`);
   
-    console.log({ slug, path, parent, categoryTitle });
     return path + '/';
   };
   
@@ -134,7 +128,6 @@ const BathroomCategory = ({
           filteredProducts.map((arr: IProduct, index: number) => {
             const parent = arr.category?.title || categoryTitle;
             let product_Images = prod_finder_handler(arr);
-            console.log(product_Images, "product_Images")
             return (
               <div
                 className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full  pb-3 shadow-md md:pb-0 md:shadow-none  justify-between"

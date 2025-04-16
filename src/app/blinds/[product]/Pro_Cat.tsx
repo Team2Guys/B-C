@@ -14,6 +14,7 @@ const CommercialPage = ({
   matchedSchema
 }: PRODUCS_PROPS) => {
 
+  console.log(filteredSubCategory, "filteredSubCategory")
   return (
 
     <>

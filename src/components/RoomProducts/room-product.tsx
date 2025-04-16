@@ -65,6 +65,8 @@ const RoomProducts = ({
     setFilteredProducts(filtered || []);
   };
 
+  
+
   useEffect(() => {
     if (!relatedProducts || relatedProducts.length === 0) {
       filterProducts();
@@ -84,12 +86,13 @@ const RoomProducts = ({
       }
       setProductCategory( filteredSubCategory?.category?.title || '');
     }
-  }, [title, products,]);
+  }, [title, products]);
 
   if (isNotFound) {
     return <NotFound />;
   }
 
+  console.log(products, "product")
   return (
     <>
       <TopHero

@@ -63,8 +63,6 @@ export async function generateMetadata({
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}blinds/${product}`;
 
-  console.log(url, "url")
-
   return {
     title: title,
     description: description,
@@ -83,19 +81,13 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: meta_props) => {
   const product = (await params).product;
-  const [products, cateories, subCategories] = await Promise.all([fetchProducts(), fetchCategories(), fetchSubCategories()]);
-
-  const filteredProduct = filterProd(products, product, Cateories);
+  const [ cateories, subCategories] = await Promise.all([fetchCategories(), fetchSubCategories()]);
+let products; 
   const filteredSubCategory = filtereCategory(subCategories, product, Cateories);
-
-  // const redirected_product = product !== 'school-blinds' && CommercialUrl.find((prod: { urlName: string; Redirect: string }) => {
-  //   return prod.urlName == String(product)?.toLowerCase();
-  // },
-  // );
-
-  // if (redirected_product) {
-  //   permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
-  // }
+  if(!filteredSubCategory || !(filteredSubCategory?.products?.length > 0)){
+    products =  await fetchProducts()
+  }
+  const filteredProduct = filterProd(products, product, Cateories);
 
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/${product}/`);
   if (matchingUrl) {
@@ -104,10 +96,11 @@ const CommercialPage = async ({ params }: meta_props) => {
   if (!filteredSubCategory && !filteredProduct) {
     return <NotFound />;
   }
+
   const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
   const matchedSchema = schemaMap[productTitle];
 
-  console.log(product, "product")
+console.log(products, "product")
   return (
     <>
       <Products_Categories
