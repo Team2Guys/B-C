@@ -43,7 +43,7 @@ const BathroomCategory = ({
           : ''
         }/${slug}`);
         console.log(path, "path", parent)
-    return path;
+    return path+"/";
   };
 
 
@@ -137,7 +137,7 @@ const BathroomCategory = ({
                     href={getPath(arr, parent)}
                     className="font-bold text-xs sm:text-base bg-secondary text-white hover:bg-primary w-fit px-2 py-2 rounded-md flex items-center justify-center text-center mx-auto"
                   >
-                    View Our {arr.title}
+                    View Our {arr.title} 
 
                   </Link>
                 </div>

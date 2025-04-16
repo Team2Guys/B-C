@@ -52,7 +52,7 @@ const SliderInfo = () => {
               <Link
                 aria-label="Book A Free Home Design Visit"
                 className="uppercase bg-secondary hidden md:block mx-auto md:mx-0 text-12 sm:text-14 lg:text-16 font-semibold shadow-md text-white hover:bg-primary rounded-full px-6 py-4  w-fit"
-                href={'/request-appointment'}
+                href={'/request-appointment/'}
               >
                 Book A Free Home Design Visit
               </Link>

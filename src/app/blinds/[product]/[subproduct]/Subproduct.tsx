@@ -9,7 +9,7 @@ interface ISubProduct { products: IProduct[],
 
 
 const SubProduct = ({ products, filteredProduct, filteredSubCategory }:ISubProduct ) => {
-
+console.log(filteredSubCategory, "filteredSubCategory")
   return (
     <>
       {filteredSubCategory ? (

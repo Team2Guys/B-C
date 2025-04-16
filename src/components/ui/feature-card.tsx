@@ -45,7 +45,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
               : ''
           }/${slug}`);
   
-    return path;
+    return path+"/";
   };
   
 

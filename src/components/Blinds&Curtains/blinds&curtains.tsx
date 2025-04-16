@@ -34,7 +34,7 @@ const BlindsAndCurtains: FC<BlindsAndCurtainsTypesProps> = ({ data }) => {
             ))}
           </div>
             <Link
-              href={'/request-appointment'}
+              href='/request-appointment/'
               className="bg-secondary max-xs:text-14 text-white px-4 py-4 mt-3 mx-auto md:ms-auto hover:text-white hover:bg-primary transition-all rounded-md hover:text-dark  w-fit  uppercase"
             >
               Book A Free Appointment

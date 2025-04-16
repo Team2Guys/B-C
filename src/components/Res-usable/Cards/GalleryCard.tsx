@@ -48,7 +48,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
           ? '/roller-blinds'
           : ''
         }/${slug}`);
-    return path;
+    return path+"/";
   };
 
   if (imagesOnly) {
@@ -92,7 +92,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
         <div className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide ? 'block' : ''} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm ${bgcolor === true ? 'bg-white' : 'bg-secondary'} md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}>
             {card && (
               <>
-                <Link href={isPPc && card.title==="Blackout Roller Blinds" ?"/blinds/roller-blinds" : getPath(card)}>
+                <Link href={isPPc && card.title==="Blackout Roller Blinds" ?"/blinds/roller-blinds/" : getPath(card)}>
                   <span
                     className={`text-black text-start  cursor-pointer ${relativeProducts
                         ? 'text-16'
@@ -103,7 +103,7 @@ const GalleryCard: React.FC<GalleryProps> = ({
                   </span>
                 </Link>
                 <Link
-                 href={isPPc && card.title==="Blackout Roller Blinds" ?"/blinds/roller-blinds" : getPath(card)}
+                 href={isPPc && card.title==="Blackout Roller Blinds" ?"/blinds/roller-blinds/" : getPath(card)}
                   className={`border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-14 text-nowrap ${relativeProducts ? 'block' : 'block'
                     }`}
                 >

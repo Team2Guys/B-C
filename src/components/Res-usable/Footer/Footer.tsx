@@ -194,7 +194,7 @@ const Footer: React.FC = () => {
                                       <li>
                                         <Link
                                           className="text-14 2xl:text-16 text-white font-normal"
-                                          href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}`}
+                                          href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}/`}
                                         >
                                           {matchingSubcategory.title}
                                         </Link>
@@ -205,9 +205,7 @@ const Footer: React.FC = () => {
                                       <li>
                                         <Link
                                           className=" text-14 2xl:text-16 text-white font-normal"
-                                          href={generatePath(
-                                            matchingProduct,
-                                            generateSlug(category.title),
+                                          href={generatePath(matchingProduct, generateSlug(category.title),
                                           )}
                                         >
                                           {matchingProduct.title}
@@ -253,7 +251,7 @@ const Footer: React.FC = () => {
                                     <li>
                                       <Link
                                         className="text-12 2xl:text-14 font-medium"
-                                        href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}`}
+                                        href={`/${category.title.toLowerCase().replace('shutters', 'shutters-range')}/${ChangedProductUrl(matchingSubcategory.title)}/`}
                                         
                                       >
                                         {matchingSubcategory.title}
@@ -265,10 +263,7 @@ const Footer: React.FC = () => {
                                     <li>
                                       <Link
                                         className="text-12 2xl:text-14 font-medium"
-                                        href={generatePath(
-                                          matchingProduct,
-                                          generateSlug(category.title),
-                                        )}
+                                        href={generatePath(matchingProduct,generateSlug(category.title))+"/"}
                                       >
                                         {matchingProduct.title}
                                       </Link>
@@ -327,7 +322,7 @@ const Footer: React.FC = () => {
                                   <li key={index}>
                                     <Link
                                       className="text-16 text-white font-normal"
-                                      href={link.href}
+                                      href={link.href+"/"}
                                     >
                                       {link.text}
                                     </Link>
@@ -346,7 +341,7 @@ const Footer: React.FC = () => {
                                 <li key={index}>
                                   <Link
                                     className="text-12 2xl:text-sm font-medium"
-                                    href={link.href}
+                                    href={link.href+"/"}
                                   >
                                     {link.text}
                                   </Link>

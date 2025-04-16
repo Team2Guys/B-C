@@ -79,7 +79,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
         <Container className="sm:hidden mb-2 pb-4 pt-2 text-center w-full flex flex-wrap justify-between border-b border-[#0006]">
           <Link
             className="py-3 px-2 xs:px-3 rounded-md text-11 xsm:text-12 xs:text-15 whitespace-nowrap bg-primary text-black"
-            href="/request-appointment"
+            href="/request-appointment/"
             onClick={handleLinkClick}
           >
             BOOK A FREE APPOINTMENT
@@ -89,7 +89,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
               ? 'bg-secondary text-white'
               : 'bg-primary text-black'
               }`}
-            href='/estimator'
+            href='/estimator/'
           >Estimator</Link>
         </Container>
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden">
@@ -232,7 +232,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
                           : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-3'
                         }`}
                       onClick={handleCloseDrawer}
-                      href={link.href}
+                      href={link.href+"/"}
                     >
                       {link.label}
                     </Link>
@@ -245,7 +245,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
           <div className="lg:w-2/12 flex justify-between xs:justify-end items-center gap-6">
             <Link
               className="py-2 px-2 xl:px-5 hidden sm:block rounded-md text-[9px] xl:text-10 2xl:text-14 whitespace-nowrap bg-secondary hover:bg-primary text-white uppercase"
-              href="/request-appointment"
+              href="/request-appointment/"
               onClick={handleLinkClick}
             >
               Book a free appointment
@@ -375,7 +375,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
 
                           header={
                             <Link
-                              href={link.href}
+                              href={link.href+"/"}
                               onClick={handleCloseDrawer}
                               className={
                                 link.label === 'Commercial' && isBalconyActive
@@ -420,7 +420,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
                             : 'font-normal'
                             }`}
                           onClick={handleCloseDrawer}
-                          href={link.href}
+                          href={link.href+"/"}
                         >
                           {link.label}
                         </Link>

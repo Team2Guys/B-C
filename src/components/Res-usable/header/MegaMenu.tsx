@@ -263,7 +263,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                     {MoterisedData.map((product, index) => (
                       <Link
                         key={index}
-                        href={product.link}
+                        href={product.link+"/"}
                         onMouseEnter={() =>
                           setHoveredProduct(product.title || 'Automated Blinds')
                         }
@@ -346,7 +346,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({
                           
                               
                                   <Link
-                                    href={path}
+                                    href={path+"/"}
                                     key={index}
                                     onClick={() => setIsOpen(false)}
                                     onMouseEnter={() => setactiveProduct(item)}

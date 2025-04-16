@@ -42,7 +42,7 @@ const DetailInfo: React.FC<detailprops> = ({
               </div>
 
               <div className='pb-2 lg:pb-0 lg:pt-4  w-full flex justify-center lg:justify-start'>
-                <Link href={"/request-appointment"}
+                <Link href={"/request-appointment/"}
                   target='_blank' rel="noopener"
                   className="hidden lg:block text-12 lg:text-16 px-3 py-3 lg:px-4 lg:py-4 rounded-md bg-secondary text-white font-medium"
                 >

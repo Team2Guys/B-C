@@ -33,7 +33,7 @@ const ProductCard: React.FC<ProductCardDataProps> = ({
           ? '/roller-blinds'
           : ''
         }/${slug}`);
-    return path;
+    return path+"/";
   };
 
 

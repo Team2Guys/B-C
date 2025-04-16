@@ -139,7 +139,7 @@ const TopHero: React.FC<TopHeroProps> = ({
                       <>
                         <FaAngleRight size={20} />
                         <Link
-                          href="/shutters-range"
+                          href="/shutters-range/"
                           className="font-bold capitalize"
                         >
                           Shutters Range
@@ -159,7 +159,7 @@ const TopHero: React.FC<TopHeroProps> = ({
                       <FaAngleRight size={20} />
                       {linkHref ? (
                         <Link
-                          href={linkHref}
+                          href={linkHref+"/"}
                           className="font-bold capitalize"
                         >
                           {linkText}

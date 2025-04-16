@@ -29,7 +29,7 @@ const Info = (selectedPage: IInfo) => {
               ></p>
             ))}
           <div className="hidden md:block pt-5 text-center md:text-start">
-            <Link href={"/request-appointment"}
+            <Link href="/request-appointment/"
               className="px-4 py-4 rounded-md bg-secondary hover:bg-primary text-white font-medium"
             >
               Book A Free Appointment
