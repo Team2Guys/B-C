@@ -37,12 +37,16 @@ const BathroomCategory = ({
     const basePath =arr.href && typeof categoryTitle && categoryTitle?.toLowerCase() === 'string' ? `${window.origin}/${arr.href}` : `/${slug}`;
 
     const path =
-      predefinedPaths[slug as keyof typeof predefinedPaths] || (slug === 'hotels-restaurants-blinds-curtains' ? basePath : `/${(parent ? parent === 'Shutters' : categoryTitle === 'Shutters') ? `${parent ? parent.toLowerCase() : categoryTitle?.toLowerCase()}-range`
+      predefinedPaths[slug as keyof typeof predefinedPaths] || (slug === 'hotels-restaurants-blinds-curtains' ? basePath : 
+        `/${(parent === 'Shutters' || categoryTitle === 'Shutters') ? `${ parent?.toLowerCase() || categoryTitle?.toLowerCase()}-range`
           : parent ? parent?.toLowerCase() : categoryTitle?.toLocaleLowerCase() }${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug) ? '/roller-blinds'
           : ''
         }/${slug}`);
+        console.log(path, "path", parent)
     return path;
   };
+
+
 
   let prod_finder_handler = (arr: IProduct) => {
     let product;
@@ -97,9 +101,9 @@ const BathroomCategory = ({
           ))
           : filteredProducts &&
           filteredProducts.map((arr: IProduct, index: number) => {
-            const parent = arr.category?.title;
+            const parent = arr.category?.title || categoryTitle;
             let product_Images = prod_finder_handler(arr);
-            console.log(product_Images, "product_Images =");
+            console.log(parent,);
             return (
               <div
                 className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full  pb-3 shadow-md md:pb-0 md:shadow-none  justify-between"
