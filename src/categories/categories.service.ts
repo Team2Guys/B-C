@@ -52,7 +52,7 @@ export class CategoriesService {
     }
   }
 
-  async CategoryUpdateHandler(id: number, updateCategoryDto: Prisma.CategoriesUpdateInput,@Req() req:Request | any) {
+  async CategoryUpdateHandler(id: number, updateCategoryDto: Prisma.CategoriesUpdateInput, @Req() req: Request | any) {
     try {
       const { email } = req.user
 
@@ -60,7 +60,7 @@ export class CategoriesService {
       if (!category) return CustomErrorHandler("Category not found", "NOT_FOUND")
       const updatedCategory = await this.prisma.categories.update({
         where: { id: id },
-        data: {...updateCategoryDto, last_editedBy: email},
+        data: { ...updateCategoryDto, last_editedBy: email },
       });
       return updatedCategory
     } catch (error) {
@@ -79,7 +79,7 @@ export class CategoriesService {
   }
 
 
-  async AddsubCategoryHandler(createCategoryDto: Prisma.SubCategoriesCreateInput, @Req() req:Request | any) {
+  async AddsubCategoryHandler(createCategoryDto: Prisma.SubCategoriesCreateInput, @Req() req: Request | any) {
 
     try {
       const { email } = req.user
@@ -134,7 +134,7 @@ export class CategoriesService {
       console.log(subCategory_update_data, "subCategory_update_data")
       let response = await this.prisma.subCategories.update({
         where: { id: id },
-        data: {...subCategory_update_data, last_editedBy: email}
+        data: { ...subCategory_update_data, last_editedBy: email }
       });
       return response;
 
@@ -146,7 +146,19 @@ export class CategoriesService {
 
   async getsubAllCategories() {
     try {
-      let response = this.prisma.subCategories.findMany({ include: { products: true, category: true } })
+      let response = this.prisma.subCategories.findMany({
+        include: {
+          products: {
+            include: {
+              category: {
+                select: {
+                  title: true
+                }
+              },
+            }
+          }, category: true
+        }
+      })
       return response;
     } catch (error) {
       return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'INTERNAL_SERVER_ERROR')
