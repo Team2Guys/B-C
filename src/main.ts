@@ -32,10 +32,16 @@ async function bootstrap() {
       'http://localhost:3001',
       "http://localhost:3001",
       /\.vercel\.app$/,
+      'http://185.151.51.28:5001', 
       "http://localhost:5001",
       "https://blindsandcurtains.ae",
       "https://www.blindsandcurtains.ae",
-      "http://185.151.51.28:5004"
+      "http://185.151.51.28:5004",
+"https://avenue39.com/",
+"https://www.avenue39.com",
+"https://www.avenue39.com"
+
+
     ],
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     preflightContinue: false,
@@ -47,7 +53,7 @@ async function bootstrap() {
   
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter))
 
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('backend/api');
   app.use(bodyParser.json({limit: '100mb'}));
   app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
 
