@@ -91,8 +91,6 @@ const RoomProducts = ({
   if (isNotFound) {
     return <NotFound />;
   }
-
-  console.log(products, "product")
   return (
     <>
       <TopHero

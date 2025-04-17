@@ -14,7 +14,6 @@ import {
   OurHistory,
   PhoneNumber,
   SupportItem,
-  TFooterSection,
   THeroImages,
   Tproductdata,
   TProductGuarantees,
@@ -24,7 +23,6 @@ import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Category, FormValues } from 'types/interfaces';
 import { ISUBCATEGORY } from 'types/types';
-
 /* eslint-disable no-useless-escape */
 export const generateSlug = (text: string) => {
   if (!text) return '';
@@ -115,20 +113,7 @@ export const banners = {
   },
 };
 
-export const footerLinks: TFooterSection[] = [
-  {
-    title: 'Quick Links',
-    links: [
-      { text: 'About Us', href: '/about-us' },
-      { text: 'Contact Us', href: '/contact-us' },
-      { text: 'Our Projects', href: '/projects' },
-      { text: 'Product Guarantees', href: '/product-guarantees' },
-      { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
-      { text: 'Book A Free Appointment', href: '/request-appointment' },
-     
-    ],
-  },
-];
+
 
 export const footerInfo = 'Blinds & Curtains 2025 All Rights Reserved';
 
@@ -1737,6 +1722,25 @@ export const footerData = [
       'Black Shutters',
     ],
   },
+
+
+];
+
+
+export const footerLinks = [
+  {
+    key:"4",
+    title: 'Quick Links',
+    links: [
+      { text: 'About Us', href: '/about-us' },
+      { text: 'Contact Us', href: '/contact-us' },
+      { text: 'Our Projects', href: '/projects' },
+      { text: 'Product Guarantees', href: '/product-guarantees' },
+      { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
+      { text: 'Book A Free Appointment', href: '/request-appointment' },
+     
+    ],
+  },
 ];
 
 export const GuaranteeVisitData = [
@@ -2733,3 +2737,4 @@ export const blindimages = [
   { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/b5.webp", width: 482, height: 445 },
   { src: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/b6.webp", width: 236, height: 322 },
 ];
+

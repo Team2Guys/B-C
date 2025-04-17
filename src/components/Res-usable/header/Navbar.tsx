@@ -1,5 +1,5 @@
 'use client';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, ReactNode, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
@@ -31,7 +31,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
     undefined,
   );
   const path = usePathname();
-  const { Panel } = Collapse;
+  // const { Panel } = Collapse;
   const handleLinkClick = () => {
     setDrawerOpen(false);
     setSelectedLabel(undefined);
@@ -56,11 +56,136 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
     megamenuActiveHanlder()
   }, [path]);
 
+  interface SubCategory {
+    id: number;
+    CategoryId: number;
+    [key: string]: any;
+  }
+
+  interface Product {
+    id: number;
+    CategoryId: number;
+    title: string;
+    [key: string]: any;
+  }
+
+  interface MegaMenuItem {
+    productName: string;
+    [key: string]: any;
+  }
+
+
+
+  const collapseItems = links
+    .map((link, index) => {
+      const filteredSubCategories = subCategories.filter(
+        (subcategory) => subcategory.CategoryId === link.id
+      );
+
+      const filteredProducts = products.filter(
+        (product) => product.CategoryId === link.id
+      );
+
+      let combinedSliderData: (SubCategory | Product | MegaMenuItem)[] = [];
+
+      const matchProducts = (
+        productsList: Product[],
+        megaMenuItems: MegaMenuItem[]
+      ) =>
+        productsList.filter((product) =>
+          megaMenuItems.some(
+            (item) => item.productName === generateSlug(product.title)
+          )
+        );
+
+      switch (link.id) {
+        case 2:
+          combinedSliderData = [
+            ...filteredSubCategories,
+            ...matchProducts(filteredProducts, blindMegaMenuItems),
+          ];
+          break;
+        case 9:
+          combinedSliderData = [
+            ...filteredSubCategories,
+            ...matchProducts(filteredProducts, shutterMegaMenuItems),
+          ];
+          break;
+        case 5:
+          combinedSliderData = [
+            ...filteredSubCategories,
+            ...matchProducts(filteredProducts, curtainMegaMenuItems),
+          ];
+          break;
+        case 12:
+          combinedSliderData = [
+            ...filteredSubCategories,
+            ...matchProducts(products, commercialMegaMenuItems),
+          ];
+          break;
+        case 20:
+          combinedSliderData = [
+            ...filteredSubCategories,
+            ...commercialMegaMenuItems,
+          ];
+          break;
+        default:
+          combinedSliderData = [...filteredSubCategories, ...filteredProducts];
+      }
+
+      const isBlogPath = path.startsWith('/blog');
+      const isBlogActive = link.href === '/blog' && isBlogPath;
+      const isActive = !isBlogPath && path?.includes(generateSlug(link.label));
+      const isBalconyActive =
+        path?.includes('blinds-and-curtains') ||
+        path?.includes('blinds-curtains') ||
+        path?.includes('printed-blinds');
+      const isMotorised =
+        path.startsWith('/automated-blinds') || path.startsWith('/automated-curtains');
+      const isMotor =
+        path?.includes('automated-curtains') ||
+        path?.includes('automated-blinds');
+
+      const isLinkBold =
+        (link.label === 'Commercial' && isBalconyActive) ||
+        (link.label === 'Motorised' && isMotorised) ||
+        (!isBalconyActive && !isMotor && (isBlogActive || isActive));
+      if (combinedSliderData.length === 0) return null;
+
+      return {
+        key: String(index),
+        label: (
+          <Link
+            href={`${link.href}/`}
+            onClick={handleCloseDrawer}
+            className={isLinkBold ? 'font-bold' : 'font-normal custom-panel py-0'}
+          >
+            {link.label}
+          </Link>
+        ),
+        children: (
+          <MegaMenu
+            onClick={handleCloseDrawer}
+            title={link.label || ''}
+            sliderData={combinedSliderData}
+            href={link.href}
+            className={isLinkBold ? 'font-bold' : 'font-normal'}
+          />
+        ),
+      };
+    })
+    .filter(Boolean) as {
+      key: string;
+      label: ReactNode;
+      children: ReactNode;
+    }[];
+
+
   return (
     <>
-          {
-            path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/'  || path === '/ppc/roller-blinds/'||path === '/ppc/made-to-measure-blinds/'||path === '/ppc/made-to-measure-curtains/' ? "" :
-            <div className="w-full bg-secondary">
+      {
+        path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/' || path === '/ppc/roller-blinds/' || path === '/ppc/made-to-measure-blinds/' || path === '/ppc/made-to-measure-curtains/' ? "" :
+          <div className="w-full bg-secondary">
             <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center min-h-12 pb-0">
               <div></div>
               <p className="text-white py-2 text-10 sm:text-12 2xl:text-15 font-medium tracking-[2px] leading-relaxed 2xl:leading-loose text-center md:text-start max-sm:font-semibold">
@@ -72,8 +197,8 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
               </div>
             </Container>
           </div>
-          }
-     
+      }
+
       <nav className="bg-lightgrey shadow-lg sticky -top-1 z-50 py-2 sm:py-0">
 
         <Container className="sm:hidden mb-2 pb-4 pt-2 text-center w-full flex flex-wrap justify-between border-b border-[#0006]">
@@ -203,7 +328,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
                       onClick={handleCloseDrawer}
                       title={link.label || ''}
                       sliderData={combinedSliderData}
-                      href={link.href+"/"}
+                      href={link.href + "/"}
                       className={
                         link.label === 'Commercial' && isBalconyActive
                           ? 'font-bold px-2 2xl:px-3 py-1 rounded-md text-white bg-secondary mb-8 hover:mb-0 hover:bg-secondary hover:text-white hover:pb-9 hover:rounded-none'
@@ -233,7 +358,7 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
                           : 'hover:bg-secondary hover:text-white pb-10 pt-1 px-2 2xl:px-3'
                         }`}
                       onClick={handleCloseDrawer}
-                      href={link.href+"/"}
+                      href={link.href + "/"}
                     >
                       {link.label}
                     </Link>
@@ -273,161 +398,28 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
                       )
                     }
                     className="custom-collapse bg-transparent border-0 flex flex-col gap-1"
-                  >
-                    {links.map((link, index) => {
-                      let filteredSubCategories =
-                        subCategories?.filter(
-                          (subcategory: any) =>
-                            subcategory.CategoryId === link.id,
-                        ) || [];
+                    items={collapseItems}
+                  />
+                  {links.map((link, index) => {
+                    const hasPanel = collapseItems.some((item) => item.key === String(index));
+                    if (hasPanel) return null;
 
-                      let filteredProducts =
-                        products?.filter(
-                          (product: IProduct) => product.CategoryId === link.id,
-                        ) || [];
+                    const isBlogActive = link.href === '/blog' && path.startsWith('/blog');
+                    const isActive = path?.includes(generateSlug(link.label));
 
-                      let combinedSliderData: any[] = [];
+                    return (
+                      <Link
+                        key={index}
+                        className={`text-16 border-b text-black border-[#0000002a] pb-[6px] hover:text-black ${isBlogActive || isActive ? 'font-bold' : 'font-normal'
+                          } ${link.label === 'Estimator' ? 'hidden sm:block' : ''}`}
+                        onClick={handleCloseDrawer}
+                        href={`${link.href}/`}
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  })}
 
-                      if (link.id === 2) {
-                        const actualProducts = filteredProducts.filter(
-                          (product: IProduct) =>
-                            blindMegaMenuItems.some(
-                              (menuItem) =>
-                                menuItem.productName ===
-                                generateSlug(product.title),
-                            ),
-                        );
-
-                        combinedSliderData = [
-                          ...filteredSubCategories,
-                          ...actualProducts,
-                        ];
-                      }
-                      if (link.id === 9) {
-                        const actualProducts = filteredProducts.filter(
-                          (product: IProduct) =>
-                            shutterMegaMenuItems.some(
-                              (menuItem) =>
-                                menuItem.productName ===
-                                generateSlug(product.title),
-                            ),
-                        );
-
-                        combinedSliderData = [
-                          ...filteredSubCategories,
-                          ...actualProducts,
-                        ];
-                      }
-                      if (link.id === 5) {
-                        const actualProducts = filteredProducts.filter(
-                          (product: IProduct) =>
-                            curtainMegaMenuItems.some(
-                              (menuItem) =>
-                                menuItem.productName ===
-                                generateSlug(product.title),
-                            ),
-                        );
-
-                        combinedSliderData = [
-                          ...filteredSubCategories,
-                          ...actualProducts,
-                        ];
-                      }
-                      if (link.id === 12) {
-                        const actualProducts =
-                          products?.filter((product: IProduct) =>
-                            commercialMegaMenuItems.some(
-                              (menuItem) =>
-                                menuItem.productName ===
-                                generateSlug(product.title),
-                            ),
-                          ) || [];
-
-                        combinedSliderData = [
-                          ...filteredSubCategories,
-                          ...actualProducts,
-                        ];
-                      }
-                      if (link.id === 20) {
-                        const actualProducts = commercialMegaMenuItems || [];
-                        combinedSliderData = [
-                          ...filteredSubCategories,
-                          ...actualProducts,
-                        ];
-                      }
-
-                      const isBlogPath = path.startsWith('/blog');
-                      const isBlogActive = link.href === '/blog' && isBlogPath;
-                      const isActive = !isBlogPath && path?.includes(generateSlug(link.label));
-                      const isBalconyActive =
-                        path?.includes('blinds-and-curtains') ||
-                        path?.includes('blinds-curtains') ||
-                        path?.includes('printed-blinds');
-                      const ismoterised =
-                        path.startsWith('/automated-blinds') ||
-                        path.startsWith('/automated-curtains');
-                      const ismoter =
-                        path?.includes('automated-curtains') ||
-                        path?.includes('automated-blinds');
-
-                      return combinedSliderData.length > 0 ? (
-                        <Panel
-                          key={index}
-
-                          header={
-                            <Link
-                              href={link.href+"/"}
-                              onClick={handleCloseDrawer}
-                              className={
-                                link.label === 'Commercial' && isBalconyActive
-                                  ? 'font-bold'
-                                  : link.label === 'Motorised' && ismoterised
-                                    ? 'font-bold'
-                                    : !isBalconyActive &&
-                                      !ismoter &&
-                                      (isBlogActive || isActive)
-                                      ? 'font-bold'
-                                      : 'font-normal'
-                              }
-                            >
-                              {link.label}
-                            </Link>
-                          }
-                          className="custom-panel py-0"
-                        >
-                          <MegaMenu
-                            onClick={handleCloseDrawer}
-                            title={link.label || ''}
-                            sliderData={combinedSliderData}
-                            href={link.href}
-                            className={
-                              link.label === 'Commercial' && isBalconyActive
-                                ? 'font-bold'
-                                : link.label === 'Motorised' && ismoterised
-                                  ? 'font-bold'
-                                  : !isBalconyActive &&
-                                    !ismoter &&
-                                    (isBlogActive || isActive)
-                                    ? 'font-bold'
-                                    : 'font-normal'
-                            }
-                          />
-                        </Panel>
-                      ) : (
-                        <Link
-                          key={index}
-                          className={`${link.label === 'Estimator' && 'hidden sm:block'} text-16 border-b text-black border-[#0000002a] pb-[6px] hover:text-black ${isBlogActive || isActive
-                            ? 'font-bold'
-                            : 'font-normal'
-                            }`}
-                          onClick={handleCloseDrawer}
-                          href={link.href+"/"}
-                        >
-                          {link.label}
-                        </Link>
-                      );
-                    })}
-                  </Collapse>
                 </div>
               </Sheet>
             </div>

@@ -2,11 +2,11 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
-import { UpdateShutterTitle } from './menu-card';
 import { colorData, TopHeroLink } from 'data/data';
 import { usePathname } from 'next/navigation';
 import { BreakCrum_conent_pages } from 'data/data';
 import { blogCategoryUrl } from 'data/urls';
+import { UpdateShutterTitle } from 'utils/helperFunctions';
 
 interface TopHeroProps {
   title: string | any;

@@ -34,25 +34,25 @@ const SliderInfo = () => {
                 </h2>
               </div>
               {index === 0 ? (
-              <h1 className="text-black font-extrabold mb-2 xs:mb-0 text-20 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
-                {item.heading}{' '}
-                <br />
-                {item.subheading}
-              </h1>
-            ) : (
-              <h2 className="text-black font-extrabold mb-2 xs:mb-0 text-20 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
-                {item.heading}{' '}
-                <br />
-                {item.subheading}
-              </h2>
-            )}
+                <h1 className="text-black font-extrabold mb-2 xs:mb-0 text-20 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
+                  {item.heading}{' '}
+                  <br />
+                  {item.subheading}
+                </h1>
+              ) : (
+                <h2 className="text-black font-extrabold mb-2 xs:mb-0 text-20 md:text-[18px] lg:text-[29px] xl:text-[43px] 2xl:text-[53px] sm:text-3xl leading-[30px] md:leading-[30px] lg:leading-[43px] text-center md:text-start 2xl:leading-[58px]">
+                  {item.heading}{' '}
+                  <br />
+                  {item.subheading}
+                </h2>
+              )}
               <p className="font-normal text-13 xs:text-14 mt-0 md:mt-5 mb-2 md:mb-5 text-center md:text-start">
                 {item.content}
               </p>
               <Link
                 aria-label="Book A Free Home Design Visit"
                 className="uppercase bg-secondary hidden md:block mx-auto md:mx-0 text-12 sm:text-14 lg:text-16 font-semibold shadow-md text-white hover:bg-primary rounded-full px-6 py-4  w-fit"
-                href={'/request-appointment/'}
+                href='/request-appointment/'
               >
                 Book A Free Home Design Visit
               </Link>
@@ -72,20 +72,25 @@ const SliderInfo = () => {
             top-10
             sm:top-28
             md:top-16 lg:top-20 xl:top-32
-            text-10 text-center "
+            text-10 text-center 
+          
+            "
+          
                 >
                   <span id="modalHandler">why us?</span>
                 </div>
                 <Image
                   className="w-full h-full
                    object-cover max-sm:object-contain
+                
                    "
                   loading="eager"
                   priority
-                  width={800}
-                  height={800}
+                  height={300}
+                  width={300}
                   alt={item.name || 'Image'}
                   src={item.imageUrl}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                 />
                 <div
                   id="modalHandler"
@@ -108,7 +113,7 @@ const SliderInfo = () => {
                 <Link
                   aria-label="Book A Free Home Design Visit"
                   className="uppercase bg-white md:hidden mx-auto md:mx-0 text-12 sm:text-14 md:text-16 font-semibold shadow-md text-black rounded-full px-6 py-4 lg:mb-0"
-                  href={'/request-appointment'}
+                  href='/request-appointment'
                 >
                   Book A Free Home Design Visit
                 </Link>

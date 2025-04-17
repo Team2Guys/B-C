@@ -84,3 +84,13 @@ export const Api_handler = async (
   }
 };
 
+
+
+
+export const UpdateShutterTitle = (title: string): string => {
+  let updatedTitle = title
+    .replace(/Wooden Shutters/i, '')
+    .replace(/plantation shutters/i, '')
+    .trim();
+  return updatedTitle;
+};

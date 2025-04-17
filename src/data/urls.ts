@@ -64,7 +64,7 @@ export const urls = [
     errorUrl: '/blinds/bathroom-blinds',
   },
   {
-    productName: 'Aluminium Blinds',
+    productName: '/blinds/aluminium-blinds',
     Url: 'aluminium-venetian-blinds-dubai',
     errorUrl: '/blinds/aluminium-blinds',
   },
@@ -206,63 +206,63 @@ export const blogCategoryUrl = [
 
 export const newblogPostUrl = [
   {
-    url: '/how-to-clean-dusty-curtains',
+    url: '/blog/how-to-clean-dusty-curtains',
     redirectUrl: '/blog/how-to-clean-dusty-curtains',
   },
   {
-    url: '/how-to-install-window-blinds-without-drilling',
+    url: '/blog/how-to-install-window-blinds-without-drilling',
     redirectUrl: '/blog/how-to-install-window-blinds-without-drilling',
   },
   {
-    url: '/guide-to-pulling-up-and-rolling-down-blinds',
+    url: '/blog/guide-to-pulling-up-and-rolling-down-blinds',
     redirectUrl: '/blog/guide-to-pulling-up-and-rolling-down-blinds',
   },
   {
-    url: '/types-of-popular-roman-blinds',
+    url: '/blog/types-of-popular-roman-blinds',
     redirectUrl: '/blog/types-of-popular-roman-blinds',
   },
   {
-    url: '/types-of-roller-blinds-a-definitive-guide',
+    url: '/blog/types-of-roller-blinds-a-definitive-guide',
     redirectUrl: '/blog/types-of-roller-blinds-a-definitive-guide',
   },
   {
-    url: '/can-you-paint-a-roller-blind',
+    url: '/blog/can-you-paint-a-roller-blind',
     redirectUrl: '/blog/can-you-paint-a-roller-blind',
   },
   {
-    url: '/how-to-choose-curtains-for-the-living-room',
+    url: '/blog/how-to-choose-curtains-for-the-living-room',
     redirectUrl: '/blog/how-to-choose-curtains-for-the-living-room',
   },
   {
-    url: '/should-curtains-match-the-wall-color',
+    url: '/blog/should-curtains-match-the-wall-color',
     redirectUrl: '/blog/should-curtains-match-the-wall-color',
   },
   {
-    url: '/different-types-of-curtains-for-windows',
+    url: '/blog/different-types-of-curtains-for-windows',
     redirectUrl: '/blog/different-types-of-curtains-for-windows',
   },
   {
-    url: '/blinds-vs-curtains-which-is-energy-efficient',
+    url: '/blog/blinds-vs-curtains-which-is-energy-efficient',
     redirectUrl: '/blog/blinds-vs-curtains-which-is-energy-efficient',
   },
   {
-    url: '/lined-vs-unlined-curtains',
+    url: '/blog/lined-vs-unlined-curtains',
     redirectUrl: '/blog/lined-vs-unlined-curtains',
   },
   {
-    url: '/how-to-cover-entire-wall-with-curtains',
+    url: '/blog/how-to-cover-entire-wall-with-curtains',
     redirectUrl: '/blog/how-to-cover-entire-wall-with-curtains',
   },
   {
-    url: '/the-modern-window-treatments-in-dubai',
+    url: '/blog/the-modern-window-treatments-in-dubai',
     redirectUrl: '/blog/the-modern-window-treatments-in-dubai',
   },
   {
-    url: '/vertical-blinds-for-windows',
+    url: '/blog/vertical-blinds-for-windows',
     redirectUrl: '/blog/vertical-blinds-for-windows',
   },
   {
-    url: '/curtians/velvet-curtains',
+    url: '/curtains/velvet-curtains',
     redirectUrl: '/curtains/velvet-curtains',
   },
   { url: '/our-installation', redirectUrl: '/gallery' },
@@ -281,16 +281,24 @@ export const newblogPostUrl = [
   { url: '/palm-jumeirah', redirectUrl: '/projects' },
   { url: '/window-shades', redirectUrl: '/' },
   { url: '/solar-screen-shades', redirectUrl: '/' },
-  { url: '/office-window-blinds', redirectUrl: '/commercial' },
+  { url: '/blinds/office-window-blinds', redirectUrl: '/commercial' }, 
   { url: '/contact-form', redirectUrl: '/contact-us' },
-  { url: '/curtians/velvet-curtains', redirectUrl: '/curtains/velvet-curtains' },
   { url: '/talk-to-specialist', redirectUrl: '/request-appointment' },
-  { url: '/blinds/digitally-printed-photo-logo-blinds', redirectUrl: '/commercial/printed-blinds' },
-  { url: '/blinds-curtains-abu-dhabi', redirectUrl: '/projects' },
+  {
+    url: '/blinds/digitally-printed-photo-logo-blinds',
+    redirectUrl: '/commercial/printed-blinds',
+  },
+  { url: '/blinds-curycz', redirectUrl: '/projects' },
   { url: '/blinds-and-curtains-al-ain', redirectUrl: '/projects' },
-  { url: '/curtains/custom-printed-curtains', redirectUrl: '/projects' },
+  {
+    url: '/curtains/custom-printed-curtains',
+    redirectUrl: '/curtains/curtain-prints-for-kids',
+  },
   { url: '/shutters/lvl-shutters', redirectUrl: '/shutters-range' },
-  { url: '/blinds/dorren-blinds', redirectUrl: '/made-to-measure-blinds' },
+  {
+    url: '/blinds/dorren-blinds',
+    redirectUrl: '/made-to-measure-blinds',
+  },
   { url: '/shutters/abs-shutters', redirectUrl: '/shutters-range' },
   { url: '/shutters', redirectUrl: '/shutters-range' },
   { url: '/cushions', redirectUrl: '/' },
@@ -301,85 +309,85 @@ export const newblogPostUrl = [
   { url: '/new-collections', redirectUrl: '/gallery' },
   { url: '/portfolio-item/aamina', redirectUrl: '/projects' },
   {
-    url: "/curtians/velvet-curtains",
-    redirectUrl: "/curtains/velvet-curtains"
+    url: '/category/blog/page/2',
+    redirectUrl: '/blog',
   },
   {
-    url: "/category/blog/page/2",
-    redirectUrl: "/blog"
+    url: '/blinds',
+    redirectUrl: '/made-to-measure-blinds',
   },
   {
-    url: "/blinds/digitally-printed-photo-logo-blinds",
-    redirectUrl: "/commercial/printed-blinds"
-  },
-  
-  {
-    url: "/shutters/lvl-shutters",
-    redirectUrl: "/shutters-range"
+    url: '/curtains',
+    redirectUrl: '/made-to-measure-curtains',
   },
   {
-    url: "/blinds/dorren-blinds",
-    redirectUrl: "/made-to-measure-blinds"
+    url: '/commercial/hospitals',
+    redirectUrl: '/curtains/hospital-curtains',
   },
   {
-    url: "/shutters/abs-shutters",
-    redirectUrl: "/shutters-range"
+    url: '/commercial/offices',
+    redirectUrl: '/curtains/office-window-curtains/',
   },
   {
-    url: "/portfolio-item/penny",
-    redirectUrl: "/projects"
+    url: '/blinds/school-blinds',
+    redirectUrl: '/blinds/school-blinds/',
   },
   {
-    url: "/portfolio-item/aamina",
-    redirectUrl: "/projects"
+    url: '/commercial/gym',
+    redirectUrl: '/curtains/gym-curtains/',
   },
   {
-    url: "/blinds",
-    redirectUrl: "/made-to-measure-blinds"
+    url: '/commercial/theatre',
+    redirectUrl: '/curtains/stage-and-theatre-curtains/',
   },
   {
-    url: "/curtains",
-    redirectUrl: "/made-to-measure-curtains"
+    url: '/blinds/wooden-aluminium-blinds',
+    redirectUrl: '/blinds/aluminium-venetian-blinds-dubai',
   },
-
-    { url: '/hospitals', redirectUrl: '/curtains/hospital-curtains' },
-  
-    { url: '/offices', redirectUrl: '/curtains/office-window-curtains' },
-    { url: '/school-blinds', redirectUrl: '/blinds/school-blinds' },
-    { url: '/gym', redirectUrl: '/curtains/gym-curtains' },
-    { url: '/theatre', redirectUrl: '/curtains/stage-and-theatre-curtains' },
-    { url: '/wooden-aluminium-blinds', redirectUrl: '/blinds/aluminium-venetian-blinds-dubai' },
-    { url: '/study-room-blinds', redirectUrl: '/made-to-measure-blinds' },
-    { url: '/aric-blinds', redirectUrl: '/' },
-    { url: '/outdoor-blinds', redirectUrl: '/commercial/outdoor' },
-    { url: '/ripplefoldwave-curtains', redirectUrl: '/curtains/wave-curtains' },
-    {
-      url: '/special-shape-shutters-wooden-shutters',
-      redirectUrl: '/shutters-range/special-shape-shutters',
-    },
-    {
-      url: '/tier-on-tier-shutters-wooden-shutters',
-      redirectUrl: '/shutters-range/tier-on-tier-shutters',
-    },
-    {
-      url: '/solid-panel-shutters-plantation-shutters-dubai',
-      redirectUrl: '/shutters-range/solid-panel-shutters',
-    },
-    { url: '/installed-office-blinds-dubai', redirectUrl: '/commercial' },
-    { url: 'schools', redirectUrl: '/blinds/school-blinds' },
-    { url: '/office-window-blinds', redirectUrl: '/commercial' },
-    { url: '/dining-room-curtains', redirectUrl: '/dining-room-curtains-dubai' },
-    { url: '/digitally-printed-photo-logo-blinds', redirectUrl: '/commercial/printed-blinds' },
-    { url: '/custom-printed-curtains', redirectUrl: '/curtains/curtain-prints-for-kids' },
-    { url: '/dorren-blinds', redirectUrl: '/made-to-measure-blinds' },
-  
-  
-  
-
-  
-
-
-
+  {
+    url: '/blinds/study-room-blinds',
+    redirectUrl: '/made-to-measure-blinds',
+  },
+  {
+    url: '/blinds/aric-blinds',
+    redirectUrl: '/',
+  },
+  {
+    url: '/blinds/outdoor-blinds',
+    redirectUrl: '/commercial/outdoor/',
+  },
+  {
+    url: '/curtains/ripplefoldwave-curtains',
+    redirectUrl: '/curtains/wave-curtains',
+  },
+  {
+    url: '/shutters-range/special-shape-shutters-wooden-shutters',
+    redirectUrl: '/shutters-range/special-shape-shutters/',
+  },
+  {
+    url: '/shutters-range/tier-on-tier-shutters-wooden-shutters',
+    redirectUrl: '/shutters-range/tier-on-tier-shutters/',
+  },
+  {
+    url: '/shutters-range/solid-panel-shutters-plantation-shutters-dubai',
+    redirectUrl: '/shutters-range/solid-panel-shutters/',
+  },
+  {
+    url: '/commercial/installed-office-blinds-dubai',
+    redirectUrl: '/commercial',
+  },
+  {
+    url: '/curtains/dining-room-curtains',
+    redirectUrl: '/dining-room-curtains-dubai',
+  },
+  {
+    url: '/curtains/dorren-blinds',
+    redirectUrl: '/made-to-measure-blinds',
+  },
+  {
+    url: '/embed',
+    redirectUrl: '/',
+  },
 ];
 
 export const subCategoryUrls = [

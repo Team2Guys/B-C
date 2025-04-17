@@ -60,7 +60,6 @@ export const fetchCategories = async () => {
 
 export const fetchSubCategories = async () => {
   try{
-    console.log(process.env.NEXT_PUBLIC_BASE_URL, "process.env.NEXT_PUBLIC_BASE_URL")
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`, {
     next: { tags: ['subCategories'] },
