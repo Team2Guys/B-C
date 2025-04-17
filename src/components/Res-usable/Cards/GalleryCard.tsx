@@ -55,7 +55,8 @@ const GalleryCard: React.FC<GalleryProps> = ({
     return (
       <div className="relative rounded-lg transition-shadow duration-300 group">
         <Image
-        loading='lazy'
+          priority
+          loading='eager'
           src={
             product_Images
               ? product_Images.Imagesurl
@@ -85,25 +86,25 @@ const GalleryCard: React.FC<GalleryProps> = ({
             alt={card?.title || 'Image'}
             height={800}
             width={800}
-        loading='lazy'
+            loading='lazy'
 
             className="rounded-xl h-56 md:h-64 2xl:h-80 w-[100%] object-cover object-top"
           />
-        <div className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide ? 'block' : ''} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm ${bgcolor === true ? 'bg-white' : 'bg-secondary'} md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}>
+          <div className={`absolute bottom-0 rounded-b-xl px-2 w-full h-12 flex items-center ${detailHide ? 'block' : ''} ${relativeProducts ? 'justify-between' : 'justify-center'} justify-center rounded-se-sm ${bgcolor === true ? 'bg-white' : 'bg-secondary'} md:opacity-1 group-hover:opacity-100 transition-opacity duration-300`}>
             {card && (
               <>
-                <Link href={isPPc && card.title==="Blackout Roller Blinds" ?"/blinds/roller-blinds/" : getPath(card)}>
+                <Link href={isPPc && card.title === "Blackout Roller Blinds" ? "/blinds/roller-blinds/" : getPath(card)}>
                   <span
                     className={`text-black text-start  cursor-pointer ${relativeProducts
-                        ? 'text-16'
-                        : 'text-16'
+                      ? 'text-16'
+                      : 'text-16'
                       }`}
                   >
-                    {(isPPc ? card.title==="Blackout Roller Blinds" ? "Motorized Roller Blinds" : "Motorized " + card.title : card.title)}
+                    {(isPPc ? card.title === "Blackout Roller Blinds" ? "Motorized Roller Blinds" : "Motorized " + card.title : card.title)}
                   </span>
                 </Link>
                 <Link
-                 href={isPPc && card.title==="Blackout Roller Blinds" ?"/blinds/roller-blinds/" : getPath(card)}
+                  href={isPPc && card.title === "Blackout Roller Blinds" ? "/blinds/roller-blinds/" : getPath(card)}
                   className={`border border-primary text-black cursor-pointer rounded-md px-1 lg:px-2 py-1 hover:bg-primary hover:text-black text-14 text-nowrap ${relativeProducts ? 'block' : 'block'
                     }`}
                 >

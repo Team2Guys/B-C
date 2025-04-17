@@ -90,6 +90,8 @@ const CategoryPage = ({ title, relatedProducts, products, categories , subCatego
                     height={500}
                     width={500}
                     alt={product.title}
+                    priority 
+                    loading='eager'
                   />
                 )}
               </div>

@@ -71,6 +71,7 @@ const TopHero: React.FC<TopHeroProps> = ({
             muted
             playsInline
             controls={false}
+            preload="auto"
           />
         }
         <div className={`relative`}>
