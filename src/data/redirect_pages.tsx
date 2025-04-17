@@ -4,60 +4,87 @@ export const newblogPostUrl = [
       redirectUrl: '/blog/how-to-clean-dusty-curtains',
     },
     {
-      url: '/blog/how-to-install-window-blinds-without-drilling',
-      redirectUrl: '/blog/how-to-install-window-blinds-without-drilling',
-    },
-    {
-      url: '/blog/guide-to-pulling-up-and-rolling-down-blinds',
+      url: '/guide-to-pulling-up-and-rolling-down-blinds',
       redirectUrl: '/blog/guide-to-pulling-up-and-rolling-down-blinds',
     },
     {
-      url: '/blog/types-of-popular-roman-blinds',
+      url: '/types-of-popular-roman-blinds',
       redirectUrl: '/blog/types-of-popular-roman-blinds',
     },
     {
-      url: '/blog/types-of-roller-blinds-a-definitive-guide',
+      url: '/types-of-roller-blinds-a-definitive-guide',
       redirectUrl: '/blog/types-of-roller-blinds-a-definitive-guide',
     },
     {
-      url: '/blog/can-you-paint-a-roller-blind',
+      url: 'can-you-paint-a-roller-blind',
       redirectUrl: '/blog/can-you-paint-a-roller-blind',
     },
     {
-      url: '/blog/how-to-choose-curtains-for-the-living-room',
+      url: 'how-to-choose-curtains-for-the-living-room',
       redirectUrl: '/blog/how-to-choose-curtains-for-the-living-room',
     },
     {
-      url: '/blog/should-curtains-match-the-wall-color',
+      url: 'should-curtains-match-the-wall-color',
       redirectUrl: '/blog/should-curtains-match-the-wall-color',
     },
     {
-      url: '/blog/different-types-of-curtains-for-windows',
+      url: 'different-types-of-curtains-for-windows',
       redirectUrl: '/blog/different-types-of-curtains-for-windows',
     },
     {
-      url: '/blog/blinds-vs-curtains-which-is-energy-efficient',
+      url: 'blinds-vs-curtains-which-is-energy-efficient',
       redirectUrl: '/blog/blinds-vs-curtains-which-is-energy-efficient',
     },
     {
-      url: '/blog/lined-vs-unlined-curtains',
+      url: 'lined-vs-unlined-curtains',
       redirectUrl: '/blog/lined-vs-unlined-curtains',
     },
     {
-      url: '/blog/how-to-cover-entire-wall-with-curtains',
+      url: 'how-to-cover-entire-wall-with-curtains',
       redirectUrl: '/blog/how-to-cover-entire-wall-with-curtains',
     },
     {
-      url: '/blog/the-modern-window-treatments-in-dubai',
+      url: 'about-blinds-curtains/product-guarantees',
+      redirectUrl: '/projects',
+    },
+    {
+      url: '/projects/al-barsha',
+      redirectUrl: '/projects',
+    },
+
+
+
+    {
+        url: '/projects/business-bay-dubai',
+        redirectUrl: '/projects',
+      },
+      {
+        url: '/projects/jumeirah-beach-residence',
+        redirectUrl: '/projects',
+      },
+      {
+        url: '/projects/arabian-ranches',
+        redirectUrl: '/projects',
+      },
+      {
+        url: '/projects/jumeirah-bay-island',
+        redirectUrl: '/projects',
+      },
+      {
+        url: '/projects/dubai-hills',
+        redirectUrl: '/projects',
+      },
+
+
+
+    
+    {
+      url: 'the-modern-window-treatments-in-dubai',
       redirectUrl: '/blog/the-modern-window-treatments-in-dubai',
     },
     {
-      url: '/blog/vertical-blinds-for-windows',
+      url: 'vertical-blinds-for-windows',
       redirectUrl: '/blog/vertical-blinds-for-windows',
-    },
-    {
-      url: '/curtains/velvet-curtains',
-      redirectUrl: '/curtains/velvet-curtains',
     },
     { url: '/our-installation', redirectUrl: '/gallery' },
     { url: '/call-me-back', redirectUrl: '/request-appointment' },
@@ -65,16 +92,11 @@ export const newblogPostUrl = [
     { url: '/curtains-projects', redirectUrl: '/projects' },
     { url: '/shutters-project', redirectUrl: '/projects' },
     { url: '/motorised-projects', redirectUrl: '/projects' },
-    { url: '/downtown-dubai', redirectUrl: '/projects' },
+    { url: '/projects/downtown-dubai', redirectUrl: '/projects' },
     { url: '/al-barsha', redirectUrl: '/projects' },
     { url: '/business-bay-dubai', redirectUrl: '/projects' },
-    { url: '/jumeirah-beach-residence', redirectUrl: '/projects' },
-    { url: '/arabian-ranches', redirectUrl: '/projects' },
-    { url: '/jumeirah-bay-island', redirectUrl: '/projects' },
-    { url: '/dubai-hills', redirectUrl: '/projects' },
-    { url: '/palm-jumeirah', redirectUrl: '/projects' },
     { url: '/window-shades', redirectUrl: '/' },
-    { url: '/solar-screen-shades', redirectUrl: '/' },
+    { url: '/roller-shades/solar-screen-shades', redirectUrl: '/' },
     { url: '/blinds/office-window-blinds', redirectUrl: '/commercial' }, 
     { url: '/contact-form', redirectUrl: '/contact-us' },
     { url: '/talk-to-specialist', redirectUrl: '/request-appointment' },
@@ -120,11 +142,11 @@ export const newblogPostUrl = [
     },
     {
       url: '/commercial/offices',
-      redirectUrl: '/curtains/office-window-curtains/',
+      redirectUrl: '/curtains/office-window-curtains',
     },
     {
       url: '/blinds/school-blinds',
-      redirectUrl: '/blinds/school-blinds/',
+      redirectUrl: '/blinds/school-blinds',
     },
     {
       url: '/commercial/gym',
@@ -182,4 +204,26 @@ export const newblogPostUrl = [
       url: '/embed',
       redirectUrl: '/',
     },
+    {
+      url: '/aluminium-venetian-2',
+      redirectUrl: '/aluminium-venetian-blinds-dubai',
+    },
+    
+    {
+      url: '/blinds-projects/installed-roller-blinds-in-dubai',
+      redirectUrl: '/made-to-measure-blinds',
+    },
+    {
+      url: '/curtains/d',
+      redirectUrl: '/made-to-measure-blinds',
+    },
+    {
+      url: '/commercial/schools',
+      redirectUrl: '/blinds/school-blinds',
+    },
+    {
+      url: '/how-to-install-window-blinds-without-drilling',
+      redirectUrl: '/blog/how-to-install-window-blinds-without-drilling',
+    },
+
   ];
