@@ -81,12 +81,10 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: meta_props) => {
   const product = (await params).product;
-  const [ cateories, subCategories] = await Promise.all([fetchCategories(), fetchSubCategories()]);
-let products; 
+  const [ products, cateories, subCategories] = await Promise.all([fetchProducts(),fetchCategories(), fetchSubCategories()]);
+
   const filteredSubCategory = filtereCategory(subCategories, product, Cateories);
-  if(!filteredSubCategory || !(filteredSubCategory?.products?.length > 0)){
-    products =  await fetchProducts()
-  }
+
   const filteredProduct = filterProd(products, product, Cateories);
 
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/${product}/`);
@@ -99,8 +97,6 @@ let products;
 
   const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
   const matchedSchema = schemaMap[productTitle];
-
-console.log(products, "product")
   return (
     <>
       <Products_Categories

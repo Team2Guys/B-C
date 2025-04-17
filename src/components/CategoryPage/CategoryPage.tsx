@@ -63,6 +63,8 @@ const CategoryPage = ({ title, relatedProducts, products, categories , subCatego
   );
   console.log(filteredProducts,"filteredSubCategory")
 
+
+  console.log(filteredProductList, "filteredProductList", products)
   return (
     <div>
       <TopHero title={title} pagename={pathname} image={bgBreadcrum.src} />
