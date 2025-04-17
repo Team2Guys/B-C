@@ -22,8 +22,8 @@ import {
 import { BlindsAndCurtainsTypes } from 'types/interfaces';
 import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
-import { Product, Category, FormValues } from 'types/interfaces';
-import { IProduct, ISUBCATEGORY } from 'types/types';
+import { Category, FormValues } from 'types/interfaces';
+import { ISUBCATEGORY } from 'types/types';
 
 /* eslint-disable no-useless-escape */
 export const generateSlug = (text: string) => {
@@ -155,11 +155,7 @@ export const OurClientImage = [
     alt: 'Plantation-Shutters-Dubai 1',
   },
 ];
-export const BlogTitles = [
-  { id: 1, title: 'Understanding React Basics' },
-  { id: 2, title: 'Advanced JavaScript Tips' },
-  { id: 3, title: 'Building Modern Web Apps' },
-];
+
 
 export const supportItems: SupportItem[] = [
   {
@@ -410,64 +406,6 @@ export const OurHistoryData: OurHistory[] = [
 
 ];
 
-export const validateForm = (formData: {
-  fullName: string;
-  email: string;
-  password: string;
-  confirmpassword: string;
-}) => {
-  if (formData.password !== formData.confirmpassword) {
-    return 'Confirm password and password do not match.';
-  }
-
-  if (!formData.fullName || !formData.email || !formData.password) {
-    return 'All fields are required.';
-  }
-
-  if (formData.password.length < 8) {
-    return 'Password must be at least 8 characters long.';
-  }
-
-  if (!/\d/.test(formData.password)) {
-    return 'Password must contain at least one number.';
-  }
-
-  if (!/[!@#$%^&*]/.test(formData.password)) {
-    return 'Password must contain at least one special character.';
-  }
-
-  return '';
-};
-
-export const withoutHeaderPages = ['/login', '/register', '/superAdminlogin'];
-
-export const inputFields = [
-  { name: 'name', type: 'text' },
-  { name: 'description', type: 'text' },
-  { name: 'price', type: 'number' },
-  { name: 'discountPrice', type: 'number' },
-];
-
-export const CategorinputFields = [{ name: 'name', type: 'text' }];
-
-
-export const Variation = [
-  { name: 'variant', type: 'text' },
-  { name: 'quantity', type: 'number' },
-];
-
-export const validationSchema = Yup.object({
-  name: Yup.string().required('Required'),
-  description: Yup.string().required('Required'),
-  price: Yup.string().required('Required'),
-  category: Yup.string().required('Required'),
-});
-
-export const loginValidationSchema = Yup.object({
-  name: Yup.string().required('Required'),
-  password: Yup.string().required('Required'),
-});
-
 export const categoryValidationSchema = Yup.object({
   name: Yup.string().required('Required'),
   description: Yup.string().required('required'),
@@ -477,18 +415,6 @@ export const subcategoryValidationSchema = Yup.object({
   CategoryId: Yup.number().required('required'),
 });
 
-export const initialValues: Product = {
-  name: '',
-  description: '',
-  price: '',
-  colors: [],
-  totalStockQuantity: 0,
-  variantStockQuantities: [],
-  modelDetails: [],
-  spacification: [],
-  discountPrice: '',
-  category: '',
-};
 
 export const categoryInitialValues: Category = {
   name: '',
@@ -497,11 +423,6 @@ export const categoryInitialValues: Category = {
   Canonical_Tag: '',
   Meta_Title: '',
   Meta_description: '',
-};
-
-export const loginInitialValue = {
-  name: '',
-  password: '',
 };
 
 
@@ -654,32 +575,6 @@ export const commercialMegaMenuItems = [
   { productName: 'anti-microbial' },
 ];
 
-export const staticCommercialMegaMenuItems: IProduct[] = [
-  {
-    id: 36,
-    title: 'Office Blinds',
-    posterImage: {
-      imageUrl:
-        'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645877/sruin6vc0ujvgxffpgne.png',
-      public_id: 'sruin6vc0ujvgxffpgne',
-    },
-    imageUrls: [
-      {
-        imageUrl:
-          'http://res.cloudinary.com/dz7nqwiev/image/upload/v1726645880/p1mgmoe4gndfyndvlown.png',
-        public_id: 'p1mgmoe4gndfyndvlown',
-      },
-    ],
-    price: 1000,
-    href: 'commercial',
-    CategoryId: 9,
-    SubCategoryId: null,
-    description:
-      'Our custom-printed roller blinds range is the perfect solution to tick all boxes. Increase your brand exposure, raise your profile, and give your premises a professional fit-out feel while at the same time, keeping your staff and customers comfortable.\n\nProvide us with a high-quality image and leave the rest to us. Your blinds will be custom-made to size, and custom printed as required. A truly unique blind that will set your company apart from the rest.',
-    updatedAt: null,
-    createdAt: '2024-09-18T07:51:23.509Z',
-  },
-];
 
 export const commercialPagesItems = [
   'offices-blinds',
@@ -1158,9 +1053,6 @@ export const MoterisedContent = [
   },
 ];
 
-export const Cateories = [9, 2, 5, 12];
-
-
 export const colorData: IColorData[] = [
   {
     id: 1,
@@ -1613,46 +1505,7 @@ export const ByColorContent = [
     },
   },
 ];
-export const specificTitles = [
-  'Living Room Blinds',
-  'Staircase Blinds',
-  'Bedroom Blinds',
-  'Conservatory Blinds',
-  'Study Room Blinds',
-  'Dining Room Blinds',
-  'Kitchen Blinds',
-  'Kids Room Blinds',
-  'Bathroom Blinds',
-  'Bedroom Curtains',
-  'Conservatory Curtains',
-  'Living Room Curtains',
-  'Kids Room Curtains',
-  'Home Curtains',
-  'Room Curtains',
-  'Dining Room Curtains',
-  'Staircase Curtains',
-  'Kitchen Shutters',
-  'Bathroom Shutters',
-  'Living Room Shutters',
-  'Staircase Shutters',
-  'Dining Room Shutters',
-  'Bedroom Shutters',
-  'Indoor Blinds And Curtains',
-  'Skylight',
-  'Balcony Blinds And Curtains',
-  'Pergola Curtains',
-  'Outdoor Blinds And Curtains',
-];
-export const officeBlindsItems = [
-  'Office Blinds',
-  'Office Curtains',
-  'Office Roller Blinds',
-  'Office Windows Curtains',
-  'Office Windows Blinds',
-  'Professional Blinds',
-  'Custom Made-to-Measure Blinds',
-  'Commercial Office Blinds',
-];
+
 export const ByRoomCommercialProduct = [
   {
     title: 'Indoor Blinds And Curtains',
@@ -2765,11 +2618,6 @@ export const chooseuscurtain= [
 ];
 
 
-export const sectionContent = {
-  heading: "Why Choose Us?",
-  paragraph: `Why are we the leading blinds suppliers in Dubai? Unlike other companies, with British owners, we value service and satisfaction above all else. We are proud to have over twenty years of experience with seamless installation and hassle-free customer service from start to finish. Our commitment to quality and customer satisfaction has earned us 750+ 5-star reviews and the trust of countless happy customers.`,
-};
-
 
 //working process
 export const workingProcessblindData = [
@@ -2846,31 +2694,6 @@ export const curtaincrousal = [
 ];
 
 
-export const Blindgallery = {
-  title: "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.",
-  images: [
-    { src: "/assets/images/ppc-blinds/g5.png" },
-    { src: "/assets/images/ppc-blinds/g1.png" },
-    { src: "/assets/images/ppc-blinds/g4.png" },
-    { src: "/assets/images/ppc-blinds/g2.png" },
-    { src: "/assets/images/ppc-blinds/g6.png" },
-    { src: "/assets/images/ppc-blinds/g3.png" },
-    { src: "/assets/images/ppc-blinds/g7.png" },
-  ],
-};
-
-export const Curtaingallery = {
-  title: "When you book an appointment, a van from Two Guys Home Furnishings (our sister company) will visit your home with experts to guide you, show fabric samples, and take precise measurements for a perfect fit.",
-  images: [
-  {src: "/assets/images/ppc-blinds/g8.png" , className: "h-[301px] row-span-1" },
-   {src: "/assets/images/ppc-blinds/g9.png", className: "h-[301px] row-span-1" },
-   {src: "/assets/images/ppc-blinds/g10.png",className: "h-[301px] row-span-1" },
-   {src: "/assets/images/ppc-blinds/g11.png",className: "h-[301px] row-span-1" },
-   {src: "/assets/images/ppc-blinds/g12.png",className: "h-[301px] row-span-1" },
-   {src: "/assets/images/ppc-blinds/g13.png",className: "h-[301px] row-span-1" },
-   {src: "/assets/images/ppc-blinds/g14.png",className: "h-[301px] row-span-1" },
-]
-};
 
 export const serviceLocationsData = [
   {

@@ -198,54 +198,6 @@ export const ChangedProductUrl_handler = (title: string): string => {
   return products ? products.Url : generateSlug(title);
 };
 
-
-
-export const getProduct = [
-  'Roller Blinds',
-  'Roman Blinds',
-  'Wooden Blinds',
-  'Day/Night Blinds',
-  'Vertical Blinds',
-  'Blackout Blinds',
-  'Motorised blinds',
-  'Aluminium Blinds',
-  'Sheer Horizon Blinds',
-  'Sunscreen/Transparent',
-  'Dimout Blinds',
-  'Bedroom Blinds',
-  'Kitchen Blinds',
-  'Living Room Blinds',
-  'Motorised curtains',
-  'Blackout Curtains',
-  'Ripplefold/Wave Curtains',
-  'Pinch Pleat Curtains',
-  'Linen Curtains',
-  'Eyelet Curtains',
-  'Sheer Curtains',
-  'Bedroom Curtains',
-  'Living Room Curtains',
-  'Textured Curtains',
-  'Theatre Curtains',
-  'Kids Prints Curtains',
-  'Geometric Curtains',
-  'Tab Top Curtains',
-  'Full Height Shutters',
-  'Bay Window Shutters',
-  'Tracked Shutters',
-  'Special Shape Shutters',
-  'Tier On Tier Shutters',
-  'Solid Panel Shutters',
-  'Cafe Style Shutters',
-  'Living Room Shutters',
-  'Kitchen Shutters',
-  'Bedroom Shutters',
-  'Bathroom Shutters',
-  'Bi-Fold Shutters',
-  'Outdoor Shutters',
-  'Staircase Shutters',
-];
-
-
 export const blogCategoryUrl = [
   { url: '/blog/blinds', name: 'Blinds' },
   { url: '/blog/curtains', name: 'Curtains' },
@@ -319,7 +271,6 @@ export const newblogPostUrl = [
   { url: '/curtains-projects', redirectUrl: '/projects' },
   { url: '/shutters-project', redirectUrl: '/projects' },
   { url: '/motorised-projects', redirectUrl: '/projects' },
-  { url: '/why-choose-blinds-curtains', redirectUrl: '/why-choose-blinds-curtains' },
   { url: '/downtown-dubai', redirectUrl: '/projects' },
   { url: '/al-barsha', redirectUrl: '/projects' },
   { url: '/business-bay-dubai', redirectUrl: '/projects' },

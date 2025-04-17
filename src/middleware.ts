@@ -13,13 +13,17 @@ export function middleware(req: NextRequest) {
         return prod.url + "/" === pathname.toLowerCase();
     });
 
+    
     if (!fullUrl.endsWith('/')) {
+        console.log(req.nextUrl.pathname, "fullUrl", req.nextUrl )
         return NextResponse.redirect(
             new URL(`${req.nextUrl.pathname}/`, req.nextUrl), 301
         )
     }
     if (redirectedProduct) {
-        const absoluteUrl = new URL(redirectedProduct.redirectUrl, origin);
+        console.log(req.nextUrl.pathname, "redirectedProduct", req.nextUrl )
+
+        const absoluteUrl = new URL(redirectedProduct.redirectUrl+"/", origin);
         return NextResponse.redirect(absoluteUrl, 301);
     }
 

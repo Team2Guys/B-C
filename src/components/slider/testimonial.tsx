@@ -14,7 +14,6 @@ import { testimonials } from "data/data";
 
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
-// import { fetchReviewsHandler } from "config/fetch";
 
 const getExcerpt = (text: string, wordLimit: number) => {
   const words = text.split(" ");
@@ -24,16 +23,8 @@ const getExcerpt = (text: string, wordLimit: number) => {
 };
 
 function Testimonial() {
-  // const [testimonial, setTestimonials] = useState<any[]>([]);
   const swiperRef = useRef<SwiperCore | null>(null);
 
-  // useEffect(() => {
-  //   fetchReviewsHandler(setTestimonials);
-  // }, []);
-
-  // const filteredTestimonials = testimonials.filter(
-  //   (testimonial: any) => testimonial.rating >= 4
-  // );
 
   return (
     <Container className="lg:mt-16 mt-5 py-8 mx-auto">

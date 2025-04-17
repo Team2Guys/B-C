@@ -10,7 +10,6 @@ import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import "swiper/css";
 import "swiper/css/navigation";
 import { testimonials } from 'data/data';
-// import { fetchReviewsHandler } from 'config/fetch';
 import Container from 'components/Res-usable/Container/Container';
 
 
@@ -19,15 +18,6 @@ interface RollerReviewsProps {
 }
 
 const RollerReviews: React.FC<RollerReviewsProps> = ({ imageSrc = '/assets/images/Rollerblind/Rectangle898.png' }) => {
-
-  // const [testimonial, setTestimonials] = useState<any[]>([]);
-  // useEffect(() => {
-  //   fetchReviewsHandler(setTestimonials);
-  // }, []);
-
-  // const filteredTestimonials = testimonials.filter(
-  //   (testimonial: any) => testimonial.rating >= 4
-  // );
   
   return (
     <div className='bg-[#F5EDE5]'>

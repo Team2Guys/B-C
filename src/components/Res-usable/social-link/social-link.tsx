@@ -12,7 +12,7 @@ interface SocialDataType {
   plateform?: string;
 }
 
-export const SocialData: SocialDataType[] = [
+const SocialData: SocialDataType[] = [
   {
     href: 'https://www.facebook.com/blindsandcurtainsdubai',
     icon: <FaFacebook size={28} />,

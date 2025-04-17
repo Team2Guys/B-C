@@ -1,11 +1,6 @@
-import React from 'react';
-import axios, { AxiosResponse} from 'axios';
-import PRODUCTS_TYPES from 'types/interfaces';
 
-type setTotalProducts = React.Dispatch<React.SetStateAction<PRODUCTS_TYPES[]>>;
-type setTotalPage = React.Dispatch<React.SetStateAction<string | undefined>>;
-type setError = React.Dispatch<React.SetStateAction<any>>;
-type setLoading = React.Dispatch<React.SetStateAction<boolean>>;
+import axios, { AxiosResponse} from 'axios';
+
 import Cookies from 'js-cookie';
 const token = Cookies.get('2guysAdminToken');
 const superAdmintoken = Cookies.get('superAdminToken');
@@ -56,60 +51,6 @@ export const ImageRemoveHandler = async (
   }
 };
 
-export const getPaginatedproducts = async (page: number) => {
-  try {
-    let response: any = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/getPaginateProducts?page=${page}`,
-    );
-    let products = response.data.products;
-    let totalPages = response.data.totalPages;
-    let currentPage = response.data.currentPage;
-    let totalProducts = response.data.totalProducts;
-    return {
-      products,
-      totalPages,
-      currentPage,
-      totalProducts,
-    };
-  } catch (err: any) {
-    if (err.response && err.response.data && err.response.data.message) {
-      throw new Error(err.response.data.message);
-    } else if (err.message) {
-      throw new Error(err.message);
-    } else {
-      throw new Error('unexpected Error occured');
-    }
-  }
-};
-
-export let getPRODUCTS = async (
-  setTotalProducts: setTotalProducts,
-  setError: setError,
-  setLoading: setLoading,
-  pageNumber: number,
-  setTotalPage?: setTotalPage,
-  setTotalProductscount?: any,
-) => {
-  try {
-    setLoading(true);
-    const { products, totalPages, totalProducts }: any =
-      await getPaginatedproducts(pageNumber);
-    setTotalProducts(products);
-    setTotalPage && setTotalPage(totalPages);
-    setTotalProductscount && setTotalProductscount(totalProducts);
-  } catch (err: any) {
-    console.log(err, 'err');
-    if (err.response && err.response.data && err.response.data.message) {
-      setError(err.response.data.message);
-    } else if (err.message) {
-      setError(err.message);
-    } else {
-      setError('An unexpected error occurred.');
-    }
-  } finally {
-    setLoading(false);
-  }
-};
 
 export const Api_handler = async (
   Endpoint: string,
