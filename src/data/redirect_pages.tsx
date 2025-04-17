@@ -205,7 +205,7 @@ export const newblogPostUrl = [
       redirectUrl: '/',
     },
     {
-      url: '/aluminium-venetian-2',
+      url: '/blinds/aluminium-venetian-2',
       redirectUrl: '/aluminium-venetian-blinds-dubai',
     },
     
