@@ -1,5 +1,5 @@
 // middleware.ts
-import { newblogPostUrl } from 'data/urls';
+import { newblogPostUrl } from 'data/redirect_pages';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
@@ -13,7 +13,7 @@ export function middleware(req: NextRequest) {
         return prod.url + "/" === pathname.toLowerCase();
     });
 
-    console.log(pathname, "pathname")
+    console.log(req.nextUrl, "pathname")
 
     
     if (!fullUrl.endsWith('/')) {
@@ -22,7 +22,8 @@ export function middleware(req: NextRequest) {
         )
     }
     if (redirectedProduct) {
-        const absoluteUrl = new URL(redirectedProduct.redirectUrl+"/", origin);
+        const redirectPath = redirectedProduct.redirectUrl == '/' ? '/' : redirectedProduct.redirectUrl + '/';
+        const absoluteUrl = new URL(redirectPath, origin);
         return NextResponse.redirect(absoluteUrl, 301);
     }
 
