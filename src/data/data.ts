@@ -64,7 +64,8 @@ export const heroSlider = [
   {
     id: 1,
     name: 'blinds.png',
-    imageUrl: '/assets/images/Hero/blinshd.png',
+    // imageUrl: '/assets/images/Hero/blinshd.png',
+    imageUrl: 'https://res.cloudinary.com/de6owjeap/image/upload/v1744957993/blinshd_l4bgq1.webp',
     heading: 'The Home of Customised',
     subheading: 'Window Coverings',
     content:"Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete."  },

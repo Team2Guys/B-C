@@ -41,13 +41,13 @@ export default async function Home() {
 
   return (
     <>
-        {schema.map((script:any, index:number) => 
-      <Script type="application/ld+json" id="home-json-ld" key={index}>
-        {JSON.stringify(script)}
-        
-      </Script>
-)}
-      <MainHero/>
+      {schema.map((script: any, index: number) =>
+        <Script type="application/ld+json" id="home-json-ld" key={index}>
+          {JSON.stringify(script)}
+
+        </Script>
+      )}
+      <MainHero />
       <Appointment />
       <Review_banner />
       <HomeCard categories={categories} />
