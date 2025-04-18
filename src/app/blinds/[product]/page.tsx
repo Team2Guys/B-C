@@ -88,6 +88,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   const filteredProduct = filterProd(products, product, Cateories);
 
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/${product}/`);
+  console.log(matchingUrl, "matchinUrls")
   if (matchingUrl) {
     return <NotFound />
   }

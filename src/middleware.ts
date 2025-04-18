@@ -11,11 +11,7 @@ export function middleware(req: NextRequest) {
     
     const redirectedProduct = splited !== 'school-blinds' && newblogPostUrl.find((prod) => {
         return prod.url + "/" === pathname.toLowerCase();
-    });
-
-    console.log(req.nextUrl, "pathname")
-
-    
+    });    
     if (!fullUrl.endsWith('/')) {
         return NextResponse.redirect(
             new URL(`${req.nextUrl.pathname}/`, req.nextUrl), 301

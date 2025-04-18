@@ -64,7 +64,7 @@ export const urls = [
     errorUrl: '/blinds/bathroom-blinds',
   },
   {
-    productName: '/blinds/aluminium-blinds',
+    productName: 'Aluminium Blinds',
     Url: 'aluminium-venetian-blinds-dubai',
     errorUrl: '/blinds/aluminium-blinds',
   },
@@ -203,6 +203,7 @@ export const blogCategoryUrl = [
   { url: '/blog/curtains', name: 'Curtains' },
   { url: '/blog/shutters', name: 'Shutters' },
 ];
+
 
 
 export const subCategoryUrls = [
