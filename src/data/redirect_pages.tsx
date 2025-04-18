@@ -144,10 +144,10 @@ export const newblogPostUrl = [
       url: '/commercial/offices',
       redirectUrl: '/curtains/office-window-curtains',
     },
-    {
-      url: '/blinds/school-blinds',
-      redirectUrl: '/blinds/school-blinds',
-    },
+    // {
+    //   url: '/blinds/school-blinds',
+    //   redirectUrl: '/blinds/school-blinds',
+    // },
     {
       url: '/commercial/gym',
       redirectUrl: '/curtains/gym-curtains/',
