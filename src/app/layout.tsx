@@ -47,13 +47,11 @@ export default function RootLayout({
 
 
         </Head>
-        <GoogleTagManager gtmId="GTM-MNXTN5B" />
-
         {/* Microsoft Clarity */}
         <Script
 
           id="clarity-script"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
 
           dangerouslySetInnerHTML={{
             __html: `
@@ -68,7 +66,7 @@ export default function RootLayout({
         {/* Meta Pixel */}
         <Script
           id="meta-pixel"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
