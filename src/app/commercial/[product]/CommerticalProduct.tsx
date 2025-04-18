@@ -29,14 +29,13 @@ const CommercialProduct = ({
   >();
   const [filteredSubCategory, setfilteredSubCategory] = useState<ICategory | undefined >();
   const path = usePathname();
-
-console.log(subCategories, "subCategories")
   const CategoryFiilterHandler = () => {
     try {
       setloading(true);
-      const filteredSubCategory: ICategory | undefined = subCategories?.find((sub) =>generateSlug(sub.title) === ChangedProductUrl(product as string) && sub.category?.title?.trim() ==product.trim(),
+      const filteredSubCategory: ICategory | undefined = subCategories?.find((sub) =>generateSlug(sub.title) === ChangedProductUrl(product as string) && sub.category?.title?.toLowerCase()?.trim() =="commercial",
       );
       const filteredProduct = filterProd(products, product, [12]);
+      
 
       setfilteredProduct(filteredProduct);
       setfilteredSubCategory(filteredSubCategory);
