@@ -1,8 +1,8 @@
 export const newblogPostUrl = [
-    {
-      url: '/blog/how-to-clean-dusty-curtains',
-      redirectUrl: '/blog/how-to-clean-dusty-curtains',
-    },
+    // {
+    //   url: '/blog/how-to-clean-dusty-curtains',
+    //   redirectUrl: '/blog/how-to-clean-dusty-curtains',
+    // },
     {
       url: '/guide-to-pulling-up-and-rolling-down-blinds',
       redirectUrl: '/blog/guide-to-pulling-up-and-rolling-down-blinds',
