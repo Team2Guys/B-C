@@ -2,48 +2,155 @@
 
 
 export const MotorisedBlinds = {
-    "@context": "https://schema.org/", 
-    "@type": "BreadcrumbList", 
-    "itemListElement": [{
-      "@type": "ListItem", 
-      "position": 1, 
-      "name": "Home",
-      "item": "https://blindsandcurtains.ae/"  
-    },{
-      "@type": "ListItem", 
-      "position": 2, 
-      "name": "Blinds",
-      "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 3, 
-      "name": "Motorised Blinds",
-      "item": "https://blindsandcurtains.ae/blinds/motorised-blinds/"  
-    }]
-  } 
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://blindsandcurtains.ae/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blinds",
+          "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Motorised Blinds",
+          "item": "https://blindsandcurtains.ae/blinds/motorised-blinds/"
+        }
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blindsandcurtains.ae/#professionalservice",
+      "name": "Blinds and Curtains Dubai",
+      "image": "https://blindsandcurtains.ae/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fde6owjeap%2Fimage%2Fupload%2Fv1740034440%2Fprvupqsiexcqf98f2oc5.webp&w=1080&q=75",
+      "url": "https://blindsandcurtains.ae/blinds/motorised-blinds/",
+      "telephone": "+971544945339",
+      "priceRange": "AED 250",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "00000",
+        "addressCountry": "AE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.117692,
+        "longitude": 55.1532843
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:30",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/blindsandcurtainsdubai",
+        "https://www.instagram.com/blindsandcurtainsdubai/",
+        "https://www.pinterest.com/blindsandcurtainsdubai/"
+      ],
+      "description": "Motorized & Electric Blinds, you can even add smartphone control functionality to allow you total control of your blinds, home or away."
+    }
+  ]
+}
+ 
   
   export const BlackoutBlinds = {
-    "@context": "https://schema.org/", 
-    "@type": "BreadcrumbList", 
-    "itemListElement": [{
-      "@type": "ListItem", 
-      "position": 1, 
-      "name": "Home",
-      "item": "https://blindsandcurtains.ae/"  
-    },{
-      "@type": "ListItem", 
-      "position": 2, 
-      "name": "Blinds",
-      "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 3, 
-      "name": "Blackout Blinds",
-      "item": "https://blindsandcurtains.ae/blinds/blackout-blinds/"  
-    }]
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://blindsandcurtains.ae/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blinds",
+            "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Blackout Blinds",
+            "item": "https://blindsandcurtains.ae/blinds/blackout-blinds/"
+          }
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://blindsandcurtains.ae/#professionalservice",
+        "name": "Blinds and Curtains Dubai",
+        "image": "https://blindsandcurtains.ae/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fde6owjeap%2Fimage%2Fupload%2Fv1741163782%2Fo4vdhyehb2hj6k0llbhj.jpg&w=1080&q=75",
+        "url": "https://blindsandcurtains.ae/blinds/blackout-blinds/",
+        "telephone": "+971544945339",
+        "priceRange": "AED 250",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
+          "postalCode": "00000",
+          "addressCountry": "AE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 25.117692,
+          "longitude": 55.1532843
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/blindsandcurtainsdubai",
+          "https://www.instagram.com/blindsandcurtainsdubai/",
+          "https://www.pinterest.com/blindsandcurtainsdubai/"
+        ],
+        "description": "We offer the largest range of blackout blinds materials to choose from in Dubai. Choose your blackout blinds from Dubai’s leading window blinds supplier."
+      }
+    ]
   }
   
+
   export const RollerBlinds = {
+    
       "@context": "https://schema.org",
       "@graph": [
         {
@@ -70,170 +177,432 @@ export const MotorisedBlinds = {
           ]
         },
         {
-          "@type": "Product",
-          "name": "Custom Window Roller Blinds - Blinds and Curtains Dubai",
-          "image": "https://blindsandcurtains.ae/_next/image/?url=%2Fassets%2Fimages%2Foptimized-images%2Fblinds%2FRoller%2FBlackout.jpg&w=640&q=75",
-          "description": "Give your home or office a beautiful make-over with our stunning range of Roller Blinds In Dubai. Available as Blackout and sunscreen. Call Us Now.",
-          "brand": {
-            "@type": "Brand",
-            "name": "Blinds and Curtains Dubai"
+          "@type": "ProfessionalService",
+          "@id": "https://blindsandcurtains.ae/#professionalservice",
+          "name": "Blinds and Curtains Dubai",
+          "image": "https://blindsandcurtains.ae/_next/image?url=%2Fassets%2Fimages%2Foptimized-images%2Fblinds%2FRoller%2FBlackout.jpg&w=640&q=75",
+          "url": "https://blindsandcurtains.ae/blinds/roller-blinds/",
+          "telephone": "+971544945339",
+          "priceRange": "AED 250",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+            "addressLocality": "Dubai",
+            "addressRegion": "Dubai",
+            "postalCode": "00000",
+            "addressCountry": "AE"
           },
-          "offers": {
-            "@type": "Offer",
-            "url": "https://blindsandcurtains.ae/blinds/roller-blinds/",
-            "priceCurrency": "AED",
-            "price": "250",
-            "priceValidUntil": "2025-12-31"
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 25.117692,
+            "longitude": 55.1532843
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "750",
-            "reviewCount": "750"
-          },
-          "review": {
-            "@type": "Review",
-            "name": "Alisha Alwany",
-            "reviewBody": "Amazing Service. From the initial appointment to measure and choose materials to the installation. Perfect finish and so happy with the quality of the material too. Tanveer and Ray were very polite and cleaned up after the installation. Highly recommend! 2 years on, I used blinds and curtains again to fit some shutters in our bedroom. Yahweh and Jayson were fantastic at installation but a special shout out to Yahweh who dealt with the whole process from measuring to installation. He put up with my messages to find out when the shutters will arrive in the UAE and was very patient. Both Yahweh and Jayson are a credit to your company! Would definitely recommend this company and have done to our friends and family.",
-            "reviewRating": {
-              "@type": "Rating",
-              "ratingValue": "5",
-              "bestRating": "5",
-              "worstRating": "1"
-            },
-            "datePublished": "2025-03-20",
-            "author": {
-              "@type": "Person",
-              "name": "Alisha Alwany"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Blinds and Curtains Dubai"
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "08:30",
+              "closes": "18:00"
             }
-          }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/blindsandcurtainsdubai",
+            "https://www.instagram.com/blindsandcurtainsdubai/",
+            "https://www.pinterest.com/blindsandcurtainsdubai/"
+          ],
+          "description": "Give your home or office a beautiful make-over with our stunning range of Roller Blinds In Dubai. Available as Blackout and sunscreen. Call Us Now."
         }
       ]
-
+    }
     
     
-
-  }
   
   export const SunscreenBlinds = {
-    "@context": "https://schema.org/", 
-    "@type": "BreadcrumbList", 
-    "itemListElement": [{
-      "@type": "ListItem", 
-      "position": 1, 
-      "name": "Home",
-      "item": "https://blindsandcurtains.ae/"  
-    },{
-      "@type": "ListItem", 
-      "position": 2, 
-      "name": "Blinds",
-      "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 3, 
-      "name": "Roller Blinds",
-      "item": "https://blindsandcurtains.ae/blinds/roller-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 4, 
-      "name": "Sunscreen Roller Blinds",
-      "item": "https://blindsandcurtains.ae/blinds/roller-blinds/sunscreen-roller-blinds/"  
+    "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://blindsandcurtains.ae/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blinds",
+          "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Roller Blinds",
+          "item": "https://blindsandcurtains.ae/blinds/roller-blinds/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Sunscreen Roller Blinds",
+          "item": "https://blindsandcurtains.ae/blinds/roller-blinds/sunscreen-roller-blinds/"
+        }
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blindsandcurtains.ae/#professionalservice",
+      "name": "Blinds and Curtains Dubai",
+      "image": "https://blindsandcurtains.ae/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fde6owjeap%2Fimage%2Fupload%2Fv1741165794%2Fimlkvtbj0ipj6u0r8xhq.jpg&w=1080&q=75",
+      "url": "https://blindsandcurtains.ae/blinds/roller-blinds/sunscreen-roller-blinds/",
+      "telephone": "+971544945339",
+      "priceRange": "AED 250",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "00000",
+        "addressCountry": "AE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.117692,
+        "longitude": 55.1532843
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:30",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/blindsandcurtainsdubai",
+        "https://www.instagram.com/blindsandcurtainsdubai/",
+        "https://www.pinterest.com/blindsandcurtainsdubai/"
+      ],
+      "description": "Made to measure Sunscreen Roller Blinds to fit any door or window. Zero pressure sales appointment guarantee as none of the sales team are on commission."
     }]
   }
   
   export const DimoutBlinds = {
-    "@context": "https://schema.org/", 
-    "@type": "BreadcrumbList", 
-    "itemListElement": [{
-      "@type": "ListItem", 
-      "position": 1, 
-      "name": "Home",
-      "item": "https://blindsandcurtains.ae/"  
-    },{
-      "@type": "ListItem", 
-      "position": 2, 
-      "name": "Blinds",
-      "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 3, 
-      "name": "Roller Blinds",
-      "item": "https://blindsandcurtains.ae/blinds/roller-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 4, 
-      "name": "Dimout Roller Blinds",
-      "item": "https://blindsandcurtains.ae/blinds/roller-blinds/dimout-roller-blinds/"  
-    }]
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://blindsandcurtains.ae/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blinds",
+            "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Roller Blinds",
+            "item": "https://blindsandcurtains.ae/blinds/roller-blinds/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Dimout Roller Blinds",
+            "item": "https://blindsandcurtains.ae/blinds/roller-blinds/dimout-roller-blinds/"
+          }
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://blindsandcurtains.ae/#professionalservice",
+        "name": "Blinds and Curtains Dubai",
+        "image": "https://blindsandcurtains.ae/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fde6owjeap%2Fimage%2Fupload%2Fv1740033691%2Fasieedf8hxe7wm2n87ky.webp&w=1080&q=75",
+        "url": "https://blindsandcurtains.ae/blinds/roller-blinds/dimout-roller-blinds/",
+        "telephone": "+971544945339",
+        "priceRange": "AED 250",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
+          "postalCode": "00000",
+          "addressCountry": "AE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 25.117692,
+          "longitude": 55.1532843
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/blindsandcurtainsdubai",
+          "https://www.instagram.com/blindsandcurtainsdubai/",
+          "https://www.pinterest.com/blindsandcurtainsdubai/"
+        ],
+        "description": "Made to measure Dimout Roller Blinds are ideal for areas where you would like daylight to enter, but privacy needs to be maintained."
+      }
+    ]
+  
   }
   
   export const RomanBlinds = {
-    "@context": "https://schema.org/", 
-    "@type": "BreadcrumbList", 
-    "itemListElement": [{
-      "@type": "ListItem", 
-      "position": 1, 
-      "name": "Home",
-      "item": "https://blindsandcurtains.ae/"  
-    },{
-      "@type": "ListItem", 
-      "position": 2, 
-      "name": "Blinds",
-      "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 3, 
-      "name": "Roman Blinds",
-      "item": "https://blindsandcurtains.ae/blinds/roman-blinds/"  
-    }]
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://blindsandcurtains.ae/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blinds",
+            "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Roman Blinds",
+            "item": "https://blindsandcurtains.ae/blinds/roman-blinds/"
+          }
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://blindsandcurtains.ae/#professionalservice",
+        "name": "Blinds and Curtains Dubai",
+        "image": "https://blindsandcurtains.ae/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fde6owjeap%2Fimage%2Fupload%2Fv1740114430%2Fwjni1fdmzfwzgutesy47.webp&w=1080&q=75",
+        "url": "https://blindsandcurtains.ae/blinds/roman-blinds/",
+        "telephone": "+971544945339",
+        "priceRange": "AED 250",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
+          "postalCode": "00000",
+          "addressCountry": "AE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 25.117692,
+          "longitude": 55.1532843
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/blindsandcurtainsdubai",
+          "https://www.instagram.com/blindsandcurtainsdubai/",
+          "https://www.pinterest.com/blindsandcurtainsdubai/"
+        ],
+        "description": "Roman Blinds Dubai adds a touch of class to any room in the home & office. Made to measure Roman blinds by our professional team anywhere in Dubai."
+      }
+    ]
+  
   }
   
   export const WoodenBlinds = {
-    "@context": "https://schema.org/", 
-    "@type": "BreadcrumbList", 
-    "itemListElement": [{
-      "@type": "ListItem", 
-      "position": 1, 
-      "name": "Home",
-      "item": "https://blindsandcurtains.ae/"  
-    },{
-      "@type": "ListItem", 
-      "position": 2, 
-      "name": "Blinds",
-      "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 3, 
-      "name": "Wooden Blinds",
-      "item": "https://blindsandcurtains.ae/blinds/wooden-venetian/"  
-    }]
+    "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://blindsandcurtains.ae/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blinds",
+          "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Wooden Blinds",
+          "item": "https://blindsandcurtains.ae/blinds/wooden-venetian/"
+        }
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blindsandcurtains.ae/#professionalservice",
+      "name": "Blinds and Curtains Dubai",
+      "image": "https://blindsandcurtains.ae/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fde6owjeap%2Fimage%2Fupload%2Fv1740045120%2Fj7dduoa4cfrlnfmcmzt8.jpg&w=1080&q=75",
+      "url": "https://blindsandcurtains.ae/blinds/wooden-venetian/",
+      "telephone": "+971544945339",
+      "priceRange": "AED 250",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "00000",
+        "addressCountry": "AE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.117692,
+        "longitude": 55.1532843
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:30",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/blindsandcurtainsdubai",
+        "https://www.instagram.com/blindsandcurtainsdubai/",
+        "https://www.pinterest.com/blindsandcurtainsdubai/"
+      ],
+      "description": "Wooden Venetian Blinds are warm and versatile Blinds for your Home or Office. Made To Measure Wood Venetian Blinds are custom-made from scratch."
+    }
+  ]
+
   }
   
   export const ZebraBlinds = {
-    "@context": "https://schema.org/", 
-    "@type": "BreadcrumbList", 
-    "itemListElement": [{
-      "@type": "ListItem", 
-      "position": 1, 
-      "name": "Home",
-      "item": "https://blindsandcurtains.ae/"  
-    },{
-      "@type": "ListItem", 
-      "position": 2, 
-      "name": "Blinds",
-      "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"  
-    },{
-      "@type": "ListItem", 
-      "position": 3, 
-      "name": "Zebra Blinds",
-      "item": "https://blindsandcurtains.ae/blinds/zebra-blinds/"  
-    }]
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://blindsandcurtains.ae/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blinds",
+            "item": "https://blindsandcurtains.ae/made-to-measure-blinds/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Zebra Blinds",
+            "item": "https://blindsandcurtains.ae/blinds/zebra-blinds/"
+          }
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://blindsandcurtains.ae/#professionalservice",
+        "name": "Blinds and Curtains Dubai",
+        "image": "https://blindsandcurtains.ae/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fde6owjeap%2Fimage%2Fupload%2Fv1740048631%2Fyzxsb0rpl1if61jqwv3t.webp&w=1080&q=75",
+        "url": "https://blindsandcurtains.ae/blinds/zebra-blinds/",
+        "telephone": "+971544945339",
+        "priceRange": "AED 250",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
+          "postalCode": "00000",
+          "addressCountry": "AE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 25.117692,
+          "longitude": 55.1532843
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/blindsandcurtainsdubai",
+          "https://www.instagram.com/blindsandcurtainsdubai/",
+          "https://www.pinterest.com/blindsandcurtainsdubai/"
+        ],
+        "description": "Enjoy a home with a view or complete privacy with a simple movement with our Zebra Blinds. Our Zebra Roller Blinds comes with the choice of light filtering."
+      }
+    ]
+  
   }
   
   export const PleatedBlinds = {
