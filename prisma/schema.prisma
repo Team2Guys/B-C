@@ -39,7 +39,7 @@ model SubCategories {
   Meta_description  String?
   last_editedBy     String?
   bannerImage       Json?
-  staticTitle     String?
+  staticTitle       String?
 }
 
 model products {
@@ -69,9 +69,8 @@ model products {
   bannerImage             Json?
   subCategoryImage        Json?
   subcategory_description String?
+  modelDetails            Json[]          @default([])
 }
-
-
 
 enum contact_method {
   Whatsapp
