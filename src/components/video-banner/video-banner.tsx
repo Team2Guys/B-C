@@ -75,7 +75,7 @@ const VideoBanner: React.FC<BannerProps> = ({
                 <h1 className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
                   {selectedPage?.heading}
                 </h1>
-                <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
+                <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%]">
                   {selectedPage?.paragraph}
                 </p>
                 {showButton ? (
