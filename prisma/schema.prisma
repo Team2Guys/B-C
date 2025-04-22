@@ -39,6 +39,7 @@ model SubCategories {
   Meta_description  String?
   last_editedBy     String?
   bannerImage       Json?
+  staticTitle     String?
 }
 
 model products {
@@ -66,7 +67,11 @@ model products {
   Sub_Heading_description String?
   last_editedBy           String?
   bannerImage             Json?
+  subCategoryImage        Json?
+  subcategory_description String?
 }
+
+
 
 enum contact_method {
   Whatsapp
@@ -90,8 +95,7 @@ model Appointments {
   prefered_contact_method String[] @default([])
   prefered_time           String?
   address                 String?
-  createdAt         DateTime   @default(now())
-
+  createdAt               DateTime @default(now())
 }
 
 model Admins {

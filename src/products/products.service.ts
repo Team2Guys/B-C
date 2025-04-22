@@ -31,7 +31,6 @@ export class ProductsService {
                     subCategory: true
                 }
             });
-            console.log(response, "response")
             return { product: response, message: "Product has been added Successfully" }
         } catch (error: any) {
             console.log(error, "err")
@@ -50,15 +49,11 @@ export class ProductsService {
 
     UpdateProductHandler = async (id: number, updateProduct: Prisma.productsUpdateInput, req: Request | any) => {
         try {
-            console.log(req, "requ")
             const { email } = req.user
-            console.log(email, "email")
             let product = await this.prisma.products.findUnique({
                 where: { id: id },
                 include: { subCategory: true },
             });
-
-
             if (!product) {
                 return CustomErrorHandler("Product not found", "NOT_FOUND");
             }
