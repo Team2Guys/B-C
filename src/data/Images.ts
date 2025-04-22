@@ -1070,7 +1070,11 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Aluminium School blinds.webp',
-        desc: 'Our  school Aluminium blinds  are crafted from lightweight yet sturdy aluminum; these blinds resist wear, tear, and corrosion, guaranteeing long-lasting performance. These are made from materials, offering an extra layer of safety in schools. We are also offering metal venetian blinds that combine practicality with modern design. Their durability, ease of use, and stylish appearance make them functional and appealing additions to classrooms, libraries, and administrative offices.',
+        desc: `Our  school Aluminium blinds  are crafted from lightweight yet sturdy aluminum; these blinds resist wear, tear, and corrosion, guaranteeing long-lasting performance. These are made from 
+        <a target="_blank" style="text-decoration: underline" href="/commercial/fire-retardant/">fire-resistant</a
+        materials, offering an extra layer of safety in schools. We are also offering metal venetian blinds that combine practicality with modern design. Their durability, ease of use, and stylish appearance make them functional and appealing additions to classrooms, libraries, and administrative offices.
+        
+        `,
       },
     ],
   },
