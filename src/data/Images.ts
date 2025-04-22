@@ -362,8 +362,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Dimout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Living Room Blinds/r.jpg',
-        desc: `We offer a diverse range of semi transparent roller blinds for your space. Our dimout living room blinds combine functionality, style, and suitability. Whether looking for translucent roller blinds to create smooth, filtered light that holds a cosy ambience or blackout roller blinds to give 99% light blockage, we have something for everyone. These 
-        <a style="text-decoration: underline" href="/roller-blinds/dimout-roller-blinds/"> dimout blinds</a> are available in various colours, fabrics, and designs; our roller blinds are made to give your space a different look.`,
+        desc: ``,
       },
     ],
   },
