@@ -226,7 +226,7 @@ export const newblogPostUrl = [
       redirectUrl: '/blog/how-to-install-window-blinds-without-drilling',
     },
     {
-      url: '/hotels-restaurants-blinds-curtains/shutters-range/',
+      url: '/hotels-restaurants-blinds-curtains/shutters-range',
       redirectUrl: '/hotels-restaurants-blinds-curtains/',
     },
 
