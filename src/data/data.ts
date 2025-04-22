@@ -427,7 +427,6 @@ export const AddproductsinitialValues: FormValues = {
   spacification: [],
   sizes: [],
   category: '',
-  code: '',
   price: 0,
   product_type: 'By Type',
   short_description: '',

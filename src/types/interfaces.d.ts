@@ -95,7 +95,6 @@ export interface FormValues {
   spacification: { specsDetails: string }[];
   sizes: string[];
   category: string;
-  code: string;
   totalStockQuantity: number;
   variantStockQuantities: { variant: string; quantity: number }[];
   CategoryId?: number;

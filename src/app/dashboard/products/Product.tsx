@@ -36,7 +36,7 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
     Canonical_Tag: editProduct && editProduct?.Canonical_Tag,
     Meta_Description: editProduct && editProduct?.Meta_description,
     Images_Alt_Text: editProduct && editProduct?.Images_Alt_Text,
-    modelDetails: editProduct && editProduct?.modelDetails,
+    modelDetails: editProduct && editProduct?.modelDetails || [],
     colors: editProduct?.colors,
     spacification: editProduct?.spacification,
     sizes: editProduct && editProduct?.sizes,
@@ -53,7 +53,7 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
     Sub_Heading_description: editProduct && editProduct.Sub_Heading_description,
     bannerImage: editProduct && editProduct.bannerImage,
     subCategoryImage:   editProduct && editProduct.subCategoryImage,
-    subcategory_description : editProduct && editProduct.subcategory_description
+    subcategory_description : editProduct && editProduct.subcategory_description,
 
   };
 

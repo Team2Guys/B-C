@@ -86,7 +86,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
           subCategory,
           EditInitialProductValues,
         );
-        console.log(EditInitialValues);
+        console.log(EditInitialValues, "formikValues");
         if (category) {
           const catArr = [];
           catArr.push(category);
@@ -102,9 +102,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
           ...EditInitialProductValues,
           name: EditInitialProductValues.title,
         });
-      setBannerImageUrl(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
-    setposterimageUrl(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage]);
-    setsubCategoryImage(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
+        setBannerImageUrl(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
+        setposterimageUrl(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage]);
+        setsubCategoryImage(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
 
 
 
@@ -126,7 +126,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         return showToast('warn', 'Please select relevant Images');
       }
 
-      
+
 
       let newValues = {
         ...values,
@@ -149,8 +149,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       const {
         categories,
         subcategories,
-        code,
-        modelDetails,
         purchasePrice,
         reviews,
         sizes,
@@ -171,8 +169,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       console.log(
         categories,
         subcategories,
-        code,
-        modelDetails,
         purchasePrice,
         reviews,
         sizes,
@@ -188,12 +184,17 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         id,
         name,
         finalValues,
+
+        "modelDetails"
       );
 
       let updatedvalue = {
         ...finalValues,
         category: { connect: { id: selectedCategoryIds[0] } },
       };
+
+
+
 
       if (selectedSubcategoryIds.length > 0) {
         updatedvalue = {
@@ -279,7 +280,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     setposterimageUrl(updatedImagesUrl);
   };
 
-  const handlealtTextbannerImageUrl = (index: number, newaltText: string,setBannerImageUrl:React.Dispatch<SetStateAction<any>> ) => {
+  const handlealtTextbannerImageUrl = (index: number, newaltText: string, setBannerImageUrl: React.Dispatch<SetStateAction<any>>) => {
     //@ts-expect-error
     const updatedImagesUrl = bannerImageUrl.map((item, i) =>
       i === index ? { ...item, altText: newaltText } : item,
@@ -657,12 +658,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                               : ''
                               }`}
                           />
-                          {formik.touched.Meta_Title &&
-                            formik.errors.Meta_Title ? (
-                            <div className="text-red text-sm">
-                              {formik.errors.code as String}
-                            </div>
-                          ) : null}
+
                         </div>
                         <div className="w-2/4">
                           <label className="mb-3 block text-sm font-medium text-black dark:text-white">
@@ -680,13 +676,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                               : ''
                               }`}
                           />
-
-                          {formik.touched.Canonical_Tag &&
-                            formik.errors.Canonical_Tag ? (
-                            <div className="text-red text-sm">
-                              {formik.errors.code as String}
-                            </div>
-                          ) : null}
                         </div>
                       </div>
                       <div>
@@ -704,12 +693,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             : ''
                             }`}
                         />
-                        {formik.touched.Meta_Description &&
-                          formik.errors.Meta_Description ? (
-                          <div className="text-red text-sm">
-                            {formik.errors.code as String}
-                          </div>
-                        ) : null}
+
                       </div>
 
                       <div className="flex gap-4">
@@ -729,12 +713,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                               : ''
                               }`}
                           />
-                          {formik.touched.Images_Alt_Text &&
-                            formik.errors.Images_Alt_Text ? (
-                            <div className="text-red text-sm">
-                              {formik.errors.code as String}
-                            </div>
-                          ) : null}
+
                         </div>
                       </div>
                     </div>
@@ -774,7 +753,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                     <div>
                       <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                       Descripton(On Subcategory Page)
+                        Descripton(On Subcategory Page)
                       </label>
                       <textarea
                         name="subcategory_description"
@@ -830,87 +809,97 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                   <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
                     <div className="border-b border-stroke p-4 dark:border-strokedark">
                       <h3 className="font-medium text-black dark:text-white">
-                        Model Details
+                        Descripton(On Subcategory Page)
                       </h3>
                     </div>
                     <div className="flex flex-col gap-5 p-4">
                       <FieldArray name="modelDetails">
                         {({ push, remove }) => (
                           <div className="flex flex-col gap-2">
-                            {formik.values.modelDetails &&
-                              formik.values.modelDetails.map(
+                            {
+                              formik.values?.modelDetails?.map(
                                 (model: any, index: any) => (
-                                  <div
-                                    key={index}
-                                    className="flex items-center"
-                                  >
-                                    <input
-                                      type="text"
-                                      name={`modelDetails[${index}].name`}
-                                      onChange={formik.handleChange}
-                                      onBlur={formik.handleBlur}
-                                      value={
-                                        formik.values.modelDetails[index].name
-                                      }
-                                      placeholder="Model Name"
-                                      className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+                                  <>
+                                    <div
+                                      key={index}
+                                      className="flex flex-col gap-3"
+                                    >
+                                      <input
+                                        type="text"
+                                        name={`modelDetails[${index}].name`}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={
+                                          formik.values.modelDetails[index].name
+                                        }
+                                        placeholder="Sub Category Name"
+                                        className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
                                       ${formik.touched.modelDetails &&
-                                          (
-                                            formik.touched
-                                              .modelDetails as FormikTouched<
-                                                FormValues['modelDetails']
-                                              >
-                                          )?.[index]?.name &&
-                                          (
-                                            formik.errors
-                                              .modelDetails as FormikErrors<
-                                                FormValues['modelDetails']
-                                              >
-                                          )?.[index]?.name
-                                          ? 'border-red-500'
-                                          : ''
-                                        }`}
-                                    />
-                                    <input
-                                      type="text"
-                                      name={`modelDetails[${index}].detail`}
-                                      onChange={formik.handleChange}
-                                      onBlur={formik.handleBlur}
-                                      value={
-                                        formik.values.modelDetails[index].detail
-                                      }
-                                      placeholder="Model Detail"
-                                      className={`w-full rounded-lg ml-2 border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+                                            (
+                                              formik.touched
+                                                .modelDetails as FormikTouched<
+                                                  FormValues['modelDetails']
+                                                >
+                                            )?.[index]?.name &&
+                                            (
+                                              formik.errors
+                                                .modelDetails as FormikErrors<
+                                                  FormValues['modelDetails']
+                                                >
+                                            )?.[index]?.name
+                                            ? 'border-red-500'
+                                            : ''
+                                          }`}
+                                      />
+                                      <textarea
+                                        name={`modelDetails[${index}].detail`}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={
+                                          formik.values.modelDetails[index].detail
+                                        }
+                                        placeholder="Description on Sub Category"
+                                        className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
                                         ${formik.touched.modelDetails &&
-                                          (
-                                            formik.touched
-                                              .modelDetails as FormikTouched<
-                                                FormValues['modelDetails']
-                                              >
-                                          )?.[index]?.detail &&
-                                          (
-                                            formik.errors
-                                              .modelDetails as FormikErrors<
-                                                FormValues['modelDetails']
-                                              >
-                                          )?.[index]?.detail
-                                          ? 'border-red-500'
-                                          : ''
-                                        }`}
-                                    />
+                                            (
+                                              formik.touched.modelDetails as FormikTouched<FormValues['modelDetails']>
+                                            )?.[index]?.detail &&
+                                            (
+                                              formik.errors
+                                                .modelDetails as FormikErrors<
+                                                  FormValues['modelDetails']
+                                                >
+                                            )?.[index]?.detail
+                                            ? 'border-red-500'
+                                            : ''
+                                          }`}
+                                      />
+
+                                    </div>
+
+
+
+
                                     <button
                                       type="button"
                                       onClick={() => remove(index)}
-                                      className="ml-2 text-red "
+                                      className="ml-2 text-red-500 border-blue-500 px-4 py-2 "
                                     >
                                       <RxCross2
                                         className="text-red"
                                         size={25}
                                       />
                                     </button>
-                                  </div>
+
+
+
+                                  </>
+
+
                                 ),
                               )}
+
+
                             <button
                               type="button"
                               onClick={() => push({ name: '', detail: '' })}
@@ -1067,7 +1056,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                   <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
                     <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
                       <h3 className="font-medium text-black dark:text-white">
-                      subCategoryImage
+                        subCategoryImage
                       </h3>
                     </div>
                     {subCategoryImage && subCategoryImage?.length > 0 ? (
@@ -1113,7 +1102,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                       index,
                                       String(e.target.value),
                                       setsubCategoryImage
-                                      
+
                                     )
                                   }
                                 />
