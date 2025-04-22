@@ -1,8 +1,4 @@
 export const newblogPostUrl = [
-    // {
-    //   url: '/blog/how-to-clean-dusty-curtains',
-    //   redirectUrl: '/blog/how-to-clean-dusty-curtains',
-    // },
     {
       url: '/guide-to-pulling-up-and-rolling-down-blinds',
       redirectUrl: '/blog/guide-to-pulling-up-and-rolling-down-blinds',
@@ -159,10 +155,6 @@ export const newblogPostUrl = [
     {
       url: '/blinds/wooden-aluminium-blinds',
       redirectUrl: '/blinds/aluminium-venetian-blinds-dubai',
-    },
-    {
-      url: '/blinds/study-room-blinds',
-      redirectUrl: '/made-to-measure-blinds',
     },
     {
       url: '/blinds/aric-blinds',

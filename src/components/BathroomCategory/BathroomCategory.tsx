@@ -85,22 +85,17 @@ const BathroomCategory = ({
         }
       } else {
         if (category.sub_Category === subCategory) {
-          product = category.Product.find((value) => value.product_name == arr.title.trim(),
-            console.log("subCategory", product)
-          );
+          product = category.Product.find((value) => value.product_name == arr.title.trim());
           break;
         }
       }
     }
-
-    console.log("subCategory", subCategory)
 
     return product;
   };
   const currentCategory = Categories_wise_Images.find((category) =>category.sub_Category === subCategory
   );
   const static_Title = currentCategory?.static_Title;
-
 
   return (
     <>
@@ -136,9 +131,7 @@ const BathroomCategory = ({
                 <div>
                   <Image
                     className="w-full h-[280px] xs:h-[300px] sm:h-[350px] md:h-[450px] lg:h-[500px] rounded-md"
-                    src={
-                      arr.posterImage.imageUrl
-                    }
+                    src={product_Images?.Imagesurl || arr?.subCategoryImage?.imageUrl || arr.posterImage.imageUrl }
                     height={774}
                     width={1032}
                     alt={product_Images ? product_Images.altText : arr.title}
@@ -147,14 +140,13 @@ const BathroomCategory = ({
                   <h2 className="font-bold  sm:text-xl md:text-2xl text-center mt-2">
                     {arr.title}
                   </h2>
-                  {product_Images && (
                     <p
                       className="leading-6 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal w-full"
                       dangerouslySetInnerHTML={{
-                        __html: product_Images.desc,
+                        __html: arr.subcategory_description || product_Images?.desc || "",
                       }}
                     ></p>
-                  )}
+                
                 </div>
                 <div>
                   <Link

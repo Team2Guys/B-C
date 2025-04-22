@@ -110,6 +110,7 @@ export interface FormValues {
   Canonical_Tag?: string;
   Meta_description?: string;
   Images_Alt_Text?: string;
+  subcategory_description?:string
 }
 
 interface Color {

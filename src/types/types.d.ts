@@ -85,6 +85,8 @@ export interface IProduct {
   Meta_Title?: string;
   Canonical_Tag?: string;
   Meta_description?: string;
+  subCategoryImage?: Image
+  subcategory_description?:string
   
 }
 

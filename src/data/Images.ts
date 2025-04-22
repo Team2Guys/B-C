@@ -47,6 +47,43 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       },
     ],
   },
+
+  {
+    Category_id: 2,
+    sub_Category: 'Study Room Blinds',
+    static_Title: 'Custom-Made Premium Study Room Blinds',
+    Product: [
+      {
+        product_name: 'Roman Blinds',
+        altText: 'Roman Blinds',
+        Imagesurl:
+          '/assets/images/optimized-images/blinds/bedroom-blinds/Roman-Blinds-for-bedroom.jpg',
+        desc: 'These bedroom Roman blinds are the perfect choice for those who prefer a more luxurious and elegant look. These blinds create a lovely, flowing look that brings a bit of elegance to any space. They also come with blackout options, making them perfect for bedrooms where controlling light is important. <a" style="text-decoration: underline" href="/blinds/roman-blinds/">Roman blinds</a> are available in various fabrics, such as linen, silk, and velvet, so you can choose one that complements your existing bedroom decor.',
+      },
+      {
+        product_name: 'Blackout/Private Blinds',
+        altText: 'Blackout/Private Blinds',
+        Imagesurl:
+          '/assets/images/optimized-images/blinds/bedroom-blinds/Roller-Blinds-for-Bedroom.jpg',
+        desc: 'If you need more sleep, <a" style="text-decoration: underline" href="/blinds/blackout-blinds/">blackout blinds</a> are a great choice. These blinds have special linings that block sunlight from coming into your room. They’re perfect for people who work night shifts and need to sleep during the day or for anyone sensitive to light while sleeping. You can pick from different styles like roller, vertical, Roman blinds, or total blackout blinds, so it’s easy to find the right one for your bedroom.',
+      },
+      {
+        product_name: 'Wooden Blinds',
+        altText: 'Wooden Blinds',
+        Imagesurl:
+          '/assets/images/optimized-images/blinds/bedroom-blinds/Wooden-blinds-for-bedroom.jpg',
+        desc: 'Bedroom Venetian blinds are another popular choice for window coverings. These blinds consist of horizontal slats that can be tilted to control the light entering the room. They offer versatility in terms of light and privacy control, making them suitable for any bedroom setting. <a" style="text-decoration: underline" href="/blinds/wooden-venetian/">Venetian blinds</a> come in various materials, such as aluminum, wood, or PVC, so you can choose one that suits your style and budget.',
+      },
+      {
+        product_name: 'Blackout Roller Blinds',
+        altText: 'Blackout Roller Blinds',
+        Imagesurl:
+          '/assets/images/optimized-images/blinds/bedroom-blinds/Blackout-blinds-for-bedroom.jpg',
+        desc: "Bedroom blackout roller blinds are super popular because they have a relaxed, minimalist vibe that fits any decor style. Roller blinds come with blackout options, so they can block out unwanted light and help you get a peaceful, uninterrupted night's sleep. These private blinds are super easy to use and available in all sorts of colours and fabrics to find the perfect match for your bedroom vibe.",
+      },
+    ],
+  },
+
   {
     Category_id: 2,
     sub_Category: 'Staircase Blinds',
@@ -123,7 +160,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Sheer Horizon Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Blinds for Kids Room/s.webp',
-        desc: "Sheer window coverings are an excellent way to diffuse natural light, soften it, and spread it evenly across the room to create a warm, inviting atmosphere. Our sheer horizon blinds are available in various colours and fabrics, allowing you to customise the look to suit your child's room perfectly. Check out our Vertical blinds for more options to complement your space.",
+        desc: `Sheer window coverings are an excellent way to diffuse natural light, soften it, and spread it evenly across the room to create a warm, inviting atmosphere. Our <a style="text-decoration: underline" href="/blinds/sheer-horizon-blinds/">
+  sheer horizon blinds</a> are available in various colours and fabrics, allowing you to customise the look to suit your child's room perfectly. Check out our Vertical blinds for more options to complement your space.`,
       },
       {
         product_name: 'Day/Night Blinds',
@@ -155,7 +193,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       {
         product_name: 'Roman Blinds',
         altText: 'Roman Blinds',
-        Imagesurl: '/assets/images/optimized-images/blinds/Study room/r.jpg',
+        Imagesurl: '/assets/images/optimized-images/blinds/Study room/r.jpgd',
         desc: 'Choosing Custom Window Blinds means finding a balance of style, functionality, and ease that adapts perfectly to any space.',
       },
       {
@@ -222,7 +260,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: '3d blinds',
         altText: '3d blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/dinnng room/3d.jpg',
-        desc: 'To make your dining room stand out, check out these 3D blinds for windows. They have cool patterns that look like they pop out, adding a unique style. Plus, they come in many colors and designs so that you can find the perfect match for your decor. In addition to looking great, they help control light and give you privacy. Take a look at our wooden blinds for a timeless style.',
+        desc: `To make your dining room stand out, check out these <a style="text-decoration: underline" href="/blinds/3d-blinds/">
+  3D blinds</a>for windows. They have cool patterns that look like they pop out, adding a unique style. Plus, they come in many colors and designs so that you can find the perfect match for your decor. In addition to looking great, they help control light and give you privacy. Take a look at our wooden blinds for a timeless style.`,
       },
       {
         product_name: 'Aluminium Blinds',
@@ -323,7 +362,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Dimout Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Living Room Blinds/r.jpg',
-        desc: 'We offer a diverse range of semi transparent roller blinds for your space. Our dimout living room blinds combine functionality, style, and suitability. Whether looking for translucent roller blinds to create smooth, filtered light that holds a cosy ambience or blackout roller blinds to give 99% light blockage, we have something for everyone. These dimout blinds are available in various colours, fabrics, and designs; our roller blinds are made to give your space a different look.',
+        desc: `We offer a diverse range of semi transparent roller blinds for your space. Our dimout living room blinds combine functionality, style, and suitability. Whether looking for translucent roller blinds to create smooth, filtered light that holds a cosy ambience or blackout roller blinds to give 99% light blockage, we have something for everyone. These 
+        <a style="text-decoration: underline" href="/roller-blinds/dimout-roller-blinds/"> dimout blinds</a> are available in various colours, fabrics, and designs; our roller blinds are made to give your space a different look.`,
       },
     ],
   },
@@ -344,7 +384,8 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Chiffon Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Kids room curtains/chiffon.jpg',
-        desc: 'Our kids room curtains are available in pastel colors, fun prints, or neutral tones. We offer Chiffon sheer curtains that blend seamlessly into any nursery, playroom, or child’s bedroom theme. Our sheer curtains pair well with other window treatments, such as blackout curtains, for day and night adaptability. These curtains are semi-transparent, which makes smaller rooms feel larger and less confined. We have custom fit options that align with children’s interests and personalities.',
+        desc: `Our kids room curtains are available in pastel colors, fun prints, or neutral tones. We offer <a style="text-decoration: underline" href="/curtains/made-to-measure-chiffon-curtains/">
+  Chiffon</a> sheer curtains that blend seamlessly into any nursery, playroom, or child’s bedroom theme. Our sheer curtains pair well with other window treatments, such as blackout curtains, for day and night adaptability. These curtains are semi-transparent, which makes smaller rooms feel larger and less confined. We have custom fit options that align with children’s interests and personalities.`,
       },
       {
         product_name: 'Tab Top Curtains',
@@ -504,7 +545,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
   {
     Category_id: 5,
     sub_Category: 'Room Curtains',
-    static_Title:"Thousands of Fabric Choices for Room Curtains",
+    static_Title: "Thousands of Fabric Choices for Room Curtains",
     Product: [
       {
         product_name: 'Double Pinch Pleat Curtains',
@@ -602,7 +643,11 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Patterned Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
-        desc: 'Our dining room patterned curtains create a cosy, luxurious atmosphere, depending on your own taste. We offer creative and unique designs that come in a wide range of styles, from floral and geometric to abstract and stripes. We offer customised options that incorporate simple curtain sewing patterns to be personalised designs that are tailored to your dining room’s size and theme. For a modern or sleek look, we suggest layering eyelet curtains that combine with solid curtains for a richer, more textured feel.',
+        desc: `Our dining room 
+        
+        <a style="text-decoration: underline" href="/curtains/patterned-curtains/">
+  patterned curtains </a>
+        create a cosy, luxurious atmosphere, depending on your own taste. We offer creative and unique designs that come in a wide range of styles, from floral and geometric to abstract and stripes. We offer customised options that incorporate simple curtain sewing patterns to be personalised designs that are tailored to your dining room’s size and theme. For a modern or sleek look, we suggest layering eyelet curtains that combine with solid curtains for a richer, more textured feel.`,
       },
       {
         product_name: 'Wave Curtains',
@@ -1150,7 +1195,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     Category_id: 9,
     sub_Category: 'Light Woods Shutters',
     Product: [
-   
+
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
@@ -1164,7 +1209,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     Category_id: 9,
     sub_Category: 'Grey Shutters',
     Product: [
-   
+
       {
         product_name: 'Bi-Fold Shutters',
         altText: 'Bi-Fold Shutters',
@@ -1178,7 +1223,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
     Category_id: 9,
     sub_Category: 'Bold Colours Shutters',
     Product: [
- 
+
     ],
   },
   {
@@ -1201,6 +1246,13 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       },
     ],
   },
+
+
+
+  
+
+
+
 ];
 
 export const RollerBlindsPage: IRollerBlinds[] = [

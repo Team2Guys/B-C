@@ -91,6 +91,9 @@ const RoomProducts = ({
   if (isNotFound) {
     return <NotFound />;
   }
+
+
+  console.log(filteredSubCategory, "filteredSubCategory")
   return (
     <>
       <TopHero
