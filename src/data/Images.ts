@@ -22,21 +22,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Roman Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Roman-Blinds-for-bedroom.jpg',
-        desc: 'These bedroom Roman blinds are the perfect choice for those who prefer a more luxurious and elegant look. These blinds create a lovely, flowing look that brings a bit of elegance to any space. They also come with blackout options, making them perfect for bedrooms where controlling light is important. <a target="_blank" style="text-decoration: underline" href="/blinds/roman-blinds/">Roman blinds</a> are available in various fabrics, such as linen, silk, and velvet, so you can choose one that complements your existing bedroom decor.',
+        desc: 'These bedroom Roman blinds are the perfect choice for those who prefer a more luxurious and elegant look. These blinds create a lovely, flowing look that brings a bit of elegance to any space. They also come with blackout options, making them perfect for bedrooms where controlling light is important. <a" style="text-decoration: underline" href="/blinds/roman-blinds/">Roman blinds</a> are available in various fabrics, such as linen, silk, and velvet, so you can choose one that complements your existing bedroom decor.',
       },
       {
         product_name: 'Blackout/Private Blinds',
         altText: 'Blackout/Private Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Roller-Blinds-for-Bedroom.jpg',
-        desc: 'If you need more sleep, <a target="_blank" style="text-decoration: underline" href="/blinds/blackout-blinds/">blackout blinds</a> are a great choice. These blinds have special linings that block sunlight from coming into your room. They’re perfect for people who work night shifts and need to sleep during the day or for anyone sensitive to light while sleeping. You can pick from different styles like roller, vertical, Roman blinds, or total blackout blinds, so it’s easy to find the right one for your bedroom.',
+        desc: 'If you need more sleep, <a" style="text-decoration: underline" href="/blinds/blackout-blinds/">blackout blinds</a> are a great choice. These blinds have special linings that block sunlight from coming into your room. They’re perfect for people who work night shifts and need to sleep during the day or for anyone sensitive to light while sleeping. You can pick from different styles like roller, vertical, Roman blinds, or total blackout blinds, so it’s easy to find the right one for your bedroom.',
       },
       {
         product_name: 'Wooden Blinds',
         altText: 'Wooden Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Wooden-blinds-for-bedroom.jpg',
-        desc: 'Bedroom Venetian blinds are another popular choice for window coverings. These blinds consist of horizontal slats that can be tilted to control the light entering the room. They offer versatility in terms of light and privacy control, making them suitable for any bedroom setting. <a target="_blank" style="text-decoration: underline" href="/blinds/wooden-venetian/">Venetian blinds</a> come in various materials, such as aluminum, wood, or PVC, so you can choose one that suits your style and budget.',
+        desc: 'Bedroom Venetian blinds are another popular choice for window coverings. These blinds consist of horizontal slats that can be tilted to control the light entering the room. They offer versatility in terms of light and privacy control, making them suitable for any bedroom setting. <a" style="text-decoration: underline" href="/blinds/wooden-venetian/">Venetian blinds</a> come in various materials, such as aluminum, wood, or PVC, so you can choose one that suits your style and budget.',
       },
       {
         product_name: 'Blackout Roller Blinds',
@@ -195,14 +195,14 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Vertical Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/v.webp',
-        desc: '<a target="_blank" style="text-decoration: underline" href="/blinds/vertical-blinds/">Vertical blinds</a> are an excellent bathroom option, especially if you have large windows or sliding doors. They give your bathroom a modern and stylish look while being super practical. You can easily adjust the slats to control how much light comes in or ensure privacy when needed. Plus, our bathroom vertical blinds come in many colours, patterns, and materials like PVC and fabric so that you can find the perfect match for your bathroom.',
+        desc: '<a" style="text-decoration: underline" href="/blinds/vertical-blinds/">Vertical blinds</a> are an excellent bathroom option, especially if you have large windows or sliding doors. They give your bathroom a modern and stylish look while being super practical. You can easily adjust the slats to control how much light comes in or ensure privacy when needed. Plus, our bathroom vertical blinds come in many colours, patterns, and materials like PVC and fabric so that you can find the perfect match for your bathroom.',
       },
       {
         product_name: 'Skylight Blinds',
         altText: 'Skylight blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/s.webp',
-        desc: 'Skylight thermal blinds are also a practical choice for bathroom privacy. Our range of <a target="_blank" style="text-decoration: underline" href="/blinds/skylight-blinds-dubai/">skylight blinds</a> is designed to fit any skylight shape or size, providing complete privacy and light control. These blinds also have thermal properties, helping regulate the bathroom temperature and keeping it comfortable during hot summers or cold winters. Explore our range of colours and materials to find the perfect skylight blind for your bathroom.',
+        desc: 'Skylight thermal blinds are also a practical choice for bathroom privacy. Our range of <a" style="text-decoration: underline" href="/blinds/skylight-blinds-dubai/">skylight blinds</a> is designed to fit any skylight shape or size, providing complete privacy and light control. These blinds also have thermal properties, helping regulate the bathroom temperature and keeping it comfortable during hot summers or cold winters. Explore our range of colours and materials to find the perfect skylight blind for your bathroom.',
       },
       {
         product_name: 'Sunscreen/Transparent Blinds',
@@ -254,7 +254,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Kitchen Blinds/a.jpg',
-        desc: 'Venetian blinds are a timeless and versatile option for kitchen windows, offering both functionality and style. Our collection of kitchen Venetian blinds features materials such as wood, <a target="_blank" style="text-decoration: underline" href="/blinds/aluminium-venetian-blinds-dubai/">aluminium venetian blinds</a>, or faux wood, providing options to suit any budget, lifestyle, or aesthetic preference. Kitchen Venetian blinds are a great way to improve the style and usefulness of your kitchen because they last a long time and can be customised.',
+        desc: 'Venetian blinds are a timeless and versatile option for kitchen windows, offering both functionality and style. Our collection of kitchen Venetian blinds features materials such as wood, <a" style="text-decoration: underline" href="/blinds/aluminium-venetian-blinds-dubai/">aluminium venetian blinds</a>, or faux wood, providing options to suit any budget, lifestyle, or aesthetic preference. Kitchen Venetian blinds are a great way to improve the style and usefulness of your kitchen because they last a long time and can be customised.',
       },
       {
         product_name: 'Wooden Blinds',
@@ -268,7 +268,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Vertical Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Kitchen Blinds/v.jpg',
-        desc: 'Vertical blinds are a practical and stylish solution for a kitchen with large windows or sliding glass doors. Our vertical blinds for kitchen windows offer a variety of materials such as fabric, PVC, and wood-like options to suit your taste. <a target="_blank" style="text-decoration: underline" href="/blinds/vertical-blinds/">Vertical blinds</a> can be easily adjusted to control light and provide privacy, making them an excellent choice for kitchens that face busy streets or neighboring buildings',
+        desc: 'Vertical blinds are a practical and stylish solution for a kitchen with large windows or sliding glass doors. Our vertical blinds for kitchen windows offer a variety of materials such as fabric, PVC, and wood-like options to suit your taste. <a" style="text-decoration: underline" href="/blinds/vertical-blinds/">Vertical blinds</a> can be easily adjusted to control light and provide privacy, making them an excellent choice for kitchens that face busy streets or neighboring buildings',
       },
       {
         product_name: 'Sunscreen/Transparent Blinds',
@@ -1213,13 +1213,13 @@ export const RollerBlindsPage: IRollerBlinds[] = [
         altText: 'Sunscreen/Transparent Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Roller/Sunscreen.jpg',
-        desc: `At <a href="/" target="_blank" style="text-decoration:underline">Blinds & Curtains Dubai</a>, we understand how intense Dubai&apos;s sun can be. The sunlight filling your space would be wonderful without the glare or fading your furnishings. Like quality sunglasses for your windows, <a href="/blinds/roller-blinds/sunscreen-roller-blinds/" target="_blank" style="text-decoration:underline">sunscreen roller blinds</a> keep the harshness out but let the light in. It does not block your view; it filters it, so you still see your room as open. Sunscreen blinds also known as transparent blinds protect your interiors from UV damage so they stay bright and fresh for longer. Plus, they keep things cooler inside, so your AC doesn't have to work as hard. You can choose from a variety of shades and openness levels, so you can get the perfect amount of light and privacy. If you've ever felt the heat build-up from sunlight bouncing off your floors or furniture, these blinds are for you. These blinds help regulate temperature in your living room or office, so your air conditioner gets less work. It comes in a variety of colours and fabrics, and it's both stylish and functional.`,
+        desc: `At <a href="/"" style="text-decoration:underline">Blinds & Curtains Dubai</a>, we understand how intense Dubai&apos;s sun can be. The sunlight filling your space would be wonderful without the glare or fading your furnishings. Like quality sunglasses for your windows, <a href="/blinds/roller-blinds/sunscreen-roller-blinds/"" style="text-decoration:underline">sunscreen roller blinds</a> keep the harshness out but let the light in. It does not block your view; it filters it, so you still see your room as open. Sunscreen blinds also known as transparent blinds protect your interiors from UV damage so they stay bright and fresh for longer. Plus, they keep things cooler inside, so your AC doesn't have to work as hard. You can choose from a variety of shades and openness levels, so you can get the perfect amount of light and privacy. If you've ever felt the heat build-up from sunlight bouncing off your floors or furniture, these blinds are for you. These blinds help regulate temperature in your living room or office, so your air conditioner gets less work. It comes in a variety of colours and fabrics, and it's both stylish and functional.`,
       },
       {
         product_name: 'Blackout Roller Blinds',
         altText: 'Blackout Roller Blinds',
         Imagesurl: '/assets/images/optimized-images/blinds/Roller/Blackout.jpg',
-        desc: `Blackout roller blinds are ideal for bedrooms or spaces where you want to block out the sun and reduce heat. You can even add side channels to stop light from creeping in around the edges. The materials used in these <a href="/blinds/roller-blinds/blackout-roller-blinds/" target="_blank" style="text-decoration:underline">blackout roller blinds</a> are thick and opaque, and the <a href="/blinds/blackout-blinds/" target="_blank" style="text-decoration:underline">blackout </a>fabrics are often treated to resist moisture and stains, making it easy to clean them. You can create a cosy, dim room or a bright, glare-free space with roller blinds, depending on the fabric options. Their thick, high-quality fabrics not only block light, but also insulate your space, so you'll save money. With our custom-made blackout blinds, you can create a space that is aesthetically pleasing while providing protection, comfort, and privacy. For sleep or watching movies, they're ideal for bedrooms and media rooms. When morning sunlight disrupts your sleep or glare on your TV, blackout blinds solve the problem.`,
+        desc: `Blackout roller blinds are ideal for bedrooms or spaces where you want to block out the sun and reduce heat. You can even add side channels to stop light from creeping in around the edges. The materials used in these <a href="/blinds/roller-blinds/blackout-roller-blinds/"" style="text-decoration:underline">blackout roller blinds</a> are thick and opaque, and the <a href="/blinds/blackout-blinds/"" style="text-decoration:underline">blackout </a>fabrics are often treated to resist moisture and stains, making it easy to clean them. You can create a cosy, dim room or a bright, glare-free space with roller blinds, depending on the fabric options. Their thick, high-quality fabrics not only block light, but also insulate your space, so you'll save money. With our custom-made blackout blinds, you can create a space that is aesthetically pleasing while providing protection, comfort, and privacy. For sleep or watching movies, they're ideal for bedrooms and media rooms. When morning sunlight disrupts your sleep or glare on your TV, blackout blinds solve the problem.`,
       },
     ],
   },
