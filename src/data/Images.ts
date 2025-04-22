@@ -377,15 +377,14 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Kids Prints Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Kids room curtains/kids.webp',
-        desc: "We design our kids' curtains in a creative way. Our kids print curtains are perfect for themed interiors from fairy tales to vehicles to jungle adventures; these curtains can align with any nursery or bedroom theme, adding a personalised touch to the decor. Our print curtains pair beautifully with other window treatments like Motorised Curtains or blackout options. Our motorised curtains contain high-quality materials and are under single touch.",
+        desc: `test`,
       },
       {
         product_name: 'Chiffon Curtains',
         altText: 'Chiffon Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Kids room curtains/chiffon.jpg',
-        desc: `Our kids room curtains are available in pastel colors, fun prints, or neutral tones. We offer <a style="text-decoration: underline" href="/curtains/made-to-measure-chiffon-curtains/">
-  Chiffon</a> sheer curtains that blend seamlessly into any nursery, playroom, or child’s bedroom theme. Our sheer curtains pair well with other window treatments, such as blackout curtains, for day and night adaptability. These curtains are semi-transparent, which makes smaller rooms feel larger and less confined. We have custom fit options that align with children’s interests and personalities.`,
+        desc: ``,
       },
       {
         product_name: 'Tab Top Curtains',
@@ -622,7 +621,12 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Plain Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
-        desc: 'Our dining room plain curtains are made from high-quality fabrics like cotton, linen, polyester, or silk. We offer plain white curtains with lightweight materials like linen for a fresh feel or polyester for easy maintenance. For a luxurious touch, silk adds a soft sheen, and blackout offers a cosy dining atmosphere. While our pencil pleat curtains are an elegant addition to both traditional and modern decors.',
+        desc: `Our dining room 
+        
+
+<a style="text-decoration: underline" href="/curtains/plain-curtains/">plain curtains</a>
+        
+        are made from high-quality fabrics like cotton, linen, polyester, or silk. We offer plain white curtains with lightweight materials like linen for a fresh feel or polyester for easy maintenance. For a luxurious touch, silk adds a soft sheen, and blackout offers a cosy dining atmosphere. While our pencil pleat curtains are an elegant addition to both traditional and modern decors.`,
       },
       {
         product_name: 'Ripplefold/Wave Curtains',
@@ -643,11 +647,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Patterned Curtains',
         Imagesurl:
           '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
-        desc: `Our dining room 
-        
-        <a style="text-decoration: underline" href="/curtains/patterned-curtains/">
-  patterned curtains </a>
-        create a cosy, luxurious atmosphere, depending on your own taste. We offer creative and unique designs that come in a wide range of styles, from floral and geometric to abstract and stripes. We offer customised options that incorporate simple curtain sewing patterns to be personalised designs that are tailored to your dining room’s size and theme. For a modern or sleek look, we suggest layering eyelet curtains that combine with solid curtains for a richer, more textured feel.`,
+        desc: ``,
       },
       {
         product_name: 'Wave Curtains',
@@ -976,7 +976,11 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Sunscreen/Transparent Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/Outdoor/Sunscreen-blinds.webp',
-        desc: 'Outdoor sunscreen blinds are perfect if you want to enjoy your outdoor space without getting sunburnt. These sunscreen window blinds are great if you want sunlight but don’t want your furniture to fade or your room to get too hot. Waterproof outdoor blinds are special because of their fabric. It’s made to block UV rays but still lets you see outside. So you can enjoy the view and stay cool at the same time.',
+        desc: `Outdoor sunscreen blinds are perfect if you want to enjoy your outdoor space without getting sunburnt. These sunscreen window blinds are great if you want sunlight but don’t want your furniture to fade or your room to get too hot. 
+        
+        <a style="text-decoration: underline" href="/commercial/water-repellent/">Waterproof</a>
+
+        outdoor blinds are special because of their fabric. It’s made to block UV rays but still lets you see outside. So you can enjoy the view and stay cool at the same time.`,
       },
       {
         product_name: 'Aluminium Blinds',
@@ -1042,7 +1046,11 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Roman Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Roman School Blinds.webp',
-        desc: 'Our roman blinds are custom fit to any school windows, from small classrooms to large auditorium or library windows, perfect fit for every space. We offer roman blinds & Curtains designed with good safety features and child-safe mechanisms and are equipped with safety cords or spring-loaded systems to prevent accidents, making them ideal for schools with younger children. We also offer roller blinds that roll up into a sleek, minimal casing, saving space and ensuring a clutter-free appearance in class.',
+        desc: `Our roman blinds are custom fit to any school windows, from small classrooms to large 
+        
+        <a style="text-decoration: underline" href="/commercial/auditoriums/">auditorium</a>
+
+        or library windows, perfect fit for every space. We offer roman blinds & Curtains designed with good safety features and child-safe mechanisms and are equipped with safety cords or spring-loaded systems to prevent accidents, making them ideal for schools with younger children. We also offer roller blinds that roll up into a sleek, minimal casing, saving space and ensuring a clutter-free appearance in class.`,
       },
       {
         product_name: 'Day/Night Blinds',
@@ -1063,7 +1071,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Aluminium School blinds.webp',
-        desc: 'Our  school Aluminium blinds  are crafted from lightweight yet sturdy aluminum; these blinds resist wear, tear, and corrosion, guaranteeing long-lasting performance. These are made from fire-resistant materials, offering an extra layer of safety in schools. We are also offering metal venetian blinds that combine practicality with modern design. Their durability, ease of use, and stylish appearance make them functional and appealing additions to classrooms, libraries, and administrative offices.',
+        desc: 'Our  school Aluminium blinds  are crafted from lightweight yet sturdy aluminum; these blinds resist wear, tear, and corrosion, guaranteeing long-lasting performance. These are made from materials, offering an extra layer of safety in schools. We are also offering metal venetian blinds that combine practicality with modern design. Their durability, ease of use, and stylish appearance make them functional and appealing additions to classrooms, libraries, and administrative offices.',
       },
     ],
   },
@@ -1249,7 +1257,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
 
 
 
-  
+
 
 
 
