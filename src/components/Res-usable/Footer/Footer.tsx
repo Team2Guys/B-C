@@ -269,8 +269,8 @@ const Footer: React.FC = () => {
                         )
                           : (
                             <div>
-                              <h3 className="font-extrabold text-16 mb-2 border-b-4 lg:border-0 w-fit">
-                                {category.title}
+                              <h3 className="font-extrabold text-16 mb-2 border-b-4  lg:border-0 w-fit">
+                                {category.title =="Quick Links" ? '' : category.title }
                               </h3>
                               <ul className="space-y-2 mt-4">
 
@@ -297,9 +297,7 @@ const Footer: React.FC = () => {
                                         )?.id,
                                     );
 
-                                    console.log(category.title === 'Quick Links', "category")
-                                    
-
+                                
                                     return (
 
 
