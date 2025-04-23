@@ -123,6 +123,8 @@ const BathroomCategory = ({
           filteredProducts.map((arr: IProduct, index: number) => {
             const parent = arr.category?.title || categoryTitle;
             let product_Images = prod_finder_handler(arr);
+            let findModel = arr?.modelDetails?.find((value)=>value?.name?.trim()?.toLowerCase()===subCategory?.trim()?.toLowerCase())
+  
             return (
               <div
                 className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full  pb-3 shadow-md md:pb-0 md:shadow-none  justify-between"
@@ -143,7 +145,7 @@ const BathroomCategory = ({
                     <p
                       className="leading-6 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal w-full"
                       dangerouslySetInnerHTML={{
-                        __html: arr.subcategory_description || product_Images?.desc || "",
+                        __html: findModel?.detail || product_Images?.desc || "",
                       }}
                     ></p>
                 

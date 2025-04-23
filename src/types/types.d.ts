@@ -87,6 +87,7 @@ export interface IProduct {
   Meta_description?: string;
   subCategoryImage?: Image
   subcategory_description?:string
+  modelDetails?:{name:string, detail:string}[]
   
 }
 
