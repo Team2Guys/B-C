@@ -451,8 +451,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       {
         product_name: 'Natural Fabric Curtains',
         altText: 'Made to Measure Linen Curtains',
-        Imagesurl:
-          '/assets/images/optimized-images/curtains//Conservatory curtains/Eyelet-curtains-for-conservatory.jpg',
+        Imagesurl:"",
         desc: ' We offer made-to-measure conservatory curtains made of natural fabrics such as linen, cotton, or hemp. These curtains are available in various designs and natural tones; they can complement any decor theme. Our Wave Curtains are popular for their clean lines and elegant minimalist design; these are a modern favorite for conservatories. Our curtains for conservatory windows, with the right fabric choice, shield your space from external views without blocking out the light.',
       },
       {

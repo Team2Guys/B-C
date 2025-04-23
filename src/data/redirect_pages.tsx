@@ -150,7 +150,7 @@ export const newblogPostUrl = [
     },
     {
       url: '/commercial/theatre',
-      redirectUrl: '/curtains/stage-and-theatre-curtains/',
+      redirectUrl: '/curtains/stage-and-theatre-curtains',
     },
     {
       url: '/blinds/wooden-aluminium-blinds',
@@ -170,11 +170,11 @@ export const newblogPostUrl = [
     },
     {
       url: '/shutters-range/special-shape-shutters-wooden-shutters',
-      redirectUrl: '/shutters-range/special-shape-shutters/',
+      redirectUrl: '/shutters-range/special-shape-shutters',
     },
     {
       url: '/shutters-range/tier-on-tier-shutters-wooden-shutters',
-      redirectUrl: '/shutters-range/tier-on-tier-shutters/',
+      redirectUrl: '/shutters-range/tier-on-tier-shutters',
     },
     {
       url: '/shutters-range/solid-panel-shutters-plantation-shutters-dubai',
@@ -219,7 +219,11 @@ export const newblogPostUrl = [
     },
     {
       url: '/hotels-restaurants-blinds-curtains/shutters-range',
-      redirectUrl: '/hotels-restaurants-blinds-curtains/',
+      redirectUrl: '/hotels-restaurants-blinds-curtains',
+    },
+    {
+      url: '/curtains/blackout-curtains',
+      redirectUrl: '/curtains/blackout-curtains-dubai',
     },
 
   ];
