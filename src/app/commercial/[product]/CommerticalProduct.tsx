@@ -4,8 +4,8 @@ import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
 import SubCategoryPageSkeleton from 'components/Skeleton/SubCategoryPageSkeleton';
 import { filterProd } from 'config/fetch';
+import { BlindSchemaMap } from 'data/blinds-schema';
 import { generateSlug } from 'data/data';
-import { schemaMap } from 'data/products-schema';
 import { ChangedProductUrl, urls } from 'data/urls';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
@@ -67,9 +67,7 @@ const CommercialProduct = ({
   }
 
     const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
-    const matchedSchema = schemaMap[productTitle];
-  
-    console.log(productTitle,"filteredProduct", matchedSchema)
+    const matchedSchema = BlindSchemaMap[productTitle];
   return (
     <>
       {loading ? (

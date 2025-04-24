@@ -12,7 +12,7 @@ import { IProduct } from 'types/types';
 import { meta_props } from 'types/interfaces';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
-import { schemaMap } from 'data/products-schema';
+import { BlindSchemaMap } from 'data/blinds-schema';
 const Cateories = [2];
 
 
@@ -97,7 +97,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   }
 
   const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
-  const matchedSchema = schemaMap[productTitle];
+  const matchedSchema = BlindSchemaMap[productTitle];
   return (
     <>
       <Products_Categories
