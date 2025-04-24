@@ -11,7 +11,7 @@ import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
-import { schemaMap } from 'data/products-schema';
+import { CurtainsSchemaMap } from 'data/curtains-schema';
 
 const Cateories = [5];
 
@@ -94,7 +94,7 @@ const CommercialPage = async ({ params }: meta_props) => {
     return <NotFound />;
   }
     const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
-    const matchedSchema = schemaMap[productTitle];
+    const matchedSchema = CurtainsSchemaMap[productTitle];
   return (
     <Curtain
       filteredProduct={filteredProduct}

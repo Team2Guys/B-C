@@ -8,7 +8,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import NotFound from "app/not-found";
 import Script from "next/script";
-import { schemaMap } from "data/products-schema";
+import { BlindSchemaMap } from "data/blinds-schema";
 
 
 interface SlugPageProps {
@@ -111,7 +111,7 @@ const Page = async ({ params }:SlugPageProps) => {
       return <NotFound />;
     }
     const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
-    const matchedSchema = schemaMap[productTitle];
+    const matchedSchema = BlindSchemaMap[productTitle];
   return (
     <>
        {matchedSchema && (
