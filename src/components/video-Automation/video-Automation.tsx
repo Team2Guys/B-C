@@ -31,10 +31,10 @@ const VideoAutomation: React.FC<VideoAutomationProps> = ({ className }) => {
             you manage your blinds and curtains from anywhere.
           </p>
           <div className="flex justify-center items-center  gap-2 md:gap-9 mt-4">
-            <Link href={'/automated-blinds/'} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-12 sm:text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 bg-secondary hover:bg-primary h-10 py-4 px-2 md:py-7 text-white"  >
+            <Link href='/automated-blinds/' className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-12 sm:text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 bg-secondary hover:bg-primary h-10 py-4 px-2 md:py-7 text-white"  >
               Automated Blinds
             </Link>
-            <Link href={'/automated-curtains/'} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-12 sm:text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 bg-secondary hover:bg-primary h-10 py-4 px-2 md:py-7 text-white"  >
+            <Link href='/automated-curtains/' className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-12 sm:text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 bg-secondary hover:bg-primary h-10 py-4 px-2 md:py-7 text-white"  >
               Automated Curtains
 
             </Link>
