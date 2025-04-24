@@ -11,6 +11,7 @@ import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
+import { schemaMap } from 'data/products-schema';
 
 const Cateories = [5];
 
@@ -92,6 +93,8 @@ const CommercialPage = async ({ params }: meta_props) => {
   if (!filteredSubCategory && !filteredProduct) {
     return <NotFound />;
   }
+    const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
+    const matchedSchema = schemaMap[productTitle];
   return (
     <Curtain
       filteredProduct={filteredProduct}
@@ -99,6 +102,7 @@ const CommercialPage = async ({ params }: meta_props) => {
       product={product}
       allprod={products}
       subCategories={subCategories}
+      matchedSchema={matchedSchema}
     />
   );
 };

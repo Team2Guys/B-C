@@ -4,6 +4,8 @@ import { Metadata } from 'next';
 import { fetchProducts } from 'config/fetch';
 import { MoterisedContent } from 'data/data';
 import NotFound from 'app/not-found';
+import Script from 'next/script';
+import { schemaMap } from 'data/products-schema';
 
 export const metadata: Metadata = {
   title:
@@ -39,7 +41,12 @@ const MotorisedCurtains = async () => {
   const { Data } = content;
   const pageData = Data[0];
   return (
+    <>
+    <Script type="application/ld+json" id="blinds-json-ld">
+    {JSON.stringify(schemaMap["Automated Curtains"])}
+  </Script>
     <MotorisedPage products={products} pageData={pageData} />
+    </>
   );
 };
 
