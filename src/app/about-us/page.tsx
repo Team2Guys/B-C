@@ -83,7 +83,7 @@ const AboutUsPage = () => {
           ></div>
           <div className="flex flex-col max-sm:space-y-5">
             {OurHistoryData.map((item) => (
-              <>
+   
                 <div className="relative" key={item.id}>
                   <div className="absolute top-1/2 -left-14 -translate-y-1/2 sm:flex items-center hidden">
                     <div
@@ -107,7 +107,7 @@ const AboutUsPage = () => {
                     </p>
                   </div>
                 </div>
-              </>
+        
             ))}
           </div>
         </div>
