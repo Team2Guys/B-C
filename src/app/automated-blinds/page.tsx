@@ -6,7 +6,7 @@ import { MoterisedContent } from 'data/data';
 import NotFound from 'app/not-found';
 import og from '../../../public/assets/images/MotorisedBlind/blind.png'
 import Script from 'next/script';
-import { schemaMap } from 'data/products-schema';
+import { BlindSchemaMap } from 'data/blinds-schema';
 
 export const metadata: Metadata = {
   title: 'Premium Automated Blinds in Dubai | Blinds & Curtains Dubai',
@@ -41,7 +41,7 @@ const MotorisedBlinds = async () => {
   return (
     <>
     <Script type="application/ld+json" id="blinds-json-ld">
-    {JSON.stringify(schemaMap["Automated Blinds"])}
+    {JSON.stringify(BlindSchemaMap["Automated Blinds"])}
   </Script>
     <MotorisedPage products={products} pageData={pageData} />
     </>

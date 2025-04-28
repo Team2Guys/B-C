@@ -7,8 +7,7 @@ const SliderInfo = dynamic(() => import('./slider-info'), {
 
 const MainHero = () => {
   return (
-    <div  className="min-h-[60svh] flex justify-center items">
-
+    <div  className="2xl:min-h-[60svh] flex justify-center items">
       <SliderInfo />
     </div>
   
