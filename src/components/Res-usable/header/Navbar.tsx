@@ -78,21 +78,21 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
 
   const collapseItems = links
     .map((link, index) => {
-      const filteredSubCategories = subCategories.filter(
+      const filteredSubCategories = subCategories?.filter(
         (subcategory) => subcategory.CategoryId === link.id
       );
 
-      const filteredProducts = products.filter(
+      const filteredProducts = products?.filter(
         (product) => product.CategoryId === link.id
       );
 
       let combinedSliderData: (SubCategory | Product | MegaMenuItem)[] = [];
 
       const matchProducts = (
-        productsList: Product[],
+        productsList: Product[] = [],
         megaMenuItems: MegaMenuItem[]
       ) =>
-        productsList.filter((product) =>
+        productsList?.filter((product) =>
           megaMenuItems.some(
             (item) => item.productName === generateSlug(product.title)
           )
@@ -101,36 +101,39 @@ const Navbar = ({ products, subCategories }: { products: IProduct[], subCategori
       switch (link.id) {
         case 2:
           combinedSliderData = [
-            ...filteredSubCategories,
+            ...(Array.isArray(filteredSubCategories) ? filteredSubCategories : []),
             ...matchProducts(filteredProducts, blindMegaMenuItems),
           ];
           break;
         case 9:
           combinedSliderData = [
-            ...filteredSubCategories,
+            ...(Array.isArray(filteredSubCategories) ? filteredSubCategories : []),
             ...matchProducts(filteredProducts, shutterMegaMenuItems),
           ];
           break;
         case 5:
           combinedSliderData = [
-            ...filteredSubCategories,
+            ...(Array.isArray(filteredSubCategories) ? filteredSubCategories : []),
             ...matchProducts(filteredProducts, curtainMegaMenuItems),
           ];
           break;
         case 12:
           combinedSliderData = [
-            ...filteredSubCategories,
+            ...(Array.isArray(filteredSubCategories) ? filteredSubCategories : []),
             ...matchProducts(products, commercialMegaMenuItems),
           ];
           break;
         case 20:
           combinedSliderData = [
-            ...filteredSubCategories,
+            ...(Array.isArray(filteredSubCategories) ? filteredSubCategories : []),
             ...commercialMegaMenuItems,
           ];
           break;
         default:
-          combinedSliderData = [...filteredSubCategories, ...filteredProducts];
+          combinedSliderData = [
+            ...(Array.isArray(filteredSubCategories) ? filteredSubCategories : []),
+            ...(Array.isArray(filteredProducts) ? filteredProducts : []),
+          ];
       }
 
       const isBlogPath = path.startsWith('/blog');
