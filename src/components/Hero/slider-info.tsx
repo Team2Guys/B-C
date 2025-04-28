@@ -95,7 +95,7 @@ const SliderInfo = () => {
                 <div
                   id="modalHandler"
                   onClick={() => setshowModel('2_model')}
-                  className="cursor-pointer absolute bg-black rounded-full w-9 h-9 text-white p-1  bottom-2 xs:bottom-10 right-0 xs:-right-1 md:right-0 lg:right-8 2xl:lg:right-10 text-10 text-center"
+                  className="cursor-pointer absolute bg-black rounded-full w-9 h-9 text-white p-1  bottom-2 xs:bottom-10 right-0 xs:right-7 md:right-0 lg:right-0 xl:right-4 2xl:lg:right-10 text-10 text-center"
                 >
                   <span id="modalHandler">why us?</span>
                 </div>
@@ -104,7 +104,7 @@ const SliderInfo = () => {
                   <SliderModal
                     modelType={showModel}
                     setshowModel={setshowModel}
-                    className="-top-28 md:top-10 lg:top-16 xl:top-36 2xl:top-44 right-0"
+                    className="top-4 xs:top-40 md:top-1 lg:top-16 xl:top-48 2xl:top-80 right-0"
                   />
                 )}
               </div>
