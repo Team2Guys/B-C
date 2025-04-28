@@ -61,7 +61,7 @@ const SliderInfo = () => {
               <div className="relative mb-3 xs:mb-0">
                 {showModel == '1_model' && (
                   <SliderModal
-                    className="-top-28 md:top-12 sm:top-12 xl:top-16"
+                    className="-top-[8rem] md:top-[5rem] sm:top-12 xl:top-[9rem] 2xl:top-[10rem]"
                     setshowModel={setshowModel}
                   />
                 )}
@@ -104,7 +104,7 @@ const SliderInfo = () => {
                   <SliderModal
                     modelType={showModel}
                     setshowModel={setshowModel}
-                    className="top-4 xs:top-40 md:top-1 lg:top-16 xl:top-48 2xl:top-80 right-0"
+                    className="-top-[2rem] xs:top-40 md:top-1 lg:top-16 xl:top-[10rem] 2xl:top-[17em] right-0"
                   />
                 )}
               </div>

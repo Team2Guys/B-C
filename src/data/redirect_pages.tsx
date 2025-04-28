@@ -209,10 +209,10 @@ export const newblogPostUrl = [
       url: '/curtains/d',
       redirectUrl: '/made-to-measure-blinds',
     },
-    {
-      url: '/commercial/schools',
-      redirectUrl: '/blinds/school-blinds',
-    },
+    // {
+    //   url: '/commercial/schools',
+    //   redirectUrl: '/blinds/school-blinds',
+    // },
     {
       url: '/how-to-install-window-blinds-without-drilling',
       redirectUrl: '/blog/how-to-install-window-blinds-without-drilling',
