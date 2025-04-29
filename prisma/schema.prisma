@@ -159,3 +159,13 @@ enum CommentStatus {
   APPROVED
   REJECTED
 }
+
+model reviews {
+  id                 Int      @id @default(autoincrement())
+  customer_name      String
+  star_rating        String
+  createdAt          DateTime @default(now())
+  reveiw_description String
+  last_editedBy      String?
+  posterImage        Json?
+}
