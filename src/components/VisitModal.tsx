@@ -12,7 +12,9 @@ export default function VisitModal() {
   useEffect(() => {
     const isModalClosed = localStorage.getItem('visitModalClosed');
     if (!isModalClosed) {
+    setTimeout(() => {
       setShowModal(true);
+    }, 6000);
     }
   }, []);
 
