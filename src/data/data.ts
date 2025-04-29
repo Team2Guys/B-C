@@ -2390,18 +2390,32 @@ export const ShopItems = [
   {
     imgUrl: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/1.webp",
     text: "Blinds",
+    urls:"/made-to-measure-blinds/"
   },
   {
     imgUrl: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/2.webp",
     text: "Curtains",
+    urls:"/made-to-measure-curtains/"
   },
   {
     imgUrl: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/3.webp",
     text: "Shutters",
+    urls:"/shutters-range/"
   },
   {
     imgUrl: "https://bncvidoes.s3.eu-north-1.amazonaws.com/images/4.webp",
     text: "Motorised",
+    NewUrls  : [
+      {
+      url:"/ppc/made-to-measure-blinds/",
+      redirected:"/ppc/motorised-blinds/ ",
+    },
+    {
+      url:"/ppc/made-to-measure-curtains/",
+      redirected:"/ppc/motorised-curtains/",
+    },
+  
+  ]
   },
 ];
 
