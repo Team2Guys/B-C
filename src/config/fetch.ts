@@ -25,6 +25,26 @@ export const fetchProducts = async () => {
 
 };
 
+
+export const fetchReviews = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews`,
+      {
+        next: { tags: ['reviews'] },
+      },
+    );
+    const reviews = await response.json();
+    return reviews;
+  } catch (error) {
+    console.log(error)
+  }
+
+
+
+}
+
+
 export const fetchBlogs = async () => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,

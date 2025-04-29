@@ -1,28 +1,25 @@
 'use client'
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FaStar } from 'react-icons/fa';
-import { FcGoogle } from "react-icons/fc";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 import "swiper/css";
 import "swiper/css/navigation";
-import { testimonials } from 'data/data';
 import Container from 'components/Res-usable/Container/Container';
+import Testimonial from 'components/slider/testimonial';
+
 
 
 interface RollerReviewsProps {
   imageSrc?: string;
 }
 
-const RollerReviews: React.FC<RollerReviewsProps> = ({ imageSrc = '/assets/images/Rollerblind/Rectangle898.png' }) => {
+const RollerReviews: React.FC<RollerReviewsProps> = () => {
   
+
   return (
     <div className='bg-[#F5EDE5]'>
     <Container>
-    <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-center bg-[#F5EDE5] py-10 lg:py-0'>
+  <Testimonial />
+
+    {/* <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-center bg-[#F5EDE5] py-10 lg:py-0'>
       <div className='flex flex-col items-center lg:items-start px-6 lg:px-12'>
         
         <div className='max-w-[95%] space-y-8'>
@@ -35,9 +32,8 @@ const RollerReviews: React.FC<RollerReviewsProps> = ({ imageSrc = '/assets/image
               <p className='text-16 font-bold'>4.9 | <span className='font-normal'>See all reviews</span></p>
             </div>
           </Link>   
-          <div className='relative w-full max-w-md mx-auto'>
-  {/* Navigation Arrows */}
-  <div className='absolute top-1/2 left-[-50px] lg:left-[-70px] right-[-50px] lg:right-[-70px] flex justify-between px-4 -translate-y-12'>
+
+ <div className='absolute top-1/2 left-[-50px] lg:left-[-70px] right-[-50px] lg:right-[-70px] flex justify-between px-4 -translate-y-12'>
     <div className='testimonial-prev cursor-pointer w-7 h-7 sm:h-10 sm:w-10 bg-white rounded-full shadow-md flex items-center justify-center z-40'>
       <FaArrowLeftLong />
     </div>
@@ -72,7 +68,9 @@ const RollerReviews: React.FC<RollerReviewsProps> = ({ imageSrc = '/assets/image
                 </SwiperSlide>
               ))}
             </Swiper>  
-          </div>
+          </div> 
+
+          
         </div>
       </div>  
       <div className='flex w-full justify-center items-center rounded-lg mt-7 lg:mt-0'>
@@ -84,7 +82,10 @@ const RollerReviews: React.FC<RollerReviewsProps> = ({ imageSrc = '/assets/image
           width={1000} 
         />
     </div>
-    </div>
+    </div> */}
+
+
+
     </Container>
     </div>
   );

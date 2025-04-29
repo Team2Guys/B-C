@@ -83,7 +83,7 @@ const Made_to_Measure_Blinds = async () => {
     <HeroBanner/>
     <Blindtype heading="LOCATION" />
     <ServiceLocations {...locationData} />
-    <RollerReviews imageSrc='https://bncvidoes.s3.eu-north-1.amazonaws.com/images/custom-feedback.webp'/>
+    <RollerReviews/>
     <div className='bg-white py-3 md:py-9'></div>
     <Banner {...banners.Blind} />
     <div id="booking-form">
