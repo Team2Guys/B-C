@@ -58,6 +58,7 @@ export default async function Home() {
       <FeatureProduct products={products} categories={categories} />
       <VideoAutomation />
       <Support />
+      
     </>
   );
 }
