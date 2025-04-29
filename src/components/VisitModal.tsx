@@ -27,8 +27,8 @@ export default function VisitModal() {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ">
       <div className="bg-white p-6 rounded-lg shadow-lg relative md:h-[550px]">
         <div><RxCross1 className='absolute cursor-pointer right-2 top-1 ' onClick={handleClose} /></div>
-        <Link href='/contact-us'>
-    <Image src="https://res.cloudinary.com/de6owjeap/image/upload/v1745906242/pop_up_2_adx7qp.webp" height={500} width={500} objectFit='cover' className='w-full h-full' alt='Banner Image'/>
+        <Link href='/contact-us' onClick={handleClose}>
+    <Image src="https://res.cloudinary.com/de6owjeap/image/upload/v1745930918/pop_up_2_1_px3fuu.webp" unoptimized height={500} width={500} objectFit='cover' className='w-full h-full' alt='Banner Image'/>
         
         
         </Link>
