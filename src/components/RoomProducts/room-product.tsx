@@ -54,7 +54,7 @@ const RoomProducts = ({
       }
     }
   }, [pathname]);
-
+ console.log(relatedProducts,"relatedProducts")
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>(relatedProducts);
   const [productCategory, setProductCategory] = useState<string>('');
 

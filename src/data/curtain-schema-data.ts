@@ -2708,69 +2708,68 @@ export const TexturedCurtains = {
   }
   
 export const AutomatedCurtains = {
-    "@context": "https://schema.org/",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://blindsandcurtains.ae/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Automated Curtains",
-            "item": "https://blindsandcurtains.ae/automated-curtains/"
-          }
-        ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://blindsandcurtains.ae/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Automated Curtains",
+          "item": "https://blindsandcurtains.ae/automated-curtains/"
+        }
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blindsandcurtains.ae/#automatedCurtainsService",
+      "name": "Automated Curtains Installation in Dubai | Blinds and Curtains",
+      "image": "https://blindsandcurtains.ae/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcurtain1.ab217b3b.png&w=640&q=75",
+      "url": "https://blindsandcurtains.ae/automated-curtains/",
+      "telephone": "+971544945339",
+      "priceRange": "AED 800 - 2500",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "00000",
+        "addressCountry": "AE"
       },
-      {
-        "@type": "ProfessionalService",
-        "@id": "https://blindsandcurtains.ae/#automatedCurtainsService",
-        "name": "Automated Curtains by Blinds and Curtains Dubai",
-        "image": "https://blindsandcurtains.ae/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fblind.f0dfda22.png&w=640&q=75",
-        "url": "https://blindsandcurtains.ae/automated-curtains/",
-        "telephone": "+971544945339",
-        "priceRange": "AED 500 - 2500",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
-          "addressLocality": "Dubai",
-          "addressRegion": "Dubai",
-          "postalCode": "00000",
-          "addressCountry": "AE"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 25.117692,
-          "longitude": 55.1532843
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-              "Sunday"
-            ],
-            "opens": "08:30",
-            "closes": "18:00"
-          }
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.117692,
+        "longitude": 55.1532843
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
         ],
-        "sameAs": [
-          "https://www.facebook.com/blindsandcurtainsdubai",
-          "https://www.instagram.com/blindsandcurtainsdubai/",
-          "https://www.pinterest.com/blindsandcurtainsdubai/"
-        ],
-        "description": "Experience the convenience of automated curtains, designed to enhance the comfort and elegance of your space with advanced technology."
-      }
-    ]
-  }
+        "opens": "08:30",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/blindsandcurtainsdubai",
+        "https://www.instagram.com/blindsandcurtainsdubai/",
+        "https://www.pinterest.com/blindsandcurtainsdubai/"
+      ],
+      "description": "Upgrade your living with our automated curtains in Dubai. Expert installation of remote control curtains for homes, offices, and hotels. Smart solutions for a modern lifestyle."
+    }
+  ]
+}
+
   
