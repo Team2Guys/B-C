@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import SliderModal from './SliderModal';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,16 +12,7 @@ import Container from 'components/Res-usable/Container/Container';
 
 const SliderInfo = () => {
   const [showModel, setshowModel] = useState<string>('');
-  const [isMobile, setIsMobile] = useState(false);
-
-useEffect(() => {
-  const checkScreenSize = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
-  checkScreenSize();
-  window.addEventListener('resize', checkScreenSize);
-  return () => window.removeEventListener('resize', checkScreenSize);
-}, []);
+ 
   return (
 
     <Swiper
@@ -90,17 +81,28 @@ useEffect(() => {
                   <span id="modalHandler">why us?</span>
                 </div>
                 <Image
-                  className="w-full h-full
-                   object-cover max-sm:object-contain
-                
+                  className="w-full
+                   object-cover max-sm:object-contain block sm:hidden
+                   h-[222px] xsm:h-full 
                    "
                   loading="eager"
                   priority
                   height={300}
                   width={300}
                   alt={item.name || 'Image'}
-                  src={isMobile && item.imageUrlmobile ? item.imageUrlmobile : item.imageUrl}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                  src={item.imageUrlmobile}
+                />
+                <Image
+                  className="w-full h-full
+                   object-cover max-sm:object-contain 
+                   hidden sm:block
+                   "
+                  loading="eager"
+                  priority
+                  height={300}
+                  width={300}
+                  alt={item.name || 'Image'}
+                  src={item.imageUrl}
                 />
                 <div
                   id="modalHandler"
