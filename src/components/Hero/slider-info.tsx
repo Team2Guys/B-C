@@ -100,7 +100,7 @@ useEffect(() => {
                   width={300}
                   alt={item.name || 'Image'}
                   src={isMobile && item.imageUrlmobile ? item.imageUrlmobile : item.imageUrl}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                  // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                 />
                 <div
                   id="modalHandler"
