@@ -1,3 +1,4 @@
+
 export const links = [
   { href: '/made-to-measure-blinds', label: 'Blinds', id: 2,     
     
@@ -158,7 +159,71 @@ export const links = [
         ]
       } },
   { href: '#', label: 'Motorised',id: 20},
-  { href: '/commercial', label: 'Commercial', id: 12 },
+  { href: '/commercial', label: 'Commercial', id: 12, Script:{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://blindsandcurtains.ae/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Commercial",
+            "item": "https://blindsandcurtains.ae/commercial/"
+          }
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://blindsandcurtains.ae/#commercialServices",
+        "name": "Commercial Blinds and Curtains in Dubai | Blinds and Curtains",
+        "image": "https://blindsandcurtains.ae/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fwhyus.709d9970.png&w=640&q=75",
+        "url": "https://blindsandcurtains.ae/commercial/",
+        "telephone": "+971544945339",
+        "priceRange": "AED 500 - 3000",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
+          "postalCode": "00000",
+          "addressCountry": "AE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 25.117692,
+          "longitude": 55.1532843
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:30",
+          "closes": "18:00"
+        },
+        "sameAs": [
+          "https://www.facebook.com/blindsandcurtainsdubai",
+          "https://www.instagram.com/blindsandcurtainsdubai/",
+          "https://www.pinterest.com/blindsandcurtainsdubai/"
+        ],
+        "description": "Explore premium commercial blinds and curtains in Dubai. We offer durable, stylish window solutions for offices, hotels, restaurants, and commercial spaces."
+      }
+    ]
+  }
+   },
   { href: '/gallery', label: 'Gallery' },
   { href: '/estimator', label: 'Estimator' },
   { href: '/blog', label: 'Blog' },

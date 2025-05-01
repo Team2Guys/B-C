@@ -5,6 +5,8 @@ const CommercialByRoom = dynamic(() => import('components/RoomProducts/commercia
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { ICategory } from 'types/types';
+import Script from 'next/script';
+import { CommercialSchemaMap } from 'data/commercial-schema';
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -70,7 +72,9 @@ const CommercialPage = async () => {
   }
   return (
     <>
-
+ <Script type="application/ld+json" id="blinds-json-ld">
+    {JSON.stringify(CommercialSchemaMap["Balcony Blinds And Curtains"])}
+  </Script>
       <CommercialByRoom
         title={`${filteredSubCategory?.title}`}
         description={`${filteredSubCategory?.description}`}

@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SliderModal from './SliderModal';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,6 +12,16 @@ import Container from 'components/Res-usable/Container/Container';
 
 const SliderInfo = () => {
   const [showModel, setshowModel] = useState<string>('');
+  const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkScreenSize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+  checkScreenSize();
+  window.addEventListener('resize', checkScreenSize);
+  return () => window.removeEventListener('resize', checkScreenSize);
+}, []);
   return (
 
     <Swiper
@@ -89,7 +99,7 @@ const SliderInfo = () => {
                   height={300}
                   width={300}
                   alt={item.name || 'Image'}
-                  src={item.imageUrl}
+                  src={isMobile && item.imageUrlmobile ? item.imageUrlmobile : item.imageUrl}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                 />
                 <div

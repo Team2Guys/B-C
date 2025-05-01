@@ -2494,64 +2494,70 @@ export const MotorisedBlinds = {
   }
   
   export const AutomatedBlinds = {
-    "@context": "https://schema.org/", 
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem", 
-          "position": 1, 
-          "name": "Home",
-          "item": "https://blindsandcurtains.ae/"
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://blindsandcurtains.ae/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Automated Blinds",
+            "item": "https://blindsandcurtains.ae/automated-blinds/"
+          }
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://blindsandcurtains.ae/#automatedBlindsService",
+        "name": "Automated Blinds by Blinds and Curtains Dubai",
+        "image": "https://blindsandcurtains.ae/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fblind.f0dfda22.png&w=640&q=75",
+        "url": "https://blindsandcurtains.ae/automated-blinds/",
+        "telephone": "+971544945339",
+        "priceRange": "AED 800 - 2500",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
+          "postalCode": "00000",
+          "addressCountry": "AE"
         },
-        {
-          "@type": "ListItem", 
-          "position": 2, 
-          "name": "Automated Blinds",
-          "item": "https://blindsandcurtains.ae/automated-blinds/"
-        }
-      ]
-    },
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://blindsandcurtains.ae/#professionalservice",
-      "name": "Blinds and Curtains Dubai",
-      "image": "https://blindsandcurtains.ae/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fblind.f0dfda22.png&w=640&q=75",
-      "url": "https://blindsandcurtains.ae/automated-blinds/",
-      "telephone": "+971544945339",
-      "priceRange": "AED 250",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Unit 43, 22nd St – Al Quoz Industrial Area 4",
-        "addressLocality": "Dubai",
-        "addressRegion": "Dubai",
-        "postalCode": "00000",
-        "addressCountry": "AE"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 25.117692,
-        "longitude": 55.1532843
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-          ],
-          "opens": "08:30",
-          "closes": "18:00"
-        }
-      ],
-      "sameAs": [
-        "https://www.facebook.com/blindsandcurtainsdubai",
-        "https://www.instagram.com/blindsandcurtainsdubai/",
-        "https://www.pinterest.com/blindsandcurtainsdubai/"
-      ],
-      "description": "Explore automated blinds in Dubai, offering enhanced convenience and energy efficiency for modern homes and offices."
-    }
-  ]
-
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 25.117692,
+          "longitude": 55.1532843
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/blindsandcurtainsdubai",
+          "https://www.instagram.com/blindsandcurtainsdubai/",
+          "https://www.pinterest.com/blindsandcurtainsdubai/"
+        ],
+        "description": "Upgrade your living and working spaces with our premium automated blinds. Enjoy convenience, style, and smart control solutions customized for your needs."
+      }
+    ]
   }
+  
   
