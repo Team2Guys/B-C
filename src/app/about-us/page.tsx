@@ -43,9 +43,7 @@ const AboutUsPage = () => {
           }}
         ></div>
         <div>
-          <h4 className="font-semibold mb-6 text-paralight text-center sm:text-start">
-            {AboutUsPara.subheading}
-          </h4>
+   
           {AboutUsPara.heading.map((item, index) => (
             <h2
               className={`text-28 xs:text-36 lg:text-5xl leading-snug lg:leading-snug text-center sm:text-start ${item == 'WELCOME TO' ? 'font-normal' : 'font-bold text-wrap'}`}
