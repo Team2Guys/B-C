@@ -22,21 +22,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Roman Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Roman-Blinds-for-bedroom.jpg',
-        desc: 'These bedroom Roman blinds are the perfect choice for those who prefer a more luxurious and elegant look. These blinds create a lovely, flowing look that brings a bit of elegance to any space. They also come with blackout options, making them perfect for bedrooms where controlling light is important. <a" style="text-decoration: underline" href="/blinds/roman-blinds/">Roman blinds</a> are available in various fabrics, such as linen, silk, and velvet, so you can choose one that complements your existing bedroom decor.',
+        desc: 'These bedroom Roman blinds are the perfect choice for those who prefer a more luxurious and elegant look. These blinds create a lovely, flowing look that brings a bit of elegance to any space. They also come with blackout options, making them perfect for bedrooms where controlling light is important. <a style="text-decoration: underline" href="/blinds/roman-blinds/">Roman blinds</a> are available in various fabrics, such as linen, silk, and velvet, so you can choose one that complements your existing bedroom decor.',
       },
       {
         product_name: 'Blackout/Private Blinds',
         altText: 'Blackout/Private Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Roller-Blinds-for-Bedroom.jpg',
-        desc: 'If you need more sleep, <a" style="text-decoration: underline" href="/blinds/blackout-blinds/">blackout blinds</a> are a great choice. These blinds have special linings that block sunlight from coming into your room. They’re perfect for people who work night shifts and need to sleep during the day or for anyone sensitive to light while sleeping. You can pick from different styles like roller, vertical, Roman blinds, or total blackout blinds, so it’s easy to find the right one for your bedroom.',
+        desc: 'If you need more sleep, <a style="text-decoration: underline" href="/blinds/blackout-blinds/">blackout blinds</a> are a great choice. These blinds have special linings that block sunlight from coming into your room. They’re perfect for people who work night shifts and need to sleep during the day or for anyone sensitive to light while sleeping. You can pick from different styles like roller, vertical, Roman blinds, or total blackout blinds, so it’s easy to find the right one for your bedroom.',
       },
       {
         product_name: 'Wooden Blinds',
         altText: 'Wooden Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Wooden-blinds-for-bedroom.jpg',
-        desc: 'Bedroom Venetian blinds are another popular choice for window coverings. These blinds consist of horizontal slats that can be tilted to control the light entering the room. They offer versatility in terms of light and privacy control, making them suitable for any bedroom setting. <a" style="text-decoration: underline" href="/blinds/wooden-venetian/">Venetian blinds</a> come in various materials, such as aluminum, wood, or PVC, so you can choose one that suits your style and budget.',
+        desc: 'Bedroom Venetian blinds are another popular choice for window coverings. These blinds consist of horizontal slats that can be tilted to control the light entering the room. They offer versatility in terms of light and privacy control, making them suitable for any bedroom setting. <a style="text-decoration: underline" href="/blinds/wooden-venetian/">Venetian blinds</a> come in various materials, such as aluminum, wood, or PVC, so you can choose one that suits your style and budget.',
       },
       {
         product_name: 'Blackout Roller Blinds',
@@ -58,21 +58,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Roman Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Roman-Blinds-for-bedroom.jpg',
-        desc: 'These bedroom Roman blinds are the perfect choice for those who prefer a more luxurious and elegant look. These blinds create a lovely, flowing look that brings a bit of elegance to any space. They also come with blackout options, making them perfect for bedrooms where controlling light is important. <a" style="text-decoration: underline" href="/blinds/roman-blinds/">Roman blinds</a> are available in various fabrics, such as linen, silk, and velvet, so you can choose one that complements your existing bedroom decor.',
+        desc: 'These bedroom Roman blinds are the perfect choice for those who prefer a more luxurious and elegant look. These blinds create a lovely, flowing look that brings a bit of elegance to any space. They also come with blackout options, making them perfect for bedrooms where controlling light is important. <a style="text-decoration: underline" href="/blinds/roman-blinds/">Roman blinds</a> are available in various fabrics, such as linen, silk, and velvet, so you can choose one that complements your existing bedroom decor.',
       },
       {
         product_name: 'Blackout/Private Blinds',
         altText: 'Blackout/Private Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Roller-Blinds-for-Bedroom.jpg',
-        desc: 'If you need more sleep, <a" style="text-decoration: underline" href="/blinds/blackout-blinds/">blackout blinds</a> are a great choice. These blinds have special linings that block sunlight from coming into your room. They’re perfect for people who work night shifts and need to sleep during the day or for anyone sensitive to light while sleeping. You can pick from different styles like roller, vertical, Roman blinds, or total blackout blinds, so it’s easy to find the right one for your bedroom.',
+        desc: 'If you need more sleep, <a style="text-decoration: underline" href="/blinds/blackout-blinds/">blackout blinds</a> are a great choice. These blinds have special linings that block sunlight from coming into your room. They’re perfect for people who work night shifts and need to sleep during the day or for anyone sensitive to light while sleeping. You can pick from different styles like roller, vertical, Roman blinds, or total blackout blinds, so it’s easy to find the right one for your bedroom.',
       },
       {
         product_name: 'Wooden Blinds',
         altText: 'Wooden Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/bedroom-blinds/Wooden-blinds-for-bedroom.jpg',
-        desc: 'Bedroom Venetian blinds are another popular choice for window coverings. These blinds consist of horizontal slats that can be tilted to control the light entering the room. They offer versatility in terms of light and privacy control, making them suitable for any bedroom setting. <a" style="text-decoration: underline" href="/blinds/wooden-venetian/">Venetian blinds</a> come in various materials, such as aluminum, wood, or PVC, so you can choose one that suits your style and budget.',
+        desc: 'Bedroom Venetian blinds are another popular choice for window coverings. These blinds consist of horizontal slats that can be tilted to control the light entering the room. They offer versatility in terms of light and privacy control, making them suitable for any bedroom setting. <a style="text-decoration: underline" href="/blinds/wooden-venetian/">Venetian blinds</a> come in various materials, such as aluminum, wood, or PVC, so you can choose one that suits your style and budget.',
       },
       {
         product_name: 'Blackout Roller Blinds',
@@ -233,14 +233,14 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Vertical Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/v.webp',
-        desc: '<a" style="text-decoration: underline" href="/blinds/vertical-blinds/">Vertical blinds</a> are an excellent bathroom option, especially if you have large windows or sliding doors. They give your bathroom a modern and stylish look while being super practical. You can easily adjust the slats to control how much light comes in or ensure privacy when needed. Plus, our bathroom vertical blinds come in many colours, patterns, and materials like PVC and fabric so that you can find the perfect match for your bathroom.',
+        desc: '<a style="text-decoration: underline" href="/blinds/vertical-blinds/">Vertical blinds</a> are an excellent bathroom option, especially if you have large windows or sliding doors. They give your bathroom a modern and stylish look while being super practical. You can easily adjust the slats to control how much light comes in or ensure privacy when needed. Plus, our bathroom vertical blinds come in many colours, patterns, and materials like PVC and fabric so that you can find the perfect match for your bathroom.',
       },
       {
         product_name: 'Skylight Blinds',
         altText: 'Skylight blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Bathroom Blinds/s.webp',
-        desc: 'Skylight thermal blinds are also a practical choice for bathroom privacy. Our range of <a" style="text-decoration: underline" href="/blinds/skylight-blinds-dubai/">skylight blinds</a> is designed to fit any skylight shape or size, providing complete privacy and light control. These blinds also have thermal properties, helping regulate the bathroom temperature and keeping it comfortable during hot summers or cold winters. Explore our range of colours and materials to find the perfect skylight blind for your bathroom.',
+        desc: 'Skylight thermal blinds are also a practical choice for bathroom privacy. Our range of <a style="text-decoration: underline" href="/blinds/skylight-blinds-dubai/">skylight blinds</a> is designed to fit any skylight shape or size, providing complete privacy and light control. These blinds also have thermal properties, helping regulate the bathroom temperature and keeping it comfortable during hot summers or cold winters. Explore our range of colours and materials to find the perfect skylight blind for your bathroom.',
       },
       {
         product_name: 'Sunscreen/Transparent Blinds',
@@ -293,7 +293,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Kitchen Blinds/a.jpg',
-        desc: 'Venetian blinds are a timeless and versatile option for kitchen windows, offering both functionality and style. Our collection of kitchen Venetian blinds features materials such as wood, <a" style="text-decoration: underline" href="/blinds/aluminium-venetian-blinds-dubai/">aluminium venetian blinds</a>, or faux wood, providing options to suit any budget, lifestyle, or aesthetic preference. Kitchen Venetian blinds are a great way to improve the style and usefulness of your kitchen because they last a long time and can be customised.',
+        desc: 'Venetian blinds are a timeless and versatile option for kitchen windows, offering both functionality and style. Our collection of kitchen Venetian blinds features materials such as wood, <a style="text-decoration: underline" href="/blinds/aluminium-venetian-blinds-dubai/">aluminium venetian blinds</a>, or faux wood, providing options to suit any budget, lifestyle, or aesthetic preference. Kitchen Venetian blinds are a great way to improve the style and usefulness of your kitchen because they last a long time and can be customised.',
       },
       {
         product_name: 'Wooden Blinds',
@@ -307,7 +307,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Vertical Blinds',
         Imagesurl:
           '/assets/images/optimized-images/blinds/Kitchen Blinds/v.jpg',
-        desc: 'Vertical blinds are a practical and stylish solution for a kitchen with large windows or sliding glass doors. Our vertical blinds for kitchen windows offer a variety of materials such as fabric, PVC, and wood-like options to suit your taste. <a" style="text-decoration: underline" href="/blinds/vertical-blinds/">Vertical blinds</a> can be easily adjusted to control light and provide privacy, making them an excellent choice for kitchens that face busy streets or neighboring buildings',
+        desc: 'Vertical blinds are a practical and stylish solution for a kitchen with large windows or sliding glass doors. Our vertical blinds for kitchen windows offer a variety of materials such as fabric, PVC, and wood-like options to suit your taste. <a style="text-decoration: underline" href="/blinds/vertical-blinds/">Vertical blinds</a> can be easily adjusted to control light and provide privacy, making them an excellent choice for kitchens that face busy streets or neighboring buildings',
       },
       {
         product_name: 'Sunscreen/Transparent Blinds',
@@ -388,8 +388,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       {
         product_name: 'Tab Top Curtains',
         altText: 'Tab Top Curtains',
-        Imagesurl:
-          '/assets/images/optimized-images/curtains/Kids room curtains/black.webp',
+        Imagesurl:'',
         desc: 'Tab Top Curtains feature fabric loops that are sewn at the top of the curtain panel. These tabs are designed to slide onto a curtain rod to hang in evenly spaced folds. That’s why kids and parents can easily draw them open or close without needing complex mechanisms. Our made-to-measure curtains  have versatile fabrics and patterns, like tab-top linen curtains, that can match a variety of interior design styles and are easy to clean.',
       },
       {
@@ -431,7 +430,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Bedroom Curtains/d.jpg',
+          '/assets/images/optimized-images/curtains/Bedroom Curtains/b.jpg',
         desc: 'Bedroom curtains are creating a relaxing and personalised space for you. We have a variety of curtains by fabric and style, such as our blackout curtains that help you to regulate your sleep-wake cycle by blocking out disruptive morning or evening light. We have advanced stitching techniques that complete light coverage, even on irregularly shaped windows. Our blackout motorised curtains can make your home smart and controlled by Apple HomeKit, Alexa, and Google Home.',
       },
     ],
@@ -479,7 +478,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Geometric Curtains',
         altText: 'Geometric Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Living Room Curtains/m.jpg',
+          '',
         desc: 'Whether you’re hosting guests, relaxing with family, or enjoying some alone time, our geometric curtains provide modern minimalism to your interior style. Our geometric curtains for living rooms are available in lightweight or blackout options to match your light control needs. We also offer Ripplefold Curtains to create a sleek, wave-like drape that enhances the visual appeal. These curtains add energy and a sense of creativity to your space.',
       },
       {
@@ -500,7 +499,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Blackout Curtains',
         altText: 'Blackout Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Living Room Curtains/p.jpg',
+          '',
         desc: 'Relax in a calm and peaceful environment with our living room blackout curtains. They block out unwanted light in your living rooms and are helpful for relaxation. With our shutters, you can easily regulate the temperature of your room, keeping it cool in summer and warm in winter. Experience next-level convenience with our motorised curtains. With just a push of a button, it is easy to operate the curtain.',
       },
     ],
@@ -604,7 +603,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Patterned Curtains',
         altText: 'Patterned Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Staircase curtains/s.jpg',
+          '',
         desc: "A staircase window provides a view of the outside. A pattern curtain can bridge the design gap between floors and contribute cohesion to a home's overall theme. Our patterned blackout curtains turn a staircase with tall windows into a dramatic focal point. We offer a variety of materials, from luxurious velvet to breezy linen; our velvet curtains are opulent and classic. These curtains are ideal because of their stylish architectural design.",
       },
     ],
@@ -618,7 +617,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Plain Curtains',
         altText: 'Plain Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
+          '/assets/images/optimized-images/curtains/Dining Room curtains/plain.webp',
         desc: `Our dining room 
         
 
@@ -637,14 +636,14 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Natural Fabric Curtains',
         altText: 'Natural Fabric Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
+          '',
         desc: 'We provide curtains that are crafted from natural fabrics featuring renewable materials like cotton, linen, and hemp. These are sustainable alternatives to synthetic fabrics. We paired our natural material curtains with triple French pleat curtains. It balances the causal texture of the fabric with formal styling. Our triple French pleat curtains contain three pleats per panel creating a neat, structured appearance that makes them ideal for formal settings like dining rooms, living rooms, or bedrooms.',
       },
       {
         product_name: 'Patterned Curtains',
         altText: 'Patterned Curtains',
         Imagesurl:
-          '/assets/images/optimized-images/curtains/Dining Room curtains/Sheer-Curtains-for-Dining-Room.jpg',
+          '',
         desc: ``,
       },
       {
@@ -665,21 +664,21 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
+          '',
         desc: 'Solid wooden window shutters are popular because of their durability. They are a timeless addition to any staircase and can be easily customised to match existing woodwork in your home. Solid panel shutters provide maximum privacy, light control, and insulation.',
       },
       {
         product_name: 'Bay Window Shutters',
         altText: 'Bay Window Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
+          '',
         desc: 'External shutters for bay windows help increase your staircase&apos;s architectural interest. These shutters are designed for bay windows and add a touch of elegance and charm to any home. With our range of materials and designs, you can create a customised look that complements your staircase perfectly.',
       },
       {
         product_name: 'Special Shape Shutters',
         altText: 'Special Shape Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/staircase/full-height-shutters.webp',
+          '',
         desc: 'Shutters for shaped windows are a great choice for staircase windows with unique shapes. These shutters are made to measure, ensuring a perfect fit for any window shape and size. Our range of special-shaped shutters includes angled, arched, circular, and triangular shutters.',
       },
     ],
@@ -722,14 +721,14 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Solid Panel Shutters',
         altText: 'Solid Panel Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
+          '',
         desc: 'Wood panel window shutters are excellent for complete light control and privacy. They don’t have any gaps or slats, so they completely cover your dining room windows. These shutters are perfect for formal dining rooms where you want a more classic and traditional style. They come in different wood finishes that match your dining room decor.',
       },
       {
         product_name: 'Bi-Fold Shutters',
         altText: 'Bi-Fold Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/dining room/Special-Shape-shutters.webp',
+          '',
         desc: 'Bi-fold window shutters are an excellent option for large dining room windows. They allow you to easily fold the shutters to one side and open up your space, creating a smooth connection between your indoor and outdoor dining area. These shutters are also perfect for smaller spaces as they don&apos;t occupy much room. Plus, their sleek design adds a touch of modernity to any dining area',
       },
       {
@@ -757,7 +756,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Bi-Fold Shutters',
         altText: 'Bi-Fold Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/bedroom/Tracked-Shutters.jpg',
+          '/assets/images/optimized-images/shutters/bedroom/BiFold Shutters.webp',
         desc: 'Bi-fold interior shutters are about style and functionality. They allow you to control the light in your bedroom, and when opened, they fold up neatly out of the way. This feature is perfect if you have limited space in your bedroom or want a clean, minimalist look. Bi-fold shutters are also easy to maintain and can be customised to fit any window size.',
       },
       {
@@ -785,7 +784,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Cafe Style Shutters',
         altText: 'Cafe Style Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/shutters/kitchen/Special-Shape-shutters.webp',
+          '',
         desc: 'These wooden cafe shutters are a popular choice for kitchens. They offer an elegant and classic look while also providing privacy and light control. They are usually installed on the lower half of the window, allowing natural light to still enter through the top half.',
       },
       {
@@ -848,7 +847,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Motorised blinds',
         altText: 'Motorised blinds',
         Imagesurl:
-          '/assets/images/optimized-images/commerical/Indoor/Bay-window.webp',
+          '',
         desc: 'Our indoor motorised blinds are window coverings that allow you to control blinds with a remote, smartphone app, or even voice commands. These are used to integrate smart homes. These are used for daily operations. We also provide manual controls for emergencies or power outages. We offer window coverings with a variety of fabrics, colours, or patterns, such as customisable motorised roller blinds. You can control these blinds by using remote, Alexa, or Google Home.',
       },
       {
@@ -1017,7 +1016,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
       {
         product_name: 'Motorised curtains',
         altText: 'Motorised curtains',
-        Imagesurl: '/assets/images/optimized-images/commerical/hospital/b.webp',
+        Imagesurl: '/assets/images/optimized-images/commerical/hospital/p1.webp',
         desc: 'Our hospital curtains are designed to provide a barrier between patient areas and offer confidentiality and comfort. Our motorised curtains operated without physical contact, promoting a cleaner, more hygienic environment. Our curtains in hospitals come in a wide variety of styles, from elegant drapes to modern sheers. For hospital room curtains, consider Blinds and Curtains Dubai, where we offer a range of customisable options to meet specific healthcare needs. ',
       },
       {

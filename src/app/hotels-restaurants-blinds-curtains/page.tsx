@@ -1,10 +1,12 @@
 
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import { fetchProducts } from 'config/fetch';
+import { CommercialSchemaMap } from 'data/commercial-schema';
 import { generateSlug } from 'data/data';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { IProduct } from 'types/types';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -60,12 +62,17 @@ const CommercialPage = async () => {
     return notFound();
   }
   return (
+    <>
+    <Script type="application/ld+json" id="blinds-json-ld">
+    {JSON.stringify(CommercialSchemaMap["Hotels & Restaurants"])}
+  </Script>
     <ProductDetailPage
       title={`${filteredProduct?.title}`}
       allprod={products}
       filterProduct={filteredProduct}
-    
-    />
+      
+      />
+      </>
   );
 };
 

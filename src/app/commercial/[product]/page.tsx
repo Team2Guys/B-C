@@ -74,6 +74,7 @@ const CommercialPage = async ({ params }: meta_props) => {
     fetchProducts(),
     fetchSubCategories(),
   ]);
+  
   return (
     <>
       <CommercialProduct product={slug} products={products} subCategories={subCategories}  />
