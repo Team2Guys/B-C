@@ -1035,7 +1035,7 @@ export const MoterisedContent = [
         ],
         additionalDescription: `There's no hard sell just relaxed and pressure-free consultation`,
         additionalImage: moto2,
-        additionalDescription2: `At <a href="/"" style="text-decoration:underline">Blinds and Curtains Dubai</a>, choosing automated curtains should be fun and enjoyable instead of stressful. So we designed our consultations to be relaxed and informative. Our team is here to guide you, not to push you. We take the time to fully understand your needs and provide solutions that genuinely work for your space, whether you're looking for fabrics, modern automated curtains, or light control advice.`,
+        additionalDescription2: `At Blinds and Curtains Dubai, choosing automated curtains should be fun and enjoyable instead of stressful. So we designed our consultations to be relaxed and informative. Our team is here to guide you, not to push you. We take the time to fully understand your needs and provide solutions that genuinely work for your space, whether you're looking for fabrics, modern automated curtains, or light control advice.`,
         additionalDescription3: `Every home is different, and every customer has a different taste. That's why we listen to you and offer honest, helpful advice during our consultations. There's no hustle, no pressure, and definitely no hard sell.`,
       },
     ],
