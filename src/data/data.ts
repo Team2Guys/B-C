@@ -1295,7 +1295,7 @@ export const colorData: IColorData[] = [
     imageUrls: [
       {
         imageUrl:
-          '/assets/images/optimized-images/Color/Light-wood/Light wood bay window shutters.jpg',
+          '/assets/images/optimized-images/Color/Light-wood/Light wood shutters (4).webp',
         altText: 'Light Woods Shutters',
       },
       {
