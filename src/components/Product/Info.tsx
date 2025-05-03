@@ -41,6 +41,7 @@ const Info = (selectedPage: IInfo) => {
             className="w-auto h-auto rounded-xl object-fill"
             width={1024}
             height={768}
+            loading='lazy'
             src={
               selectedPage.selectedPage.posterImage
                 ? selectedPage.selectedPage.posterImage
