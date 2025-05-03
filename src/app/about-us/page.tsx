@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/about-us/',
     images: [
       {
-        url: `${bgBreadcrum.src}`,
+        url: `${aboutUsImg.src}`,
         alt: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
       },
     ],

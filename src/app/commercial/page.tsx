@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
   let CommercialCategory = filteredCatgory as ICategory;
 
   let ImageUrl =
-    CommercialCategory.bannerImage?.imageUrl ||
+    CommercialCategory.posterImage?.imageUrl ||
     `${logo.src}`;
   let alt =
     CommercialCategory.posterImage.altText ||
