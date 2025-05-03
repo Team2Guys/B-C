@@ -7,7 +7,6 @@ import { RxCross1 } from 'react-icons/rx';
 
 export default function VisitModal() {
   const [showModal, setShowModal] = useState(false);
-
   useEffect(() => {
     const isModalClosed = localStorage.getItem('visitModalClosed');
     if (!isModalClosed) {
@@ -21,9 +20,7 @@ export default function VisitModal() {
     setShowModal(false);
     localStorage.setItem('visitModalClosed', 'true');
   };
-
   if (!showModal) return null;
-
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ">
       <div className="bg-white p-6 rounded-lg shadow-lg relative md:h-[550px]">
@@ -31,7 +28,6 @@ export default function VisitModal() {
         <Link href='/contact-us' onClick={handleClose}>
         <Image src="https://res.cloudinary.com/de6owjeap/image/upload/v1746275300/mobile_dxwjm6.webp" unoptimized height={200} width={200} objectFit='cover' className='w-full h-full block md:hidden' alt='Banner Image'/>
         <Image src="https://res.cloudinary.com/de6owjeap/image/upload/v1746275288/laptop_gdsvy2.webp " unoptimized height={500} width={500} objectFit='cover' className='w-full h-full hidden md:block' alt='Banner Image'/>
-        
         </Link>
    
       </div>
