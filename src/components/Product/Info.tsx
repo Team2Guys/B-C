@@ -24,7 +24,7 @@ const Info = (selectedPage: IInfo) => {
             selectedPage.selectedPage.subheadingContent.map((item, index) => (
               <p
                 key={index}
-                className="text-13 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85] text-justify md:text-start"
+                className="text-14 md:text-16 lg:text-18 md:leading-[33px]  text-justify md:text-start"
                 dangerouslySetInnerHTML={{ __html: item.content as string }}
               ></p>
             ))}
