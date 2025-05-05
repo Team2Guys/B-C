@@ -100,9 +100,11 @@ html {
 
 .gotham-light{
   font-family: var(--gothamlight) !important;
+  font-display: swap;
 }
 .gotham-bold{
   font-family: var(--gothambold) !important;
+  font-display: swap;
 }
 .link-underline,
 .link-footer {
