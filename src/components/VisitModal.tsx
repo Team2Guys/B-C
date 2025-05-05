@@ -12,7 +12,7 @@ export default function VisitModal() {
     if (!isModalClosed) {
     setTimeout(() => {
       setShowModal(true);
-    }, 6000);
+    }, 5000);
     }
   }, []);
 
