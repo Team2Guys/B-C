@@ -951,7 +951,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         product_name: 'Bi-Fold Shutters',
         altText: 'Bi-Fold Shutters',
         Imagesurl:
-          '/assets/images/optimized-images/commerical/Pergola/Blackout-curtains-for-Pergola.jpg',
+          '',
         desc: 'Pergola Bi-Fold shutters make your outdoor space look great and work even better. These sliding shutters for pergolas can slide open or closed so that you can use them differently. You can attach them to walls or leave them free-standing, making your outdoor area more flexible. They protect you from bad weather like heavy rain, strong wind, and hot sunlight, keeping you comfy all year.',
       },
       {
@@ -1068,9 +1068,7 @@ export const Categories_wise_Images: ICategories_wise_Images[] = [
         altText: 'Aluminium Blinds',
         Imagesurl:
           '/assets/images/optimized-images/commerical/School Blinds/Aluminium School blinds.webp',
-        desc: `Our  school Aluminium blinds  are crafted from lightweight yet sturdy aluminum; these blinds resist wear, tear, and corrosion, guaranteeing long-lasting performance. These are made from 
-        <a target="_blank" style="text-decoration: underline" href="/commercial/fire-retardant/">fire-resistant</a
-        materials, offering an extra layer of safety in schools. We are also offering metal venetian blinds that combine practicality with modern design. Their durability, ease of use, and stylish appearance make them functional and appealing additions to classrooms, libraries, and administrative offices.
+        desc: `Our  school Aluminium blinds are crafted from lightweight yet sturdy aluminum; these blinds resist wear, tear, and corrosion, guaranteeing long-lasting performance. These are made from <a target="_blank" style="text-decoration: underline" href="/commercial/fire-retardant/">fire-resistant</a> materials, offering an extra layer of safety in schools. We are also offering metal venetian blinds that combine practicality with modern design. Their durability, ease of use, and stylish appearance make them functional and appealing additions to classrooms, libraries, and administrative offices.
         
         `,
       },

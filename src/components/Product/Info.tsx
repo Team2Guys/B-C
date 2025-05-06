@@ -12,7 +12,7 @@ const Info = (selectedPage: IInfo) => {
   return (
     <Container className="mt-10 md:mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="space-y-4 md:w-[80%] text-start mx-0 flex flex-col px-2 md:px-0">
+        <div className="space-y-2 md:w-[80%] text-start mx-0 flex flex-col px-2 md:px-0">
           <h2 className="text-18 leading-8 tracking-[3px]  md:tracking-[10px]  md:text-26 font-semibold  text-center md:text-start">
             {selectedPage.selectedPage.subheading1} |{' '}
             <span className="font-normal">
@@ -24,7 +24,7 @@ const Info = (selectedPage: IInfo) => {
             selectedPage.selectedPage.subheadingContent.map((item, index) => (
               <p
                 key={index}
-                className="text-14 md:text-16 lg:text-18 md:leading-[33px] text-[#797D85] text-center md:text-start"
+                className="text-12 md:text-16 lg:text-18 md:leading-[33px] text-justify md:text-start"
                 dangerouslySetInnerHTML={{ __html: item.content as string }}
               ></p>
             ))}
@@ -36,11 +36,12 @@ const Info = (selectedPage: IInfo) => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col gap-2 md:flex-row justify-center md:justify-end mt-14 md:mt-0">
+        <div className="flex flex-col gap-2 md:flex-row justify-center md:justify-end mt-10 md:mt-0">
           <Image
             className="w-auto h-auto rounded-xl object-fill"
             width={1024}
             height={768}
+            loading='lazy'
             src={
               selectedPage.selectedPage.posterImage
                 ? selectedPage.selectedPage.posterImage

@@ -2,6 +2,7 @@ import React from 'react';
 import Gallery from './Gallery';
 import { fetchCategories, fetchProducts } from 'config/fetch';
 import { Metadata } from 'next';
+import og from "../../../public/assets/images/logomain.webp"
 export const metadata: Metadata = {
   title: 'Blinds And Curtains Dubai | Gallery Section',
   description:
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/gallery/',
     images: [
       {
-        url: 'https://blindsandcurtains.ae/blindsandcurtains.jpg',
+        url: og.src,
         alt: 'altText',
       },
     ],

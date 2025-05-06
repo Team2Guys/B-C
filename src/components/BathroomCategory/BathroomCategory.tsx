@@ -58,14 +58,19 @@ const BathroomCategory = ({
     const basePath =
       arr.href && typeof categoryTitle === 'string'? `${window.origin}/${arr.href}`: `/${slug}`;
   
+      const isShutters =
+      (parent && parent.toLowerCase() === 'shutters') ||
+      (!parent && categoryTitle?.toLowerCase() === 'shutters');
+    
+    const baseCategory = isShutters
+      ? 'shutters-range'
+      : parent?.toLowerCase() || categoryTitle?.toLowerCase();
+    
     const path =
-      predefinedPaths[slug as keyof typeof predefinedPaths] || (slug === 'hotels-restaurants-blinds-curtains' ? basePath
-        : `/${parent?.toLowerCase() === 'shutters' || categoryTitle?.toLowerCase() === 'shutters'
-              ? `${parent?.toLowerCase() || categoryTitle?.toLowerCase()}-range`
-              : parent
-              ? parent.toLowerCase()
-              : categoryTitle?.toLowerCase()
-          }${
+      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+      (slug === 'hotels-restaurants-blinds-curtains'
+        ? basePath
+        : `/${baseCategory}${
             ['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
               ? '/roller-blinds'
               : ''
