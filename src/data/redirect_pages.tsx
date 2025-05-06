@@ -161,10 +161,6 @@ export const newblogPostUrl = [
       redirectUrl: '/',
     },
     {
-      url: '/blinds/outdoor-blinds',
-      redirectUrl: '/commercial/outdoor/',
-    },
-    {
       url: '/curtains/ripplefoldwave-curtains',
       redirectUrl: '/curtains/wave-curtains',
     },
