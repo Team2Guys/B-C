@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import PathnameWrapper from 'components/Pathcomponent/PathnameWrapper';
-import localFont from 'next/font/local';
 import 'app/globals.css';
 import { Providers } from './Providers';
 import { ToastContainer } from 'react-toastify';
@@ -11,19 +10,22 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import Script from 'next/script';
 import Head from 'next/head';
 import VisitModal from 'components/VisitModal';
+import { Roboto } from 'next/font/google';
+import { Roboto_Serif } from 'next/font/google';
 
 
-const gotham = localFont({
-  src: [
-    {
-      path: '../../public/fonts/Gotham-Book.otf',
-      style: 'normal',
-    },
-
-  ],
-  variable: '--font-gotham',
+export const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    variable: '--font-roboto',
   display: 'swap',
+});
 
+export const robotoSerif = Roboto_Serif({
+  subsets: ['latin'], 
+   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-roboto-serif',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -104,7 +106,7 @@ export default function RootLayout({
         </Script>
 
 
-        <body className={` ${gotham.className} bg-lightgrey`}>
+        <body className={`${roboto.variable} ${robotoSerif.variable}`}>
 
 
           <GoogleTagManager gtmId="GTM-MNXTN5B" />
