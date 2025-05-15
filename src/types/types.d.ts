@@ -319,3 +319,27 @@ export interface ImageGalleryProps {
   images: ImageData[];
   columns?: number;
 }
+
+export interface SliderSliderItem {
+  image: string;
+  title: string;
+  price: string;
+}
+
+export interface Reel {
+  videoUrl: string;
+  lineContent: string;
+  hashtags: string[];
+}
+export interface StepItem {
+  step: string;
+  title: string;
+  description: string;
+}
+
+export interface WorkingProcessContent {
+  heading: string;
+  subheading: string;
+  imageUrl: string;
+  steps: StepItem[];
+}
