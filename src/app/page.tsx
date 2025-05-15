@@ -49,6 +49,7 @@ export default async function Home() {
 
         </Script>
       )}
+
       <MainHero />
       <Appointment />
       <Review_banner />

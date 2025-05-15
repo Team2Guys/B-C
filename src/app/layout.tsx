@@ -12,18 +12,19 @@ import Head from 'next/head';
 import VisitModal from 'components/VisitModal';
 import { Roboto } from 'next/font/google';
 import { Roboto_Serif } from 'next/font/google';
+import { I18nProvider } from 'components/i18n/i18n-provider';
 
 
 export const roboto = Roboto({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    variable: '--font-roboto',
+  variable: '--font-roboto',
   display: 'swap',
 });
 
 export const robotoSerif = Roboto_Serif({
-  subsets: ['latin'], 
-   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-roboto-serif',
   display: 'swap',
 });
@@ -115,12 +116,16 @@ export default function RootLayout({
 
 
           <PathnameWrapper>
-          <VisitModal />
+            <I18nProvider>
 
-            {children}
-            <Callbutton />
-            <WhatsIcon />
-            <ToastContainer autoClose={3000} />
+
+              <VisitModal />
+
+              {children}
+              <Callbutton />
+              <WhatsIcon />
+              <ToastContainer autoClose={3000} />
+            </I18nProvider>
           </PathnameWrapper>
         </body>
       </html>
