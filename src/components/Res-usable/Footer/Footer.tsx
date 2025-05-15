@@ -96,17 +96,17 @@ const Footer: React.FC = () => {
               <Link href='/' aria-label="logo"
               >
                 <Image
-                  src={'/assets/images/whitelogo.png'}
-                  className="w-auto h-auto lg:w-36 lg:h-32 invert"
+                  src={'/assets/images/newLogo.png'}
+                  className="w-auto h-16"
                   alt="Logo"
                   width={200}
                   height={200}
                 />
               </Link>
-              <p className="text-sm text-center xs:text-start max-w-56 text-primary">
+              <p className="text-sm text-center xs:text-start max-w-64 xs:max-w-56 text-primary font-roboto mt-8">
                 The most trusted window treatment company in Dubai with a decade of experience and 100s of positive reviews.
               </p>
-              <h4 className='text-base mt-4 font-bold text-primary'>Follow Us</h4>
+              <h4 className='text-base mt-4 font-bold text-primary font-roboto'>Follow Us</h4>
               <div className="flex items-center space-x-4 mt-4">
                 <Link
                   target="_blank"
@@ -121,8 +121,9 @@ const Footer: React.FC = () => {
                   href={'https://www.pinterest.com/blindsandcurtainsdubai/'}
                   aria-label="pinterest"
 
-                >
-                  <IoLogoPinterest className="w-9 h-9 rounded-full text-secondary" />
+                ><span className='w-8 h-8 rounded-full border-2 border-secondary flex justify-center items-center'>
+                    <IoLogoPinterest className="w-6 h-6 rounded-full text-secondary" />
+                  </span>
                 </Link>
                 <Link
                   target="_blank"
@@ -135,12 +136,19 @@ const Footer: React.FC = () => {
               </div>
             </div>
             {isLoading || isError ? (
-              Array.from({ length: 27 }).map((_, index) => (
-                <Skeleton
-                  key={index}
-                  className="w-1/2 h-6 bg-white/25"
-                />
-              ))) :
+              <>
+                {Array.from({ length: 3 }).map((_, index) => (
+                  <div className='flex flex-col gap-4' key={index}>
+                    {Array.from({ length: 6 }).map((_, index) => (
+                      <Skeleton
+                        key={index}
+                        className="w-1/2 h-6 bg-black/25"
+                      />
+                    ))}
+                  </div>
+                ))}
+              </>
+            ) :
 
 
               (footerData.map((category: TCategorySection) => (
@@ -173,25 +181,13 @@ const Footer: React.FC = () => {
                           {
                             key: category.key || category.title,
                             label: (
-                              <span className="font-semibold text-18 text-primary">
+                              <span className="font-semibold text-18 text-primary font-robotoSerif">
                                 {category.title}
                               </span>
                             ),
                             children: (
-                              <ul className="space-y-2 my-4">
-                                {category.title === 'Quick Links' ? (
-                                  //@ts-ignore
-                                  category.links?.map((link) => (
-                                    <li key={link.href}>
-                                      <Link
-                                        className="text-14 2xl:text-16 text-primary font-normal"
-                                        href={link.href}
-                                      >
-                                        {link.text}
-                                      </Link>
-                                    </li>
-                                  ))
-                                ) : (
+                              <ul className="space-y-2 my-4 font-roboto">
+                                {(
                                   //@ts-ignore
                                   category?.items?.map((item, index: number) => {
                                     const matchingSubcategory = subcategories?.find(
@@ -260,10 +256,10 @@ const Footer: React.FC = () => {
                     )
                       : (
                         <div>
-                          <h3 className="font-extrabold text-16 mb-2 border-b-4 text-primary lg:border-0 w-fit">
+                          <h3 className="font-extrabold text-20 mb-2 text-primary w-fit font-robotoSerif">
                             {category.title}
                           </h3>
-                          <ul className="space-y-2 mt-4 text-primary">
+                          <ul className="space-y-2 mt-4 text-primary font-roboto">
 
                             {
                               //@ts-ignore
@@ -329,15 +325,9 @@ const Footer: React.FC = () => {
 
               <div className={`${isMobile ? 'flex flex-col gap-4' : 'pl-0 md:mx-auto flex flex-col md:flex-row lg:flex-col gap-4'}`}>
                 <div>
-                  {isMobile ? (
-                    <span className="font-semibold text-16 text-primary">
-                      Contact Us
-                    </span>
-                  ) : (
-                    <h3 className="font-bold text-primary text-16 mb-2 border-b-4 lg:border-0 w-fit ">
-                      Contact Us
-                    </h3>
-                  )}
+                  <h3 className="font-semibold xs:font-extrabold text-18 xs:text-20 mb-2 text-primary w-fit font-robotoSerif">
+                    Contact Us
+                  </h3>
                   <ul className="space-y-4 mt-4 text-sm lg:w-[100%] text-primary">
                     <li className="flex gap-2 flex-nowrap">
                       <span>
