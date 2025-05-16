@@ -17,7 +17,7 @@ import { Roboto_Serif } from 'next/font/google';
 export const roboto = Roboto({
   subsets: ['latin'],
   weight: ['100', '300', '400', '500', '700', '900'],
-    variable: '--font-roboto',
+  variable: '--font-roboto',
   display: 'swap',
 });
 
@@ -49,6 +49,28 @@ export default function RootLayout({
           {/* Pinterest Domain Verification */}
           <meta name="p:domain_verify" content="58b7c4e018c53c00c2cd12f5f838b47a" />
         </Head>
+        <Script id="google-translate-init" strategy="afterInteractive">
+          {`
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ar',
+        autoDisplay: true
+      }, 'google_translate_element');
+    }
+  `}
+        </Script>
+
+        <Script
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          strategy="afterInteractive"
+        />
+        <Script
+          strategy="lazyOnload"
+
+          src="https://cdn.trustindex.io/loader.js?050056e461bc440ede568cd2d0b"
+        />
+        {/* Microsoft Clarity */}
         <Script
 
           id="clarity-script"
@@ -104,8 +126,9 @@ export default function RootLayout({
         </Script>
 
 
-        <body className={`${roboto.variable} ${robotoSerif.variable}`}>
 
+        <body className={`${roboto.variable} ${robotoSerif.variable}`}>
+          <div id="google_translate_element" style={{ display: 'none' }} />
 
           <GoogleTagManager gtmId="GTM-MNXTN5B" />
           <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNXTN5B"
@@ -114,13 +137,13 @@ export default function RootLayout({
 
           <PathnameWrapper>
 
-              <VisitModal />
+            <VisitModal />
 
-              {children}
-              <Callbutton />
-              <WhatsIcon />
-              <ToastContainer autoClose={3000} />
-   
+            {children}
+            <Callbutton />
+            <WhatsIcon />
+            <ToastContainer autoClose={3000} />
+
           </PathnameWrapper>
         </body>
       </html>
