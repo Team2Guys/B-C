@@ -36,15 +36,15 @@ const Navbar = () => {
         path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/' || path === '/ppc/roller-blinds/' || path === '/ppc/made-to-measure-blinds/' || path === '/ppc/made-to-measure-curtains/' ? "" :
 
           <div className="w-full bg-primary">
-            <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12 ">
+            <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12 px-4 lg:px-0 ">
 
               <div className="text-white py-2 text-14 sm:text-12 2xl:text-15 font-medium font-roboto  leading-relaxed 2xl:leading-loose max-sm:font-semibold flex  gap-6">
                 <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex  gap-1 items-center'>
-                  <TfiEmail className='text-secondary' />
+                  <TfiEmail className='text-secondary text-18' />
                   04 252 2025
                 </Link>
                 <Link href="mailto:sales@blindsandcurtains.ae" target='_black' rel='no-referrer' className='  gap-1 items-center hidden md:flex'>
-                  <LiaPhoneSolid className='text-secondary' />
+                  <LiaPhoneSolid className='text-secondary text-18' />
                   sales@blindsandcurtains.ae
                 </Link>
 
@@ -62,18 +62,14 @@ const Navbar = () => {
 
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
 
-
-          <Link href={'/'} className="w-[107px] h-[37px] relative md:w-[161px] md:h-[65px]">
+          <Link href={'/'} className="w-[130px] h-[100px] relative md:w-[161px] md:h-[120px]">
             <Image
               fill
               loading='lazy'
-              src='/assets/mobileLogo.webp'
-              
+              src='/assets/images/logomain.webp'
               alt="Logo"
             />
           </Link>
-
-
 
           <div className=" hidden lg:flex gap-[48px] ">
             <div className="hidden lg:flex justify-evenly items-start lg:text-10 font-roboto font-medium  gap-[24px] text-primary text-18 ">
@@ -105,10 +101,7 @@ const Navbar = () => {
           </div>
 
 
-
-
-
-          <div className="flex  lg:hidden">
+          <div className="flex  lg:hidden max-lg:mr-2">
             <Sheet
               drawerName={<CgMenuRight width={20} height={20} className='min-w-6 w-6  h-6' />}
               open={drawerOpen}
@@ -120,14 +113,13 @@ const Navbar = () => {
 
             >
 
-              <div className='flex justify-between items-center mt-4 mb-10'>
-                <Link href={'/'} className="w-[107px] h-[37px]  relative">
+              <div className='flex justify-between items-center mt-4 mb-5'>
+                <Link href={'/'} className="w-[120px] h-[80px]  relative">
                   <Image
                     fill
                     loading='lazy'
-                    src='/assets/mobileLogo.webp'
+                    src='/assets/images/logomain.webp'
                     alt="Logo"
-                    className="w-28 xs:w-32 h-full"
                   />
                 </Link>
                 <CgMenuRight className='min-w-6 w-6 h-6 bg-[#F1B42F66]' onClick={() => setDrawerOpen(false)} />
