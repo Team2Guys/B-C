@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
               >
                 <Image
                   src={'/assets/images/newLogo.png'}
-                  className="w-auto h-16"
+                  className="w-auto h-12 lg:h-16"
                   alt="Logo"
                   width={200}
                   height={200}
@@ -323,7 +323,7 @@ const Footer: React.FC = () => {
 
             <div className="flex flex-col gap-4 lg:pl-2 mt-0 sm::mt-4 lg:mt-0 col-auto md:col-span-3 lg:col-auto">
 
-              <div className={`${isMobile ? 'flex flex-col gap-4' : 'pl-0 md:mx-auto flex flex-col md:flex-row lg:flex-col gap-4'}`}>
+              <div className={`${isMobile ? 'flex flex-col gap-4' : 'pl-0 lg:mx-auto flex flex-col md:flex-row lg:flex-col gap-4'}`}>
                 <div>
                   <h3 className="font-semibold xs:font-extrabold text-18 xs:text-20 mb-2 text-primary w-fit font-robotoSerif">
                     Contact Us
@@ -441,7 +441,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="border-t border-primary-300 py-4 text-center bg-primary">
-        <p className="text-16 text-primary-foreground">{footerInfo}</p>
+        <p className="text-14 xs:text-16 text-primary-foreground">{footerInfo}</p>
       </div>
     </footer>
   );

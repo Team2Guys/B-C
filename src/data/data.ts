@@ -133,17 +133,11 @@ export const EmailInfo: Email = {
 };
 
 export const OurClientImage = [
-  { src: '/assets/images/ourclient/client1.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/client2.png', alt: 'Logomain' },
-  { src: '/assets/images/ourclient/client3.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client4.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client5.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client6.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/client7.png', alt: 'Logomain' },
-  {
-    src: '/assets/images/ourclient/client8.png',
-    alt: 'Plantation-Shutters-Dubai 1',
-  },
+  { src: '/assets/images/ourclient/mercedes.png', alt: 'mercedes-logo' },
+  { src: '/assets/images/ourclient/warner.png', alt: 'warner-logo' },
+  { src: '/assets/images/ourclient/HUQQBAZ.png', alt: 'HUQQBAZ-Logo' },
+  { src: '/assets/images/ourclient/address.png', alt: 'address-Logo' },
+  { src: '/assets/images/ourclient/Khansaheb.png', alt: 'Khansaheb-Logo' },
 ];
 
 
