@@ -57,7 +57,7 @@ const [loading, setloading] = useState(false)
    };
 
    return (
-      <div className='mb-16 bg-primary-foreground'>
+      <div className='mt-10 bg-primary-foreground'>
          <Container className='py-10 lg:!p-16'>
             <div className='bg-primary grid grid-cols-1 sm:grid-cols-9 px-4 xsm:px-0'>
                <div className='relative sm:col-span-5 md:col-span-4 sm:h-[320px] xsm:px-8 sm:px-0'>
