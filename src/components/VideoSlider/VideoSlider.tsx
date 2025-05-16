@@ -82,7 +82,7 @@ export default function VideoReelsSlider() {
               index
             )}`}
           >
-            <div className="relative sm:w-[500px] sm:h-[500px] w-[500px] h-[280px] rounded-2xl overflow-hidden shadow-lg"
+            <div className="relative sm:w-[500px] sm:h-[500px] w-[150px] h-[280px] rounded-2xl overflow-hidden shadow-lg"
 >
               <video
                 key={item.videoUrl}
