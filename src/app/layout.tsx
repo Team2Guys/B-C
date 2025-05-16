@@ -22,8 +22,8 @@ export const roboto = Roboto({
 });
 
 export const robotoSerif = Roboto_Serif({
-  subsets: ['latin'], 
-   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-roboto-serif',
   display: 'swap',
 });
@@ -121,12 +121,14 @@ export default function RootLayout({
 
 
           <PathnameWrapper>
-          <VisitModal />
 
-            {children}
-            <Callbutton />
-            <WhatsIcon />
-            <ToastContainer autoClose={3000} />
+              <VisitModal />
+
+              {children}
+              <Callbutton />
+              <WhatsIcon />
+              <ToastContainer autoClose={3000} />
+   
           </PathnameWrapper>
         </body>
       </html>

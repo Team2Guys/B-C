@@ -48,6 +48,7 @@ export default async function Home() {
 
         </Script>
       )}
+
       <MainHero />
       <Review_banner />
       <HomeCard categories={categories} />
