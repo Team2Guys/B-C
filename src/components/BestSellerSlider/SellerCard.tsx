@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
@@ -36,7 +35,7 @@ const SellerSlider: React.FC = () => {
   };
 
   return (
-    <Container className="py-8 overflow-hidden best_seller_slider">
+    <Container className="mt-5 md:mt-10 overflow-hidden best_seller_slider">
       <div className="text-center mb-4">
         <h3 className="sm:text-4xl font-roboto font-bold">See Our Bestseller</h3>
         <p className="text-lg mt-2 font-bold">Top Picks for Your Home</p>

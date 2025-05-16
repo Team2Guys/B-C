@@ -19,7 +19,7 @@ export default function MotorizeBlindCurtain() {
   };
 
   return (
-    <div className="motorizedblindcurtains">
+    <div className="motorizedblindcurtains mt-5 md:mt-10">
       <h2 className="text-center font-serif text-xl sm:text-4xl font-semibold mb-10 text-gray-800">
         {motorizeBlindData.heading}
       </h2>

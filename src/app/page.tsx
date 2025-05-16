@@ -1,15 +1,7 @@
 
 import React from 'react'
-import HomeCard from '../components/Card/page';
-import BlindsAndCurtainssection from '../components/Blind&Curtains/blinds&curtains';
-import FeatureProduct from 'components/feture-product/feature-product';
-import VideoAutomation from 'components/video-Automation/video-Automation';
-import Support from 'components/Res-usable/support/support';
 import Review_banner from 'components/ReviewBanner/Review_banner';
-import Banner from 'components/HomeBanner/Home_Banner';
-import { banners } from 'data/data';
 import type { Metadata } from 'next'
-import { fetchCategories, fetchProducts } from 'config/fetch';
 import Script from 'next/script';
 import { schema } from 'data/schema';
 import MainHero from 'components/Hero/main-hero';
@@ -41,9 +33,6 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const [products, categories] = await Promise.all([fetchProducts(), fetchCategories()]);
-
-
   return (
     <>
       {schema.map((script: any, index: number) =>
@@ -54,18 +43,11 @@ export default async function Home() {
       )}
 
       <MainHero />
+      <Review_banner />
       <SellerSlider />
       <SimpleSteps/>
-      <VideoReelsSlider />
       <MotorizeBlindCurtain/>
-      <Review_banner />
-      <HomeCard categories={categories} />
-      <BlindsAndCurtainssection />
-      
-      <Banner {...banners.Home} />
-      <FeatureProduct products={products} categories={categories} />
-      <VideoAutomation />
-      <Support />
+      <VideoReelsSlider />
       
     </>
   );
