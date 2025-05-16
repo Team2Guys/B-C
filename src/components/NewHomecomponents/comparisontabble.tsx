@@ -95,7 +95,7 @@ export default function ComparisonTable() {
         />
 
         {activePopupKey === feature.key && (
-          <div className="absolute bottom-full left-[400%] md:left-1/2 mx-auto -translate-x-1/2 mb-2 z-50 bg-yellow-50 text-black text-14 lg:text-18 font-roboto font-normal px-4 py-2 rounded w-[200px]  md:w-[300px] shadow-lg">
+          <div className="absolute bottom-full left-[550%] md:left-[550%] mx-auto -translate-x-1/2 mb-2 z-50 bg-white text-black text-14 lg:text-18 font-roboto font-normal px-4 py-2 rounded w-[200px]  md:w-[300px] shadow-lg">
             <p className="text-start ">{popupData[feature.key]}</p>
             <button
               onClick={() => setActivePopupKey(null)}

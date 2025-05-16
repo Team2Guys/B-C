@@ -10,6 +10,8 @@ import SellerSlider from 'components/BestSellerSlider/SellerCard';
 import SimpleSteps from 'components/SimpleSteps/SimpleSteps';
 import MotorizeBlindCurtain from 'components/MotorizedBlindCurtains/MotorizedBlindCurtains';
 import VideoReelsSlider from 'components/VideoSlider/VideoSlider';
+import InfoTabs from 'components/NewHomecomponents/info';
+import ComparisonTable from 'components/NewHomecomponents/comparisontabble';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blindsandcurtains.ae/"),
@@ -44,6 +46,8 @@ export default async function Home() {
 
       <MainHero />
       <Review_banner />
+      <InfoTabs/>
+      <ComparisonTable/>
       <SellerSlider />
       <SimpleSteps/>
       <MotorizeBlindCurtain/>
