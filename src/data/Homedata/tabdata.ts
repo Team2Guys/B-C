@@ -46,11 +46,11 @@
 
   export const popupData: Record<string, string> = {
     installation: "We have our own production team. No middle men. We control the pace",
-    fabrics: "⁠We have large showroom in Al Quoz 4. Over 30,000 fabrics in store to choose from",
-    production: "⁠We have our own in-house manufacturing, ensuring high quality and fast delivery",
-    warranty: "We offer 5 years warranty on ALL parts, components, fabric and labour. Complete peace of mind for 5 years",
-    quality: "We check EVERYTHING. From the moment fabric is delivered, to every stitch, each product goes through a rigorous 13 point check to ensure total satisfaction, first time around",
-    service: "Whilst others limit services to Dubai only, we have 8 teams spread across other parts of the UAE.",
+    fabrics: "⁠We offer 5 years warranty on ALL parts, components, fabric and labour. Complete peace of mind for 5 years",
+    production: "We have large showroom in Al Quoz 4. Over 30,000 fabrics in store to choose from",
+    warranty: "⁠Every sales person has his iPad and will give you an instant quote. Any changes to suit your budget can be made there and then",
+    quality: "⁠We check EVERYTHING. From the moment fabric is delivered, to every stitch, each product goes through a rigorous 13 point check to ensure total satisfaction, first time around",
+    service: "⁠Whilst others limit services to Dubai only, we have 8 teams spread across other parts of the UAE.",
     pricing: "⁠Expect to select from our best selling 20-30 books in your home appt. Others will bring 2-3 books in their carrier bags. No brainer",
     install: "⁠The service won’t stop now that you’ve had installation and paid. We want to retain you for life. We have a dedicated customer service manager to ensure 99% of issues that may occur within your 5 year warranty are dealt with in less than 1 working day.",
   };

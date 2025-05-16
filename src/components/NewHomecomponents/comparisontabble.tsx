@@ -57,7 +57,6 @@ const othersData = [
 ];
 
 export default function ComparisonTable() {
-  const [popupVisible, setPopupVisible] = useState(false);
   const [activePopupKey, setActivePopupKey] = useState<string | null>(null);
   return (
     <Container>
