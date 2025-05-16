@@ -30,13 +30,10 @@ const Navbar = () => {
   };
 
 
-
-
   return (
     <>
       {
         path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/' || path === '/ppc/roller-blinds/' || path === '/ppc/made-to-measure-blinds/' || path === '/ppc/made-to-measure-curtains/' ? "" :
-
 
           <div className="w-full bg-primary">
             <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12 ">
@@ -66,7 +63,7 @@ const Navbar = () => {
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
 
 
-          <Link href={'/'} className="w-[107px] h-[37px] relative md:w-[161px] md:h-[65px] md:border border-red-500">
+          <Link href={'/'} className="w-[107px] h-[37px] relative md:w-[161px] md:h-[65px]">
             <Image
               fill
               loading='lazy'
