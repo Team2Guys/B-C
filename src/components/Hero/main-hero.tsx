@@ -34,7 +34,7 @@ const MainHero = () => {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
-        <source src="/assets/video/mainblinds.mp4" type="video/mp4" />
+        <source src="https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <Container className="relative h-full flex flex-col justify-between text-primary-foreground">
