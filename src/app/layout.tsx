@@ -48,15 +48,7 @@ export default function RootLayout({
 
           {/* Pinterest Domain Verification */}
           <meta name="p:domain_verify" content="58b7c4e018c53c00c2cd12f5f838b47a" />
-
-
         </Head>
-           <Script
-          strategy="lazyOnload"
-
-          src="https://cdn.trustindex.io/loader.js?050056e461bc440ede568cd2d0b"
-        />
-        {/* Microsoft Clarity */}
         <Script
 
           id="clarity-script"

@@ -36,7 +36,7 @@ const Navbar = () => {
         path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/' || path === '/ppc/roller-blinds/' || path === '/ppc/made-to-measure-blinds/' || path === '/ppc/made-to-measure-curtains/' ? "" :
 
           <div className="w-full bg-primary">
-            <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12 px-4 lg:px-0 ">
+            <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12">
 
               <div className="text-white py-2 text-14 sm:text-12 2xl:text-15 font-medium font-roboto  leading-relaxed 2xl:leading-loose max-sm:font-semibold flex  gap-6">
                 <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex  gap-1 items-center'>
@@ -49,7 +49,7 @@ const Navbar = () => {
                 </Link>
 
               </div>
-              <div className="">
+              <div>
                 <SocialLink />
               </div>
             </Container>
@@ -60,9 +60,9 @@ const Navbar = () => {
 
         {/* mobile container */}
 
-        <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
+        <Container className="flex w-full justify-between h-12 sm:h-24 max-lg:px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
 
-          <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[161px] md:h-[120px]">
+          <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[169px] md:h-[115px]">
             <Image
               fill
               loading='lazy'
@@ -153,8 +153,6 @@ const Navbar = () => {
               </Link>
             </Sheet>
           </div>
-
-
 
 
 
