@@ -3,15 +3,15 @@ import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
-import logo from '../../../../public/assets/images/logomain.webp';
 import Sheet from 'components/ui/Drawer';
 import SocialLink from '../social-link/social-link';
-import {
-  generateSlug,
-} from 'data/data';
+
+
 import { usePathname } from 'next/navigation';
 import { links } from 'data/header_links';
-import menuIcon from '../../../../public/assets/images/icon/menu.png';
+import { TfiEmail } from 'react-icons/tfi';
+import { LiaPhoneSolid } from 'react-icons/lia';
+import { CgMenuRight } from 'react-icons/cg';
 
 
 const Navbar = () => {
@@ -38,59 +38,45 @@ const Navbar = () => {
         path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/' || path === '/ppc/roller-blinds/' || path === '/ppc/made-to-measure-blinds/' || path === '/ppc/made-to-measure-curtains/' ? "" :
 
 
-          <div className="w-full bg-secondary">
-            <Container className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 justify-center md:justify-between items-center min-h-12 pb-0">
-              <div></div>
-              <p className="text-white py-2 text-10 sm:text-12 2xl:text-15 font-medium tracking-[2px] leading-relaxed 2xl:leading-loose text-center md:text-start max-sm:font-semibold">
-                We can visit you, take measurements, help select fabrics & install
-                in 2-3 days.
-              </p>
-              <div className="hidden md:block">
+          <div className="w-full bg-primary">
+            <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12 ">
+
+              <div className="text-white py-2 text-14 sm:text-12 2xl:text-15 font-medium font-roboto  leading-relaxed 2xl:leading-loose max-sm:font-semibold flex  gap-6">
+                <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex  gap-1 items-center'>
+                  <TfiEmail className='text-secondary' />
+                  04 252 2025
+                </Link>
+                <Link href="mailto:sales@blindsandcurtains.ae" target='_black' rel='no-referrer' className='  gap-1 items-center hidden md:flex'>
+                  <LiaPhoneSolid className='text-secondary' />
+                  sales@blindsandcurtains.ae
+                </Link>
+
+              </div>
+              <div className="">
                 <SocialLink />
               </div>
             </Container>
           </div>
       }
 
-      <nav className="sticky -top-1 z-50 py-2 sm:py-0">
+      <nav className="sticky -top-1 z-50 py-2 sm:py-0 bg-white">
 
         {/* mobile container */}
-        <Container className="sm:hidden mb-2 pb-4 pt-2 text-center w-full flex flex-wrap justify-between border-b border-[#0006]">
-          <Link
-            className="py-3 px-2 xs:px-3 font-roboto rounded-md text-11 xsm:text-12 xs:text-15 whitespace-nowrap bg-primary text-black"
-            href="/request-appointment/"
-            onClick={handleLinkClick}
-          >
-            BOOK A FREE APPOINTMENT
-          </Link>
-          <Link
-            className={`text-11 xsm:text-12 xs:text-15 py-3 px-2 xs:px-3 uppercase rounded-md text-black sm:hidden ${path === '/estimator'
-              ? 'bg-secondary text-white'
-              : 'bg-primary text-black'
-              }`}
-            href='/estimator/'
-          >Estimator</Link>
-        </Container>
-
-
 
         <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
-          <div className='flex items-center'>
-            <div>
-              <Link href={'/'} className="w-5/12 xs:w-7/12 lg:w-1/12 ">
-                <Image
-                  width={600}
-                  height={600}
-                  loading='lazy'
-                  src={logo}
-                  alt="Logo"
-                  className="w-28 xs:w-32 h-full"
-                />
-              </Link>
 
-            </div>
-            <div>language container</div>
-          </div>
+
+          <Link href={'/'} className="w-[107px] h-[37px] relative md:w-[161px] md:h-[65px] md:border border-red-500">
+            <Image
+              fill
+              loading='lazy'
+              src='/assets/mobileLogo.webp'
+              
+              alt="Logo"
+            />
+          </Link>
+
+
 
           <div className=" hidden lg:flex gap-[48px] ">
             <div className="hidden lg:flex justify-evenly items-start lg:text-10 font-roboto font-medium  gap-[24px] text-primary text-18 ">
@@ -111,7 +97,7 @@ const Navbar = () => {
 
             <div>
               <Link
-                className="py-2 px-2 xl:px-5 font-roboto font-bold hidden sm:block rounded-md text-[22px] whitespace-nowrap border border-secondary text-secondary"
+                className="py-2 px-2 xl:px-5 font-roboto font-bold hidden sm:block rounded-md text-[22px] whitespace-nowrap border border-secondary text-secondary hover:bg-secondary hover:text-primary"
                 href="/request-appointment/"
                 onClick={handleLinkClick}
               >
@@ -123,26 +109,42 @@ const Navbar = () => {
 
 
 
+
+
           <div className="flex  lg:hidden">
             <Sheet
-              drawerName={<Image src={menuIcon} alt='menu icon' width={50} height={50} className='min-w-9 w-9 h-9' />}
+              drawerName={<CgMenuRight width={20} height={20} className='min-w-6 w-6  h-6' />}
               open={drawerOpen}
               setOpen={setDrawerOpen}
               selectedLabel={selectedLabel}
               mobileBgColor="#E6E4E5"
-              className="custom-moblie-sheet"
+              className="custom-moblie-sheet mb-10"
+
+
             >
+
+              <div className='flex justify-between items-center mt-4 mb-10'>
+                <Link href={'/'} className="w-[107px] h-[37px]  relative">
+                  <Image
+                    fill
+                    loading='lazy'
+                    src='/assets/mobileLogo.webp'
+                    alt="Logo"
+                    className="w-28 xs:w-32 h-full"
+                  />
+                </Link>
+                <CgMenuRight className='min-w-6 w-6 h-6 bg-[#F1B42F66]' onClick={() => setDrawerOpen(false)} />
+
+              </div>
+
               <div className="flex flex-col gap-2">
                 {links.map((link, index) => {
 
-                  const isBlogActive = link.href === '/blog' && path.startsWith('/blog');
-                  const isActive = path?.includes(generateSlug(link.label));
 
                   return (
                     <Link
                       key={index}
-                      className={`text-16 border-b text-black border-[#0000002a] pb-[6px] hover:text-black ${isBlogActive || isActive ? 'font-bold' : 'font-normal'
-                        } ${link.label === 'Estimator' ? 'hidden sm:block' : ''}`}
+                      className={`text-16 border-b text-primary font-robotoSerif font-medium border-[#0000002a] pb-[6px] hover:text-black `}
                       onClick={handleCloseDrawer}
                       href={`${link.href}/`}
                     >
@@ -152,6 +154,14 @@ const Navbar = () => {
                 })}
 
               </div>
+
+              <Link
+                className="px-3 py-1  mt-5 text-center max-w-[80%] mx-auto block  font-roboto font-semibold text-20 rounded-md whitespace-nowrap border border-secondary text-secondary hover:bg-secondary"
+                href="/request-appointment/"
+                onClick={handleLinkClick}
+              >
+                Book A Free Visit
+              </Link>
             </Sheet>
           </div>
 

@@ -33,7 +33,7 @@ const Sheet: React.FC<SheetProps> = ({
     <>
       <div onClick={() => setOpen(true)}>{drawerName}</div>
       <AntDrawer
-        closable
+        closable={false}
         destroyOnClose
         title={title}
         placement="right"
