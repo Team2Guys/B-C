@@ -19,8 +19,8 @@ export default function MotorizeBlindCurtain() {
   };
 
   return (
-    <div className="motorizedblindcurtains">
-      <h2 className="text-center font-serif text-xl sm:text-4xl font-semibold mb-10 text-gray-800">
+    <div className="motorizedblindcurtains mt-5 md:mt-10">
+      <h2 className="text-center font-robotoSerif text-xl sm:text-4xl font-bold mb-10 text-gray-800">
         {motorizeBlindData.heading}
       </h2>
 
@@ -39,7 +39,7 @@ export default function MotorizeBlindCurtain() {
             <Link
               key={i}
               href={link}
-              className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-5 rounded-md shadow-md sm:text-base text-12 transition"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold font-roboto py-2 px-5 rounded-md shadow-md sm:text-base text-12 transition"
             >
               {label}
             </Link>
@@ -52,7 +52,7 @@ export default function MotorizeBlindCurtain() {
             <div className="w-20 h-20 relative">
               <Image src={icon} alt={label} fill className="object-contain" />
             </div>
-            <p className="text-lg text-gray-700 font-medium">{label}</p>
+            <p className="text-lg text-primary font-medium font-roboto">{label}</p>
           </div>
         ))}
       </div>

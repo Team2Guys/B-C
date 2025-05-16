@@ -42,7 +42,6 @@ const BlindsTabs: React.FC<BlindsTabsProps> = ({ blindsData, tabCategories }) =>
    <Blindtype heading="Browse Our Top-Selling Products" id="Top" />
     <div className="bg-white" >
       <Container>
-
         <div className="mx-auto lg:mb-10 pt-6 pb-5 sm:pb-10 bg-white">
 
           <div className="flex justify-center items-center space-x-4 mb-6 px-2" >

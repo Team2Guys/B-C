@@ -1,5 +1,5 @@
 'use client';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
@@ -19,6 +19,34 @@ const Navbar = () => {
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
     undefined,
   );
+  const [language, setLanguage] = useState('en');
+  const [translatorReady, setTranslatorReady] = useState(false);
+
+  useEffect(() => {
+    // Wait for Google Translate widget to be available
+    const interval = setInterval(() => {
+      const selectEl = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (selectEl && selectEl.options.length > 1) {
+        setTranslatorReady(true);
+        clearInterval(interval);
+      }
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleLanguageSwitch = (lang: string) => {
+    if (!translatorReady) return; // avoid premature triggering
+    const selectEl = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (selectEl) {
+      selectEl.value = lang;
+      // Fire the change event only once
+      const event = new Event('change', { bubbles: true });
+      selectEl.dispatchEvent(event);
+      setLanguage(lang);
+    }
+  };
+
 
   const path = usePathname();
   const handleLinkClick = () => {
@@ -29,14 +57,13 @@ const Navbar = () => {
     setDrawerOpen(false);
   };
 
-
   return (
     <>
       {
         path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/' || path === '/ppc/roller-blinds/' || path === '/ppc/made-to-measure-blinds/' || path === '/ppc/made-to-measure-curtains/' ? "" :
 
           <div className="w-full bg-primary">
-            <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12 px-4 lg:px-0 ">
+            <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12">
 
               <div className="text-white py-2 text-14 sm:text-12 2xl:text-15 font-medium font-roboto  leading-relaxed 2xl:leading-loose max-sm:font-semibold flex  gap-6">
                 <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex  gap-1 items-center'>
@@ -49,7 +76,7 @@ const Navbar = () => {
                 </Link>
 
               </div>
-              <div className="">
+              <div>
                 <SocialLink />
               </div>
             </Container>
@@ -60,16 +87,29 @@ const Navbar = () => {
 
         {/* mobile container */}
 
-        <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
-
-          <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[161px] md:h-[120px]">
-            <Image
-              fill
-              loading='lazy'
-              src='/assets/images/logomain.webp'
-              alt="Logo"
-            />
-          </Link>
+        <Container className="flex w-full justify-between h-12 sm:h-24 max-lg:px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
+          <div className='flex gap-4 items-center'>
+            <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[169px] md:h-[115px]">
+              <Image
+                fill
+                loading='lazy'
+                src='/assets/images/logomain.webp'
+                alt="Logo"
+              />
+            </Link>
+            <div>
+              <select
+                id="language-select"
+                value={language}
+                onChange={(e) => handleLanguageSwitch(e.target.value)}
+                disabled={!translatorReady}
+                className="rounded px-2 py-1 lg:text-10 xl:text-15 font-medium font-roboto outline-none cursor-pointer"
+              >
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+              </select>
+            </div>
+          </div>
 
           <div className=" hidden lg:flex gap-[48px] ">
             <div className="hidden lg:flex justify-evenly items-start lg:text-10 font-roboto font-medium  gap-[24px] text-primary text-18 ">
@@ -153,8 +193,6 @@ const Navbar = () => {
               </Link>
             </Sheet>
           </div>
-
-
 
 
 

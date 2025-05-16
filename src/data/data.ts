@@ -18,7 +18,6 @@ import {
   Tproductdata,
   TProductGuarantees,
 } from 'types/interfaces';
-import { BlindsAndCurtainsTypes } from 'types/interfaces';
 import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Category, FormValues } from 'types/interfaces';
@@ -47,17 +46,6 @@ export const reverseSlug = (slug: string): string => {
 };
 
 
-
-export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
-  image: '/assets/images/blind-curtains-dubai/blinds-curtains-dubai1.png',
-  heading: 'We offer window treatments for homes or offices in Dubai',
-  paragraph: [
-    `Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and <a href="/shutters-range/"" style="text-decoration: underline"><b>shutters</b></a>. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function. Blinds and Curtains Dubai has the largest selection of <a href="/made-to-measure-blinds/"" style="text-decoration: underline"><b>custom blinds</b></a> in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).
-
-   As a trusted window treatment company, we bring style and functionality to every room. Whether you’re looking for custom blinds, or <a href="/curtains/blackout-curtains-dubai/"" style="text-decoration:underline"><b>blackout curtains </b></a> we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure <a href="/made-to-measure-curtains/"" style="text-decoration: underline"><b>curtains</b></a> to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.`,
-  ],
-  buttonText: 'Read More',
-};
 
 
 export const heroSlider = [
@@ -133,17 +121,11 @@ export const EmailInfo: Email = {
 };
 
 export const OurClientImage = [
-  { src: '/assets/images/ourclient/client1.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/client2.png', alt: 'Logomain' },
-  { src: '/assets/images/ourclient/client3.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client4.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client5.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client6.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/client7.png', alt: 'Logomain' },
-  {
-    src: '/assets/images/ourclient/client8.png',
-    alt: 'Plantation-Shutters-Dubai 1',
-  },
+  { src: '/assets/images/ourclient/mercedes.png', alt: 'mercedes-logo' },
+  { src: '/assets/images/ourclient/warner.png', alt: 'warner-logo' },
+  { src: '/assets/images/ourclient/HUQQBAZ.png', alt: 'HUQQBAZ-Logo' },
+  { src: '/assets/images/ourclient/address.png', alt: 'address-Logo' },
+  { src: '/assets/images/ourclient/Khansaheb.png', alt: 'Khansaheb-Logo' },
 ];
 
 
@@ -1685,11 +1667,11 @@ export const footerData = [
       'Roller Blinds',
       'Roman Blinds',
       'Vertical Blinds',
-      'Wooden Blinds',
-      'Aluminium Blinds',
-      'Zebra Blinds',
-      'Zipline Outdoor Blinds',
-      'Panel Blinds',
+      // 'Wooden Blinds',
+      // 'Aluminium Blinds',
+      // 'Zebra Blinds',
+      // 'Zipline Outdoor Blinds',
+      // 'Panel Blinds',
       'Blackout Blinds',
       'Motorised blinds',
     ],
@@ -1698,16 +1680,16 @@ export const footerData = [
     key: "2",
     title: 'Curtains',
     items: [
-      'Triple Pinch Pleat Curtains',
-      'Double Pinch Pleat Curtains',
+      // 'Triple Pinch Pleat Curtains',
+      // 'Double Pinch Pleat Curtains',
       'Pencil Pleat Curtains',
-      'Ripplefold/Wave Curtains',
+      // 'Ripplefold/Wave Curtains',
       'Eyelet Curtains',
-      'Tab Top Curtains',
+      // 'Tab Top Curtains',
       'Blackout Curtains',
       'Motorised curtains',
       'Sheer Curtains',
-      'Textured Curtains',
+      // 'Textured Curtains',
     ],
   },
   {
@@ -1715,15 +1697,16 @@ export const footerData = [
     title: 'Shutters',
     items: [
       'Full Height Shutters',
-      'Bi-Fold Shutters',
+      'Tracked Shutters',
+      // 'Bi-Fold Shutters',
+      'Special Shape Shutters',
       'Solid Panel Shutters',
       'Tier On Tier Shutters',
-      'Cafe Style Shutters',
-      'Bay Window Shutters',
-      'Outdoor Shutters',
-      'Tracked Shutters',
-      'Special Shape Shutters',
-      'Black Shutters',
+      // 'Cafe Style Shutters',
+      // 'Bay Window Shutters',
+      // 'Outdoor Shutters',
+      
+      // 'Black Shutters',
     ],
   },
 
@@ -1731,21 +1714,21 @@ export const footerData = [
 ];
 
 
-export const footerLinks = [
-  {
-    key: "4",
-    title: 'Quick Links',
-    links: [
-      { text: 'About Us', href: '/about-us' },
-      { text: 'Contact Us', href: '/contact-us' },
-      { text: 'Our Projects', href: '/projects' },
-      { text: 'Product Guarantees', href: '/product-guarantees' },
-      { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
-      { text: 'Book A Free Appointment', href: '/request-appointment' },
+// export const footerLinks = [
+//   {
+//     key: "4",
+//     title: 'Quick Links',
+//     links: [
+//       { text: 'About Us', href: '/about-us' },
+//       { text: 'Contact Us', href: '/contact-us' },
+//       { text: 'Our Projects', href: '/projects' },
+//       { text: 'Product Guarantees', href: '/product-guarantees' },
+//       { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
+//       { text: 'Book A Free Appointment', href: '/request-appointment' },
 
-    ],
-  },
-];
+//     ],
+//   },
+// ];
 
 export const GuaranteeVisitData = [
   {
