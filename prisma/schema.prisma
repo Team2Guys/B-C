@@ -169,3 +169,11 @@ model reviews {
   last_editedBy      String?
   posterImage        Json?
 }
+
+model callbacks {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  createdAt DateTime @default(now())
+}

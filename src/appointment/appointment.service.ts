@@ -3,6 +3,7 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { Prisma } from '@prisma/client';
 import { capitalizeWords, CustomErrorHandler } from '../utils/helperFunctions';
 import * as nodemailer from 'nodemailer';
+import { CreateUserDto } from 'src/admins/dto/create-user.dto';
 @Injectable()
 export class AppointmentService {
   constructor(private prisma: PrismaService) { }
@@ -114,9 +115,7 @@ console.log(data, "data")
     try {
       console.log(user_data.product_type)
       const product_type = capitalizeWords(user_data.product_type);
-      const recipients = user_mail
-        ? `${user_mail}`
-        : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL3}`;
+      const recipients = user_mail? `${user_mail}` : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL3}`;
       const mailOptions = {
         from: `"The Team @ Blinds and Curtains Dubai" <${process.env.MAILER_MAIL}>`,
         to: recipients,
@@ -191,4 +190,56 @@ console.log(data, "data")
       console.error('Error sending email:', error);
     }
   }
+
+
+
+async sendEmail(user_data: CreateUserDto) {
+  try {
+    const { name, email, phone } = user_data;
+
+    const htmlContent = `
+      <div style="font-family: Arial, sans-serif; padding: 20px;">
+        <h2>Thank you, ${name}</h2>
+        <p>We’ve received your information:</p>
+        <ul>
+          <li><strong>Email:</strong> ${email}</li>
+          <li><strong>Phone:</strong> ${phone}</li>
+        </ul>
+      </div>
+    `;
+
+    const adminContent = `
+      <div style="font-family: Arial, sans-serif; padding: 20px;">
+        <h2>New User Submission</h2>
+        <ul>
+          <li><strong>Name:</strong> ${name}</li>
+          <li><strong>Email:</strong> ${email}</li>
+          <li><strong>Phone:</strong> ${phone}</li>
+        </ul>
+      </div>
+    `;
+
+    // Send email to user
+    await this.transporter.sendMail({
+      from: `"Call Back Request" <${process.env.MAILER_MAIL}>`,
+      to: email,
+      subject: 'Thanks for contacting us',
+      html: htmlContent,
+    });
+
+    // Send email to admin
+    await this.transporter.sendMail({
+      from: `"Call Back Request" <${process.env.MAILER_MAIL}>`,
+      to: `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL3}`,
+      subject: 'New Callback Request Received',
+      html: adminContent,
+    });
+
+    return { success: true, message: 'Emails sent successfully' };
+  } catch (error) {
+    return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR');
+  }
+}
+
+
 }
