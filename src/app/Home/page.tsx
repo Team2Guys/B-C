@@ -1,69 +1,14 @@
-"use client";
+import ComparisonTable from 'components/NewHomecomponents/comparisontabble'
+import InfoTabs from 'components/NewHomecomponents/info'
+import React from 'react'
 
-import Container from "components/Res-usable/Container/Container";
-import { useState } from "react";
-import Image from "next/image";
-import { tabData } from "data/Homedata/tabdata";
-import Link from "next/link";
-
-export default function InfoTabs() {
-  const [activeTab, setActiveTab] = useState(0);
+const Homepage = () => {
   return (
-    <Container className="bg-white">
-      <div className="flex justify-center items-center font-bold font-robotoSerif  text-[24px] lg:text-[40px] my-5 sm:my-7 text-center text-primary">
-        Trusted by 10,000+ Happy Customers
-      </div>
-      <div className="flex justify-between text-center overflow-x-scroll md:overflow-hidden z-10 border-b-2 border-[#EAEBEC]">
-        {tabData.map((tab, index) => (
-          <button
-            key={index}
-            className={`flex flex-col items-center justify-center text-black py-4 md:py-6 px-4 min-w-[150px] w-full whitespace-nowrap hover:text-black focus:outline-none transition duration-300 ${
-              activeTab === index
-                ? "border-b-4 border-secondary text-black font-bold"
-                : "border-b-4 border-transparent font-semibold"
-            }`}
-            onClick={() => setActiveTab(index)}
-          >
-            <Image
-              src={tab.icon}
-              alt={`${tab.title} icon`}
-              width={40}
-              height={40}
-              className="mb-2 h-10 w-10 lg:w-16 lg:h-16"
-            />
-            <span className="font-medium text-wrap font-roboto text-[18px] lg:text-[24px] text-primary">{tab.title}</span>
-          </button>
-        ))}
-      </div>
-
-      {/* Active Tab Content */}
-      <div className="md:p-8 p-2 grid md:grid-cols-2 gap-6 xl:gap-16 items-center">
-        <div className="relative">
-        <Image
-    src={tabData[activeTab].image}
-    alt={tabData[activeTab].heading}
-    width={600}
-    height={400}
-    className="w-full h-[343px] lg:h-[454px] object-cover"
-  />
-
-  <div className="absolute bottom-[50px] right-0 w-[197px] h-[95px] bg-primary flex flex-col items-center justify-center rounded -rotate-90">
-    <span className="text-white font-semibold font-roboto text-[24px] whitespace-nowrap">
-      20 Years
-        </span>
-        <span className="text-white text-[14px] font-medium font-roboto whitespace-nowrap mt-2">
-      Making Blinds & Curtains
-         </span>
-         </div>
-        </div>
-        <div className="flex flex-col justify-center items-center md:justify-start md:items-start space-y-3 sm:space-y-5 lg:space-y-12">
-          <h3 className="font-robotoSerif font-semibold text-[24px] lg:text-[40px] text-primary text-center sm:text-start">{tabData[activeTab].heading}</h3>
-          <p className="text-[18px] font-normal lg:text-[20px] font-roboto lg:font-medium text-primary text-justify">{tabData[activeTab].description}</p>
-          <Link href={tabData[activeTab].href} className="bg-secondary text-primary font-roboto text-[20px] lg:text-[24px] font-semibold px-6 py-2 rounded-xl shadow hover:bg-primary-dark transition">
-            {tabData[activeTab].buttonText}
-          </Link>
-        </div>
-      </div>
-    </Container>
-  );
+    <>
+    <InfoTabs/>
+    <ComparisonTable/>
+    </>
+  )
 }
+
+export default Homepage
