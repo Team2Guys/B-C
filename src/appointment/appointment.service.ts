@@ -32,7 +32,7 @@ export class AppointmentService {
 
       const extractedTime = `${hours}:${minutes}`;
       const year = dateObject.getFullYear();
-      const month = String(dateObject.getMonth() + 1).padStart(2, '0'); 
+      const month = String(dateObject.getMonth() + 1).padStart(2, '0');
       const day = String(dateObject.getDate()).padStart(2, '0');
       const formattedDate = `${year}-${month}-${day}`;
 
@@ -46,7 +46,7 @@ export class AppointmentService {
         others: "others",
       };
 
-      let params  = {
+      let params = {
         "name": user_data.name,
         "phone_number": user_data.phone_number,
         "whatsapp_number": user_data.whatsapp_number,
@@ -69,18 +69,18 @@ export class AppointmentService {
 
 
       await this.sendConfirmationEmail(user_data, null, newAppointment);
-      await this.sendConfirmationEmail(user_data,user_data.email,newAppointment,);
+      await this.sendConfirmationEmail(user_data, user_data.email, newAppointment,);
 
       const response = await fetch('https://stage.twoguys.ae/blindcurtains/lead', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ params})
+        body: JSON.stringify({ params })
       });
-      
+
       const data = await response.json();
-console.log(data, "data")
+      console.log(data, "data")
 
       return { message: 'Appointment created successfully🎉', newAppointment };
     } catch (error) {
@@ -115,7 +115,7 @@ console.log(data, "data")
     try {
       console.log(user_data.product_type)
       const product_type = capitalizeWords(user_data.product_type);
-      const recipients = user_mail? `${user_mail}` : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL3}`;
+      const recipients = user_mail ? `${user_mail}` : `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL3}`;
       const mailOptions = {
         from: `"The Team @ Blinds and Curtains Dubai" <${process.env.MAILER_MAIL}>`,
         to: recipients,
@@ -193,11 +193,11 @@ console.log(data, "data")
 
 
 
-async sendEmail(user_data: CreateUserDto) {
-  try {
-    const { name, email, phone } = user_data;
+  async sendEmail(user_data: CreateUserDto) {
+    try {
+      const { name, email, phone } = user_data;
 
-    const htmlContent = `
+      const htmlContent = `
       <div style="font-family: Arial, sans-serif; padding: 20px;">
         <h2>Thank you, ${name}</h2>
         <p>We’ve received your information:</p>
@@ -208,7 +208,7 @@ async sendEmail(user_data: CreateUserDto) {
       </div>
     `;
 
-    const adminContent = `
+      const adminContent = `
       <div style="font-family: Arial, sans-serif; padding: 20px;">
         <h2>New User Submission</h2>
         <ul>
@@ -219,27 +219,41 @@ async sendEmail(user_data: CreateUserDto) {
       </div>
     `;
 
-    // Send email to user
-    await this.transporter.sendMail({
-      from: `"Call Back Request" <${process.env.MAILER_MAIL}>`,
-      to: email,
-      subject: 'Thanks for contacting us',
-      html: htmlContent,
-    });
+      // Send email to user
+      await this.transporter.sendMail({
+        from: `"Call Back Request" <${process.env.MAILER_MAIL}>`,
+        to: email,
+        subject: 'Thanks for contacting us',
+        html: htmlContent,
+      });
 
-    // Send email to admin
-    await this.transporter.sendMail({
-      from: `"Call Back Request" <${process.env.MAILER_MAIL}>`,
-      to: `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL3}`,
-      subject: 'New Callback Request Received',
-      html: adminContent,
-    });
+      // Send email to admin
+      await this.transporter.sendMail({
+        from: `"Call Back Request" <${process.env.MAILER_MAIL}>`,
+        to: `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL3}`,
+        subject: 'New Callback Request Received',
+        html: adminContent,
+      });
 
-    return { success: true, message: 'Emails sent successfully' };
-  } catch (error) {
-    return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR');
+
+      await this.prisma.callbacks.create({ data: user_data })
+      return { success: true, message: 'Emails sent successfully' };
+    } catch (error) {
+      return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR');
+    }
   }
-}
+
+
+
+
+  async AllBacks() {
+    try {
+
+      return await this.prisma.callbacks.findMany({})
+    } catch (error) {
+      return CustomErrorHandler(`${error.message}`, 'INTERNAL_SERVER_ERROR');
+    }
+  }
 
 
 }
