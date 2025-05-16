@@ -154,7 +154,7 @@ const Navbar = () => {
             >
 
               <div className='flex justify-between items-center mt-4 mb-5'>
-                <Link href={'/'} className="w-[120px] h-[80px]  relative">
+                <Link href={'/'} className="w-[120px] h-[80px]  relative bg-transparent">
                   <Image
                     fill
                     loading='lazy'
