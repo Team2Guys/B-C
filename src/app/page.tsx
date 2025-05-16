@@ -2,7 +2,6 @@
 import React from 'react'
 import HomeCard from '../components/Card/page';
 import BlindsAndCurtainssection from '../components/Blind&Curtains/blinds&curtains';
-import Appointment from 'components/Appointment/Appointment';
 import FeatureProduct from 'components/feture-product/feature-product';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
@@ -53,8 +52,8 @@ export default async function Home() {
 
         </Script>
       )}
+
       <MainHero />
-      <Appointment />
       <SellerSlider />
       <SimpleSteps/>
       <VideoReelsSlider />
