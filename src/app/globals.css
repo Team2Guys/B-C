@@ -462,3 +462,61 @@ padding-bottom: 60px;
     display: none;
   }
 }
+
+
+/* Style default react-slick arrows */
+.best_seller_slider .slick-prev, .slick-next {
+  width: 40px !important;
+  height: 40px !important;
+  z-index: 10;
+ background-color: #333 !important; /* black background */
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 1 !important; /* force visible */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Arrow icon color as white (the arrow is created by CSS borders in slick) */
+.best_seller_slider  .slick-prev::before,
+ .best_seller_slider  .slick-next::before {
+  /* font-size: 20px; */
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* Position adjustments */
+.best_seller_slider  .slick-prev {
+  left: 0px;
+  z-index: 20;
+}
+
+.best_seller_slider  .slick-next {
+  right: 0px;
+  z-index: 20;
+}
+
+/* Optional: Hover effect */
+.best_seller_slider  .slick-prev:hover,
+.best_seller_slider  .slick-next:hover {
+  background-color: #333 !important;
+}
+.motorizedblindcurtains .slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #F1B42F !important;
+    opacity: 1;
+}
+.motorizedblindcurtains .slick-dots li button:before {
+  color:#687477 !important;
+  font-size: 10px !important;
+  opacity: 1;
+}
+.motorizedblindcurtains .slick-dots li button {
+  width: 10px !important;
+  height: 10px !important;
+}
+.motorizedblindcurtains .slick-dots li {
+    width: 7px;
+}

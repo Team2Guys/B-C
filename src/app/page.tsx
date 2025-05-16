@@ -2,7 +2,6 @@
 import React from 'react'
 import HomeCard from '../components/Card/page';
 import BlindsAndCurtainssection from '../components/Blind&Curtains/blinds&curtains';
-import Appointment from 'components/Appointment/Appointment';
 import FeatureProduct from 'components/feture-product/feature-product';
 import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
@@ -15,6 +14,10 @@ import Script from 'next/script';
 import { schema } from 'data/schema';
 import MainHero from 'components/Hero/main-hero';
 import logo from '../../public/assets/images/blind-curtains-dubai/blinds-curtains-dubai1.png';
+import SellerSlider from 'components/BestSellerSlider/SellerCard';
+import SimpleSteps from 'components/SimpleSteps/SimpleSteps';
+import MotorizeBlindCurtain from 'components/MotorizedBlindCurtains/MotorizedBlindCurtains';
+import VideoReelsSlider from 'components/VideoSlider/VideoSlider';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blindsandcurtains.ae/"),
@@ -49,11 +52,16 @@ export default async function Home() {
 
         </Script>
       )}
+
       <MainHero />
-      <Appointment />
+      <SellerSlider />
+      <SimpleSteps/>
+      <VideoReelsSlider />
+      <MotorizeBlindCurtain/>
       <Review_banner />
       <HomeCard categories={categories} />
       <BlindsAndCurtainssection />
+      
       <Banner {...banners.Home} />
       <FeatureProduct products={products} categories={categories} />
       <VideoAutomation />

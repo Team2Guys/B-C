@@ -1,108 +1,40 @@
-'use client';
-import React, { useRef } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import { FcGoogle } from 'react-icons/fc';
-import { RatingSlider, testimonials } from 'data/data';
-import Image from 'next/image';
-import Container from 'components/Res-usable/Container/Container';
-import Link from 'next/link';
-import { FaStar } from 'react-icons/fa';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+
+import Container from "components/Res-usable/Container/Container";
+import { ReviewBackground, ReviewBackgrounddashktop } from "components/svg/review-background";
+import Image from "next/image";
+import React from "react";
+import { MdOutlineStarPurple500 } from "react-icons/md";
 
 export default function ReviewBanner() {
-  const swiperRef = useRef<any>(null);
 
   return (
-    <>
-      <Container className=" px-2 lg:mt-10 mt-10 relative">
-        <div className="bg-[#F6EFE9] px-2 py-12 md:p-10 rounded-xl shadow-md drop-shadow-md border border-white">
-          <div className="lg:grid grid-cols-1 sm:grid-cols-3 gap-12 mb-3 items-center">
-            <div className="lg:text-4xl text-2xl font-bold text-center">
-              <h3>
-                Trusted Partner
-                <br /> in Every Detail
-              </h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-1 items-center lg:my-0 mt-10 ">
-              <Link
-                href="https://g.page/r/Cb5WvqhjNT4iEAE/"
-                target="_blank"
-                className="w-fit mx-auto"
-              >
-                <div className="flex items-center gap-3 bg-white h-fit px-3 py-3 rounded-full shadow-lg w-fit  border">
-                  <span>
-                    <FcGoogle className="lg:text-3xl text-14" />
-                  </span>
-                  <p className="lg:text-base text-12">
-                    With Over 750 5-Star Reviews
-                  </p>
-                </div>
-              </Link>
-            </div>
-            <div className="bg-primary lg:mt-0 mt-10">
-              <div className="container h-auto w-full">
-                <Image
-                  className="absolute lg:-top-4 top-[36%] lg:bottom-60  lg:right-[13%] lg:translate-x-[15%] 2xl:right-[14%] right-[50%] translate-x-[50%] sm:right-[50%] sm:translate-x-[50%]  z-10 "
-                  src={RatingSlider.imageUrl}
-                  alt=""
-                  width={140}
-                  height={140}
-                />
-                {testimonials.length > 0 && (
-                  <div className='relative'>
-                    <button
-                      aria-label="Previous Slide"
-                      onClick={() => swiperRef.current?.slidePrev()}
-                      className="absolute -left-4 top-[55%] transform -translate-y-1/2 z-10 text-white"
-                    >
-                      <BsChevronLeft size={20} />
-                    </button>
-                    <button
-                      aria-label="Next Slide"
-                      onClick={() => swiperRef.current?.slideNext()}
-                      className="absolute -right-4 top-[55%] transform -translate-y-1/2 z-10 text-white"
-                    >
-                      <BsChevronRight size={20} />
-                    </button>
-                    <Swiper
-                      modules={[Navigation]}
-                      onSwiper={(swiper) => (swiperRef.current = swiper)}
-                      spaceBetween={30}
-                      slidesPerView={1}
-                      pagination={{ clickable: true }}
-                      className="mySwiper"
-                    >
-                      {testimonials.map((slide, index) => (
-                        <SwiperSlide key={index}>
-                          <div className="sm:px-4 pt-12 bg-primary text-center relative lg:px-5">
-                            <h3 className="text-xl font-semibold text-white">
-                              {slide.author_name}
-                            </h3>
-                            <p className="mt-2 text-white overflow-x-auto max-h-36 text-ellipsis slider-text">
-                              {slide.text}
-                            </p>
-                          </div>
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div>
-                )}
-                <div className="bg-white w-fit mx-auto px-6 py-2 mt-4 rounded-b-xl shadow-xl -mb-2 ">
-                  <div className="flex items-center gap-1 xs:gap-2 text-[9px] xs:text-14 text-[#FCD503]">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar key={i} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="bg-primary-foreground pt-10">
+      <Container className="grid grid-cols-1 md:grid-cols-2">
+      <div className="md:max-w-screen-xs flex flex-col md:flex-row gap-6 items-center md:items-start relative mt-2">
+        <Image src={"/assets/images/logo-review.png"} className="relative top-0 left-0" width={100} height={40} alt="logo"/>
+        <div className="space-y-3 text-center">
+        <Image src={"/assets/images/googleReview/google.png"} width={235} height={34} alt="logo"/>
+        <div className="flex  justify-center items-center">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <MdOutlineStarPurple500 key={star} className="text-[#FFD800] text-36" />
+          ))}
         </div>
+        <p className="font-roboto text-lg md:text-xl">Rating <span className="font-medium">4.9 | 760</span> reviews <br/> Window treatment store</p>
+        </div>
+      </div>
+       <div className="space-y-3 text-center md:text-start mt-5 md:mt-0">
+        <p className="font-bold font-robotoSerif text-lg md:text-2xl text-primary ">Imran Ahmad</p>
+        <p className="font-medium font-robotoSerif text-lg md:text-xl text-primary ">Amazing experience from start to finish Ryan and Ben did a great job with installation leaving drive and garage clean</p>
+        <button className="border border-primary py-2 px-4 rounded-md font-roboto font-bold text-22">Go to Google Reviews</button>
+      </div>
       </Container>
-    </>
+     <div className=" mt-5 md:mt-10 relative "> {/* adjust height as needed */}
+  <ReviewBackground className="block md:hidden" />
+  <ReviewBackgrounddashktop className="hidden md:block"/>
+  <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-robotoSerif text-center text-xs md:text-24 xl:text-32 font-semibold xl:font-bold text-primary-foreground md:w-full">
+    Rated Excellent by Dubai Homeowners
+  </p>
+</div>
+    </div>
   );
 }

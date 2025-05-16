@@ -22,8 +22,8 @@ export const roboto = Roboto({
 });
 
 export const robotoSerif = Roboto_Serif({
-  subsets: ['latin'], 
-   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-roboto-serif',
   display: 'swap',
 });
@@ -41,6 +41,7 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en">
+
         <Head>
           {/* Google Site Verification */}
           <meta name="google-site-verification" content="kY94RrP8_rfkJPW-jgK6GaWAfX9BUykeQ5Q7WFxmGyY" />
@@ -50,6 +51,11 @@ export default function RootLayout({
 
 
         </Head>
+           <Script
+          strategy="lazyOnload"
+
+          src="https://cdn.trustindex.io/loader.js?050056e461bc440ede568cd2d0b"
+        />
         {/* Microsoft Clarity */}
         <Script
 
@@ -115,12 +121,14 @@ export default function RootLayout({
 
 
           <PathnameWrapper>
-          <VisitModal />
 
-            {children}
-            <Callbutton />
-            <WhatsIcon />
-            <ToastContainer autoClose={3000} />
+              <VisitModal />
+
+              {children}
+              <Callbutton />
+              <WhatsIcon />
+              <ToastContainer autoClose={3000} />
+   
           </PathnameWrapper>
         </body>
       </html>
