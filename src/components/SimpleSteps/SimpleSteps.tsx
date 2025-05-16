@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function SimpleSteps() {
   return (
-    <Container>
+    <Container className="mt-5 md:mt-10">
       <div className="mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-roboto text-center mb-4 text-[#3E3F42]">
           {workingProcessData.heading}

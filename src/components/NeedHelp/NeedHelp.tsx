@@ -6,7 +6,7 @@ import React from 'react'
 
 const NeedHelp = () => {
    return (
-      <Container className='my-16'>
+      <Container>
          <div className='bg-primary-foreground grid grid-cols-1 md:grid-cols-2'>
             <div className='px-3 py-6 sm:p-6 lg:p-10 text-primary flex flex-col gap-4 lg:gap-6 items-center sm:items-start'>
                <h3 className='text-2xl xs:text-3xl lg:text-4xl font-robotoSerif font-extrabold'>Need Help ?</h3>
