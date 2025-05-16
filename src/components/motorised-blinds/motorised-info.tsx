@@ -18,7 +18,7 @@ interface MotorisedInfoProps {
 
 const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
   title,
-  subtitle,
+  // subtitle,
   description,
   description2,
   description3,
@@ -32,10 +32,10 @@ const MotorisedInfo: React.FC<MotorisedInfoProps> = ({
       <div className={`flex flex-wrap lg:flex-nowrap mb-2 lg:gap-10 ${className}`}>
         <div className="w-full lg:w-/12 xl:w-6/12">
           <div className="space-y-2">
-            <h2 className="text-32 md:text-[41px] font-medium text-center sm:text-start">{title || ""}</h2>
-            <p className="underline underline-offset-8 text-[#6F747F] text-center sm:text-start">
+            <p className="text-32 md:text-[41px] font-medium text-center sm:text-start">{title || ""}</p>
+            {/* <p className="underline underline-offset-8 text-[#6F747F] text-center sm:text-start">
               {subtitle || ""}
-            </p>
+            </p> */}
             <p className={`text-12 md:text-16 leading-6 md:leading-8  ${decClass}`} dangerouslySetInnerHTML={{ __html: description || "" }}></p>
             <div className="space-y-3 hidden lg:block">
               <p className="text-12 md:text-16 leading-6 md:leading-8 " dangerouslySetInnerHTML={{ __html: description2 || "" }}></p>

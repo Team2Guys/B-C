@@ -111,7 +111,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                 <SwiperSlide key={index}>
                   <Link
                     className="rounded-lg mt-5 px-4 flex flex-col justify-between w-full"
-                    href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`}
+                    href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}/`}
                   >
                     <div>
                       <Image
@@ -149,7 +149,7 @@ const PopularBlog = ({ blogs }: { blogs: BlogInfo[] }) => {
                     </p>
                     <div className="">
                       <Link
-                        href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}`}
+                        href={`/blog/${blog.redirectionUrl ? blog.redirectionUrl : generateSlug(blog.title)}/`}
                         className="text-primary text-12 sm:text-18 underline font-bold text-center sm:text-start">
                         Read More
                       </Link>

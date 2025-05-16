@@ -2,8 +2,7 @@ import React from 'react';
 import EstimatorPage from './Estimator';
 import { Metadata } from 'next';
 import { estimatorprod } from 'data/estimator';
-import logo from '../../../public/assets/images/logomain.webp';
-
+import estimateIMG from '../../../public/assets/images/estimator/rollerblinds.webp';
 export const metadata: Metadata = {
   title: 'Estimator | Price Calculator | Blinds And Curtains Dubai',
   description:
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/estimator/',
     images: [
       {
-        url: `${logo.src}`,
+        url: `${estimateIMG.src}`,
         alt: 'altText',
       },
     ],

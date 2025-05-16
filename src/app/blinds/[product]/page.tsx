@@ -12,7 +12,7 @@ import { IProduct } from 'types/types';
 import { meta_props } from 'types/interfaces';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
-import { schemaMap } from 'data/products-schema';
+import { BlindSchemaMap } from 'data/blinds-schema';
 const Cateories = [2];
 
 
@@ -63,8 +63,6 @@ export async function generateMetadata({
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}blinds/${product}`;
 
-  console.log(url, "url")
-
   return {
     title: title,
     description: description,
@@ -83,31 +81,23 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: meta_props) => {
   const product = (await params).product;
-  const [products, cateories, subCategories] = await Promise.all([fetchProducts(), fetchCategories(), fetchSubCategories()]);
+  const [ products, cateories, subCategories] = await Promise.all([fetchProducts(),fetchCategories(), fetchSubCategories()]);
 
-  const filteredProduct = filterProd(products, product, Cateories);
   const filteredSubCategory = filtereCategory(subCategories, product, Cateories);
 
-  // const redirected_product = product !== 'school-blinds' && CommercialUrl.find((prod: { urlName: string; Redirect: string }) => {
-  //   return prod.urlName == String(product)?.toLowerCase();
-  // },
-  // );
-
-  // if (redirected_product) {
-  //   permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
-  // }
+  const filteredProduct = filterProd(products, product, Cateories);
 
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/${product}/`);
+  console.log(matchingUrl, "matchinUrls")
   if (matchingUrl) {
     return <NotFound />
   }
   if (!filteredSubCategory && !filteredProduct) {
     return <NotFound />;
   }
-  const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
-  const matchedSchema = schemaMap[productTitle];
 
-  console.log(product, "product")
+  const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
+  const matchedSchema = BlindSchemaMap[productTitle];
   return (
     <>
       <Products_Categories

@@ -13,7 +13,6 @@ const CommercialPage = ({
   subCategories,
   matchedSchema
 }: PRODUCS_PROPS) => {
-
   return (
 
     <>

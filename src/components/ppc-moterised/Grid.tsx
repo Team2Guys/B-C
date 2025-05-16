@@ -7,12 +7,12 @@ import SelectedImage from "components/Rollerblind/BlackoutImages/tabdata/Selecte
 import "../../style/gallery.css";
 import Container from "components/Res-usable/Container/Container";
 import { gallerypara } from "data/data";
-export interface ImageData {
+ interface ImageData {
   src: string;
   width: number;
   height: number;
 }
-export interface ImageGalleryProps {
+ interface ImageGalleryProps {
   images: ImageData[];
   columns?: number;
 }

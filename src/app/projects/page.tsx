@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/projects/',
     images: [
       {
-        url: `${logo.src}`,
+        url: logo.src,
         alt: 'Blinds And Curtains Dubai | Projects',
       },
     ],

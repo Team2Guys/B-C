@@ -60,7 +60,7 @@ const Commercial = ({
             <Link
               className="underline"
               target="_blank"
-              href={'/blinds/duplex-blinds'}
+              href={'/blinds/duplex-blinds/'}
             >
               motorised duplex blinds
             </Link>{' '}
@@ -69,7 +69,7 @@ const Commercial = ({
             <Link
               className="underline"
               target="_blank"
-              href={'/made-to-measure-blinds'}
+              href={'/made-to-measure-blinds/'}
             >
               blinds
             </Link>{' '}
@@ -79,7 +79,7 @@ const Commercial = ({
             <Link
               className="underline"
               target="_blank"
-              href={'/blinds/wooden-venetian'}
+              href={'/blinds/wooden-venetian/'}
             >
               Venetian blinds
             </Link>{' '}
@@ -90,7 +90,7 @@ const Commercial = ({
             <Link
               className="underline"
               target="_blank"
-              href={'/curtains/office-window-curtains'}
+              href={'/curtains/office-window-curtains/'}
             >
               office curtains
             </Link>{' '}
@@ -99,7 +99,7 @@ const Commercial = ({
             <Link
               className="underline"
               target="_blank"
-              href={'/blinds/roller-blinds'}
+              href={'/blinds/roller-blinds/'}
             >
               roller blinds
             </Link>{' '}
@@ -108,7 +108,7 @@ const Commercial = ({
 
           <div className="h-fit flex justify-center md:justify-start mt-4">
             <Link
-              href="/request-appointment"
+              href="/request-appointment/"
               className="px-8 py-4 bg-secondary rounded-md text-white hover:bg-primary "
             >
               Book A Free Appointment

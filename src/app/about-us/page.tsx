@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: 'https://blindsandcurtains.ae/about-us/',
     images: [
       {
-        url: `${bgBreadcrum.src}`,
+        url: `${aboutUsImg.src}`,
         alt: 'Blinds and Curtains Dubai | Made to Measure Blinds | About Us',
       },
     ],
@@ -43,9 +43,7 @@ const AboutUsPage = () => {
           }}
         ></div>
         <div>
-          <h4 className="font-semibold mb-6 text-paralight text-center sm:text-start">
-            {AboutUsPara.subheading}
-          </h4>
+   
           {AboutUsPara.heading.map((item, index) => (
             <h2
               className={`text-28 xs:text-36 lg:text-5xl leading-snug lg:leading-snug text-center sm:text-start ${item == 'WELCOME TO' ? 'font-normal' : 'font-bold text-wrap'}`}
@@ -83,7 +81,7 @@ const AboutUsPage = () => {
           ></div>
           <div className="flex flex-col max-sm:space-y-5">
             {OurHistoryData.map((item) => (
-              <>
+   
                 <div className="relative" key={item.id}>
                   <div className="absolute top-1/2 -left-14 -translate-y-1/2 sm:flex items-center hidden">
                     <div
@@ -107,7 +105,7 @@ const AboutUsPage = () => {
                     </p>
                   </div>
                 </div>
-              </>
+        
             ))}
           </div>
         </div>

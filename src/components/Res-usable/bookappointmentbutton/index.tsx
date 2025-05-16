@@ -6,7 +6,7 @@ const AppointmentButton = () => {
   return (
     <div className="h-fit flex justify-center mt-5">
     <Link
-      href="/request-appointment"
+      href="/request-appointment/"
       className="px-8 py-4 rounded-md text-white bg-secondary hover:bg-primary"
     >
       Book A Free Appointment

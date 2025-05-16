@@ -3,9 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Allproduct } from 'types/interfaces';
 import Link from 'next/link';
-import { useQuery } from '@tanstack/react-query';
-import { ICategory, IProduct } from 'types/types';
-import { fetchCategories} from 'config/fetch';
+import { IProduct } from 'types/types';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
 interface FeatureCardProps {
@@ -14,13 +12,6 @@ interface FeatureCardProps {
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
-  const {
-    data: categories,
-  } = useQuery<ICategory[]>({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  });
-  
   const getPath = (arr: IProduct, parent: string | undefined) => {
     if (!arr || !arr.title) return '/';
   
@@ -30,11 +21,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
         ? `${window.origin}/${arr.href}`
         : `/${slug}`;
         
-    const formattedParent = parent
-      ? parent.toLowerCase() === 'shutters'
-        ? `${parent.toLowerCase()}-range`
-        : parent.toLowerCase()
-      : 'products'; 
+    const formattedParent = parent? parent.toLowerCase() === 'shutters'? `${parent.toLowerCase()}-range`: parent.toLowerCase(): '/'; 
     const path =
       predefinedPaths[slug as keyof typeof predefinedPaths] ||
       (slug === 'hotels-restaurants-blinds-curtains'
@@ -45,20 +32,14 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ products }) => {
               : ''
           }/${slug}`);
   
-    return path;
+    return path+"/";
   };
   
-
-  console.log(categories, "filtered")
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 max-w-screen-2xl mx-auto px-2">
-      {products.map((product) => {
-        const filtered = categories?.find((cat: ICategory) => {
-          return cat.id === product.CategoryId;
-        });
-
-      console.log(filtered, "filtered")
-        const parent = filtered?.title.toLowerCase();
+      {products.map((product:IProduct) => {
+ 
+        const parent = product?.category.title.toLowerCase();
         return (
           
           <div

@@ -13,9 +13,6 @@ const HomeCard = ({ categories }: { categories: ICategory[] }) => {
     const indexB = customOrder.indexOf(b.title);
     return indexA - indexB;
   });
-
-
-  console.log(sortedCategories, "sortedCategories")
   return (
 
     <Container className="py-12">

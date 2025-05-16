@@ -95,7 +95,6 @@ export interface FormValues {
   spacification: { specsDetails: string }[];
   sizes: string[];
   category: string;
-  code: string;
   totalStockQuantity: number;
   variantStockQuantities: { variant: string; quantity: number }[];
   CategoryId?: number;
@@ -110,6 +109,7 @@ export interface FormValues {
   Canonical_Tag?: string;
   Meta_description?: string;
   Images_Alt_Text?: string;
+  subcategory_description?:string
 }
 
 interface Color {

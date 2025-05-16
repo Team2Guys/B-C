@@ -29,7 +29,7 @@ const Banner: React.FC<BannerProps> = ({
         {paraText}
         </p>
         <Link
-          href={linkHref}
+          href={linkHref+"/"}
           className={`text-16 xs:text-18 leading-4 block w-fit hover:bg-primary ${linkBgColor} text-white py-2 px-4 md:px-6 md:py-4 rounded-md capitalize max-xs:mx-auto`}>
           {linkText}
         </Link>

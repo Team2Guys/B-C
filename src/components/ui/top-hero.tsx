@@ -2,11 +2,11 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaAngleRight, FaHome } from 'react-icons/fa';
-import { UpdateShutterTitle } from './menu-card';
 import { colorData, TopHeroLink } from 'data/data';
 import { usePathname } from 'next/navigation';
 import { BreakCrum_conent_pages } from 'data/data';
 import { blogCategoryUrl } from 'data/urls';
+import { UpdateShutterTitle } from 'utils/helperFunctions';
 
 interface TopHeroProps {
   title: string | any;
@@ -71,6 +71,7 @@ const TopHero: React.FC<TopHeroProps> = ({
             muted
             playsInline
             controls={false}
+            preload="auto"
           />
         }
         <div className={`relative`}>
@@ -139,7 +140,7 @@ const TopHero: React.FC<TopHeroProps> = ({
                       <>
                         <FaAngleRight size={20} />
                         <Link
-                          href="/shutters-range"
+                          href="/shutters-range/"
                           className="font-bold capitalize"
                         >
                           Shutters Range
@@ -159,7 +160,7 @@ const TopHero: React.FC<TopHeroProps> = ({
                       <FaAngleRight size={20} />
                       {linkHref ? (
                         <Link
-                          href={linkHref}
+                          href={linkHref+"/"}
                           className="font-bold capitalize"
                         >
                           {linkText}

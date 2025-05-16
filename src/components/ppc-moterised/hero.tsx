@@ -9,7 +9,7 @@ import React from "react";
     <Container>
         <div className="relative px-2 mb-5 lg:mb-10">
             <Image
-              src="https://res.cloudinary.com/drqv25wjx/image/upload/v1742025439/leftvan_eh8ehs.png"
+              src="https://bncvidoes.s3.eu-north-1.amazonaws.com/images/vanleft.jpeg"
               alt="Van Left"
               width={800}
               height={500}
@@ -26,7 +26,7 @@ import React from "react";
             </Link></div>
               </div>
               <Image
-               src="https://res.cloudinary.com/drqv25wjx/image/upload/v1742024554/vanright_tvj54n.png"
+               src="https://bncvidoes.s3.eu-north-1.amazonaws.com/images/vanright.webp"
                 alt="Van right"
                 width={800}
                 height={500}

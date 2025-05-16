@@ -11,9 +11,10 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: #cdb7aa;
-    --primary-foreground: #e6d4ca;
-    --secondary: #9fac9b;
+    --primary: #3E3F42;
+    --primary-foreground: #FFFFF0;
+    --secondary: #F1B42F;
+    --light: #ffffff;
     --secondary-foreground: #bdc9bd;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -31,7 +32,6 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --h1-color: #000000;
-    --light: #f6efe9;
     --lightgrey: #e6e4e5;
     --btn-clr: #a9b4a4;
     --light-dark: #797d85;
@@ -68,9 +68,7 @@ input {
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-lightgrey;
-  }
+
 }
 
 html {
@@ -100,9 +98,11 @@ html {
 
 .gotham-light{
   font-family: var(--gothamlight) !important;
+  font-display: swap;
 }
 .gotham-bold{
   font-family: var(--gothambold) !important;
+  font-display: swap;
 }
 .link-underline,
 .link-footer {
@@ -461,4 +461,62 @@ padding-bottom: 60px;
     bottom: -5px !important;
     display: none;
   }
+}
+
+
+/* Style default react-slick arrows */
+.best_seller_slider .slick-prev, .slick-next {
+  width: 40px !important;
+  height: 40px !important;
+  z-index: 10;
+ background-color: #333 !important; /* black background */
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 1 !important; /* force visible */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Arrow icon color as white (the arrow is created by CSS borders in slick) */
+.best_seller_slider  .slick-prev::before,
+ .best_seller_slider  .slick-next::before {
+  /* font-size: 20px; */
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* Position adjustments */
+.best_seller_slider  .slick-prev {
+  left: 0px;
+  z-index: 20;
+}
+
+.best_seller_slider  .slick-next {
+  right: 0px;
+  z-index: 20;
+}
+
+/* Optional: Hover effect */
+.best_seller_slider  .slick-prev:hover,
+.best_seller_slider  .slick-next:hover {
+  background-color: #333 !important;
+}
+.motorizedblindcurtains .slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #F1B42F !important;
+    opacity: 1;
+}
+.motorizedblindcurtains .slick-dots li button:before {
+  color:#687477 !important;
+  font-size: 10px !important;
+  opacity: 1;
+}
+.motorizedblindcurtains .slick-dots li button {
+  width: 10px !important;
+  height: 10px !important;
+}
+.motorizedblindcurtains .slick-dots li {
+    width: 7px;
 }

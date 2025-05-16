@@ -2,8 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   skipTrailingSlashRedirect: true,
+  
   images: {
-      domains: ['furniturezone.pk', 'example.com', 'res.cloudinary.com', 'unsplash.com', 'lh3.googleusercontent.com'],
+      domains: ['furniturezone.pk', 'example.com', 'res.cloudinary.com', 'unsplash.com', 'lh3.googleusercontent.com',"bncvidoes.s3.eu-north-1.amazonaws.com"],
+
   }, 
   compiler: {
       removeConsole: process.env.NODE_ENV === 'production' ? true : false,

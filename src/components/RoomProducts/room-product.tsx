@@ -54,7 +54,7 @@ const RoomProducts = ({
       }
     }
   }, [pathname]);
-
+ console.log(relatedProducts,"relatedProducts")
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>(relatedProducts);
   const [productCategory, setProductCategory] = useState<string>('');
 
@@ -64,6 +64,8 @@ const RoomProducts = ({
 
     setFilteredProducts(filtered || []);
   };
+
+  
 
   useEffect(() => {
     if (!relatedProducts || relatedProducts.length === 0) {
@@ -84,7 +86,7 @@ const RoomProducts = ({
       }
       setProductCategory( filteredSubCategory?.category?.title || '');
     }
-  }, [title, products,]);
+  }, [title, products]);
 
   if (isNotFound) {
     return <NotFound />;

@@ -113,7 +113,7 @@ const BlogMain = ({ blogs }: { blogs: BlogInfo[] }) => {
               <div className="sm:mt-4 w-full sm:bg-[#FFFFFF30] p-2 max-sm:flex max-sm:justify-between max-sm:gap-2">
                 {subcategories.map((subcategory) => (
                   <Link
-                    href={`/blog/${subcategory.toLowerCase()}`}
+                    href={`/blog/${subcategory.toLowerCase()}/`}
                     key={subcategory}
                     className={`cursor-pointer block py-1  sm:px-4 text-16 max-sm:font-semibold sm:text-16 rounded-md mb-2 w-full text-center ${pathName === `/blog/${subcategory.toLowerCase()}`
                         ? 'bg-[#9FAC9B] text-white'

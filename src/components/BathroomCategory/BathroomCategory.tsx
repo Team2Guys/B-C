@@ -30,37 +30,67 @@ const BathroomCategory = ({
   updateSubCategoryName,
 }: BathroomCategoryProps) => {
   const pathname = usePathname();
+  // const getPath = (arr: IProduct, parent: string) => {
+  //   categoryTitle === 'none' ? (categoryTitle = parent) : categoryTitle;
+
+  //   const slug = ChangedProductUrl_handler(arr.title === updateSubCategoryName?.name ? updateSubCategoryName.url : arr.title);
+  //   const basePath =arr.href && typeof categoryTitle && categoryTitle?.toLowerCase() === 'string' ? `${window.origin}/${arr.href}` : `/${slug}`;
+
+  //   const path =
+  //     predefinedPaths[slug as keyof typeof predefinedPaths] || (slug === 'hotels-restaurants-blinds-curtains' ? basePath : 
+  //       `/${(parent === 'Shutters' || categoryTitle === 'Shutters') ? `${ parent?.toLowerCase() || categoryTitle?.toLowerCase()}-range`
+  //         : parent ? parent?.toLowerCase() : categoryTitle?.toLocaleLowerCase() }${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug) ? '/roller-blinds'
+  //         : ''
+  //       }/${slug}`);
+  //       console.log(path, "path", parent)
+  //   return path+"/";
+  // };
+
+
+
   const getPath = (arr: IProduct, parent: string) => {
     categoryTitle === 'none' ? (categoryTitle = parent) : categoryTitle;
-
-    const slug = ChangedProductUrl_handler(arr.title === updateSubCategoryName?.name ? updateSubCategoryName.url : arr.title);
-    const basePath =arr.href && typeof categoryTitle && categoryTitle?.toLowerCase() === 'string' ? `${window.origin}/${arr.href}` : `/${slug}`;
-
+  
+    const slug = ChangedProductUrl_handler(
+      arr.title === updateSubCategoryName?.name ? updateSubCategoryName.url : arr.title
+    );
+  
+    const basePath =
+      arr.href && typeof categoryTitle === 'string'? `${window.origin}/${arr.href}`: `/${slug}`;
+  
+      const isShutters =
+      (parent && parent.toLowerCase() === 'shutters') ||
+      (!parent && categoryTitle?.toLowerCase() === 'shutters');
+    
+    const baseCategory = isShutters
+      ? 'shutters-range'
+      : parent?.toLowerCase() || categoryTitle?.toLowerCase();
+    
     const path =
-      predefinedPaths[slug as keyof typeof predefinedPaths] || (slug === 'hotels-restaurants-blinds-curtains' ? basePath : `/${(parent ? parent === 'Shutters' : categoryTitle === 'Shutters') ? `${parent ? parent.toLowerCase() : categoryTitle?.toLowerCase()}-range`
-          : parent ? parent?.toLowerCase() : categoryTitle?.toLocaleLowerCase() }${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug) ? '/roller-blinds'
-          : ''
-        }/${slug}`);
-    return path;
+      predefinedPaths[slug as keyof typeof predefinedPaths] ||
+      (slug === 'hotels-restaurants-blinds-curtains'
+        ? basePath
+        : `/${baseCategory}${
+            ['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
+              ? '/roller-blinds'
+              : ''
+          }/${slug}`);
+  
+    return path + '/';
   };
+  
 
   let prod_finder_handler = (arr: IProduct) => {
     let product;
     for (let category of Categories_wise_Images) {
       if (!pathname.includes('commercial')) {
-        if (
-          category.sub_Category === subCategory
-        ) {
-          product = category.Product.find(
-            (value) => value.product_name === arr.title.trim(),
-          );
-          break;
+        if (category.sub_Category === subCategory) {
+          product = category.Product.find((value) => value.product_name === arr.title.trim());
+          return product;
         }
       } else {
         if (category.sub_Category === subCategory) {
-          product = category.Product.find((value) => value.product_name == arr.title.trim(),
-            console.log("product")
-          );
+          product = category.Product.find((value) => value.product_name == arr.title.trim());
           break;
         }
       }
@@ -71,7 +101,6 @@ const BathroomCategory = ({
   const currentCategory = Categories_wise_Images.find((category) =>category.sub_Category === subCategory
   );
   const static_Title = currentCategory?.static_Title;
-
 
   return (
     <>
@@ -97,9 +126,10 @@ const BathroomCategory = ({
           ))
           : filteredProducts &&
           filteredProducts.map((arr: IProduct, index: number) => {
-            const parent = arr.category?.title;
+            const parent = arr.category?.title || categoryTitle;
             let product_Images = prod_finder_handler(arr);
-            console.log(product_Images, "product_Images =");
+            let findModel = arr?.modelDetails?.find((value)=>value?.name?.trim()?.toLowerCase()===subCategory?.trim()?.toLowerCase())
+  
             return (
               <div
                 className="flex flex-col md:items-center sm:items-start space-y-2 text-center sm:text-start w-full  pb-3 shadow-md md:pb-0 md:shadow-none  justify-between"
@@ -108,9 +138,7 @@ const BathroomCategory = ({
                 <div>
                   <Image
                     className="w-full h-[280px] xs:h-[300px] sm:h-[350px] md:h-[450px] lg:h-[500px] rounded-md"
-                    src={
-                      arr.posterImage.imageUrl
-                    }
+                    src={product_Images?.Imagesurl || arr?.subCategoryImage?.imageUrl || arr.posterImage.imageUrl }
                     height={774}
                     width={1032}
                     alt={product_Images ? product_Images.altText : arr.title}
@@ -119,21 +147,20 @@ const BathroomCategory = ({
                   <h2 className="font-bold  sm:text-xl md:text-2xl text-center mt-2">
                     {arr.title}
                   </h2>
-                  {product_Images && (
                     <p
                       className="leading-6 sm:leading-9 text-xs sm:text-base text-[#797D85] font-normal w-full"
                       dangerouslySetInnerHTML={{
-                        __html: product_Images.desc,
+                        __html: findModel?.detail || product_Images?.desc || "",
                       }}
                     ></p>
-                  )}
+                
                 </div>
                 <div>
                   <Link
-                    href={getPath(arr, parent)}
+                  href={`${getPath(arr, parent)}`}
                     className="font-bold text-xs sm:text-base bg-secondary text-white hover:bg-primary w-fit px-2 py-2 rounded-md flex items-center justify-center text-center mx-auto"
                   >
-                    View Our {arr.title}
+                    View Our {arr.title} 
 
                   </Link>
                 </div>

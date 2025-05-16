@@ -25,6 +25,26 @@ export const fetchProducts = async () => {
 
 };
 
+
+export const fetchReviews = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews`,
+      {
+        next: { tags: ['reviews'] },
+      },
+    );
+    const reviews = await response.json();
+    return reviews;
+  } catch (error) {
+    console.log(error)
+  }
+
+
+
+}
+
+
 export const fetchBlogs = async () => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
@@ -42,19 +62,6 @@ export const fetchBlogs = async () => {
 
 };
 
-export const fetchProductBySlug = async (slug: string) => {
-  try {
-    const response = await fetch(`/api/products?slug=${slug}`, {
-      next: { tags: ['products'] },
-    },);
-    if (!response.ok) {
-      throw new Error('Error fetching product');
-    }
-    return response.json();
-  } catch (error) {
-    console.log(error)
-  }
-};
 
 export const fetchCategories = async () => {
   try {
@@ -124,35 +131,7 @@ export const fetchAppointments = async (token: string | undefined): Promise<IApp
   }
 };
 
-export const PostAppointments = async (p0: {
-  name: string;
-  phone_number: string;
-  area: string;
-  email: string;
-  whatsapp_number: string;
-  windows: string;
-  prefered_Date: Date;
-  prefered_contact_method: string;
-  how_user_find_us: string;
-  user_query: string;
-  productoption: {
-    shutters?: boolean;
-    curtains?: boolean;
-    blinds?: boolean;
-    roller_blinds?: boolean;
-    wooden_blinds?: boolean;
-    other_blinds?: boolean;
-    plantation_bhutters?: boolean;
-    others?: boolean;
-  };
-  other: string;
-}): Promise<IAppointments[]> => {
-  console.log(p0, 'p0');
-  const response = await axios.post(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/appointments/AddAppointment`,
-  );
-  return response.data;
-};
+
 
 export const getAllAdmins = async (token:any) => {
   try {
@@ -202,19 +181,6 @@ export const filterProd = (
 };
 
 
-
-export const fetchReviewsHandler = async (setReviews: any) => {
-
-  try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/fetchReviewsHandler`);
-    console.log(response.data)
-    setReviews(response.data);
-    return
-  } catch (error) {
-    console.error('Error fetching admin records:', error);
-    throw error;
-  }
-}
 
 export const admin_del_handler =async(id:any)=>{
   try {

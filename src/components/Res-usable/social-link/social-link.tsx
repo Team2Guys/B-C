@@ -2,8 +2,6 @@ import Link from 'next/link';
 import React from 'react';
 import { ReactNode } from 'react';
 import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
-import Image from 'next/image';
-import { WhatsAppInfo } from 'data/data';
 
 interface SocialDataType {
   href: string;
@@ -12,7 +10,7 @@ interface SocialDataType {
   plateform?: string;
 }
 
-export const SocialData: SocialDataType[] = [
+const SocialData: SocialDataType[] = [
   {
     href: 'https://www.facebook.com/blindsandcurtainsdubai',
     icon: <FaFacebook size={28} />,
@@ -32,12 +30,7 @@ export const SocialData: SocialDataType[] = [
     alt: 'Instagram',
     plateform: 'Instagram',
   },
-  {
-    href: `https://wa.me/${WhatsAppInfo.number.replaceAll(' ', '')}`,
-    icon: <Image className='h-7 w-7' src="/assets/images/icon/whats.png" alt="Whatsapp" width={50} height={50} />,
-    alt: 'Whatsapp',
-    plateform: 'Whatsapp',
-  },
+
 ];
 
 const SocialLink: React.FC = () => {
@@ -45,9 +38,9 @@ const SocialLink: React.FC = () => {
     <div className="flex gap-3 items-center text-white">
       {SocialData.map((social, index) => (
         <Link key={index} href={social.href} target="_blank" aria-label={`Visit our ${social.plateform} page`}>
-          <div className="" >
-            <div className={`flex justify-center items-center rounded-full h-7 w-7 ${social.href.includes("pinterest.com") || social.href.includes("instagram.com") ? 'border border-white' : ''}`}>{social.icon}</div>
-          </div>
+
+          <div className="flex justify-center items-center rounded-full h-[28px] w-[28px] text-secondary  border border-secondary">{social.icon}</div>
+
         </Link>
       ))}
     </div>

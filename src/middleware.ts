@@ -1,5 +1,5 @@
 // middleware.ts
-import { newblogPostUrl } from 'data/urls';
+import { newblogPostUrl } from 'data/redirect_pages';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
@@ -8,22 +8,18 @@ export function middleware(req: NextRequest) {
     const { pathname, origin } = req.nextUrl;
     const splited = pathname.split('/')[1];
     const fullUrl = req.url;
+    
     const redirectedProduct = splited !== 'school-blinds' && newblogPostUrl.find((prod) => {
-        return prod.url+"/" === pathname.toLowerCase();
-    });
-    console.log('Pathname:', pathname, splited);
-    console.log('Full URL:', redirectedProduct);
-
+        return prod.url + "/" === pathname.toLowerCase();
+    });    
     if (!fullUrl.endsWith('/')) {
-        const normalizedPathname = pathname.endsWith('/') ? pathname : `${pathname}/`;
-        const urlWithSlash = new URL(normalizedPathname, origin);
-        console.log('Appending trailing slash, redirecting to:', urlWithSlash.href, 'from:', pathname);
         return NextResponse.redirect(
-            new URL(`${req.nextUrl.pathname}/`, req.nextUrl),301
-          )
+            new URL(`${req.nextUrl.pathname}/`, req.nextUrl), 301
+        )
     }
     if (redirectedProduct) {
-        const absoluteUrl = new URL(redirectedProduct.redirectUrl, origin);
+        const redirectPath = redirectedProduct.redirectUrl == '/' ? '/' : redirectedProduct.redirectUrl + '/';
+        const absoluteUrl = new URL(redirectPath, origin);
         return NextResponse.redirect(absoluteUrl, 301);
     }
 
@@ -34,6 +30,6 @@ export function middleware(req: NextRequest) {
 
 export const config = {
     matcher: [
-      '/((?!api|_next|.*\\.).+)',
+        '/((?!api|_next|.*\\.).+)',
     ],
 };

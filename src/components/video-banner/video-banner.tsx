@@ -75,7 +75,7 @@ const VideoBanner: React.FC<BannerProps> = ({
                 <h1 className=" text-14 sm:text-17 font-bold capitalize tracking-widest">
                   {selectedPage?.heading}
                 </h1>
-                <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%] uppercase">
+                <p className="mt-2 sm:mt-4 font-normal text-12 lg:text-16 sm:text-14 w-[96%]">
                   {selectedPage?.paragraph}
                 </p>
                 {showButton ? (
@@ -84,7 +84,7 @@ const VideoBanner: React.FC<BannerProps> = ({
                     aria-label='Book A Free Home Design Visit'
                         aria-hidden="true"
                       className="uppercase bg-secondary hover:bg-primary text-12 md:text-16 font-medium shadow-md text-white rounded-full px-4 py-3"
-                      href={'/request-appointment'}
+                      href={'/request-appointment/'}
                     >
                       Book A Free Home Design Visit
                     </Link>

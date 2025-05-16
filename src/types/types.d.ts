@@ -85,6 +85,9 @@ export interface IProduct {
   Meta_Title?: string;
   Canonical_Tag?: string;
   Meta_description?: string;
+  subCategoryImage?: Image
+  subcategory_description?:string
+  modelDetails?:{name:string, detail:string}[]
   
 }
 
@@ -315,4 +318,39 @@ export interface relativeProps {
 export interface ImageGalleryProps {
   images: ImageData[];
   columns?: number;
+}
+
+export interface SliderSliderItem {
+  image: string;
+  title: string;
+  price: string;
+}
+
+export interface Reel {
+  videoUrl: string;
+}
+export interface StepItem {
+  step: string;
+  title: string;
+   iconimage:string;
+  description: string;
+}
+
+export interface WorkingProcessContent {
+  heading: string;
+ sliderImages:string[];
+  subheading: string;
+  videoUrl: string;
+  steps: StepItem[];
+}
+export interface MBCFeature {
+  icon: string;
+  label: string;
+}
+
+export interface MotorizeBlindData {
+  heading: string;
+  videoUrl: string;
+  buttons: { label: string; link: string }[];
+  features: MBCFeature[];
 }

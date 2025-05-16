@@ -4,8 +4,8 @@ import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import CommercialByRoom from 'components/RoomProducts/commercial-by-room';
 import SubCategoryPageSkeleton from 'components/Skeleton/SubCategoryPageSkeleton';
 import { filterProd } from 'config/fetch';
+import { CommercialSchemaMap } from 'data/commercial-schema';
 import { generateSlug } from 'data/data';
-import { schemaMap } from 'data/products-schema';
 import { ChangedProductUrl, urls } from 'data/urls';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
@@ -27,20 +27,15 @@ const CommercialProduct = ({
   const [filteredProduct, setfilteredProduct] = useState<
     IProduct | undefined
   >();
-  const [filteredSubCategory, setfilteredSubCategory] = useState<
-    ICategory | undefined
-  >();
+  const [filteredSubCategory, setfilteredSubCategory] = useState<ICategory | undefined >();
   const path = usePathname();
-
-
   const CategoryFiilterHandler = () => {
     try {
       setloading(true);
-      const filteredSubCategory: ICategory | undefined = subCategories?.find(
-        (sub) =>
-          generateSlug(sub.title) === ChangedProductUrl(product as string),
+      const filteredSubCategory: ICategory | undefined = subCategories?.find((sub) =>generateSlug(sub.title) === ChangedProductUrl(product as string) && sub.category?.title?.toLowerCase()?.trim() =="commercial",
       );
       const filteredProduct = filterProd(products, product, [12]);
+      
 
       setfilteredProduct(filteredProduct);
       setfilteredSubCategory(filteredSubCategory);
@@ -72,20 +67,19 @@ const CommercialProduct = ({
   }
 
     const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
-    const matchedSchema = schemaMap[productTitle];
-  
-    console.log(productTitle,"filteredProduct", matchedSchema)
+    const matchedSchema = CommercialSchemaMap[productTitle];
   return (
     <>
-      {loading ? (
-        <SubCategoryPageSkeleton />
-      ) : filteredSubCategory ? (
-        <>
-          {matchedSchema && (
+    {matchedSchema && (
         <Script type="application/ld+json" id="blinds-json-ld">
           {JSON.stringify(matchedSchema)}
         </Script>
       )}
+      {loading ? (
+        <SubCategoryPageSkeleton />
+      ) : filteredSubCategory ? (
+        <>
+          
           <CommercialByRoom
             title={`${filteredSubCategory.title}`}
             description={`${filteredSubCategory.description}`}

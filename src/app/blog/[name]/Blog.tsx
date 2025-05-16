@@ -124,14 +124,14 @@ const Blog = ({
             </Link>
             <FaAngleRight size={20} />
             <Link
-              href={`/blog`}
+              href={`/blog/`}
               className="flex items-center gap-2 text-12 xs:text-14 font-bold capitalize"
             >
               Blog
             </Link>
             <FaAngleRight size={20} />
             <Link
-              href={`/blog/${blog?.category.toLowerCase()}`}
+              href={`/blog/${blog?.category.toLowerCase()}/`}
               className="flex items-center gap-2 text-12 xs:text-14 font-bold capitalize"
             >
               {blog?.category}
@@ -174,7 +174,7 @@ const Blog = ({
                 Related Articles
               </h3>
               <Link className="text-14 font-semibold rounded-full py-2 px-4 text-white bg-secondary hover:bg-primary xs:text-16 sm:text-18"
-                href={`/blog/${blog?.category.toLowerCase()}`}>See All</Link>
+                href={`/blog/${blog?.category.toLowerCase()}/`}>See All</Link>
             </div>
 
             {filterRelatedPosts && filterRelatedPosts?.length >= 2 && <OurBlog Blogdata={filterRelatedPosts

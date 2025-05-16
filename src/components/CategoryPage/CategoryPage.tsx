@@ -61,7 +61,6 @@ const CategoryPage = ({ title, relatedProducts, products, categories , subCatego
   const filteredProductList = products?.filter(product =>
     desiredProductTitles.includes(product.title)
   );
-
   return (
     <div>
       <TopHero title={title} pagename={pathname} image={bgBreadcrum.src} />
@@ -87,6 +86,8 @@ const CategoryPage = ({ title, relatedProducts, products, categories , subCatego
                     height={500}
                     width={500}
                     alt={product.title}
+                    priority 
+                    loading='eager'
                   />
                 )}
               </div>
@@ -110,11 +111,7 @@ const CategoryPage = ({ title, relatedProducts, products, categories , subCatego
 
                 <div className="mt-5 sm:mt-10 mx-auto">
                   <Link
-                    href={`/blinds/roller-blinds/${generateSlug(
-                      product.title === 'Sunscreen/Transparent Blinds'
-                        ? 'sunscreen-roller-blinds'
-                        : product.title
-                    )
+                    href={`/blinds/roller-blinds/${generateSlug(product.title === 'Sunscreen/Transparent Blinds'? 'sunscreen-roller-blinds/': product.title)+"/"
                       }`}
                     className="px-6 sm:px-8 py-4 bg-secondary rounded-md text-white hover:bg-primary max-xs:text-14"
                   >
