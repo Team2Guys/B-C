@@ -12,7 +12,6 @@ import Head from 'next/head';
 import VisitModal from 'components/VisitModal';
 import { Roboto } from 'next/font/google';
 import { Roboto_Serif } from 'next/font/google';
-import { I18nProvider } from 'components/i18n/i18n-provider';
 
 
 export const roboto = Roboto({
@@ -116,8 +115,6 @@ export default function RootLayout({
 
 
           <PathnameWrapper>
-            <I18nProvider>
-
 
               <VisitModal />
 
@@ -125,7 +122,7 @@ export default function RootLayout({
               <Callbutton />
               <WhatsIcon />
               <ToastContainer autoClose={3000} />
-            </I18nProvider>
+   
           </PathnameWrapper>
         </body>
       </html>
