@@ -73,9 +73,18 @@ input {
 
 }
 
+.VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate {
+  visibility: hidden !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  top: 0 !important;
+}
+
 
 .ant-select-single.ant-select-show-arrow .ant-select-selection-item,
 .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
