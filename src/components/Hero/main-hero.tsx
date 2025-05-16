@@ -83,7 +83,7 @@ const MainHero = () => {
               <StarRatingBar key={r.rating} rating={r.rating} percentage={r.percent} />
             ))}
            </div>
-           <Link href="/request-appointment" className="bg-secondary text-primary font-semibold text-xl py-2 px-6 rounded-md w-fit block text-center mx-auto mt-8">Book A Free Visit</Link>
+           <Link target="_blank" href="https://www.google.com/maps/place/Blinds+And+Curtains+Dubai/@25.1177148,55.2356858,984m/data=!3m1!1e3!4m8!3m7!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!9m1!1b1!16s%2Fg%2F11bbt9c0yz?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D" className="bg-secondary text-primary font-semibold text-xl py-2 px-6 rounded-md w-fit block text-center mx-auto mt-8">Leave A Google Review</Link>
 
            <hr/>
            </div>

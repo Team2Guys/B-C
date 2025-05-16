@@ -15,7 +15,7 @@ const OurClient = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   return (
-    <Container className='mb-16'>
+    <Container className=' mt-10'>
       <div className=" pb-5 pt-4 max-w-screen-2xl mx-auto">
         <h2 className="text-center font-bold text-2xl xs:text-xl sm:text-2xl lg:text-4xl xl:text-[44px] text-primary capitalize font-robotoSerif">
           Trusted By Many International Brands

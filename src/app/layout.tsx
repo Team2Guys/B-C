@@ -48,8 +48,6 @@ export default function RootLayout({
 
           {/* Pinterest Domain Verification */}
           <meta name="p:domain_verify" content="58b7c4e018c53c00c2cd12f5f838b47a" />
-
-
         </Head>
         <Script id="google-translate-init" strategy="afterInteractive">
           {`
