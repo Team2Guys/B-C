@@ -1,70 +1,52 @@
 "use client"
 import { OurClientImage } from 'data/data';
+import Container from "components/Res-usable/Container/Container";
 import Image from 'next/image';
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css/pagination';
-import { Autoplay, } from 'swiper/modules';
+import { useEffect, useState } from 'react';
+import ClientLogoGridSlider from './OurClientSlider';
 
 const OurClient = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640); // sm: 640px
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   return (
-    <>
+    <Container className='mb-16'>
       <div className=" pb-5 pt-4 max-w-screen-2xl mx-auto">
-        <h2 className="text-center font-bold text-xl uppercase tracking-widest font-gotham">
-          our clients
+        <h2 className="text-center font-bold text-2xl xs:text-xl sm:text-2xl lg:text-4xl xl:text-[44px] text-primary capitalize font-robotoSerif">
+          Trusted By Many International Brands
         </h2>
-        <p className="text-center text-sm tracking-widest lg:w-2/5 mx-auto px-10 pt-3 font-gothamlight ">
-          Our goal is to do one thing and do it pretty well. That&apos;s why we offer the most reliable products on the market.
+        <p className="text-center text-15 lg:text-lg xl:text-2xl mx-auto px-2 xs:px-10 pt-3 font-roboto ">
+          Premium, made-to-measure soft furnishings with the finest materials and expert craftsmanship.
         </p>
       </div>
-      <div className="bg-white">
-        <div className="slider-container max-w-screen-2xl mx-auto">
-          <Swiper
-            loop={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
 
-            modules={[Autoplay]}
-            className="mySwiper"
-            breakpoints={{
-              440: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-              },
-              600: {
-                slidesPerView: 3,
-                spaceBetween: 5,
-              },
-              1000: {
-                slidesPerView: 5,
-                spaceBetween: 30,
-              },
-            }}
-          >
-            {OurClientImage.map((image: any, index: any) => (
-              <SwiperSlide className=" py-4" key={index}>
-                <div
-                  className="active:outline-none shadow-none focus:border-transparent active:border-transparent border border-white active:border-none"
-                  key={index}
-                >
-                  <Image
-                    key={index}
-                    className="w-full px-5 h-10 object-contain active:border-none active:outline-none shadow-none focus:border-transparent active:border-transparent brightness-100 contrast-50 saturate-0 blur-0 hue-rotate-0"
-                    src={image.src}
-                    alt={image.alt}
-                    width={400}
-                    height={400}
-                    loading='lazy'
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+      {isMobile ?
+        <div className="mt-4">
+          <ClientLogoGridSlider OurClientImage={OurClientImage} />
         </div>
-      </div>
-    </>
+        : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 xs:gap-5">
+            {OurClientImage.map((image: any, index: any) => (
+              <div className="bg-primary h-24 p-5 flex justify-center items-center" key={index}>
+                <Image
+                  className="object-contain !relative"
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  loading='lazy'
+                />
+
+              </div>
+            ))}
+          </div>
+        )
+      }
+    </Container>
   );
 };
 
