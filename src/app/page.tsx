@@ -14,6 +14,10 @@ import Script from 'next/script';
 import { schema } from 'data/schema';
 import MainHero from 'components/Hero/main-hero';
 import logo from '../../public/assets/images/blind-curtains-dubai/blinds-curtains-dubai1.png';
+import SellerSlider from 'components/BestSellerSlider/SellerCard';
+import SimpleSteps from 'components/SimpleSteps/SimpleSteps';
+import MotorizeBlindCurtain from 'components/MotorizedBlindCurtains/MotorizedBlindCurtains';
+import VideoReelsSlider from 'components/VideoSlider/VideoSlider';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blindsandcurtains.ae/"),
@@ -50,9 +54,14 @@ export default async function Home() {
       )}
 
       <MainHero />
+      <SellerSlider />
+      <SimpleSteps/>
+      <VideoReelsSlider />
+      <MotorizeBlindCurtain/>
       <Review_banner />
       <HomeCard categories={categories} />
       <BlindsAndCurtainssection />
+      
       <Banner {...banners.Home} />
       <FeatureProduct products={products} categories={categories} />
       <VideoAutomation />

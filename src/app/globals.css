@@ -40,10 +40,11 @@
     --para-light: #666666;
     --bdr-grey: #9d9d9d;
     --dark-grey: #555555;
-    --gothamlight:'gothamlight', 'gothamlight Fallback';
-    --gothambold:'gothamGothamBold', 'gothamGothamBold Fallback'
+    --gothamlight: 'gothamlight', 'gothamlight Fallback';
+    --gothambold: 'gothamGothamBold', 'gothamGothamBold Fallback'
   }
 }
+
 .light {
   --table: white;
   --tabletext: black;
@@ -64,6 +65,7 @@
 input {
   outline: none;
 }
+
 @layer base {
   * {
     @apply border-border;
@@ -96,14 +98,16 @@ html {
   background-color: var(--primary);
 }
 
-.gotham-light{
+.gotham-light {
   font-family: var(--gothamlight) !important;
   font-display: swap;
 }
-.gotham-bold{
+
+.gotham-bold {
   font-family: var(--gothambold) !important;
   font-display: swap;
 }
+
 .link-underline,
 .link-footer {
   position: relative;
@@ -144,36 +148,45 @@ html {
   background-color: var(--table);
   color: var(--tabletext);
 }
-.ant-table-wrapper .ant-table-tbody .ant-table-row > .ant-table-cell-row-hover {
+
+.ant-table-wrapper .ant-table-tbody .ant-table-row>.ant-table-cell-row-hover {
   background-color: var(--hover) !important;
   color: var(--h1-color) !important;
 }
-.ant-table-wrapper .ant-table-thead > tr > th,
-.ant-table-wrapper .ant-table-thead > tr > td {
+
+.ant-table-wrapper .ant-table-thead>tr>th,
+.ant-table-wrapper .ant-table-thead>tr>td {
   background: var(--table) !important;
   color: var(--tabletext);
 }
+
 .ant-table-wrapper .ant-table-filter-trigger {
   color: var(--tabletext);
 }
+
 .Hero-slider .slick-dots {
   bottom: -30px !important;
   /* left: -35px !important; */
 }
+
 .custom-moblie-sheet .ant-drawer-close {
   color: black !important;
   font-size: 20px !important;
 }
+
 .custom-moblie-sheet .ant-drawer-body {
   padding: 0px 30px;
 }
+
 .custom-moblie-sheet .ant-drawer-header {
   border: 0;
   padding: 16px 20px;
 }
+
 .custom-collapse .ant-collapse-content-box {
   padding-bottom: 0px !important;
 }
+
 .custom-collapse .ant-collapse-header {
   padding: 0 !important;
   font-weight: 400;
@@ -181,14 +194,17 @@ html {
   justify-content: space-between;
   font-size: 16px;
 }
+
 .custom-collapse .ant-collapse-header .ant-collapse-header-text {
   width: fit-content;
   margin: 0 !important;
 }
+
 .custom-collapse .ant-collapse-header .ant-collapse-expand-icon {
   order: 2 !important;
   padding: 0 !important;
 }
+
 .custom-panel {
   border-bottom: 0px !important;
 }
@@ -196,19 +212,23 @@ html {
 .custom-panel .ant-collapse-header {
   border-bottom: 1px solid #0000002a;
 }
+
 .custom-panel .ant-collapse-header-text {
   padding-bottom: 6px;
 }
+
 .footer-links-wrapper .custom-panel .ant-collapse-header {
   border-bottom: 1px solid #ffffff4d;
   padding-right: 20px !important;
   padding-left: 10px !important;
 }
- li button:before {
+
+li button:before {
   font-size: 19px !important;
   color: #fff !important;
   opacity: 0.5;
 }
+
 .Hero-slider .slick-dots .slick-active :before {
   font-size: 19px !important;
 }
@@ -226,41 +246,52 @@ html {
   height: 30px !important;
   width: 30px !important;
 }
+
 .custom-color-arrow.slick-next {
   right: -50px !important;
 }
+
 .custom-color-arrow.slick-prev {
   left: -50px !important;
 }
+
 .color-box-wrapper {
   display: flex !important;
 }
+
 .clip-custom-shape {
   clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 10% 51%, 0% 0%);
 }
+
 .Hero-slider .slick-track:before,
 .Hero-slider .slick-track:after {
   display: none;
 }
+
 .css-t3ipsp-control {
   box-shadow: 0 0 0 1px black !important;
 }
+
 .css-t3ipsp-control:hover {
   border-color: black !important;
 }
+
 .happy_customer .slider-container .slick-dots li button:before {
   font-size: 19px !important;
   color: #bdc9bd !important;
   top: 40px;
 }
+
 .custom-datepicker .react-datepicker-wrapper {
   width: 100%;
 }
+
 @media (max-width: 640px) {
   .Hero-slider:not(.custom-color-silder) .slick-dots {
     display: none !important;
   }
 }
+
 @media (max-width: 600px) {
   .happy_customer .slider-container .slick-dots li button:before {
     top: 0px;
@@ -274,6 +305,7 @@ html {
 .css-t3ipsp-control {
   border-color: var(--primary) !important;
 }
+
 .css-t3ipsp-control:active {
   border-color: var(--primary) !important;
 }
@@ -286,24 +318,29 @@ html {
   border-radius: 50%;
   margin: 0 5px;
 }
+
 .mySwiper .swiper-pagination-bullet-active {
   background-color: #a3b4a2;
 }
+
 .ant-image {
   position: relative;
   width: 100% !important;
   height: 280px !important;
 }
+
 .ant-image-img {
   width: 100% !important;
   height: 280px !important;
   object-fit: cover !important;
   object-position: right bottom !important;
 }
+
 .ant-image .ant-image-mask {
   border-radius: 16px !important;
   width: 100% !important;
 }
+
 .ant-image .ant-image-mask:hover {
   border-radius: 16px !important;
   width: 100% !important;
@@ -315,6 +352,7 @@ html {
     width: 100% !important;
     height: 250px !important;
   }
+
   .ant-image-img {
     width: 100% !important;
     height: 250px !important;
@@ -327,6 +365,7 @@ html {
     width: 100% !important;
     height: 200px !important;
   }
+
   .ant-image-img {
     width: 100% !important;
     height: 200px !important;
@@ -338,27 +377,31 @@ html {
     width: 100% !important;
     height: 12rem !important;
   }
+
   .ant-image .ant-image-img {
     width: 100% !important;
     height: 12rem !important;
   }
-  .ant-image-preview-root .ant-image-preview-img{
+
+  .ant-image-preview-root .ant-image-preview-img {
     max-width: 96% !important;
   }
 }
 
-.ant-select-dropdown
-  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+.ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
   background-color: var(--primary);
 }
+
 .ant-select-single.ant-select-open .ant-select-selection-item {
   font-size: larger !important;
 }
+
 .ant-select-single.ant-select-show-arrow .ant-select-selection-item,
 .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
   font-size: large !important;
   font-weight: 600;
 }
+
 :where(.css-dev-only-do-not-override-1c0na6j).ant-select-dropdown {
   z-index: 20 !important;
 }
@@ -395,13 +438,16 @@ html {
 .estimator-scrollbar::-webkit-scrollbar {
   width: 8px;
 }
+
 .estimator-scrollbar::-webkit-scrollbar-thumb {
   background-color: #d9d9d9;
   border-radius: 10px;
 }
+
 .estimator-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #c1c0c0;
 }
+
 .estimator-scrollbar::-webkit-scrollbar-track {
   background: #fafafa;
 
@@ -411,9 +457,11 @@ html {
 .ant-modal-mask {
   background-color: rgb(0 0 0 / 18%) !important;
 }
+
 .ant-checkbox-inner {
   border-color: #cdb7aa !important;
 }
+
 .ant-checkbox-checked .ant-checkbox-inner {
   background-color: #cdb7aa !important;
 }
@@ -434,7 +482,7 @@ html {
   background-color: #ff5858 !important;
 }
 
- ol{
+ol {
   list-style-type: decimal;
   margin-left: 20px;
 }
@@ -444,21 +492,102 @@ html {
 }
 
 
-.slider-text::-webkit-scrollbar{
+.slider-text::-webkit-scrollbar {
   width: 0 !important;
 }
 
-.testimonial_slider.swiper-horizontal{
-padding-bottom: 60px;
+.testimonial_slider.swiper-horizontal {
+  padding-bottom: 60px;
 }
 
-.hero-pagination .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+.hero-pagination .swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 30px !important;
 }
 
+
+.custom-dot {
+  display: inline-block !important;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--primary) !important;
+  margin: 0 4px;
+  transition: background-color 0.3s;
+  opacity: 100 !important;
+}
+
+.custom-dot.swiper-pagination-bullet-active {
+  background-color: var(--secondary) !important;
+}
+
 @media only screen and (max-width: 768px) {
-  .hero-pagination .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+
+  .hero-pagination .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal>.swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: -5px !important;
     display: none;
   }
+}
+
+
+/* Style default react-slick arrows */
+.best_seller_slider .slick-prev, .slick-next {
+  width: 40px !important;
+  height: 40px !important;
+  z-index: 10;
+ background-color: #333 !important; /* black background */
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 1 !important; /* force visible */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Arrow icon color as white (the arrow is created by CSS borders in slick) */
+.best_seller_slider  .slick-prev::before,
+ .best_seller_slider  .slick-next::before {
+  /* font-size: 20px; */
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* Position adjustments */
+.best_seller_slider  .slick-prev {
+  left: 0px;
+  z-index: 20;
+}
+
+.best_seller_slider  .slick-next {
+  right: 0px;
+  z-index: 20;
+}
+
+/* Optional: Hover effect */
+.best_seller_slider  .slick-prev:hover,
+.best_seller_slider  .slick-next:hover {
+  background-color: #333 !important;
+}
+.motorizedblindcurtains .slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #F1B42F !important;
+    opacity: 1;
+}
+.motorizedblindcurtains .slick-dots li button:before {
+  color:#687477 !important;
+  font-size: 10px !important;
+  opacity: 1;
+}
+.motorizedblindcurtains .slick-dots li button {
+  width: 10px !important;
+  height: 10px !important;
+}
+.motorizedblindcurtains .slick-dots li {
+    width: 7px;
 }
