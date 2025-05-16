@@ -65,11 +65,7 @@ export default function RootLayout({
           src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
           strategy="afterInteractive"
         />
-        <Script
-          strategy="lazyOnload"
 
-          src="https://cdn.trustindex.io/loader.js?050056e461bc440ede568cd2d0b"
-        />
         {/* Microsoft Clarity */}
         <Script
 
