@@ -1,86 +1,118 @@
-'use client';
+"use client"
 
-import Container from "components/Res-usable/Container/Container";
-import { reelsData } from "data/SellerSlider";
-import React, { useEffect, useState } from "react";
-
-const slideInterval = 5000;
+import React, { useState, useRef, useEffect } from "react"
+import { reelsData } from "data/SellerSlider"
+import Container from "components/Res-usable/Container/Container"
 
 export default function VideoReelsSlider() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(2)
+  const totalVideos = reelsData.length
 
+  const touchStartX = useRef<number | null>(null)
+  const touchEndX = useRef<number | null>(null)
+  const minSwipeDistance = 50
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % reelsData.length);
-    }, slideInterval);
-    return () => clearInterval(interval);
-  }, []);
+      goToNext()
+    }, 3000)
+
+    return () => clearInterval(interval) 
+  }, [activeIndex])
+  const goToPrevious = () =>
+    setActiveIndex((prev) => (prev === 0 ? totalVideos - 1 : prev - 1))
+
+  const goToNext = () =>
+    setActiveIndex((prev) => (prev === totalVideos - 1 ? 0 : prev + 1))
+
+  const goToSlide = (index: number) => setActiveIndex(index)
+
+  const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.changedTouches[0].clientX
+  }
+
+  const onTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchEndX.current = e.changedTouches[0].clientX
+
+    if (touchStartX.current !== null && touchEndX.current !== null) {
+      const distance = touchStartX.current - touchEndX.current
+      if (distance > minSwipeDistance) {
+        goToNext()
+      } else if (distance < -minSwipeDistance) {
+        goToPrevious()
+      }
+    }
+
+    touchStartX.current = null
+    touchEndX.current = null
+  }
+
+  const getPositionClass = (index: number) => {
+    const left2 = (activeIndex - 2 + totalVideos) % totalVideos
+    const left1 = (activeIndex - 1 + totalVideos) % totalVideos
+    const right1 = (activeIndex + 1) % totalVideos
+    const right2 = (activeIndex + 2) % totalVideos
+
+    if (index === activeIndex) {
+      return "z-30 scale-100 opacity-100"
+    } else if (index === left1) {
+      return "z-20 scale-[0.85] opacity-1 -translate-x-[60%]"
+    } else if (index === left2) {
+      return "z-10 scale-[0.75] opacity-1 -translate-x-[110%]"
+    } else if (index === right1) {
+      return "z-20 scale-[0.85] opacity-1 translate-x-[60%]"
+    } else if (index === right2) {
+      return "z-10 scale-[0.75] opacity-1 translate-x-[110%]"
+    } else {
+      return "hidden"
+    }
+  }
 
   return (
-    <Container className="">
-      <div className="flex flex-col md:flex-row items-center">
-        {/* Left Side Fixed Content */}
-        <div className="md:w-2/3 bg-[#3E3F42] text-white rounded-3xl p-8 md:p-20 flex flex-col justify-center mb-8 md:mb-0">
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 leading-snug">
-            Press Play on Style Quick reels. <br /> Big inspiration.
-          </h2>
-          <p className="text-sm md:text-base mb-6 leading-relaxed">
-            Step into real homes across the UAE and witness stunning before-and-after window makeovers. From motorised magic to elegant fabric falls, our reels show how we bring life to every window.
-          </p>
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded px-5 py-3 w-max transition">
-            Watch More Reels
-          </button>
-        </div>
+    <Container className="relative py-16">
+      <div
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        className="relative flex items-center justify-center sm:h-[700px] h-[300px] overflow-hidden"
+      >
+        {reelsData.map((item, index) => (
+          <div
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`absolute transition-all duration-500 ease-in-out cursor-pointer ${getPositionClass(
+              index
+            )}`}
+          >
+            <div className="relative sm:w-[500px] sm:h-[700px] w-[180px] h-[280px] rounded-2xl overflow-hidden shadow-lg"
+>
+              <video
+                key={item.videoUrl}
+                src={item.videoUrl}
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
 
-        {/* Right Side Video Slider */}
-        <div className="md:w-1/3 relative h-[60vh] md:h-[724px] overflow-visible rounded-ful max-w-full">
-          {reelsData.map((reel, index) => {
-            let classNames =
-              "absolute top-0 left-0 rounded-xl bg-gray-500 overflow-hidden shadow-2xl transition-transform duration-1000 ease-in-out cursor-pointer flex flex-col";
+    
 
-            if (index === currentIndex) {
-              // Active slide: use responsive widths/heights and positioning
-              classNames +=
-                " z-20 w-[70vw] max-w-[437px] h-[45vh] md:w-[437px] md:h-[524px] translate-x-0 translate-y-[10vh] md:translate-y-[90px] scale-105 opacity-100";
-            } else if (index === (currentIndex + 1) % reelsData.length) {
-              // Next slide: smaller and shifted right
-              classNames +=
-                " z-10 w-[40vw] max-w-[300px] h-[35vh] md:w-[300px] md:h-[405px] translate-x-[50vw] md:translate-x-[200px] translate-y-[20vh] md:translate-y-[140px] scale-90 opacity-80";
-            } else if (index === (currentIndex - 1 + reelsData.length) % reelsData.length) {
-              // Previous slide: moved up and hidden
-              classNames +=
-                " z-0 w-[40vw] max-w-[300px] h-[35vh] md:w-[300px] md:h-[405px] translate-x-0 translate-y-[-15vh] scale-90 opacity-0 pointer-events-none";
-            } else {
-              classNames += " opacity-0 pointer-events-none";
-            }
-
-            return (
-              <div key={index} className={classNames}>
-                {/* Video */}
-                <video
-                  src={reel.videoUrl}
-                  className="w-full h-full object-cover rounded-t-xl overflow-hidden"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-                {/* Text Content */}
-                <div className="px-4 py-3 text-white rounded-b-xl absolute bottom-0 w-full">
-                  <p className="text-base md:text-lg font-medium mb-1">{reel.lineContent}</p>
-                  <div className="flex flex-wrap gap-2 text-xs md:text-sm text-yellow-400">
-                    {reel.hashtags.map((tag, i) => (
-                      <span key={i} className="whitespace-nowrap">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+      {/* Pagination dots */}
+      <div className="justify-center gap-2 mt-8 select-none hidden">
+        {reelsData.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            aria-label={`Go to video ${index + 1}`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex ? "bg-white w-6" : "bg-white/40"
+              }`}
+          />
+        ))}
       </div>
     </Container>
-  );
+  )
 }

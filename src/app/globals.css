@@ -505,3 +505,20 @@ padding-bottom: 60px;
 .best_seller_slider  .slick-next:hover {
   background-color: #333 !important;
 }
+.motorizedblindcurtains .slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #F1B42F !important;
+    opacity: 1;
+}
+.motorizedblindcurtains .slick-dots li button:before {
+  color:#687477 !important;
+  font-size: 10px !important;
+  opacity: 1;
+}
+.motorizedblindcurtains .slick-dots li button {
+  width: 10px !important;
+  height: 10px !important;
+}
+.motorizedblindcurtains .slick-dots li {
+    width: 7px;
+}
