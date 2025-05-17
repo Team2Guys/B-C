@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import Review_banner from 'components/ReviewBanner/Review_banner';
 import type { Metadata } from 'next'
 import Script from 'next/script';
@@ -13,6 +13,7 @@ import VideoReelsSlider from 'components/VideoSlider/VideoSlider';
 import InfoTabs from 'components/NewHomecomponents/info';
 import ComparisonTable from 'components/NewHomecomponents/comparisontabble';
 import OurClient from 'components/Our-Client/OurClient';
+import { fetchProducts } from 'config/fetch';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blindsandcurtains.ae/"),
@@ -36,6 +37,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
+  const products = await fetchProducts();
   return (
     <>
       {schema.map((script: any, index: number) =>
@@ -49,7 +51,9 @@ export default async function Home() {
       <Review_banner />
       <InfoTabs />
       <ComparisonTable />
-      <SellerSlider />
+      <Suspense fallback='loading ...'>
+        <SellerSlider products={products} />
+      </Suspense>
       <SimpleSteps />
       <MotorizeBlindCurtain />
       <VideoReelsSlider />
