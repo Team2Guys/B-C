@@ -9,7 +9,6 @@ import Callbutton from 'components/Res-usable/callbutton/callbutton';
 import { GoogleTagManager } from '@next/third-parties/google';
 import Script from 'next/script';
 import Head from 'next/head';
-import VisitModal from 'components/VisitModal';
 import { Roboto } from 'next/font/google';
 import { Roboto_Serif } from 'next/font/google';
 
@@ -133,7 +132,7 @@ export default function RootLayout({
 
           <PathnameWrapper>
 
-            <VisitModal />
+            {/* <VisitModal /> */}
 
             {children}
             <Callbutton />
