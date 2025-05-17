@@ -22,7 +22,7 @@ const CategoryHero = ({title,selectedPage}:BannerProps) => {
                {selectedPage.features && selectedPage.features.map((item, index) => (
                     <div key={index} className="flex gap-2 items-center text-sm md:text-xl font-roboto font-medium">
                     <Circletick />
-                    <p>{item.text}</p>
+                    <p className='w-[90%]'>{item.text}</p>
                     </div>
                 ))}
             </div>
