@@ -45,6 +45,17 @@ export interface ICategory {
   Canonical_Tag?: string;
   Meta_description?: string;
   last_editedBy?: string;
+
+    topHeading?: string;
+
+  headingchecks: any[]
+  breakcrum?: string;
+
+  productpageHeading?: string;
+  faqHeadingS?: string;
+
+  faqs: any[]
+  faqHeading?:string
 }
 
 export interface Image {

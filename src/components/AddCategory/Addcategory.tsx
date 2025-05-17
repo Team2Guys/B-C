@@ -7,7 +7,7 @@ import { ImageRemoveHandler } from 'utils/helperFunctions';
 
 import Toaster from 'components/Toaster/Toaster';
 import axios from 'axios';
-import { Formik, Form } from 'formik';
+import { Formik, Form, FieldArray } from 'formik';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
 import { categoryInitialValues, categoryValidationSchema } from 'data/data';
@@ -23,6 +23,17 @@ interface editCategoryNameType {
   Meta_description?: string;
   Canonical_Tag?: string;
   Images_Alt_Text?: string;
+
+  topHeading?: string;
+
+  headingchecks: any[]
+  breakcrum?: string;
+
+  productpageHeading?: string;
+  faqHeadingS?: string;
+
+  faqs: any[]
+  faqHeading?: string
 }
 
 interface editCategoryProps {
@@ -41,10 +52,7 @@ const FormLayout = ({
 
   let token = admin_token ? admin_token : super_admin_token;
 
-  let CategoryName =
-    editCategory && editCategory.title
-      ? { name: editCategory.title, description: editCategory.description }
-      : null;
+  let CategoryName = editCategory && editCategory.title ? { name: editCategory.title, description: editCategory.description } : null;
   let CategorImageUrl = editCategory && editCategory.posterImage;
   const [posterimageUrl, setposterimageUrl] = useState<
     any[] | null | undefined
@@ -60,6 +68,12 @@ const FormLayout = ({
   >({
     ...CategoryName,
     name: CategoryName?.name || '',
+    faqHeading: editCategory?.faqHeading || '',
+    topHeading: editCategory?.topHeading || '',
+    breakcrum: editCategory?.breakcrum || '',
+    productpageHeading: editCategory?.productpageHeading || '',
+    headingchecks: editCategory?.headingchecks || [],
+    faqs: editCategory?.faqs || [],
     description: CategoryName?.description || '',
     Images_Alt_Text: editCategory?.Images_Alt_Text ?? '',
     Canonical_Tag: editCategory?.Canonical_Tag ?? '',
@@ -306,6 +320,8 @@ const FormLayout = ({
                     </div>
 
                     <div className="flex flex-col space-y-3 mt-2">
+
+
                       <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                           Category Title
@@ -327,6 +343,123 @@ const FormLayout = ({
                           </div>
                         ) : null}
                       </div>
+
+
+                      <div>
+                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          topHeading
+                        </label>
+                        <input
+                          type="text"
+                          name="topHeading"
+                          onChange={formik.handleChange}
+                          value={formik.values.topHeading}
+                          placeholder="Title"
+                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                            ? 'border-red-500'
+                            : ''
+                            }`}
+                        />
+
+                      </div>
+
+
+                      <div>
+                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          breakcrum
+                        </label>
+                        <input
+                          type="text"
+                          name="breakcrum"
+                          onChange={formik.handleChange}
+                          value={formik.values.breakcrum}
+                          placeholder="Title"
+                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                            ? 'border-red-500'
+                            : ''
+                            }`}
+                        />
+
+                      </div>
+
+
+                      <div>
+                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          breakcrum
+                        </label>
+                        <input
+                          type="text"
+                          name="faqHeading"
+                          onChange={formik.handleChange}
+                          value={formik.values.faqHeading}
+                          placeholder="Title"
+                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                            ? 'border-red-500'
+                            : ''
+                            }`}
+                        />
+
+                      </div>
+
+
+                      <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
+                        <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                          <h3 className="font-medium text-black dark:text-white">
+                            FAQS
+                          </h3>
+                        </div>
+                        <div className="flex flex-col gap-4 p-4">
+                          <FieldArray name="faqs">
+                            {({ push, remove }) => (
+                              <div className="flex flex-col gap-2">
+                                {formik.values.faqs &&
+                                  formik.values.faqs.map(
+                                    (spec: any, index: any) => (
+                                      <div
+                                        key={index}
+                                        className="flex items-center"
+                                      >
+                                        <input
+                                          type="text"
+                                          name={`spacification[${index}].specsDetails`}
+                                          onChange={formik.handleChange}
+                                          onBlur={formik.handleBlur}
+                                          value={
+                                            formik.values.faqs[index]
+                                              .specsDetails
+                                          }
+                                          placeholder="Specification Details"
+                                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+      
+                                              
+                                            `}
+                                        />
+                                        <button
+                                          type="button"
+                                          onClick={() => remove(index)}
+                                          className="ml-2 text-red"
+                                        >
+                                          <RxCross2
+                                            className="text-red"
+                                            size={25}
+                                          />
+                                        </button>
+                                      </div>
+                                    ),
+                                  )}
+                                <button
+                                  type="button"
+                                  onClick={() => push({ specsDetails: '' })}
+                                  className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                                >
+                                  Add Specification
+                                </button>
+                              </div>
+                            )}
+                          </FieldArray>
+                        </div>
+                      </div>
+
 
                       <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">

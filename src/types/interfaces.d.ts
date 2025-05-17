@@ -50,6 +50,16 @@ export interface Category {
   Meta_description?: string;
   Canonical_Tag?: string;
   Images_Alt_Text?: string;
+  topHeading?: string;
+
+  headingchecks: any[]
+  breakcrum?: string;
+
+  productpageHeading?: string;
+  faqHeadingS?: string;
+
+  faqs: any[]
+  faqHeading?: string
 }
 
 export interface CategoriesType extends Category {
@@ -80,7 +90,7 @@ interface Images {
   imageUrl: CloudinaryImage[];
 }
 
-export interface ProductWithImages extends Product, Images {}
+export interface ProductWithImages extends Product, Images { }
 
 export interface FormValues {
   name: string;
@@ -109,7 +119,7 @@ export interface FormValues {
   Canonical_Tag?: string;
   Meta_description?: string;
   Images_Alt_Text?: string;
-  subcategory_description?:string
+  subcategory_description?: string
 }
 
 interface Color {
@@ -127,7 +137,7 @@ interface sizes {
   sizesDetails?: string;
 }
 
-export default interface PRODUCTS_TYPES extends Product {}
+export default interface PRODUCTS_TYPES extends Product { }
 
 export interface ADDPRODUCTFORMPROPS {
   setselecteMenu: any;
@@ -165,7 +175,7 @@ export interface Allproduct {
   imageUrls: Image[];
   CategoryId: number;
   SubCategoryId: number | null;
-  createdAt: string; 
+  createdAt: string;
   updatedAt: string | null;
   name?: any;
 }
@@ -296,13 +306,13 @@ export interface formDataTypes {
 export interface ADMINS_PROPS {
   setselecteMenu: React.Dispatch<SetStateAction<string | null | undefined>>;
   setedit_admins: React.Dispatch<SetStateAction<formDataTypes | undefined>>;
-  adminsData:any[]
+  adminsData: any[]
 }
 
 export interface createAdmin extends ADMINS_PROPS {
   setedit_admins?: React.Dispatch<SetStateAction<formDataTypes | undefined>>;
   edit_admins: formDataTypes | undefined;
-  adminsData?:any[]
+  adminsData?: any[]
 }
 
 export interface BlogInfo {
@@ -452,7 +462,7 @@ export interface EstimatorProductTypes {
 }
 
 interface CarouselProps {
-  data: { title: string; description: string; icon: string }[]; 
+  data: { title: string; description: string; icon: string }[];
 }
 interface ImageType {
   src: string;
@@ -468,7 +478,7 @@ interface GalleryProps {
 interface Feature {
   image: string;
   text: string;
-  className?:string;
+  className?: string;
 }
 export interface WhyChooseUsProps {
   paragraph: string;
