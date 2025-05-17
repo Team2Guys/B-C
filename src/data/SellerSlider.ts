@@ -1,32 +1,5 @@
-import { MotorizeBlindData, Reel, SliderSliderItem, WorkingProcessContent } from "types/types";
+import { MotorizeBlindData, Reel, WorkingProcessContent } from "types/types";
 
-export const sliderData: SliderSliderItem[] = [
-  {
-    image: "/assets/images/Blinds/landing/Automatedblinds.webp",
-    title: "Wooden Flooring",
-    price: " 250 AED",
-  },
-  {
-    image: "/assets/images/Blinds/landing/Automatedblinds.webp",
-    title: "Marble Tiles",
-    price: " 320 AED",
-  },
-  {
-    image: "/assets/images/Blinds/landing/Automatedblinds.webp",
-    title: "Luxury Carpet",
-    price: " 150 AED",
-  },
-  {
-    image: "/assets/images/Blinds/landing/Automatedblinds.webp",
-    title: "Vinyl Planks",
-    price: " 180 AED",
-  },
-  {
-    image: "/assets/images/Blinds/landing/Automatedblinds.webp",
-    title: "Vinyl Planks",
-    price: " 180 AED",
-  },
-];
 
 
 export const reelsData: Reel[] = [
