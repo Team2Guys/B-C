@@ -2,12 +2,10 @@
 import { usePathname } from 'next/navigation';
 import Header from 'components/Res-usable/header/Header';
 import Footer from 'components/Res-usable/Footer/Footer';
-import OurClient from 'components/Our-Client/OurClient';
 import { RootState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { ReactNode } from 'react';
 import CallUS from 'components/CallUs/CallUS';
-import NeedHelp from 'components/NeedHelp/NeedHelp';
 
 const PathnameWrapper = ({ children }: { children: ReactNode }) => {
   const isNotFoundPage = useSelector((state: RootState) => state.pageState.isNotFoundPage);
@@ -32,8 +30,6 @@ const PathnameWrapper = ({ children }: { children: ReactNode }) => {
             <>
               {/* <Guarrenty /> */}
               {/* {!hiddenTestimonialPages.includes(pathname) && <Testimonial />} */}
-              <NeedHelp />
-              <OurClient />
               <CallUS />
             </>
           )}

@@ -395,6 +395,8 @@ export const categoryInitialValues: Category = {
   Canonical_Tag: '',
   Meta_Title: '',
   Meta_description: '',
+  headingchecks: [],
+  faqs: []
 };
 
 
