@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Container from "components/Res-usable/Container/Container";
 import Link from "next/link";
-import FreeVisit from "components/BookAFreeVisitButton/FreeVisit";
 import { getPath } from "utils/helperFunctions";
 
 const SellerSlider = ({products}: {products: IProduct[]}) => {
@@ -28,7 +27,7 @@ const SellerSlider = ({products}: {products: IProduct[]}) => {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1.5,
+          slidesToShow: 1.1,
           arrows: false
         },
       },
@@ -47,7 +46,7 @@ const SellerSlider = ({products}: {products: IProduct[]}) => {
           <div key={index} className="px-2">
             <Link href={getPath(item)}>
               <div className="bg-white rounded-xl overflow-hidden">
-                <div className="relative w-full h-[365px]">
+                <div className="relative w-full h-[280px] md:h-[365px]">
                   <Image
                     src={item.posterImage.imageUrl}
                     alt={item.title}
@@ -68,7 +67,12 @@ const SellerSlider = ({products}: {products: IProduct[]}) => {
 
         ))}
       </Slider>
-<FreeVisit/>
+        <Link
+          href="/book-free-visit" 
+          className="bg-secondary text-white font-semibold py-3 px-6 rounded-lg block w-fit mx-auto mt-5"
+        >
+          Book a Free Visit
+        </Link>
     </Container>
   );
 };
