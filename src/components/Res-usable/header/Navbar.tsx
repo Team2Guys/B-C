@@ -62,11 +62,11 @@ const Navbar = () => {
 
         <Container className="flex w-full justify-between h-12 sm:h-24 max-lg:px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
 
-          <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[169px] md:h-[115px]">
+          <Link href={'/'} className="w-[110px] h-[90px] relative md:w-[150px] md:h-[115px]">
             <Image
               fill
               loading='lazy'
-              src='/assets/images/logomain.webp'
+              src='/assets/images/logomain1.png'
               alt="Logo"
             />
           </Link>
@@ -114,11 +114,11 @@ const Navbar = () => {
             >
 
               <div className='flex justify-between items-center mt-4 mb-5'>
-                <Link href={'/'} className="w-[120px] h-[80px]  relative">
+                <Link href={'/'} className="w-[100px] h-[80px]  relative">
                   <Image
                     fill
                     loading='lazy'
-                    src='/assets/images/logomain.webp'
+                    src='/assets/images/logomain1.png'
                     alt="Logo"
                   />
                 </Link>
