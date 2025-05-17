@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Container from "components/Res-usable/Container/Container";
 import Link from "next/link";
 import FreeVisit from "components/BookAFreeVisitButton/FreeVisit";
+import { getPath } from "utils/helperFunctions";
 
 const SellerSlider = ({products}: {products: IProduct[]}) => {
   const settings = {
@@ -44,7 +45,7 @@ const SellerSlider = ({products}: {products: IProduct[]}) => {
         {products.map((item: IProduct, index) => (
 
           <div key={index} className="px-2">
-            <Link href="/">
+            <Link href={getPath(item)}>
               <div className="bg-white rounded-xl overflow-hidden">
                 <div className="relative w-full h-[365px]">
                   <Image
