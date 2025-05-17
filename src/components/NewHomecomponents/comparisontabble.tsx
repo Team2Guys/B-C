@@ -15,7 +15,7 @@ export default function ComparisonTable() {
         </h2>
         <p className="font-roboto lg:font-semibold text-18 font-bold lg:text-32 text-primary my-3 lg:mb-7">Top Picks for Your Home</p>
 
-       <div className="grid grid-cols-3 border-b border-gray-200">
+       <div className="grid grid-cols-3">
        {/* Header Row */}
        <div className="bg-white h-[60px] lg:h-[70px] border-b"></div>
        <div className="bg-[#F1B42F42] h-[60px] lg:h-[70px] flex justify-center items-center font-bold font-roboto text-16 xl:text-[29px] text-primary border-b">
