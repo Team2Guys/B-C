@@ -1,7 +1,7 @@
 //   Tabdata
   export const tabData = [
     {
-      title: "Expert Guidance</br>  at Your Doorstep",
+      title: "Expert Guidance  at Your Doorstep",
       icon: "/assets/Home/tab/export.webp", 
       image: "/assets/Home/tab/trusted.webp", 
       heading: "Expert Guidance at Your Doorstep",
@@ -11,7 +11,7 @@
       href:"/request-appointment"
     },
     {
-      title: "24/7 customer</br> support",
+      title: "24/7 customer support",
       icon: "/assets/Home/tab/high-quality.webp",
        image: "/assets/Home/tab/trusted.webp", 
       heading: "Expert Guidance at Your Doorstep1",
@@ -21,7 +21,7 @@
         href:"/request-appointment"
     },
     {
-      title: "Stress-Free Smooth</br> Experience",
+      title: "Stress-Free Smooth Experience",
       icon: "/assets/Home/tab/stress1.webp",
       image: "/assets/Home/tab/trusted.webp", 
       heading: "Expert Guidance at Your Doorstep2",
@@ -31,7 +31,7 @@
        href:"/request-appointment"
     },
     {
-      title: "High-Quality In-House</br> Production",
+      title: "High-Quality In-House Production",
       icon: "/assets/Home/tab/support.webp",
       image: "/assets/Home/tab/trusted.webp", 
       heading: "Expert Guidance at Your Doorstep3",
