@@ -34,7 +34,7 @@ const MainHero = () => {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
-        <source src="/assets/video/mainblinds.mp4" type="video/mp4" />
+        <source src="https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <Container className="relative h-full flex flex-col justify-between text-primary-foreground">
@@ -45,7 +45,7 @@ const MainHero = () => {
           <p className="text-19 md:text-2xl mb-6 font-roboto text-primary-foreground">
             Fully Guaranteed For Your Peace Of Mind
           </p>
-          <Link href="/request-appointment" className="bg-secondary text-primary font-semibold text-2xl py-3 px-6 rounded-md w-fit">
+          <Link href="/request-appointment" className="bg-secondary text-primary font-semibold text-xl py-3 px-6 rounded-md w-fit">
             Book A Free Visit
           </Link>
         </div>
