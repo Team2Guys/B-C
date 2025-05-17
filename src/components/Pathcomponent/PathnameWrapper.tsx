@@ -13,12 +13,11 @@ const PathnameWrapper = ({ children }: { children: ReactNode }) => {
   const isNotFoundPage = useSelector((state: RootState) => state.pageState.isNotFoundPage);
   const pathname = usePathname();
   const withoutHeaderPages = ['/blog'];
-  // const hiddenTestimonialPages = [
-  //   '/ppc/made-to-measure-blinds/',
-  //   '/ppc/made-to-measure-curtains/',
-  //   '/ppc/roller-blinds/'
-    
-  // ];
+  const hiddenTestimonialPages = [
+    '/made-to-measure-blinds/',
+    '/made-to-measure-curtains/',
+    '/shutters-range/'
+  ];
 
   const splited_urls = pathname.split('/');
 
@@ -31,9 +30,14 @@ const PathnameWrapper = ({ children }: { children: ReactNode }) => {
           {splited_urls.includes('blog') || splited_urls.includes('product-guarantees') || isNotFoundPage ? null : (
             <>
               {/* <Guarrenty /> */}
-              {/* {!hiddenTestimonialPages.includes(pathname) && <Testimonial />} */}
+              {!hiddenTestimonialPages.includes(pathname) &&
+              <>
               <NeedHelp />
               <OurClient />
+              </>
+               }
+              {/* <Testimonial /> */}
+              
               <CallUS />
             </>
           )}
