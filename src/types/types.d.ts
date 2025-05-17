@@ -72,7 +72,7 @@ export interface IProduct {
   title: string;
   description: string;
   price: number;
-  posterImage: any;
+  posterImage: ProductImages;
   imageUrls: Image[];
   CategoryId: number;
   SubCategoryId: number | null;
@@ -100,6 +100,12 @@ export interface IProduct {
   subcategory_description?:string
   modelDetails?:{name:string, detail:string}[]
   
+}
+
+export interface ProductImages {
+  altText?: string,
+  imageUrl: string,
+  public_id?: string,
 }
 
 export interface IRECORDS {
@@ -329,12 +335,6 @@ export interface relativeProps {
 export interface ImageGalleryProps {
   images: ImageData[];
   columns?: number;
-}
-
-export interface SliderSliderItem {
-  image: string;
-  title: string;
-  price: string;
 }
 
 export interface Reel {

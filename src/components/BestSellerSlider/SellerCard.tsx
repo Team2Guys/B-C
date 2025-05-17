@@ -2,15 +2,14 @@
 import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-import { SliderSliderItem } from "types/types";
+import { IProduct } from "types/types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Container from "components/Res-usable/Container/Container";
 import Link from "next/link";
-import { sliderData } from "data/SellerSlider";
 import FreeVisit from "components/BookAFreeVisitButton/FreeVisit";
 
-const SellerSlider: React.FC = () => {
+const SellerSlider = ({products}: {products: IProduct[]}) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -42,14 +41,14 @@ const SellerSlider: React.FC = () => {
         <p className="sm:text-xl text-lg mt-2 font-bold font-roboto text-primary">Top Picks for Your Home</p>
       </div>
       <Slider {...settings}>
-        {sliderData.map((item: SliderSliderItem, index) => (
+        {products.map((item: IProduct, index) => (
 
           <div key={index} className="px-2">
             <Link href="/">
               <div className="bg-white rounded-xl overflow-hidden">
                 <div className="relative w-full h-[365px]">
                   <Image
-                    src={item.image}
+                    src={item.posterImage.imageUrl}
                     alt={item.title}
                     fill
                     className="object-cover"
