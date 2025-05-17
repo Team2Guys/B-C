@@ -4,7 +4,6 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { CustomErrorHandler } from '../utils/helperFunctions';
 import { CreateCategoryHandler, CreatesubCategoryHandler, withAsyncErrorHandling } from '../utils/DbHandlers';
 import { Prisma } from '@prisma/client';
-import { REQUEST } from '@nestjs/core';
 
 
 

@@ -21,6 +21,13 @@ model Categories {
   Meta_description String?
   last_editedBy    String?
   bannerImage      Json?
+  // Banner Images
+  topHeading  String?
+  headingchecks Json[] @default([])
+  breakcrum String?
+  productpageHeading String?
+  faqHeading  String?
+  faqs Json[] @default([])
 }
 
 model SubCategories {
