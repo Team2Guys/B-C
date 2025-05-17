@@ -2,22 +2,15 @@
 import { usePathname } from 'next/navigation';
 import Header from 'components/Res-usable/header/Header';
 import Footer from 'components/Res-usable/Footer/Footer';
-import OurClient from 'components/Our-Client/OurClient';
 import { RootState } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { ReactNode } from 'react';
 import CallUS from 'components/CallUs/CallUS';
-import NeedHelp from 'components/NeedHelp/NeedHelp';
 
 const PathnameWrapper = ({ children }: { children: ReactNode }) => {
   const isNotFoundPage = useSelector((state: RootState) => state.pageState.isNotFoundPage);
   const pathname = usePathname();
   const withoutHeaderPages = ['/blog'];
-  const hiddenTestimonialPages = [
-    '/made-to-measure-blinds/',
-    '/made-to-measure-curtains/',
-    '/shutters-range/'
-  ];
 
   const splited_urls = pathname.split('/');
 
@@ -30,14 +23,7 @@ const PathnameWrapper = ({ children }: { children: ReactNode }) => {
           {splited_urls.includes('blog') || splited_urls.includes('product-guarantees') || isNotFoundPage ? null : (
             <>
               {/* <Guarrenty /> */}
-              {!hiddenTestimonialPages.includes(pathname) &&
-              <>
-              <NeedHelp />
-              <OurClient />
-              </>
-               }
-              {/* <Testimonial /> */}
-              
+              {/* {!hiddenTestimonialPages.includes(pathname) && <Testimonial />} */}
               <CallUS />
             </>
           )}

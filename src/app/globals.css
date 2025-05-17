@@ -150,7 +150,7 @@ body {
 .ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
   background-color: var(--input) !important;
   color: var(--input-color) !important;
-  border: 1px solid #797d85 !important;
+  border: 0px !important;
 }
 
 .ant-table-wrapper table {
@@ -398,7 +398,10 @@ li button:before {
 }
 
 .ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-  background-color: var(--primary);
+  background-color: transparent;
+}
+.ant-select-dropdown .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: var(--secondary) ;
 }
 
 .ant-select-single.ant-select-open .ant-select-selection-item {
@@ -599,4 +602,14 @@ ol {
 }
 .motorizedblindcurtains .slick-dots li {
     width: 7px;
+}
+
+
+.custom-lang-select .ant-select-item-option:hover {
+  background-color: var(--secondry) !important; /* or any Tailwind color like #f0f0f0 */
+  color: black;
+}
+.custom-lang-select .ant-select-item-option-selected {
+  background-color: var(--color-secondary, #FFD700);
+  color: black;
 }

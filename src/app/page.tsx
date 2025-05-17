@@ -12,6 +12,7 @@ import MotorizeBlindCurtain from 'components/MotorizedBlindCurtains/MotorizedBli
 import VideoReelsSlider from 'components/VideoSlider/VideoSlider';
 import InfoTabs from 'components/NewHomecomponents/info';
 import ComparisonTable from 'components/NewHomecomponents/comparisontabble';
+import OurClient from 'components/Our-Client/OurClient';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blindsandcurtains.ae/"),
@@ -46,13 +47,13 @@ export default async function Home() {
 
       <MainHero />
       <Review_banner />
-      <InfoTabs/>
-      <ComparisonTable/>
+      <InfoTabs />
+      <ComparisonTable />
       <SellerSlider />
-      <SimpleSteps/>
-      <MotorizeBlindCurtain/>
+      <SimpleSteps />
+      <MotorizeBlindCurtain />
       <VideoReelsSlider />
-      
+      <OurClient />
     </>
   );
 }
