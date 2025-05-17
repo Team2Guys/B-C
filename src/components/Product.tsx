@@ -8,34 +8,21 @@ import SimpleSteps from './SimpleSteps/SimpleSteps';
 import Faqs from './product-category/Faqs';
 
 interface IProductProps {
-  productName: string;
-  products: IProduct[];
-  categories: ICategory[];
-  subCategories: ICategory[];
-  selectedPage: {
-    heading: string;
-    paragraph: string;
-    features: {
-      text: string;
-    }[];
-  } | null;
+  categories: ICategory;
   filteredItems?: IProduct[];
-  title?: string
 }
 
 const Product = ({
-  productName,
-  selectedPage,
+  categories,
   filteredItems,
-  title
 }: IProductProps) => {
   return (
     <>
-      <Breadcrumb title={productName }/>
-      <CategoryHero title={`${title}`} selectedPage={selectedPage}/>
-      <AllProduct Data={filteredItems || []} />
+      <Breadcrumb title={categories.breakcrum}/>
+      <CategoryHero Data={categories}/>
+      <AllProduct title={categories.productpageHeading} Products={filteredItems || []} />
       <SimpleSteps/>
-      <Faqs/>
+      <Faqs Data={categories}/>
     </>
   );
 };

@@ -36,10 +36,10 @@ const SellerSlider = ({products}: {products: IProduct[]}) => {
   };
 
   return (
-    <Container className="mt-5 md:mt-10 overflow-hidden best_seller_slider">
-      <div className="text-center sm:py-12 py-8">
+    <Container className="overflow-hidden best_seller_slider">
+      <div className="text-center sm:pb-5 lg:pt-8">
         <h3 className="sm:text-5xl text-2xl font-robotoSerif font-bold text-primary">See Our Bestseller</h3>
-        <p className="sm:text-xl text-lg mt-2 font-bold font-roboto text-primary">Top Picks for Your Home</p>
+       <p className="font-roboto lg:font-semibold text-18 font-bold lg:text-32 text-primary my-3 lg:mb-7">Top Picks for Your Home</p>
       </div>
       <Slider {...settings}>
         {products.map((item: IProduct, index) => (

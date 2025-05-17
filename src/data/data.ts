@@ -830,54 +830,6 @@ export const TopHeroLink: ITopHeroLink[] = [
   },
 ];
 
-export const categoriesContent = [
-  {
-    slug: 'made-to-measure-blinds',
-    content: {
-      heading: 'Made to Measure Blinds',
-      src: '/assets/images/Blinds/landing/landing.webp',
-      paragraph:
-        'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
-      features : [
-              {text: "We take care of it all"},
-              {text: "Styles for all budgets"},
-              {text: "Expert advice in the comfort of home"},
-              {text: "Everything’s fully guaranteed"},
-      ]
-    },
-  },
-  {
-    slug: 'made-to-measure-curtains',
-    content: {
-      heading: 'Made to Measure Curtains',
-      src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/c1.mp4',
-      paragraph:
-        '1000s of colour and style choices—voiles, velvets, silks, and plain textured fabrics. Get curtains installed in your Dubai home or office, with free consultation, quick installation, and 5-year warranty.',
-    features : [
-              {text: "We take care of it all"},
-              {text: "Styles for all budgets"},
-              {text: "Expert advice in the comfort of home"},
-              {text: "Everything’s fully guaranteed"},
-      ]
-      },
-  },
-  {
-    slug: 'shutters-range',
-    content: {
-      heading: 'Made to Measure shutters',
-      src: '/assets/video/shutter.mp4',
-      paragraph:
-        'We offer custom made window shutters that fit any window. Make your home more stylish with our versatile made-to-measure shutters, including stylish window plantation shutters.',
-      features : [
-              {text: "We take care of it all"},
-              {text: "Styles for all budgets"},
-              {text: "Expert advice in the comfort of home"},
-              {text: "Everything’s fully guaranteed"},
-      ]
-    },
-  },
-];
-
 export const BreakCrum_conent_pages = [
   {
     url: '/blinds/roller-blinds',
