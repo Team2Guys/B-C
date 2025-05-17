@@ -77,7 +77,7 @@ export default function VideoReelsSlider() {
   }
 
   return (
-    <>{!isMobile && <NeedHelp />}
+    <>{isMobile && <NeedHelp />}
       <div className="relative mt-4">
         <div className="bg-[#F1B42F42] sm:py-6 py-4 text-center font-bold">
           <p className="font-robotoSerif sm:text-4xl text-lg text-primary" >Press Play on Style Quick Reels.</p>

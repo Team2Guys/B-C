@@ -186,7 +186,7 @@ const Navbar = () => {
                   <Image
                     fill
                     loading='lazy'
-                    src='/assets/images/logomain.webp'
+                    src='/assets/images/logomain1.png'
                     alt="Logo"
                   />
                 </Link>

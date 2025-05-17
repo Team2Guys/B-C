@@ -11,12 +11,6 @@ const PathnameWrapper = ({ children }: { children: ReactNode }) => {
   const isNotFoundPage = useSelector((state: RootState) => state.pageState.isNotFoundPage);
   const pathname = usePathname();
   const withoutHeaderPages = ['/blog'];
-  // const hiddenTestimonialPages = [
-  //   '/ppc/made-to-measure-blinds/',
-  //   '/ppc/made-to-measure-curtains/',
-  //   '/ppc/roller-blinds/'
-    
-  // ];
 
   const splited_urls = pathname.split('/');
 

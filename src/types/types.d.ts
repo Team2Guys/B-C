@@ -139,7 +139,7 @@ export interface IAppointments {
 }
 
 interface SubheadingContent {
-  content?: string;
+  text?: string;
 }
 
 export interface ISelectedPage {
@@ -149,7 +149,7 @@ export interface ISelectedPage {
   subheading1?: string;
   subheading2?: string;
   posterImage?: string;
-  subheadingContent?: SubheadingContent[];
+  features?: SubheadingContent[];
 }
 
 export interface IInfo {
