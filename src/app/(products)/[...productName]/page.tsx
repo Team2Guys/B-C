@@ -4,7 +4,7 @@ import { ICategory, IProduct } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { links } from "data/header_links";
-import { categoriesContent, generateSlug, RelatedProductsdata } from "data/data";
+import { categoriesContent, generateSlug } from "data/data";
 import NotFound from "app/not-found";
 import Script from "next/script";
 import { notFound } from "next/navigation";
@@ -93,10 +93,6 @@ const Products = async ({ params }: Props) => {
   const selectedPage = categoriesContent.find(
     (page) => page.slug === generateSlug(slug),
   );
-  const matchedProduct = RelatedProductsdata.find((product) =>
-    slug.includes(product.name)
-  );
-
   const matchingLink: any = links.find((link) => slug.includes(link.href.replace(/^\//, '')),);
 
   const selectedProductName = matchingLink ? matchingLink.label : slug;
@@ -116,14 +112,12 @@ const Products = async ({ params }: Props) => {
       <Script type="application/ld+json" id="categories-json-ld">
         {JSON.stringify(matchingLink?.script || "")}
       </Script>
-
-
+  
       <Product productName={slug}
         products={products}
         categories={categories}
         subCategories={subCategories}
         selectedPage={selectedPage.content}
-        matchedProduct={matchedProduct?.para}
         filteredItems={filteredItems}
         title={selectedProductName} />
     </>

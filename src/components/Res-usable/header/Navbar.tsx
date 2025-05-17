@@ -1,5 +1,5 @@
 'use client';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
@@ -12,6 +12,8 @@ import { links } from 'data/header_links';
 import { TfiEmail } from 'react-icons/tfi';
 import { LiaPhoneSolid } from 'react-icons/lia';
 import { CgMenuRight } from 'react-icons/cg';
+import { Select } from 'antd';
+import { IoIosArrowDown } from 'react-icons/io';
 
 
 const Navbar = () => {
@@ -21,6 +23,8 @@ const Navbar = () => {
   );
   const [language, setLanguage] = useState('en');
   const [translatorReady, setTranslatorReady] = useState(false);
+  const lastLangRef = useRef<string>('en');
+  const skipNextUpdateRef = useRef<boolean>(false);
 
   useEffect(() => {
     // Wait for Google Translate widget to be available
@@ -36,16 +40,34 @@ const Navbar = () => {
   }, []);
 
   const handleLanguageSwitch = (lang: string) => {
-    if (!translatorReady) return; // avoid premature triggering
-    const selectEl = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-    if (selectEl) {
-      selectEl.value = lang;
-      // Fire the change event only once
-      const event = new Event('change', { bubbles: true });
-      selectEl.dispatchEvent(event);
-      setLanguage(lang);
+    const combo = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (!combo) return;
+
+    if (lang === 'en') {
+      combo.value = 'en';
+      combo.dispatchEvent(new Event('change'));
+
+      // Auto-select Arabic (simulate selection)
+      combo.value = 'ar';
+      combo.dispatchEvent(new Event('change'));
+
+      skipNextUpdateRef.current = true; // Skip next Arabic update
+      lastLangRef.current = 'en';
+      setLanguage('en')
+      return; // Do not update state
     }
-  };
+
+
+    // Normal flow
+    if (combo.value !== lang || lastLangRef.current !== lang) {
+      combo.value = lang;
+      combo.dispatchEvent(new Event('change'));
+      lastLangRef.current = lang;
+      setLanguage(lang); // ✅ Only update state now
+    }
+  }
+
+
 
 
   const path = usePathname();
@@ -97,17 +119,23 @@ const Navbar = () => {
                 alt="Logo"
               />
             </Link>
-            <div>
-              <select
-                id="language-select"
+            <div className='!w-[100px] overflow-hidden'>
+              {!translatorReady ? 
+              <div
+                className={`bg-gray-300 h-8 w-full rounded-lg`} />
+             : <Select
                 value={language}
-                onChange={(e) => handleLanguageSwitch(e.target.value)}
+                onChange={handleLanguageSwitch}
                 disabled={!translatorReady}
-                className="rounded px-2 py-1 lg:text-10 xl:text-15 font-medium font-roboto outline-none cursor-pointer"
-              >
-                <option value="en">English</option>
-                <option value="ar">Arabic</option>
-              </select>
+                className="custom-lang-select !outline-none flex"
+                dropdownClassName="custom-lang-dropdown"
+                suffixIcon={<IoIosArrowDown className="text-black" />}
+                options={[
+                  { value: 'en', label: 'English' },
+                  { value: 'ar', label: 'Arabic' },
+                ]}
+              />}
+              
             </div>
           </div>
 
@@ -158,7 +186,7 @@ const Navbar = () => {
                   <Image
                     fill
                     loading='lazy'
-                    src='/assets/images/logomain.webp'
+                    src='/assets/images/logomain1.png'
                     alt="Logo"
                   />
                 </Link>
