@@ -105,7 +105,7 @@ export interface IProduct {
 export interface ProductImages {
   altText?: string,
   imageUrl: string,
-  public_id: string,
+  public_id?: string,
 }
 
 export interface IRECORDS {
