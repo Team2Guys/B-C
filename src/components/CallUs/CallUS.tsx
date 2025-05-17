@@ -75,7 +75,7 @@ const [loading, setloading] = useState(false)
                      </div>
                   </div>
                </div>
-               <div className='sm:col-span-4 md:col-span-5 flex items-center xsm:px-8 py-8 sm:pe-6 lg:pe-8'>
+               <div className='sm:col-span-4 md:col-span-5 flex items-center xsm:px-8 py-8 sm:pe-6 lg:pe-8 lg:ps-0'>
                   <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
                      <Form className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 w-full">
                         {/* Name */}
