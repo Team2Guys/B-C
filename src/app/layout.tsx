@@ -5,7 +5,6 @@ import 'app/globals.css';
 import { Providers } from './Providers';
 import { ToastContainer } from 'react-toastify';
 import WhatsIcon from 'components/Icons/Whatsapp';
-import Callbutton from 'components/Res-usable/callbutton/callbutton';
 import { GoogleTagManager } from '@next/third-parties/google';
 import Script from 'next/script';
 import Head from 'next/head';
@@ -135,7 +134,6 @@ export default function RootLayout({
             {/* <VisitModal /> */}
 
             {children}
-            <Callbutton />
             <WhatsIcon />
             <ToastContainer autoClose={3000} />
 

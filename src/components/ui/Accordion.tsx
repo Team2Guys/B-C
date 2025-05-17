@@ -10,18 +10,18 @@ const Accordion = ({ items }:AccordionProps) => {
   };
 
   return (
-    <div className=" p-4 space-y-2">
+    <div className=" p-4 space-y-2 ">
       {items && items.map((item, index) => (
-        <div key={index} className="border border-primary rounded-md bg-white">
+        <div key={index} className="border-b rounded-md bg-white py-2 space-y-2">
           <button
             onClick={() => toggle(index)}
-            className="w-full flex justify-between text-left p-2 md:p-4 font-semibold font-robotoSerif text-lg md:text-xl text-primary"
+            className="w-full flex justify-between text-left pt-2 font-semibold font-robotoSerif text-base md:text-xl text-primary"
           >
             {item.specsHeading}
             <span className="text-xl">{openIndex === index ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown /> }</span>
           </button>
           {openIndex === index && (
-            <div className="p-4 pt-0 text-primary font-medium text-base">{item.specsDetails}</div>
+            <div className=" text-primary font-medium text-sm md:text-base">{item.specsDetails}</div>
           )}
         </div>
       ))}

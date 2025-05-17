@@ -39,7 +39,7 @@ export default function FeaturesColumn({
       {currentFeatures.map((feature) => (
         <div
           key={feature.key}
-          className="relative h-[60px] lg:h-[70px] w-full p-2 flex justify-between md:justify-center items-center font-roboto font-normal text-12 sm:text-18 xl:text-[29px] text-start justify-start text-nowrap"
+          className="relative h-[60px] lg:h-[70px] w-full p-2 flex justify-between md:justify-center items-center font-roboto md:font-normal text-12 sm:text-18 xl:text-[29px] text-start text-nowrap font-medium"
         >
         <span dangerouslySetInnerHTML={{ __html: feature.title }} />
 
