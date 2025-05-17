@@ -45,8 +45,8 @@ export interface ICategory {
   Canonical_Tag?: string;
   Meta_description?: string;
   last_editedBy?: string;
-
-    topHeading?: string;
+  breakcrum: string;
+  topHeading?: string;
 
   headingchecks: any[]
   breakcrum?: string;
