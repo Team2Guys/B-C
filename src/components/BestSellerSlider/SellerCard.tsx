@@ -17,7 +17,7 @@ const SellerSlider: React.FC = () => {
     speed: 600,
     slidesToShow: 4,
     slidesToScroll: 1,
-    arrows: true, // default arrows enabled here
+    arrows: true,  
     responsive: [
       {
         breakpoint: 1024,
@@ -28,7 +28,8 @@ const SellerSlider: React.FC = () => {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.5,
+          arrows: false
         },
       },
     ],
