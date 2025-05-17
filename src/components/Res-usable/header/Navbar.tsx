@@ -1,5 +1,5 @@
 'use client';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
@@ -19,6 +19,34 @@ const Navbar = () => {
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
     undefined,
   );
+  const [language, setLanguage] = useState('en');
+  const [translatorReady, setTranslatorReady] = useState(false);
+
+  useEffect(() => {
+    // Wait for Google Translate widget to be available
+    const interval = setInterval(() => {
+      const selectEl = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (selectEl && selectEl.options.length > 1) {
+        setTranslatorReady(true);
+        clearInterval(interval);
+      }
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleLanguageSwitch = (lang: string) => {
+    if (!translatorReady) return; // avoid premature triggering
+    const selectEl = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (selectEl) {
+      selectEl.value = lang;
+      // Fire the change event only once
+      const event = new Event('change', { bubbles: true });
+      selectEl.dispatchEvent(event);
+      setLanguage(lang);
+    }
+  };
+
 
   const path = usePathname();
   const handleLinkClick = () => {
@@ -28,7 +56,6 @@ const Navbar = () => {
   const handleCloseDrawer = () => {
     setDrawerOpen(false);
   };
-
 
   return (
     <>
@@ -61,15 +88,28 @@ const Navbar = () => {
         {/* mobile container */}
 
         <Container className="flex w-full justify-between h-12 sm:h-24 max-lg:px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
-
-          <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[169px] md:h-[115px]">
-            <Image
-              fill
-              loading='lazy'
-              src='/assets/images/logomain.webp'
-              alt="Logo"
-            />
-          </Link>
+          <div className='flex gap-4 items-center'>
+            <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[169px] md:h-[115px]">
+              <Image
+                fill
+                loading='lazy'
+                src='/assets/images/logomain.webp'
+                alt="Logo"
+              />
+            </Link>
+            <div>
+              <select
+                id="language-select"
+                value={language}
+                onChange={(e) => handleLanguageSwitch(e.target.value)}
+                disabled={!translatorReady}
+                className="rounded px-2 py-1 lg:text-10 xl:text-15 font-medium font-roboto outline-none cursor-pointer"
+              >
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+              </select>
+            </div>
+          </div>
 
           <div className=" hidden lg:flex gap-[48px] ">
             <div className="hidden lg:flex justify-evenly items-start lg:text-10 font-roboto font-medium  gap-[24px] text-primary text-18 ">
@@ -114,7 +154,7 @@ const Navbar = () => {
             >
 
               <div className='flex justify-between items-center mt-4 mb-5'>
-                <Link href={'/'} className="w-[120px] h-[80px]  relative">
+                <Link href={'/'} className="w-[120px] h-[80px]  relative bg-transparent">
                   <Image
                     fill
                     loading='lazy'
