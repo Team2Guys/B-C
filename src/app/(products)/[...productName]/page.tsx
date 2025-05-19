@@ -1,4 +1,4 @@
-import { fetchCategories, fetchProducts, } from "config/fetch";
+import { fetchCategories, fetchProducts, fetchSingleCategory, } from "config/fetch";
 import Product from "../../../components/Product";
 import { ICategory, IProduct } from "types/types";
 import { headers } from "next/headers";
@@ -11,18 +11,14 @@ type Props = {
   params: Promise<{ productName: string[] }>
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata > {
-  const productName = (await params).productName[0];
-  const matchingLink = links.find((link) => productName?.includes(link.href.replace(/^\//, '')),);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const productName = (await params).productName[0] + "/";
   let urls = (await params).productName
-  const [products, categories, ] = await Promise.all([
-    fetchProducts(),
-    fetchCategories(),
-  ]);
 
-  const filterCategory = categories.find((category: ICategory) => category.title === matchingLink?.label);
-  const filteredProducts = products.filter((product: IProduct) => product.CategoryId === filterCategory?.id) || [];
-  if ( filteredProducts.length < 1 || urls?.length > 1) {
+
+  let filterCategory = await fetchSingleCategory(productName)
+
+  if (!filterCategory) {
     notFound();
   }
   const headersList = await headers();
@@ -50,6 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata > {
     Category?.Meta_description ||
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}${productName}`;
+  console.log(url, "urls", urls)
   return {
     title: title,
     description: description,
@@ -58,6 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata > {
       description: description,
       url: url,
       images: NewImage,
+      
     },
     alternates: {
       canonical:

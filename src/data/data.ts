@@ -395,8 +395,10 @@ export const categoryInitialValues: Category = {
   Canonical_Tag: '',
   Meta_Title: '',
   Meta_description: '',
-  headingchecks: [],
-  faqs: []
+  headingchecks:[],
+  faqs:[],
+  productCustomUrl:"",
+  categoryCustomUrl:""
 };
 
 
@@ -1644,23 +1646,6 @@ export const footerData = [
 
 
 ];
-
-
-// export const footerLinks = [
-//   {
-//     key: "4",
-//     title: 'Quick Links',
-//     links: [
-//       { text: 'About Us', href: '/about-us' },
-//       { text: 'Contact Us', href: '/contact-us' },
-//       { text: 'Our Projects', href: '/projects' },
-//       { text: 'Product Guarantees', href: '/product-guarantees' },
-//       { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
-//       { text: 'Book A Free Appointment', href: '/request-appointment' },
-
-//     ],
-//   },
-// ];
 
 export const GuaranteeVisitData = [
   {

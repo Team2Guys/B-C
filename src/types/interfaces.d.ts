@@ -60,6 +60,9 @@ export interface Category {
 
   faqs: { specsHeading: string ,specsDetails: string }[]
   faqHeading?: string
+    
+  productCustomUrl?: string
+  categoryCustomUrl?: string
 }
 
 export interface CategoriesType extends Category {
