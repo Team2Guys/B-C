@@ -34,6 +34,9 @@ interface editCategoryNameType {
 
   faqs: any[]
   faqHeading?: string
+      
+  productCustomUrl?: string
+  categoryCustomUrl?: string
 }
 
 interface editCategoryProps {
@@ -79,6 +82,9 @@ const FormLayout = ({
     Canonical_Tag: editCategory?.Canonical_Tag ?? '',
     Meta_Title: editCategory?.Meta_Title ?? '',
     Meta_description: editCategory?.Meta_description ?? '',
+  productCustomUrl: editCategory?.productCustomUrl ?? "",
+  categoryCustomUrl: editCategory?.categoryCustomUrl ?? ""
+
   });
 
   const onSubmit = async (values: Category, { resetForm }: any) => {
@@ -322,7 +328,9 @@ const FormLayout = ({
                     <div className="flex flex-col space-y-3 mt-2">
 
 
-                      <div>
+                      <div className=' flex flex-wrap md:flex-nowrap gap-4'>
+
+                        <div className='w-full'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                           Category Title
                         </label>
@@ -342,10 +350,11 @@ const FormLayout = ({
                             {formik.errors.name}
                           </div>
                         ) : null}
-                      </div>
+
+                        </div>
 
 
-                      <div>
+                                   <div className='w-full'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                           topHeading
                         </label>
@@ -363,10 +372,15 @@ const FormLayout = ({
 
                       </div>
 
+                      </div>
 
-                      <div>
+
+        
+
+                      <div className='flex gap-4 mt-2 flex-wrap md:flex-nowrap'>
+                        <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                          breakcrum
+                          breadCrumb
                         </label>
                         <input
                           type="text"
@@ -380,12 +394,54 @@ const FormLayout = ({
                             }`}
                         />
 
+                        </div>
+
+                        <div>
+                            <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          productCustomUrl
+                        </label>
+                        <input
+                          type="text"
+                          name="categoryCustomUrl"
+                          onChange={formik.handleChange}
+                          value={formik.values.productCustomUrl}
+                          placeholder="Title"
+                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.productCustomUrl && formik.errors.productCustomUrl
+                            ? 'border-red-500'
+                            : ''
+                            }`}
+                        />
+
+                        </div>
+
+<div>
+
+
+                            <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          categoryCustomUrl
+                        </label>
+                        <input
+                          type="text"
+                          name="categoryCustomUrl"
+                          onChange={formik.handleChange}
+                          value={formik.values.categoryCustomUrl}
+                          placeholder="Title"
+                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.categoryCustomUrl && formik.errors.categoryCustomUrl
+                            ? 'border-red-500'
+                            : ''
+                            }`}
+                        />
+
+
+</div>
+
+
                       </div>
 
 
                       <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                          breakcrum
+                          faqHeading
                         </label>
                         <input
                           type="text"

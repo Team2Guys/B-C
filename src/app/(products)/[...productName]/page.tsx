@@ -1,4 +1,4 @@
-import { fetchCategories, fetchProducts, fetchSubCategories, } from "config/fetch";
+import { fetchCategories, fetchProducts, fetchSingleCategory, fetchSubCategories, } from "config/fetch";
 import Product from "../../../components/Product";
 import { ICategory, IProduct } from "types/types";
 import { headers } from "next/headers";
@@ -14,31 +14,14 @@ type Props = {
   params: Promise<{ productName: string[] }>
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata > {
-  const productName = (await params).productName[0];
-  const matchingLink = links.find((link) =>
-    productName?.includes(link.href.replace(/^\//, '')),
-  );
-
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const productName = (await params).productName[0] + "/";
   let urls = (await params).productName
-  const [products, categories, subCategories] = await Promise.all([
-    fetchProducts(),
-    fetchCategories(),
-    fetchSubCategories(),
-  ]);
 
 
+  let filterCategory = await fetchSingleCategory(productName)
 
-
-  const filterCategory = categories.find((category: ICategory) => category.title === matchingLink?.label);
-
-  const filteredProducts = products.filter((product: IProduct) => product.CategoryId === filterCategory?.id) || [];
-  const filteredSubCategories = subCategories?.filter((subCat: ICategory) => subCat.CategoryId === filterCategory?.id) || [];
-  const selectedPage = categoriesContent.find((page) => page.slug === generateSlug(productName),);
-
-  const filteredItems = [...filteredProducts, ...filteredSubCategories];
-
-  if ((!selectedPage || filteredItems.length < 1) || urls?.length > 1) {
+  if (!filterCategory) {
     notFound();
   }
   const headersList = await headers();
@@ -66,6 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata > {
     Category?.Meta_description ||
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}${productName}`;
+  console.log(url, "urls", urls)
   return {
     title: title,
     description: description,
@@ -74,6 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata > {
       description: description,
       url: url,
       images: NewImage,
+      
     },
     alternates: {
       canonical:
@@ -121,7 +106,6 @@ const Products = async ({ params }: Props) => {
       <Product productName={slug}
         products={products}
         categories={categories}
-        subCategories={subCategories}
         selectedPage={selectedPage.content}
         matchedProduct={matchedProduct?.para}
         filteredItems={filteredItems}

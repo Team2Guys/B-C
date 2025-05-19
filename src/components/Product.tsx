@@ -15,7 +15,7 @@ interface IProductProps {
   productName: string;
   products: IProduct[];
   categories: ICategory[];
-  subCategories: ICategory[];
+  subCategories?: ICategory[];
   selectedPage: {
     heading: string;
     paragraph: string;
