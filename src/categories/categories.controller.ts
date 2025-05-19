@@ -21,6 +21,13 @@ export class CategoriesController {
   DeleteCategoryHandler(@Param("id") id: number,) {
     return this.CategoriesService.DelCategoryhandle(+id);
   }
+
+  @Get("findsingleCategory/:customUrl")
+  findsingleCategory(@Param("customUrl") customUrl: string,) {
+    return this.CategoriesService.findsingleCategory(customUrl);
+  }
+
+
   @Put('updateCategory/:id')
   UpdateCategoryHanlder(@Param('id') id: number, @Body() updateCategoryDto: Prisma.CategoriesUpdateInput, @Req() req:Request) {
     console.log(updateCategoryDto,)

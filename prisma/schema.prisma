@@ -22,12 +22,15 @@ model Categories {
   last_editedBy    String?
   bannerImage      Json?
   // Banner Images
-  topHeading  String?
-  headingchecks Json[] @default([])
-  breakcrum String?
+  topHeading       String?
+
+  breakcrum          String?
   productpageHeading String?
-  faqHeading  String?
-  faqs Json[] @default([])
+  faqHeading         String?
+  faqs               Json[]  @default([])
+  headingchecks      Json[]  @default([])
+  categoryCustomUrl String?
+  productCustomUrl  String?
 }
 
 model SubCategories {
