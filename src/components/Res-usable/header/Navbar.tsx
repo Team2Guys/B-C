@@ -86,14 +86,13 @@ const Navbar = () => {
 
           <div className="w-full bg-primary">
             <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12">
-
-              <div className="text-white py-2 text-14 sm:text-12 2xl:text-15 font-medium font-roboto  leading-relaxed 2xl:leading-loose max-sm:font-semibold flex  gap-6">
-                <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex  gap-1 items-center'>
-                  <TfiEmail className='text-secondary text-18' />
+              <div className="text-white py-2 text-10 md:text-14 font-normal font-roboto leading-relaxed 2xl:leading-loose flex gap-2 md:gap-10">
+                <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex gap-1 md:gap-2 items-center'>
+                 <LiaPhoneSolid className='text-12 md:text-18' />
                   04 252 2025
                 </Link>
-                <Link href="mailto:sales@blindsandcurtains.ae" target='_black' rel='no-referrer' className='  gap-1 items-center hidden md:flex'>
-                  <LiaPhoneSolid className='text-secondary text-18' />
+                <Link href="mailto:sales@blindsandcurtains.ae" target='_black' rel='no-referrer' className='gap-1 md:gap-2 items-center flex'>
+                <TfiEmail className='text-12 md:text-18' />
                   sales@blindsandcurtains.ae
                 </Link>
 
@@ -111,7 +110,7 @@ const Navbar = () => {
 
         <Container className="flex w-full justify-between h-12 sm:h-24 max-lg:px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
           <div className='flex gap-4 items-center'>
-            <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[169px] md:h-[115px]">
+            <Link href={'/'} className="w-[79px] h-[50px] relative md:w-[120px] md:h-[70px]">
               <Image
                 fill
                 loading='lazy'
@@ -158,7 +157,7 @@ const Navbar = () => {
 
             <div>
               <Link
-                className="py-2 px-2 xl:px-5 font-roboto font-bold hidden sm:block rounded-md text-[22px] whitespace-nowrap border border-secondary text-secondary hover:bg-secondary hover:text-primary"
+                className="py-2 px-2 xl:px-5 font-roboto font-semibold hidden sm:block rounded-md text-[16px] text-primary whitespace-nowrap border border-secondary hover:bg-secondary hover:text-primary"
                 href="/request-appointment/"
                 onClick={handleLinkClick}
               >
@@ -177,8 +176,6 @@ const Navbar = () => {
               selectedLabel={selectedLabel}
               mobileBgColor="#E6E4E5"
               className="custom-moblie-sheet mb-10"
-
-
             >
 
               <div className='flex justify-between items-center mt-4 mb-5'>
