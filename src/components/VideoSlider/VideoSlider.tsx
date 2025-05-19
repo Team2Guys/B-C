@@ -3,9 +3,18 @@
 import React, { useState, useRef, useEffect } from "react"
 import { reelsData } from "data/SellerSlider"
 import Container from "components/Res-usable/Container/Container"
+import NeedHelp from "components/NeedHelp/NeedHelp"
 
 export default function VideoReelsSlider() {
   const [activeIndex, setActiveIndex] = useState(2)
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640); // sm: 640px
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   const totalVideos = reelsData.length
 
   const touchStartX = useRef<number | null>(null)
@@ -16,7 +25,7 @@ export default function VideoReelsSlider() {
       goToNext()
     }, 3000)
 
-    return () => clearInterval(interval) 
+    return () => clearInterval(interval)
   }, [activeIndex])
   const goToPrevious = () =>
     setActiveIndex((prev) => (prev === 0 ? totalVideos - 1 : prev - 1))
@@ -68,51 +77,59 @@ export default function VideoReelsSlider() {
   }
 
   return (
-    <Container className="relative py-16">
-      <div
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
-        className="relative flex items-center justify-center sm:h-[700px] h-[300px] overflow-hidden"
-      >
-        {reelsData.map((item, index) => (
+    <>{isMobile && <NeedHelp />}
+      <div className="relative mt-4">
+        <div className="bg-[#F1B42F42] sm:py-6 py-4 text-center font-bold">
+          <p className="font-robotoSerif sm:text-4xl text-lg text-primary" >Press Play on Style Quick Reels.</p>
+        </div>
+        <Container>
           <div
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`absolute transition-all duration-500 ease-in-out cursor-pointer ${getPositionClass(
-              index
-            )}`}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+            className="relative flex items-center justify-center sm:h-[570px] h-[300px] overflow-hidden"
           >
-            <div className="relative sm:w-[500px] sm:h-[700px] w-[180px] h-[280px] rounded-2xl overflow-hidden shadow-lg"
->
-              <video
-                key={item.videoUrl}
-                src={item.videoUrl}
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-              />
-            </div>
+
+            {reelsData.map((item, index) => (
+              <div
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`absolute transition-all duration-500 ease-in-out cursor-pointer ${getPositionClass(
+                  index
+                )}`}
+              >
+                <div className="relative sm:w-[500px] sm:h-[500px] w-[150px] h-[280px] rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <video
+                    key={item.videoUrl}
+                    src={item.videoUrl}
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-    
 
-      {/* Pagination dots */}
-      <div className="justify-center gap-2 mt-8 select-none hidden">
-        {reelsData.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            aria-label={`Go to video ${index + 1}`}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex ? "bg-white w-6" : "bg-white/40"
-              }`}
-          />
-        ))}
+
+          {/* Pagination dots */}
+          <div className="justify-center gap-2 mt-8 select-none hidden">
+            {reelsData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                aria-label={`Go to video ${index + 1}`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex ? "bg-white w-6" : "bg-white/40"
+                  }`}
+              />
+            ))}
+          </div>
+        </Container>
       </div>
-    </Container>
+    </>
   )
 }

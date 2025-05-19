@@ -1,5 +1,5 @@
 'use client';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from 'components/Res-usable/Container/Container';
@@ -12,6 +12,8 @@ import { links } from 'data/header_links';
 import { TfiEmail } from 'react-icons/tfi';
 import { LiaPhoneSolid } from 'react-icons/lia';
 import { CgMenuRight } from 'react-icons/cg';
+import { Select } from 'antd';
+import { IoIosArrowDown } from 'react-icons/io';
 
 
 const Navbar = () => {
@@ -19,6 +21,54 @@ const Navbar = () => {
   const [selectedLabel, setSelectedLabel] = useState<string | undefined>(
     undefined,
   );
+  const [language, setLanguage] = useState('en');
+  const [translatorReady, setTranslatorReady] = useState(false);
+  const lastLangRef = useRef<string>('en');
+  const skipNextUpdateRef = useRef<boolean>(false);
+
+  useEffect(() => {
+    // Wait for Google Translate widget to be available
+    const interval = setInterval(() => {
+      const selectEl = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (selectEl && selectEl.options.length > 1) {
+        setTranslatorReady(true);
+        clearInterval(interval);
+      }
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleLanguageSwitch = (lang: string) => {
+    const combo = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (!combo) return;
+
+    if (lang === 'en') {
+      combo.value = 'en';
+      combo.dispatchEvent(new Event('change'));
+
+      // Auto-select Arabic (simulate selection)
+      combo.value = 'ar';
+      combo.dispatchEvent(new Event('change'));
+
+      skipNextUpdateRef.current = true; // Skip next Arabic update
+      lastLangRef.current = 'en';
+      setLanguage('en')
+      return; // Do not update state
+    }
+
+
+    // Normal flow
+    if (combo.value !== lang || lastLangRef.current !== lang) {
+      combo.value = lang;
+      combo.dispatchEvent(new Event('change'));
+      lastLangRef.current = lang;
+      setLanguage(lang); // ✅ Only update state now
+    }
+  }
+
+
+
 
   const path = usePathname();
   const handleLinkClick = () => {
@@ -29,14 +79,13 @@ const Navbar = () => {
     setDrawerOpen(false);
   };
 
-
   return (
     <>
       {
         path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/' || path === '/ppc/roller-blinds/' || path === '/ppc/made-to-measure-blinds/' || path === '/ppc/made-to-measure-curtains/' ? "" :
 
           <div className="w-full bg-primary">
-            <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12 px-4 lg:px-0 ">
+            <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12">
 
               <div className="text-white py-2 text-14 sm:text-12 2xl:text-15 font-medium font-roboto  leading-relaxed 2xl:leading-loose max-sm:font-semibold flex  gap-6">
                 <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex  gap-1 items-center'>
@@ -49,7 +98,7 @@ const Navbar = () => {
                 </Link>
 
               </div>
-              <div className="">
+              <div>
                 <SocialLink />
               </div>
             </Container>
@@ -60,16 +109,35 @@ const Navbar = () => {
 
         {/* mobile container */}
 
-        <Container className="flex w-full justify-between h-12 sm:h-24 px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
-
-          <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[161px] md:h-[120px]">
-            <Image
-              fill
-              loading='lazy'
-              src='/assets/images/logomain.webp'
-              alt="Logo"
-            />
-          </Link>
+        <Container className="flex w-full justify-between h-12 sm:h-24 max-lg:px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
+          <div className='flex gap-4 items-center'>
+            <Link href={'/'} className="w-[130px] h-[90px] relative md:w-[169px] md:h-[115px]">
+              <Image
+                fill
+                loading='lazy'
+                src='/assets/images/logomain.webp'
+                alt="Logo"
+              />
+            </Link>
+            <div className='!w-[100px] overflow-hidden'>
+              {!translatorReady ? 
+              <div
+                className={`bg-gray-300 h-8 w-full rounded-lg`} />
+             : <Select
+                value={language}
+                onChange={handleLanguageSwitch}
+                disabled={!translatorReady}
+                className="custom-lang-select !outline-none flex"
+                dropdownClassName="custom-lang-dropdown"
+                suffixIcon={<IoIosArrowDown className="text-black" />}
+                options={[
+                  { value: 'en', label: 'English' },
+                  { value: 'ar', label: 'Arabic' },
+                ]}
+              />}
+              
+            </div>
+          </div>
 
           <div className=" hidden lg:flex gap-[48px] ">
             <div className="hidden lg:flex justify-evenly items-start lg:text-10 font-roboto font-medium  gap-[24px] text-primary text-18 ">
@@ -114,11 +182,11 @@ const Navbar = () => {
             >
 
               <div className='flex justify-between items-center mt-4 mb-5'>
-                <Link href={'/'} className="w-[120px] h-[80px]  relative">
+                <Link href={'/'} className="w-[120px] h-[80px]  relative bg-transparent">
                   <Image
                     fill
                     loading='lazy'
-                    src='/assets/images/logomain.webp'
+                    src='/assets/images/logomain1.png'
                     alt="Logo"
                   />
                 </Link>
@@ -153,8 +221,6 @@ const Navbar = () => {
               </Link>
             </Sheet>
           </div>
-
-
 
 
 

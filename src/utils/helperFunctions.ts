@@ -1,7 +1,10 @@
 
 import axios, { AxiosResponse} from 'axios';
+import { generateSlug } from 'data/data';
+import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
 import Cookies from 'js-cookie';
+import { IProduct } from 'types/types';
 const token = Cookies.get('2guysAdminToken');
 const superAdmintoken = Cookies.get('superAdminToken');
 const finalToken = token ? token : superAdmintoken;
@@ -94,3 +97,19 @@ export const UpdateShutterTitle = (title: string): string => {
     .trim();
   return updatedTitle;
 };
+
+
+export const getPath = (product: IProduct) => {
+    const parent = generateSlug(product.category?.title);
+    const slug = ChangedProductUrl_handler(product.title);
+    const basePath =product.href && parent? `${window.origin}/${product.href}`: `/${slug}`;
+
+    const path = predefinedPaths[slug as keyof typeof predefinedPaths] ||
+      (slug === 'hotels-restaurants-blinds-curtains'? basePath : `/${parent?.toLowerCase() === 'shutters' ? `${parent.toLowerCase()}-range`
+          : parent?.toLowerCase()
+        }${['dimout-roller-blinds', 'sunscreen-roller-blinds', 'blackout-roller-blinds'].includes(slug)
+          ? '/roller-blinds'
+          : ''
+        }/${slug}`);
+    return path+"/";
+  };

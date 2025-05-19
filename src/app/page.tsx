@@ -1,15 +1,7 @@
 
-import React from 'react'
-import HomeCard from '../components/Card/page';
-import BlindsAndCurtainssection from '../components/Blind&Curtains/blinds&curtains';
-import FeatureProduct from 'components/feture-product/feature-product';
-import VideoAutomation from 'components/video-Automation/video-Automation';
-import Support from 'components/Res-usable/support/support';
+import React, { Suspense } from 'react'
 import Review_banner from 'components/ReviewBanner/Review_banner';
-import Banner from 'components/HomeBanner/Home_Banner';
-import { banners } from 'data/data';
 import type { Metadata } from 'next'
-import { fetchCategories, fetchProducts } from 'config/fetch';
 import Script from 'next/script';
 import { schema } from 'data/schema';
 import MainHero from 'components/Hero/main-hero';
@@ -18,6 +10,10 @@ import SellerSlider from 'components/BestSellerSlider/SellerCard';
 import SimpleSteps from 'components/SimpleSteps/SimpleSteps';
 import MotorizeBlindCurtain from 'components/MotorizedBlindCurtains/MotorizedBlindCurtains';
 import VideoReelsSlider from 'components/VideoSlider/VideoSlider';
+import InfoTabs from 'components/NewHomecomponents/info';
+import ComparisonTable from 'components/NewHomecomponents/comparisontabble';
+import OurClient from 'components/Our-Client/OurClient';
+import { fetchProducts } from 'config/fetch';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blindsandcurtains.ae/"),
@@ -41,9 +37,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const [products, categories] = await Promise.all([fetchProducts(), fetchCategories()]);
-
-
+  const products = await fetchProducts();
   return (
     <>
       {schema.map((script: any, index: number) =>
@@ -54,19 +48,16 @@ export default async function Home() {
       )}
 
       <MainHero />
-      <SellerSlider />
-      <SimpleSteps/>
-      <VideoReelsSlider />
-      <MotorizeBlindCurtain/>
       <Review_banner />
-      <HomeCard categories={categories} />
-      <BlindsAndCurtainssection />
-      
-      <Banner {...banners.Home} />
-      <FeatureProduct products={products} categories={categories} />
-      <VideoAutomation />
-      <Support />
-      
+      <InfoTabs />
+      <ComparisonTable />
+      <Suspense fallback='loading ...'>
+        <SellerSlider products={products} />
+      </Suspense>
+      <SimpleSteps />
+      <MotorizeBlindCurtain />
+      <VideoReelsSlider />
+      <OurClient />
     </>
   );
 }

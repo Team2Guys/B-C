@@ -18,7 +18,6 @@ import {
   Tproductdata,
   TProductGuarantees,
 } from 'types/interfaces';
-import { BlindsAndCurtainsTypes } from 'types/interfaces';
 import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Category, FormValues } from 'types/interfaces';
@@ -47,17 +46,6 @@ export const reverseSlug = (slug: string): string => {
 };
 
 
-
-export const BlindsAndCurtainstData: BlindsAndCurtainsTypes = {
-  image: '/assets/images/blind-curtains-dubai/blinds-curtains-dubai1.png',
-  heading: 'We offer window treatments for homes or offices in Dubai',
-  paragraph: [
-    `Based in Dubai, we specialise in all types of window coverings including blinds, curtains, and <a href="/shutters-range/"" style="text-decoration: underline"><b>shutters</b></a>. From apartments to royal residences, and offices to colleges all over Dubai. Providing not only a stylish addition to your windows but also function. Blinds and Curtains Dubai has the largest selection of <a href="/made-to-measure-blinds/"" style="text-decoration: underline"><b>custom blinds</b></a> in Dubai, if not the UAE (15 styles to choose from, each in a massive range of colour options).
-
-   As a trusted window treatment company, we bring style and functionality to every room. Whether you’re looking for custom blinds, or <a href="/curtains/blackout-curtains-dubai/"" style="text-decoration:underline"><b>blackout curtains </b></a> we house the selection to fit your needs. Or perhaps you’d like some elegant made-to-measure <a href="/made-to-measure-curtains/"" style="text-decoration: underline"><b>curtains</b></a> to adorn your windows? With over 3000 curtain fabric options, you’ll be spoilt for choice.`,
-  ],
-  buttonText: 'Read More',
-};
 
 
 export const heroSlider = [
@@ -133,17 +121,11 @@ export const EmailInfo: Email = {
 };
 
 export const OurClientImage = [
-  { src: '/assets/images/ourclient/client1.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/client2.png', alt: 'Logomain' },
-  { src: '/assets/images/ourclient/client3.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client4.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client5.png', alt: 'Two-Guys-Logo' },
-  { src: '/assets/images/ourclient/client6.png', alt: 'Floors-Walls-Dubai 1' },
-  { src: '/assets/images/ourclient/client7.png', alt: 'Logomain' },
-  {
-    src: '/assets/images/ourclient/client8.png',
-    alt: 'Plantation-Shutters-Dubai 1',
-  },
+  { src: '/assets/images/ourclient/mercedes.png', alt: 'mercedes-logo' },
+  { src: '/assets/images/ourclient/warner.png', alt: 'warner-logo' },
+  { src: '/assets/images/ourclient/HUQQBAZ.png', alt: 'HUQQBAZ-Logo' },
+  { src: '/assets/images/ourclient/address.png', alt: 'address-Logo' },
+  { src: '/assets/images/ourclient/Khansaheb.png', alt: 'Khansaheb-Logo' },
 ];
 
 
@@ -413,6 +395,10 @@ export const categoryInitialValues: Category = {
   Canonical_Tag: '',
   Meta_Title: '',
   Meta_description: '',
+  headingchecks:[],
+  faqs:[],
+  productCustomUrl:"",
+  categoryCustomUrl:""
 };
 
 
@@ -843,76 +829,6 @@ export const TopHeroLink: ITopHeroLink[] = [
   {
     matchingTitle: 'blog',
     title: 'blog',
-  },
-];
-
-
-export const categoriesContent = [
-  {
-    slug: 'made-to-measure-blinds',
-    content: {
-      heading: 'Made to Measure Blinds',
-      src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4',
-      paragraph:
-        'Our experts are here to help you find the customised fit for every window, and we have a dedicated team of full-time installers ready to handle any window covering challenges.',
-      subheading1: 'Custom Window Blinds ',
-      subheading2: '35 Styles + 2000 Different Materials',
-      posterImage: '/assets/images/Blinds/landing/landing.webp',
-      subheadingContent: [
-        {
-          content:
-            '<a href="/"" style="text-decoration: underline">Blinds and Curtains Dubai</a> offers more options in style, design, patterns, and colours than ready-made blinds. From large floor-to-ceiling windows to small bedroom windows, and from office spaces to holiday homes with bay windows, we have solutions for every space. Regardless of the size and scale, we measure, make and install outstanding blinds for every single project. ',
-        },
-        {
-          content:
-            'As our staff are not paid sales commissions, they will give you honest, impartial advice to ensure the best for your home and pocket. A window treatment is an investment that improves your quality of life. Our <a href="/blinds/roller-blinds/sunscreen-roller-blinds/"" style="text-decoration: underline">Sunscreen Blinds</a> let in soft, natural light while our <a href="/blinds/blackout-blinds/"" style="text-decoration: underline">Blackout Blinds</a> block light and cut down on noise.',
-        },
-        {
-          content:
-            'Book a free, no-pressure appointment today by clicking the button below',
-        },
-      ],
-    },
-  },
-  {
-    slug: 'made-to-measure-curtains',
-    content: {
-      heading: 'Made to Measure Curtains',
-      src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/c1.mp4',
-      paragraph:
-        '1000s of colour and style choices—voiles, velvets, silks, and plain textured fabrics. Get curtains installed in your Dubai home or office, with free consultation, quick installation, and 5-year warranty.',
-      subheading1: 'Custom Window Curtains ',
-      subheading2: 'More than 6 Styles + 2000 Different Materials & Colours',
-      posterImage: '/assets/images/Curtain/landing/landing.webp',
-      subheadingContent: [
-        {
-          content:
-            "When it comes to curtains, there is no such thing as 'standard. We offer <a href='/curtains/made-to-measure-sheer-curtains/' style='text-decoration: underline'>sheer curtains</a> to create smooth, flowing elegance, pinch pleats to provide refinement, and eyelets to add simplicity without sacrificing style. With fabrics that do more-like <a href='/curtains/blackout-curtains-dubai/' style='text-decoration: underline'>blackout curtains</a> for better sleep or textures that add warmth-you'll see we're more than providing a standard curtains service. ",
-        },
-        {
-          content:
-            'As the most reliable <a href="/"" style="text-decoration: underline">window covering company in Dubai</a> with 750+ 5-star reviews on google, we are not here just to sell; we are here to help you in making the right choice. Our team is committed to listening to your needs and understanding your space honestly and without pressure. Our expert installers make, measure, and install curtains with care, so you get the finest. Keeping these high standards means making customers feel appreciated and valued. ',
-        },
-      ],
-    },
-  },
-  {
-    slug: 'shutters-range',
-    content: {
-      heading: 'Made to Measure shutters',
-      src: '/assets/video/shutter.mp4',
-      paragraph:
-        'We offer custom made window shutters that fit any window. Make your home more stylish with our versatile made-to-measure shutters, including stylish window plantation shutters.',
-      subheading1: 'Custom Window Shutters',
-      subheading2: 'Wide range of stains and paints',
-      posterImage: '/assets/images/Shutters/landing/landing.webp',
-      subheadingContent: [
-        {
-          content:
-            'Our made-to-measure shutters are custom-designed <a href="/"" style="text-decoration: underline">window coverings</a> that fit your windows&apos; exact dimensions and style. We make sure our custom made shutters match the size and shape of your unique windows; this includes unique shapes like arches, circles, or bay windows. Shutters are available in a variety of stunning colors, like <a href="/shutters-range/white-shutters/" style="text-decoration: underline">white</a>, <a href="/shutters-range/off-white-shutters/"" style="text-decoration: underline">off-white</a>, <a href="/shutters-range/black-shutters/" style="text-decoration: underline">black</a>, <a style="text-decoration: underline" href="/shutters-range/bold-colours-shutters/">bold shades</a>, grey, and <a href="/shutters-range/dark-wood-shutters/"" style="text-decoration: underline">dark wood</a>, with premium materials such as wood, faux wood, vinyl, and composite. Our shutters are built for longevity. We crafted these shutters with reinforced hinges and quality finishes to resist wear and tear. These easy-to-clean shutters are less likely to harbor allergens. We provide free uninstall and reinstallation services and have a committed staff of 50 experts. We&apos;re not only here to make sales. We are here to help you, from the initial meeting to the last installation. ',
-        },
-      ],
-    },
   },
 ];
 
@@ -1685,11 +1601,11 @@ export const footerData = [
       'Roller Blinds',
       'Roman Blinds',
       'Vertical Blinds',
-      'Wooden Blinds',
-      'Aluminium Blinds',
-      'Zebra Blinds',
-      'Zipline Outdoor Blinds',
-      'Panel Blinds',
+      // 'Wooden Blinds',
+      // 'Aluminium Blinds',
+      // 'Zebra Blinds',
+      // 'Zipline Outdoor Blinds',
+      // 'Panel Blinds',
       'Blackout Blinds',
       'Motorised blinds',
     ],
@@ -1698,16 +1614,16 @@ export const footerData = [
     key: "2",
     title: 'Curtains',
     items: [
-      'Triple Pinch Pleat Curtains',
-      'Double Pinch Pleat Curtains',
+      // 'Triple Pinch Pleat Curtains',
+      // 'Double Pinch Pleat Curtains',
       'Pencil Pleat Curtains',
-      'Ripplefold/Wave Curtains',
+      // 'Ripplefold/Wave Curtains',
       'Eyelet Curtains',
-      'Tab Top Curtains',
+      // 'Tab Top Curtains',
       'Blackout Curtains',
       'Motorised curtains',
       'Sheer Curtains',
-      'Textured Curtains',
+      // 'Textured Curtains',
     ],
   },
   {
@@ -1715,36 +1631,20 @@ export const footerData = [
     title: 'Shutters',
     items: [
       'Full Height Shutters',
-      'Bi-Fold Shutters',
+      'Tracked Shutters',
+      // 'Bi-Fold Shutters',
+      'Special Shape Shutters',
       'Solid Panel Shutters',
       'Tier On Tier Shutters',
-      'Cafe Style Shutters',
-      'Bay Window Shutters',
-      'Outdoor Shutters',
-      'Tracked Shutters',
-      'Special Shape Shutters',
-      'Black Shutters',
+      // 'Cafe Style Shutters',
+      // 'Bay Window Shutters',
+      // 'Outdoor Shutters',
+      
+      // 'Black Shutters',
     ],
   },
 
 
-];
-
-
-export const footerLinks = [
-  {
-    key: "4",
-    title: 'Quick Links',
-    links: [
-      { text: 'About Us', href: '/about-us' },
-      { text: 'Contact Us', href: '/contact-us' },
-      { text: 'Our Projects', href: '/projects' },
-      { text: 'Product Guarantees', href: '/product-guarantees' },
-      { text: 'Why Choose Us?', href: '/why-choose-blinds-curtains' },
-      { text: 'Book A Free Appointment', href: '/request-appointment' },
-
-    ],
-  },
 ];
 
 export const GuaranteeVisitData = [
