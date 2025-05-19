@@ -50,6 +50,30 @@ export async function fetchSingleCategory(customUrl: string) {
   }
 }
 
+export async function fetchSingleCategorymain(customUrl: string) {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/findsingleCategorymain/${customUrl}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      next: { tags: ['categories'] },
+    });
+
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.message || 'Failed to fetch category');
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error: any) {
+    console.error('fetchSingleCategory error:', error.message);
+    throw error;
+  }
+}
+
 
 
 export const fetchReviews = async () => {

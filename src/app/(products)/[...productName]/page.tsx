@@ -1,6 +1,6 @@
-import { fetchCategories, fetchProducts, fetchSingleCategory, } from "config/fetch";
+import { fetchSingleCategory, fetchSingleCategorymain, } from "config/fetch";
 import Product from "../../../components/Product";
-import { ICategory, IProduct } from "types/types";
+import { ICategory } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { links } from "data/header_links";
@@ -13,7 +13,6 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const productName = (await params).productName[0] + "/";
-  let urls = (await params).productName
 
 
   let filterCategory = await fetchSingleCategory(productName)
@@ -46,7 +45,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     Category?.Meta_description ||
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}${productName}`;
-  console.log(url, "urls", urls)
   return {
     title: title,
     description: description,
@@ -67,15 +65,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const Products = async ({ params }: Props) => {
   const slug = (await params).productName[0];
   let urls = (await params).productName
-  const [products, categories] = await Promise.all([
-    fetchProducts(),
-    fetchCategories(),
-  ]);
+
+  let category = await fetchSingleCategorymain(slug)
+
+  console.log(category, "category")
   
   const matchingLink: any = links.find((link) => slug.includes(link.href.replace(/^\//, '')),);
-  const selectedProductName = matchingLink ? matchingLink.label : slug;
-  const filterCat = categories?.find((cat: ICategory) => cat.title.toLowerCase() === selectedProductName.toLowerCase());
-  const filteredProducts = products.filter((product: IProduct) => product.CategoryId === filterCat?.id) || [];
+
 
   if ( urls?.length > 1) {
     return <NotFound />;
@@ -87,8 +83,8 @@ const Products = async ({ params }: Props) => {
         {JSON.stringify(matchingLink?.script || "")}
       </Script>
       <Product
-        categories={filterCat}
-        filteredItems={filteredProducts}
+        categories={category}
+        filteredItems={category.products}
         />
     </>
   );
