@@ -75,6 +75,57 @@ export class CategoriesService {
     }
   }
 
+
+   async findsingleCategoryMain(customUrls: string) {
+    try {
+
+      const category = await this.prisma.categories.findFirst({
+        where: { categoryCustomUrl: customUrls },
+        select:{
+       title:true,
+       categoryCustomUrl:true,
+       productCustomUrl:true,
+       productpageHeading:true,
+       posterImage:true,
+       faqHeading:true,
+       faqs:true,
+       id:true,
+       headingchecks:true,
+       description:true,  
+      
+       subCategories:{
+        select:{
+          title:true,
+          id:true,
+        }
+      
+       },
+       products:{
+        select:{
+          title:true,
+          posterImage:true,
+          short_description:true, 
+          category:{
+            select:{
+              title:true,
+              productCustomUrl:true,
+            }
+          }
+        }
+       }
+        }
+      });
+
+      if (!category) {
+
+        return CustomErrorHandler("Category not found", 'NOT_FOUND');
+      }
+      return category;
+
+    } catch (error) {
+      return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'INTERNAL_SERVER_ERROR');
+    }
+  }
   async CategoryUpdateHandler(id: number, updateCategoryDto: Prisma.CategoriesUpdateInput, @Req() req: Request | any) {
     try {
       const { email } = req.user

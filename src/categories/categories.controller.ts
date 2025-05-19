@@ -26,6 +26,10 @@ export class CategoriesController {
   findsingleCategory(@Param("customUrl") customUrl: string,) {
     return this.CategoriesService.findsingleCategory(customUrl);
   }
+  @Get("findsingleCategorymain/:customUrl")
+  findsingleCategoryMain(@Param("customUrl") customUrl: string,) {
+    return this.CategoriesService.findsingleCategoryMain(customUrl);
+  }
 
 
   @Put('updateCategory/:id')

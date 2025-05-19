@@ -20,6 +20,7 @@ export class CategoriesModule implements NestModule {
       .exclude({path: "categories/getAllCategories", method:RequestMethod.GET},
         {path: "categories/get-all-subCategories", method:RequestMethod.GET},
         {path: "categories/findsingleCategory/:customUrl", method:RequestMethod.GET},
+        {path: "categories/findsingleCategorymain/:customUrl", method:RequestMethod.GET},
       
       )
       .forRoutes(CategoriesController); 
