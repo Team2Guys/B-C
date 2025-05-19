@@ -45,8 +45,8 @@ export interface ICategory {
   Canonical_Tag?: string;
   Meta_description?: string;
   last_editedBy?: string;
-
-    topHeading?: string;
+  breakcrum: string;
+  topHeading?: string;
 
   headingchecks: any[]
   breakcrum?: string;
@@ -72,7 +72,7 @@ export interface IProduct {
   title: string;
   description: string;
   price: number;
-  posterImage: any;
+  posterImage: ProductImages;
   imageUrls: Image[];
   CategoryId: number;
   SubCategoryId: number | null;
@@ -100,6 +100,12 @@ export interface IProduct {
   subcategory_description?:string
   modelDetails?:{name:string, detail:string}[]
   
+}
+
+export interface ProductImages {
+  altText?: string,
+  imageUrl: string,
+  public_id?: string,
 }
 
 export interface IRECORDS {
@@ -139,7 +145,7 @@ export interface IAppointments {
 }
 
 interface SubheadingContent {
-  content?: string;
+  text?: string;
 }
 
 export interface ISelectedPage {
@@ -149,7 +155,7 @@ export interface ISelectedPage {
   subheading1?: string;
   subheading2?: string;
   posterImage?: string;
-  subheadingContent?: SubheadingContent[];
+  features?: SubheadingContent[];
 }
 
 export interface IInfo {
@@ -329,12 +335,6 @@ export interface relativeProps {
 export interface ImageGalleryProps {
   images: ImageData[];
   columns?: number;
-}
-
-export interface SliderSliderItem {
-  image: string;
-  title: string;
-  price: string;
 }
 
 export interface Reel {

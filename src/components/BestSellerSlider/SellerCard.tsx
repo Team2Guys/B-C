@@ -2,22 +2,21 @@
 import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-import { SliderSliderItem } from "types/types";
+import { IProduct } from "types/types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Container from "components/Res-usable/Container/Container";
 import Link from "next/link";
-import { sliderData } from "data/SellerSlider";
-import FreeVisit from "components/BookAFreeVisitButton/FreeVisit";
+import { getPath } from "utils/helperFunctions";
 
-const SellerSlider: React.FC = () => {
+const SellerSlider = ({products}: {products: IProduct[]}) => {
   const settings = {
     dots: false,
     infinite: true,
     speed: 600,
     slidesToShow: 4,
     slidesToScroll: 1,
-    arrows: true, // default arrows enabled here
+    arrows: true,  
     responsive: [
       {
         breakpoint: 1024,
@@ -28,27 +27,28 @@ const SellerSlider: React.FC = () => {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.1,
+          arrows: false
         },
       },
     ],
   };
 
   return (
-    <Container className="mt-5 md:mt-10 overflow-hidden best_seller_slider">
-      <div className="text-center sm:py-12 py-8">
+    <Container className="overflow-hidden best_seller_slider">
+      <div className="text-center sm:pb-5 lg:pt-8">
         <h3 className="sm:text-5xl text-2xl font-robotoSerif font-bold text-primary">See Our Bestseller</h3>
-        <p className="sm:text-xl text-lg mt-2 font-bold font-roboto text-primary">Top Picks for Your Home</p>
+       <p className="font-roboto lg:font-semibold text-18 font-bold lg:text-32 text-primary my-3 lg:mb-7">Top Picks for Your Home</p>
       </div>
       <Slider {...settings}>
-        {sliderData.map((item: SliderSliderItem, index) => (
+        {products.map((item: IProduct, index) => (
 
           <div key={index} className="px-2">
-            <Link href="/">
+            <Link href={getPath(item)}>
               <div className="bg-white rounded-xl overflow-hidden">
-                <div className="relative w-full h-[365px]">
+                <div className="relative w-full h-[280px] md:h-[365px]">
                   <Image
-                    src={item.image}
+                    src={item.posterImage.imageUrl}
                     alt={item.title}
                     fill
                     className="object-cover"
@@ -67,7 +67,12 @@ const SellerSlider: React.FC = () => {
 
         ))}
       </Slider>
-<FreeVisit/>
+        <Link
+          href="/book-free-visit" 
+          className="bg-secondary text-white font-semibold py-3 px-6 rounded-lg block w-fit mx-auto mt-5"
+        >
+          Book a Free Visit
+        </Link>
     </Container>
   );
 };

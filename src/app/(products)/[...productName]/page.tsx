@@ -1,15 +1,12 @@
-import { fetchCategories, fetchProducts, fetchSingleCategory, fetchSubCategories, } from "config/fetch";
+import { fetchCategories, fetchProducts, fetchSingleCategory, } from "config/fetch";
 import Product from "../../../components/Product";
 import { ICategory, IProduct } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { links } from "data/header_links";
-import { categoriesContent, generateSlug, RelatedProductsdata } from "data/data";
 import NotFound from "app/not-found";
 import Script from "next/script";
 import { notFound } from "next/navigation";
-
-
 type Props = {
   params: Promise<{ productName: string[] }>
 }
@@ -70,29 +67,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const Products = async ({ params }: Props) => {
   const slug = (await params).productName[0];
   let urls = (await params).productName
-  const [products, categories, subCategories] = await Promise.all([
+  const [products, categories] = await Promise.all([
     fetchProducts(),
     fetchCategories(),
-    fetchSubCategories(),
   ]);
-  const selectedPage = categoriesContent.find(
-    (page) => page.slug === generateSlug(slug),
-  );
-  const matchedProduct = RelatedProductsdata.find((product) =>
-    slug.includes(product.name)
-  );
-
+  
   const matchingLink: any = links.find((link) => slug.includes(link.href.replace(/^\//, '')),);
-
   const selectedProductName = matchingLink ? matchingLink.label : slug;
-
   const filterCat = categories?.find((cat: ICategory) => cat.title.toLowerCase() === selectedProductName.toLowerCase());
   const filteredProducts = products.filter((product: IProduct) => product.CategoryId === filterCat?.id) || [];
-  const filteredSubCategories = subCategories?.filter((subCat: ICategory) => subCat.CategoryId === filterCat?.id) || [];
 
-  const filteredItems = [...filteredProducts, ...filteredSubCategories];
-
-  if ((!selectedPage || filteredItems.length < 1) || urls?.length > 1) {
+  if ( urls?.length > 1) {
     return <NotFound />;
   }
 
@@ -101,15 +86,10 @@ const Products = async ({ params }: Props) => {
       <Script type="application/ld+json" id="categories-json-ld">
         {JSON.stringify(matchingLink?.script || "")}
       </Script>
-
-
-      <Product productName={slug}
-        products={products}
-        categories={categories}
-        selectedPage={selectedPage.content}
-        matchedProduct={matchedProduct?.para}
-        filteredItems={filteredItems}
-        title={selectedProductName} />
+      <Product
+        categories={filterCat}
+        filteredItems={filteredProducts}
+        />
     </>
   );
 };

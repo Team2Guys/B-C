@@ -106,7 +106,7 @@ const FormLayout = ({
         : null;
       let url = `${process.env.NEXT_PUBLIC_BASE_URL}${updateFlag ? addProductUrl : '/api/categories/AddCategory'
         }`;
-
+      console.log(newValue,'newValue')
       if (updateFlag) {
         await axios.put(url, newValue, {
           headers: {
@@ -356,7 +356,7 @@ const FormLayout = ({
 
                                    <div className='w-full'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                          topHeading
+                          Top Heading
                         </label>
                         <input
                           type="text"
@@ -375,7 +375,25 @@ const FormLayout = ({
                       </div>
 
 
-        
+                              <div>
+                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          Product Page Heading 
+                        </label>
+                        <input
+                          type="text"
+                          name="productpageHeading"
+                          onChange={formik.handleChange}
+                          value={formik.values.productpageHeading}
+                          placeholder="Title"
+                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.productpageHeading  && formik.errors.productpageHeading 
+                            ? 'border-red-500'
+                            : ''
+                            }`}
+                        />
+
+                      </div>
+
+
 
                       <div className='flex gap-4 mt-2 flex-wrap md:flex-nowrap'>
                         <div>
@@ -441,7 +459,7 @@ const FormLayout = ({
 
                       <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                          faqHeading
+                          Faq Heading
                         </label>
                         <input
                           type="text"
@@ -473,18 +491,33 @@ const FormLayout = ({
                                     (spec: any, index: any) => (
                                       <div
                                         key={index}
-                                        className="flex items-center"
+                                        className="flex gap-2 items-center"
                                       >
                                         <input
                                           type="text"
-                                          name={`spacification[${index}].specsDetails`}
+                                          name={`faqs[${index}].specsHeading`}
+                                          onChange={formik.handleChange}
+                                          onBlur={formik.handleBlur}
+                                          value={
+                                            formik.values.faqs[index]
+                                              .specsHeading
+                                          }
+                                          placeholder="FAQS Heading"
+                                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+      
+                                              
+                                            `}
+                                        />
+                                        <input
+                                          type="text"
+                                          name={`faqs[${index}].specsDetails`}
                                           onChange={formik.handleChange}
                                           onBlur={formik.handleBlur}
                                           value={
                                             formik.values.faqs[index]
                                               .specsDetails
                                           }
-                                          placeholder="Specification Details"
+                                          placeholder="FAQS Details"
                                           className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
       
                                               
@@ -508,7 +541,65 @@ const FormLayout = ({
                                   onClick={() => push({ specsDetails: '' })}
                                   className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
                                 >
-                                  Add Specification
+                                  Add FAQS
+                                </button>
+                              </div>
+                            )}
+                          </FieldArray>
+                        </div>
+                      </div>
+
+                      <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
+                        <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                          <h3 className="font-medium text-black dark:text-white">
+                            heading checks 
+                          </h3>
+                        </div>
+                        <div className="flex flex-col gap-4 p-4">
+                          <FieldArray name="headingchecks">
+                            {({ push, remove }) => (
+                              <div className="flex flex-col gap-2">
+                                {formik.values.headingchecks  &&
+                                  formik.values.headingchecks.map(
+                                    (spec: any, index: any) => (
+                                      <div
+                                        key={index}
+                                        className="flex items-center"
+                                      >
+                                        <input
+                                          type="text"
+                                          name={`headingchecks[${index}].specsDetails`}
+                                          onChange={formik.handleChange}
+                                          onBlur={formik.handleBlur}
+                                          value={
+                                            formik.values.headingchecks [index]
+                                              .specsDetails
+                                          }
+                                          placeholder="heading checks Details"
+                                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+      
+                                              
+                                            `}
+                                        />
+                                        <button
+                                          type="button"
+                                          onClick={() => remove(index)}
+                                          className="ml-2 text-red"
+                                        >
+                                          <RxCross2
+                                            className="text-red"
+                                            size={25}
+                                          />
+                                        </button>
+                                      </div>
+                                    ),
+                                  )}
+                                <button
+                                  type="button"
+                                  onClick={() => push({ specsDetails: '' })}
+                                  className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                                >
+                                  Add heading checks 
                                 </button>
                               </div>
                             )}

@@ -37,7 +37,7 @@ export default function SimpleSteps() {
               {workingProcessData.steps.map((step, idx) => (
                 <div key={idx} className="flex items-baseline gap-4 mt-1">
                   <div className="flex flex-col items-center space-y-2">
-                    <div className="rounded-full font-roboto bg-[#F1B42F66] p-4 text-12 text-black font-semibold flex items-center justify-center shadow-md min-w-[65px] min-h-[65px]">
+                    <div className="rounded-full font-roboto bg-[#F1B42F66] sm:p-4 text-12 text-black font-semibold flex items-center justify-center shadow-md min-w-[65px] min-h-[65px]">
                       {step.step}
                     </div>
                     <Image
@@ -51,7 +51,7 @@ export default function SimpleSteps() {
                     />
                   </div>
                   <div className="flex flex-col justify-center">
-                    <p className="text-lg font-semibold font-robotoSerif">{step.title}</p>
+                    <p className="sm:text-lg text-base font-semibold font-robotoSerif">{step.title}</p>
                     <p className="text-base text-primary font-roboto">{step.description}</p>
                   </div>
                 </div>

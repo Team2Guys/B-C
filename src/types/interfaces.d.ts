@@ -52,13 +52,13 @@ export interface Category {
   Images_Alt_Text?: string;
   topHeading?: string;
 
-  headingchecks: any[]
+  headingchecks: { specsDetails: string }[]
   breakcrum?: string;
 
   productpageHeading?: string;
   faqHeadingS?: string;
 
-  faqs: any[]
+  faqs: { specsHeading: string ,specsDetails: string }[]
   faqHeading?: string
     
   productCustomUrl?: string
