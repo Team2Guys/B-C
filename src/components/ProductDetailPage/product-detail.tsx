@@ -15,7 +15,7 @@ interface IProductDetail {
   filterProduct: IProduct | any;
 }
 const ProductDetail = ({ title, filterProduct  }: IProductDetail) => {
- 
+ console.log(filterProduct,"filterProduct")
   return (
     <div>
     <Breadcrumb slug={filterProduct.category.breakcrum} title={title}/>
@@ -30,8 +30,8 @@ const ProductDetail = ({ title, filterProduct  }: IProductDetail) => {
     <QualitySection/>
     <VideoGuide/>
     <Testimonial/>
-    <Faqs />
-    <Information/>
+    <Faqs Data={filterProduct} />
+    <Information privacySectoin={filterProduct.privacySectoin} privarcyImage={filterProduct?.privarcyImage?.imageUrl}/>
     </div>
   )
 }

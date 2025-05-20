@@ -47,10 +47,9 @@ const Detail = ({data}:{data:IProduct | any}) => {
       <p className='font-roboto px-2'>Most Demanded Color</p>
       <div className=' flex items-center gap-2 md:pb-10 px-2'>
         <div className='flex items-center gap-2'>
-            <div className='h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[#BF6933] cursor-pointer' />
-            <div className='h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[#BF6933] cursor-pointer' />
-            <div className='h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[#BF6933] cursor-pointer' />
-            <div className='h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[#BF6933] cursor-pointer' />
+          {data.colors && data.colors.map((item:{detail:string} , index:number)=>(
+            <div key={index} className={`h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[${item?.detail}] cursor-pointer shadow`} />
+          ))}
         </div>
         <p className='border rounded-lg font-roboto h-12 flex items-center px-2 text-xs md:text-base max-sm:max-w-32'>We still 3000 plus color availble </p>
       </div>

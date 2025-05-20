@@ -85,12 +85,7 @@ export interface IProduct {
   subCategory?: [];
   short_description?: string;
   heading?: string;
-  colors?: [
-    {
-      colorName: string;
-      colorCode?: string;
-    },
-  ];
+  colors?: Array<{name?: string;detail?: string;}> 
   Sub_Heading?: string;
   Sub_Heading_description?:string
   Meta_Title?: string;
@@ -99,6 +94,7 @@ export interface IProduct {
   subCategoryImage?: Image
   subcategory_description?:string
   modelDetails?:{name:string, detail:string}[]
+  privarcyImage?:Image
   
 }
 
