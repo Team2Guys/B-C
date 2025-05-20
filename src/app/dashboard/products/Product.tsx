@@ -54,6 +54,7 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
     bannerImage: editProduct && editProduct.bannerImage,
     subCategoryImage:   editProduct && editProduct.subCategoryImage,
     subcategory_description : editProduct && editProduct.subcategory_description,
+    topImages: editProduct && editProduct.topImages,
 
   };
 

@@ -39,6 +39,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage],);
   const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
   const [subCategoryImage, setsubCategoryImage] = useState<any[] | null>(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
+  const [topImages, settopImages] = useState<any[] | null>(EditInitialValues && EditInitialValues.topImages  && [EditInitialValues.topImages]);
   const [productUpdateFlat, setProductUpdateFlat] = useState(false);
   const [loading, setloading] = useState<boolean>(false);
   const [productInitialValue, setProductInitialValue] = useState<any | null | undefined>(EditInitialValues);
@@ -105,6 +106,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         setBannerImageUrl(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
         setposterimageUrl(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage]);
         setsubCategoryImage(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
+        setsubCategoryImage(EditInitialValues && EditInitialValues.topImages && [EditInitialValues.topImages]);
 
 
 
@@ -122,6 +124,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
       let bannerImage = bannerImageUrl && bannerImageUrl[0];
       let newsubCategoryImage = subCategoryImage && subCategoryImage[0];
+      let newsubtopImages = topImages && topImages[0];
       if (!posterImageUrl || !(imagesUrl.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
       }
@@ -134,6 +137,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         posterImage: posterImageUrl,
         bannerImage: bannerImage !== undefined ? bannerImage : null,
         subCategoryImage: newsubCategoryImage !== undefined ? newsubCategoryImage : null,
+        topImages: newsubtopImages !== undefined ? newsubtopImages : null,
         imageUrls: imagesUrl,
         price: values.salePrice,
         Meta_description: values.Meta_Description,
@@ -280,12 +284,20 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     setposterimageUrl(updatedImagesUrl);
   };
 
-  const handlealtTextbannerImageUrl = (index: number, newaltText: string, setBannerImageUrl: React.Dispatch<SetStateAction<any>>) => {
+  const handlealtTextbannerImageUrl = (index: number, newaltText: string, setImageUrl: React.Dispatch<SetStateAction<any>>) => {
     //@ts-expect-error
     const updatedImagesUrl = bannerImageUrl.map((item, i) =>
       i === index ? { ...item, altText: newaltText } : item,
     );
-    setBannerImageUrl(updatedImagesUrl);
+    setImageUrl(updatedImagesUrl);
+  };
+
+  const handleNameImageUrl = (index: number, name: string, setImageUrl: React.Dispatch<SetStateAction<any>>, variable: string) => {
+    //@ts-expect-error
+    const updatedImagesUrl = topImages.map((item, i) =>
+      i === index ? { ...item, [variable]: name } : item,
+    );
+    setImageUrl(updatedImagesUrl);
   };
 
   const { data: categoriesList = [], isLoading } = useQuery<ICategory[], Error>(
@@ -913,7 +925,143 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                     </div>
                   </div>
 
+                  <div className='rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark'>
+                    <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                      <h3 className="font-medium">
+                        colors
+                      </h3>
+                    </div>
+                    <div className="flex flex-col py-4 px-4">
+                      <FieldArray name="colors">
+                        {({ push, remove }) => (
+                          <div className="flex flex-col gap-2">
+                            {formik.values.colors &&
+                              formik.values.colors.map((model: any, index: number) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center gap-2"
+                                >
+                                  <input
+                                    type="text"
+                                    name={`colors[${index}].name`}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik?.values?.colors?.[index].name}
+                                    placeholder="Heading name"
+                                    className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  />
+                                  <input
+                                    type="text"
+                                    name={`colors[${index}].detail`}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.colors?.[index].detail}
+                                    placeholder="details text"
+                                    className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => remove(index)}
+                                    className=" text-red-500 "
+                                  >
+                                    <RxCross2
+                                      className="text-red-500"
+                                      size={25}
+                                    />
+                                  </button>
+                                </div>
+                              )
+                              )}
+                            <button
+                              type="button"
+                              onClick={() => push({ name: "", detail: "" })}
+                              className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                            >
+                              colors
+                            </button>
+                          </div>
+                        )}
+                      </FieldArray>
+                    </div>
+                  </div>
 
+                  <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
+                    <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                      <h3 className="font-medium text-black dark:text-white">
+                        Top Images 
+                      </h3>
+                    </div>
+                    {topImages && topImages?.length > 0 ? (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
+                        <div>
+                          {topImages.map((item: any, index) => {
+                            return (
+                              <>
+                                <div
+                                  className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
+                                  key={index}
+                                >
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                    <RxCross2
+                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      size={17}
+                                      onClick={() => {
+                                        ImageRemoveHandler(
+                                          item.public_id,
+                                          settopImages,
+                                        );
+                                      }}
+                                    />
+                                  </div>
+                                  <Image
+                                    key={index}
+                                    className="object-cover w-full h-full"
+                                    width={300}
+                                    height={400}
+                                    src={item?.imageUrl}
+                                    alt={`productImage-${index}`}
+                                  />
+                                </div>
+
+                                <input
+                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  placeholder="altText"
+                                  type="text"
+                                  name="altText"
+                                  value={item.altText}
+                                  onChange={(e) =>
+                                    handleNameImageUrl(
+                                      index,
+                                      String(e.target.value),
+                                      settopImages,
+                                      'altText'
+                                    )
+                                  }
+                                />
+                                <input
+                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  placeholder="Name"
+                                  type="text"
+                                  name="name"
+                                  value={item.name}
+                                  onChange={(e) =>
+                                    handleNameImageUrl(
+                                      index,
+                                      String(e.target.value),
+                                      settopImages,
+                                      'name'
+                                    )
+                                  }
+                                />
+                              </>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : (
+                      <Imageupload setposterimageUrl={settopImages} />
+                    )}
+                  </div>
 
 
                   <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
