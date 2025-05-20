@@ -8,6 +8,7 @@ import { MdOutlineStarPurple500 } from "react-icons/md";
 
 export default function ReviewBanner() {
 
+  
   return (
     <div className="pt-7 sm:pt-10">
       <Container className="grid grid-cols-1 md:flex flex-row">

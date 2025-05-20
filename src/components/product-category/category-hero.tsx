@@ -8,6 +8,8 @@ const CategoryHero = ({ Data }: CategoryProps) => {
  if (!Data) {
     return null;
   }
+
+  console.log(Data.headingchecks, "headingchecks")
   return (
     <div className='bg-primary-foreground py-4 md:py-0'>
         <Container className='grid grid-cols-12 md:gap-4 items-center' >
@@ -25,7 +27,7 @@ const CategoryHero = ({ Data }: CategoryProps) => {
            </div>
            <div className='col-span-12 md:col-span-4 order-1 md:order-2'>
             <h1 className='font-robotoSerif font-bold text-2xl text-center md:hidden block'>{Data.title}</h1>
-            <Image src={Data.bannerImage?.imageUrl || ""} className='w-full h-[230px] md:h-[320px] rounded-xl' width={600} height={600} alt={"Hero"}/>
+            <Image src={Data.posterImage?.imageUrl || ""} className='w-full h-[230px] md:h-[320px] rounded-xl' width={600} height={600} alt={"Hero"}/>
            </div>
         </Container>
     </div>

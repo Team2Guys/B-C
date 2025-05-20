@@ -26,6 +26,56 @@ export const fetchProducts = async () => {
 };
 
 
+export async function fetchSingleCategory(customUrl: string) {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/findsingleCategory/${customUrl.split("/").join("")}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      next: { tags: ['categories'] },
+    });
+
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.message || 'Failed to fetch category');
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error: any) {
+    console.error('fetchSingleCategory error:', error.message);
+    throw error;
+  }
+}
+
+export async function fetchSingleCategorymain(customUrl: string) {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/findsingleCategorymain/${customUrl}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      next: { tags: ['categories'] },
+    });
+
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.message || 'Failed to fetch category');
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error: any) {
+    console.error('fetchSingleCategory error:', error.message);
+    throw error;
+  }
+}
+
+
+
 export const fetchReviews = async () => {
   try {
     const response = await fetch(
@@ -79,17 +129,17 @@ export const fetchCategories = async () => {
 };
 
 export const fetchSubCategories = async () => {
-  try{
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`, {
-    next: { tags: ['subCategories'] },
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/categories/get-all-subCategories`, {
+      next: { tags: ['subCategories'] },
+    }
+    );
+    let result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error)
   }
-  );
-  let result = await response.json();
-  return result;
-} catch (error) {
-  console.log(error)
-}
 };
 
 export const adminRecords = async (
@@ -133,7 +183,7 @@ export const fetchAppointments = async (token: string | undefined): Promise<IApp
 
 
 
-export const getAllAdmins = async (token:any) => {
+export const getAllAdmins = async (token: any) => {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/get_all_admin`,
@@ -142,7 +192,7 @@ export const getAllAdmins = async (token:any) => {
           Authorization: `Bearer ${token}`,
         },
         next: { tags: ['admins'] },
-        
+
       },
     );
     const admins = await response.json();
@@ -182,9 +232,9 @@ export const filterProd = (
 
 
 
-export const admin_del_handler =async(id:any)=>{
+export const admin_del_handler = async (id: any) => {
   try {
-   let finalToken = await token()
+    let finalToken = await token()
     await axios.delete(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/admins/delete/${id}`,
       {
@@ -193,8 +243,8 @@ export const admin_del_handler =async(id:any)=>{
         },
       },
     );
-    
-  } catch (error:any) {
+
+  } catch (error: any) {
     throw new Error(error.message || 'Error occured')
   }
 }
