@@ -36,9 +36,10 @@ export class ReviewsService {
     }
   }
 
-  async update(id: number, updateReviewDto: UpdateReviewDto) {
+  async update(updateReviewDto: UpdateReviewDto) {
     try {
-      await this.prisma.reviews.update({ where: { id }, data: updateReviewDto })
+      const {id, ...withoutid} = updateReviewDto
+      await this.prisma.reviews.update({ where: { id }, data: withoutid })
     } catch (error: any) {
       console.log(error, "err")
       return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')

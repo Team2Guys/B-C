@@ -22,9 +22,9 @@ export class ReviewsController {
     return this.reviewsService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateReviewDto: UpdateReviewDto) {
-    return this.reviewsService.update(+id, updateReviewDto);
+  @Patch('updated_reviews')
+  update(@Body() updateReviewDto: UpdateReviewDto) {
+    return this.reviewsService.update( updateReviewDto);
   }
 
   @Delete(':id')

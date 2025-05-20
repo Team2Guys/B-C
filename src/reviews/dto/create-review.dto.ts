@@ -1,21 +1,20 @@
-import { IsDate, IsOptional, IsString } from "class-validator"
+import { IsDate, IsNumber, IsOptional, IsString } from "class-validator"
 
 export class CreateReviewDto {
-
-    @IsString()
-    customer_name:string
-
-    @IsString()
-    star_rating:string
-    @IsDate()
-    createdAt          :Date
-    @IsString()
-    reveiw_description :string
     @IsOptional()
-    @IsString()
-    last_editedBy?:string
+    posterImageUrl?: any
 
-    
-    @IsOptional()
-    posterImage?: any
+    @IsString()
+    name: string
+
+    @IsNumber()
+    starRating: number
+
+    @IsString()
+    ReviewsDescription: string
+
+    @IsString()
+    reviewDate: string
+
+
 }
