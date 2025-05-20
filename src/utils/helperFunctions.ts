@@ -4,24 +4,26 @@ import { blindsSubcategories, curtainsSubcategories, generateSlug, shuttersSubca
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
 import Cookies from 'js-cookie';
+import React from 'react';
 import { IProduct } from 'types/types';
 const token = Cookies.get('2guysAdminToken');
 const superAdmintoken = Cookies.get('superAdminToken');
 const finalToken = token ? token : superAdmintoken;
 
-export const uploadPhotosToBackend = async (files: File[]): Promise<any[]> => {
+
+export const uploadPhotosToBackend = async (files: File[], s3Flag?:boolean): Promise<any[]> => {
   const formData = new FormData();
 
   if (files.length === 0) throw new Error('No files found');
-
+let urlsEndpoint = s3Flag ? "file-upload/upload-s3" : "file-upload"
   try {
     for (const file of files) {
       console.log('hello from files');
       formData.append('file', file);
     }
-console.log(formData, "formData")
+
     const response: AxiosResponse<any> = await axios.post(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/file-upload`,formData,{
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/${urlsEndpoint}`,formData,{
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -42,8 +44,9 @@ export const ImageRemoveHandler = async (
  
   console.log(imagePublicId);
   try {
+    let awsS3Flag = imagePublicId.includes("s3") ? "DelImages3" : "DelImage"
     const response = await axios.delete(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/file-upload/DelImage/${imagePublicId}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/file-upload/${awsS3Flag}/${imagePublicId}`,
     );
     console.log('Image removed successfully:', response.data);
     setterFunction((prev: any) =>
@@ -130,3 +133,22 @@ export const getSubcategoriesByCategory = (categoryName: string): string[] => {
     const words = plainText.split(/\s+/)
     return words.slice(0, wordCount).join(' ') + (words.length > wordCount ? '.' : '.')
   }
+
+
+  export const handleImageAltText = (
+    index: number,
+    newImageIndex: string,
+    setImagesUrlhandler: React.Dispatch<
+      React.SetStateAction<any[] | undefined>
+    >,
+    variantType: string
+  ) => {
+    setImagesUrlhandler((prev: any[] | undefined) => {
+      if (!prev) return [];
+
+      const updatedImagesUrl = prev?.map((item: any, i: number) =>
+        i === index ? { ...item, [variantType]: newImageIndex } : item
+      );
+      return updatedImagesUrl;
+    });
+  };
