@@ -592,8 +592,8 @@ ol {
     opacity: 1;
 }
 .motorizedblindcurtains .slick-dots li button:before {
-  color:#687477 !important;
-  font-size: 10px !important;
+  color:#36454F1F !important;
+  font-size: 8px !important;
   opacity: 1;
 }
 .motorizedblindcurtains .slick-dots li button {
@@ -631,4 +631,7 @@ ol {
 
 .custom-test .slick-dots li:hover button:before {
   color: #3E3F42 !important; 
+}
+.ant-collapse-header{
+  border: none !important;
 }

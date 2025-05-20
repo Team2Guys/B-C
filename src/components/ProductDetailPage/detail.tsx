@@ -27,7 +27,7 @@ const Detail = ({data}:{data:IProduct | any}) => {
         ))}
       </div>
       <div className='py-2 bg-[#F2F2F2] px-2 block md:hidden '>
-        <Link href="/" className='bg-secondary text-primary py-3 px-6 font-semibold block rounded-md w-full sm:w-fit font-roboto text-center'>Book A Free Visit</Link>
+        <Link href="/" className='bg-secondary text-primary py-3 px-6 font-semibold block rounded-md w-full md:w-fit font-roboto text-center'>Book A Free Visit</Link>
       </div>
       <p className='px-2'>
       <span className='font-roboto'

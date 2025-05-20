@@ -38,7 +38,11 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const [imagesUrl, setImagesUrl] = useState<any[]>([]);
   const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage],);
   const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
+  const [privarcyImagemageUrl, setprivarcyImage] = useState<any[] | null>(EditInitialValues && EditInitialValues.privarcyImage && [EditInitialValues.privarcyImage]);
+
+
   const [subCategoryImage, setsubCategoryImage] = useState<any[] | null>(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
+  const [topImages, settopImages] = useState<any[] | null>(EditInitialValues && EditInitialValues.topImages && EditInitialValues.topImages);
   const [productUpdateFlat, setProductUpdateFlat] = useState(false);
   const [loading, setloading] = useState<boolean>(false);
   const [productInitialValue, setProductInitialValue] = useState<any | null | undefined>(EditInitialValues);
@@ -103,8 +107,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
           name: EditInitialProductValues.title,
         });
         setBannerImageUrl(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
+        setprivarcyImage(EditInitialValues && EditInitialValues.privarcyImage && [EditInitialValues.privarcyImage]);
         setposterimageUrl(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage]);
         setsubCategoryImage(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
+        setsubCategoryImage(EditInitialValues && EditInitialValues.topImages && [EditInitialValues.topImages]);
 
 
 
@@ -122,6 +128,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       let posterImageUrl = posterimageUrl && posterimageUrl[0];
       let bannerImage = bannerImageUrl && bannerImageUrl[0];
       let newsubCategoryImage = subCategoryImage && subCategoryImage[0];
+      let privarcyImage = privarcyImagemageUrl && privarcyImagemageUrl[0];
       if (!posterImageUrl || !(imagesUrl.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
       }
@@ -133,7 +140,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         title: values.name,
         posterImage: posterImageUrl,
         bannerImage: bannerImage !== undefined ? bannerImage : null,
+        privarcyImage: privarcyImage !== undefined ? privarcyImage : null,
         subCategoryImage: newsubCategoryImage !== undefined ? newsubCategoryImage : null,
+        topImages: topImages,
         imageUrls: imagesUrl,
         price: values.salePrice,
         Meta_description: values.Meta_Description,
@@ -237,6 +246,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setloading(false);
       setposterimageUrl(null);
       setBannerImageUrl(null);
+      setprivarcyImage(null);
       setposterimageUrl(null);
       setImagesUrl([]);
       setSelectedCategoryIds([]);
@@ -257,7 +267,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     } finally {
       setloading(false);
     }
-  };
+  }
+  
+  console.log(EditInitialValues.privarcyImage, "privarcyImagemageUrl")
 
   const handleImageIndex = (index: number, newImageIndex: number) => {
     const updatedImagesUrl = imagesUrl.map((item, i) =>
@@ -280,12 +292,20 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
     setposterimageUrl(updatedImagesUrl);
   };
 
-  const handlealtTextbannerImageUrl = (index: number, newaltText: string, setBannerImageUrl: React.Dispatch<SetStateAction<any>>) => {
+  const handlealtTextbannerImageUrl = (index: number, newaltText: string, setImageUrl: React.Dispatch<SetStateAction<any>>) => {
     //@ts-expect-error
     const updatedImagesUrl = bannerImageUrl.map((item, i) =>
       i === index ? { ...item, altText: newaltText } : item,
     );
-    setBannerImageUrl(updatedImagesUrl);
+    setImageUrl(updatedImagesUrl);
+  };
+
+  const handleNameImageUrl = (index: number, name: string, setImageUrl: React.Dispatch<SetStateAction<any>>, variable: string) => {
+    //@ts-expect-error
+    const updatedImagesUrl = topImages.map((item, i) =>
+      i === index ? { ...item, [variable]: name } : item,
+    );
+    setImageUrl(updatedImagesUrl);
   };
 
   const { data: categoriesList = [], isLoading } = useQuery<ICategory[], Error>(
@@ -423,59 +443,68 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         ) : null}
                       </div>
 
-                      <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                          Description{' '}
-                        </label>
-                        <textarea
-                          name="description"
-                          onChange={formik.handleChange}
-                          value={formik.values.description}
-                          placeholder="description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
-                            formik.errors.description
-                            ? 'border-red-500'
-                            : ''
-                            }`}
-                        />
-                        {formik.touched.description &&
-                          formik.errors.description ? (
-                          <div className="text-red text-sm">
-                            {
-                              formik.errors.description as FormikErrors<
-                                FormValues['description']
-                              >
-                            }
-                          </div>
-                        ) : null}
+
+
+
+
+                      <div className='flex  gap-2 flex-nowrap mad:flex-wrap'>
+                        <div className='w-1/2'>
+                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            Description{' '}
+                          </label>
+                          <textarea
+                            name="description"
+                            onChange={formik.handleChange}
+                            value={formik.values.description}
+                            placeholder="description"
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
+                              formik.errors.description
+                              ? 'border-red-500'
+                              : ''
+                              }`}
+                          />
+                          {formik.touched.description &&
+                            formik.errors.description ? (
+                            <div className="text-red text-sm">
+                              {
+                                formik.errors.description as FormikErrors<
+                                  FormValues['description']
+                                >
+                              }
+                            </div>
+                          ) : null}
+                        </div>
+
+                        <div className='w-1/2'>
+                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            Short Description{' '}
+                          </label>
+                          <textarea
+                            name="short_description"
+                            onChange={formik.handleChange}
+                            value={formik.values.short_description}
+                            placeholder="Short Description"
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.short_description &&
+                              formik.errors.short_description
+                              ? 'border-red-500'
+                              : ''
+                              }`}
+                          />
+                          {formik.touched.short_description &&
+                            formik.errors.short_description ? (
+                            <div className="text-red text-sm">
+                              {
+                                formik.errors.short_description as FormikErrors<
+                                  FormValues['short_description']
+                                >
+                              }
+                            </div>
+                          ) : null}
+                        </div>
+
                       </div>
 
-                      <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                          Short Description{' '}
-                        </label>
-                        <textarea
-                          name="short_description"
-                          onChange={formik.handleChange}
-                          value={formik.values.short_description}
-                          placeholder="Short Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.short_description &&
-                            formik.errors.short_description
-                            ? 'border-red-500'
-                            : ''
-                            }`}
-                        />
-                        {formik.touched.short_description &&
-                          formik.errors.short_description ? (
-                          <div className="text-red text-sm">
-                            {
-                              formik.errors.short_description as FormikErrors<
-                                FormValues['short_description']
-                              >
-                            }
-                          </div>
-                        ) : null}
-                      </div>
+
 
                       <div>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
@@ -501,6 +530,97 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           </div>
                         ) : null}
                       </div>
+
+
+                      <div className="flex full gap-4">
+                        <div className="w-[50%]">
+                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            customUrl
+                          </label>
+                          <input
+                            type="text"
+                            name="customUrl"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.customUrl}
+                            placeholder="customUrl"
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.customUrl &&
+                              formik.errors.customUrl
+                              ? 'border-red-500'
+                              : ''
+                              }`}
+                          />
+
+                        </div>
+
+                        <div className="w-[50%]">
+                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            breadcurum
+                          </label>
+                          <input
+                            type="breadcurum"
+                            name="breadcurum"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.breadcurum}
+                            placeholder="Discount Price"
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.breadcurum &&
+                              formik.errors.breadcurum
+                              ? 'border-red-500'
+                              : ''
+                              }`}
+                          />
+
+                        </div>
+                      </div>
+
+
+
+
+                      <div className="flex full gap-4">
+                        <div className="w-[50%]">
+                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            topHeading
+                          </label>
+                          <input
+                            type="text"
+                            name="topHeading"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.topHeading}
+                            placeholder="topHeading"
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.topHeading &&
+                              formik.errors.topHeading
+                              ? 'border-red-500'
+                              : ''
+                              }`}
+                          />
+
+                        </div>
+
+                        <div className="w-[50%]">
+                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            mainHeading
+                          </label>
+                          <input
+                            type="mainHeading"
+                            name="mainHeading"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.mainHeading}
+                            placeholder="Discount Price"
+                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.mainHeading &&
+                              formik.errors.mainHeading
+                              ? 'border-red-500'
+                              : ''
+                              }`}
+                          />
+
+                        </div>
+                      </div>
+
+
+
 
                       <div className="flex full gap-4">
                         <div className="w-[50%]">
@@ -557,6 +677,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           ) : null}
                         </div>
                       </div>
+
+
+
 
                       <div className="w-full">
                         <label className="mb-3 block py-4 px-2 text-sm font-medium text-black dark:text-white">
@@ -723,8 +846,159 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                 <div className="flex flex-col gap-5">
 
 
-                  <div className="p-4 rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
-                    <div>
+                  <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
+                    <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                      <h3 className="font-medium text-black dark:text-white">
+                        FAQS
+                      </h3>
+                    </div>
+                    <div className="flex flex-col gap-4 p-4">
+                      <FieldArray name="faqs">
+                        {({ push, remove }) => (
+                          <div className="flex flex-col gap-2">
+                            {formik.values.faqs &&
+                              formik.values.faqs.map(
+                                (spec: any, index: any) => (
+                                  <div
+                                    key={index}
+                                    className="flex gap-2 items-center"
+                                  >
+                                    <input
+                                      type="text"
+                                      name={`faqs[${index}].specsHeading`}
+                                      onChange={formik.handleChange}
+                                      onBlur={formik.handleBlur}
+                                      value={
+                                        formik.values.faqs[index]
+                                          .specsHeading
+                                      }
+                                      placeholder="FAQS Heading"
+                                      className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+      
+                                              
+                                            `}
+                                    />
+                                    <input
+                                      type="text"
+                                      name={`faqs[${index}].specsDetails`}
+                                      onChange={formik.handleChange}
+                                      onBlur={formik.handleBlur}
+                                      value={
+                                        formik.values.faqs[index]
+                                          .specsDetails
+                                      }
+                                      placeholder="FAQS Details"
+                                      className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+      
+                                              
+                                            `}
+                                    />
+                                    <button
+                                      type="button"
+                                      onClick={() => remove(index)}
+                                      className="ml-2 text-red"
+                                    >
+                                      <RxCross2
+                                        className="text-red"
+                                        size={25}
+                                      />
+                                    </button>
+                                  </div>
+                                ),
+                              )}
+                            <button
+                              type="button"
+                              onClick={() => push({ specsDetails: '' })}
+                              className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                            >
+                              Add FAQS
+                            </button>
+                          </div>
+                        )}
+                      </FieldArray>
+                    </div>
+                  </div>
+
+
+
+
+
+                  <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
+                    <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                      <h3 className="font-medium text-black dark:text-white">
+                        Privacy Section
+                      </h3>
+                    </div>
+                    <div className="flex flex-col gap-4 p-4">
+                      <FieldArray name="privacySectoin">
+                        {({ push, remove }) => (
+                          <div className="flex flex-col gap-2">
+                            {formik.values.privacySectoin &&
+                              formik.values.privacySectoin.map(
+                                (spec: any, index: any) => (
+                                  <div
+                                    key={index}
+                                    className="flex gap-2 items-center"
+                                  >
+                                    <input
+                                      type="text"
+                                      name={`privacySectoin[${index}].specsHeading`}
+                                      onChange={formik.handleChange}
+                                      onBlur={formik.handleBlur}
+                                      value={
+                                        formik.values.privacySectoin[index]
+                                          .specsHeading
+                                      }
+                                      placeholder="privacySectoin Heading"
+                                      className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+      
+                                              
+                                            `}
+                                    />
+                                    <input
+                                      type="text"
+                                      name={`privacySectoin[${index}].specsDetails`}
+                                      onChange={formik.handleChange}
+                                      onBlur={formik.handleBlur}
+                                      value={
+                                        formik.values.privacySectoin[index]
+                                          .specsDetails
+                                      }
+                                      placeholder="privacySectoin Details"
+                                      className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+      
+                                              
+                                            `}
+                                    />
+                                    <button
+                                      type="button"
+                                      onClick={() => remove(index)}
+                                      className="ml-2 text-red"
+                                    >
+                                      <RxCross2
+                                        className="text-red"
+                                        size={25}
+                                      />
+                                    </button>
+                                  </div>
+                                ),
+                              )}
+                            <button
+                              type="button"
+                              onClick={() => push({ specsDetails: '' })}
+                              className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                            >
+                              Add privacySectoin
+                            </button>
+                          </div>
+                        )}
+                      </FieldArray>
+                    </div>
+                  </div>
+
+
+                  <div className="flex  gap-4">
+                    <div className='w-1/2'>
                       <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                         Sub Heading
                       </label>
@@ -751,34 +1025,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                       ) : null}
                     </div>
 
-                    <div>
-                      <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                        Descripton(On Subcategory Page)
-                      </label>
-                      <textarea
-                        name="subcategory_description"
-                        onChange={formik.handleChange}
-                        value={formik.values.subcategory_description}
-                        placeholder="description"
-                        className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.subcategory_description &&
-                          formik.errors.subcategory_description
-                          ? 'border-red-500'
-                          : ''
-                          }`}
-                      />
-                      {formik.touched.subcategory_description &&
-                        formik.errors.subcategory_description ? (
-                        <div className="text-red text-sm">
-                          {
-                            formik.errors.subcategory_description as FormikErrors<
-                              FormValues['subcategory_description']
-                            >
-                          }
-                        </div>
-                      ) : null}
-                    </div>
 
-                    <div>
+
+                    <div className='w-1/2'>
                       <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                         Sub Heading Description
                       </label>
@@ -913,7 +1162,144 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                     </div>
                   </div>
 
+                  <div className='rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark'>
+                    <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                      <h3 className="font-medium">
+                        colors
+                      </h3>
+                    </div>
+                    <div className="flex flex-col py-4 px-4">
+                      <FieldArray name="colors">
+                        {({ push, remove }) => (
+                          <div className="flex flex-col gap-2">
+                            {formik.values.colors &&
+                              formik.values.colors.map((model: any, index: number) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center gap-2"
+                                >
+                                  <input
+                                    type="text"
+                                    name={`colors[${index}].name`}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik?.values?.colors?.[index].name}
+                                    placeholder="Heading name"
+                                    className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  />
+                                  <input
+                                    type="text"
+                                    name={`colors[${index}].detail`}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.colors?.[index].detail}
+                                    placeholder="details text"
+                                    className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => remove(index)}
+                                    className=" text-red-500 "
+                                  >
+                                    <RxCross2
+                                      className="text-red-500"
+                                      size={25}
+                                    />
+                                  </button>
+                                </div>
+                              )
+                              )}
+                            <button
+                              type="button"
+                              onClick={() => push({ name: "", detail: "" })}
+                              className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                            >
+                              colors
+                            </button>
+                          </div>
+                        )}
+                      </FieldArray>
+                    </div>
+                  </div>
 
+                  <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
+                    <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                      <h3 className="font-medium text-black dark:text-white">
+                        Top Images
+                      </h3>
+                    </div>
+                        <Imageupload setImagesUrl={setImagesUrl} />
+                    {topImages && topImages?.length > 0 ? (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
+                        <div>
+                          {topImages.map((item: any, index) => {
+                            return (
+                              <>
+                                <div
+                                  className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
+                                  key={index}
+                                >
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                    <RxCross2
+                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      size={17}
+                                      onClick={() => {
+                                        ImageRemoveHandler(
+                                          item.public_id,
+                                          settopImages,
+                                        );
+                                      }}
+                                    />
+                                  </div>
+                                  <Image
+                                    key={index}
+                                    className="object-cover w-full h-full"
+                                    width={300}
+                                    height={400}
+                                    src={item?.imageUrl}
+                                    alt={`productImage-${index}`}
+                                  />
+                                </div>
+
+                                <input
+                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  placeholder="altText"
+                                  type="text"
+                                  name="altText"
+                                  value={item.altText}
+                                  onChange={(e) =>
+                                    handleNameImageUrl(
+                                      index,
+                                      String(e.target.value),
+                                      settopImages,
+                                      'altText'
+                                    )
+                                  }
+                                />
+                                <input
+                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  placeholder="Name"
+                                  type="text"
+                                  name="name"
+                                  value={item.name}
+                                  onChange={(e) =>
+                                    handleNameImageUrl(
+                                      index,
+                                      String(e.target.value),
+                                      settopImages,
+                                      'name'
+                                    )
+                                  }
+                                />
+                              </>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : (
+                      <Imageupload setposterimageUrl={settopImages} />
+                    )}
+                  </div>
 
 
                   <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
@@ -1039,6 +1425,68 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                       </div>
                     ) : (
                       <Imageupload setposterimageUrl={setBannerImageUrl} />
+                    )}
+                  </div>
+
+                            <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
+                    <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
+                      <h3 className="font-medium text-black dark:text-white">
+                        privarcy Image
+                      </h3>
+                    </div>
+                    {privarcyImagemageUrl && privarcyImagemageUrl?.length > 0 ? (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
+                        <div>
+                          {privarcyImagemageUrl.map((item: any, index) => {
+                            return (
+                              <>
+                                <div
+                                  className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
+                                  key={index}
+                                >
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                    <RxCross2
+                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      size={17}
+                                      onClick={() => {
+                                        ImageRemoveHandler(
+                                          item.public_id,
+                                          setprivarcyImage,
+                                        );
+                                      }}
+                                    />
+                                  </div>
+                                  <Image
+                                    key={index}
+                                    className="object-cover w-full h-full"
+                                    width={300}
+                                    height={400}
+                                    src={item?.imageUrl}
+                                    alt={`productImage-${index}`}
+                                  />
+                                </div>
+
+                                <input
+                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark "
+                                  placeholder="altText"
+                                  type="text"
+                                  name="altText"
+                                  value={item.altText}
+                                  onChange={(e) =>
+                                    handlealtTextbannerImageUrl(
+                                      index,
+                                      String(e.target.value),
+                                      setprivarcyImage
+                                    )
+                                  }
+                                />
+                              </>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : (
+                      <Imageupload setposterimageUrl={setprivarcyImage} />
                     )}
                   </div>
 

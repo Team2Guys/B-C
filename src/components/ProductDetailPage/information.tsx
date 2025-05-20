@@ -5,7 +5,7 @@ import React from 'react'
 
 const Information = () => {
   return (
-    <div className="bg-[#F5F5F5] py-10">
+    <div className="bg-[#F5F5F5] py-10 mt-10">
     <Container className='grid grid-cols-12 gap-6'>
     <div className=' col-span-12 md:col-span-6 space-y-2 order-2 md:order-1'>
     <p className='font-robotoSerif font-bold text-2xl md:text-[30px] xl:text-[40px] leading-[120%]'>Blackout Curtains for Peace, Privacy, and Dubai Sun Control</p>
