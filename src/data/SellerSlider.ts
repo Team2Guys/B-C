@@ -35,25 +35,25 @@ export const workingProcessData: WorkingProcessContent = {
   steps: [
     {
       step: "Step 1",
-      iconimage: "/assets/images/downArrow.png",
+      iconimage: "/assets/images/Line-380.svg",
       title: "Book a Free Appointment",
       description: "Call us or fill out our online form to schedule",
     },
     {
       step: "Step 2",
-      iconimage: "/assets/images/downArrow.png",
+      iconimage: "/assets/images/Line-380.svg",
       title: "Measurements & Selection",
       description: "Call us or fill out our online form to schedule",
     },
     {
       step: "Step 3",
-      iconimage: "/assets/images/downArrow.png",
+      iconimage: "/assets/images/Line-380.svg",
       title: "Custom Production",
       description: "Call us or fill out our online form to schedule",
     },
     {
       step: "Step 4",
-      iconimage: "/assets/images/downArrow.png",
+      iconimage: "/assets/images/Line-380.svg",
       title: "Delivery & Installation",
       description: "Call us or fill out our online form to schedule",
     },
