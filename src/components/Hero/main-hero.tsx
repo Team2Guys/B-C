@@ -19,7 +19,7 @@ const MainHero = () => {
         Your browser does not support the video tag.
       </video>
       <Container className="relative h-full flex flex-col justify-between text-primary-foreground">
-        <div className="flex flex-col items-start h-full max-w-72 md:max-w-2xl space-y-2 md:space-y-5 mt-10">
+        <div className="flex flex-col items-start h-full max-w-72 md:max-w-2xl space-y-2 md:space-y-5 justify-center">
           <h1 className="text-2xl md:text-5xl font-extrabold font-robotoSerif">
             Blinds and Curtains
           </h1>
