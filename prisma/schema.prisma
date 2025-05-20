@@ -82,16 +82,16 @@ model products {
   modelDetails            Json[]  @default([])
 
   // new Design
-  customUrl String?
-  breadcurum String?
-  faqs      Json[] @default([])
+  customUrl String? //✅
+  breadcurum String?  //✅
+  faqs      Json[] @default([]) //✅
   videos    Json[] @default([])
-  topImages Json[] @default([])
-  colors    Json[] @default([])
-  topHeading String?
-  mainHeading String?
-  privacySectoin Json[] @default([])
-  privarcyImage Json?
+  topImages Json[] @default([])  //✅
+  colors    Json[] @default([]) //✅
+  topHeading String? //✅
+  mainHeading String? //✅
+  privacySectoin Json[] @default([]) //✅
+  privarcyImage Json? //✅
 
 }
 
