@@ -92,6 +92,7 @@ export class CategoriesService {
        id:true,
        headingchecks:true,
        description:true,  
+       breakcrum:true,
       
        subCategories:{
         select:{
