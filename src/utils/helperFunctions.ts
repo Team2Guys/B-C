@@ -124,3 +124,9 @@ const subcategoryMap: Record<string, string[]> = {
 export const getSubcategoriesByCategory = (categoryName: string): string[] => {
   return subcategoryMap[categoryName.toLowerCase()] || [];
 };
+
+  export  const getFirstNWords = (html: string, wordCount: number) => {
+    const plainText = html.replace(/<[^>]+>/g, '') // remove HTML tags
+    const words = plainText.split(/\s+/)
+    return words.slice(0, wordCount).join(' ') + (words.length > wordCount ? '.' : '.')
+  }
