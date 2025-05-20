@@ -29,8 +29,8 @@ model Categories {
   faqHeading         String?
   faqs               Json[]  @default([])
   headingchecks      Json[]  @default([])
-  categoryCustomUrl String?
-  productCustomUrl  String?
+  categoryCustomUrl  String?
+  productCustomUrl   String?
 }
 
 model SubCategories {
@@ -53,20 +53,20 @@ model SubCategories {
 }
 
 model products {
-  id                      Int             @id @default(autoincrement())
-  title                   String          @unique
-  posterImage             Json
-  imageUrls               Json[]
-  price                   Float
-  CategoryId              Int
-  SubCategoryId           Int?
-  description             String?
-  updatedAt               DateTime?
-  createdAt               DateTime        @default(now())
-  category                Categories      @relation("CategoryToProducts", fields: [CategoryId], references: [id])
-  subCategory             SubCategories[] @relation("SubCategoryToProducts")
-  product_type            String          @default("By Type")
-  colors                  Json[]
+  id            Int             @id @default(autoincrement())
+  title         String          @unique
+  posterImage   Json
+  imageUrls     Json[]
+  price         Float
+  CategoryId    Int
+  SubCategoryId Int?
+  description   String?
+  updatedAt     DateTime?
+  createdAt     DateTime        @default(now())
+  category      Categories      @relation("CategoryToProducts", fields: [CategoryId], references: [id])
+  subCategory   SubCategories[] @relation("SubCategoryToProducts")
+  product_type  String          @default("By Type")
+
   Meta_description        String?
   Images_Alt_Text         String?
   Meta_Title              String?
@@ -79,7 +79,20 @@ model products {
   bannerImage             Json?
   subCategoryImage        Json?
   subcategory_description String?
-  modelDetails            Json[]          @default([])
+  modelDetails            Json[]  @default([])
+
+  // new Design
+  customUrl String?
+  breadcurum String?
+  faqs      Json[] @default([])
+  videos    Json[] @default([])
+  topImages Json[] @default([])
+  colors    Json[] @default([])
+  topHeading String?
+  mainHeading String?
+  privacySectoin Json[] @default([])
+  privarcyImage Json?
+
 }
 
 enum contact_method {
