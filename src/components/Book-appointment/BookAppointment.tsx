@@ -85,6 +85,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
   const formInitialValues = {
     name: '',
     phone_number: '',
+    area: '',
     email: '',
     whatsapp_number: '',
     windows: '',
@@ -95,7 +96,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
     productoption: selectedOptions,
     other: '',
     prefered_time: '08:30 - 12:00 PM',
-    area: 'Dubai'
+    city: 'Dubai'
   };
 
   const [formData, setFormData] = useState(formInitialValues);
@@ -116,7 +117,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
   };
 
   const handleRadioChange = (e: RadioChangeEvent) => {
-    setFormData({ ...formData, area: e.target.value });
+    setFormData({ ...formData, city: e.target.value });
   };
 
   const handleSelectChange = (name: string, value: string) => {
@@ -256,7 +257,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           <label className="font-bold mb-2 block font-robotoSerif text-xl sm:text-2xl">City</label>
           <Radio.Group
             onChange={handleRadioChange}
-            value={formData.area}
+            value={formData.city}
             className="flex sm:gap-12 justify-between sm:justify-start custom-radio"
           >
             {cities.map((city) => (
@@ -445,6 +446,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           </button>
           {successMessage && (
             <p className=" text-xs mt-2">{successMessage}
+
+
             </p>
           )}
 
