@@ -10,14 +10,14 @@ export default function ComparisonTable() {
   return (
     <Container>
       <section className="py-2 text-center">
-        <h2 className="font-robotoSerif font-semibold text-24 lg:font-bold text-primary xl:text-[48px] mt-3 lg:text-[40px]">
+        <h2 className="font-robotoSerif font-semibold text-24 lg:font-bold text-primary xl:text-[48px] mt-3 xl:mt-7 lg:text-[40px]">
           We Don’t Just Compete – We Lead
         </h2>
              <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] my-3 lg:mb-7">Top Picks for Your Home</p>
        <div className="grid grid-cols-3">
        {/* Header Row */}
        <div className="h-[60px] lg:h-[70px]"></div>
-       <div className="bg-[#3E3F421A] h-[60px] lg:h-[70px] flex justify-center items-center font-bold font-roboto text-16 xl:text-24 text-primary rounded-t-xl">
+       <div className="bg-[#3E3F421A] h-[60px] lg:h-[70px] flex justify-center items-center font-bold font-roboto text-16 xl:text-24 text-primary rounded-t-md md:rounded-t-2xl">
        Blinds and Curtains
       </div>
       <div className="bg-white h-[60px] lg:h-[70px] flex justify-center items-center font-bold font-roboto text-16 xl:text-24 text-primary">
@@ -28,7 +28,7 @@ export default function ComparisonTable() {
       <FeaturesColumn features={features} featureMobile={mobilefeatures} popupData={popupData} />
 
        {/* Middle Column - Blinds */}
-        <div className="bg-[#3E3F421A] divide-y divide-gray-200 text-primary rounded-b-xl">
+        <div className="bg-[#3E3F421A] divide-y divide-gray-200 text-primary rounded-b-md md:rounded-b-2xl">
         {blindsData.map((item, index) => (
         <div
       key={index}
@@ -66,7 +66,7 @@ export default function ComparisonTable() {
           Book A Free Visit                        
         </Link>
       </section> 
-      <Link href="/request-appointment" className="bg-secondary text-center font-semibold md: py-2 md:py-3  w-full rounded-md text-primary font-roboto text-16 mx-auto relative block md:hidden my-4 ">
+      <Link href="/request-appointment" className="bg-secondary text-center font-semibold md: py-2 md:py-3  w-full rounded-md text-primary font-roboto text-14 mx-auto relative block md:hidden my-4 ">
           Book A Free Visit                        
         </Link>
       </Container>

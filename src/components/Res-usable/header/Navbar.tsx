@@ -88,11 +88,11 @@ const Navbar = () => {
             <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12">
               <div className="text-white py-2 text-10 md:text-14 font-normal font-roboto leading-relaxed 2xl:leading-loose flex gap-2 md:gap-10">
                 <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex gap-1 md:gap-2 items-center'>
-                 <LiaPhoneSolid className='text-12 md:text-18' />
+                 <LiaPhoneSolid className='text-12 md:text-18 text-secondary' />
                   04 252 2025
                 </Link>
                 <Link href="mailto:sales@blindsandcurtains.ae" target='_black' rel='no-referrer' className='gap-1 md:gap-2 items-center flex'>
-                <TfiEmail className='text-12 md:text-18' />
+                <TfiEmail className='text-12 md:text-18 text-secondary' />
                   sales@blindsandcurtains.ae
                 </Link>
 
@@ -146,7 +146,7 @@ const Navbar = () => {
                   <Link
                     key={index}
                     href={link.href || ''}
-                    className="px-1 lg:text-10 text-12 xl:text-15 h-full flex items-center justify-center transition-all duration-200"
+                    className="px-1 lg:text-10 text-12 xl:text-18 h-full flex items-center justify-center transition-all duration-200"
 
                   >
                     {link.label}
@@ -157,7 +157,7 @@ const Navbar = () => {
 
             <div>
               <Link
-                className="py-2 px-2 xl:px-5 font-roboto font-semibold hidden sm:block rounded-md text-[16px] text-primary whitespace-nowrap border border-secondary hover:bg-secondary hover:text-primary"
+                className="py-2 px-2 xl:py-3 xl:px-6 font-roboto font-semibold hidden sm:block rounded-md text-[16px] text-secondary whitespace-nowrap border-2 border-secondary hover:bg-secondary hover:text-primary"
                 href="/request-appointment/"
                 onClick={handleLinkClick}
               >
