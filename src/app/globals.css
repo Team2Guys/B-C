@@ -400,8 +400,9 @@ li button:before {
 .ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
   background-color: transparent;
 }
+
 .ant-select-dropdown .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
-  background-color: var(--secondary) ;
+  background-color: var(--secondary);
 }
 
 .ant-select-single.ant-select-open .ant-select-selection-item {
@@ -548,68 +549,119 @@ ol {
 
 
 /* Style default react-slick arrows */
-.best_seller_slider .slick-prev, .slick-next {
+.best_seller_slider .slick-prev,
+.slick-next {
   width: 40px !important;
   height: 40px !important;
   z-index: 10;
- background-color: #333 !important; /* black background */
+  background-color: #333 !important;
+  /* black background */
   border-radius: 50%;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  opacity: 1 !important; /* force visible */
+  opacity: 1 !important;
+  /* force visible */
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
 /* Arrow icon color as white (the arrow is created by CSS borders in slick) */
-.best_seller_slider  .slick-prev::before,
- .best_seller_slider  .slick-next::before {
+.best_seller_slider .slick-prev::before,
+.best_seller_slider .slick-next::before {
   /* font-size: 20px; */
   color: white !important;
   opacity: 1 !important;
 }
 
 /* Position adjustments */
-.best_seller_slider  .slick-prev {
+.best_seller_slider .slick-prev {
   left: 0px;
   z-index: 20;
 }
 
-.best_seller_slider  .slick-next {
+.best_seller_slider .slick-next {
   right: 0px;
   z-index: 20;
 }
 
 /* Optional: Hover effect */
-.best_seller_slider  .slick-prev:hover,
-.best_seller_slider  .slick-next:hover {
+.best_seller_slider .slick-prev:hover,
+.best_seller_slider .slick-next:hover {
   background-color: #333 !important;
 }
+
 .motorizedblindcurtains .slick-dots li.slick-active button:before {
-    opacity: .75;
-    color: #F1B42F !important;
-    opacity: 1;
+  opacity: .75;
+  color: #F1B42F !important;
+  opacity: 1;
 }
+
 .motorizedblindcurtains .slick-dots li button:before {
-  color:#687477 !important;
+  color: #687477 !important;
   font-size: 10px !important;
   opacity: 1;
 }
+
 .motorizedblindcurtains .slick-dots li button {
   width: 10px !important;
   height: 10px !important;
 }
+
 .motorizedblindcurtains .slick-dots li {
-    width: 7px;
+  width: 7px;
 }
 
 
 .custom-lang-select .ant-select-item-option:hover {
-  background-color: var(--secondry) !important; /* or any Tailwind color like #f0f0f0 */
+  background-color: var(--secondry) !important;
+  /* or any Tailwind color like #f0f0f0 */
   color: black;
 }
+
 .custom-lang-select .ant-select-item-option-selected {
   background-color: var(--color-secondary, #FFD700);
   color: black;
+}
+
+.custom-radio .ant-radio-inner {
+  border-color: black;
+}
+
+/* When radio is checked - change background and border */
+.custom-radio .ant-radio-checked .ant-radio-inner {
+  background-color: white;
+  border-color: black;
+}
+
+/* The dot inside the checked radio */
+.custom-radio .ant-radio-inner::after {
+  background-color: black;
+  width: 24px;
+  height: 24px;
+  margin-block-start: -12px;
+  margin-inline-start: -12px
+}
+
+/* On hover: change border color to black */
+.custom-radio .ant-radio-wrapper:hover .ant-radio-inner,
+.custom-radio .ant-radio:hover .ant-radio-inner {
+  border-color: black;
+}
+
+/* On hover when checked: keep black background */
+.custom-radio .ant-radio-checked:hover .ant-radio-inner {
+  background-color: black;
+  border-color: black;
+}
+.custom-radio .ant-radio-label {
+  padding-inline-end: 0px !important;
+}
+
+.custom-select .css-13cymwt-control , .custom-select .css-t3ipsp-control {
+  border: 2px solid rgb(209 213 219 / var(--tw-border-opacity, 1)) !important;
+  border-radius: 0.75rem;
+  height: 56px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }

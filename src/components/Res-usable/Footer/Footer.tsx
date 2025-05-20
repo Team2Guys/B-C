@@ -31,6 +31,7 @@ import Container from '../Container/Container';
 import { TfiEmail } from 'react-icons/tfi';
 import { LuPhone } from 'react-icons/lu';
 import { FaWhatsapp } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 
 const Footer: React.FC = () => {
   const fetchAllData = async () => {
@@ -46,7 +47,7 @@ const Footer: React.FC = () => {
     queryKey: ['allData'],
     queryFn: fetchAllData,
   });
-
+  const pathname = usePathname()
   const products: IProduct[] = data?.products || [];
   const categories: ICategory[] = data?.categories || [];
   const subcategories = data?.subcategories || [];
@@ -87,9 +88,10 @@ const Footer: React.FC = () => {
     handleResize();
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  console.log(pathname)
   return (
     <footer>
-      <div className="bg-white xs:bg-primary-foreground py-10 mt-10">
+      <div className={`bg-white xs:bg-primary-foreground py-10 ${pathname.replaceAll('/','') !== 'request-appointment' && 'mt-10'}`}>
         <Container>
           <div className="grid grid-cols-1 xs:grid-cols-2  md:grid-cols-4 lg:grid-cols-5 gap-5">
             <div className="mb-4 flex flex-col items-center xs:items-start">
