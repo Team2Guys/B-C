@@ -29,7 +29,6 @@ interface IAppointments {
   product_type: string[];
   other: string;
   prefered_time: string;
-  city?: string
 }
 
 const BookAppointment: React.FC<AppointmentProps> = ({
@@ -38,6 +37,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [sameAsPhone, setSameAsPhone] = useState(true);
+  const [selectedCity, setSelectedCity] = useState('Dubai');
 
   const PostAppointments = async (appointmentData: IAppointments) => {
     try {
@@ -96,7 +96,6 @@ const BookAppointment: React.FC<AppointmentProps> = ({
     productoption: selectedOptions,
     other: '',
     prefered_time: '08:30 - 12:00 PM',
-    city: 'Dubai'
   };
 
   const [formData, setFormData] = useState(formInitialValues);
@@ -117,7 +116,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
   };
 
   const handleRadioChange = (e: RadioChangeEvent) => {
-    setFormData({ ...formData, city: e.target.value });
+    setSelectedCity(e.target.value)
   };
 
   const handleSelectChange = (name: string, value: string) => {
@@ -207,6 +206,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           prefered_time,
           prefered_contact_method: prefered_contact_method_list,
           product_type: productTypeArray,
+          area: formData.area + ' ' + selectedCity
         });
         console.log('response:', response);
         setFormData({
@@ -257,7 +257,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           <label className="font-bold mb-2 block font-robotoSerif text-xl sm:text-2xl">City</label>
           <Radio.Group
             onChange={handleRadioChange}
-            value={formData.city}
+            value={selectedCity}
             className="flex sm:gap-12 justify-between sm:justify-start custom-radio"
           >
             {cities.map((city) => (
