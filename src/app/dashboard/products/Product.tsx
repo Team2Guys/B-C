@@ -55,6 +55,18 @@ const Products = ({ products }: PRODUCTS_PROPS) => {
     subCategoryImage:   editProduct && editProduct.subCategoryImage,
     subcategory_description : editProduct && editProduct.subcategory_description,
     topImages: editProduct && editProduct.topImages,
+    topHeading: editProduct && editProduct.topHeading,
+    mainHeading: editProduct && editProduct.mainHeading,
+    breadcurum: editProduct && editProduct.breadcurum,
+    customUrl: editProduct && editProduct.customUrl,
+
+
+        faqs: editProduct && editProduct.faqs,
+        videos: editProduct && editProduct.videos,
+        privacySectoin: editProduct && editProduct.privacySectoin,
+        privarcyImage: editProduct && editProduct.privarcyImage,
+ 
+
 
   };
 
