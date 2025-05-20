@@ -1,6 +1,6 @@
 
 import axios, { AxiosResponse} from 'axios';
-import { generateSlug } from 'data/data';
+import { blindsSubcategories, curtainsSubcategories, generateSlug, shuttersSubcategories } from 'data/data';
 import { ChangedProductUrl_handler, predefinedPaths } from 'data/urls';
 
 import Cookies from 'js-cookie';
@@ -113,3 +113,14 @@ export const getPath = (product: IProduct) => {
         }/${slug}`);
     return path+"/";
   };
+
+
+const subcategoryMap: Record<string, string[]> = {
+  blinds: blindsSubcategories,
+  shutters: shuttersSubcategories,
+  curtains: curtainsSubcategories,
+};
+
+export const getSubcategoriesByCategory = (categoryName: string): string[] => {
+  return subcategoryMap[categoryName.toLowerCase()] || [];
+};

@@ -29,7 +29,7 @@ const Card = ({ card }: { card: IProduct }) => {
         </Link>
 
         <div className="text-center space-y-1 px-4 pb-4">
-          <h3 className="font-semibold md:font-black font-robotoSerif text-2xl text-primary">
+          <h3 className="font-semibold md:font-black font-robotoSerif text-2xl text-primary capitalize">
             {card.title.replace(/\//g, ' ')}
           </h3>
 
