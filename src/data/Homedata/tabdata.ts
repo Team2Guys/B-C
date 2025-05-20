@@ -107,3 +107,67 @@ export const othersData = [
   "IoIosCloseCircle",
   "6 Days a Week",
 ];
+
+interface FeaturesProps {
+    icon: string;
+    label: string;
+}
+
+export const featureIcons: FeaturesProps[] = [
+  { icon: '/assets/bin/sun.png', label: 'Light Blockage' },
+  { icon: '/assets/bin/sun.png', label: 'Thermal Insulation' },
+  { icon: '/assets/bin/sun.png', label: 'Noise Reduction' },
+  { icon: '/assets/bin/sun.png', label: 'Privacy' },
+]
+export const featuresinfo = [
+  {
+    icon: '/assets/detailpage/fast1.png',
+    text: 'Delivery & Installation 1 to 2 Days',
+  },
+  {
+    icon: '/assets/detailpage/fast2.png',
+    text: 'Free Home Visit Expert Guidance at Your Doorstep',
+  },
+  {
+    icon: '/assets/detailpage/fast3.png',
+    text: '24/7 customer support',
+  },
+]
+
+export const Qualityfeatures = [
+  {
+    icon: '/assets/detailpage/fast4.png',
+    text: 'We are Top Manufacturer in Dubai with 20 Years of Designer Brand Expertise',
+  },
+  {
+    icon: '/assets/detailpage/fast5.png',
+    text: 'We are provide 5 to 10 year Warranty and Hassle-Free Replacement for Any Issues',
+  },
+  {
+    icon: '/assets/detailpage/fast6.png',
+    text: 'Measure your space? Don’t worry, it’s easy! We’ve got step-by-step tips and friendly advice to help you get it right',
+  },
+  {
+    icon: '/assets/detailpage/fast7.png',
+    text: 'We serve 18000+ homes in Dubai — Rating <strong>4.9</strong> | <strong>760</strong> reviews — Window treatment store',
+  },
+]
+
+export const testimonialData = [
+  {
+    name: 'Imran Ahmad',
+    text: '“Amazing experience from start to finish. Ryan and Ben did a great job with installation, leaving drive and garage clean.”',
+  },
+  {
+    name: 'Sarah Williams',
+    text: '“Very professional and helpful. The curtains fit perfectly and look stunning in my living room.”',
+  },
+  {
+    name: 'John Doe',
+    text: '“Top-notch service! Installation was quick and the quality is great. Highly recommended.”',
+  },
+  {
+    name: 'Fatima Noor',
+    text: '“The staff was very friendly and gave great suggestions. Love the new look of my windows.”',
+  },
+]

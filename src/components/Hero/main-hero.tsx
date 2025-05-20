@@ -26,7 +26,7 @@ const MainHero = () => {
           <p className="text-19 md:text-2xl  font-roboto text-primary-foreground">
             Fully Guaranteed For Your Peace Of Mind
           </p>
-          <Link href="/request-appointment" className="bg-secondary text-primary font-semibold text-xl py-2 md:py-3 px-2 sm:px-6 rounded-md w-fit">
+          <Link href="/request-appointment/" className="bg-secondary text-primary font-semibold text-xl py-2 md:py-3 px-2 sm:px-6 rounded-md w-fit">
             Book A Free Visit
           </Link>
         </div>

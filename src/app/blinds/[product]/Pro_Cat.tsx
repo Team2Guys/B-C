@@ -1,5 +1,6 @@
 'use client';
 import CategoryPage from 'components/CategoryPage/CategoryPage';
+import ProductDetail from 'components/ProductDetailPage/product-detail';
 import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
 import RoomProducts from 'components/RoomProducts/room-product';
 import Script from 'next/script';
@@ -44,11 +45,17 @@ const CommercialPage = ({
           )}
         </>
       ) : (
+        <>
+        <ProductDetail 
+          title={`${filteredProduct?.title}`}
+          filterProduct={filteredProduct}/>
+          
         <ProductDetailPage
           title={`${filteredProduct?.title}`}
           allprod={allprod}
           filterProduct={filteredProduct}
         />
+        </>
       )}
     </>
   );
