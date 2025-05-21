@@ -63,7 +63,7 @@ const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
       
       <div className="text-center sm:pb-5 lg:pt-8">
         <h3 className="sm:text-[40px] text-2xl font-robotoSerif font-bold text-primary">See Our Bestseller</h3>
-       <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] mb-3 lg:my-7">Top Picks for Your Home</p>
+       {/* <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] mb-3 lg:my-7">Top Picks for Your Home</p> */}
       </div>
         
       <Slider {...settings}>

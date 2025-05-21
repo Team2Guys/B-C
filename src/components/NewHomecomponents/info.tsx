@@ -14,7 +14,7 @@ export default function InfoTabs() {
     <div className="bg-[#F5F5F5]">
     <Container>
       <div className="text-center text-primary font-bold font-robotoSerif text-24 lg:text-[40px] py-5 sm:py-7">
-        <span className="text-secondary">Trusted</span> by <span className="text-secondary">10,000+ </span>Happy Customers
+        <span className="text-secondary">Trusted</span> by <span className="text-secondary">18,000+ </span>Happy Customers
       </div>
 
       {/* Desktop Tabs */}
