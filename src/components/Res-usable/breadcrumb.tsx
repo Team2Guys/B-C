@@ -68,7 +68,7 @@ const Breadcrumb = ({
         {title && (
           <>
             {arrow}
-            <span className=" font-medium capitalize text-primary font-roboto text-xs sm:text-base">
+            <span className=" font-medium capitalize text-primary font-roboto text-16 sm:text-base">
               {title.replace(/-/g, " ")}
             </span>
           </>
