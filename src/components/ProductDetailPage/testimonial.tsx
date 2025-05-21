@@ -1,7 +1,7 @@
 'use client'
 import Container from 'components/Res-usable/Container/Container'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdOutlineStarPurple500 } from 'react-icons/md'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -12,6 +12,7 @@ import { IREVIEWS } from 'types/general'
 const settings = {
   dots: true,
   infinite: true,
+  autoplay:true,
   speed: 500,
   slidesToShow: 2,
   slidesToScroll: 1,
@@ -26,8 +27,12 @@ const settings = {
   ],
 }
 
-const Testimonial = async() => {
-  const reviews = await fetchReviews()
+const Testimonial = () => {
+  const [reviews, setReviews] = useState<IREVIEWS[]>([])
+
+  useEffect(() => {
+    fetchReviews().then((data) => setReviews(data))
+  }, [])
 
   return (
     <div className="mt-10 space-y-5">
