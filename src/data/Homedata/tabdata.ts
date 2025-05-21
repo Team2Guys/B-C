@@ -169,6 +169,49 @@ export const staticvideos = [
   },
   {
     src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4',
-    title: 'Installation Explained in Simple Steps',
+    title: 'Why Go Motorized?',
   },
 ]
+
+ export const tabDataDetail = [
+    {
+  title: "Control at Your Fingertips",
+  icon: "/assets/detailpage/detail1.png",
+  image: "/assets/detailpage/mobile2.png",
+  heading: "Discover the Tahoma® by Somfy",
+  description:
+    "<p>Schedules that Move with You Your shades ready on your schedule.</p> <ul class='list-disc pl-5'><li>Pre-set schedules get you started with options like 'Thermal Comfort' to maintain comfortable temperatures</li> <li>Adapt shades to your routine and the time of day with advanced scheduling features</li></ul>",
+  buttonText: "Book A Free Visit",
+  href: "/request-appointment"
+},
+    {
+      title: "voice assistant",
+      icon: "/assets/detailpage/detail2.png",
+       image: "/assets/detailpage/mobile2.png", 
+      heading: "Expert Guidance at Your Doorstep1",
+      description:
+        "Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions.Discover what makes us the preferred choice for window solutions.",
+      buttonText: "Book A Free Visit",
+        href:"/request-appointment"
+    },
+    {
+      title: "Smart Home Integration",
+      icon: "/assets/detailpage/detail3.png",
+      image: "/assets/detailpage/mobile2.png", 
+      heading: "Expert Guidance at Your Doorstep2",
+      description:
+        "Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions.Discover what makes us the preferred choice for window solutions.",
+      buttonText: "Book A Free Visit",
+       href:"/request-appointment"
+    },
+    {
+      title: "Smart Control",
+      icon: "/assets/detailpage/detail4.png",
+      image: "/assets/detailpage/mobile2.png", 
+      heading: "Expert Guidance at Your Doorstep3",
+      description:
+        "Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions.Discover what makes us the preferred choice for window solutions.",
+      buttonText: "Book A Free Visit",
+       href:"/request-appointment"
+    },
+  ];

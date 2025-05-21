@@ -4,13 +4,13 @@ import React, { useRef, useState, useEffect } from 'react'
 import { BsPlayFill } from 'react-icons/bs'
 import { VideoItem } from 'types/product'
 
-const VideoGuide = ({ videos }: { videos: VideoItem[] }) => {
+const VideoGuide = ({ videos,isMotorisedCategory }: { videos?: VideoItem[],isMotorisedCategory?:boolean }) => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
   const [pausedStates, setPausedStates] = useState<boolean[]>([])
 
   const allVideos = [
     ...staticvideos,
-    ...(videos.length ? [{
+    ...(videos?.length ? [{
       src: videos[0].imageUrl ?? '',
       title: 'Things to Know Before You Book'
     }] : [])
@@ -18,7 +18,7 @@ const VideoGuide = ({ videos }: { videos: VideoItem[] }) => {
 
   useEffect(() => {
     setPausedStates(Array(allVideos.length).fill(true))
-  }, [allVideos.length])
+  }, [])
 
   const handlePlayPause = (index: number) => {
     const video = videoRefs.current[index]
@@ -48,7 +48,7 @@ const VideoGuide = ({ videos }: { videos: VideoItem[] }) => {
           A Complete Guide To
         </p>
 
-        <div className="grid grid-cols-3 gap-2 md:gap-6 justify-items-center max-w-5xl mx-auto">
+        <div className={`grid  gap-2 md:gap-6 justify-items-center  mx-auto ${isMotorisedCategory? "grid-cols-2 max-w-3xl": "grid-cols-3 max-w-5xl"}`}>
           {allVideos.map((video, idx) => (
             <div key={idx} className="flex flex-col space-y-2 relative w-full">
               <div

@@ -1,23 +1,36 @@
-"use client";
-import React, { useRef, useState, useEffect } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
+'use client';
+import React, { useRef, useState, useEffect } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Image from 'next/image';
+import { VideoItem } from 'types/product';
 
 interface ThumbnailProps {
   images?: { imageUrl: string; altText?: string; colorCode?: string }[];
   selectedColor?: string;
-  setColorImage?:React.Dispatch<React.SetStateAction<string>>
+  setColorImage?: React.Dispatch<React.SetStateAction<string>>;
+  videos: VideoItem[];
+  title: string;
+  videoThumbnail?: string; // Add this prop for video thumbnail image
 }
 
-const Thumbnail = ({ images, selectedColor,setColorImage }: ThumbnailProps) => {
+const Thumbnail = ({ 
+  images = [], 
+  selectedColor, 
+  setColorImage, 
+  videos, 
+  title, 
+  videoThumbnail 
+}: ThumbnailProps) => {
   const [nav1, setNav1] = useState<Slider | undefined>(undefined);
   const [nav2, setNav2] = useState<Slider | undefined>(undefined);
   const [activeIndex, setActiveIndex] = useState(0);
-
   const slider1 = useRef<Slider | null>(null);
   const slider2 = useRef<Slider | null>(null);
+
+  const isMotorisedCategory =
+    title?.toLowerCase().includes('motorised blinds') || title?.toLowerCase().includes('motorised curtains');
 
   useEffect(() => {
     setNav1(slider1.current ?? undefined);
@@ -30,23 +43,24 @@ const Thumbnail = ({ images, selectedColor,setColorImage }: ThumbnailProps) => {
         (img) => img.colorCode && `#${img.colorCode.toUpperCase()}` === selectedColor.toUpperCase()
       );
       if (matchIndex !== -1 && matchIndex !== activeIndex) {
-        setActiveIndex(matchIndex);
-        (slider1.current as any)?.slickGoTo(matchIndex);
-        (slider2.current as any)?.slickGoTo(matchIndex);
+        setActiveIndex(isMotorisedCategory ? matchIndex + 1 : matchIndex); // +1 because video is first
+        (slider1.current as any)?.slickGoTo(isMotorisedCategory ? matchIndex + 1 : matchIndex);
+        (slider2.current as any)?.slickGoTo(isMotorisedCategory ? matchIndex + 1 : matchIndex);
       }
     }
-  }, [selectedColor, images]);
+  }, [selectedColor]);
 
   const mainSettings = {
     slidesToShow: 1,
     arrows: false,
     asNavFor: nav2,
-     beforeChange: (_current: number, next: number) => {
-    setActiveIndex(next);
-    if (setColorImage && images && images[next]?.colorCode) {
-      setColorImage(`#${images[next].colorCode.toUpperCase()}`);
-    }
-  },
+    beforeChange: (_current: number, next: number) => {
+      setActiveIndex(next);
+      const index = isMotorisedCategory ? next - 1 : next;
+      if (setColorImage && images && index >= 0 && images[index]?.colorCode) {
+        setColorImage(`#${images[index].colorCode.toUpperCase()}`);
+      }
+    },
   };
 
   const thumbSettings = {
@@ -57,14 +71,27 @@ const Thumbnail = ({ images, selectedColor,setColorImage }: ThumbnailProps) => {
     focusOnSelect: true,
   };
 
+  // Filter out the first image if it's a motorised category with videos
+  const displayImages = isMotorisedCategory && videos.length > 0 ? images.slice(1) : images;
+
   return (
     <div>
+      {/* Main Slider */}
       <Slider {...mainSettings} ref={slider1} className="overflow-hidden outline-0">
-        {images?.map((img, index) => (
-          <div key={index} className="focus:outline-none">
+        {isMotorisedCategory && videos.length > 0 && (
+          <div className="relative w-full h-[340px] md:h-[450px] xl:h-[563px] bg-black flex items-center justify-center">
+            <video
+              className="w-full h-full object-cover"
+              controls
+              src={videos[0]?.imageUrl}
+            />
+          </div>
+        )}
+        {displayImages.map((img, index) => (
+          <div key={index}>
             <Image
               src={img.imageUrl}
-              alt={img.altText || ""}
+              alt={img.altText || ''}
               width={800}
               height={600}
               className="w-full h-[340px] md:h-[450px] xl:h-[563px] object-cover"
@@ -72,13 +99,37 @@ const Thumbnail = ({ images, selectedColor,setColorImage }: ThumbnailProps) => {
           </div>
         ))}
       </Slider>
-      <div>
-        <Slider {...thumbSettings} ref={slider2}>
-          {images?.map((img, index) => (
+
+      {/* Thumbnail Slider */}
+      <Slider {...thumbSettings} ref={slider2}>
+        {isMotorisedCategory && videos.length > 0 && (
+          <div
+            className={`focus:outline-none border-2 w-full ${
+              activeIndex === 0 ? 'border-secondary' : 'border-transparent'
+            }`}
+          >
+            {videoThumbnail ? (
+              <Image
+                src={videoThumbnail}
+                width={200}
+                height={200}
+                className="w-full h-20 sm:h-28 lg:h-32 xl:h-40 object-cover"
+                alt="Video thumbnail"
+              />
+            ) : (
+              <div className="w-full h-20 sm:h-28 lg:h-32 xl:h-40 bg-black flex items-center justify-center text-white">
+                ▶ Video
+              </div>
+            )}
+          </div>
+        )}
+        {displayImages.map((img, index) => {
+          const adjustedIndex = isMotorisedCategory ? index + 1 : index;
+          return (
             <div
               key={index}
               className={`focus:outline-none border-2 w-full ${
-                index === activeIndex ? "border-secondary" : "border-transparent"
+                adjustedIndex === activeIndex ? 'border-secondary' : 'border-transparent'
               }`}
             >
               <Image
@@ -86,12 +137,12 @@ const Thumbnail = ({ images, selectedColor,setColorImage }: ThumbnailProps) => {
                 width={200}
                 height={200}
                 className="w-full h-20 sm:h-28 lg:h-32 xl:h-40 object-cover"
-                alt={img.altText || ""}
+                alt={img.altText || ''}
               />
             </div>
-          ))}
-        </Slider>
-      </div>
+          );
+        })}
+      </Slider>
     </div>
   );
 };

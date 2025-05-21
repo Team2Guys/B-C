@@ -14,6 +14,7 @@ import InfoTabs from 'components/NewHomecomponents/info';
 import ComparisonTable from 'components/NewHomecomponents/comparisontabble';
 import OurClient from 'components/Our-Client/OurClient';
 import { fetchProducts } from 'config/fetch';
+import { tabData } from 'data/Homedata/tabdata';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blindsandcurtains.ae/"),
@@ -49,7 +50,7 @@ export default async function Home() {
 
       <MainHero />
       <Review_banner />
-      <InfoTabs />
+      <InfoTabs tabData={tabData} isHome />
       <ComparisonTable />
       <Suspense fallback='loading ...'>
         <SellerSlider products={products} />
