@@ -11,7 +11,6 @@ import {
   Email,
   IColorData,
   ITopHeroLink,
-  OurHistory,
   PhoneNumber,
   SupportItem,
   THeroImages,
@@ -21,7 +20,7 @@ import {
 import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Category, FormValues } from 'types/interfaces';
-import { ISUBCATEGORY } from 'types/types';
+import { AboutUsBlock, ISUBCATEGORY, MilestoneStepsData, WhyChooseItem } from 'types/types';
 /* eslint-disable no-useless-escape */
 export const generateSlug = (text: string) => {
   if (!text) return '';
@@ -324,58 +323,90 @@ export const PGuarantees: TProductGuarantees[] = [
   },
 ];
 
-export const AboutUsPara = {
-  id: 1,
-  subheading: 'About Us',
-  heading: ['Our Journey'],
-  paragraph: [
-    'Having spent 20 years in the UK retail industry, our Managing Partner, Shiraz, decided it was time for sunnier climes and moved to Dubai in 2014 with his family. The first office was a stunning waste of space on Sheikh Zayed Road, which gave Shiraz a fantastic view of Burj Khalifah, but chewed through his finances like water. School fees were duly paid and a move to a compact but cosy office in Port Saeed was home for the next 2 years.',
-    'Like a lot of business people that move to Dubai, the first 2 years were painfully hard to adjust, but with the drive and ambition to succeed, and with a helping hand from God, things started to turn and the seeds that were laid in 2014 started bearing fruit.',
-    'By 2017, we moved to our first actual showroom in Oud Metha. This is where things started to blow. Blinds and Curtains was now established as a firm favourite with hundreds of customers, most of whom would recommend us to their friends and families and also ended up being our return customers.',
-  ],
-};
-export const UsHistoryPara = {
-  id: 1,
-  paragraph: [
-    'This cycle ran successfully for many years but by 2021, with covid out the way, we figured it was time to push the barriers further. We had already introduced flooring, wallpaper and other items to our list of services offered, but the name felt restrictive. It was also around this time that lots of other companies turned up with copycat versions of our name (we guess blindsandcurtains.ae can’t really be expected to be exclusive) and it was quite confusing for our existing customers and quite a few were misled into buying from companies claiming to be us.',
-    'With this in mind, we decided on a brand and image change. After weeks of deliberating, Shiraz’s brother Valy, (who had since followed his brother and made the move to Dubai), came up with Two Guys. It was instant love for both brothers and that is the name we trade as today. But with <a href="/"" style="text-decoration: underline">www.blindsandcurtains.ae</a> having so many loyal customers, it would have been suicidal to wrap up and bury, so the brand is still alive and kicking today, albeit under the Two Guys Home Furnishings brand.',
-    'Today we employ over 60 staff, dedicated to giving our customers the level of satisfaction that the owners themselves would accept (Shiraz literally has OCD). Our staff are trained to give impartial advice, to NEVER be pushy in their sales pitch and to NEVER “up-sell” when not required. Once we have you as a customer, our goal is to keep you for life, so you will find that the service doesn’t end once the final payments have been made. Your journey is a part of our journey, and we believe we have a long way to go before reaching the end of the road.',
-  ],
-};
+// export const AboutUsPara = {
+//   id: 1,
+//   subheading: 'About Us',
+//   heading: ['Our Journey'],
+//   paragraph: [
+//     'Having spent 20 years in the UK retail industry, our Managing Partner, Shiraz, decided it was time for sunnier climes and moved to Dubai in 2014 with his family. The first office was a stunning waste of space on Sheikh Zayed Road, which gave Shiraz a fantastic view of Burj Khalifah, but chewed through his finances like water. School fees were duly paid and a move to a compact but cosy office in Port Saeed was home for the next 2 years.',
+//     'Like a lot of business people that move to Dubai, the first 2 years were painfully hard to adjust, but with the drive and ambition to succeed, and with a helping hand from God, things started to turn and the seeds that were laid in 2014 started bearing fruit.',
+//     'By 2017, we moved to our first actual showroom in Oud Metha. This is where things started to blow. Blinds and Curtains was now established as a firm favourite with hundreds of customers, most of whom would recommend us to their friends and families and also ended up being our return customers.',
+//   ],
+// };
+// export const UsHistoryPara = {
+//   id: 1,
+//   paragraph: [
+//     'This cycle ran successfully for many years but by 2021, with covid out the way, we figured it was time to push the barriers further. We had already introduced flooring, wallpaper and other items to our list of services offered, but the name felt restrictive. It was also around this time that lots of other companies turned up with copycat versions of our name (we guess blindsandcurtains.ae can’t really be expected to be exclusive) and it was quite confusing for our existing customers and quite a few were misled into buying from companies claiming to be us.',
+//     'With this in mind, we decided on a brand and image change. After weeks of deliberating, Shiraz’s brother Valy, (who had since followed his brother and made the move to Dubai), came up with Two Guys. It was instant love for both brothers and that is the name we trade as today. But with <a href="/"" style="text-decoration: underline">www.blindsandcurtains.ae</a> having so many loyal customers, it would have been suicidal to wrap up and bury, so the brand is still alive and kicking today, albeit under the Two Guys Home Furnishings brand.',
+//     'Today we employ over 60 staff, dedicated to giving our customers the level of satisfaction that the owners themselves would accept (Shiraz literally has OCD). Our staff are trained to give impartial advice, to NEVER be pushy in their sales pitch and to NEVER “up-sell” when not required. Once we have you as a customer, our goal is to keep you for life, so you will find that the service doesn’t end once the final payments have been made. Your journey is a part of our journey, and we believe we have a long way to go before reaching the end of the road.',
+//   ],
+// };
 
 
-export const OurHistoryData: OurHistory[] = [
-  {
-    id: 1,
-    year: '1999',
-    heading: 'Our UK fashion business wins Scottish Retailer of The Year Award',
-    discription:
-      'We started strong by winning the Scottish Retailer of the Year, setting a high standard from the outset. This early recognition defined our dedication to quality in the fashion industry.',
-  },
-  {
-    id: 2,
-    year: '2014',
-    heading:
-      '<a href="/"" style="text-decoration: underline">www.blindsandcurtains.ae</a> is born',
-    discription:
-      'We entered the online world with blindsandcurtains.ae to expand our reach and redefine the way we interact with our customers.',
-  },
-  {
-    id: 3,
-    year: '2016',
-    heading: 'Started manufacturing ourselves',
-    discription:
-      'Making our own products gave us greater control over quality and design, so we could better meet our customers needs.',
-  },
+// export const OurHistoryData: OurHistory[] = [
+//   {
+//     id: 1,
+//     year: '1999',
+//     heading: 'Our UK fashion business wins Scottish Retailer of The Year Award',
+//     discription:
+//       'We started strong by winning the Scottish Retailer of the Year, setting a high standard from the outset. This early recognition defined our dedication to quality in the fashion industry.',
+//   },
+//   {
+//     id: 2,
+//     year: '2014',
+//     heading:
+//       '<a href="/"" style="text-decoration: underline">www.blindsandcurtains.ae</a> is born',
+//     discription:
+//       'We entered the online world with blindsandcurtains.ae to expand our reach and redefine the way we interact with our customers.',
+//   },
+//   {
+//     id: 3,
+//     year: '2016',
+//     heading: 'Started manufacturing ourselves',
+//     discription:
+//       'Making our own products gave us greater control over quality and design, so we could better meet our customers needs.',
+//   },
 
-  {
-    id: 4,
-    year: '2023 ',
-    heading: 'Re-branded to Two Guys & moved to Al Quoz',
-    discription:
-      'We moved to Al Quoz as part of our company rebranding, taking advantage of new opportunities to better serve our customers.',
-  },
+//   {
+//     id: 4,
+//     year: '2023 ',
+//     heading: 'Re-branded to Two Guys & moved to Al Quoz',
+//     discription:
+//       'We moved to Al Quoz as part of our company rebranding, taking advantage of new opportunities to better serve our customers.',
+//   },
 
+// ];
+
+export const aboutUsData: AboutUsBlock[] = [
+  {
+    shortHeading: 'From UK Roots to Dubai Dreams',
+    shortHeadingSize: 'sm:text-[20px] text-base font-Roboto text-[#3E3F42]',
+    mainHeading: 'The Spark: A Passion Forged in the UK, Ignited in Dubai',
+    mainHeadingSize: 'sm:text-2xl text-xl text[#3E3F42]',
+    content: `Our story begins with Shiraz, our Managing Partner, who brought two decades of acclaimed UK retail expertise (including a 'Scottish Retailer of The Year' award in 1999!) to the vibrant landscape of Dubai in 2014. Driven by a vision for sunnier climes and new opportunities, the foundation for what would become Two Guys was laid.`,
+    contentSize: 'text-base text-start',
+    imageUrl: '/assets/images/about-us/about-1.webp',
+  },
+  {
+    shortHeading: 'Meet Our Team',
+    shortHeadingSize: 'sm:text-2xl text-base text-[#3E3F42]',
+    mainHeading: 'We Only Source from the BEST',
+    mainHeadingSize: 'sm:text-5xl text-2xl text[#3E3F42]',
+    content: `With over 60 dedicated professionals, our ethos is simple: deliver the level of service the owners themselves would expect (Shiraz’s self-professed OCD for detail is legendary!). This means impartial advice, never pushy sales or unnecessary up-sells, and a commitment that extends far beyond the final payment. We're here to build lasting relationships, one beautiful space at a time.`,
+    contentSize: 'text-base text-start',
+    imageUrl: '/assets/images/about-us/about-2.webp',
+  },
+  {
+    shortHeading: 'Dubai Beginnings',
+    shortHeadingSize: 'sm:text-2xl text-base text-[#3E3F42]',
+    mainHeading: 'Perseverance and Our First Showroom',
+    mainHeadingSize: 'sm:text-5xl text-2xl text[#3E3F42]',
+    content: `The early days in Dubai, from a 'compact but cozy' Port Saeed office, were a testament to drive and ambition. 
+By 2017, this dedication blossomed into our first showroom in Oud Mehta, where 'Blindsandcurtains.ae
+quickly became a trusted name, fueled by word-of-mouth and returning customers.`,
+    contentSize: 'text-base text-start',
+    imageUrl: '/assets/images/about-us/about-3.webp',
+  },
 ];
 
 export const categoryValidationSchema = Yup.object({
@@ -395,10 +426,10 @@ export const categoryInitialValues: Category = {
   Canonical_Tag: '',
   Meta_Title: '',
   Meta_description: '',
-  headingchecks:[],
-  faqs:[],
-  productCustomUrl:"",
-  categoryCustomUrl:""
+  headingchecks: [],
+  faqs: [],
+  productCustomUrl: "",
+  categoryCustomUrl: ""
 };
 
 
@@ -1639,7 +1670,7 @@ export const footerData = [
       // 'Cafe Style Shutters',
       // 'Bay Window Shutters',
       // 'Outdoor Shutters',
-      
+
       // 'Black Shutters',
     ],
   },
@@ -2720,33 +2751,53 @@ export const blindimages = [
 ];
 
 
-export const blindsSubcategories = [
-  "Blackout Roller Blinds",
-  "Sunscreen Roller Blinds",
-  "Day/night Blinds",
-  "Wooden Venetian Blinds",
-  "Blackout Roman Blinds",
-  "Vertical Blinds",
-  "Sheer Roman Blinds",
-  "Motorised Blinds",
-];
+export const milestoneStepsData: MilestoneStepsData = {
+  heading: "Our <br/> Milestones",
+  subheading: "A Journey in Time",
+  image: "/assets/images/about-us/milestone.webp",
+  steps: [
+    {
+      step: "1999",
+      description: "Our UK fashion roots win Scottish Retailer of The Year.",
+      iconimage: "/assets/images/Line-380.svg",
+    },
+    {
+      step: "2014",
+      description: "Blindsandcurtains.ae brings our expertise online in Dubai.",
+      iconimage: "/assets/images/Line-380.svg",
+    },
+    {
+      step: "2016",
+      description: "We begin manufacturing, ensuring quality from start to finish.",
+      iconimage: "/assets/images/Line-380.svg",
+    },
+    {
+      step: "2023",
+      description: "Rebranded to Two Guys & expanded to our Al Quoz hub.",
+    },
+  ],
+};
 
-export const shuttersSubcategories = [
-  "Regular Height Shutters",
-  "Bi-fold Shutters",
-  "Special Shape Shutters",
-  "Bi-pass Shutters",
-  "Solid Panel Shutters",
-  "Tier On Tier Shutters",
-];
 
-export const curtainsSubcategories = [
-  "Blackout Triple Pinch Pleat Curtains",
-  "Sheer Triple Pinch Pleat Curtains",
-  "Sheer Ripple Fold Curtains",
-  "Eyelet Curtains",
-  "Double Pinch Pleat Curtains",
-  "Blackout Curtains",
-  "Motorised Curtains",
-  "Wave Sheer & Blackout Curtains",
+export const whyChooseData: WhyChooseItem[] = [
+  {
+    icon: "/assets/images/about-us/why1.svg",
+    title: "Decades of Combined <br /> Experience",
+    description: "From award-winning UK retail to Dubai market leadership.",
+  },
+  {
+     icon: "/assets/images/about-us/why2.svg",
+    title: "Direct Manufacturing <br /> Control",
+    description: "Since 2016, ensuring superior quality and design flexibility.",
+  },
+  {
+     icon: "/assets/images/about-us/why3.svg",
+    title: "Honest, Customer-<br />First Approach",
+    description: "No pressure, just genuine advice and lifelong support.",
+  },
+  {
+     icon: "/assets/images/about-us/why4.svg",
+    title: "Family Values, <br /> Professional Execution",
+    description: 'The dedication of "Two Guys" backed by a skilled team of 60+.',
+  },
 ];
