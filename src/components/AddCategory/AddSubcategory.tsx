@@ -62,16 +62,11 @@ const FormLayout = ({
       }
       : null;
   let CategorImageUrl = editCategory && editCategory.posterImage;
-  const [posterimageUrl, setposterimageUrl] = useState<
-    any[] | null | undefined
-  >(CategorImageUrl ? [CategorImageUrl] : null);
-  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(
-    editCategory && editCategory.bannerImage && [editCategory.bannerImage],
+  const [posterimageUrl, setposterimageUrl] = useState<any[] | undefined>(CategorImageUrl ? [CategorImageUrl] : undefined);
+  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | undefined>(editCategory && editCategory.bannerImage && [editCategory.bannerImage],
   );
   const [loading, setloading] = useState<boolean>(false);
-  const [editCategoryName, setEditCategoryName] = useState<
-    editCategoryNameType | null | undefined
-  >(CategoryName);
+  const [editCategoryName, setEditCategoryName] = useState<editCategoryNameType | null | undefined>(CategoryName);
 
   const onSubmit = async (values: ISUBCATEGORY, { resetForm }: any) => {
     console.log(values, 'values');
@@ -131,8 +126,8 @@ const FormLayout = ({
       );
       setloading(false);
 
-      setposterimageUrl(null);
-      setBannerImageUrl(null);
+      setposterimageUrl(undefined);
+      setBannerImageUrl(undefined);
       console.log('Before Reset form');
       resetForm();
       console.log('After Reset form');

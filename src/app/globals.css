@@ -45,6 +45,26 @@
   }
 }
 
+@layer components {
+  .primary-input {
+    @apply w-full rounded-lg border-[1.5px]  bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-white dark:bg-primary  dark:text-white dark:focus:border-secondary dark:border;
+  }
+}
+
+
+@layer components {
+  .primary-label {
+    @apply mb-3 block text-sm font-medium text-black dark:text-white;
+  }
+}
+
+
+@layer components {
+.dashboard_primary_button {
+    @apply bg-black hover:bg-primary hover:border text-white px-4 py-2 rounded m-auto w-fit block ;
+  }
+}
+
 .light {
   --table: white;
   --tabletext: black;

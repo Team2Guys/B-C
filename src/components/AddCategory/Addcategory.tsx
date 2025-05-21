@@ -57,17 +57,15 @@ const FormLayout = ({
 
   let CategoryName = editCategory && editCategory.title ? { name: editCategory.title, description: editCategory.description } : null;
   let CategorImageUrl = editCategory && editCategory.posterImage;
-  const [posterimageUrl, setposterimageUrl] = useState<
-    any[] | null | undefined
-  >(CategorImageUrl ? [CategorImageUrl] : null);
+  const [posterimageUrl, setposterimageUrl] = useState<any[] |  undefined>(CategorImageUrl ? [CategorImageUrl] : undefined);
 
-  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(
+  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | undefined>(
     editCategory && editCategory.bannerImage && [editCategory.bannerImage],
   );
 
   const [loading, setloading] = useState<boolean>(false);
   const [editCategoryName, setEditCategoryName] = useState<
-    editCategoryNameType | null | undefined
+    editCategoryNameType | undefined
   >({
     ...CategoryName,
     name: CategoryName?.name || '',
@@ -128,8 +126,8 @@ const FormLayout = ({
           : 'Category has been sucessufully Created !',
       );
       updateFlag ? seteditCategory(null) : null;
-      setposterimageUrl(null);
-      setBannerImageUrl(null);
+      setposterimageUrl(undefined);
+      setBannerImageUrl(undefined);
       revalidateTag("categories")
       resetForm();
       setMenuType('Categories');
@@ -331,7 +329,7 @@ const FormLayout = ({
                       <div className=' flex flex-wrap md:flex-nowrap gap-4'>
 
                         <div className='w-full'>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           Category Title
                         </label>
                         <input
@@ -340,7 +338,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.name}
                           placeholder="Title"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                          className={`primary-input ${formik.touched.name && formik.errors.name
                             ? 'border-red-500'
                             : ''
                             }`}
@@ -355,7 +353,7 @@ const FormLayout = ({
 
 
                                    <div className='w-full'>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           Top Heading
                         </label>
                         <input
@@ -364,7 +362,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.topHeading}
                           placeholder="Title"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                          className={`primary-input ${formik.touched.name && formik.errors.name
                             ? 'border-red-500'
                             : ''
                             }`}
@@ -376,7 +374,7 @@ const FormLayout = ({
 
 
                               <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           Product Page Heading 
                         </label>
                         <input
@@ -385,7 +383,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.productpageHeading}
                           placeholder="Title"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.productpageHeading  && formik.errors.productpageHeading 
+                          className={`primary-input ${formik.touched.productpageHeading  && formik.errors.productpageHeading 
                             ? 'border-red-500'
                             : ''
                             }`}
@@ -397,7 +395,7 @@ const FormLayout = ({
 
                       <div className='flex gap-4 mt-2 flex-wrap md:flex-nowrap'>
                         <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           breadCrumb
                         </label>
                         <input
@@ -406,7 +404,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.breakcrum}
                           placeholder="Title"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                          className={`primary-input ${formik.touched.name && formik.errors.name
                             ? 'border-red-500'
                             : ''
                             }`}
@@ -415,7 +413,7 @@ const FormLayout = ({
                         </div>
 
                         <div>
-                            <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            <label className="primary-label">
                           productCustomUrl
                         </label>
                         <input
@@ -424,7 +422,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.productCustomUrl}
                           placeholder="Title"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.productCustomUrl && formik.errors.productCustomUrl
+                          className={`primary-input ${formik.touched.productCustomUrl && formik.errors.productCustomUrl
                             ? 'border-red-500'
                             : ''
                             }`}
@@ -435,7 +433,7 @@ const FormLayout = ({
 <div>
 
 
-                            <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            <label className="primary-label">
                           categoryCustomUrl
                         </label>
                         <input
@@ -444,7 +442,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.categoryCustomUrl}
                           placeholder="Title"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.categoryCustomUrl && formik.errors.categoryCustomUrl
+                          className={`primary-input ${formik.touched.categoryCustomUrl && formik.errors.categoryCustomUrl
                             ? 'border-red-500'
                             : ''
                             }`}
@@ -458,7 +456,7 @@ const FormLayout = ({
 
 
                       <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           Faq Heading
                         </label>
                         <input
@@ -467,7 +465,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.faqHeading}
                           placeholder="Title"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                          className={`primary-input ${formik.touched.name && formik.errors.name
                             ? 'border-red-500'
                             : ''
                             }`}
@@ -609,7 +607,7 @@ const FormLayout = ({
 
 
                       <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           Category Description
                         </label>
                         <textarea
@@ -617,7 +615,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.description}
                           placeholder="Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                          className={`primary-input ${formik.touched.name && formik.errors.name
                             ? 'border-red-500'
                             : ''
                             }`}
@@ -630,7 +628,7 @@ const FormLayout = ({
                       </div>
                       <div className="flex gap-4 mt-4">
                         <div className="w-2/4">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Meta Title
                           </label>
                           <input
@@ -654,7 +652,7 @@ const FormLayout = ({
                           ) : null}
                         </div>
                         <div className="w-2/4">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Canonical Tag
                           </label>
                           <input
@@ -680,7 +678,7 @@ const FormLayout = ({
                         </div>
                       </div>
                       <div className="mt-4">
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           Meta Description
                         </label>
                         <textarea
@@ -704,7 +702,7 @@ const FormLayout = ({
 
                       <div className="flex gap-4 mt-2">
                         <div className="w-full">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Images Alt Text
                           </label>
                           <input

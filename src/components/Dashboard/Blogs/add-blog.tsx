@@ -30,7 +30,7 @@ const AddBlogs = ({
   EditInitialValues,
   setEditBlog,
 }: IAddBlogs) => {
-  const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(
+  const [posterimageUrl, setposterimageUrl] = useState<any[] | undefined>(
     EditInitialValues ? [EditInitialValues.posterImage] : [],
   );
   const [isPublish, setIsPublish] = useState(false);
