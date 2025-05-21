@@ -8,11 +8,11 @@ import NotFound from "app/not-found";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 type Props = {
-  params: Promise<{ productName: string[] }>
+  params: Promise<{ productName: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const productName = (await params).productName[0] + "/";
+  const productName = (await params).productName + "/";
 
 
   let filterCategory = await fetchSingleCategory(productName)
@@ -63,8 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const Products = async ({ params }: Props) => {
-  const slug = (await params).productName[0];
-  let urls = (await params).productName
+  const slug = (await params).productName;
 
   let category = await fetchSingleCategorymain(slug)
 
@@ -73,7 +72,7 @@ const Products = async ({ params }: Props) => {
   const matchingLink: any = links.find((link) => slug.includes(link.href.replace(/^\//, '')),);
 
 
-  if ( urls?.length > 1) {
+  if (!category) {
     return <NotFound />;
   }
 
