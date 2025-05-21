@@ -16,7 +16,7 @@
     --secondary: #F1B42F;
     --light: #ffffff;
     --secondary-foreground: #bdc9bd;
-    --muted: 210 40% 96.1%;
+    --muted: [210 40% 96.1%];
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
@@ -632,6 +632,25 @@ ol {
 .custom-lang-select .ant-select-item-option-selected {
   background-color: var(--color-secondary, #FFD700);
   color: black;
+}
+
+
+.custom-test .slick-dots li {
+  margin: 0 1px !important;
+}
+.custom-test .slick-dots li button:before {
+  font-size: 10px !important;
+  color: #3E3F42 !important; 
+  margin: 0 !important;
+  opacity: 1 !important; 
+}
+
+.custom-test .slick-dots li.slick-active button:before {
+  color: #F1B42F !important; 
+}
+
+.custom-test .slick-dots li:hover button:before {
+  color: #3E3F42 !important; 
 }
 .ant-collapse-header{
   border: none !important;

@@ -155,3 +155,9 @@ export const getPath = (product: IProduct) => {
     hour12: true
   }).format(parsedDate).toUpperCase();
 };
+
+  export  const getFirstNWords = (html: string, wordCount: number) => {
+    const plainText = html.replace(/<[^>]+>/g, '') // remove HTML tags
+    const words = plainText.split(/\s+/)
+    return words.slice(0, wordCount).join(' ') + (words.length > wordCount ? '.' : '.')
+  }

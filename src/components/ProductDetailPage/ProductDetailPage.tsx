@@ -20,7 +20,6 @@ interface IProductDetail {
 }
 const ProductDetailPage = ({ title, allprod,filterProduct  }: IProductDetail) => {
   const pathName = usePathname();
-
   const relatedProducts = allprod?.filter((product) => {
     return product.CategoryId === filterProduct?.CategoryId;
   });
@@ -44,7 +43,6 @@ const ProductDetailPage = ({ title, allprod,filterProduct  }: IProductDetail) =>
         pagename={pathName}
       />
         <Container className="mt-10">
-
       <DetailInfo
         title={title ? title : ''}
         description={filterProduct?.description || ''}

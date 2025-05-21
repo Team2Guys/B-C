@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   let Category = filterCategory as ICategory;
 
-  let ImageUrl = Category?.posterImage.imageUrl || 'blindsandcurtains';
-  let alt = Category?.posterImage.altText || 'blindsandcurtains';
+  let ImageUrl = Category?.posterImage?.imageUrl || 'blindsandcurtains';
+  let alt = Category?.posterImage?.altText || 'blindsandcurtains';
 
   let NewImage = [
     {

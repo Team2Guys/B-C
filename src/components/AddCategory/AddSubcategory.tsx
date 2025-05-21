@@ -281,7 +281,7 @@ const FormLayout = ({
                           })}
                         </div>
                       ) : (
-                        <Imageupload setposterimageUrl={setBannerImageUrl} />
+                        <Imageupload setposterimageUrl={setBannerImageUrl as React.Dispatch<React.SetStateAction<any[] | null | undefined>>} />
                       )}
                     </div>
 
