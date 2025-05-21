@@ -12,8 +12,6 @@ import { links } from 'data/header_links';
 import { TfiEmail } from 'react-icons/tfi';
 import { LiaPhoneSolid } from 'react-icons/lia';
 import { CgMenuRight } from 'react-icons/cg';
-import { Select } from 'antd';
-import { IoIosArrowDown } from 'react-icons/io';
 
 
 const Navbar = () => {
@@ -88,11 +86,11 @@ const Navbar = () => {
             <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12">
               <div className="text-white py-2 text-10 md:text-14 font-normal font-roboto leading-relaxed 2xl:leading-loose flex gap-2 md:gap-10">
                 <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex gap-1 md:gap-2 items-center'>
-                 <LiaPhoneSolid className='text-12 md:text-18 text-secondary' />
+                  <LiaPhoneSolid className='text-12 md:text-18 text-secondary' />
                   04 252 2025
                 </Link>
                 <Link href="mailto:sales@blindsandcurtains.ae" target='_black' rel='no-referrer' className='gap-1 md:gap-2 items-center flex'>
-                <TfiEmail className='text-12 md:text-18 text-secondary' />
+                  <TfiEmail className='text-12 md:text-18 text-secondary' />
                   sales@blindsandcurtains.ae
                 </Link>
 
@@ -118,23 +116,38 @@ const Navbar = () => {
                 alt="Logo"
               />
             </Link>
-            <div className='!w-[100px] overflow-hidden'>
-              {!translatorReady ? 
-              <div
-                className={`bg-gray-300 h-8 w-full rounded-lg`} />
-             : <Select
-                value={language}
-                onChange={handleLanguageSwitch}
-                disabled={!translatorReady}
-                className="custom-lang-select !outline-none flex"
-                dropdownClassName="custom-lang-dropdown"
-                suffixIcon={<IoIosArrowDown className="text-black" />}
-                options={[
-                  { value: 'en', label: 'English' },
-                  { value: 'ar', label: 'Arabic' },
-                ]}
-              />}
-              
+            <div className='!w-[150px] overflow-hidden'>
+              {!translatorReady ?
+                <div
+                  className={`bg-gray-300 h-8 w-full rounded-lg`} />
+                :
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => handleLanguageSwitch('ar')}
+                    disabled={!translatorReady || language === 'ar'}
+                    className='flex items-center gap-1 w-14 py-1 rounded-md font-medium text-sm transition-colors duration-200'
+                  >
+                    <Image
+                      src="/assets/uaeFlag.webp"
+                      alt="flag"
+                      width={20}
+                      height={20}
+                      className="rounded-full size-6"
+                    />
+                    <span>AR</span>
+                  </button>
+                  <div className='border border-black w-[1px] h-4'></div>
+                  <button
+                    onClick={() => handleLanguageSwitch('en')}
+                    disabled={!translatorReady || language === 'en'}
+                    className='w-14 py-1 rounded-md font-medium text-sm transition-colors duration-200'
+
+                  >
+                    EN
+                  </button>
+                </div>
+              }
+
             </div>
           </div>
 
