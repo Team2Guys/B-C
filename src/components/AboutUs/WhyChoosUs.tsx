@@ -1,11 +1,13 @@
 "use client";
 
+import Testimonial from "components/ProductDetailPage/testimonial";
 import { whyChooseData } from "data/data";
 import Image from "next/image";
 import { WhyChooseItem } from "types/types";
 
 const WhyChoose = () => {
     return (
+      <>
         <section className="sm:py-16 mt-10 bg-white text-center">
             <h2 className="sm:text-4xl text-2xl font-semibold mb-2 font-robotoSerif">Why Choose Two Guys?</h2>
             <p className="text-[#3E3F42] text-base sm:mb-12 font-roboto">
@@ -38,6 +40,8 @@ const WhyChoose = () => {
                 ))}
             </div>
         </section>
+        <Testimonial />
+        </>
     );
 };
 

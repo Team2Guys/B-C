@@ -47,6 +47,7 @@ const AboutUsPage = () => {
         <AboutUsCompo blocks={aboutUsData} />
         <MilestoneSteps />
         <WhyChooseUss />
+        
       </Container>
 
     </Fragment>
