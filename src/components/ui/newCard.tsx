@@ -48,12 +48,13 @@ const Card = ({ card }: { card: IProduct }) => {
             </p>
           </div>
 
-          <button
-            type="button"
+          <Link
+          href={getPath(card)}
+    
             className="text-primary bg-secondary text-sm md:text-xl font-roboto font-semibold rounded-md p-2 px-6 block w-fit mx-auto"
           >
             Learn More
-          </button>
+          </Link>
         </div>
       </div>
     </div>

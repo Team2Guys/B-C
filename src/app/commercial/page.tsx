@@ -41,7 +41,7 @@ console.log(ImageUrl)
   let description =
     CommercialCategory?.Meta_description ||
     'Welcome to blindsandcurtains';
-  let url = `${fullUrl}commercial`;
+  let url = `${fullUrl}commercial/`;
   return {
     title: title,
     description: description,
@@ -50,6 +50,7 @@ console.log(ImageUrl)
       description: description,
       url: url,
       images: NewImage,
+           type:"website"
     },
     alternates: {
       canonical:

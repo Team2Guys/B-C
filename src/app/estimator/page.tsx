@@ -18,7 +18,9 @@ export const metadata: Metadata = {
         alt: 'altText',
       },
     ],
+         type:"website"
   },
+  
   alternates: {
     canonical: 'https://blindsandcurtains.ae/estimator/',
   },

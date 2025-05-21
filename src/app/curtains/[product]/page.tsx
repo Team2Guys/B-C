@@ -61,7 +61,7 @@ export async function generateMetadata({
     Product?.Meta_description ||
     filteredSubCategory?.Meta_description ||
     'Welcome to blindsandcurtains';
-  let url = `${fullUrl}curtains/${product}`;
+  let url = `${fullUrl}curtains/${product}/`;
 
   return {
     title: title,
@@ -71,6 +71,7 @@ export async function generateMetadata({
       description: description,
       url: url,
       images: NewImage,
+           type:"website"
     },
     alternates: {
       canonical:

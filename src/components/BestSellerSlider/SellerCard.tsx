@@ -62,8 +62,8 @@ const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
     <Container className="overflow-hidden best_seller_slider bg-[#F5F5F5]">
       
       <div className="text-center sm:pb-5 lg:pt-8">
-        <h3 className="sm:text-[40px] text-2xl font-robotoSerif font-bold text-primary">See Our Bestseller</h3>
-       <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] mb-3 lg:my-7">Top Picks for Your Home</p>
+        <h3 className="sm:text-[40px] text-2xl font-robotoSerif font-bold text-primary">SEE OUR BEST-SELLING PRODUCTS</h3>
+       <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] mb-3 lg:my-7">Top-Selling Products to Inspire You!</p>
       </div>
         
       <Slider {...settings}>

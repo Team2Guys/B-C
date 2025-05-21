@@ -1,4 +1,5 @@
 "use client";
+import { Radio, RadioChangeEvent } from "antd";
 import React from "react";
 
 const units = ["mm", "cm", "inches"];
@@ -9,37 +10,22 @@ interface UnitSelectorProps {
 }
 
 const UnitSelector: React.FC<UnitSelectorProps> = ({ selectedUnit, setSelectedUnit }) => {
-  const handleUnitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUnitChange = (event: RadioChangeEvent) => {
     setSelectedUnit(event.target.value);
   };
 
   return (
-    <div className="flex items-center gap-5">
-      {units.map((unit) => (
-        <label key={unit} className="flex items-center gap-1 cursor-pointer">
-          <input
-            type="radio"
-            name="unit"
-            value={unit}
-            checked={selectedUnit === unit}
-            onChange={handleUnitChange}
-            className="hidden"
-          />
-          <span
-            className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-              selectedUnit === unit
-                ? "border-primary"
-                : "border-gray-300 bg-white"
-            }`}
-          >
-            {selectedUnit === unit && (
-              <span className="w-full h-full bg-primary rounded-full"></span>
-            )}
-          </span>
-          {unit}
-        </label>
+    <Radio.Group
+      onChange={handleUnitChange}
+      value={selectedUnit}
+      className="flex gap-2 lg:gap-6 justify-between sm:justify-start custom-radio estimator-radio"
+    >
+      {units.map((unit, index) => (
+        <Radio key={index} value={unit} className="text-xs xsm:text-sm border border-gray-200 rounded-lg flex items-center w-40 h-10 xl:h-14 px-4 ">
+          <span className="opacity-60">{unit}</span>
+        </Radio>
       ))}
-    </div>
+    </Radio.Group>
   );
 };
 
