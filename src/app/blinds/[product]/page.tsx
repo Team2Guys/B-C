@@ -17,9 +17,7 @@ const Cateories = [2];
 
 
 
-export async function generateMetadata({
-  params,
-}: meta_props): Promise<Metadata> {
+export async function generateMetadata({params}: meta_props): Promise<Metadata> {
   const product = (await params).product;
 
   const [products, categories] = await Promise.all([
@@ -88,7 +86,7 @@ const CommercialPage = async ({ params }: meta_props) => {
   const filteredProduct = filterProd(products, product, Cateories);
 
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/blinds/${product}/`);
-  console.log(matchingUrl, "matchinUrls")
+
   if (matchingUrl) {
     return <NotFound />
   }

@@ -65,10 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const Products = async ({ params }: Props) => {
   const slug = (await params).productName;
 
-  let category = await fetchSingleCategorymain(slug)
-
-  console.log(category, "category")
-  
+  let category = await fetchSingleCategorymain(slug)  
   const matchingLink: any = links.find((link) => slug.includes(link.href.replace(/^\//, '')),);
 
 

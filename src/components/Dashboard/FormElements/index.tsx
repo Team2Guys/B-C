@@ -37,12 +37,12 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 }) => {
   const [imagesUrl, setImagesUrl] = useState<any[]>([]);
   const [videos, setvideos] = useState<any[]>(EditInitialValues && EditInitialValues.videos && EditInitialValues.videos || []);
-  const [posterimageUrl, setposterimageUrl] = useState<any[] | null | undefined>(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage]);
-  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null | undefined>(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
-  const [privarcyImagemageUrl, setprivarcyImage] = useState<any[] | null | undefined>(EditInitialValues && EditInitialValues.privarcyImage && [EditInitialValues.privarcyImage]);
+  const [posterimageUrl, setposterimageUrl] = useState<any[]  | undefined>(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage]);
+  const [bannerImageUrl, setBannerImageUrl] = useState<any[]  | undefined>(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
+  const [privarcyImagemageUrl, setprivarcyImage] = useState<any[]  | undefined>(EditInitialValues && EditInitialValues.privarcyImage && [EditInitialValues.privarcyImage]);
 
 
-  const [subCategoryImage, setsubCategoryImage] = useState<any[] | null | undefined>(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
+  const [subCategoryImage, setsubCategoryImage] = useState<any[]  | undefined>(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
   const [topImages, settopImages] = useState<any[]>(EditInitialValues && EditInitialValues.topImages && EditInitialValues.topImages);
   const [productUpdateFlat, setProductUpdateFlat] = useState(false);
   const [loading, setloading] = useState<boolean>(false);
