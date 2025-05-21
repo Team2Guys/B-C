@@ -20,6 +20,7 @@ export const metadata: Metadata = {
         alt: 'Why Choose Us | Blinds and Curtains',
       },
     ],
+         type:"website"
   },
    alternates: {
     canonical: 'https://blindsandcurtains.ae/why-choose-blinds-curtains/',

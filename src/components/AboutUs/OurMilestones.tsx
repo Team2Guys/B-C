@@ -1,13 +1,11 @@
 "use client";
 
-import Container from "components/Res-usable/Container/Container";
 import { milestoneStepsData } from "data/data";
 import Image from "next/image";
 
 export default function MilestoneSteps() {
     return (
-        <Container className="sm:mt-20 mt-10">
-            <div className="mx-auto">
+        <div className="sm:mt-20 mt-10">
                 <div className="flex sm:flex-row flex-col items-center sm:gap-8">
                     <h2
                         className="text-4xl sm:text-8xl text-center font-bold text-primary font-robotoSerif sm:hidden block sm:mb-0 mb-8"
@@ -26,7 +24,7 @@ export default function MilestoneSteps() {
                     <div className="w-full sm:w-1/2">
                         <div className="sm:text-start text-center sm:mb-10">
                             <h2
-                                className="text-2xl sm:text-8xl font-bold text-primary font-robotoSerif sm:block hidden "
+                                className="text-2xl sm:text-6xl xl:text-8xl font-bold text-primary font-robotoSerif sm:block hidden "
                                 dangerouslySetInnerHTML={{ __html: milestoneStepsData.heading }}
                             />
 
@@ -59,8 +57,7 @@ export default function MilestoneSteps() {
                             </div>
                         ))}
                     </div>
-                </div>
             </div>
-        </Container>
+        </div>
     );
 }

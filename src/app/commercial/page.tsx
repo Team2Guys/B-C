@@ -50,6 +50,7 @@ console.log(ImageUrl)
       description: description,
       url: url,
       images: NewImage,
+           type:"website"
     },
     alternates: {
       canonical:

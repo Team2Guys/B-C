@@ -49,7 +49,13 @@
   .primary-input {
     @apply w-full rounded-lg border-[1.5px]  bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-white dark:bg-primary  dark:text-white dark:focus:border-secondary dark:border;
   }
+.search_input {
+  @apply primary-input w-fit
 }
+
+}
+
+
 
 
 @layer components {
@@ -61,9 +67,23 @@
 
 @layer components {
 .dashboard_primary_button {
-    @apply bg-black hover:bg-primary hover:border text-white px-4 py-2 rounded m-auto w-fit block ;
+    @apply bg-primary hover:bg-secondary text-white px-4 py-2 rounded w-fit flex items-center gap-2 cursor-pointer ;
   }
 }
+
+@layer components {
+.dashboard_sidebar_links {
+    @apply relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium duration-300 ease-in-out hover:bg-secondary dark:hover:bg-lightdark text-white dark:text-white;
+  }
+}
+
+@layer components {
+.dashboard_sidebar_Active_links {
+    @apply bg-secondary hover:bg-primary hover:border hover:border-secondary;
+  }
+}
+
+
 
 
 @layer components {

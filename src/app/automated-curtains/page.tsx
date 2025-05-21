@@ -25,6 +25,7 @@ export const metadata: Metadata = {
         alt: 'motorized Curtains',
       },
     ],
+         type:"website"
   },
   alternates: {
     canonical: 'https://blindsandcurtains.ae/automated-curtains/',

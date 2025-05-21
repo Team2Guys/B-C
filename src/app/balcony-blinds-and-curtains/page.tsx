@@ -48,7 +48,9 @@ export async function generateMetadata(): Promise<Metadata> {
       description: description,
       url: url,
       images: NewImage,
+           type:"website"
     },
+    
     alternates: {
       canonical:
         filteredCatgory?.Canonical_Tag || url,
