@@ -407,6 +407,17 @@ let pathname = "/"+path
                             </Link>
                           </li>
 
+                               <li>
+                            <Link
+                              href="/dashboard/Redirecturls"
+                              className={`dashboard_sidebar_links group ${pathname === '/dashboard/Redirecturls' &&
+                                'dashboard_sidebar_Active_links'
+                                } `}
+                            >
+                              View Redirecturls
+                            </Link>
+                          </li>
+
           
                         </ul>
                       </div>
