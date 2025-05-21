@@ -2,7 +2,7 @@
 import Container from "components/Res-usable/Container/Container";
 import { useState } from "react";
 import Image from "next/image";
-import { tabData } from "data/Homedata/tabdata";
+import { tabData } from "data/Homenewdata/tabdata";
 import Link from "next/link";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
@@ -23,7 +23,8 @@ export default function InfoTabs() {
           <button
             key={index}
             onClick={() => setActiveTab(index)}
-            className={`text-black flex sm:block items-center gap-3 py-2 md:py-2 
+            className={`
+              text-black flex sm:block items-center gap-3 py-2 md:py-2 
               whitespace-nowrap w-full px-4 text-17 sm:justify-center text-center mx-auto
               focus:outline-none font-semibold transition duration-300 z-10 border-b-2 
               ${
