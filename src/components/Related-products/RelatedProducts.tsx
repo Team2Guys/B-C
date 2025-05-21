@@ -42,7 +42,6 @@ const RelatedProducts: React.FC<relativeProps> = ({ products, limit, title, desc
       </p>
       <div className="grid grid-cols-1 xs:grid-cols-2 md: lg:grid-cols-4 gap-6 lg:mt-10 mt-4 lg:mb-10">
         {selectedProducts.length > 0 ? selectedProducts.map((item) => {
-          console.log(item, 'item')
           const filteredCategory = item?.category;
           return (
             <GalleryCard

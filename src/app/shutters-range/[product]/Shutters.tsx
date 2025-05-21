@@ -1,7 +1,7 @@
 'use client';
 
 import ShuttersByColor from 'components/ByColor/ShuttersByColor';
-import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
+import ProductDetail from 'components/ProductDetailPage/product-detail';
 import RoomProducts from 'components/RoomProducts/room-product';
 import { PRODUCS_PROPS } from 'types/interfaces';
 
@@ -29,11 +29,14 @@ const CommercialPage = ({
           </>
         ) : (
           filteredProduct && (
-            <ProductDetailPage
-              title={`${filteredProduct?.title}`}
-              allprod={allprod}
-              filterProduct={filteredProduct}
-            />
+              <ProductDetail 
+                  title={`${filteredProduct?.title}`}
+                  filterProduct={filteredProduct}/>
+            // <ProductDetailPage
+            //   title={`${filteredProduct?.title}`}
+            //   allprod={allprod}
+            //   filterProduct={filteredProduct}
+            // />
           )
         )
       ) : (

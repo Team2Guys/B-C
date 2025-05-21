@@ -37,12 +37,12 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 }) => {
   const [imagesUrl, setImagesUrl] = useState<any[]>([]);
   const [videos, setvideos] = useState<any[]>(EditInitialValues && EditInitialValues.videos && EditInitialValues.videos || []);
-  const [posterimageUrl, setposterimageUrl] = useState<any[] | undefined>(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage],);
-  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | undefined>(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
-  const [privarcyImagemageUrl, setprivarcyImage] = useState<any[] | undefined>(EditInitialValues && EditInitialValues.privarcyImage && [EditInitialValues.privarcyImage]);
+  const [posterimageUrl, setposterimageUrl] = useState<any[]  | undefined>(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage]);
+  const [bannerImageUrl, setBannerImageUrl] = useState<any[]  | undefined>(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
+  const [privarcyImagemageUrl, setprivarcyImage] = useState<any[]  | undefined>(EditInitialValues && EditInitialValues.privarcyImage && [EditInitialValues.privarcyImage]);
 
 
-  const [subCategoryImage, setsubCategoryImage] = useState<any[] | undefined>(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
+  const [subCategoryImage, setsubCategoryImage] = useState<any[]  | undefined>(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
   const [topImages, settopImages] = useState<any[]>(EditInitialValues && EditInitialValues.topImages && EditInitialValues.topImages);
   const [productUpdateFlat, setProductUpdateFlat] = useState(false);
   const [loading, setloading] = useState<boolean>(false);
@@ -283,6 +283,12 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const handlealtText = (index: number, newaltText: string) => {
     const updatedImagesUrl = imagesUrl.map((item, i) =>
       i === index ? { ...item, altText: newaltText } : item,
+    );
+    setImagesUrl(updatedImagesUrl);
+  };
+   const handlecolorCode = (index: number, colorCode: string) => {
+    const updatedImagesUrl = imagesUrl.map((item, i) =>
+      i === index ? { ...item, colorCode: colorCode } : item,
     );
     setImagesUrl(updatedImagesUrl);
   };
@@ -1604,6 +1610,16 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                 value={item.altText}
                                 onChange={(e) =>
                                   handlealtText(index, String(e.target.value))
+                                }
+                              />
+                               <input
+                                className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 bg-white dark:border-strokedark dark:bg-lightdark focus:border-primary active:border-primary outline-none"
+                                placeholder="altText"
+                                type="text"
+                                name="colorCode"
+                                value={item.colorCode}
+                                onChange={(e) =>
+                                handlecolorCode(index, String(e.target.value))
                                 }
                               />
                             </div>

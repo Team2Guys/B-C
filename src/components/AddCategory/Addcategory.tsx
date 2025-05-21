@@ -43,6 +43,7 @@ interface editCategoryProps {
   seteditCategory: any;
   editCategory: any;
   setMenuType: React.Dispatch<SetStateAction<string>>;
+  
 }
 
 const FormLayout = ({
