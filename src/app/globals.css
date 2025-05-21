@@ -705,6 +705,33 @@ ol {
   padding-inline-end: 0px !important;
 }
 
+.custom-radio.estimator-radio .ant-radio-inner {
+  border-color: #00000066;
+}
+
+/* The dot inside the checked radio */
+.custom-radio.estimator-radio .ant-radio-inner::after {
+  background-color: var(--secondary);
+}
+
+/* When radio is checked - change background and border */
+.custom-radio.estimator-radio .ant-radio-checked .ant-radio-inner {
+  background-color: white;
+  border-color: var(--secondary);
+}
+
+/* On hover: change border color to black */
+.custom-radio .ant-radio-wrapper:hover .ant-radio-inner,
+.custom-radio .ant-radio:hover .ant-radio-inner {
+  border-color: var(--secondary);
+}
+
+/* On hover when checked: keep black background */
+.custom-radio .ant-radio-checked:hover .ant-radio-inner {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
 .custom-select .css-13cymwt-control , .custom-select .css-t3ipsp-control {
   border: 2px solid rgb(209 213 219 / var(--tw-border-opacity, 1)) !important;
   border-radius: 0.75rem;
