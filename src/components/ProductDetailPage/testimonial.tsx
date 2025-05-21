@@ -13,7 +13,7 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToScroll: 1,
   arrows: false,
   responsive: [
     {
@@ -62,7 +62,7 @@ const Testimonial = async() => {
             <div className="custom-test">
               <Slider {...settings}>
                 {reviews?.map((item:IREVIEWS, index:number) => (
-                  <div key={index} className="p-4">
+                  <div key={index} className="p-4 ">
                     <div className=" space-y-3 h-full">
                       <p className="font-robotoSerif font-bold text-xl">{item.name}</p>
                       <p className="font-roboto text-gray-700 text-sm md:text-base">{item.ReviewsDescription}</p>
