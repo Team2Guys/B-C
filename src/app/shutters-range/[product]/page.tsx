@@ -61,7 +61,7 @@ export async function generateMetadata({
     Product?.Meta_description ||
     filteredSubCategory?.Meta_description ||
     'Welcome to blindsandcurtains';
-  let url = `${fullUrl}shutters-range/${product}`;
+  let url = `${fullUrl}shutters-range/${product}/`;
 
   return {
     title: title,

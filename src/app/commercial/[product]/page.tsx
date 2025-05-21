@@ -50,7 +50,7 @@ export async function generateMetadata({ params }:meta_props): Promise<Metadata>
   let description =
   SubCategory?.Meta_description ||
     'Welcome to blindsandcurtains';
-  let url = `${fullUrl}commerical/${product}`;
+  let url = `${fullUrl}commerical/${product}/`;
   return {
     title: title,
     description: description,
