@@ -34,7 +34,7 @@ export default function ReviewBanner() {
   <ReviewBackground className="block md:hidden" />
   <ReviewBackgrounddashktop className="hidden md:block"/>
   <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-robotoSerif text-center text-xs md:text-24 xl:text-32 font-semibold xl:font-bold text-primary-foreground md:w-full">
-    Rated Excellent by Dubai Homeowners
+    Dubai Homeowners Have Crowned Us With Their Trust!
   </p>
 </div>
     </div>
