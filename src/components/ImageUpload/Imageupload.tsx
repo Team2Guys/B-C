@@ -13,7 +13,7 @@ export interface ImagesProps {
 
 interface PROPS {
   setImagesUrl?: React.Dispatch<SetStateAction<any[]>>;
-  setposterimageUrl?: React.Dispatch<SetStateAction<any[] | null | undefined>>;
+  setposterimageUrl?: React.Dispatch<SetStateAction<any[] |  undefined>>;
   sethoverImage?: React.Dispatch<SetStateAction<any[] | undefined>>;
   video?: boolean
   multiple?: boolean
