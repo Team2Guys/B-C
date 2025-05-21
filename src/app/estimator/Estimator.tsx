@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { WhatsAppInfo } from 'data/data';
 import Testimonial from 'components/ProductDetailPage/testimonial';
 import InfoTabs from 'components/NewHomecomponents/info';
+import Breadcrumb from 'components/Res-usable/breadcrumb';
 
 const EstimatorPage = ({ sortedProducts }: { sortedProducts: EstimatorProductTypes[] }) => {
   const [selectedProduct, setSelectedProduct] = useState<EstimatorProductTypes | null>(null);
@@ -148,6 +149,7 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EstimatorProductTyp
   const sizes = ['300x400', '450x500', '500x700', '650x800']
   return (
     <>
+      <Breadcrumb title='Estimator' />
       <Container className="md:pt-10 pb-20">
         <div className="grid grid-cols-12 md:gap-10 xl:gap-14 2xl:md:h-[677px] space-y-4 md:space-y-0 md:px-2 xl:px-0">
           <div className="col-span-12 md:col-span-6 mt-2 sm:mt-0">
@@ -209,7 +211,7 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EstimatorProductTyp
                 <h3 className='font-roboto pb-2 text-primary'>Select Size</h3>
                 <div className="grid grid-cols-4 max-sm:w-full gap-2">
                   {sizes.map((item, index) => (
-                    <button className="w-full border border-gray-300 rounded-lg opacity-60 h-10 text-sm sm:text-base" key={index} onClick={() =>handleSize(item)}>
+                    <button className="w-full border border-gray-300 rounded-lg opacity-60 h-10 text-sm sm:text-base" key={index} onClick={() => handleSize(item)}>
                       {item}
                     </button>
                   ))}
