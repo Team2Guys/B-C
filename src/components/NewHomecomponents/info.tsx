@@ -48,8 +48,8 @@ export default function InfoTabs() {
       <div className="hidden sm:block">
         <div className="grid md:grid-cols-2 gap-6 lg:gap-16 items-center md:p-8 p-2">
           <div className="flex flex-col justify-center items-start space-y-5 lg:space-y-12">
-            <h3 className="font-robotoSerif font-semibold text-20 lg:text-[40px] text-primary">{tabData[activeTab].heading}</h3>
-            <p className="text-[16px] font-normal font-roboto lg:text-[20px] text-primary text-justify">{tabData[activeTab].description}</p>
+            <h3 className="font-robotoSerif font-semibold text-20 lg:text-[40px] text-primary sm:pr-10">{tabData[activeTab].heading}</h3>
+            <p className="text-[16px] font-normal font-roboto lg:text-[20px] text-primary text-justify ">{tabData[activeTab].description}</p>
             <Link href={tabData[activeTab].href} className=" border bg-secondary text-primary font-semibold text-16 font-roboto px-6 py-2 md:py-4 rounded-xl hover:bg-primary-dark transition">
               {tabData[activeTab].buttonText}
             </Link>
