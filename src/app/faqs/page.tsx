@@ -13,13 +13,12 @@ const FAQPage = () => {
       <Container>
       <div className="flex justify-center items-center">
       <h2
-        className="font-roboto font-normal text-14 md:text-20 text-center mt-2 mb-5 sm:my-7 text-primary md:max-w-screen-lg "
+        className="font-roboto font-normal text-14 md:text-20 text-center my-5 sm:my-7 text-primary md:max-w-screen-lg "
         dangerouslySetInnerHTML={{ __html: Faqspara }}
       />
       </div>
       <FaqTabs/>
       </Container>
-
     </div>
   );
 };
