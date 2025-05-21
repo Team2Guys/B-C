@@ -21,6 +21,7 @@ export const metadata: Metadata = {
         alt: 'Blinds and Curtains Dubai | Product Guarantee',
       },
     ],
+         type:"website"
   },
   alternates: {
     canonical: 'https://blindsandcurtains.ae/product-guarantees/',

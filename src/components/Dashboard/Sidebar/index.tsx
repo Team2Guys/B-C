@@ -26,7 +26,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const { loggedInUser }: any = useAppSelector((state) => state.usersSlice);
   let superAdmin = loggedInUser && loggedInUser.role !== 'Admin';
 
-  const pathname = usePathname();
+  const path  = usePathname().split("/").filter((boolean)=>boolean).join("/");
+let pathname = "/"+path
 
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
@@ -107,8 +108,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="/dashboard"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out  dark:hover:bg-lightdark text-white dark:text-white ${pathname === '/dashboard' &&
-                          'bg-primary-foreground dark:bg-lightdark'
+                        className={`group dashboard_sidebar_links ${pathname === '/dashboard' &&
+                          'dashboard_sidebar_Active_links'
                           }`}
                         onClick={(e) => {
                           e.preventDefault();
@@ -133,7 +134,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === '/dashboard' && 'text-white '
+                              className={`group dashboard_sidebar_links   ${pathname === '/dashboard' && 'text-white '
                                 }`}
                             >
                               eCommerce
@@ -154,8 +155,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="#"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${pathname === '/dashboard/category' &&
-                          'bg-primary-foreground dark:bg-lightdark'
+                        className={`group dashboard_sidebar_links ${pathname === '/dashboard/category' &&
+                          'dashboard_sidebar_Active_links'
                           }`}
                         onClick={(e) => {
                           e.preventDefault();
@@ -180,7 +181,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/category"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 mt-2 ${pathname === '/dashboard/category' &&
+                              className={`group dashboard_sidebar_links   mt-2 ${pathname === '/dashboard/category' &&
                                 'text-white'
                                 }`}
                             >
@@ -212,8 +213,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="/dashboard/Products"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${pathname === '/dashboard/products' &&
-                          'bg-primary-foreground dark:bg-lightdark'
+                        className={`group dashboard_sidebar_links  ${pathname === '/dashboard/products' &&
+                          'dashboard_sidebar_Active_links'
                           }`}
                         onClick={(e) => {
                           e.preventDefault();
@@ -238,8 +239,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/products"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === 'dashboard/products' &&
-                                'text-white bg-lightdark'
+                              className={`group dashboard_sidebar_links   ${pathname === 'dashboard/products' &&
+                                'dashboard_sidebar_Active_links'
                                 } `}
                             >
                               View Products
@@ -262,8 +263,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="/dashboard/blog"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white ${pathname === '/dashboard/blog' &&
-                          'bg-primary-foreground dark:bg-lightdark'
+                        className={`group dashboard_sidebar_links  ${pathname === '/dashboard/blog' &&
+                          'dashboard_sidebar_Active_links'
                           }`}
                         onClick={(e) => {
                           e.preventDefault();
@@ -288,8 +289,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/blog"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === 'dashboard/blog' &&
-                                'text-white bg-lightdark'
+                              className={`group dashboard_sidebar_links   ${pathname === 'dashboard/blog' &&
+                                'dashboard_sidebar_Active_links'
                                 } `}
                             >
                               View Blog
@@ -298,8 +299,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/comment"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === 'dashboard/blog' &&
-                                'text-white bg-lightdark'
+                              className={`group dashboard_sidebar_links   ${pathname === 'dashboard/blog' &&
+                                'dashboard_sidebar_Active_links'
                                 } `}
                             >
                               View Comment
@@ -321,8 +322,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="/dashboard/appointments"
-                        className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${pathname === '/dashboard/appointments' &&
-                          'bg-primary-foreground dark:bg-lightdark'
+                        className={`group dashboard_sidebar_links ${pathname === '/dashboard/appointments' &&
+                          'dashboard_sidebar_Active_links'
                           }`}
                         onClick={(e) => {
                           e.preventDefault();
@@ -347,7 +348,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/appointments"
-                              className={`group relative flex items-center gap-2 rounded-md px-4 font-medium  duration-300 ease-in-out text-white dark:text-white hover:scale-105 ${pathname === 'dashboard/appointments' &&
+                              className={`group dashboard_sidebar_links   ${pathname === 'dashboard/appointments' &&
                                 'text-white'
                                 } `}
                             >
@@ -370,9 +371,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <>
                       <Link
                         href="/dashboard"
-                        className={` group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white 
-                          dark:bg-lightdark  ${pathname === '/dashboard/general' &&
-                          'bg-primary-foreground dark:bg-lightdar'
+                        className={` group dashboard_sidebar_links  ${pathname === '/dashboard/general' && 'dashboard_sidebar_Active_links'
                           }`}
                         onClick={(e) => {
                           e.preventDefault(); // Prevent default link behavior
@@ -400,8 +399,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/dashboard/reviews"
-                              className={`dashboard_side_bar_links group ${pathname === '/dashboard/reviews' &&
-                                'active'
+                              className={`dashboard_sidebar_links group ${pathname === '/dashboard/reviews' &&
+                                'dashboard_sidebar_Active_links'
                                 } `}
                             >
                               View Reviews
@@ -422,8 +421,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <li>
                   <Link
                     href="/dashboard/super-admin"
-                    className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${pathname.includes('super-admin') &&
-                      'bg-primary-foreground dark:bg-lightdark'
+                    className={`group dashboard_sidebar_links ${pathname.includes('super-admin') &&
+                      'dashboard_sidebar_Active_links'
                       }`}
                   >
                     <GrUserAdmin size={20} />
@@ -435,8 +434,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <Link
                   href="/dashboard/settings"
-                  className={`group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white${pathname.includes('settings') &&
-                    'bg-primary-foreground dark:bg-lightdark'
+                  className={`group dashboard_sidebar_links ${pathname.includes('settings') &&
+                    'dashboard_sidebar_Active_links'
                     }`}
                 >
                   <IoSettingsOutline size={20} />

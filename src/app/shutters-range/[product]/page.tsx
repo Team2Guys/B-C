@@ -71,6 +71,7 @@ export async function generateMetadata({
       description: description,
       url: url,
       images: NewImage,
+           type:"website"
     },
     alternates: {
       canonical:
