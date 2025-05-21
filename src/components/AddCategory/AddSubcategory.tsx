@@ -210,7 +210,7 @@ const FormLayout = ({
                                   />
                                 </div>
                                 <input
-                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark "
+                                  className="primary-input "
                                   placeholder="altText"
                                   type="text"
                                   name="altText"
@@ -264,7 +264,7 @@ const FormLayout = ({
                                   />
                                 </div>
                                 <input
-                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark "
+                                  className="primary-input "
                                   placeholder="altText"
                                   type="text"
                                   name="altText"
@@ -287,7 +287,7 @@ const FormLayout = ({
 
                     <div className="flex flex-col gap-5.5 p-6.5">
                       <div>
-                        <label className=" block py-4 px-2 text-sm font-medium text-black dark:text-white">
+                        <label className=" primary-label">
                           Sub Category Name
                         </label>
                         <input
@@ -296,7 +296,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.title}
                           placeholder="Title"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.title && formik.errors.title
+                          className={`primary-input ${formik.touched.title && formik.errors.title
                               ? 'border-red-500'
                               : ''
                             }`}
@@ -309,7 +309,7 @@ const FormLayout = ({
                       </div>
 
                       <div>
-                        <label className=" block py-4 px-2 text-sm font-medium text-black dark:text-white">
+                        <label className=" primary-label">
                           Category Description
                         </label>
                         <textarea
@@ -317,7 +317,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.description}
                           placeholder="Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.title && formik.errors.title
+                          className={`primary-input ${formik.touched.title && formik.errors.title
                               ? 'border-red-500'
                               : ''
                             }`}
@@ -329,7 +329,7 @@ const FormLayout = ({
                         ) : null}
                       </div>
                       <div>
-                        <label className=" block py-4 px-2 text-sm font-medium text-black dark:text-white">
+                        <label className=" primary-label">
                           Category Short Description
                         </label>
                         <textarea
@@ -337,7 +337,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.short_description}
                           placeholder="Short Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.short_description &&
+                          className={`primary-input ${formik.touched.short_description &&
                               formik.errors.short_description
                               ? 'border-red-500'
                               : ''
@@ -352,7 +352,7 @@ const FormLayout = ({
                       </div>
 
                       <div>
-                        <label className="mb-3 block py-4 px-2 text-sm font-medium text-black dark:text-white">
+                        <label className="mb-3 primary-label">
                           Select Parent Category (atleat one)
                         </label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -388,7 +388,7 @@ const FormLayout = ({
                       </div>
                       <div className="flex gap-4 mt-4">
                         <div className="w-2/4">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Meta Title
                           </label>
                           <input
@@ -398,7 +398,7 @@ const FormLayout = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.Meta_Title}
                             placeholder="Meta Title"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Meta_Title &&
+                            className={`primary-input ${formik.touched.Meta_Title &&
                                 formik.errors.Meta_Title
                                 ? 'border-red-500'
                                 : ''
@@ -412,7 +412,7 @@ const FormLayout = ({
                           ) : null}
                         </div>
                         <div className="w-2/4">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Canonical Tag
                           </label>
                           <input
@@ -422,7 +422,7 @@ const FormLayout = ({
                             onChange={formik.handleChange}
                             value={formik.values.Canonical_Tag}
                             placeholder="Canonical Tag"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Canonical_Tag &&
+                            className={`primary-input ${formik.touched.Canonical_Tag &&
                                 formik.errors.Canonical_Tag
                                 ? 'border-red-500'
                                 : ''
@@ -438,7 +438,7 @@ const FormLayout = ({
                         </div>
                       </div>
                       <div className="mt-4">
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           Meta Description
                         </label>
                         <textarea
@@ -446,7 +446,7 @@ const FormLayout = ({
                           onChange={formik.handleChange}
                           value={formik.values.Meta_description}
                           placeholder="Meta Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
+                          className={`primary-input ${formik.touched.description &&
                               formik.errors.description
                               ? 'border-red-500'
                               : ''
@@ -462,7 +462,7 @@ const FormLayout = ({
 
                       <div className="flex gap-4 mt-2">
                         <div className="w-full">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Images Alt Text
                           </label>
                           <input
@@ -472,7 +472,7 @@ const FormLayout = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.Images_Alt_Text}
                             placeholder="Images Alt Text"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Images_Alt_Text &&
+                            className={`primary-input ${formik.touched.Images_Alt_Text &&
                                 formik.errors.Images_Alt_Text
                                 ? 'border-red-500'
                                 : ''
