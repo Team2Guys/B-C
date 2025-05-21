@@ -61,7 +61,8 @@ export interface ICategory {
 export interface Image {
   imageUrl: string;
   public_id: string;
-  altText?:string
+  altText?:string;
+  name?:string;
 }
 
 
@@ -95,7 +96,7 @@ export interface IProduct {
   subcategory_description?:string
   modelDetails?:{name:string, detail:string}[]
   privarcyImage?:Image
-  
+  topImages?:Image
 }
 
 export interface ProductImages {

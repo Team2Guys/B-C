@@ -44,17 +44,14 @@ const CommercialPage = ({
           )}
         </>
       ) : (
-        <>
         <ProductDetail 
           title={`${filteredProduct?.title}`}
           filterProduct={filteredProduct}/>
-
-        {/* <ProductDetailPage
-          title={`${filteredProduct?.title}`}
-          allprod={allprod}
-          filterProduct={filteredProduct}
-        /> */}
-        </>
+        // <ProductDetailPage
+        //   title={`${filteredProduct?.title}`}
+        //   allprod={allprod}
+        //   filterProduct={filteredProduct}
+        // /> 
       )}
     </>
   );
