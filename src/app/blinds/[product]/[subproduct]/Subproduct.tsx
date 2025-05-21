@@ -1,4 +1,5 @@
-import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
+"use client"
+import ProductDetail from 'components/ProductDetailPage/product-detail';
 import RoomProducts from 'components/RoomProducts/room-product';
 import { IProduct } from 'types/types';
 
@@ -24,11 +25,9 @@ const SubProduct = ({ products, filteredProduct, filteredSubCategory }:ISubProdu
 
         </>
       ) : (
-        <ProductDetailPage
+       <ProductDetail 
           title={`${filteredProduct?.title}`}
-          allprod={products}
-          filterProduct={filteredProduct}
-        />
+          filterProduct={filteredProduct}/>
       )}
     </>
   );

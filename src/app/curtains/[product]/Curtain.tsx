@@ -1,5 +1,5 @@
 'use client';
-import ProductDetailPage from 'components/ProductDetailPage/ProductDetailPage';
+import ProductDetail from 'components/ProductDetailPage/product-detail';
 import RoomProducts from 'components/RoomProducts/room-product';
 import Script from 'next/script';
 import { PRODUCS_PROPS } from 'types/interfaces';
@@ -32,11 +32,15 @@ const CommercialPage = ({
 
         </>
       ) : (
-        <ProductDetailPage
-          title={filteredProduct?.title || ''}
-          allprod={allprod}
-          filterProduct={filteredProduct }
-        />
+          <ProductDetail 
+          title={`${filteredProduct?.title}`}
+          filterProduct={filteredProduct}/>
+
+        // <ProductDetailPage
+        //   title={filteredProduct?.title || ''}
+        //   allprod={allprod}
+        //   filterProduct={filteredProduct }
+        // />
       )}
     </>
   );

@@ -1,3 +1,4 @@
+import React from "react";
 import { ICategory, IProduct } from "./types";
 
 export interface BreadcrumbProps  {
@@ -19,4 +20,14 @@ interface AccordionItem {
 
 export interface AccordionProps {
   items?: AccordionItem[];
+}
+export interface VideoItem {
+  imageUrl?: string
+  public_id?: string
+}
+
+export interface DetailProps {
+  data: IProduct;
+  selectedColor: string;
+  setColorImage: React.Dispatch<React.SetStateAction<string>>;
 }

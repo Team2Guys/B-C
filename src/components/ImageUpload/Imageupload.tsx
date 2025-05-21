@@ -13,7 +13,7 @@ export interface ImagesProps {
 
 interface PROPS {
   setImagesUrl?: React.Dispatch<SetStateAction<any[]>>;
-  setposterimageUrl?: React.Dispatch<SetStateAction< any[] | undefined>>;
+  setposterimageUrl?: React.Dispatch<SetStateAction<any[] |  undefined>>;
   sethoverImage?: React.Dispatch<SetStateAction<any[] | undefined>>;
   video?: boolean
   multiple?: boolean
@@ -102,6 +102,7 @@ let urlsEndpoint = s3Flag ? "file-upload/upload-s3" : "file-upload"
       setposterimageUrl?.(response);
       sethoverImage?.(response);
     } catch (error) {
+      console.log(error, "error")
       throw error;
     }
   };
@@ -115,7 +116,7 @@ let urlsEndpoint = s3Flag ? "file-upload/upload-s3" : "file-upload"
 
   return (
     <div
-      className={`m-4 cursor-pointer bg-primary ${isDraggableArea ? 'border border-sky-500' : 'border border-stroke'}`}
+      className={`m-4 cursor-pointer bg-white dark:bg-primary ${isDraggableArea ? 'border border-sky-500' : 'border border-stroke'}`}
       onDrop={handleDrop}
       onDragOver={(e) => {
         e.preventDefault();

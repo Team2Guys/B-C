@@ -1,19 +1,21 @@
 'use client'
 import Container from 'components/Res-usable/Container/Container'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdOutlineStarPurple500 } from 'react-icons/md'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { testimonialData } from 'data/Homedata/tabdata'
+import { fetchReviews } from 'config/fetch'
+import { IREVIEWS } from 'types/general'
 
 const settings = {
   dots: true,
   infinite: true,
+  autoplay:true,
   speed: 500,
   slidesToShow: 2,
-  slidesToScroll: 1,
+  slidesToScroll: 2,
   arrows: false,
   responsive: [
     {
@@ -26,6 +28,12 @@ const settings = {
 }
 
 const Testimonial = () => {
+  const [reviews, setReviews] = useState<IREVIEWS[]>([])
+
+  useEffect(() => {
+    fetchReviews().then((data) => setReviews(data))
+  }, [])
+
   return (
     <div className="mt-10 space-y-5">
       <p className="font-bold font-robotoSerif text-[40px] hidden md:block text-center">
@@ -59,11 +67,11 @@ const Testimonial = () => {
           <div className="col-span-12 md:col-span-8">
             <div className="custom-test">
               <Slider {...settings}>
-                {testimonialData.map((item, index) => (
+                {reviews?.map((item:IREVIEWS, index:number) => (
                   <div key={index} className="p-4">
                     <div className=" space-y-3 h-full">
                       <p className="font-robotoSerif font-bold text-xl">{item.name}</p>
-                      <p className="font-roboto text-gray-700 text-sm md:text-base">{item.text}</p>
+                      <p className="font-roboto text-gray-700 text-sm md:text-base">{item.ReviewsDescription}</p>
                     </div>
                   </div>
                 ))}

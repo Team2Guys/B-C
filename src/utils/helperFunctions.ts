@@ -128,11 +128,6 @@ export const getSubcategoriesByCategory = (categoryName: string): string[] => {
   return subcategoryMap[categoryName.toLowerCase()] || [];
 };
 
-  export  const getFirstNWords = (html: string, wordCount: number) => {
-    const plainText = html.replace(/<[^>]+>/g, '') // remove HTML tags
-    const words = plainText.split(/\s+/)
-    return words.slice(0, wordCount).join(' ') + (words.length > wordCount ? '.' : '.')
-  }
 
 
   export const handleImageAltText = (
@@ -152,3 +147,29 @@ export const getSubcategoriesByCategory = (categoryName: string): string[] => {
       return updatedImagesUrl;
     });
   };
+
+
+  export const DateFormatHandler = (input: Date | string) => {
+  if (!input) return "Not available";
+
+  const parsedDate = typeof input === "string" ? new Date(input) : input;
+
+  if (isNaN(parsedDate.getTime())) {
+    return "Not available";
+  }
+
+  return new Intl.DateTimeFormat('en-GB', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  }).format(parsedDate).toUpperCase();
+};
+
+  export  const getFirstNWords = (html: string, wordCount: number) => {
+    const plainText = html.replace(/<[^>]+>/g, '') // remove HTML tags
+    const words = plainText.split(/\s+/)
+    return words.slice(0, wordCount).join(' ') + (words.length > wordCount ? '.' : '.')
+  }

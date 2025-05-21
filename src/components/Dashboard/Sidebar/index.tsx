@@ -15,6 +15,7 @@ import { GrCodeSandbox, GrUserAdmin } from 'react-icons/gr';
 import { useAppSelector } from 'components/Others/HelperRedux';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { TfiShoppingCartFull } from 'react-icons/tfi';
+import { TbGardenCartOff } from 'react-icons/tb';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -359,6 +360,64 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   );
                 }}
               </SidebarLinkGroup>
+
+
+              <SidebarLinkGroup
+                activeCondition={pathname === '/dashboard/general'}
+              >
+                {(handleClick, open) => {
+                  return (
+                    <>
+                      <Link
+                        href="/dashboard"
+                        className={` group relative flex items-center gap-2 rounded-sm px-4 py-2 font-medium  duration-300 ease-in-out hover:bg-primary-foreground dark:hover:bg-lightdark text-white dark:text-white 
+                          dark:bg-lightdark  ${pathname === '/dashboard/general' &&
+                          'bg-primary-foreground dark:bg-lightdar'
+                          }`}
+                        onClick={(e) => {
+                          e.preventDefault(); // Prevent default link behavior
+                          if (sidebarExpanded) {
+                            handleClick();
+                          } else {
+                            setSidebarExpanded(true);
+                          }
+                        }}
+                      >
+                        <TbGardenCartOff size={20} className="text-white" />
+                        Generals
+                        <MdOutlineKeyboardArrowDown
+                          size={30}
+                          className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current text-white ${open && 'rotate-180'
+                            }`}
+                        />
+                      </Link>
+                      {/* <!-- Dropdown Menu Start --> */}
+                      <div
+                        className={`translate transform overflow-hidden ${!open && 'hidden'
+                          }`}
+                      >
+                        <ul className="mb-3 mt-3 flex flex-col gap-2.5 pl-6">
+                          <li>
+                            <Link
+                              href="/dashboard/reviews"
+                              className={`dashboard_side_bar_links group ${pathname === '/dashboard/reviews' &&
+                                'active'
+                                } `}
+                            >
+                              View Reviews
+                            </Link>
+                          </li>
+
+          
+                        </ul>
+                      </div>
+                    </>
+                  );
+                }}
+              </SidebarLinkGroup>
+
+
+
               {superAdmin ? (
                 <li>
                   <Link

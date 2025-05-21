@@ -54,7 +54,6 @@ export default function SimpleSteps() {
 
                   </div>
                   <div className="flex flex-col justify-center pt-3">
-                    <p className="sm:text-lg text-base font-semibold font-robotoSerif">{step.title}</p>
                     <p className="text-base text-primary font-roboto">{step.description}</p>
                   </div>
                 </div>

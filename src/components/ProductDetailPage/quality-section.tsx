@@ -20,7 +20,7 @@ const QualitySection = () => {
         <div className="grid grid-cols-12 gap-2 lg:gap-4 items-center">
           <div className="col-span-12 md:col-span-5">
             <Image
-              src="/assets/bin/quantity.png"
+              src="/assets/detailpage/quantity.png"
               alt="Curtain"
               width={500}
               height={500}

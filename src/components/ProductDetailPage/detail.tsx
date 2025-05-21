@@ -1,33 +1,31 @@
 "use client"
-import { featureIcons, featuresinfo } from 'data/Homedata/tabdata'
+import { featuresinfo } from 'data/Homedata/tabdata'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { IProduct } from 'types/types'
+import { DetailProps } from 'types/product'
 import { getFirstNWords } from 'utils/helperFunctions'
 
 
-
-const Detail = ({data}:{data:IProduct | any}) => {
+const Detail = ({ data, setColorImage, selectedColor }: DetailProps) => {
     const [expanded, setExpanded] = useState(false)
     const toggleExpanded = () => setExpanded(prev => !prev)
     const shouldTruncate = data.description.replace(/<[^>]+>/g, '').split(/\s+/).length > 100
     const shortDescription = getFirstNWords(data.description, 50)
-
   return (
     <div className=' space-y-2 sm:space-y-4 max-w-[650px]'>
       <h1 className='font-robotoSerif font-bold text-2xl xl:text-5xl text-primary px-2'>{data.title}</h1>
 
       <div className='flex flex-wrap items-center gap-2 lg:gap-4 px-2'>
-        {featureIcons.map((feature, index) => (
+        {Array.isArray(data?.topImages) && data.topImages.map((feature, index) => (
           <div key={index} className='rounded-full py-2 px-4 flex items-center gap-1 bg-[#F2F2F2]'>
-            <Image src={feature.icon} height={20} width={20} alt='feature' />
-            <p className='font-roboto text-sm'>{feature.label}</p>
+            <Image src={feature.imageUrl} height={20} width={20} alt='feature' />
+            <p className='font-roboto text-sm'>{feature.name}</p>
           </div>
         ))}
       </div>
       <div className='py-2 bg-[#F2F2F2] px-2 block md:hidden '>
-        <Link href="/" className='bg-secondary text-primary py-3 px-6 font-semibold block rounded-md w-full md:w-fit font-roboto text-center'>Book A Free Visit</Link>
+        <Link href="/request-appointment/" className='bg-secondary text-primary py-3 px-6 font-semibold block rounded-md w-full md:w-fit font-roboto text-center'>Book A Free Visit</Link>
       </div>
       <p className='px-2'>
       <span className='font-roboto'
@@ -46,15 +44,27 @@ const Detail = ({data}:{data:IProduct | any}) => {
       </p>
       <p className='font-roboto px-2'>Most Demanded Color</p>
       <div className=' flex items-center gap-2 md:pb-10 px-2'>
-        <div className='flex items-center gap-2'>
-            <div className='h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[#BF6933] cursor-pointer' />
-            <div className='h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[#BF6933] cursor-pointer' />
-            <div className='h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[#BF6933] cursor-pointer' />
-            <div className='h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[#BF6933] cursor-pointer' />
-        </div>
+      <div className='flex items-center gap-2'>
+     {data.colors?.map((item: { name?: string; detail?: string }, index: number) => {
+          if (!item.detail) return null;
+          const colorCode = `#${item.detail}`;
+          const isSelected = selectedColor === colorCode;
+
+          return (
+            <div
+              key={index}
+              onClick={() => setColorImage(colorCode)}
+              style={{ backgroundColor: colorCode }}
+              className={`h-9 md:w-12 w-9 md:h-12 rounded-sm cursor-pointer shadow border-2 ${
+                isSelected ? 'border-secondary' : ''
+              }`}
+            />
+          );
+        })}
+      </div>
         <p className='border rounded-lg font-roboto h-12 flex items-center px-2 text-xs md:text-base max-sm:max-w-32'>We still 3000 plus color availble </p>
       </div>
-        <Link href="/" className='bg-secondary text-primary py-3 px-6 font-semibold hidden md:block rounded-md w-full sm:w-fit font-roboto text-center '>Book A Free Visit</Link>
+        <Link href="/request-appointment/" className='bg-secondary text-primary py-3 px-6 font-semibold hidden md:block rounded-md w-full sm:w-fit font-roboto text-center '>Book A Free Visit</Link>
 
       <div className='flex max-sm:flex-col sm:items-stretch sm:gap-2 sm:pt-5 px-2'>
       {featuresinfo.map((feature, index) => (

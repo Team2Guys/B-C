@@ -61,7 +61,8 @@ export interface ICategory {
 export interface Image {
   imageUrl: string;
   public_id: string;
-  altText?:string
+  altText?:string;
+  name?:string;
 }
 
 
@@ -85,12 +86,7 @@ export interface IProduct {
   subCategory?: [];
   short_description?: string;
   heading?: string;
-  colors?: [
-    {
-      colorName: string;
-      colorCode?: string;
-    },
-  ];
+  colors?: Array<{name?: string;detail?: string;}> 
   Sub_Heading?: string;
   Sub_Heading_description?:string
   Meta_Title?: string;
@@ -99,7 +95,8 @@ export interface IProduct {
   subCategoryImage?: Image
   subcategory_description?:string
   modelDetails?:{name:string, detail:string}[]
-  
+  privarcyImage?:Image
+  topImages?:Image
 }
 
 export interface ProductImages {
@@ -364,4 +361,31 @@ export interface MotorizeBlindData {
   videoUrl: string;
   buttons: { label: string; link: string }[];
   features: MBCFeature[];
+}
+
+export interface AboutUsBlock {
+  shortHeading: string;
+  shortHeadingSize?: string; 
+  mainHeading: string;
+  mainHeadingSize?: string;
+  content: string;
+  contentSize?: string;
+  imageUrl: string;
+}
+export interface MilestoneStepItem {
+  step: string;          
+  description: string;    
+  iconimage?: string;     
+}
+
+export interface MilestoneStepsData {
+  heading: string;         
+  subheading: string;       
+  image: string;            
+  steps: MilestoneStepItem[];  
+}
+export interface WhyChooseItem {
+  icon: string;
+  title: string;
+  description: string;
 }

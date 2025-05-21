@@ -108,17 +108,7 @@ export const othersData = [
   "6 Days a Week",
 ];
 
-interface FeaturesProps {
-    icon: string;
-    label: string;
-}
 
-export const featureIcons: FeaturesProps[] = [
-  { icon: '/assets/bin/sun.png', label: 'Light Blockage' },
-  { icon: '/assets/bin/sun.png', label: 'Thermal Insulation' },
-  { icon: '/assets/bin/sun.png', label: 'Noise Reduction' },
-  { icon: '/assets/bin/sun.png', label: 'Privacy' },
-]
 export const featuresinfo = [
   {
     icon: '/assets/detailpage/fast1.png',
@@ -169,5 +159,16 @@ export const testimonialData = [
   {
     name: 'Fatima Noor',
     text: '“The staff was very friendly and gave great suggestions. Love the new look of my windows.”',
+  },
+]
+
+export const staticvideos = [
+  {
+    src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4',
+    title: 'How Does Our Process Work?',
+  },
+  {
+    src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4',
+    title: 'Installation Explained in Simple Steps',
   },
 ]

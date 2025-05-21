@@ -70,27 +70,6 @@ export async function fetchSingleCategorymain(customUrl: string) {
   }
 }
 
-
-
-export const fetchReviews = async () => {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews`,
-      {
-        next: { tags: ['reviews'] },
-      },
-    );
-    const reviews = await response.json();
-    return reviews;
-  } catch (error) {
-    console.log(error)
-  }
-
-
-
-}
-
-
 export const fetchBlogs = async () => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
@@ -243,4 +222,83 @@ export const admin_del_handler = async (id: any) => {
   } catch (error: any) {
     throw new Error(error.message || 'Error occured')
   }
+}
+
+
+
+// reviews
+
+export const fetchReviews = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews`,
+      {
+        next: { tags: ['reviews'] },
+      },
+    );
+    const reviews = await response.json();
+    return reviews;
+  } catch (error) {
+    console.log(error)
+  }
+
+
+
+}
+
+
+export async function createReview(payload: any) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to create review');
+  }
+
+  return await res.json();
+}
+
+
+export async function updateReview(payload: any) {
+  try {
+    console.log(payload, "payload")
+     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews/updated_reviews`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to update review');
+  }
+
+  return await res.json();
+  } catch (error) {
+   console.log(error, "error") 
+  }
+ 
+}
+
+
+export async function deleteReview(id: string | number) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews/${id}`
+    , {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to update review');
+  }
+
+  return await res.json();
 }
