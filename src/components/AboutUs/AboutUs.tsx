@@ -9,7 +9,7 @@ interface Props {
 
 const AboutUsCompo: FC<Props> = ({ blocks }) => {
   return (
-    <div className="sm:space-y-24 space-y-6">
+    <div className="sm:space-y-24 md:space-y-10 space-y-6">
       {blocks.map((block, index) => {
         const isImageLeft = index % 2 !== 0;
 
@@ -29,7 +29,7 @@ const AboutUsCompo: FC<Props> = ({ blocks }) => {
 
         const ImageContent = (
           <div
-            className="w-full h-[300px] md:h-[375px] bg-cover bg-no-repeat bg-center"
+            className="w-full h-[300px] md:h-[300px] bg-cover bg-no-repeat bg-center"
             style={{ backgroundImage: `url(${block.imageUrl})` }}
           />
         );

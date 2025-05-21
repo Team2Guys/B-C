@@ -381,11 +381,11 @@ export const aboutUsData: AboutUsBlock[] = [
   {
     shortHeading: 'From UK Roots to Dubai Dreams',
     shortHeadingSize: 'sm:text-[20px] text-base font-Roboto text-[#3E3F42]',
-    mainHeading: 'The Spark: A Passion Forged in the UK, Ignited in Dubai',
+    mainHeading: 'The Spark: A Passion Forged in the UK,  Ignited in Dubai',
     mainHeadingSize: 'sm:text-2xl text-xl text[#3E3F42]',
     content: `Our story begins with Shiraz, our Managing Partner, who brought two decades of acclaimed UK retail expertise (including a 'Scottish Retailer of The Year' award in 1999!) to the vibrant landscape of Dubai in 2014. Driven by a vision for sunnier climes and new opportunities, the foundation for what would become Two Guys was laid.`,
-    contentSize: 'text-base text-start',
-    imageUrl: '/assets/images/about-us/about-1.webp',
+    contentSize: 'text-base text-start',   
+    imageUrl: '/assets/images/about-us/about-3.webp',
   },
   {
     shortHeading: 'Meet Our Team',
@@ -394,7 +394,7 @@ export const aboutUsData: AboutUsBlock[] = [
     mainHeadingSize: 'sm:text-5xl text-2xl text[#3E3F42]',
     content: `With over 60 dedicated professionals, our ethos is simple: deliver the level of service the owners themselves would expect (Shiraz’s self-professed OCD for detail is legendary!). This means impartial advice, never pushy sales or unnecessary up-sells, and a commitment that extends far beyond the final payment. We're here to build lasting relationships, one beautiful space at a time.`,
     contentSize: 'text-base text-start',
-    imageUrl: '/assets/images/about-us/about-2.webp',
+     imageUrl: '/assets/images/about-us/about-1.webp',
   },
   {
     shortHeading: 'Dubai Beginnings',
@@ -405,7 +405,8 @@ export const aboutUsData: AboutUsBlock[] = [
 By 2017, this dedication blossomed into our first showroom in Oud Mehta, where 'Blindsandcurtains.ae
 quickly became a trusted name, fueled by word-of-mouth and returning customers.`,
     contentSize: 'text-base text-start',
-    imageUrl: '/assets/images/about-us/about-3.webp',
+   
+     imageUrl: '/assets/images/about-us/about-2.webp',
   },
 ];
 
