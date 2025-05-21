@@ -10,18 +10,17 @@ export default function ComparisonTable() {
   return (
     <Container>
       <section className="py-2 text-center">
-        <h2 className="font-robotoSerif font-semibold text-24 lg:font-bold text-primary xl:text-[48px] mt-3 lg:text-[40px]">
+        <h2 className="font-robotoSerif font-semibold text-24 lg:font-bold text-primary xl:text-[48px] mt-3 xl:mt-7 lg:text-[40px]">
           We Don’t Just Compete – We Lead
         </h2>
-        <p className="font-roboto lg:font-semibold text-18 font-bold lg:text-32 text-primary my-3 lg:mb-7">Top Picks for Your Home</p>
-
+             <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] my-3 lg:mb-7">Top Picks for Your Home</p>
        <div className="grid grid-cols-3">
        {/* Header Row */}
-       <div className="bg-white h-[60px] lg:h-[70px] border-b"></div>
-       <div className="bg-[#F1B42F42] h-[60px] lg:h-[70px] flex justify-center items-center font-bold font-roboto text-16 xl:text-[29px] text-primary border-b">
+       <div className="h-[60px] lg:h-[70px]"></div>
+       <div className="bg-[#3E3F421A] h-[60px] lg:h-[70px] flex justify-center items-center font-bold font-roboto text-16 xl:text-24 text-primary rounded-t-md md:rounded-t-2xl">
        Blinds and Curtains
       </div>
-      <div className="bg-white h-[60px] lg:h-[70px] flex justify-center items-center font-bold font-roboto text-16 xl:text-[29px] text-primary border-b">
+      <div className="bg-white h-[60px] lg:h-[70px] flex justify-center items-center font-bold font-roboto text-16 xl:text-24 text-primary">
       Others
       </div>
 
@@ -29,14 +28,14 @@ export default function ComparisonTable() {
       <FeaturesColumn features={features} featureMobile={mobilefeatures} popupData={popupData} />
 
        {/* Middle Column - Blinds */}
-        <div className="bg-[#F1B42F42] divide-y divide-gray-200 text-primary">
+        <div className="bg-[#3E3F421A] divide-y divide-gray-200 text-primary rounded-b-md md:rounded-b-2xl">
         {blindsData.map((item, index) => (
         <div
       key={index}
-      className="h-[60px] lg:h-[70px] w-full p-2 flex justify-center items-center font-roboto font-normal text-12 sm:text-18 xl:text-[29px]"
+      className="h-[60px] lg:h-[70px] w-full p-2 flex justify-center items-center font-roboto font-normal text-12 sm:text-16 xl:text-20"
     >
       {item === "BiSolidCheckCircle" ? (
-        <BiSolidCheckCircle className="text-green-600 w-6 h-6 lg:w-9 lg:h-9 mx-auto" />
+        <BiSolidCheckCircle className="text-green-600 w-5 h-5 lg:w-7 lg:h-7 mx-auto" />
       ) : (
         item
       )}
@@ -49,10 +48,10 @@ export default function ComparisonTable() {
       {othersData.map((item, index) => (
       <div
         key={index}
-        className="h-[60px] lg:h-[70px] w-full font-roboto flex justify-center items-center font-normal text-12 sm:text-18 xl:text-[29px] p-2"
+        className="h-[60px] lg:h-[70px] w-full font-roboto flex justify-center items-center font-normal text-12 sm:text-16 xl:text-20 p-2"
       >
         {item === "IoIosCloseCircle" ? (
-            <IoIosCloseCircle className="text-red-600 w-6 h-6 lg:w-9 lg:h-9 mx-auto" />
+            <IoIosCloseCircle className="text-red-600 w-5 h-5 lg:w-7 lg:h-7 mx-auto" />
           ) : (
             item
           )
@@ -60,17 +59,17 @@ export default function ComparisonTable() {
       </div>
     ))}
       </div>
-      </div>
+      </div>     
 
      {/* button */}
-
-        <Link href="/request-appointment" className="bg-secondary text-black font-semibold py-2 px-4 lg:px-6 rounded-xl text-primary font-roboto text-20 xl:text-24 block mx-auto w-fit relative bottom-7 lg:bottom-7">
-          Book A Free Visit
+        <Link href="/request-appointment" className="bg-secondary font-semibold py-3 px-4 md:px-12 lg:px-16 xl:px-[116px] rounded-md text-primary font-roboto text-16 mx-auto w-fit relative hidden md:block md:bottom-16 ">
+          Book A Free Visit                        
         </Link>
-    
-
-      </section>
+      </section> 
+      <Link href="/request-appointment" className="bg-secondary text-center font-semibold md: py-2 md:py-3  w-full rounded-md text-primary font-roboto text-14 mx-auto relative block md:hidden my-4 ">
+          Book A Free Visit                        
+        </Link>
       </Container>
-    );
+    ); 
   }
 

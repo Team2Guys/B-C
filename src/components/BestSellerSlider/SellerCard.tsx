@@ -8,8 +8,26 @@ import "slick-carousel/slick/slick-theme.css";
 import Container from "components/Res-usable/Container/Container";
 import Link from "next/link";
 import { getPath } from "utils/helperFunctions";
+import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
 const SellerSlider = ({products}: {products: IProduct[]}) => {
+    const NextArrow = ({ onClick }: { onClick?: () => void }) => (
+  <div
+    className="absolute top-1/2 right-2 transform -translate-y-1/2 z-10 cursor-pointer"
+    onClick={onClick}
+  >
+    <GrFormNext className="text-3xl xl:text-4xl text-primary transition border-2 border-white rounded-full bg-white opacity-50 hover:border-primary" />
+  </div>
+);
+
+const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
+  <div
+    className="absolute top-1/2 left-2 transform -translate-y-1/2 z-10 cursor-pointer"
+    onClick={onClick}
+  >
+    <GrFormPrevious className="text-3xl xl:text-4xl text-primary transition border-2 border-white rounded-full bg-white opacity-50 hover:border-primary" />
+  </div>
+);
   const settings = {
     dots: false,
     infinite: true,
@@ -17,6 +35,8 @@ const SellerSlider = ({products}: {products: IProduct[]}) => {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,  
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -34,31 +54,37 @@ const SellerSlider = ({products}: {products: IProduct[]}) => {
     ],
   };
 
+
+
+
   return (
-    <Container className="overflow-hidden best_seller_slider">
+    <div className="bg-[#F5F5F5] py-5">
+    <Container className="overflow-hidden best_seller_slider bg-[#F5F5F5]">
+      
       <div className="text-center sm:pb-5 lg:pt-8">
-        <h3 className="sm:text-5xl text-2xl font-robotoSerif font-bold text-primary">See Our Bestseller</h3>
-       <p className="font-roboto lg:font-semibold text-18 font-bold lg:text-32 text-primary my-3 lg:mb-7">Top Picks for Your Home</p>
+        <h3 className="sm:text-[40px] text-2xl font-robotoSerif font-bold text-primary">See Our Bestseller</h3>
+       <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] mb-3 lg:my-7">Top Picks for Your Home</p>
       </div>
+        
       <Slider {...settings}>
         {products.map((item: IProduct, index) => (
 
-          <div key={index} className="px-2">
+          <div key={index} className="px-2 xl:px-4">
             <Link href={getPath(item)}>
-              <div className="bg-white rounded-xl overflow-hidden">
-                <div className="relative w-full h-[280px] md:h-[365px]">
+              <div className="bg-white overflow-hidden rounded-xl md:p-3">
+                <div className="relative w-full h-[280px] md:h-[365px] rounded-xl">
                   <Image
                     src={item.posterImage.imageUrl}
                     alt={item.title}
                     fill
-                    className="object-cover"
+                    className="object-cover rounded-xl"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                 </div>
-                <div className="p-4 text-center bg-[#FFFFF0]">
-                  <h3 className="text-lg font-semibold mb-1 text-primary">{item.title}</h3>
-                  <p className="text-secondary font-bold text-md">
-                    <span className="text-primary">Starting from</span> {item.price}
+                <div className="pt-4 text-center md:text-start ">
+                  <h3 className="text-lg font-semibold mb-1 text-primary text-24 md:text-20 font-robotoSerif">{item.title}</h3>
+                  <p className="text-secondary font-normal md:text-16 text-20 font-roboto">
+                    <span className="text-primary">Starting from</span> {item.price}AED
                   </p>
                 </div>
               </div>
@@ -67,13 +93,14 @@ const SellerSlider = ({products}: {products: IProduct[]}) => {
 
         ))}
       </Slider>
-        <Link
+      <Link
           href="/book-free-visit" 
-          className="bg-secondary text-white font-semibold py-3 px-6 rounded-lg block w-fit mx-auto mt-5"
+          className="border bg-secondary md:bg-white md:border-2 md:border-secondary md:text-secondary font-roboto text-14 md:text-16 text-primary font-semibold py-2 md:py-4 px-5 rounded-lg block w-fit text-center mx-auto sm:mt-5"
         >
           Book a Free Visit
         </Link>
     </Container>
+    </div>
   );
 };
 
