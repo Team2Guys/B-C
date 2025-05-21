@@ -1,5 +1,4 @@
 'use client'
-
 import Container from 'components/Res-usable/Container/Container'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'

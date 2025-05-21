@@ -2802,3 +2802,34 @@ export const whyChooseData: WhyChooseItem[] = [
     description: 'The dedication of "Two Guys" backed by a skilled team of 60+.',
   },
 ];
+
+export const blindsSubcategories = [
+  "Blackout Roller Blinds",
+  "Sunscreen Roller Blinds",
+  "Day/night Blinds",
+  "Wooden Venetian Blinds",
+  "Blackout Roman Blinds",
+  "Vertical Blinds",
+  "Sheer Roman Blinds",
+  "Motorised Blinds",
+];
+
+export const shuttersSubcategories = [
+  "Regular Height Shutters",
+  "Bi-fold Shutters",
+  "Special Shape Shutters",
+  "Bi-pass Shutters",
+  "Solid Panel Shutters",
+  "Tier On Tier Shutters",
+];
+
+export const curtainsSubcategories = [
+  "Blackout Triple Pinch Pleat Curtains",
+  "Sheer Triple Pinch Pleat Curtains",
+  "Sheer Ripple Fold Curtains",
+  "Eyelet Curtains",
+  "Double Pinch Pleat Curtains",
+  "Blackout Curtains",
+  "Motorised Curtains",
+  "Wave Sheer & Blackout Curtains",
+];

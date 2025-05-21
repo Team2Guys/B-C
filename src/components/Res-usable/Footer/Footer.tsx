@@ -31,6 +31,7 @@ import { TfiEmail } from 'react-icons/tfi';
 import { LuPhone } from 'react-icons/lu';
 import { FaWhatsapp } from 'react-icons/fa';
 import { SlCalender } from 'react-icons/sl';
+import { usePathname } from 'next/navigation';
 
 const Footer: React.FC = () => {
   const fetchAllData = async () => {
@@ -47,7 +48,7 @@ const Footer: React.FC = () => {
     queryFn: fetchAllData,
   });
   const [isOpen, setIsOpen] = useState(false);
-
+  const pathname = usePathname()
   const products: IProduct[] = data?.products || [];
   const categories: ICategory[] = data?.categories || [];
   const subcategories = data?.subcategories || [];
@@ -92,7 +93,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer>
-      <div className="bg-white xs:bg-primary-foreground sm:pt-10 sm:pb-5 py-7 mt-10"> 
+      <div className={`bg-white xs:bg-primary-foreground sm:pt-10 sm:pb-5 py-7 ${pathname.replaceAll('/','') !== 'request-appointment' && 'mt-10'}`}>
         <Container>
           <div className="grid grid-cols-1 xs:grid-cols-2  md:grid-cols-4 lg:grid-cols-5 gap-2">
             <div className="mb-4 flex flex-col items-start">

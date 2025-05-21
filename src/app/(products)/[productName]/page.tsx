@@ -1,12 +1,13 @@
 import { fetchSingleCategory, fetchSingleCategorymain, } from "config/fetch";
 import Product from "../../../components/Product";
-import { ICategory } from "types/types";
+import { ICategory, IProduct } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { links } from "data/header_links";
 import NotFound from "app/not-found";
 import Script from "next/script";
 import { notFound } from "next/navigation";
+import { getSubcategoriesByCategory } from "utils/helperFunctions";
 type Props = {
   params: Promise<{ productName: string }>
 }
@@ -53,7 +54,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: description,
       url: url,
       images: NewImage,
+      type:"website",
       
+
     },
     alternates: {
       canonical:
@@ -73,6 +76,16 @@ const Products = async ({ params }: Props) => {
     return <NotFound />;
   }
 
+  const subcategoryList = getSubcategoriesByCategory(category.title);
+  const lowerSubcategorySet = new Set(subcategoryList.map((sub) => sub.toLowerCase()));
+
+  const filteredProducts = category.products?.filter((product: IProduct) =>
+    lowerSubcategorySet.has(product.title.toLowerCase())
+  );
+
+
+  console.log(category.products, 'products')
+
   return (
     <>
       <Script type="application/ld+json" id="categories-json-ld">
@@ -80,8 +93,8 @@ const Products = async ({ params }: Props) => {
       </Script>
       <Product
         categories={category}
-        filteredItems={category.products}
-        />
+        filteredItems={filteredProducts}
+      />
     </>
   );
 };
