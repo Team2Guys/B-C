@@ -41,7 +41,7 @@ const FaqTabs = () => {
       <div className="flex justify-center text-center sm:hidden">
       <Image height={1000} width={1000} src="/assets/Homenew/dots.webp" alt="" className="h-2 w-7 "/></div>
       <h2
-        className="text-2xl font-bold lg:text-[38px] text-center my-5 sm:my-10 text-primary lg:leading-10 font-robotoSerif"
+        className="text-2xl font-bold lg:text-[38px] text-center my-5 sm:my-10 text-primary lg:leading-10 2xl:leading-normal font-robotoSerif"
         dangerouslySetInnerHTML={{ __html: activeTab }}
       />
       <div className="space-y-4">
