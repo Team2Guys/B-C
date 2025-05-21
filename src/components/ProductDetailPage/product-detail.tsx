@@ -15,7 +15,6 @@ interface IProductDetail {
   filterProduct: IProduct | any;
 }
 const ProductDetail = ({ title, filterProduct  }: IProductDetail) => {
- console.log(filterProduct,"filterProduct")
   return (
     <div>
     <Breadcrumb slug={filterProduct.category.breakcrum} title={title}/>

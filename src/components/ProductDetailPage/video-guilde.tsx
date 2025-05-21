@@ -1,6 +1,6 @@
 import Container from 'components/Res-usable/Container/Container'
 import React, { useRef, useState } from 'react'
-import { FaPlay } from 'react-icons/fa'
+import { BsPlayFill } from 'react-icons/bs'
 
 const videos = [
   {
@@ -19,13 +19,19 @@ const videos = [
 
 const VideoGuide = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
-  const [playedIndexes, setPlayedIndexes] = useState<number[]>([])
+  const [startedIndexes, setStartedIndexes] = useState<number[]>([])
 
-  const handlePlay = (index: number) => {
+ const handlePlayPause = (index: number) => {
     const video = videoRefs.current[index]
     if (video) {
-      video.play()
-      setPlayedIndexes((prev) => [...prev, index])
+      if (video.paused) {
+        video.play()
+        if (!startedIndexes.includes(index)) {
+          setStartedIndexes((prev) => [...prev, index])
+        }
+      } else {
+        video.pause()
+      }
     }
   }
 
@@ -50,12 +56,12 @@ const VideoGuide = () => {
                   <source src={video.src} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                {!playedIndexes.includes(idx) && (
+                {!startedIndexes.includes(idx) && (
                   <button
-                    onClick={() => handlePlay(idx)}
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full"
+                    onClick={() => handlePlayPause(idx)}
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 backdrop-blur text-white p-3 rounded-full"
                   >
-                    <FaPlay size={24} />
+                    <BsPlayFill size={25} />
                   </button>
                 )}
               </div>

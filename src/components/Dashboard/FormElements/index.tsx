@@ -36,13 +36,14 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   setEditProduct,
 }) => {
   const [imagesUrl, setImagesUrl] = useState<any[]>([]);
-  const [posterimageUrl, setposterimageUrl] = useState<any[] | null>(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage],);
-  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
-  const [privarcyImagemageUrl, setprivarcyImage] = useState<any[] | null>(EditInitialValues && EditInitialValues.privarcyImage && [EditInitialValues.privarcyImage]);
+  const [videos, setvideos] = useState<any[]>(EditInitialValues && EditInitialValues.videos && EditInitialValues.videos || []);
+  const [posterimageUrl, setposterimageUrl] = useState<any[] | undefined>(EditInitialValues && EditInitialValues.posterImage && [EditInitialValues.posterImage],);
+  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | undefined>(EditInitialValues && EditInitialValues.bannerImage && [EditInitialValues.bannerImage]);
+  const [privarcyImagemageUrl, setprivarcyImage] = useState<any[] | undefined>(EditInitialValues && EditInitialValues.privarcyImage && [EditInitialValues.privarcyImage]);
 
 
-  const [subCategoryImage, setsubCategoryImage] = useState<any[] | null>(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
-  const [topImages, settopImages] = useState<any[] | null>(EditInitialValues && EditInitialValues.topImages && EditInitialValues.topImages);
+  const [subCategoryImage, setsubCategoryImage] = useState<any[] | undefined>(EditInitialValues && EditInitialValues.subCategoryImage && [EditInitialValues.subCategoryImage]);
+  const [topImages, settopImages] = useState<any[]>(EditInitialValues && EditInitialValues.topImages && EditInitialValues.topImages);
   const [productUpdateFlat, setProductUpdateFlat] = useState(false);
   const [loading, setloading] = useState<boolean>(false);
   const [productInitialValue, setProductInitialValue] = useState<any | null | undefined>(EditInitialValues);
@@ -129,7 +130,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       let bannerImage = bannerImageUrl && bannerImageUrl[0];
       let newsubCategoryImage = subCategoryImage && subCategoryImage[0];
       let privarcyImage = privarcyImagemageUrl && privarcyImagemageUrl[0];
-      if (!posterImageUrl || !(imagesUrl.length > 0)) {
+      if (!posterImageUrl || !(imagesUrl?.length > 0)) {
         return showToast('warn', 'Please select relevant Images');
       }
 
@@ -142,6 +143,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         bannerImage: bannerImage !== undefined ? bannerImage : null,
         privarcyImage: privarcyImage !== undefined ? privarcyImage : null,
         subCategoryImage: newsubCategoryImage !== undefined ? newsubCategoryImage : null,
+        videos:videos,
         topImages: topImages,
         imageUrls: imagesUrl,
         price: values.salePrice,
@@ -244,11 +246,12 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setProductInitialValue(AddproductsinitialValues);
       resetForm();
       setloading(false);
-      setposterimageUrl(null);
-      setBannerImageUrl(null);
-      setprivarcyImage(null);
-      setposterimageUrl(null);
+      setposterimageUrl(undefined);
+      setBannerImageUrl(undefined);
+      setprivarcyImage(undefined);
+      setposterimageUrl(undefined);
       setImagesUrl([]);
+      setvideos([])
       setSelectedCategoryIds([]);
       setSelectedSubcategoryIds([]);
 
@@ -268,7 +271,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
       setloading(false);
     }
   }
-  
+
   console.log(EditInitialValues.privarcyImage, "privarcyImagemageUrl")
 
   const handleImageIndex = (index: number, newImageIndex: number) => {
@@ -301,7 +304,6 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   };
 
   const handleNameImageUrl = (index: number, name: string, setImageUrl: React.Dispatch<SetStateAction<any>>, variable: string) => {
-    //@ts-expect-error
     const updatedImagesUrl = topImages.map((item, i) =>
       i === index ? { ...item, [variable]: name } : item,
     );
@@ -1222,14 +1224,69 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                     </div>
                   </div>
 
+
+                  <div className="rounded-sm border border-stroke dark:border-strokedark ">
+                    <div className="border-b bg-primary border-stroke py-4 px-2  ">
+                      <h3 className="font-medium text-white">
+                        Add Vidoes
+                      </h3>
+                    </div>
+                    {videos?.[0] && videos?.length > 0 ? (
+                      <div className=" p-4 bg-primary">
+                        {videos.map((item: any, index: number) => {
+                          return (
+                            <div
+                              className="relative border group bg-primary rounded-lg w-fit  overflow-hidden shadow-md transform transition-transform duration-300 hover:scale-105"
+                              key={index}
+                            >
+                              <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full cursor-pointer z-20">
+                                <RxCross2
+                                  className="cursor-pointer borde text-red-500"
+                                  size={25}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    ImageRemoveHandler(
+                                      item.public_id,
+                                      setvideos,
+
+                                    );
+                                  }}
+                                />
+                              </div>
+
+                              <video
+                                key={index}
+                                src={item?.imageUrl || ""}
+                                height={200} width={200}
+                                className="w-full h-full max-h-[300] max-w-full dark:bg-black dark:shadow-lg"
+                                autoPlay
+                                muted
+                                controls
+
+                              >
+
+
+                              </video>
+
+
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <Imageupload setImagesUrl={setvideos} video s3Flag />
+                    )}
+                  </div>
+
                   <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
                     <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
                       <h3 className="font-medium text-black dark:text-white">
                         Top Images
                       </h3>
                     </div>
-                        <Imageupload setImagesUrl={setImagesUrl} />
-                    {topImages && topImages?.length > 0 ? (
+                    <Imageupload setImagesUrl={settopImages} />
+                    {topImages && topImages?.length > 0 && (
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
                         <div>
                           {topImages.map((item: any, index) => {
@@ -1296,9 +1353,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           })}
                         </div>
                       </div>
-                    ) : (
-                      <Imageupload setposterimageUrl={settopImages} />
-                    )}
+                    )
+                    }
                   </div>
 
 
@@ -1428,7 +1484,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                     )}
                   </div>
 
-                            <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
+                  <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark">
                     <div className="border-b border-stroke py-4 px-4 dark:border-strokedark">
                       <h3 className="font-medium text-black dark:text-white">
                         privarcy Image

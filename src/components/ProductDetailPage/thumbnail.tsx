@@ -44,7 +44,7 @@ const Thumbnail = ({ images }: ThumbnailProps) => {
                 alt={`Main ${index}`}
                 width={800}
                 height={600}
-                className="w-full h-[450px] xl:h-[563px] object-cover"
+                className="w-full h-[340px] md:h-[450px] xl:h-[563px] object-cover"
               />
             </div>
         ))}

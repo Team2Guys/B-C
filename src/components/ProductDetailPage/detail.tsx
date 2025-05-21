@@ -46,11 +46,20 @@ const Detail = ({data}:{data:IProduct | any}) => {
       </p>
       <p className='font-roboto px-2'>Most Demanded Color</p>
       <div className=' flex items-center gap-2 md:pb-10 px-2'>
-        <div className='flex items-center gap-2'>
-          {data.colors && data.colors.map((item:{detail:string} , index:number)=>(
-            <div key={index} className={`h-9 md:w-12 w-9 md:h-12 rounded-sm bg-[${item?.detail}] cursor-pointer shadow`} />
-          ))}
-        </div>
+       <div className='flex items-center gap-2'>
+        {data.colors?.map((item: { detail: string }, index: number) =>{
+          console.log(item, "item")
+         return  (
+            <div
+              key={index}
+              style={{ backgroundColor: "#"+item.detail }}
+              className='h-9 md:w-12 w-9 md:h-12 rounded-sm cursor-pointer shadow border'
+            />
+          )
+          
+        } 
+        )}
+      </div>
         <p className='border rounded-lg font-roboto h-12 flex items-center px-2 text-xs md:text-base max-sm:max-w-32'>We still 3000 plus color availble </p>
       </div>
         <Link href="/" className='bg-secondary text-primary py-3 px-6 font-semibold hidden md:block rounded-md w-full sm:w-fit font-roboto text-center '>Book A Free Visit</Link>

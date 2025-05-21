@@ -37,10 +37,6 @@ export async function fetchSingleCategory(customUrl: string) {
       next: { tags: ['categories'] },
     });
 
-    if (!res.ok) {
-      const errorData = await res.json();
-      throw new Error(errorData.message || 'Failed to fetch category');
-    }
 
     const data = await res.json();
     return data;
