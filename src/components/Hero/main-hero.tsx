@@ -6,7 +6,7 @@ import Link from "next/link";
 const MainHero = () => {
  
   return (
-    <div className="relative w-full h-[300px] md:h-[70vh] overflow-hidden">
+    <div className="relative w-full h-[280px] md:h-[70vh] overflow-hidden">
       {/* Video Background */}
       <video
         autoPlay
@@ -19,14 +19,14 @@ const MainHero = () => {
         Your browser does not support the video tag.
       </video>
       <Container className="relative h-full flex flex-col justify-between text-primary-foreground">
-        <div className="flex flex-col justify-center h-full max-w-72 md:max-w-2xl space-y-2 md:space-y-5">
-          <h1 className="text-2xl md:text-5xl font-bold font-robotoSerif">
+        <div className="flex flex-col items-start h-full max-w-72 md:max-w-2xl space-y-2 md:space-y-5 justify-center">
+          <h1 className="text-2xl md:text-5xl font-extrabold font-robotoSerif">
             Blinds and Curtains
           </h1>
-          <p className="text-19 md:text-2xl  font-roboto text-primary-foreground">
-            Fully Guaranteed For Your Peace Of Mind
+          <p className="text-19 md:text-2xl  font-roboto md:font-medium text-primary-foreground text-start">
+            Your Space, Our Modern Window Solution.
           </p>
-          <Link href="/request-appointment" className="bg-secondary text-primary font-semibold text-xl py-2 md:py-3 px-2 sm:px-6 rounded-md w-fit">
+          <Link href="/request-appointment" className="bg-secondary text-primary font-semibold text-14 md:text-xl py-2 md:py-4 px-4 sm:px-6 rounded-md w-fit">
             Book A Free Visit
           </Link>
         </div>

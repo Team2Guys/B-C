@@ -39,7 +39,7 @@ const SocialLink: React.FC = () => {
       {SocialData.map((social, index) => (
         <Link key={index} href={social.href} target="_blank" aria-label={`Visit our ${social.plateform} page`}>
 
-          <div className="flex justify-center items-center rounded-full h-[28px] w-[28px] text-secondary  border border-secondary">{social.icon}</div>
+          <div className="flex justify-center items-center rounded-full h-[16px] w-[16px] md:h-[28px] md:w-[28px] text-secondary  border border-secondary">{social.icon}</div>
 
         </Link>
       ))}
