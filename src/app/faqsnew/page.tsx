@@ -1,7 +1,7 @@
 import SectionHeader from "components/NewHomecomponents/faqsbanner";
 import FaqTabs from "components/NewHomecomponents/faqstabs";
 import Container from "components/Res-usable/Container/Container";
-import { Faqspara } from "data/Homenewdata/tabdata";
+import { Faqspara } from "data/Homedata/tabdata";
 
 const FAQPage = () => {
   return (

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { HiMinusSmall } from "react-icons/hi2";
 import { FiPlus } from "react-icons/fi";
-import { FAQ_DATA, TABS } from "data/Homenewdata/tabdata";
+import { FAQ_DATA, TABS } from "data/Homedata/tabdata";
 import Image from "next/image";
 
 const FaqTabs = () => {

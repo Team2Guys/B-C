@@ -2,7 +2,7 @@
 import Container from "components/Res-usable/Container/Container";
 import { useState } from "react";
 import Image from "next/image";
-import { tabData } from "data/Homenewdata/tabdata";
+import { tabData } from "data/Homedata/tabdata";
 import Link from "next/link";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 

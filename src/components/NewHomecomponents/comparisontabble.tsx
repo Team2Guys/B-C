@@ -3,7 +3,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { BiSolidCheckCircle } from "react-icons/bi";
 import Container from "components/Res-usable/Container/Container";
 import Link from "next/link";
-import { blindsData, features, mobilefeatures, othersData, popupData } from "data/Homenewdata/tabdata";
+import { blindsData, features, mobilefeatures, othersData, popupData } from "data/Homedata/tabdata";
 import FeaturesColumn from "./featurecolumn";
 
 export default function ComparisonTable() {
