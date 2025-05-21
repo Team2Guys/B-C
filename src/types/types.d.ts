@@ -365,3 +365,30 @@ export interface MotorizeBlindData {
   buttons: { label: string; link: string }[];
   features: MBCFeature[];
 }
+
+export interface AboutUsBlock {
+  shortHeading: string;
+  shortHeadingSize?: string; 
+  mainHeading: string;
+  mainHeadingSize?: string;
+  content: string;
+  contentSize?: string;
+  imageUrl: string;
+}
+export interface MilestoneStepItem {
+  step: string;          
+  description: string;    
+  iconimage?: string;     
+}
+
+export interface MilestoneStepsData {
+  heading: string;         
+  subheading: string;       
+  image: string;            
+  steps: MilestoneStepItem[];  
+}
+export interface WhyChooseItem {
+  icon: string;
+  title: string;
+  description: string;
+}
