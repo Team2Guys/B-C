@@ -61,7 +61,7 @@ const FormLayout = ({
     any[] | null | undefined
   >(CategorImageUrl ? [CategorImageUrl] : null);
 
-  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null>(
+  const [bannerImageUrl, setBannerImageUrl] = useState<any[] | null | undefined>(
     editCategory && editCategory.bannerImage && [editCategory.bannerImage],
   );
 
