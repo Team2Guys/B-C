@@ -18,3 +18,15 @@ export class CreateReviewDto {
 
 
 }
+
+
+
+export class CreateRirectUrls {
+    @IsString()
+    url: string
+    @IsString()
+    redirectedUrl: string
+
+
+
+}

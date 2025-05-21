@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateReviewDto } from './dto/create-review.dto';
-import { UpdateReviewDto } from './dto/update-review.dto';
+import { CreateReviewDto, CreateRirectUrls } from './dto/create-review.dto';
+import { UpdateReviewDto, UpdateRirectUrls } from './dto/update-review.dto';
 import { CustomErrorHandler } from 'src/utils/helperFunctions';
 import { PrismaService } from 'prisma/prisma.service';
 
@@ -28,7 +28,8 @@ export class ReviewsService {
 
   async findOne(id: number) {
     try {
-      await this.prisma.reviews.findUnique({ where: { id } })
+
+      return await this.prisma.reviews.findUnique({ where: { id } })
 
     } catch (error: any) {
       console.log(error, "err")
@@ -38,10 +39,10 @@ export class ReviewsService {
 
   async update(updateReviewDto: UpdateReviewDto) {
     try {
-      const {id, ...withoutid} = updateReviewDto
+      const { id, ...withoutid } = updateReviewDto
       let updatedAt = new Date()
-       await this.prisma.reviews.update({ where: { id }, data: {...withoutid, updatedAt:updatedAt} })
-       return {message:"Reviews has been updated"}
+      await this.prisma.reviews.update({ where: { id }, data: { ...withoutid, updatedAt: updatedAt } })
+      return { message: "Reviews has been updated" }
     } catch (error: any) {
       console.log(error, "err")
       return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
@@ -56,4 +57,63 @@ export class ReviewsService {
       return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
     }
   }
+
+  // Redirect urls 
+
+  async createRedirectUrl(CreateRirectUrls: CreateRirectUrls) {
+    try {
+      return await this.prisma.redirecturls.create({ data: CreateRirectUrls })
+    } catch (error: any) {
+      console.log(error, "err")
+      return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
+    }
+  }
+
+  async findAllRedirectUrl() {
+    try {
+      let category = await this.prisma.redirecturls.findMany()
+      if (!category) return CustomErrorHandler("redirect urls not not found", 'GATEWAY_TIMEOUT')
+      return category;
+    } catch (error: any) {
+      console.log(error, "err")
+      return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
+    }
+  }
+
+  async findOneRedirectUrls(url: string) {
+    try {
+      let category = await this.prisma.redirecturls.findUnique({ where: { url }, select: { redirectedUrl: true, url: true } })
+      if (!category) return CustomErrorHandler("redirect urls not not found", 'GATEWAY_TIMEOUT')
+      return category;
+    } catch (error: any) {
+      console.log(error, "err")
+      return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
+    }
+  }
+
+
+  async updateOneRedirectUrls(UpdateRirectUrls: UpdateRirectUrls) {
+    try {
+      let updatedAt = new Date()
+      const { id, ...withoutid } = UpdateRirectUrls
+      return await this.prisma.redirecturls.update({ where: { id }, data: { ...withoutid, updatedAt } })
+    } catch (error: any) {
+      console.log(error, "err")
+      return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
+    }
+  }
+
+  async removeRedirectUrls(id: number) {
+    try {
+      await this.prisma.redirecturls.delete({ where: { id } })
+    } catch (error: any) {
+      console.log(error, "err")
+      return CustomErrorHandler(`${error.message || JSON.stringify(error)}`, 'GATEWAY_TIMEOUT')
+    }
+  }
+
+
+
+
+
 }
