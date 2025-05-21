@@ -24,6 +24,7 @@ export const metadata: Metadata = {
         alt: 'blindsandcurtains',
       },
     ],
+    type:"article"
   },
   alternates: {
     canonical: 'https://blindsandcurtains.ae/blog/',

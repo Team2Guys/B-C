@@ -8,8 +8,8 @@ type HorizontalDatePickerProps = {
 const HorizontalDatePicker: React.FC<HorizontalDatePickerProps> = ({ onChange }) => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
-  const days: Date[] = Array.from({ length: 16 }, (_, i) => addDays(new Date(), i));
-
+  const days: Date[] = Array.from({ length: 45 }, (_, i) => addDays(new Date(), i));
+console.log(days,'days')
   const handleDateClick = (date: Date) => {
     setSelectedDate(date);
     onChange(date);
@@ -17,7 +17,7 @@ const HorizontalDatePicker: React.FC<HorizontalDatePickerProps> = ({ onChange })
 
   return (
     <div className="w-full">
-      <div className="flex overflow-x-auto space-x-3 justify-between pb-2">
+      <div className="flex overflow-x-auto space-x-3 sm:space-x-4 justify-between pb-2">
         {days.map((date, index) => {
           const isSelected = isSameDay(date, selectedDate);
 
@@ -36,6 +36,9 @@ const HorizontalDatePicker: React.FC<HorizontalDatePickerProps> = ({ onChange })
               >
                 {format(date, 'dd')}
               </button>
+              <span className="text-base sm:text-xl font-semibold">
+                {format(date, 'MMM')}
+              </span>
             </div>
           );
         })}

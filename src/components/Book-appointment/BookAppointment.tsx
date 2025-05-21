@@ -266,8 +266,8 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               </Radio>
             ))}
           </Radio.Group>
-       {  selectedCity !== "Dubai" &&  <p className='t
-          ext-[#FF0000] font-roboto text-xs xsm:text-sm sm:text-xl py-4 sm:px-8'>Services available with a minimum order of 8 windows.</p>}
+       {  selectedCity !== "Dubai" &&  
+       <p className='text-red-500 font-roboto text-xs xsm:text-sm sm:text-xl py-4 sm:px-8'>Services available with a minimum order of 8 windows.</p>}
         </div>
         <div className='pt-4 sm:pt-8'>
           <HorizontalDatePicker

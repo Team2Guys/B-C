@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       'Explore our gallery section, which includes all the products and different designs for you to select easily. Available in a variety of designs to suit your space.',
 
     url: 'https://blindsandcurtains.ae/gallery/',
+         type:"website",
     images: [
       {
         url: og.src,

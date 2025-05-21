@@ -39,8 +39,8 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({
 
       <Swiper
         modules={[Navigation]}
-        // spaceBetween={10}
-        slidesPerView={5}
+        // spaceBetween={15}
+        slidesPerView={6}
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
@@ -52,22 +52,24 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({
           swiper.params.navigation.nextEl = nextRef.current;
         }}
         breakpoints={{
-          480: { slidesPerView: 4 },
-          640: { slidesPerView: 5 },
+          280: { slidesPerView: 3 },
+          350: { slidesPerView: 4 },
+          1280: { slidesPerView: 5 },
+          1535: { slidesPerView: 6 },
         }}
       >
         {selectProduct?.map((product, index) => (
-          <SwiperSlide key={index} className="!w-auto">
+          <SwiperSlide key={index}>
             <div
               onClick={() => handleProductSelect(product)}
-              className={`cursor-pointer mt-2 sm:mt-0 ${activeProduct?.id === product.id ? 'font-semibold' : ''
+              className={`cursor-pointer mt-3 ${activeProduct?.id === product.id ? 'font-semibold' : ''
                 }`}
             >
-              <div className='size-28'>
+              <div className='size-20 xsm:size-24 xs:size-28 md:size-20 lg:size-24 xl:size-28 mx-auto'>
                 <Image
-                  className={`w-full h-full !relative border-4 ${activeProduct?.id === product.id
-                      ? 'border-secondary'
-                      : 'border-white'
+                  className={`w-full h-full mx-auto  !relative ${activeProduct?.id === product.id
+                      ? 'border-secondary border-[3px] rounded-none'
+                      : 'border-white rounded-lg'
                     }`}
                     fill
                   loading="eager"
@@ -77,7 +79,7 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({
               </div>
               <div
                 className={`mt-2 text-center text-14 xl:text-16 px-1 ${activeProduct?.id === product.id
-                    ? 'border-b-2 border-secondary w-fit mx-auto'
+                    ? ''
                     : ''
                   }`}
               >

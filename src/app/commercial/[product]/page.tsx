@@ -59,6 +59,7 @@ export async function generateMetadata({ params }:meta_props): Promise<Metadata>
       description: description,
       url: url,
       images: NewImage,
+      type:"website"
     },
     alternates: {
       canonical:

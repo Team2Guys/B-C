@@ -1,9 +1,10 @@
 'use client';
 
 import Breadcrumb from 'components/Dashboard/Breadcrumbs/Breadcrumb';
-import FormElements from 'components/Dashboard/FormElements';
-import ViewProduct from 'components/Dashboard/Tables/ViewProduct';
+const FormElements = dynamic(()=>import("components/Dashboard/FormElements"))
+const ViewProduct = dynamic(()=>import("components/Dashboard/Tables/ViewProduct"))
 import ProtectedRoute from 'hooks/AuthHookAdmin';
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { IProduct } from 'types/types';
 

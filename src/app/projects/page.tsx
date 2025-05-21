@@ -19,6 +19,7 @@ export const metadata: Metadata = {
         alt: 'Blinds And Curtains Dubai | Projects',
       },
     ],
+         type:"website"
   },
   alternates: {
     canonical: 'https://blindsandcurtains.ae/projects/',

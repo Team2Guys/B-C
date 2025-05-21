@@ -344,14 +344,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
   return (
     <>
-      <p
-        className="text-lg font-black mb-4 flex items-center justify-center gap-2 hover:bg-gray-200 w-fit p-2 cursor-pointer text-black dark:text-white"
-        onClick={() => {
-          setselecteMenu('Add All Products');
-        }}
-      >
-        <IoMdArrowRoundBack /> Back
-      </p>
+    
       <Formik
         enableReinitialize
         initialValues={
@@ -363,6 +356,24 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
         {(formik) => {
           return (
             <Form onSubmit={formik.handleSubmit}>
+              <div className='flex border items-center justify-between'>
+                <p
+        className="dashboard_primary_button "
+        onClick={() => {
+          setselecteMenu('Add All Products');
+        }}
+      >
+        <IoMdArrowRoundBack /> Back
+      </p>
+              <button
+                type="submit"
+                className="dashboard_primary_button"
+              >
+                {loading ? <Loader color="#fff" /> : 'Submit'}
+              </button>
+
+              </div>
+
               <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
                 <div className="flex flex-col gap-9 dark:border-strokedark dark:bg-lightdark">
                   <div className="rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-lightdark p-6">
@@ -917,7 +928,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             <button
                               type="button"
                               onClick={() => push({ specsDetails: '' })}
-                              className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                              className="dashboard_primary_button"
                             >
                               Add FAQS
                             </button>
@@ -994,7 +1005,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             <button
                               type="button"
                               onClick={() => push({ specsDetails: '' })}
-                              className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                              className="dashboard_primary_button"
                             >
                               Add privacySectoin
                             </button>
@@ -1160,7 +1171,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             <button
                               type="button"
                               onClick={() => push({ name: '', detail: '' })}
-                              className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                              className="dashboard_primary_button"
                             >
                               Add Model
                             </button>
@@ -1220,7 +1231,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             <button
                               type="button"
                               onClick={() => push({ name: "", detail: "" })}
-                              className="px-4 py-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white w-fit"
+                              className="dashboard_primary_button"
                             >
                               colors
                             </button>
@@ -1639,7 +1650,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
               <button
                 type="submit"
-                className="px-10 py-2 mt-2  bg-[#cdb7aa] text-white rounded-md  hover:text-white"
+                className="dashboard_primary_button"
               >
                 {loading ? <Loader color="#fff" /> : 'Submit'}
               </button>
