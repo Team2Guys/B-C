@@ -65,6 +65,13 @@
   }
 }
 
+
+@layer components {
+.errorColor {
+    @apply text-red-500 ;
+  }
+}
+
 .light {
   --table: white;
   --tabletext: black;

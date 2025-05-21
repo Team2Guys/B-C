@@ -382,9 +382,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                   className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
                                   key={index}
                                 >
-                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible errorColor bg-white rounded-full">
                                     <RxCross2
-                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      className="cursor-pointer errorColor hover:errorColor-700"
                                       size={17}
                                       onClick={() => {
                                         ImageRemoveHandler(
@@ -405,7 +405,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                 </div>
 
                                 <input
-                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark "
+                                  className="primary-input"
                                   placeholder="altText"
                                   type="text"
                                   name="altText"
@@ -429,7 +429,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                     <div className="flex flex-col gap-5 py-4">
                       <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white ">
+                        <label className="primary-label ">
                           Product Name
                         </label>
                         <input
@@ -439,13 +439,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           onBlur={formik.handleBlur}
                           value={formik.values.name}
                           placeholder="Product name"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey  bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                          className={`primary-input ${formik.touched.name && formik.errors.name
                             ? 'border-red-500'
                             : ''
                             }`}
                         />
                         {formik.touched.name && formik.errors.name ? (
-                          <div className="text-red text-sm">
+                          <div className="errorColor text-sm">
                             {formik.errors.name as String}
                           </div>
                         ) : null}
@@ -457,7 +457,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                       <div className='flex  gap-2 flex-nowrap mad:flex-wrap'>
                         <div className='w-1/2'>
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Description{' '}
                           </label>
                           <textarea
@@ -465,7 +465,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onChange={formik.handleChange}
                             value={formik.values.description}
                             placeholder="description"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
+                            className={`primary-input ${formik.touched.description &&
                               formik.errors.description
                               ? 'border-red-500'
                               : ''
@@ -473,7 +473,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           />
                           {formik.touched.description &&
                             formik.errors.description ? (
-                            <div className="text-red text-sm">
+                            <div className="errorColor text-sm">
                               {
                                 formik.errors.description as FormikErrors<
                                   FormValues['description']
@@ -484,7 +484,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </div>
 
                         <div className='w-1/2'>
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Short Description{' '}
                           </label>
                           <textarea
@@ -492,7 +492,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onChange={formik.handleChange}
                             value={formik.values.short_description}
                             placeholder="Short Description"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.short_description &&
+                            className={`primary-input ${formik.touched.short_description &&
                               formik.errors.short_description
                               ? 'border-red-500'
                               : ''
@@ -500,7 +500,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           />
                           {formik.touched.short_description &&
                             formik.errors.short_description ? (
-                            <div className="text-red text-sm">
+                            <div className="errorColor text-sm">
                               {
                                 formik.errors.short_description as FormikErrors<
                                   FormValues['short_description']
@@ -515,7 +515,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
 
                       <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           Heading{' '}
                         </label>
                         <textarea
@@ -523,13 +523,13 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           onChange={formik.handleChange}
                           value={formik.values.heading}
                           placeholder="Heading Text"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.heading && formik.errors.heading
+                          className={`primary-input ${formik.touched.heading && formik.errors.heading
                             ? 'border-red-500'
                             : ''
                             }`}
                         />
                         {formik.touched.heading && formik.errors.heading ? (
-                          <div className="text-red text-sm">
+                          <div className="errorColor text-sm">
                             {
                               formik.errors.heading as FormikErrors<
                                 FormValues['heading']
@@ -542,7 +542,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                       <div className="flex full gap-4">
                         <div className="w-[50%]">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             customUrl
                           </label>
                           <input
@@ -552,7 +552,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.customUrl}
                             placeholder="customUrl"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.customUrl &&
+                            className={`primary-input ${formik.touched.customUrl &&
                               formik.errors.customUrl
                               ? 'border-red-500'
                               : ''
@@ -562,7 +562,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </div>
 
                         <div className="w-[50%]">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             breadcurum
                           </label>
                           <input
@@ -572,7 +572,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.breadcurum}
                             placeholder="Discount Price"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.breadcurum &&
+                            className={`primary-input ${formik.touched.breadcurum &&
                               formik.errors.breadcurum
                               ? 'border-red-500'
                               : ''
@@ -587,7 +587,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                       <div className="flex full gap-4">
                         <div className="w-[50%]">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             topHeading
                           </label>
                           <input
@@ -597,7 +597,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.topHeading}
                             placeholder="topHeading"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.topHeading &&
+                            className={`primary-input ${formik.touched.topHeading &&
                               formik.errors.topHeading
                               ? 'border-red-500'
                               : ''
@@ -607,7 +607,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </div>
 
                         <div className="w-[50%]">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             mainHeading
                           </label>
                           <input
@@ -617,7 +617,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.mainHeading}
                             placeholder="Discount Price"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.mainHeading &&
+                            className={`primary-input ${formik.touched.mainHeading &&
                               formik.errors.mainHeading
                               ? 'border-red-500'
                               : ''
@@ -632,7 +632,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                       <div className="flex full gap-4">
                         <div className="w-[50%]">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Sale Price
                           </label>
                           <input
@@ -642,7 +642,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.salePrice}
                             placeholder="Sale Price"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.salePrice &&
+                            className={`primary-input ${formik.touched.salePrice &&
                               formik.errors.salePrice
                               ? 'border-red-500'
                               : ''
@@ -650,7 +650,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           />
                           {formik.touched.salePrice &&
                             formik.errors.salePrice ? (
-                            <div className="text-red text-sm">
+                            <div className="errorColor text-sm">
                               {
                                 formik.errors.salePrice as FormikErrors<
                                   FormValues['salePrice']
@@ -661,7 +661,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </div>
 
                         <div className="w-[50%]">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Discount Price
                           </label>
                           <input
@@ -671,7 +671,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.discountPrice}
                             placeholder="Discount Price"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.discountPrice &&
+                            className={`primary-input ${formik.touched.discountPrice &&
                               formik.errors.discountPrice
                               ? 'border-red-500'
                               : ''
@@ -679,7 +679,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           />
                           {formik.touched.discountPrice &&
                             formik.errors.discountPrice ? (
-                            <div className="text-red text-sm">
+                            <div className="errorColor text-sm">
                               {formik.errors.discountPrice as String}
                             </div>
                           ) : null}
@@ -774,7 +774,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                       <div className="flex gap-4">
                         <div className="w-2/4">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Meta Title
                           </label>
                           <input
@@ -784,7 +784,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.Meta_Title}
                             placeholder="Meta Title"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                            className={`primary-input ${formik.touched.name && formik.errors.name
                               ? 'border-red-500'
                               : ''
                               }`}
@@ -792,7 +792,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                         </div>
                         <div className="w-2/4">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Canonical Tag
                           </label>
                           <input
@@ -802,7 +802,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onChange={formik.handleChange}
                             value={formik.values.Canonical_Tag}
                             placeholder="Canonical Tag"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                            className={`primary-input ${formik.touched.name && formik.errors.name
                               ? 'border-red-500'
                               : ''
                               }`}
@@ -810,7 +810,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         </div>
                       </div>
                       <div>
-                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        <label className="primary-label">
                           Meta Description
                         </label>
                         <textarea
@@ -818,7 +818,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           onChange={formik.handleChange}
                           value={formik.values.Meta_Description}
                           placeholder="Meta Description"
-                          className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.description &&
+                          className={`primary-input ${formik.touched.description &&
                             formik.errors.description
                             ? 'border-red-500'
                             : ''
@@ -829,7 +829,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                       <div className="flex gap-4">
                         <div className="w-full">
-                          <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                          <label className="primary-label">
                             Images Alt Text
                           </label>
                           <input
@@ -839,7 +839,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                             onBlur={formik.handleBlur}
                             value={formik.values.Images_Alt_Text}
                             placeholder="Images Alt Text"
-                            className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.name && formik.errors.name
+                            className={`primary-input ${formik.touched.name && formik.errors.name
                               ? 'border-red-500'
                               : ''
                               }`}
@@ -881,7 +881,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                           .specsHeading
                                       }
                                       placeholder="FAQS Heading"
-                                      className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+                                      className={`primary-input 
       
                                               
                                             `}
@@ -896,7 +896,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                           .specsDetails
                                       }
                                       placeholder="FAQS Details"
-                                      className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+                                      className={`primary-input 
       
                                               
                                             `}
@@ -904,10 +904,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                     <button
                                       type="button"
                                       onClick={() => remove(index)}
-                                      className="ml-2 text-red"
+                                      className="ml-2 errorColor"
                                     >
                                       <RxCross2
-                                        className="text-red"
+                                        className="errorColor"
                                         size={25}
                                       />
                                     </button>
@@ -958,7 +958,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                           .specsHeading
                                       }
                                       placeholder="privacySectoin Heading"
-                                      className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+                                      className={`primary-input 
       
                                               
                                             `}
@@ -973,7 +973,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                           .specsDetails
                                       }
                                       placeholder="privacySectoin Details"
-                                      className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+                                      className={`primary-input 
       
                                               
                                             `}
@@ -981,10 +981,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                     <button
                                       type="button"
                                       onClick={() => remove(index)}
-                                      className="ml-2 text-red"
+                                      className="ml-2 errorColor"
                                     >
                                       <RxCross2
-                                        className="text-red"
+                                        className="errorColor"
                                         size={25}
                                       />
                                     </button>
@@ -1007,7 +1007,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
                   <div className="flex  gap-4">
                     <div className='w-1/2'>
-                      <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                      <label className="primary-label">
                         Sub Heading
                       </label>
                       <textarea
@@ -1015,7 +1015,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         onChange={formik.handleChange}
                         value={formik.values.Sub_Heading}
                         placeholder="Sub Heading"
-                        className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Sub_Heading &&
+                        className={`primary-input ${formik.touched.Sub_Heading &&
                           formik.errors.Sub_Heading
                           ? 'border-red-500'
                           : ''
@@ -1023,7 +1023,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                       />
                       {formik.touched.Sub_Heading &&
                         formik.errors.Sub_Heading ? (
-                        <div className="text-red text-sm">
+                        <div className="errorColor text-sm">
                           {
                             formik.errors.heading as FormikErrors<
                               FormValues['Sub_Heading']
@@ -1036,7 +1036,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
 
                     <div className='w-1/2'>
-                      <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                      <label className="primary-label">
                         Sub Heading Description
                       </label>
                       <textarea
@@ -1044,7 +1044,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                         onChange={formik.handleChange}
                         value={formik.values.Sub_Heading_description}
                         placeholder="Sub Heading Description"
-                        className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary ${formik.touched.Sub_Heading_description &&
+                        className={`primary-input ${formik.touched.Sub_Heading_description &&
                           formik.errors.Sub_Heading_description
                           ? 'border-red-500'
                           : ''
@@ -1052,7 +1052,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                       />
                       {formik.touched.Sub_Heading_description &&
                         formik.errors.Sub_Heading_description ? (
-                        <div className="text-red text-sm">
+                        <div className="errorColor text-sm">
                           {
                             formik.errors.heading as FormikErrors<
                               FormValues['Sub_Heading_description']
@@ -1090,7 +1090,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                           formik.values.modelDetails[index].name
                                         }
                                         placeholder="Sub Category Name"
-                                        className={`w-full rounded-lg border-[1.5px] border-stroke placeholder:text-lightgrey bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+                                        className={`primary-input 
                                       ${formik.touched.modelDetails &&
                                             (
                                               formik.touched
@@ -1116,7 +1116,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                           formik.values.modelDetails[index].detail
                                         }
                                         placeholder="Description on Sub Category"
-                                        className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary 
+                                        className={`primary-input 
                                         ${formik.touched.modelDetails &&
                                             (
                                               formik.touched.modelDetails as FormikTouched<FormValues['modelDetails']>
@@ -1140,10 +1140,10 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                     <button
                                       type="button"
                                       onClick={() => remove(index)}
-                                      className="ml-2 text-red-500 border-blue-500 px-4 py-2 "
+                                      className="ml-2 errorColor border-blue-500 px-4 py-2 "
                                     >
                                       <RxCross2
-                                        className="text-red"
+                                        className="errorColor"
                                         size={25}
                                       />
                                     </button>
@@ -1193,7 +1193,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                     onBlur={formik.handleBlur}
                                     value={formik?.values?.colors?.[index].name}
                                     placeholder="Heading name"
-                                    className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                    className="primary-input"
                                   />
                                   <input
                                     type="text"
@@ -1202,15 +1202,15 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                     onBlur={formik.handleBlur}
                                     value={formik.values.colors?.[index].detail}
                                     placeholder="details text"
-                                    className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                    className="primary-input"
                                   />
                                   <button
                                     type="button"
                                     onClick={() => remove(index)}
-                                    className=" text-red-500 "
+                                    className=" errorColor "
                                   >
                                     <RxCross2
-                                      className="text-red-500"
+                                      className="errorColor"
                                       size={25}
                                     />
                                   </button>
@@ -1245,9 +1245,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                               className="relative border group bg-primary rounded-lg w-fit  overflow-hidden shadow-md transform transition-transform duration-300 hover:scale-105"
                               key={index}
                             >
-                              <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full cursor-pointer z-20">
+                              <div className="absolute top-1 right-1 invisible group-hover:visible errorColor bg-white rounded-full cursor-pointer z-20">
                                 <RxCross2
-                                  className="cursor-pointer borde text-red-500"
+                                  className="cursor-pointer borde errorColor"
                                   size={25}
                                   onClick={(e) => {
                                     e.preventDefault();
@@ -1302,9 +1302,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                   className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
                                   key={index}
                                 >
-                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible errorColor bg-white rounded-full">
                                     <RxCross2
-                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      className="cursor-pointer errorColor hover:errorColor-700"
                                       size={17}
                                       onClick={() => {
                                         ImageRemoveHandler(
@@ -1325,7 +1325,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                 </div>
 
                                 <input
-                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  className="primary-input"
                                   placeholder="altText"
                                   type="text"
                                   name="altText"
@@ -1340,7 +1340,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                   }
                                 />
                                 <input
-                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark"
+                                  className="primary-input"
                                   placeholder="Name"
                                   type="text"
                                   name="name"
@@ -1380,9 +1380,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                   className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
                                   key={index}
                                 >
-                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible errorColor bg-white rounded-full">
                                     <RxCross2
-                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      className="cursor-pointer errorColor hover:errorColor-700"
                                       size={17}
                                       onClick={() => {
                                         ImageRemoveHandler(
@@ -1403,7 +1403,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                 </div>
 
                                 <input
-                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark "
+                                  className="primary-input"
                                   placeholder="altText"
                                   type="text"
                                   name="altText"
@@ -1444,9 +1444,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                   className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
                                   key={index}
                                 >
-                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible errorColor bg-white rounded-full">
                                     <RxCross2
-                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      className="cursor-pointer errorColor hover:errorColor-700"
                                       size={17}
                                       onClick={() => {
                                         ImageRemoveHandler(
@@ -1467,7 +1467,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                 </div>
 
                                 <input
-                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark "
+                                  className="primary-input"
                                   placeholder="altText"
                                   type="text"
                                   name="altText"
@@ -1506,9 +1506,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                   className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105"
                                   key={index}
                                 >
-                                  <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full">
+                                  <div className="absolute top-1 right-1 invisible group-hover:visible errorColor bg-white rounded-full">
                                     <RxCross2
-                                      className="cursor-pointer text-red-500 hover:text-red-700"
+                                      className="cursor-pointer errorColor hover:errorColor-700"
                                       size={17}
                                       onClick={() => {
                                         ImageRemoveHandler(
@@ -1529,7 +1529,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                                 </div>
 
                                 <input
-                                  className="border mt-2 w-full rounded-md border-stroke px-2 text-14 py-2 focus:border-primary active:border-primary outline-none border-stroke bg-white dark:border-strokedark dark:bg-lightdark "
+                                  className="primary-input"
                                   placeholder="altText"
                                   type="text"
                                   name="altText"
@@ -1565,9 +1565,9 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                           return (
                             <div key={index}>
                               <div className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105">
-                                <div className="absolute top-1 right-1 invisible group-hover:visible text-red bg-white rounded-full z-10">
+                                <div className="absolute top-1 right-1 invisible group-hover:visible errorColor bg-white rounded-full z-10">
                                   <RxCross2
-                                    className="cursor-pointer btext-red-500 hover:text-red-700"
+                                    className="cursor-pointer btext-red-500 hover:errorColor-700"
                                     size={17}
                                     onClick={() => {
                                       ImageRemoveHandler(
@@ -1633,7 +1633,7 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
               {imgError ? (
                 <div className="flex justify-center">
-                  <div className="text-red pt-2 pb-2">{imgError}</div>
+                  <div className="errorColor pt-2 pb-2">{imgError}</div>
                 </div>
               ) : null}
 
