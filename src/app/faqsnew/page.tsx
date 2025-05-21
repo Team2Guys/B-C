@@ -12,7 +12,7 @@ const FAQPage = () => {
       />
       <Container>
       <h2
-        className="font-roboto font-normal text-14 md:text-20 text-center mt-2 mb-5 sm:my-7 text-primary"
+        className="font-roboto font-normal text-14 md:text-20 text-center mt-2 mb-5 sm:my-7 text-primary "
         dangerouslySetInnerHTML={{ __html: Faqspara }}
       />
       <FaqTabs/>
