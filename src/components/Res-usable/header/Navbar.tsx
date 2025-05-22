@@ -110,7 +110,7 @@ const Navbar = () => {
 
         <Container className="flex w-full justify-between h-12 sm:h-24 max-lg:px-2 items-center gap-1 md:gap-3 lg:gap-0 overflow-hidden ">
           <div className='flex gap-4 items-center'>
-            <Link href={'/'} className="w-[79px] h-[50px] relative md:w-[120px] md:h-[70px]">
+            <Link href='/' className="w-[79px] h-[50px] relative md:w-[120px] md:h-[70px]">
               <Image
                 fill
                 loading='lazy'
@@ -145,7 +145,7 @@ const Navbar = () => {
                 return (
                   <Link
                     key={index}
-                    href={link.href || ''}
+                    href={link.href+"/" || ''}
                     className="px-1 lg:text-10 text-12 xl:text-18 h-full flex items-center justify-center transition-all duration-200"
 
                   >
@@ -168,7 +168,7 @@ const Navbar = () => {
           </div>
 
 
-          <div className="flex  lg:hidden max-lg:mr-2">
+          <div className="flex lg:hidden max-lg:mr-2">
             <Sheet
               drawerName={<CgMenuRight width={20} height={20} className='min-w-6 w-6  h-6' />}
               open={drawerOpen}
