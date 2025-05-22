@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import { HiMinusSmall } from "react-icons/hi2";
 import { FiPlus } from "react-icons/fi";
-import { FAQ_DATA, TABS } from "data/Homedata/tabdata";
+import { TABS } from "data/Homedata/tabdata";
+import { FAQ_DATA } from "data/Homedata/faqs";
 
 const FaqTabs = () => {
   const [activeTab, setActiveTab] = useState("All");

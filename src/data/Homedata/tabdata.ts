@@ -170,9 +170,52 @@ export const staticvideos = [
   },
   {
     src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4',
-    title: 'Installation Explained in Simple Steps',
+    title: 'Why Go Motorized?',
   },
 ]
+
+ export const tabDataDetail = [
+    {
+  title: "Control at Your Fingertips",
+  icon: "/assets/detailpage/detail1.png",
+  image: "/assets/detailpage/mobile2.png",
+  heading: "Discover the Tahoma® by Somfy",
+  description:
+    "<p>Schedules that Move with You Your shades ready on your schedule.</p> <ul class='list-disc pl-5'><li>Pre-set schedules get you started with options like 'Thermal Comfort' to maintain comfortable temperatures</li> <li>Adapt shades to your routine and the time of day with advanced scheduling features</li></ul>",
+  buttonText: "Book A Free Visit",
+  href: "/request-appointment"
+},
+    {
+      title: "voice assistant",
+      icon: "/assets/detailpage/detail2.png",
+       image: "/assets/detailpage/mobile2.png", 
+      heading: "Expert Guidance at Your Doorstep1",
+      description:
+        "Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions.Discover what makes us the preferred choice for window solutions.",
+      buttonText: "Book A Free Visit",
+        href:"/request-appointment"
+    },
+    {
+      title: "Smart Home Integration",
+      icon: "/assets/detailpage/detail3.png",
+      image: "/assets/detailpage/mobile2.png", 
+      heading: "Expert Guidance at Your Doorstep2",
+      description:
+        "Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions.Discover what makes us the preferred choice for window solutions.",
+      buttonText: "Book A Free Visit",
+       href:"/request-appointment"
+    },
+    {
+      title: "Smart Control",
+      icon: "/assets/detailpage/detail4.png",
+      image: "/assets/detailpage/mobile2.png", 
+      heading: "Expert Guidance at Your Doorstep3",
+      description:
+        "Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions. Discover what makes us the preferred choice for window solutions.Discover what makes us the preferred choice for window solutions.",
+      buttonText: "Book A Free Visit",
+       href:"/request-appointment"
+    },
+  ];
 
 // Faqs 
 export const Faqspara = [
@@ -193,485 +236,3 @@ export const TABS = [
   "Motorization"
 ];
 
-export const FAQ_DATA: Record<string, { question: string; answer: string }[]> = {
-  "All": [
-    {
-      question: "Who is Blinds and Curtains?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you have a showroom?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "How do I book a visit for curtain measurement?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-    {
-      question: "How long does it take to receive a price quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Can I make changes to my order after receiving the quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "What payment options are available?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Is the installation included in the price?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How soon can my curtains be installed?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you offer a warranty on your curtains and blinds?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How do I request a warranty service?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    
-  ],
-  
-   "General": [
-    {
-      question: "Who is Blinds and Curtains?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you have a showroom?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "How do I book a visit for curtain measurement?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-    {
-      question: "How long does it take to receive a price quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Can I make changes to my order after receiving the quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "What payment options are available?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Is the installation included in the price?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How soon can my curtains be installed?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you offer a warranty on your curtains and blinds?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How do I request a warranty service?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    
-  ],
-
- "Bookings & Orders": [
-    {
-      question: "Who is Blinds and Curtains?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you have a showroom?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "How do I book a visit for curtain measurement?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-    {
-      question: "How long does it take to receive a price quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Can I make changes to my order after receiving the quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "What payment options are available?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Is the installation included in the price?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How soon can my curtains be installed?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you offer a warranty on your curtains and blinds?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How do I request a warranty service?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    
-  ],
-
-   "About Products": [
-    {
-      question: "Who is Blinds and Curtains?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you have a showroom?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "How do I book a visit for curtain measurement?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-    {
-      question: "How long does it take to receive a price quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Can I make changes to my order after receiving the quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "What payment options are available?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Is the installation included in the price?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How soon can my curtains be installed?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you offer a warranty on your curtains and blinds?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How do I request a warranty service?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    
-  ],
-
-    "Installation & Pre-<br/>Installation": [
-    {
-      question: "Who is Blinds and Curtains?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you have a showroom?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "How do I book a visit for curtain measurement?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-    {
-      question: "How long does it take to receive a price quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Can I make changes to my order after receiving the quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "What payment options are available?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Is the installation included in the price?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How soon can my curtains be installed?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you offer a warranty on your curtains and blinds?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How do I request a warranty service?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    
-  ],
-
-      "Pricing & Payment": [
-    {
-      question: "Who is Blinds and Curtains?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you have a showroom?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "How do I book a visit for curtain measurement?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-    {
-      question: "How long does it take to receive a price quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Can I make changes to my order after receiving the quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "What payment options are available?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Is the installation included in the price?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How soon can my curtains be installed?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you offer a warranty on your curtains and blinds?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How do I request a warranty service?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    
-  ],
-
-        "Cancellation,<br/>Refund & Warranty": [
-    {
-      question: "Who is Blinds and Curtains?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you have a showroom?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "How do I book a visit for curtain measurement?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-    {
-      question: "How long does it take to receive a price quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Can I make changes to my order after receiving the quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "What payment options are available?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Is the installation included in the price?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How soon can my curtains be installed?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you offer a warranty on your curtains and blinds?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How do I request a warranty service?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    
-  ],
-
-          "Motorization": [
-    {
-      question: "Who is Blinds and Curtains?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you have a showroom?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "How do I book a visit for curtain measurement?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-      {
-      question: "What happens during the measurement visit?",
-      answer: "Currently, we operate online and do not have a showroom."
-    },
-    {
-      question: "How long does it take to receive a price quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Can I make changes to my order after receiving the quote?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "What payment options are available?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Is the installation included in the price?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How soon can my curtains be installed?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "Do you offer a warranty on your curtains and blinds?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    {
-      question: "How do I request a warranty service?",
-      answer: `We are a team of furnishing enthusiasts, who launched first in 2021 in the UAE, a furnishing service allowing you to furnish your home without hassle.
-      After realizing all the hassle existing with curtains installations, we decided to launch Blinds and Curtains, a sister company of to provide a hassle-free and transparent curtains service.`
-    },
-    
-  ],
-  
-};

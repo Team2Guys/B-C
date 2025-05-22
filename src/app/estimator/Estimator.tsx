@@ -14,6 +14,7 @@ import { WhatsAppInfo } from 'data/data';
 import Testimonial from 'components/ProductDetailPage/testimonial';
 import InfoTabs from 'components/NewHomecomponents/info';
 import Breadcrumb from 'components/Res-usable/breadcrumb';
+import { tabData } from 'data/Homedata/tabdata';
 
 const EstimatorPage = ({ sortedProducts }: { sortedProducts: EstimatorProductTypes[] }) => {
   const [selectedProduct, setSelectedProduct] = useState<EstimatorProductTypes | null>(null);
@@ -251,7 +252,7 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EstimatorProductTyp
           </div>
         </div>
       </Container>
-      <InfoTabs />
+      <InfoTabs tabData={tabData} />
       <Testimonial />
     </>
   );
