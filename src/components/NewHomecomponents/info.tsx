@@ -43,7 +43,7 @@ export default function InfoTabs({ tabData,isHome }: InfoTabsProps) {
             }`}>
             <Image
               src={tab.icon}
-              alt={`${tab.title} icon`}
+              alt='tab icon'
               width={200}
               height={200}
               className="w-10 h-10 lg:w-16 lg:h-16 sm:mx-auto"
