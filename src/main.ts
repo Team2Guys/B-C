@@ -1,38 +1,38 @@
 import { NestFactory, HttpAdapterHost } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { MyLoggerService } from './my-logger/my-logger.service';
 import { AllExceptionsFilter } from './all-exceptions.filter';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
-import { Request, Response, NextFunction } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: [
+  origin: (origin, callback) => {
+    const allowedOrigins = [
       'http://localhost:3000',
       'http://localhost:3001',
-      "http://localhost:3001",
-      /\.vercel\.app$/,
-      'http://185.151.51.28:5001', 
-      "http://localhost:5001",
-      "https://blindsandcurtains.ae",
-      "https://www.blindsandcurtains.ae",
-      "http://185.151.51.28:5004",
-       "https://avenue39.com/",
-         "https://www.avenue39.com",
-          "https://www.avenue39.com",
-          "https://bncprod.vercel.app/",
-          "https://bncprod.vercel.app",
-              /\.vercel\.app$/,
+      'http://185.151.51.28:5001',
+      'http://localhost:5001',
+      'http://185.151.51.28:5004',
+      'https://blindsandcurtains.ae',
+      'https://www.blindsandcurtains.ae',
+      'https://avenue39.com',
+      'https://www.avenue39.com',
+      'https://bncprod.vercel.app'
+    ];
 
-
-    ],
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     preflightContinue: false,
     allowedHeaders: ['Content-Type',"Authorization", 'authorization'],
+
     
   })
 
