@@ -1874,7 +1874,7 @@ export const checkboxData = [
   { name: 'canEditBlog', label: 'Can Edit Blog' },
 ];
 
-// Landingpage content
+//page content
 export const NavData = [
   {
     image: '/assets/images/Moterised-ads-blinds/visit.png',
@@ -2033,8 +2033,8 @@ export const MotorisedSellingDataCurtain = [{
 export const TabData = {
   motorized_blinds: [
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/smart.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/smart1.svg",
+      icon: "/assets/images/MoterisedAndblinds/smart.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/smart1.svg",
       title: "Control your windows anytime, anywhere!",
       video: "/assets/video/moto.mp4",
       description:
@@ -2042,8 +2042,8 @@ export const TabData = {
       tab: "Smart control",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/mobile.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/mobile1.svg",
+      icon: "/assets/images/MoterisedAndblinds/mobile.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/mobile1.svg",
       title: "Just tap your screen & control your blinds",
       video: "/assets/video/moto.mp4",
       description:
@@ -2051,8 +2051,8 @@ export const TabData = {
       tab: "Smartphone",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/voice.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/voice1.svg",
+      icon: "/assets/images/MoterisedAndblinds/voice.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/voice1.svg",
       title: "Just say the word & enjoy the morning sunshine!",
       video: "/assets/video/moto.mp4",
       description:
@@ -2060,8 +2060,8 @@ export const TabData = {
       tab: "Voice assistant",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/remote.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/remote1.svg",
+      icon: "/assets/images/MoterisedAndblinds/remote.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/remote1.svg",
       title: "Quick, easy, and always within reach!",
       video: "/assets/video/moto.mp4",
       description:
@@ -2069,8 +2069,8 @@ export const TabData = {
       tab: "Remote or Wall switch",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/automated.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/automated1.svg",
+      icon: "/assets/images/MoterisedAndblinds/automated.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/automated1.svg",
       title: "Set timers for your blinds to open and close automatically",
       video: "/assets/video/moto.mp4",
       description:
@@ -2080,8 +2080,8 @@ export const TabData = {
   ],
   motorized_curtains: [
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/smart.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/smart1.svg",
+      icon: "/assets/images/MoterisedAndblinds/smart.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/smart1.svg",
       title: "Control your windows anytime, anywhere!",
       video: "/assets/video/curto.mp4",
       description:
@@ -2089,8 +2089,8 @@ export const TabData = {
       tab: "Smart control"
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/mobile.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/mobile1.svg",
+      icon: "/assets/images/MoterisedAndblinds/mobile.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/mobile1.svg",
       title: "Just tap your screen & control your curtains",
       video: "/assets/video/curto.mp4",
       description:
@@ -2098,8 +2098,8 @@ export const TabData = {
       tab: "Smartphone",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/voice.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/voice1.svg",
+      icon: "/assets/images/MoterisedAndblinds/voice.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/voice1.svg",
       title: "Just say the word & enjoy the morning sunshine!",
       video: "/assets/video/curto.mp4",
       description:
@@ -2107,8 +2107,8 @@ export const TabData = {
       tab: "Voice assistant",
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/remote.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/remote1.svg",
+      icon: "/assets/images/MoterisedAndblinds/remote.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/remote1.svg",
       title: "Quick, easy, and always within reach!",
       video: "/assets/video/curto.mp4",
       description:
@@ -2116,8 +2116,8 @@ export const TabData = {
       tab: "Remote or Wall switch"
     },
     {
-      icon: "/assets/images/Moterised-ads-blinds/landing/automated.svg",
-      activeicon: "/assets/images/Moterised-ads-blinds/landing/automated1.svg",
+      icon: "/assets/images/MoterisedAndblinds/automated.svg",
+      activeicon: "/assets/images/MoterisedAndblinds/automated1.svg",
       title: "Set timers for your curtains to open and close automatically",
       video: "/assets/video/curto.mp4",
       description:

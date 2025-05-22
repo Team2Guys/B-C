@@ -6,6 +6,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import showToast from 'components/Toaster/Toaster';
+import Link from 'next/link';
 
 const CallUS = () => {
    const [loading, setloading] = useState(false)
@@ -63,15 +64,18 @@ const CallUS = () => {
                <Image src='/assets/images/callus/callus.png' fill className='!relative hidden sm:block' alt='call us image' />
                <div className='sm:absolute top-0 w-full h-full pt-8 sm:py-6 lg:py-8 sm:ps-8 sm:pe-14 2xl:pe-20 flex flex-col justify-center gap-4 items-center sm:items-start sm:justify-between'>
                   <h4 className='text-center sm:text-start text-primary-foreground text-24 sm:text-28 xl:text-[40px] font-semibold font-robotoSerif leading-tight'>Having in Urgent Problem And Can’t Wait?</h4>
-                  <div className='flex gap-4 items-center'>
-                     <span>
-                        <FiPhoneCall className='size-12 xl:size-16 text-primary-foreground' />
-                     </span>
-                     <div className='flex flex-col text-primary-foreground'>
-                        <p className='text-md xl:text-xl font-medium font-robotoSerif'>Call Us Any Time</p>
-                        <p className='text-lg xl:text-2xl font-bold font-roboto'>04 252 2025</p>
+                  <Link href="tel:042522025">
+                     <div className='flex gap-4 items-center'>
+
+                        <span>
+                           <FiPhoneCall className='size-12 xl:size-16 text-primary-foreground' />
+                        </span>
+                        <div className='flex flex-col text-primary-foreground'>
+                           <p className='text-md xl:text-xl font-medium font-robotoSerif'>Call Us Any Time</p>
+                           <p className='text-lg xl:text-2xl font-bold font-roboto'>04 252 2025</p>
+                        </div>
                      </div>
-                  </div>
+                  </Link>
                </div>
             </div>
             <div className='sm:col-span-4 md:col-span-5 flex items-center xsm:px-8 py-8 sm:pe-6 lg:pe-8 lg:ps-0'>
