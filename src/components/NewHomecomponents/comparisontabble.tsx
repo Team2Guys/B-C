@@ -13,7 +13,7 @@ export default function ComparisonTable() {
         <h2 className="font-robotoSerif font-semibold text-24 lg:font-bold text-primary xl:text-[48px] my-3 xl:mt-7 lg:text-[40px]">
           We Don’t Just Compete – We Lead
         </h2>
-             {/* <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] my-3 lg:mb-7">Top Picks for Your Home</p> */}
+          {/* <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] my-3 lg:mb-7">Top Picks for Your Home</p> */}
        <div className="grid grid-cols-3">
        {/* Header Row */}
        <div className="h-[60px] lg:h-[70px]"></div>
@@ -26,23 +26,32 @@ export default function ComparisonTable() {
 
       {/* Left Column - Features */}
       <FeaturesColumn features={features} featureMobile={mobilefeatures} popupData={popupData} />
-
-       {/* Middle Column - Blinds */}
-        <div className="bg-[#3E3F421A] divide-y divide-gray-200 text-primary rounded-b-md md:rounded-b-2xl">
-        {blindsData.map((item, index) => (
+     <div className="bg-[#3E3F421A] divide-y divide-gray-200 text-primary rounded-b-md md:rounded-b-2xl">
+    {blindsData.map((item, index) => {
+     if (item === "") {
+      return (
         <div
-      key={index}
-      className="h-[60px] lg:h-[70px] w-full p-2 flex justify-center items-center font-roboto font-normal text-12 sm:text-16 xl:text-20"
-    >
-      {item === "BiSolidCheckCircle" ? (
-        <BiSolidCheckCircle className="text-green-600 w-5 h-5 lg:w-7 lg:h-7 mx-auto" />
-      ) : (
-        item
-      )}
-    </div>
-  ))}
+          key={index}
+          className="hidden md:block lg:flex h-[60px] lg:h-[70px] w-full p-2 justify-center items-center font-roboto font-normal text-12 sm:text-16 xl:text-20"
+        >
+        </div>
+      );
+     }
+     return (
+      <div
+        key={index}
+        className="h-[60px] lg:h-[70px] w-full p-2 flex justify-center items-center font-roboto font-normal text-12 sm:text-16 xl:text-20"
+      >
+        {item === "BiSolidCheckCircle" ? (
+          <BiSolidCheckCircle className="text-green-600 w-5 h-5 lg:w-7 lg:h-7 mx-auto" />
+        ) : (
+          item
+        )}
       </div>
-
+      );
+   })}
+  </div>
+  
       {/* Right Column - Others */}
       <div className="bg-white divide-y divide-gray-200 text-primary">
       {othersData.map((item, index) => (
@@ -66,7 +75,7 @@ export default function ComparisonTable() {
           Book A Free Visit                        
         </Link>
       </section> 
-      <Link href="/request-appointment" className="bg-secondary text-center font-semibold md: py-2 md:py-3  w-full rounded-md text-primary font-roboto text-14 mx-auto relative block md:hidden my-4 ">
+      <Link href="/request-appointment" className="bg-secondary text-center font-semibold md: py-2 md:py-3  w-full xs:w-1/2 rounded-md text-primary font-roboto text-14 mx-auto relative block md:hidden my-4 ">
           Book A Free Visit                        
         </Link>
       </Container>

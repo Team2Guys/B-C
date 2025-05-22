@@ -40,7 +40,7 @@ export default function SimpleSteps() {
               {workingProcessData.steps.map((step, idx) => (
                 <div key={idx} className="flex items-start  gap-4 mt-1">
                   <div className="flex flex-col items-center space-y-1">
-                    <div className="rounded-full font-roboto bg-[#FFFFF0] sm:p-2 sm:text-base text-12 text-[#F1B42F] border border-[#f1b42f98] font-semibold flex items-center justify-center min-w-[70px] min-h-[70px]">
+                    <div className="rounded-full font-roboto bg-[#F1B42F1A] sm:p-2 sm:text-base text-12 text-[#F1B42F] border-2 border-[#F1B42F1A] font-semibold flex items-center justify-center min-w-[70px] min-h-[70px]">
                       {step.step}
                     </div>
                     <Image
