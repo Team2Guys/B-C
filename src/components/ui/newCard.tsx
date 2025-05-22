@@ -24,7 +24,7 @@ const Card = ({ card }: { card: IProduct }) => {
             </h3>
             <div className="text-primary text-base lg:text-lg font-roboto transition-all">
               <p>
-                {card?.short_description?.slice(0, 50)}{' '}
+                {card?.short_description}{' '}
               </p>
             </div>
           </div>
