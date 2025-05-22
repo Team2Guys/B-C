@@ -124,6 +124,10 @@ input {
   visibility: hidden !important;
 }
 
+#goog-gt-tt {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }

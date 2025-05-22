@@ -31,7 +31,7 @@ const Information = ({ privarcyImage, privacySectoin }: InformationProps) => {
   return (
     <>
       {privacySectoin && privacySectoin.length > 0 && (
-        <div className="bg-[#F5F5F5] py-10 mt-10">
+        <div className="bg-secondary-foreground py-10 mt-10">
           <Container className="grid grid-cols-12 gap-6">
             {/* Text Section */}
             <div className="col-span-12 md:col-span-6 space-y-2 order-2 md:order-1">
