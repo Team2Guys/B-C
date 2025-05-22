@@ -1,8 +1,8 @@
-import { fetchProducts, fetchSubCategories } from "config/fetch";
+import { fetchProducts } from "config/fetch";
 import SubProduct from "./Subproduct";
 import { ChangedProductUrl, urls } from "data/urls";
 import { generateSlug } from "data/data";
-import { ICategory, IProduct } from "types/types";
+import { IProduct } from "types/types";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -86,16 +86,9 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 const Page = async ({ params }: SlugPageProps) => {
   const newurls = (await params);
   let slug = newurls.subproduct
-  const [products, subCategories] = await Promise.all([fetchProducts(), fetchSubCategories()]);
+  const [products] = await Promise.all([fetchProducts()]);
   const Cateories = [2];
 
-  const filteredSubCategory = subCategories?.find((sub: ICategory) => {
-    let title = ChangedProductUrl(slug as string);
-    let title_flag = title === generateSlug(sub.title);
-    return (
-      title_flag && Cateories.some((item: number) => item == sub.CategoryId)
-    );
-  });
 
 
   const filteredProduct = products?.find(
@@ -108,10 +101,10 @@ const Page = async ({ params }: SlugPageProps) => {
   if (matchingUrl) {
     return <NotFound />
   }
-  if (!filteredSubCategory && !filteredProduct) {
+  if (!filteredProduct) {
     return <NotFound />;
   }
-  const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
+  const productTitle = filteredProduct?.title || '';
   const matchedSchema = BlindSchemaMap[productTitle];
   return (
     <>
@@ -120,8 +113,7 @@ const Page = async ({ params }: SlugPageProps) => {
           {JSON.stringify(matchedSchema)}
         </Script>
       )}
-      <SubProduct products={products}
-        filteredProduct={filteredProduct} filteredSubCategory={filteredSubCategory} />
+      <SubProduct filteredProduct={filteredProduct} />
     </>
   );
 };

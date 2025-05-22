@@ -82,27 +82,20 @@ export async function generateMetadata({
 
 const CommercialPage = async ({ params }: meta_props) => {
   const product = (await params).product;
-  const [products, subCategories] = await Promise.all([fetchProducts(), fetchSubCategories()]);
-
+  const [products] = await Promise.all([fetchProducts()]);
   const filteredProduct = filterProd(products, product, Cateories);
-  const filteredSubCategory = filtereCategory(subCategories, product, Cateories);
-
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/curtains/${product}/`);
   if (matchingUrl) {
     return <NotFound />
   }
-  if (!filteredSubCategory && !filteredProduct) {
+  if ( !filteredProduct) {
     return <NotFound />;
   }
-    const productTitle = filteredProduct?.title || filteredSubCategory?.title || '';
+    const productTitle = filteredProduct?.title  || '';
     const matchedSchema = CurtainsSchemaMap[productTitle];
   return (
     <Curtain
       filteredProduct={filteredProduct}
-      filteredSubCategory={filteredSubCategory}
-      product={product}
-      allprod={products}
-      subCategories={subCategories}
       matchedSchema={matchedSchema}
     />
   );
