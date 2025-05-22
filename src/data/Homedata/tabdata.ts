@@ -144,25 +144,6 @@ export const Qualityfeatures = [
   },
 ]
 
-export const testimonialData = [
-  {
-    name: 'Imran Ahmad',
-    text: '“Amazing experience from start to finish. Ryan and Ben did a great job with installation, leaving drive and garage clean.”',
-  },
-  {
-    name: 'Sarah Williams',
-    text: '“Very professional and helpful. The curtains fit perfectly and look stunning in my living room.”',
-  },
-  {
-    name: 'John Doe',
-    text: '“Top-notch service! Installation was quick and the quality is great. Highly recommended.”',
-  },
-  {
-    name: 'Fatima Noor',
-    text: '“The staff was very friendly and gave great suggestions. Love the new look of my windows.”',
-  },
-]
-
 export const staticvideos = [
   {
     src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4',

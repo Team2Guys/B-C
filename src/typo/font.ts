@@ -1,5 +1,4 @@
 import { Montserrat, Roboto } from 'next/font/google';
-import localFont from 'next/font/local';
 export const MontserratFont = Montserrat({
   weight: '400',
   subsets: ['latin-ext'],
@@ -25,29 +24,3 @@ export const RobotoTitle = Montserrat({
 
 });
 
-export const gothamlight = localFont({
-  src: [
-    {
-      path: '../../public/fonts/Gotham-Light.otf',
-      style: 'normal',
-      weight:'300'
-    },
-
-  ],
-  variable: '--gothamlight',
-  display:"swap"
-
-});
-export const gothamGothamBold = localFont({
-  src: [
-    {
-      path: '../../public/fonts/GothamBold.ttf',
-      style: 'normal',
-      weight:'800'
-    },
-
-  ],
-  variable: '--gothambold',
-  display:"swap"
-
-});

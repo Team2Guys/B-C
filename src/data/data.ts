@@ -13,11 +13,9 @@ import {
   ITopHeroLink,
   PhoneNumber,
   SupportItem,
-  THeroImages,
   Tproductdata,
   TProductGuarantees,
 } from 'types/interfaces';
-import { TRatingSlider } from 'types/interfaces';
 import * as Yup from 'yup';
 import { Category, FormValues } from 'types/interfaces';
 import { AboutUsBlock, ISUBCATEGORY, MilestoneStepsData, WhyChooseItem } from 'types/types';
@@ -44,40 +42,6 @@ export const reverseSlug = (slug: string): string => {
     .replace(/\b\w/g, (match) => match.toUpperCase());
 };
 
-
-
-
-export const heroSlider = [
-  {
-    id: 1,
-    name: 'blinds.png',
-    imageUrl: '/assets/images/Hero/blinshd.avif',
-    imageUrlmobile: '/assets/images/Hero/blinshd_m.avif',
-    // imageUrl: 'https://res.cloudinary.com/de6owjeap/image/upload/v1744957993/blinshd_l4bgq1.webp',
-    heading: 'The Home of Customised',
-    subheading: 'Window Coverings',
-    content: "Our beautiful collection of window covering isn't the only thing that makes us stand out. A lot of it has to do with how we treat you right from the moment you contact us to the moment your project is complete."
-  },
-  {
-    id: 2,
-    name: 'curtains.png',
-    imageUrl: '/assets/images/Hero/curtainshd.avif',
-    imageUrlmobile: '/assets/images/Hero/curtainshd_m.avif',
-    heading: 'Made To Measure Window  ',
-    subheading: 'Curtains In Dubai',
-    content: "Finding a reliable curtains company in Dubai is no easy task, but Blinds and Curtains make it simple. You can choose from 1000s of fabrics and colours - velvets, silks, and plain textures.",
-  },
-  {
-    id: 3,
-    name: 'shutters.png',
-    imageUrl: '/assets/images/Hero/shuttershd.avif',
-    imageUrlmobile: '/assets/images/Hero/shuttershd_m.avif',
-    heading: 'Perfect Fit Window',
-    subheading: 'Shutters Dubai',
-    content:
-      "You won't find a better deal than having shutters installed in your Dubai home or office, complete with free consultation, quick installation, and a 5-year warranty.",
-  },
-];
 
 export const banners = {
   Home: {
@@ -289,15 +253,6 @@ export const testimonials = [
   },
 ];
 
-export const RatingSlider: TRatingSlider = {
-  imageUrl: '/assets/images/googleReview/qautes.png',
-  StarImage: '/assets/images/googleReview/star.png',
-};
-export const HeroImages: THeroImages = {
-  logo: '/assets/images/logomain.webp',
-  backImage: '/assets/images/hero/back2.jpeg',
-  defaultBackImage: '/assets/images/hero/BACK.jpeg',
-};
 export const productData: Tproductdata = {
   title: 'PRODUCT GUARANTEES',
   sideImage: '/assets/images/product-guarantees/guarantee1.png',
@@ -496,93 +451,6 @@ export const intitalValues = {
   canEditBlog: false,
 };
 
-export const blindMegaMenuItems = [
-  { productName: 'vertical-blinds' },
-  { productName: 'zipline-outdoor-blinds' },
-  { productName: 'panel-blinds' },
-  { productName: 'aluminium-blinds' },
-  { productName: 'wooden-blinds' },
-  { productName: 'roman-blinds' },
-  { productName: 'roller-blinds' },
-  { productName: 'zebra-blinds' },
-
-  { productName: 'staircase' },
-  { productName: 'vertical' },
-  { productName: 'conservatory' },
-  { productName: 'office' },
-  { productName: 'bedroom' },
-  { productName: 'kitchen' },
-  { productName: 'dining-room' },
-  { productName: 'living-room' },
-  { productName: 'officestudy' },
-
-  { productName: 'blackout-blinds' },
-  { productName: 'dimout-blinds' },
-  { productName: 'sunscreentransparent-blinds' },
-];
-
-export const curtainMegaMenuItems = [
-  { productName: 'pencil-pleat-curtains' },
-  { productName: 'ripplefoldwave-curtains' },
-  { productName: 'tab-top-curtains' },
-  { productName: 'motorised-curtains' },
-  { productName: 'eyelet-curtains' },
-  { productName: 'double-pinch-pleat-curtains' },
-  { productName: 'triple-pinch-pleat-curtains' },
-
-  { productName: 'conservatory' },
-  { productName: 'staircase' },
-  { productName: 'bedroom' },
-  { productName: 'bathroom-blinds' },
-  { productName: 'kids-room-blinds' },
-  { productName: 'dining' },
-  { productName: 'loungeliving' },
-
-  { productName: 'stripes-curtains' },
-  { productName: 'geometric-curtains' },
-  { productName: 'textured-curtains' },
-  { productName: 'kids-prints-curtains' },
-  { productName: 'natural-fabric-curtains' },
-  { productName: 'plain-curtains' },
-  { productName: 'sheer-curtains' },
-  { productName: 'blackout-curtains' },
-];
-
-export const shutterMegaMenuItems = [
-  { productName: 'special-shape-shutters' },
-  { productName: 'outdoor-shutters' },
-  { productName: 'solid-panel-shutters' },
-  { productName: 'cafe-style-shutters' },
-  { productName: 'tier-on-tier-shutters' },
-  { productName: 'bay-window-shutters' },
-  { productName: 'bi-fold-shutters' },
-  { productName: 'full-height-shutters' },
-  { productName: 'staircase-shutters' },
-  { productName: 'dining-room-shutters' },
-  { productName: 'tracked-shutters' },
-];
-
-export const commercialMegaMenuItems = [
-  { productName: 'hospitals' },
-  { productName: 'auditoriums' },
-  { productName: 'hotels-restaurants' },
-  { productName: 'schools' },
-  { productName: 'gym' },
-  { productName: 'theatre' },
-
-  { productName: 'indoor' },
-  { productName: 'outdoor' },
-  { productName: 'skylight' },
-  { productName: 'balcony' },
-  { productName: 'pergola' },
-
-  { productName: 'fire-retardant' },
-  { productName: 'water-repellent' },
-  { productName: 'washable' },
-  { productName: 'anti-microbial' },
-];
-
-
 export const commercialPagesItems = [
   'offices-blinds',
   'hotels-restaurants',
@@ -739,103 +607,6 @@ export const megaMenuDynamic = [
   { productName: 'anti-microbial' },
 ];
 
-export const extendedByStyle = [
-  { productName: '3d-blinds' },
-  { productName: 'sheer-horizon-blinds' },
-  { productName: 'aric-blinds' },
-  { productName: 'zebra-blinds' },
-  { productName: 'pleated-blinds' },
-  { productName: 'sierra-blinds' },
-  { productName: 'eton-blinds' },
-  { productName: 'patricia-blinds' },
-  { productName: 'wooden-aluminium-blinds' },
-
-  { productName: 'eyelet-curtains' },
-  { productName: 'pinch-pleat-curtains' },
-  { productName: 'motorised-curtains' },
-  { productName: 'goblet-pleat-curtains' },
-  { productName: 'triple-pinch-pleat-curtains' },
-  { productName: 'ripplefoldwave-curtains' },
-  { productName: 'pelmet-curtains' },
-  { productName: 'modern-curtains' },
-  { productName: 'tab-top-curtains' },
-  { productName: 'pencil-pleat-curtains' },
-
-  { productName: 'full-height-shutters' },
-  { productName: 'bay-window-shutters' },
-  { productName: 'tracked-shutters' },
-  { productName: 'special-shape-shutters' },
-  { productName: 'solid-panel-shutters' },
-  { productName: 'bi-fold-shutters' },
-  { productName: 'outdoor-shutters' },
-  { productName: 'cafe-style-shutters' },
-  { productName: 'automated-curtains' },
-  { productName: 'automated-blinds' },
-
-];
-
-export const extendedByRoom = [
-  { productName: 'kids-room-blinds' },
-  { productName: 'study-room-blinds' },
-  { productName: 'dining-room-blinds' },
-  { productName: 'conservatory-blinds' },
-  { productName: 'staircase-blinds' },
-  { productName: 'door-blinds' },
-  { productName: 'bedroom-blinds' },
-  { productName: 'office-blinds' },
-  { productName: 'bathroom-blinds' },
-  { productName: 'school-blinds' },
-  { productName: 'offices-blinds' },
-
-  { productName: 'bedroom-curtains' },
-  { productName: 'living-room-curtains' },
-  { productName: 'kids-room-curtains' },
-  { productName: 'home-curtains' },
-  { productName: 'room-curtains' },
-  { productName: 'dining-room-curtains' },
-  { productName: 'staircase-curtains' },
-  { productName: 'conservatory-curtains' },
-
-  { productName: 'living-room-shutters' },
-  { productName: 'dining-room-shutters' },
-  { productName: 'kitchen-shutters' },
-  { productName: 'bedroom-shutters' },
-  { productName: 'staircase-shutters' },
-  { productName: 'hotel-curtains' },
-  { productName: 'office-curtains' },
-  { productName: 'door-curtains' },
-
-];
-export const extendedDynamic = [
-  { productName: 'motorised-blinds' },
-  { productName: 'blackout-blinds' },
-  { productName: 'skylight-blinds-dubai' },
-  { productName: 'blackout-roller-blinds' },
-  { productName: 'sunscreen-blinds' },
-  { productName: 'dimout-blinds' },
-  { productName: 'translucent-blinds' },
-
-  { productName: 'made-to-measure-chiffon-curtains' },
-  { productName: 'made-to-measure-linen-curtains' },
-  { productName: 'velvet-curtains' },
-  { productName: 'plain-curtains' },
-  { productName: 'patterned-curtains' },
-  { productName: 'natural-fabric-curtains' },
-  { productName: 'geometric-curtains' },
-  { productName: 'textured-curtains' },
-  { productName: 'kids-print-curtains' },
-
-  { productName: 'offwhite-shutters' },
-  { productName: 'white-shutters' },
-  { productName: 'light-wood-shutters' },
-  { productName: 'black-shutters' },
-  { productName: 'dark-wood-shutters' },
-  { productName: 'bold-colours-shutters' },
-  { productName: 'grey-shutters' },
-  { productName: 'linen-curtains' },
-  { productName: 'chiffon-curtains' },
-
-];
 
 export const AddProductvalidationSchema = Yup.object().shape({
 
@@ -1511,120 +1282,6 @@ export const subCategoryName = [
   },
 ];
 
-export const categorydata = [
-  {
-    category: 'Blinds',
-    types: [
-      {
-        type: 'ALL',
-        title: 'Explore Popular Made to Measure Blind Options',
-        subtitle:
-          'Our bespoke blinds are designed to meet your needs. Various types of window blinds are available in a variety of materials and colours, so you can create an ambience to suit your style.',
-      },
-      {
-        type: 'By Style',
-        title: 'Style Your Space',
-        subtitle:
-          'Pick blinds that match the vibe of your room, from minimalist to modern.',
-      },
-      {
-        type: 'By Room',
-        title: 'Blinds for Every Room',
-        subtitle:
-          'Find blinds crafted to enhance the look and feel of each specific space in your home.',
-      },
-      {
-        type: 'dynamic',
-        title: 'Practical Elegance',
-        subtitle:
-          'Explore our blinds sorted by their practical features, ensuring you get both style and functionality.',
-      },
-    ],
-  },
-  {
-    category: 'Curtains',
-    types: [
-      {
-        type: 'ALL',
-        title: 'Explore Popular Made to Measure Curtain Options',
-        subtitle:
-          'Want to see your dream come to life in stunning detail? Our professional curtain installation team is always available to answer questions and help with any curtain challenge you have.',
-      },
-      {
-        type: 'By Style',
-        title: 'Perfect for Any Taste & Every Window',
-        subtitle:
-          'Choose affordable custom curtains that fit your personal style and enhance your space.',
-      },
-      {
-        type: 'By Room',
-        title: 'Curtains for Any Room',
-        subtitle:
-          'Find the perfect curtains for each area of your home, from the living room to the bedroom',
-      },
-      {
-        type: 'dynamic',
-        title: 'Explore Our Bespoke Curtains Collection',
-        subtitle:
-          'Discover bespoke curtains in a variety of fabrics, from sheer to velvet for every window.',
-      },
-    ],
-  },
-  {
-    category: 'shutters',
-    types: [
-      {
-        type: 'ALL',
-        title: 'View Our Entire Selection',
-        subtitle:
-          'Explore our comprehensive range of shutters, suited for every preference and window style.',
-      },
-      {
-        type: 'By Style',
-        title: 'Shutters that bring a sense of style',
-        subtitle:
-          'Choose shutters that echo your personal style, from classic to contemporary designs.',
-      },
-      {
-        type: 'By Room',
-        title: 'Custom Shutters for Every Room',
-        subtitle:
-          'Find the perfect shutters for each area of your home, enhancing both aesthetics and function.',
-      },
-      {
-        type: 'dynamic',
-        title: 'Choose from Over 50 Shades',
-        subtitle:
-          'Choose from a wide selection of shutter colours to perfectly complement any room&apos;s decor.',
-      },
-    ],
-  },
-];
-
-export const RelatedProductsdata = [
-  {
-    name: 'blinds',
-    para: 'Explore our collection, each piece a showcase of exceptional window blinds design.',
-  },
-  {
-    name: 'curtains',
-    para: 'For quality curtain installation in Dubai, check out our services designed to make your living spaces more beautiful.',
-  },
-  {
-    name: 'shutters-range',
-    para: 'Explore our range of Interior & Exterior Shutters, designed for both style and durability.',
-  },
-  {
-    name: 'commercial',
-    para: 'Browse through our selection of high quality commercial window treatments.',
-  },
-];
-
-export const HiddenProducts_list = [
-  'Hotels & Restaurants , blinds & curtains',
-  'Study Room Blinds',
-];
-
 export const footerData = [
   {
     key: "1",
@@ -1824,32 +1481,6 @@ export const projectsTags = [
   'Mirdif',
   'Falcon City',
   'Jumeirah',
-];
-export const items = [
-  {
-    id: 1,
-    text: 'A team of 50 staff to ensure perfection from start-to-finish',
-  },
-  {
-    id: 2,
-    text: 'In house production - quality is our concern, not yours',
-  },
-  {
-    id: 3,
-    text: 'Free uninstall/re-install within 2 years',
-  },
-  {
-    id: 4,
-    text: '10 YEARS warranty on all mechanical parts and labour',
-  },
-  {
-    id: 5,
-    text: 'We’re trusted, with over 750+ 5* reviews',
-  },
-  {
-    id: 6,
-    text: 'Free home visits with free installation',
-  },
 ];
 
 

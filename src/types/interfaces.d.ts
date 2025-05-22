@@ -258,15 +258,6 @@ export interface OurHistory {
   discription: string;
 }
 
-export type TRatingSlider = {
-  imageUrl: string;
-  StarImage: string;
-};
-export interface THeroImages {
-  logo: string;
-  backImage: string;
-  defaultBackImage: string;
-}
 export interface Tproductdata {
   title: string;
   heading: string;
