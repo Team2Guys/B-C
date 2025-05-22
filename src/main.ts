@@ -9,23 +9,7 @@ import { Request, Response, NextFunction } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  app.use((req: Request, res: Response, next: NextFunction) => {
-    if (req.method === 'OPTIONS') {
-      res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
-      res.header(
-        'Access-Control-Allow-Methods',
-        'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-      );
-      res.header(
-        'Access-Control-Allow-Headers',
-        'Content-Type, Authorization',
-      );
-      res.status(204).send();
-    } else {
-      next();
-    }
-  })
+  
   app.enableCors({
     origin: [
       'http://localhost:3000',
@@ -37,9 +21,9 @@ async function bootstrap() {
       "https://blindsandcurtains.ae",
       "https://www.blindsandcurtains.ae",
       "http://185.151.51.28:5004",
-"https://avenue39.com/",
-"https://www.avenue39.com",
-"https://www.avenue39.com"
+       "https://avenue39.com/",
+         "https://www.avenue39.com",
+          "https://www.avenue39.com"
 
 
     ],
