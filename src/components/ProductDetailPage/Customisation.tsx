@@ -46,7 +46,7 @@ const Customisation = () => {
           ))}
         </div>
           <div className=' pt-5'>
-            <Link href="/" className='bg-secondary text-primary rounded-md py-2 sm:py-4 px-4 sm:px-8 font-roboto font-semibold block w-fit'>Book A Free Visit</Link>
+            <Link href="/request-appointment/" className='bg-secondary text-primary rounded-md py-2 sm:py-4 px-4 sm:px-8 font-roboto font-semibold block w-fit'>Book A Free Visit</Link>
           </div>
       </Container>
     </div>
