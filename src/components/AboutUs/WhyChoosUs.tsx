@@ -9,8 +9,8 @@ const WhyChoose = () => {
     return (
       <>
         <section className="sm:py-16 mt-10 bg-white text-center">
-            <h2 className="sm:text-4xl text-2xl font-semibold mb-2 font-robotoSerif">Why Choose Two Guys?</h2>
-            <p className="text-[#3E3F42] text-base sm:mb-12 font-roboto">
+            <h2 className="sm:text-4xl text-[27px] font-bold mb-2 font-robotoSerif text-primary">Why Choose Two Guys?</h2>
+            <p className="text-[#3E3F42] text-base sm:mb-12 font-roboto font-normal">
                 You just found the industrys premier window treatment design team.
             </p>
 
@@ -33,7 +33,7 @@ const WhyChoose = () => {
                                     height={100}
                                 />
                             </div>
-                            <h3 className="font-bold font-robotoSerif text-lg mb-2"  dangerouslySetInnerHTML={{ __html: item.title }} />
+                            <h3 className="font-extrabold font-robotoSerif text-20 mb-2 text-primary"  dangerouslySetInnerHTML={{ __html: item.title }} />
                             <p className="text-base font-roboto text-[#3E3F42]">{item.description}</p>
                         </div>
                     </div>

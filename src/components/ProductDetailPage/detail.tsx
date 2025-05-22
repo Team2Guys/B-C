@@ -12,7 +12,7 @@ const Detail = ({ data, setColorImage, selectedColor }: DetailProps) => {
     <div className=' space-y-2 sm:space-y-4 max-w-[650px]'>
       <h1 className='font-robotoSerif font-bold text-2xl xl:text-5xl text-primary px-2'>{data.title}</h1>
 
-      <div className='flex flex-wrap items-center gap-2 lg:gap-4 px-2'>
+      <div className='flex flex-wrap items-center gap-2 lg:gap-4 px-2 !mb-4'>
         {Array.isArray(data?.topImages) && data.topImages.map((feature, index) => (
           <div key={index} className='rounded-full py-2 px-4 flex items-center gap-1 bg-[#F2F2F2]'>
             <Image src={feature.imageUrl} height={20} width={20} alt='feature' />
@@ -20,7 +20,7 @@ const Detail = ({ data, setColorImage, selectedColor }: DetailProps) => {
           </div>
         ))}
       </div>
-      <div className='py-2 bg-[#F2F2F2] px-2 block md:hidden '>
+      <div className='py-3 bg-[#F2F2F2] px-2 block md:hidden '>
         <Link href="/request-appointment/" className='bg-secondary text-primary py-3 px-6 font-semibold block rounded-md w-full md:w-fit font-roboto text-center'>Book A Free Visit</Link>
       </div>
       <p className='px-2'>

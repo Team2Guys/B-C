@@ -58,7 +58,7 @@ const Information = ({ privarcyImage, privacySectoin }: InformationProps) => {
                 {hasMore && (
                   <button
                     onClick={handleReadMore}
-                    className="p-2 text-sm md:text-[22px] font-medium text-secondary border rounded-md border-primary"
+                    className="p-2 text-sm md:text-[22px] xl:p-4 font-medium text-secondary border rounded-md border-primary"
                   >
                     Read More
                   </button>
@@ -66,7 +66,7 @@ const Information = ({ privarcyImage, privacySectoin }: InformationProps) => {
                 {visibleCount > 1 && (
                   <button
                     onClick={handleReadLess}
-                    className="p-2 text-sm md:text-[22px] font-medium text-secondary border rounded-md border-primary"
+                    className="p-2 text-sm md:text-[22px] xl:p-4 font-medium text-secondary border rounded-md border-primary"
                   >
                     Read Less
                   </button>

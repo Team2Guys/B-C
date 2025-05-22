@@ -380,16 +380,16 @@ export const PGuarantees: TProductGuarantees[] = [
 export const aboutUsData: AboutUsBlock[] = [
   {
     shortHeading: 'From UK Roots to Dubai Dreams',
-    shortHeadingSize: 'sm:text-[20px] text-base font-Roboto text-[#3E3F42]',
+    shortHeadingSize: 'sm:text-[20px] text-20 font-Roboto font-medium text-[#3E3F42]',
     mainHeading: 'The Spark: A Passion Forged in the UK,  Ignited in Dubai',
-    mainHeadingSize: 'sm:text-2xl text-xl text[#3E3F42]',
+    mainHeadingSize: 'sm:text-2xl text-24 text-[#3E3F42]',
     content: `Our story begins with Shiraz, our Managing Partner, who brought two decades of acclaimed UK retail expertise (including a 'Scottish Retailer of The Year' award in 1999!) to the vibrant landscape of Dubai in 2014. Driven by a vision for sunnier climes and new opportunities, the foundation for what would become Two Guys was laid.`,
     contentSize: 'text-base text-start',   
     imageUrl: '/assets/images/about-us/about-3.webp',
   },
   {
     shortHeading: 'Meet Our Team',
-    shortHeadingSize: 'sm:text-2xl text-base text-[#3E3F42]',
+    shortHeadingSize: 'sm:text-2xl text-20 text-[#3E3F42] font-roboto font-semibold',
     mainHeading: 'We Only Source from the BEST',
     mainHeadingSize: 'sm:text-5xl text-2xl text[#3E3F42]',
     content: `With over 60 dedicated professionals, our ethos is simple: deliver the level of service the owners themselves would expect (Shiraz’s self-professed OCD for detail is legendary!). This means impartial advice, never pushy sales or unnecessary up-sells, and a commitment that extends far beyond the final payment. We're here to build lasting relationships, one beautiful space at a time.`,
@@ -398,7 +398,7 @@ export const aboutUsData: AboutUsBlock[] = [
   },
   {
     shortHeading: 'Dubai Beginnings',
-    shortHeadingSize: 'sm:text-2xl text-base text-[#3E3F42]',
+      shortHeadingSize: 'sm:text-2xl text-20 text-[#3E3F42] font-roboto font-semibold',
     mainHeading: 'Perseverance and Our First Showroom',
     mainHeadingSize: 'sm:text-5xl text-2xl text[#3E3F42]',
     content: `The early days in Dubai, from a 'compact but cozy' Port Saeed office, were a testament to drive and ambition. 

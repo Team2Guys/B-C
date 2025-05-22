@@ -65,6 +65,7 @@ export default function MotorizeBlindCurtain() {
               togglePlayPause();
             }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/40 p-3 backdrop-blur-xs rounded-full shadow-md z-30 border transition"
+            aria-label="play video"
           >
             <FaPlay className="text-xl text-white" />
           </button>
