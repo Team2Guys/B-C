@@ -33,6 +33,8 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { SlCalender } from 'react-icons/sl';
 import { usePathname } from 'next/navigation';
 
+
+
 const Footer: React.FC = () => {
   const fetchAllData = async () => {
     const [products, categories, subcategories] = await Promise.all([
@@ -46,6 +48,7 @@ const Footer: React.FC = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['allData'],
     queryFn: fetchAllData,
+
   });
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname()
@@ -93,7 +96,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer>
-      <div className={`bg-white xs:bg-secondary-foreground sm:pt-10 sm:pb-5 py-7 ${(pathname.replaceAll('/','') !== 'request-appointment') && (pathname.replaceAll('/','') !== 'estimator') ? 'mt-10' :''}`}>
+      <div className={`bg-[#F5F5F5] sm:pt-10 sm:pb-5 py-7 ${(pathname.replaceAll('/','') !== 'request-appointment') && (pathname.replaceAll('/','') !== 'estimator') ? 'mt-10' :''}`}>
         <Container>
           <div className="grid grid-cols-1 xs:grid-cols-2  md:grid-cols-4 lg:grid-cols-5 gap-2">
             <div className="mb-4 flex flex-col items-start">

@@ -20,7 +20,7 @@ const PathnameWrapper = ({ children }: { children: ReactNode }) => {
       {children}
       {withoutHeaderPages.includes(pathname) || splited_urls.includes('dashboard') ? null : (
         <>
-        {splited_urls.includes('blog') || splited_urls.includes('product-guarantees') || pathname === '/faqs/' || isNotFoundPage  || splited_urls.includes('request-appointment') || splited_urls.includes('estimator') ? null : (
+        {splited_urls.includes('blog') || splited_urls.includes('product-guarantees') || pathname === '/faqs/' || pathname === '/about-us/' || isNotFoundPage  || splited_urls.includes('request-appointment') || splited_urls.includes('estimator') ? null : (
 
             <>
               {/* <Guarrenty /> */}

@@ -84,7 +84,7 @@ const Navbar = () => {
       {
         path === '/ppc/motorised-blinds/' || path === '/ppc/motorised-curtains/' || path === '/ppc/roller-blinds/' || path === '/ppc/made-to-measure-blinds/' || path === '/ppc/made-to-measure-curtains/' ? "" :
 
-          <div className="w-full bg-primary">
+          <div className="w-full bg-primary hidden md:block">
             <Container className="flex flex-wrap md:flex-nowrap justify-between items-center min-h-12">
               <div className="text-white py-2 text-10 md:text-14 font-normal font-roboto leading-relaxed 2xl:leading-loose flex gap-2 md:gap-10">
                 <Link href="tel:04 252 2025" target='_black' rel='no-referrer' className='flex gap-1 md:gap-2 items-center'>
@@ -103,6 +103,8 @@ const Navbar = () => {
             </Container>
           </div>
       }
+
+      
 
       <nav className="sticky -top-1 z-50 py-2 sm:py-0 bg-white">
 

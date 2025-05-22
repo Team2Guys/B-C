@@ -25,7 +25,7 @@ export default function VideoReelsSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext()
-    }, 10000)
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [activeIndex])
@@ -97,9 +97,7 @@ export default function VideoReelsSlider() {
       {isMobile && <NeedHelp />}
       <div className="relative mt-4">
         <div className="sm:py-6 py-4 text-center font-bold sm:w-full w-52 mx-auto">
-          <p className="font-robotoSerif sm:text-4xl text-xl text-primary font-bold">
-            Press Play on Style Quick Reels.
-          </p>
+          <p className="font-robotoSerif sm:text-4xl text-xl text-primary font-bold" >Press Play on Style Quick Reels!</p>
         </div>
         <Container>
           <div

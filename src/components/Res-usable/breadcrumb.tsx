@@ -29,7 +29,7 @@ const Breadcrumb = ({
 
   return (
     <div
-      className={`z-20 w-full p-2 bg-white  ${
+      className={`z-40 w-full p-2 bg-white  ${
         isScrolled ? "fixed top-[60px] sm:top-[92px]" : "relative  "
       } ${className}`}
     >
@@ -41,7 +41,9 @@ const Breadcrumb = ({
         {slug && (
           <>
             {arrow}
-            <Link href={`/${slug}`} className="capitalize text-primary font-roboto text-xs sm:text-base">
+          <Link  href={slug === "blinds"? "/made-to-measure-blinds/": slug === "curtains"? "/made-to-measure-curtains/": slug === "shutters"? "/shutters-range/": `/${slug}`}
+              className="capitalize text-primary font-roboto text-16 sm:text-base"
+            >
               {slug.replace(/-/g, " ")}
             </Link>
           </>
@@ -52,13 +54,21 @@ const Breadcrumb = ({
             {arrow}
             {title ? (
               <Link
-                href={`/${slug}/${subcategory}`}
+                 href={
+                    slug === "blinds"
+                      ? "/made-to-measure-blinds/"
+                      : slug === "curtains"
+                      ? "/made-to-measure-curtains/"
+                      : slug === "shutters"
+                      ? "/shutters-range/"
+                      : `/${slug}/${subcategory}`
+                  }
                 className="capitalize text-primary font-roboto text-xs sm:text-base"
               >
                 {subcategory.replace(/-/g, " ")}
               </Link>
             ) : (
-              <span className="capitalize  font-bold text-primary font-roboto text-xs sm:text-base">
+              <span className="capitalize  font-bold text-primary font-roboto text-16 sm:text-base">
                 {subcategory.replace(/-/g, " ")}
               </span>
             )}

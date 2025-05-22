@@ -144,25 +144,6 @@ export const Qualityfeatures = [
   },
 ]
 
-export const testimonialData = [
-  {
-    name: 'Imran Ahmad',
-    text: '“Amazing experience from start to finish. Ryan and Ben did a great job with installation, leaving drive and garage clean.”',
-  },
-  {
-    name: 'Sarah Williams',
-    text: '“Very professional and helpful. The curtains fit perfectly and look stunning in my living room.”',
-  },
-  {
-    name: 'John Doe',
-    text: '“Top-notch service! Installation was quick and the quality is great. Highly recommended.”',
-  },
-  {
-    name: 'Fatima Noor',
-    text: '“The staff was very friendly and gave great suggestions. Love the new look of my windows.”',
-  },
-]
-
 export const staticvideos = [
   {
     src: 'https://bncvidoes.s3.eu-north-1.amazonaws.com/mainblinds.mp4',
@@ -236,3 +217,23 @@ export const TABS = [
   "Motorization"
 ];
 
+export const logos = [
+  {
+    src: '/assets/detailpage/alexa.webp',
+    width: 70,
+    height: 40,
+    alt: 'alexa',
+  },
+  {
+    src: '/assets/detailpage/somfy.webp',
+    width: 67,
+    height: 18,
+    alt: 'somfy',
+  },
+  {
+    src: '/assets/detailpage/google.webp',
+    width: 128,
+    height: 23,
+    alt: 'google',
+  },
+];

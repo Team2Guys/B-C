@@ -15,8 +15,6 @@ import NotFound from 'app/not-found';
 import { BlindSchemaMap } from 'data/blinds-schema';
 const Cateories = [2];
 
-
-
 export async function generateMetadata({params}: meta_props): Promise<Metadata> {
   const product = (await params).product;
 

@@ -151,7 +151,7 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EstimatorProductTyp
   return (
     <>
       <Breadcrumb title='Estimator' />
-      <Container className="md:pt-10 pb-20">
+      <Container className="md:pt-10 lg:pb-20">
         <div className="grid grid-cols-12 md:gap-10 xl:gap-14 2xl:md:h-[677px] space-y-4 md:space-y-0 md:px-2 xl:px-0">
           <div className="col-span-12 md:col-span-6 mt-2 sm:mt-0">
             <div className='w-full h-[250px] md:h-[450px] xl:h-[560px]'>
@@ -252,7 +252,7 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EstimatorProductTyp
           </div>
         </div>
       </Container>
-      <InfoTabs tabData={tabData} />
+      <InfoTabs tabData={tabData} isHome />
       <Testimonial />
     </>
   );

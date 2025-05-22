@@ -29,7 +29,7 @@ const FaqTabs = () => {
           transition duration-300 text-primary`}
       >
         <span
-          className={`transition-all duration-200 text-16 md:text-20 font-normal font-roboto ${
+          className={`transition-all duration-200 text-16 md:text-20 font-roboto text-primary ${
             activeTab === tab ? "font-bold" : "font-normal"
           }`}
           dangerouslySetInnerHTML={{ __html: tab }}
@@ -55,7 +55,7 @@ const FaqTabs = () => {
     <div key={index} className="overflow-hidden border border-primary rounded-xl"> 
     <button
       onClick={() => toggleFaq(index)}
-      className={`w-full flex justify-between px-4 py-3 text-left rounded-b-md transition-all duration-200 text-14 sm:text-20 font-roboto font-bold ${
+      className={`w-full flex justify-between items-center px-4 py-3 text-left rounded-b-md transition-all duration-200 text-14 sm:text-20 font-roboto font-bold ${
         openIndex === index
           ? "text-white bg-primary hover:bg-primary/90"
           : "text-primary bg-secondary-foreground hover:bg-gray-50"

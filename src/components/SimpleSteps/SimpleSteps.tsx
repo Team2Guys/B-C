@@ -7,12 +7,12 @@ import Image from "next/image";
 export default function SimpleSteps() {
   return (
     <Container className="mt-5 md:mt-10">
-      <div className="mx-auto px-4">
+      <div className="mx-auto px-1 md:px-4">
         <div className="sm:py-7 pt-7 pb-0">
           <h2 className="sm:text-5xl text-2xl font-robotoSerif font-bold text-primary text-center">
             {workingProcessData.heading}
           </h2>
-          <p className="sm:text-xl text-lg mt-3 sm:mt-6 mb-2 text-center font-roboto text-primary sm:w-1/2 mx-auto sm:block hidden">
+          <p className="sm:text-xl text-lg mt-3 sm:mt-6 mb-2 text-center font-roboto text-primary max-w-5xl mx-auto sm:block hidden">
             {workingProcessData.subheading}
           </p>
           <h3 className="sm:text-2xl text-xl sm:font-bold font-semibold text-primary mb-6 text-center font-robotoSerif block sm:hidden">
@@ -40,7 +40,7 @@ export default function SimpleSteps() {
               {workingProcessData.steps.map((step, idx) => (
                 <div key={idx} className="flex items-start  gap-4 mt-1">
                   <div className="flex flex-col items-center space-y-1">
-                    <div className="rounded-full font-roboto bg-[#FFFFF0] sm:p-2 sm:text-base text-12 text-[#F1B42F] border border-[#f1b42f98] font-semibold flex items-center justify-center min-w-[70px] min-h-[70px]">
+                    <div className="rounded-full font-roboto bg-[#F1B42F1A] sm:p-2 sm:text-base text-12 text-[#F1B42F] border-2 border-[#F1B42F1A] font-semibold flex items-center justify-center min-w-[70px] min-h-[70px]">
                       {step.step}
                     </div>
                     <Image

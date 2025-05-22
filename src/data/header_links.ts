@@ -161,7 +161,7 @@ export const links = [
 
   { href: '/estimator', label: 'Estimator' },
   { href: '/blog', label: 'Blog' },
-  { href: '/faqs', label: 'FAQ’s' },
+  { href: '/faqs', label: 'FAQS' },
   { href: '/about-us', label: 'About Us' },
 ];
 

@@ -42,7 +42,7 @@ const VideoGuide = ({ videos,isMotorisedCategory }: { videos?: VideoItem[],isMot
   }
 
   return (
-    <div className="sm:bg-secondary-foreground py-6 sm:py-12 sm:mt-10">
+    <div className="bg-secondary-foreground py-6 sm:py-12 sm:mt-10">
       <Container className="space-y-5 md:space-y-10">
         <p className="font-robotoSerif font-extrabold text-2xl lg:text-5xl text-center">
           A Complete Guide To

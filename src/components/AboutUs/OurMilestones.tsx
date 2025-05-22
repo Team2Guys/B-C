@@ -28,14 +28,14 @@ export default function MilestoneSteps() {
                                 dangerouslySetInnerHTML={{ __html: milestoneStepsData.heading }}
                             />
 
-                            <p className="text-lg sm:text-xl mt-4 text-primary font-roboto  mx-auto font-semibold">
+                            <p className="text-24 sm:text-xl mt-4 text-primary font-roboto  mx-auto font-semibold">
                                 {milestoneStepsData.subheading}
                             </p>
                         </div>
                         {milestoneStepsData.steps.map((step, idx) => (
                             <div key={idx} className="flex items-start gap-4 mt-1">
                                 <div className="flex flex-col items-center space-y-1">
-                                    <div className="rounded-full font-roboto bg-[#FFFFF0] sm:p-2 sm:text-base text-sm text-[#F1B42F] border border-[#f1b42f98] font-semibold flex items-center justify-center min-w-[70px] min-h-[70px]">
+                                    <div className="rounded-full font-roboto bg-[#F1B42F1A] sm:p-2 sm:text-base text-sm text-[#F1B42F] border-2 border-[#F1B42F1A] font-semibold flex items-center justify-center min-w-[70px] min-h-[70px]">
                                         {step.step}
                                     </div>
                                     {step.iconimage && idx !== milestoneStepsData.steps.length - 1 && (
@@ -50,7 +50,7 @@ export default function MilestoneSteps() {
                                 </div>
                                 {/* Description */}
                                 <div className="flex flex-col justify-center pt-6">
-                                    <p className="text-sm sm:text-lg text-primary font-roboto">
+                                    <p className="text-16 font-medium sm:text-lg text-primary font-robotoSerif">
                                         {step.description}
                                     </p>
                                 </div>
