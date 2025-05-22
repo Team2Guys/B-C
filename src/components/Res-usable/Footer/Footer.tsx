@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
     <footer>
       <div className={`bg-[#F5F5F5] sm:pt-10 sm:pb-5 py-7 ${(pathname.replaceAll('/','') !== 'request-appointment') && (pathname.replaceAll('/','') !== 'estimator') ? 'mt-10' :''}`}>
         <Container>
-          <div className="grid grid-cols-1 xs:grid-cols-2  md:grid-cols-4 lg:grid-cols-5 gap-2">
+          <div className="grid grid-cols-1 xs:grid-cols-2  md:grid-cols-4 lg:grid-cols-5 gap-2 md:justify-items-center">
             <div className="mb-4 flex flex-col items-start">
               <Link href='/' aria-label="logo"
               >
@@ -390,8 +390,8 @@ const Footer: React.FC = () => {
               ))
               )}
 
-            <div className="flex flex-col gap-4 lg:pl-2 mt-0 sm:mt-4 lg:mt-0 col-auto md:col-span-3 lg:col-auto">
-              <div className={`${isMobile ? 'flex flex-col gap-4' : 'pl-0 lg:mx-auto flex flex-col md:flex-row lg:flex-col gap-4'}`}>
+            <div className="flex flex-col gap-4 lg:pl-2 mt-0 sm:mt-4 lg:mt-0 col-auto md:col-span-1 lg:col-auto">
+              <div className={`${isMobile ? 'flex flex-col gap-4' : 'pl-0 lg:mx-auto flex flex-col  gap-4'}`}>
                 <div>
                   {isMobile ? (
                     <button
@@ -418,7 +418,7 @@ const Footer: React.FC = () => {
                       )}
                     </button>
                   ) : (
-                    <h3 className="font-semibold text-18 xs:text-20 text-primary font-robotoSerif">
+                    <h3 className="font-semibold text-18 xs:text-20 text-primary font-robotoSerif max-lg:whitespace-nowrap">
                       Location We are In
                     </h3>
                   )}
