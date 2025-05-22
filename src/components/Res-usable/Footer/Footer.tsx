@@ -33,6 +33,8 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { SlCalender } from 'react-icons/sl';
 import { usePathname } from 'next/navigation';
 
+
+
 const Footer: React.FC = () => {
   const fetchAllData = async () => {
     const [products, categories, subcategories] = await Promise.all([
