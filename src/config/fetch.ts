@@ -4,6 +4,7 @@ import { Allproduct } from 'types/interfaces';
 import { generateSlug } from 'data/data';
 import { ChangedProductUrl } from 'data/urls';
 import { token } from 'components/ServerActons/ServerAction';
+import { initialRedirectUrls, RedirectUrls } from 'types/general';
 
 
 
@@ -56,12 +57,6 @@ export async function fetchSingleCategorymain(customUrl: string) {
       credentials: 'include',
       next: { tags: ['categories'] },
     });
-
-    if (!res.ok) {
-      const errorData = await res.json();
-      throw new Error(errorData.message || 'Failed to fetch category');
-    }
-
     const data = await res.json();
     return data;
   } catch (error: any) {
@@ -302,3 +297,81 @@ export async function deleteReview(id: string | number) {
 
   return await res.json();
 }
+
+
+
+
+// Redirecturls 
+
+export const fetchRedirectUrls = async () => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews/get-all_redirects`, {
+      next: { tags: ['redirects'] },
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error(error, "urlssadf");
+  }
+};
+
+
+export const createRedirectUrl = async (data: initialRedirectUrls) => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews/add_redirect`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+      next: { tags: ['redirects'] },
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+export const updateRedirectUrl = async (data: RedirectUrls) => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews/update_Redirect`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+export const deleteRedirectUrl = async (id: number) => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews/delet/${id}`, {
+      method: 'DELETE',
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchRedirectUrlById = async (url: string) => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews/getRedirect/${url}`, {
+      next: { tags: ['redirects'] },
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};

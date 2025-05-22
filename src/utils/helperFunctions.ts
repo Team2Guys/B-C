@@ -125,7 +125,7 @@ const subcategoryMap: Record<string, string[]> = {
 };
 
 export const getSubcategoriesByCategory = (categoryName: string): string[] => {
-  return subcategoryMap[categoryName.toLowerCase()] || [];
+  return subcategoryMap[categoryName?.toLowerCase()] || [];
 };
 
 
