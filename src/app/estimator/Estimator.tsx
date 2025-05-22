@@ -252,7 +252,7 @@ const EstimatorPage = ({ sortedProducts }: { sortedProducts: EstimatorProductTyp
           </div>
         </div>
       </Container>
-      <InfoTabs tabData={tabData} />
+      <InfoTabs tabData={tabData} isHome />
       <Testimonial />
     </>
   );

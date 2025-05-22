@@ -1,22 +1,3 @@
-export const commererical = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://blindsandcurtains.ae/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Commercial",
-            "item": "https://blindsandcurtains.ae/commercial/"
-        }
-    ]
-}
-
 
 
 export let schema: any = [

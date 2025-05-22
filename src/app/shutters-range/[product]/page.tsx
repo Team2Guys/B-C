@@ -1,8 +1,5 @@
 import {
-  fetchCategories,
   fetchProducts,
-  fetchSubCategories,
-  filtereCategory,
   filterProd,
 } from 'config/fetch';
 import Shutters from './Shutters';
@@ -12,7 +9,6 @@ import { Metadata } from 'next';
 import { meta_props } from 'types/interfaces';
 import { urls } from 'data/urls';
 import NotFound from 'app/not-found';
-import { colorData } from 'data/data';
 
 export async function generateMetadata({
   params,
@@ -20,13 +16,9 @@ export async function generateMetadata({
   const product = (await params).product;
   const Cateories = [9];
 
-  const [products, categories] = await Promise.all([
-    fetchProducts(),
-    fetchSubCategories(),
-  ]);
+  const [products] = await Promise.all([ fetchProducts()]);
 
   const filteredProduct = filterProd(products, product, Cateories);
-  const filteredSubCategory = filtereCategory(categories, product, Cateories);
 
   const headersList = await headers();
   const domain =
@@ -40,11 +32,9 @@ export async function generateMetadata({
 
   let ImageUrl =
     Product?.posterImage?.imageUrl ||
-    filteredSubCategory?.posterImage?.imageUrl ||
     'blindsandcurtains';
   let alt =
     Product?.posterImage.altText ||
-    filteredSubCategory?.posterImage?.altText ||
     'blindsandcurtains';
 
   let NewImage = [
@@ -55,11 +45,9 @@ export async function generateMetadata({
   ];
   let title =
     Product?.Meta_Title ||
-    filteredSubCategory?.Meta_Title ||
     'blindsandcurtains';
   let description =
     Product?.Meta_description ||
-    filteredSubCategory?.Meta_description ||
     'Welcome to blindsandcurtains';
   let url = `${fullUrl}shutters-range/${product}/`;
 
@@ -75,52 +63,30 @@ export async function generateMetadata({
     },
     alternates: {
       canonical:
-        Product?.Canonical_Tag || filteredSubCategory?.Canonical_Tag || url,
+        Product?.Canonical_Tag || url,
     },
   };
 }
 
 const CommercialPage = async ({ params }: meta_props) => {
   const product = (await params).product;
-  // const redirected_product = CommercialUrl.find(
-  //   (prod: { urlName: string; Redirect: string }) => {
-  //     return prod.urlName == String(product)?.toLowerCase();
-  //   },
-  // );
-
-  // if (redirected_product) {
-  //   permanentRedirect(redirected_product.Redirect, "replace" as RedirectType);
-  // }
+ 
   const Cateories = [9];
 
-  const [products, Subcategories, categories] = await Promise.all([
-    fetchProducts(),
-    fetchSubCategories(),
-    fetchCategories(),
-  ]);
+  const [products] = await Promise.all([fetchProducts()]);
 
   const filteredProduct = filterProd(products, product, Cateories);
-  const filteredSubCategory = filtereCategory(Subcategories, product, Cateories);
 
   const matchingUrl = urls.find((url) => `${url.errorUrl}/` === `/shutters-range/${product}/`);
-  const matchingColorShutter = colorData.find((clr) => clr.url === `/shutters-range/${product}/`)
   if (matchingUrl) {
     return <NotFound />
   }
-  if (!filteredSubCategory && !filteredProduct && !matchingColorShutter) {
+  if (!filteredProduct ) {
     return <NotFound />;
   }
 
   return (
-    <Shutters
-      filteredProduct={filteredProduct}
-      filteredSubCategory={filteredSubCategory}
-      product={product}
-      allprod={products}
-      categories={categories}
-      subCategories={Subcategories}
-      colorPage={matchingColorShutter}
-    />
+    <Shutters filteredProduct={filteredProduct}/>
   );
 };
 

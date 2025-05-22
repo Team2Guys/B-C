@@ -52,49 +52,24 @@ const FaqTabs = () => {
       />
       <div className="space-y-4">
         {FAQ_DATA[activeTab]?.map((faq, index) => (
-  //   <div key={index} className="overflow-hidden border border-primary rounded-sm"> 
-  //   <button
-  //     onClick={() => toggleFaq(index)}
-  //     className={`w-full flex justify-between px-4 py-3 text-left rounded-b-md transition-all duration-200 text-14 sm:text-20 font-roboto font-bold ${
-  //       openIndex === index
-  //         ? "text-white bg-primary hover:bg-primary/90"
-  //         : "text-primary bg-secondary-foreground hover:bg-gray-50"
-  //     }`}
-  //   >
-  //     <p className="w-[90%] sm:w-full">{faq.question}</p>
-  //     {openIndex === index ? <HiMinusSmall /> : <FiPlus className="h-4 w-4" />}
-  //   </button>
-  //   {openIndex === index && (
-  //     <div className="px-4 py-4 text-primary bg-white text-14 font-normal font-roboto sm:text-20">
-  //       <p>{faq.answer}</p>
-  //     </div>
-  //   )}
-  // </div>
-  <div
-  key={index}
-  className={`overflow-hidden border border-primary transition-all duration-300 ${
-    openIndex === index ? "rounded-xl rounded-t-xl" : "rounded-sm"
-  }`}
->
-  <button
-    onClick={() => toggleFaq(index)}
-    className={`w-full flex justify-between px-4 py-3 text-left transition-all duration-200 text-14 sm:text-20 font-roboto font-bold ${
-      openIndex === index
-        ? "text-white bg-primary hover:bg-primary/90 rounded-t-md"
-        : "text-primary bg-secondary-foreground hover:bg-gray-50 rounded-xl"
-    }`}
-  >
-    <p className="w-[90%] sm:w-full">{faq.question}</p>
-    {openIndex === index ? <HiMinusSmall /> : <FiPlus className="h-4 w-4" />}
-  </button>
-
-  {openIndex === index && (
-    <div className="px-4 py-4 text-primary bg-white text-14 font-normal font-roboto sm:text-20">
-      <p>{faq.answer}</p>
-    </div>
-  )}
-</div>
-
+    <div key={index} className="overflow-hidden border border-primary rounded-xl"> 
+    <button
+      onClick={() => toggleFaq(index)}
+      className={`w-full flex justify-between items-center px-4 py-3 text-left rounded-b-md transition-all duration-200 text-14 sm:text-20 font-roboto font-bold ${
+        openIndex === index
+          ? "text-white bg-primary hover:bg-primary/90"
+          : "text-primary bg-secondary-foreground hover:bg-gray-50"
+      }`}
+    >
+      <p className="w-[90%] sm:w-full">{faq.question}</p>
+      {openIndex === index ? <HiMinusSmall /> : <FiPlus className="h-4 w-4" />}
+    </button>
+    {openIndex === index && (
+      <div className="px-4 py-4 text-primary bg-white text-14 font-normal font-roboto sm:text-20">
+        <p>{faq.answer}</p>
+      </div>
+    )}
+  </div>
 ))}
       </div>
     </div>

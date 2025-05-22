@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Container from 'components/Res-usable/Container/Container';
 import { ICategory, IProduct } from 'types/types';
-import VideoAutomation from 'components/video-Automation/video-Automation';
 import Support from 'components/Res-usable/support/support';
 import { Image } from 'antd';
 import { IoSearch } from 'react-icons/io5';
@@ -157,7 +156,6 @@ const Gallery = ({ products, categories }: { products: IProduct[], categories: I
         </div>
       </Container>
 
-      <VideoAutomation />
       <Support />
     </>
   );

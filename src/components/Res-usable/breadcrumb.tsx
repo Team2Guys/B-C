@@ -29,7 +29,7 @@ const Breadcrumb = ({
 
   return (
     <div
-      className={`z-20 w-full p-2 bg-white  ${
+      className={`z-40 w-full p-2 bg-white  ${
         isScrolled ? "fixed top-[60px] sm:top-[92px]" : "relative  "
       } ${className}`}
     >
