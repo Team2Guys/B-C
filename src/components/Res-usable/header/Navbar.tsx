@@ -77,6 +77,8 @@ const Navbar = () => {
     setDrawerOpen(false);
   };
 
+
+
   return (
     <>
       {
@@ -116,16 +118,16 @@ const Navbar = () => {
                 alt="Logo"
               />
             </Link>
-            <div className='!w-[150px] overflow-hidden'>
+            <div className='w-[140px] xl:w-[180px] overflow-hidden'>
               {!translatorReady ?
                 <div
                   className={`bg-gray-300 h-8 w-full rounded-lg`} />
                 :
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   <button
-                    onClick={() => handleLanguageSwitch('ar')}
-                    disabled={!translatorReady || language === 'ar'}
-                    className='flex items-center gap-1 w-14 py-1 rounded-md font-medium text-sm transition-colors duration-200'
+                    onClick={() => handleLanguageSwitch('en')}
+                    disabled={!translatorReady || language === 'en'}
+                    className='flex items-center justify-end gap-1 w-[90px] xl:w-28 py-1 rounded-md font-medium text-12 xl:text-lg transition-colors duration-200 text-primary'
                   >
                     <Image
                       src="/assets/uaeFlag.webp"
@@ -134,16 +136,15 @@ const Navbar = () => {
                       height={20}
                       className="rounded-full size-6"
                     />
-                    <span>AR</span>
+                    <span className='max-w-10 xl:max-w-14'>English</span>
                   </button>
-                  <div className='border border-black w-[1px] h-4'></div>
+                  <div className='bg-primary w-[1px] h-6'></div>
                   <button
-                    onClick={() => handleLanguageSwitch('en')}
-                    disabled={!translatorReady || language === 'en'}
-                    className='w-14 py-1 rounded-md font-medium text-sm transition-colors duration-200'
-
+                    className='w-fit py-1 mb-2 text-start rounded-md font-medium text-12 xl:text-lg transition-colors duration-200 text-primary'
+                    onClick={() => handleLanguageSwitch('ar')}
+                    disabled={!translatorReady || language === 'ar'}
                   >
-                    EN
+                    عربی
                   </button>
                 </div>
               }

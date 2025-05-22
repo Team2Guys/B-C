@@ -761,24 +761,3 @@ ol {
 .ant-collapse-header{
   border: none !important;
 }
-
-.custom-switch {
-  direction: rtl; /* Reverses the thumb direction */
-}
-
-.custom-switch.ant-switch {
-  background-color: var(--primary); /* Tailwind’s primary color */
-  border: none;
-}
-
-.custom-switch.ant-switch-checked {
-  background-color: var(--secondary); /* Tailwind’s secondary color */
-}
-
-.custom-switch.ant-switch:hover {
-  background-color: var(--primary) !important; /* Tailwind primary hover: blue-600 */
-}
-
-.custom-switch.ant-switch-checked:hover {
-  background-color: var(--secondary) !important; /* Tailwind secondary hover: custom yellow shade */
-}
