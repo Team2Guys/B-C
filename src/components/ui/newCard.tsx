@@ -1,19 +1,11 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { IProduct } from 'types/types';
 import { getPath } from 'utils/helperFunctions';
 
 const Card = ({ card }: { card: IProduct }) => {
-  const [expanded, setExpanded] = useState(false);
-  const maxChars = 54;
-
-  const shortText = card.short_description || '';
-  const isClamped = shortText.length > maxChars;
-  const displayedText = expanded || !isClamped
-    ? shortText
-    : shortText.slice(0, maxChars).trim() + '...';
 
   return (
     <div className="px-2">
@@ -35,16 +27,8 @@ const Card = ({ card }: { card: IProduct }) => {
 
           <div className="text-primary text-xl md:text-lg font-roboto transition-all">
             <p>
-              {displayedText}{' '}
-              {isClamped && (
-                <button
-                  type="button"
-                  onClick={() => setExpanded(!expanded)}
-                  className="text-secondary underline font-medium"
-                >
-                  {expanded ? 'Read less' : 'Read more'}
-                </button>
-              )}
+              {card?.short_description?.slice(0, 50)}{' '}
+            
             </p>
           </div>
 
