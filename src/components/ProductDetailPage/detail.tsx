@@ -42,28 +42,34 @@ const Detail = ({ data, setColorImage, selectedColor }: DetailProps) => {
         </button>
       )}
       </p>
-      <p className='font-roboto px-2'>Most Demanded Color</p>
-      <div className=' flex items-center gap-2 md:pb-10 px-2'>
-      <div className='flex items-center gap-2'>
-     {data.colors?.map((item: { name?: string; detail?: string }, index: number) => {
-          if (!item.detail) return null;
-          const colorCode = `#${item.detail}`;
-          const isSelected = selectedColor === colorCode;
-
-          return (
-            <div
-              key={index}
-              onClick={() => setColorImage(colorCode)}
-              style={{ backgroundColor: colorCode }}
-              className={`h-9 md:w-12 w-9 md:h-12 rounded-sm cursor-pointer shadow border-2 ${
-                isSelected ? 'border-secondary' : ''
-              }`}
-            />
-          );
-        })}
-      </div>
-        <p className='border rounded-lg font-roboto h-12 flex items-center px-2 text-xs md:text-base max-sm:max-w-32'>We still 3000 plus color availble </p>
-      </div>
+        {
+          data.colors && data.colors.length > 0 && (
+            <>
+            <p className='font-roboto px-2'>Most Demanded Color</p>
+            <div className=' flex items-center gap-2 md:pb-10 px-2'>
+            <div className='flex items-center gap-2'>
+          {data.colors?.map((item: { name?: string; detail?: string }, index: number) => {
+                if (!item.detail) return null;
+                const colorCode = `#${item.detail}`;
+                const isSelected = selectedColor === colorCode;
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setColorImage(colorCode)}
+                    style={{ backgroundColor: colorCode }}
+                    className={`h-9 md:w-12 w-9 md:h-12 rounded-sm cursor-pointer shadow border-2 ${
+                      isSelected ? 'border-secondary' : ''
+                    }`}
+                  />
+                );
+              })}
+            </div>
+              <p className='border rounded-lg font-roboto h-12 flex items-center px-2 text-xs md:text-base max-sm:max-w-32'>We still 3000 plus color availble </p>
+              </div>
+              </>
+            )
+          }
+      
         <Link href="/request-appointment/" className='bg-secondary text-primary py-3 px-6 font-semibold hidden md:block rounded-md w-full sm:w-fit font-roboto text-center '>Book A Free Visit</Link>
 
       <div className='flex max-sm:flex-col sm:items-stretch sm:gap-2 sm:pt-5 px-2'>
