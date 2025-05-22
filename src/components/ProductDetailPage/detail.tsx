@@ -2,16 +2,12 @@
 import { featuresinfo } from 'data/Homedata/tabdata'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React from 'react'
 import { DetailProps } from 'types/product'
-import { getFirstNWords } from 'utils/helperFunctions'
 
 
 const Detail = ({ data, setColorImage, selectedColor }: DetailProps) => {
-    const [expanded, setExpanded] = useState(false)
-    const toggleExpanded = () => setExpanded(prev => !prev)
-    const shouldTruncate = data.description.replace(/<[^>]+>/g, '').split(/\s+/).length > 100
-    const shortDescription = getFirstNWords(data.description, 50)
+  
   return (
     <div className=' space-y-2 sm:space-y-4 max-w-[650px]'>
       <h1 className='font-robotoSerif font-bold text-2xl xl:text-5xl text-primary px-2'>{data.title}</h1>
@@ -29,18 +25,7 @@ const Detail = ({ data, setColorImage, selectedColor }: DetailProps) => {
       </div>
       <p className='px-2'>
       <span className='font-roboto'
-        dangerouslySetInnerHTML={{
-          __html: expanded || !shouldTruncate ? data.description : shortDescription
-        }}
-      />
-      {shouldTruncate && (
-        <button
-          className='text-secondary font-medium outline-none'
-          onClick={toggleExpanded}
-        >
-          {expanded ? 'Read less' : 'Read more...'}
-        </button>
-      )}
+        dangerouslySetInnerHTML={{ __html:data.description}}/>
       </p>
         {
           data.colors && data.colors.length > 0 && (
