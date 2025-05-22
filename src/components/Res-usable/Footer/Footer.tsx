@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer>
-      <div className={`bg-white xs:bg-primary-foreground sm:pt-10 sm:pb-5 py-7 ${(pathname.replaceAll('/','') !== 'request-appointment') && (pathname.replaceAll('/','') !== 'estimator') ? 'mt-10' :''}`}>
+      <div className={`bg-white xs:bg-secondary-foreground sm:pt-10 sm:pb-5 py-7 ${(pathname.replaceAll('/','') !== 'request-appointment') && (pathname.replaceAll('/','') !== 'estimator') ? 'mt-10' :''}`}>
         <Container>
           <div className="grid grid-cols-1 xs:grid-cols-2  md:grid-cols-4 lg:grid-cols-5 gap-2">
             <div className="mb-4 flex flex-col items-start">

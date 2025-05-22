@@ -17,8 +17,9 @@ const OurClient = () => {
   }, []);
   return (
     <>{!isMobile && <NeedHelp />}
-      <Container className=' mt-10'>
-        <div className=" pb-5 pt-4 max-w-screen-2xl mx-auto">
+    <div className='sm:bg-secondary-foreground sm:py-14 py-5 mt-10'>
+        <Container >
+        <div className=" pb-5 max-w-screen-2xl mx-auto">
           <h2 className="text-center font-bold text-2xl xs:text-xl sm:text-2xl lg:text-4xl xl:text-[44px] text-primary capitalize font-robotoSerif">
             Trusted By Many Multinational Brands
           </h2>
@@ -50,6 +51,7 @@ everyone who sees them says, &quot;I want that too.&quot;
           )
         }
       </Container>
+    </div>
     </>
   );
 };
