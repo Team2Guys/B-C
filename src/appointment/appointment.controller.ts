@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
 import { Prisma } from '@prisma/client';
-import { CreateUserDto } from 'src/admins/dto/create-user.dto';
+import { CreateUserDto } from '../../src/admins/dto/create-user.dto';
 
 @Controller('appointments')
 export class AppointmentController {

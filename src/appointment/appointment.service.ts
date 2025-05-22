@@ -3,7 +3,7 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { Prisma } from '@prisma/client';
 import { capitalizeWords, CustomErrorHandler } from '../utils/helperFunctions';
 import * as nodemailer from 'nodemailer';
-import { CreateUserDto } from 'src/admins/dto/create-user.dto';
+import { CreateUserDto } from '../../src/admins/dto/create-user.dto';
 @Injectable()
 export class AppointmentService {
   constructor(private prisma: PrismaService) { }
