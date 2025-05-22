@@ -217,3 +217,23 @@ export const TABS = [
   "Motorization"
 ];
 
+export const logos = [
+  {
+    src: '/assets/detailpage/alexa.webp',
+    width: 70,
+    height: 40,
+    alt: 'alexa',
+  },
+  {
+    src: '/assets/detailpage/somfy.webp',
+    width: 67,
+    height: 18,
+    alt: 'somfy',
+  },
+  {
+    src: '/assets/detailpage/google.webp',
+    width: 128,
+    height: 23,
+    alt: 'google',
+  },
+];

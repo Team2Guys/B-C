@@ -11,6 +11,7 @@ import Faqs from 'components/product-category/Faqs';
 import Information from './information';
 import {tabDataDetail } from 'data/Homedata/tabdata';
 import InfoTabs from 'components/NewHomecomponents/info';
+import Customisation from './Customisation';
 
 interface IProductDetail {
   title: string;
@@ -34,10 +35,7 @@ const ProductDetail = ({ title, filterProduct  }: IProductDetail) => {
           <Detail data={filterProduct} setColorImage={setColorImage} selectedColor={colorImage}/>
       </div>
     </Container>
-      {
-        isMotorisedCategory &&
-      <InfoTabs tabData={tabDataDetail} />
-      }
+      {isMotorisedCategory &&<InfoTabs tabData={tabDataDetail} />}
 
         <div className='grid grid-cols-12 w-full'>
         <div className={` col-span-12 ${isMotorisedCategory ? "order-2" : "order-1"}`}>
@@ -45,13 +43,12 @@ const ProductDetail = ({ title, filterProduct  }: IProductDetail) => {
         </div>
         <div className={`col-span-12 ${isMotorisedCategory ? "order-1" : "order-2"}`}>
         <VideoGuide videos={isMotorisedCategory ? "" :filterProduct.videos } isMotorisedCategory={isMotorisedCategory}/>
-          
+        {isMotorisedCategory && <Customisation/>   }
         </div>
         </div>
-    
-    <Testimonial/>
-    <Faqs Data={filterProduct} />
-    <Information privacySectoin={filterProduct.privacySectoin} privarcyImage={filterProduct?.privarcyImage}/>
+        <Testimonial/>
+        <Faqs Data={filterProduct} />
+        <Information privacySectoin={filterProduct.privacySectoin} privarcyImage={filterProduct?.privarcyImage}/>
     </div>
   )
 }
