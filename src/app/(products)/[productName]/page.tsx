@@ -82,7 +82,6 @@ const Products = async ({ params }: Props) => {
   );
 
 
-  console.log(category.products, 'products')
 
   return (
     <>

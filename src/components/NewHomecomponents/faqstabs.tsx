@@ -15,9 +15,8 @@ const FaqTabs = () => {
 
   return (
       <div className="">
-    <div className="relative mb-3 overflow-x-auto scrollbar-hide font-roboto">
-  <div className="absolute bottom-0 left-0 w-full h-[4px] bg-primary z-0" />
-  <div className="flex flex-nowrap justify-between relative z-10">
+   <div className="relative mb-3 overflow-x-auto scrollbar-hide font-roboto w-full">
+  <div className="flex flex-nowrap justify-between w-max 2xl:w-full relative border-b-4 border-primary">
     {TABS.map((tab) => (
       <button
         key={tab}
@@ -26,8 +25,8 @@ const FaqTabs = () => {
           setOpenIndex(0);
         }}
         className={`relative group flex sm:block items-center gap-3 md:py-2 
-          whitespace-nowrap w-full px-4 sm:justify-center text-center mx-auto
-          focus:outline-none transition duration-300 text-primary`}
+          whitespace-nowrap px-4 sm:justify-center text-center focus:outline-none 
+          transition duration-300 text-primary`}
       >
         <span
           className={`transition-all duration-200 text-16 md:text-20 font-normal font-roboto ${
@@ -36,7 +35,7 @@ const FaqTabs = () => {
           dangerouslySetInnerHTML={{ __html: tab }}
         />
         <span
-          className={`absolute bottom-0 left-0 w-full h-[4px] transition-all duration-300 ${
+          className={`absolute bottom-[-4px] left-0 w-full h-[4px] z-10 transition-all duration-300 ${
             activeTab === tab
               ? "bg-secondary"
               : "bg-transparent group-hover:bg-secondary"
@@ -45,7 +44,8 @@ const FaqTabs = () => {
       </button>
     ))}
   </div>
-    </div>
+</div>
+
       <h2
         className="text-2xl font-bold lg:text-[38px] text-center my-5 sm:my-10 text-primary lg:leading-10 2xl:leading-normal font-robotoSerif"
         dangerouslySetInnerHTML={{ __html: activeTab }}

@@ -7,26 +7,42 @@ import NeedHelp from "components/NeedHelp/NeedHelp"
 
 export default function VideoReelsSlider() {
   const [activeIndex, setActiveIndex] = useState(2)
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640); // sm: 640px
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const [isMobile, setIsMobile] = useState(false)
   const totalVideos = reelsData.length
 
+  const videoRefs = useRef<HTMLVideoElement[]>([])
   const touchStartX = useRef<number | null>(null)
   const touchEndX = useRef<number | null>(null)
   const minSwipeDistance = 50
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640)
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext()
-    }, 3000)
+    }, 10000)
 
     return () => clearInterval(interval)
   }, [activeIndex])
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === activeIndex) {
+          video.play()
+        } else {
+          video.pause()
+          video.currentTime = 0
+        }
+      }
+    })
+  }, [activeIndex])
+
   const goToPrevious = () =>
     setActiveIndex((prev) => (prev === 0 ? totalVideos - 1 : prev - 1))
 
@@ -77,10 +93,13 @@ export default function VideoReelsSlider() {
   }
 
   return (
-    <>{isMobile && <NeedHelp />}
+    <>
+      {isMobile && <NeedHelp />}
       <div className="relative mt-4">
         <div className="sm:py-6 py-4 text-center font-bold sm:w-full w-52 mx-auto">
-          <p className="font-robotoSerif sm:text-4xl text-xl text-primary font-bold" >Press Play on Style Quick Reels.</p>
+          <p className="font-robotoSerif sm:text-4xl text-xl text-primary font-bold">
+            Press Play on Style Quick Reels.
+          </p>
         </div>
         <Container>
           <div
@@ -88,7 +107,6 @@ export default function VideoReelsSlider() {
             onTouchEnd={onTouchEnd}
             className="relative flex items-center justify-center sm:h-[570px] h-[300px] overflow-hidden"
           >
-
             {reelsData.map((item, index) => (
               <div
                 key={index}
@@ -97,13 +115,14 @@ export default function VideoReelsSlider() {
                   index
                 )}`}
               >
-                <div className="relative sm:w-[500px] sm:h-[500px] w-[150px] h-[280px] rounded-2xl overflow-hidden shadow-lg"
-                >
+                <div className="relative sm:w-[500px] sm:h-[500px] w-[150px] h-[280px] rounded-2xl overflow-hidden shadow-lg">
                   <video
+                    ref={(el) => {
+                      if (el) videoRefs.current[index] = el
+                    }}
                     key={item.videoUrl}
                     src={item.videoUrl}
                     className="w-full h-full object-cover"
-                    autoPlay
                     loop
                     muted
                     playsInline
@@ -111,21 +130,6 @@ export default function VideoReelsSlider() {
                   />
                 </div>
               </div>
-            ))}
-          </div>
-
-
-
-          {/* Pagination dots */}
-          <div className="justify-center gap-2 mt-8 select-none hidden">
-            {reelsData.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                aria-label={`Go to video ${index + 1}`}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex ? "bg-white w-6" : "bg-white/40"
-                  }`}
-              />
             ))}
           </div>
         </Container>
