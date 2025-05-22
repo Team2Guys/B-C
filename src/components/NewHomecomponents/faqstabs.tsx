@@ -58,7 +58,7 @@ const FaqTabs = () => {
       className={`w-full flex justify-between px-4 py-3 text-left rounded-b-md transition-all duration-200 text-14 sm:text-20 font-roboto font-bold ${
         openIndex === index
           ? "text-white bg-primary hover:bg-primary/90"
-          : "text-primary bg-[#F5F5F5] hover:bg-gray-50"
+          : "text-primary bg-secondary-foreground hover:bg-gray-50"
       }`}
     >
       <p className="w-[90%] sm:w-full">{faq.question}</p>

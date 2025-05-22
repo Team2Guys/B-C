@@ -10,7 +10,7 @@ export default function ReviewBanner() {
 
   
   return (
-    <div className="pt-5 lg:pt-10 bg-[#F5F5F5]]">
+    <div className="pt-5 lg:pt-10 bg-secondary-foreground">
       <Container className="grid grid-cols-1 md:grid-cols-2">
       <div className="md:max-w-screen-xs flex flex-col md:flex-row gap-6 items-center md:items-start relative mt-2">
         <Image src={"/assets/images/logo-review.png"} className="relative top-0 left-0 hidden md:block" width={100} height={40} alt="logo"/>

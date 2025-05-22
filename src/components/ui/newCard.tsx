@@ -17,7 +17,7 @@ const Card = ({ card }: { card: IProduct }) => {
 
   return (
     <div className="px-2">
-      <div className="space-y-2 bg-primary-foreground rounded-xl">
+      <div className="space-y-2 bg-secondary-foreground rounded-xl">
         <Link href={getPath(card)} className="relative block w-full h-[300px] md:h-[365px]">
           <Image
             src={card?.posterImage?.imageUrl}

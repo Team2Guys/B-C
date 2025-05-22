@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, SetStateAction } from 'react';
+import React, { useState, useEffect, SetStateAction, useRef } from 'react';
 import {
   Formik,
   FieldArray,
@@ -54,7 +54,8 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
   const [selectedSubcategoryIds, setSelectedSubcategoryIds] = useState<number[]>([]);
 
   const [previousSelectedCategories, setpreviousSelectedCategories] = useState<number[]>([]);
-
+  const dragImage = useRef<number | null>(null);
+  const draggedOverImage = useRef<number | null>(null);
   const token = Cookies.get('2guysAdminToken');
   const superAdminToken = Cookies.get('superAdminToken');
   let finalToken = token ? token : superAdminToken;
@@ -122,6 +123,19 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
 
     CategoryHandler();
   }, [EditInitialValues]);
+
+    function handleSort() {
+    if (dragImage.current === null || draggedOverImage.current === null) return;
+
+    const imagesClone = imagesUrl && imagesUrl.length > 0 ? [...imagesUrl] : [];
+
+    const temp = imagesClone[dragImage.current];
+    imagesClone[dragImage.current] = imagesClone[draggedOverImage.current];
+    imagesClone[draggedOverImage.current] = temp;
+
+    setImagesUrl(imagesClone);
+  }
+
 
   const onSubmit = async (values: any, { resetForm }: any) => {
     try {
@@ -1574,9 +1588,17 @@ const FormElements: React.FC<ADDPRODUCTFORMPROPS> = ({
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
                         {imagesUrl.map((item: any, index) => {
                           return (
-                            <div key={index}>
+                            <div key={index}
+                             draggable
+                              onDragStart={() => (dragImage.current = index)}
+                              onDragEnter={() =>
+                                (draggedOverImage.current = index)
+                              }
+                              onDragEnd={handleSort}
+                              onDragOver={(e) => e.preventDefault()}
+                            >
                               <div className="relative group rounded-lg overflow-hidden shadow-md bg-white transform transition-transform duration-300 hover:scale-105">
-                                <div className="absolute top-1 right-1 invisible group-hover:visible errorColor bg-white rounded-full z-10">
+                                <div className="absolute top-1 right-1 invisible group-hover:visible errorColor bg-white rounded-full z-10" draggable>
                                   <RxCross2
                                     className="cursor-pointer btext-red-500 hover:errorColor-700"
                                     size={17}

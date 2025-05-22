@@ -12,7 +12,7 @@ export default function InfoTabs({ tabData,isHome }: InfoTabsProps) {
   const [activeMobileTab, setActiveMobileTab] = useState<number | null>(null);
 
   return (
-    <div className={`bg-[#F5F5F5] ${isHome?"":"mt-10"}`}>
+    <div className={`bg-secondary-foreground ${isHome?"":"mt-10"}`}>
     <Container>
       {
         isHome ? 
