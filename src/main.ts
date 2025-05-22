@@ -25,13 +25,14 @@ async function bootstrap() {
          "https://www.avenue39.com",
           "https://www.avenue39.com",
           "https://bncprod.vercel.app/",
-          "https://bncprod.vercel.app"
+          "https://bncprod.vercel.app",
+              /\.vercel\.app$/,
 
 
     ],
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     preflightContinue: false,
-    allowedHeaders: ['Content-Type', 'authorization'],
+    allowedHeaders: ['Content-Type',"Authorization", 'authorization'],
     
   })
 
