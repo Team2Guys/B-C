@@ -24,6 +24,7 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({
   return (
     <div className="relative">
       {/* Custom Arrows */}
+      <div className='hidden sm:block'>
       <button
         ref={prevRef}
         className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-secondary rounded-full shadow-md flex justify-center items-center size-6"
@@ -36,6 +37,7 @@ const EstimatorProduct: React.FC<EstimatorProps> = ({
       >
         <MdKeyboardArrowRight className='text-white text-2xl' />
       </button>
+      </div>
 
       <Swiper
         modules={[Navigation]}

@@ -58,7 +58,7 @@ const CallUS = () => {
    };
 
    return (
-      <Container className='xs:py-5 lg:!pb-10 '>
+      <Container className='xs:py-5 lg:!pb-10 xl:mt-7 '>
          <div className='bg-primary grid grid-cols-1 sm:grid-cols-9 sm:px-0 px-3 rounded-md'>
             <div className='relative sm:col-span-5 md:col-span-4 sm:h-[320px] xsm:px-8 sm:px-0'>
                <Image src='/assets/images/callus/callus.png' fill className='!relative hidden sm:block' alt='call us image' />
