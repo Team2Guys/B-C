@@ -5,8 +5,7 @@ import showToast from "components/Toaster/Toaster";
 import React, { ChangeEvent, DragEvent, SetStateAction, useRef, useState } from "react";
 import { BsCloudDownload, BsCloudUpload } from "react-icons/bs";
 
-
-export interface ImagesProps {
+ interface ImagesProps {
   imageUrl: string;
   public_id: string;
 }
