@@ -30,8 +30,8 @@ const CustomModal: React.FC<CustomModalProps> = ({
       onClick={handleBackdropClick}
     >
       <div
-        className="bg-primary-foreground shadow-xl w-full max-w-4xl relative z-50  rounded-lg"
-        onClick={(e) => e.stopPropagation()} // Prevent closing on modal click
+        className="bg-secondary-foreground shadow-xl w-full max-w-4xl relative z-50  rounded-lg"
+        onClick={(e) => e.stopPropagation()} 
       >
         {title && (
           <div className="px-6 py-4 border-b border-gray-200 relative shadow-md">
