@@ -34,8 +34,10 @@ const ProductDetail = ({ title, filterProduct  }: IProductDetail) => {
           <Detail data={filterProduct} setColorImage={setColorImage} selectedColor={colorImage}/>
       </div>
     </Container>
-      
+      {
+        isMotorisedCategory &&
       <InfoTabs tabData={tabDataDetail} />
+      }
 
         <div className='grid grid-cols-12 w-full'>
         <div className={` col-span-12 ${isMotorisedCategory ? "order-2" : "order-1"}`}>

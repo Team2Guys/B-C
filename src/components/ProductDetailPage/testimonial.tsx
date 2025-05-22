@@ -39,7 +39,7 @@ const Testimonial = () => {
       <p className="font-bold font-robotoSerif text-[40px] hidden md:block text-center">
         Testimonial
       </p>
-      <div className="bg-[#F5F5F5] py-10">
+      <div className=" py-10">
         <Container className="grid grid-cols-12 gap-6">
           {/* Left Section */}
           <div className="col-span-12 md:col-span-4 flex flex-col items-center md:items-start space-y-4 text-center md:text-left">
@@ -68,10 +68,10 @@ const Testimonial = () => {
             <div className="custom-test">
               <Slider {...settings}>
                 {reviews?.map((item:IREVIEWS, index:number) => (
-                  <div key={index} className="p-4 ">
+                  <div key={index} className="px-4 sm:mb-2 ">
                     <div className=" space-y-3 h-full">
-                      <p className="font-robotoSerif font-bold text-xl">{item.name}</p>
-                      <p className="font-roboto text-gray-700 text-sm md:text-base">{item.ReviewsDescription}</p>
+                      <p className="font-robotoSerif font-bold text-xl text-center sm:text-start">{item.name}</p>
+                      <p className="font-roboto text-gray-700 text-sm md:text-base text-center sm:text-start">{item.ReviewsDescription}</p>
                     </div>
                   </div>
                 ))}

@@ -10,7 +10,7 @@ const Accordion = ({ items }:AccordionProps) => {
   };
 
   return (
-    <div className=" p-4 space-y-2 ">
+    <div className=" px-2 sm:p-4 space-y-2 ">
       {items && items.map((item, index) => (
         <div key={index} className="border-b rounded-md bg-white py-2 space-y-2">
           <button

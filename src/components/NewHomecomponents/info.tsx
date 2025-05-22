@@ -12,7 +12,7 @@ export default function InfoTabs({ tabData,isHome }: InfoTabsProps) {
   const [activeMobileTab, setActiveMobileTab] = useState<number | null>(null);
 
   return (
-    <div className={`bg-[#F5F5F5] ${isHome?"":"mt-10"}`}>
+    <div className={`bg-secondary-foreground ${isHome?"":"mt-10"}`}>
     <Container>
       {
         isHome ? 
@@ -55,7 +55,7 @@ export default function InfoTabs({ tabData,isHome }: InfoTabsProps) {
       <hr className=" relative bottom-[5px] bg-primary border-b-4 border-black hidden sm:block" />
       {/* Desktop Content */}
       <div className="hidden sm:block">
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-16 items-center md:p-8 p-2">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-16 items-center md:py-8 p-2">
           <div className="flex flex-col justify-center items-start space-y-5 lg:space-y-12">
             <h3 className="font-robotoSerif font-semibold text-20 lg:text-[40px] text-primary sm:pr-10">{tabData[activeTab].heading}</h3>
             <p className="text-[16px] font-normal font-roboto lg:text-[20px] text-primary text-justify" dangerouslySetInnerHTML={{__html:tabData[activeTab].description}}/>

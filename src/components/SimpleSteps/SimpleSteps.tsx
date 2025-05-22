@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function SimpleSteps() {
   return (
     <Container className="mt-5 md:mt-10">
-      <div className="mx-auto px-4">
+      <div className="mx-auto px-1 md:px-4">
         <div className="sm:py-7 pt-7 pb-0">
           <h2 className="sm:text-5xl text-2xl font-robotoSerif font-bold text-primary text-center">
             {workingProcessData.heading}
