@@ -191,7 +191,7 @@ const Navbar = () => {
               setOpen={setDrawerOpen}
               selectedLabel={selectedLabel}
               mobileBgColor="#E6E4E5"
-              className="custom-moblie-sheet mb-10"
+              className="mb-10"
             >
 
               <div className='flex justify-between items-center mt-4 mb-5'>

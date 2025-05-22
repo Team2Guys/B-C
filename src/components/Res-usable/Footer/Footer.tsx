@@ -317,7 +317,7 @@ const Footer: React.FC = () => {
                                 )}
                               </ul>
                             ),
-                            className: 'custom-panel pt-[6px]',
+                            className: 'pt-[6px]',
                           },
                         ]}
 
