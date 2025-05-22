@@ -41,7 +41,7 @@ export default function MotorizeBlindCurtain() {
 
       {/* Video Section */}
       <div
-        className="relative w-full mx-auto overflow-hidden h-[270px] xs:h-full sm:h-[744px] group cursor-pointer"
+        className="relative w-full mx-auto overflow-hidden h-[272px] sm:h-[400px]  lg:h-[744px] group cursor-pointer"
         onClick={togglePlayPause}
       >
         <video
@@ -80,7 +80,7 @@ export default function MotorizeBlindCurtain() {
             <Link
               key={i}
               href={link}
-              className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold font-roboto py-2 px-5 rounded-md shadow-md sm:text-base text-12 transition"
+              className="bg-secondary hover:bg-yellow-500 text-primary font-semibold font-roboto py-2 lg:py-4 px-5 rounded-md shadow-md sm:text-base text-12 transition"
             >
               {label}
             </Link>
@@ -89,7 +89,7 @@ export default function MotorizeBlindCurtain() {
       </div>
 
       {/* Features (Desktop) */}
-      <div className="py-5 hidden sm:flex flex-wrap justify-center gap-20 text-center bg-secondary-foreground">
+      <div className="py-5 hidden sm:flex flex-wrap justify-center gap-20 text-center bg-secondary-foreground mx-1 xl:mx-0">
         {motorizeBlindData.features.map(({ icon, label }, i) => (
           <div key={i} className="flex flex-col items-center gap-2 relative">
             <div className="w-20 h-20 relative">

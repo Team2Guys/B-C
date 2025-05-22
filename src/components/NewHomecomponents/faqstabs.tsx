@@ -29,7 +29,7 @@ const FaqTabs = () => {
           transition duration-300 text-primary`}
       >
         <span
-          className={`transition-all duration-200 text-16 md:text-20 font-normal font-roboto ${
+          className={`transition-all duration-200 text-16 md:text-20 font-roboto text-primary ${
             activeTab === tab ? "font-bold" : "font-normal"
           }`}
           dangerouslySetInnerHTML={{ __html: tab }}

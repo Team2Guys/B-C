@@ -38,9 +38,9 @@ const AboutUsPage = () => {
           <h1 className="text-white text-4xl md:text-6xl font-bold">About Us</h1>
         </div>
       </section>
-      <div className=' text-center capitalize mt-10 sm:mb-0 mb-8'>
-        <p className='sm:text-4xl text-2xl font-robotoSerif font-bold'>Our Journey</p>
-        <p className='sm:text-3xl text-lg font-roboto pt-2 text-[#3E3F42]'>The Story of Two Guys Home Furnishings</p>
+      <div className=' text-center capitalize mt-10 sm:mb-0 mb-6'>
+        <p className='sm:text-4xl text-2xl font-robotoSerif font-bold text-primary'>Our Journey</p>
+        <p className='sm:text-3xl text-14 font-medium font-roboto pt-2 text-[#3E3F42]'>The Story of Two Guys Home Furnishings</p>
       </div>
 
       <Container>
