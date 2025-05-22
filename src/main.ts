@@ -9,7 +9,7 @@ import { Request, Response, NextFunction } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  
+
   app.enableCors({
     origin: [
       'http://localhost:3000',
@@ -23,7 +23,9 @@ async function bootstrap() {
       "http://185.151.51.28:5004",
        "https://avenue39.com/",
          "https://www.avenue39.com",
-          "https://www.avenue39.com"
+          "https://www.avenue39.com",
+          "https://bncprod.vercel.app/",
+          "https://bncprod.vercel.app"
 
 
     ],
