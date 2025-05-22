@@ -46,6 +46,7 @@ const Footer: React.FC = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['allData'],
     queryFn: fetchAllData,
+
   });
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname()

@@ -104,6 +104,8 @@ const Navbar = () => {
           </div>
       }
 
+      
+
       <nav className="sticky -top-1 z-50 py-2 sm:py-0 bg-white">
 
         {/* mobile container */}

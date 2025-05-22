@@ -14,6 +14,7 @@ export const fetchProducts = async () => {
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/GetAllProducts`,
       {
         next: { tags: ['products'] },
+        credentials:'include'
       },
     );
     const products = await response.json();
