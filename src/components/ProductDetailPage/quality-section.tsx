@@ -8,7 +8,7 @@ import React from 'react'
 
 const QualitySection = () => {
   return (
-    <section className="sm:bg-[#F5F5F5] py-6 sm:py-12 md:px-6 sm:mt-10">
+    <section className="sm:bg-secondary-foreground py-6 sm:py-12 md:px-6 sm:mt-10">
       <Container className="space-y-4 sm:space-y-10">
         <div className="space-y-2">
           <p className="uppercase text-sm sm:text-base font-medium text-primary text-center sm:text-start">We Only Focus On</p>

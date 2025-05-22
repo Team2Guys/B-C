@@ -10,7 +10,7 @@ export default function ReviewBanner() {
 
   
   return (
-    <div className="pt-5 lg:pt-10 bg-[#F5F5F5]]">
+    <div className="pt-5 lg:pt-10 bg-secondary-foreground">
       <Container className="grid grid-cols-1 md:grid-cols-2">
       <div className="md:max-w-screen-xs flex flex-col md:flex-row gap-6 items-center md:items-start relative mt-2">
         <Image src={"/assets/images/logo-review.png"} className="relative top-0 left-0 hidden md:block" width={100} height={40} alt="logo"/>
@@ -33,7 +33,7 @@ export default function ReviewBanner() {
      <div className=" mt-5 md:mt-10 relative ">
   <ReviewBackground className="block md:hidden" />
   <ReviewBackgrounddashktop className="hidden md:block"/>
-  <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-robotoSerif text-center text-xs md:text-24 xl:text-32 font-semibold xl:font-bold text-primary-foreground md:w-full w-full sm:p-0 p-3">
+  <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-robotoSerif text-center text-xs md:text-24 xl:text-32 font-semibold xl:font-bold text-primary-foreground max-sm:px-6 w-full">
     Dubai Homeowners Have Crowned Us With Their Trust!
   </p>
 </div>
