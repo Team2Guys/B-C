@@ -88,7 +88,7 @@ export default function MotorizeBlindCurtain() {
       </div>
 
       {/* Features (Desktop) */}
-      <div className="py-5 hidden sm:flex flex-wrap justify-center gap-20 text-center bg-[#FFFFF0]">
+      <div className="py-5 hidden sm:flex flex-wrap justify-center gap-20 text-center bg-secondary-foreground">
         {motorizeBlindData.features.map(({ icon, label }, i) => (
           <div key={i} className="flex flex-col items-center gap-2 relative">
             <div className="w-20 h-20 relative">
@@ -102,7 +102,7 @@ export default function MotorizeBlindCurtain() {
       </div>
 
       {/* Features (Mobile) */}
-      <div className="sm:py-10 pb-8 pt-5 sm:hidden bg-[#FFFFF0]">
+      <div className="sm:py-10 pb-8 pt-5 sm:hidden bg-secondary-foreground">
         <Slider {...sliderSettings}>
           {motorizeBlindData.features.map(({ icon, label }, i) => (
             <div
