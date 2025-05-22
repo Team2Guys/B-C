@@ -5,7 +5,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import axios from 'axios';
-import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import showToast from 'components/Toaster/Toaster';
@@ -15,6 +14,7 @@ import HorizontalDatePicker from './HorizontalDatePicker';
 import TimeSlotPicker from './TimeSlotPicker';
 import { IoMdCheckmark } from 'react-icons/io';
 import Image from 'next/image';
+import Loader from 'components/Loader/Loader';
 interface IAppointments {
   name: string;
   phone_number: string;
