@@ -114,6 +114,7 @@ const Thumbnail = ({
                 width={200}
                 height={200}
                 className="w-full h-20 sm:h-28 lg:h-32 xl:h-40 object-cover"
+                loading='eager'
                 alt="Video thumbnail"
               />
             ) : (
@@ -137,6 +138,7 @@ const Thumbnail = ({
                 width={200}
                 height={200}
                 className="w-full h-20 sm:h-28 lg:h-32 xl:h-40 object-cover"
+                loading='eager'
                 alt={img.altText || ''}
               />
             </div>

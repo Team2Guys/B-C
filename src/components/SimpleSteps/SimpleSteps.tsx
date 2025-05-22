@@ -12,7 +12,7 @@ export default function SimpleSteps() {
           <h2 className="sm:text-5xl text-2xl font-robotoSerif font-bold text-primary text-center">
             {workingProcessData.heading}
           </h2>
-          <p className="sm:text-xl text-lg mt-3 sm:mt-6 mb-2 text-center font-roboto text-primary sm:w-1/2 mx-auto sm:block hidden">
+          <p className="sm:text-xl text-lg mt-3 sm:mt-6 mb-2 text-center font-roboto text-primary max-w-5xl mx-auto sm:block hidden">
             {workingProcessData.subheading}
           </p>
           <h3 className="sm:text-2xl text-xl sm:font-bold font-semibold text-primary mb-6 text-center font-robotoSerif block sm:hidden">

@@ -1,7 +1,6 @@
 import React from 'react';
 import MotorisedPage from 'components/ui/MotorisedPage';
 import { Metadata } from 'next';
-import {fetchProducts } from 'config/fetch';
 import { MoterisedContent } from 'data/data';
 import NotFound from 'app/not-found';
 import og from '../../../public/assets/images/MotorisedBlind/blind.png'
@@ -29,7 +28,6 @@ export const metadata: Metadata = {
 };
 
 const MotorisedBlinds = async () => {
-  const [products] = await Promise.all([fetchProducts()]);
   const content = MoterisedContent.find(
       (item) => item.maintitle === '/automated-blinds/'
     );
@@ -44,7 +42,7 @@ const MotorisedBlinds = async () => {
     <Script type="application/ld+json" id="blinds-json-ld">
     {JSON.stringify(BlindSchemaMap["Automated Blinds"])}
   </Script>
-    <MotorisedPage products={products} pageData={pageData} />
+    <MotorisedPage  pageData={pageData} />
     </>
   );
 };

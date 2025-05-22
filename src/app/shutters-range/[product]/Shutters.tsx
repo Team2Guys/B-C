@@ -24,7 +24,7 @@ const CommercialPage = ({
               category={`${filteredSubCategory.category.title}`}
               relatedProducts={filteredSubCategory?.products || []}
               filteredSubCategory={filteredSubCategory}
-              products={allprod}
+              products={allprod || []}
             />
           </>
         ) : (

@@ -2,12 +2,8 @@ import TopHero from 'components/ui/top-hero';
 import MotorisedInfo from 'components/motorised-blinds/motorised-info';
 import Measure from 'components/motorised-blinds/measure';
 import ChooseUs from 'components/motorised-blinds/choose-us';
-import BookNowBanner from 'components/BookNowBanner/BookNowBanner';
-import RelatedProducts from 'components/Related-products/RelatedProducts';
-import Container from 'components/Res-usable/Container/Container';
-import { IProduct } from 'types/types';
 
-const MotorisedPage = ({products, pageData}:{products:IProduct[], pageData: any}) => {  
+const MotorisedPage = ({pageData}:{ pageData: any}) => {  
   return (
     <>
 
@@ -59,10 +55,8 @@ const MotorisedPage = ({products, pageData}:{products:IProduct[], pageData: any}
           description3={pageData.additionalDescription3}
         />
       )}
-      <BookNowBanner />
-      <Container className="mt-10 md:mt-20">
-        <RelatedProducts products={products || []} limit={4} />
-      </Container>
+
+
     </>
   );
 };

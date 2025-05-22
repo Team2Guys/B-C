@@ -405,10 +405,10 @@ export type meta_props = {
 };
 
 export interface PRODUCS_PROPS {
-  product: string;
+  product?: string;
   filteredProduct: IProduct | undefined | null;
-  filteredSubCategory: ICategory | undefined | null;
-  allprod: Allproduct[];
+  filteredSubCategory?: ICategory | undefined | null;
+  allprod?: Allproduct[];
   categories?: ICategory[]
   subCategories?: ICategory[]
   colorPage?: IColorData
