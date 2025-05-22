@@ -118,7 +118,7 @@ const Navbar = () => {
                 alt="Logo"
               />
             </Link>
-            <div className='w-[140px] xl:w-[180px] overflow-hidden'>
+            <div className='w-[140px] xl:w-[180px] overflow-hidden hidden lg:block'>
               {!translatorReady ?
                 <div
                   className={`bg-gray-300 h-8 w-full rounded-lg`} />
@@ -221,6 +221,37 @@ const Navbar = () => {
                   );
                 })}
 
+              </div>
+              <div className='border-[#0000002a] border-b py-[6px]'>
+                {!translatorReady ?
+                  <div
+                    className={`bg-gray-300 h-8 w-full rounded-lg`} />
+                  :
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => handleLanguageSwitch('en')}
+                      disabled={!translatorReady || language === 'en'}
+                      className='flex items-center justify-end gap-1 w-fit py-1 rounded-md font-medium font-robotoSerif transition-colors duration-200 text-primary'
+                    >
+                      <Image
+                        src="/assets/uaeFlag.webp"
+                        alt="flag"
+                        width={20}
+                        height={20}
+                        className="rounded-full size-6"
+                      />
+                      <span>English</span>
+                    </button>
+                    <div className='bg-primary w-[1px] h-6'></div>
+                    <button
+                      className='w-fit py-1 mb-1 text-start rounded-md font-medium font-robotoSerif transition-colors duration-200 text-primary'
+                      onClick={() => handleLanguageSwitch('ar')}
+                      disabled={!translatorReady || language === 'ar'}
+                    >
+                      عربی
+                    </button>
+                  </div>
+                }
               </div>
 
               <Link
