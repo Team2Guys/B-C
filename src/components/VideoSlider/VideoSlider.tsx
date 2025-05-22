@@ -25,7 +25,7 @@ export default function VideoReelsSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext()
-    }, 10000)
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [activeIndex])

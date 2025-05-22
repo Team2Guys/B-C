@@ -160,7 +160,7 @@ export const links = [
       } },
 
   { href: '/estimator', label: 'Estimator' },
-  { href: '/faqs', label: 'FAQs' },
+  { href: '/faqs', label: 'FAQS' },
   { href: '/about-us', label: 'About Us' },
 ];
 
