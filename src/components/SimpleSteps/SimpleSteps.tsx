@@ -15,13 +15,13 @@ export default function SimpleSteps() {
           <p className="sm:text-xl text-lg mt-3 sm:mt-6 mb-2 text-center font-roboto text-primary sm:w-1/2 mx-auto sm:block hidden">
             {workingProcessData.subheading}
           </p>
-           <h3 className="sm:text-2xl text-xl sm:font-bold font-semibold text-primary mb-6 text-center font-robotoSerif block sm:hidden">
-              Just <span className="text-[#F1B42F]">4</span> Simple Steps
-            </h3>
+          <h3 className="sm:text-2xl text-xl sm:font-bold font-semibold text-primary mb-6 text-center font-robotoSerif block sm:hidden">
+            Just <span className="text-[#F1B42F]">4</span> Simple Steps
+          </h3>
         </div>
 
-        <div className="flex sm:flex-row flex-col justify-center gap-8 items-center sm:bg-[#FFFFF0]">
-          <div className="relative w-full h-[350px] md:h-[500px] sm:w-1/2">
+        <div className="flex sm:flex-row flex-col justify-center gap-8 items-center sm:bg-secondary-foreground">
+          <div className="relative w-full h-[350px] md:h-[500px] sm:w-3/5">
             <video
               src={workingProcessData.videoUrl}
               className="w-full h-full object-cover "
@@ -32,7 +32,7 @@ export default function SimpleSteps() {
             />
           </div>
 
-          <div className="w-full sm:w-1/2">
+          <div className="w-full sm:sm:w-2/5">
             <h3 className="text-2xl font-bold text-primary mb-6 text-center font-robotoSerif sm:block hidden">
               Just <span className="text-[#F1B42F]">4</span> Simple Steps
             </h3>
@@ -54,7 +54,7 @@ export default function SimpleSteps() {
 
                   </div>
                   <div className="flex flex-col justify-center pt-3">
-                  <p className="text-base font-bold text-primary font-robotoSerif">{step.title}</p>
+                    <p className="text-base font-bold text-primary font-robotoSerif">{step.title}</p>
                     <p className="text-base text-primary font-roboto">{step.description}</p>
                   </div>
                 </div>

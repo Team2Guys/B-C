@@ -1,24 +1,21 @@
 // middleware.ts
-import { newblogPostUrl } from 'data/redirect_pages';
+import { fetchRedirectUrlById } from 'config/fetch';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
     const { pathname, origin } = req.nextUrl;
-    const splited = pathname.split('/')[1];
     const fullUrl = req.url;
-    
-    const redirectedProduct = splited !== 'school-blinds' && newblogPostUrl.find((prod) => {
-        return prod.url + "/" === pathname.toLowerCase();
-    });    
+           let redirectedProduct = await fetchRedirectUrlById(pathname.replace(/^\/+|\/+$/g, ''))
+console.log(redirectedProduct, "redirectedProduct")
     if (!fullUrl.endsWith('/')) {
         return NextResponse.redirect(
             new URL(`${req.nextUrl.pathname}/`, req.nextUrl), 301
         )
     }
-    if (redirectedProduct) {
-        const redirectPath = redirectedProduct.redirectUrl == '/' ? '/' : redirectedProduct.redirectUrl + '/';
+    if (redirectedProduct?.redirectedUrl) {
+        const redirectPath = redirectedProduct.redirectedUrl == '/' ? '/' : redirectedProduct.redirectedUrl + '/';
         const absoluteUrl = new URL(redirectPath, origin);
         return NextResponse.redirect(absoluteUrl, 301);
     }

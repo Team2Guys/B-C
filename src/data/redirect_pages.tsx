@@ -1,67 +1,5 @@
 export const newblogPostUrl = [
-    {
-      url: '/guide-to-pulling-up-and-rolling-down-blinds',
-      redirectUrl: '/blog/guide-to-pulling-up-and-rolling-down-blinds',
-    },
-    {
-      url: '/types-of-popular-roman-blinds',
-      redirectUrl: '/blog/types-of-popular-roman-blinds',
-    },
-    {
-      url: '/types-of-roller-blinds-a-definitive-guide',
-      redirectUrl: '/blog/types-of-roller-blinds-a-definitive-guide',
-    },
-    {
-      url: 'can-you-paint-a-roller-blind',
-      redirectUrl: '/blog/can-you-paint-a-roller-blind',
-    },
-    {
-      url: 'how-to-choose-curtains-for-the-living-room',
-      redirectUrl: '/blog/how-to-choose-curtains-for-the-living-room',
-    },
-    {
-      url: 'should-curtains-match-the-wall-color',
-      redirectUrl: '/blog/should-curtains-match-the-wall-color',
-    },
-    {
-      url: 'different-types-of-curtains-for-windows',
-      redirectUrl: '/blog/different-types-of-curtains-for-windows',
-    },
-    {
-      url: 'blinds-vs-curtains-which-is-energy-efficient',
-      redirectUrl: '/blog/blinds-vs-curtains-which-is-energy-efficient',
-    },
-    {
-      url: 'lined-vs-unlined-curtains',
-      redirectUrl: '/blog/lined-vs-unlined-curtains',
-    },
-    {
-      url: 'how-to-cover-entire-wall-with-curtains',
-      redirectUrl: '/blog/how-to-cover-entire-wall-with-curtains',
-    },
-    {
-      url: 'about-blinds-curtains/product-guarantees',
-      redirectUrl: '/projects',
-    },
-    {
-      url: '/projects/al-barsha',
-      redirectUrl: '/projects',
-    },
-
-
-
-    {
-        url: '/projects/business-bay-dubai',
-        redirectUrl: '/projects',
-      },
-      {
-        url: '/projects/jumeirah-beach-residence',
-        redirectUrl: '/projects',
-      },
-      {
-        url: '/projects/arabian-ranches',
-        redirectUrl: '/projects',
-      },
+   
       {
         url: '/projects/jumeirah-bay-island',
         redirectUrl: '/projects',
@@ -192,34 +130,8 @@ export const newblogPostUrl = [
       url: '/embed',
       redirectUrl: '/',
     },
-    {
-      url: '/blinds/aluminium-venetian-2',
-      redirectUrl: '/aluminium-venetian-blinds-dubai',
-    },
     
-    {
-      url: '/blinds-projects/installed-roller-blinds-in-dubai',
-      redirectUrl: '/made-to-measure-blinds',
-    },
-    {
-      url: '/curtains/d',
-      redirectUrl: '/made-to-measure-blinds',
-    },
-    // {
-    //   url: '/commercial/schools',
-    //   redirectUrl: '/blinds/school-blinds',
-    // },
-    {
-      url: '/how-to-install-window-blinds-without-drilling',
-      redirectUrl: '/blog/how-to-install-window-blinds-without-drilling',
-    },
-    {
-      url: '/hotels-restaurants-blinds-curtains/shutters-range',
-      redirectUrl: '/hotels-restaurants-blinds-curtains',
-    },
-    {
-      url: '/curtains/blackout-curtains',
-      redirectUrl: '/curtains/blackout-curtains-dubai',
-    },
+  
+
 
   ];

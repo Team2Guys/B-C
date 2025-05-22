@@ -31,3 +31,18 @@ export interface DetailProps {
   selectedColor: string;
   setColorImage: React.Dispatch<React.SetStateAction<string>>;
 }
+
+type TabDataItem = {
+  icon: string;
+  title: string;
+  heading: string;
+  description: string;
+  href: string;
+  buttonText: string;
+  image: string;
+};
+
+export interface InfoTabsProps {
+  tabData: TabDataItem[];
+  isHome?: boolean;
+}
