@@ -442,7 +442,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="bg-primary">
-        <Container>
+        <Container className='pb-4 md:pb-0'>
           <div className="border-t border-primary-300 py-3 text-center flex sm:flex-row flex-col sm:justify-between justify-center items-center sm:gap-y-0 gap-y-2">
             <p className="text-14 xs:text-16 text-primary-foreground">{footerInfo}</p>
             <div className='flex gap-2 items-center'>
