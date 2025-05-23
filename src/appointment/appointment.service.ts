@@ -202,6 +202,7 @@ export class AppointmentService {
         <h2>Hi ${name},</h2>
         <p>Thank you for reaching out to Blinds And Curtains, Dubai’s trusted choice for premium blinds and curtains. We’ve received your enquiry, and one of our experts will be in touch with you shortly to assist with your window solution needs.</p>
         <ul>
+          <li><strong>Name:</strong> ${name}</li>
           <li><strong>Email:</strong> ${email}</li>
           <li><strong>Phone:</strong> ${phone}</li>
         </ul>
