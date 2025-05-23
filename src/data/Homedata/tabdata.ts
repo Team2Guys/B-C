@@ -3,7 +3,7 @@
   export const tabData = [
     {
       title: "Expert Guidance at Your Doorstep",
-      icon: "/assets/images/Home/tab/free-in-home.svg", 
+      icon: "/assets/images/Home/tab/Black.svg", 
       image: "/assets/images/Home/tab/trusted.webp", 
       heading: "Free In-Home Consultation",
       description:
@@ -135,12 +135,12 @@ export const Qualityfeatures = [
     text: 'We are provide 5 to 10 year Warranty and Hassle-Free Replacement for Any Issues',
   },
   {
-    icon: '/assets/detailpage/fast6.png',
-    text: 'Measure your space? Don’t worry, it’s easy! We’ve got step-by-step tips and friendly advice to help you get it right',
-  },
-  {
     icon: '/assets/detailpage/fast7.png',
     text: 'We serve 18000+ homes in Dubai — Rating <strong>4.9</strong> | <strong>760</strong> reviews — Window treatment store',
+  },
+  {
+    icon: '/assets/detailpage/fast6.png',
+    text: 'Measure your space? Don’t worry, it’s easy! We’ve got step-by-step tips and friendly advice to help you get it right',
   },
 ]
 

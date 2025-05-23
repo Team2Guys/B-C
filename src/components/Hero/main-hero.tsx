@@ -6,7 +6,7 @@ import Link from "next/link";
 const MainHero = () => {
  
   return (
-    <div className="relative w-full h-[280px] md:h-[70vh] overflow-hidden">
+    <div className="relative w-full h-[295px] md:h-[70vh] overflow-hidden">
       {/* Video Background */}
       <video
         autoPlay
@@ -26,7 +26,7 @@ const MainHero = () => {
           <p className="text-19 md:text-2xl  font-roboto md:font-medium text-primary-foreground text-start">
             Your Space, Our Modern Window Solution.
           </p>
-          <Link href="/request-appointment/" className="bg-secondary text-primary font-semibold text-14 md:text-xl py-2 md:py-4 px-4 sm:px-6 rounded-md w-fit">
+          <Link href="/request-appointment/" className="bg-secondary text-primary font-semibold text-14 md:text-xl py-2 md:py-4 px-4 sm:px-6 rounded-md w-fit hover:opacity-65">
             Book A Free Visit
           </Link>
         </div>

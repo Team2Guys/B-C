@@ -12,10 +12,10 @@ const Customisation = () => {
 
       <Container className="py-10 space-y-2 sm:space-y-4 lg:space-y-8 relative z-10">
         <div className="max-w-[520px] space-y-2 sm:space-y-4 lg:space-y-8 ">
-          <p className="text-2xl sm:text-3xl lg:text-[40px] text-secondary font-robotoSerif font-extrabold drop-shadow-2xl">
+          <p className="text-3xl lg:text-[40px] text-secondary font-robotoSerif font-extrabold drop-shadow-2xl">
             Customisation
           </p>
-          <p className="text-sm sm:text-base lg:text-2xl text-white font-roboto drop-shadow-2xl">
+          <p className="text-base lg:text-2xl text-white font-roboto drop-shadow-2xl">
             In Motorised blinds we offer customization with a range fabrics,
             hardware colours, and charging options.
           </p>
@@ -46,7 +46,7 @@ const Customisation = () => {
           ))}
         </div>
           <div className=' pt-5'>
-            <Link href="/request-appointment/" className='bg-secondary text-primary rounded-md py-2 sm:py-4 px-4 sm:px-8 font-roboto font-semibold block w-fit'>Book A Free Visit</Link>
+            <Link href="/request-appointment/" className='bg-secondary hover:opacity-65 text-primary rounded-md py-2 sm:py-4 px-4 sm:px-8 font-roboto font-semibold block w-fit'>Book A Free Visit</Link>
           </div>
       </Container>
     </div>

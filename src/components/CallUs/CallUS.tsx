@@ -114,7 +114,7 @@ const CallUS = () => {
                         <button
                            type="submit"
                            disabled={loading}
-                           className="w-full text-10 xsm:text-sm md:text-base rounded-full px-4 md:px-6 py-3 bg-primary-foreground text-primary font-semibold font-robotoSerif"
+                           className="w-full text-10 xsm:text-sm md:text-base rounded-full px-4 md:px-6 py-3 bg-primary-foreground text-primary font-semibold font-robotoSerif hover:bg-secondary duration-200 transition"
                         >
                            {loading ? "Submitting..." : "Submit Now"}
                         </button>

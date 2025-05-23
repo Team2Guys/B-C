@@ -42,22 +42,22 @@ const VideoGuide = ({ videos,isMotorisedCategory }: { videos?: VideoItem[],isMot
   }
 
   return (
-    <div className="bg-secondary-foreground py-6 sm:py-12 sm:mt-10">
+    <div className="bg-secondary-foreground py-6 sm:py-12 mt-10">
       <Container className="space-y-5 md:space-y-10">
-        <p className="font-robotoSerif font-extrabold text-2xl lg:text-5xl text-center">
+        <p className="font-robotoSerif font-extrabold text-3xl lg:text-5xl text-center">
           A Complete Guide To
         </p>
 
         <div className={`grid  gap-2 md:gap-6 justify-items-center  mx-auto ${isMotorisedCategory? "grid-cols-2 max-w-3xl": "grid-cols-3 max-w-5xl"}`}>
           {allVideos.map((video, idx) => (
-            <div key={idx} className="flex flex-col space-y-2 relative w-full">
+            <div key={idx} className="flex flex-col space-y-3 relative w-full">
               <div
                 className="p-1 sm:p-2 rounded-md border border-secondary relative cursor-pointer"
                 onClick={() => handlePlayPause(idx)}
               >
                 <video
                   ref={(el) => { videoRefs.current[idx] = el }}
-                  className="w-full h-[120px] sm:h-[325px] object-cover rounded"
+                  className="w-full h-[200px] sm:h-[325px] object-cover rounded"
                   muted
                   loop
                   playsInline
@@ -73,7 +73,7 @@ const VideoGuide = ({ videos,isMotorisedCategory }: { videos?: VideoItem[],isMot
                   </div>
                 )}
               </div>
-              <p className="text-xs sm:text-[22px] sm:font-semibold font-roboto px-2 sm:px-4 text-center sm:leading-6">
+              <p className="text-lg sm:text-[22px] sm:font-semibold font-roboto px-2 sm:px-4 text-center sm:leading-6">
                 {video.title}
               </p>
             </div>

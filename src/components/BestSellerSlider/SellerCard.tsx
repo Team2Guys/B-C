@@ -11,6 +11,8 @@ import { getPath } from "utils/helperFunctions";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
 const SellerSlider = ({products}: {products: IProduct[]}) => {
+
+  console.log(products,"productsproducts")
     const NextArrow = ({ onClick }: { onClick?: () => void }) => (
   <div
     className="absolute top-1/2 right-2 transform -translate-y-1/2 z-10 cursor-pointer"
@@ -59,16 +61,16 @@ const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
 
   return (
     <div className="bg-secondary-foreground py-5">
-    <Container className="overflow-hidden best_seller_slider bg-secondary-foreground">
+    <Container className="overflow-hidden best_seller_slider bg-secondary-foreground space-y-4">
       
-      <div className="text-center sm:pb-5 lg:pt-8">
+      <div className="text-center sm:pb-5 lg:pt-8 space-y-2">
         <h3 className="sm:text-[40px] text-2xl font-robotoSerif font-bold text-primary hidden md:block">SEE OUR BEST-SELLING PRODUCTS</h3>
-        <h3 className="sm:text-[40px] text-2xl font-robotoSerif font-bold text-primary block md:hidden">See Our Bestseller</h3>
+        <h3 className="sm:text-[40px] text-4xl font-robotoSerif font-bold text-primary block md:hidden">See Our Bestseller</h3>
        <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] mb-3 lg:my-7">Top-Selling Products to Inspire You!</p>
       </div>
         
       <Slider {...settings}>
-        {products.map((item: IProduct, index) => (
+        {products.slice(0,7).map((item: IProduct, index) => (
 
           <div key={index} className="px-2 xl:px-4">
             <Link href={getPath(item)}>
@@ -96,7 +98,7 @@ const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
       </Slider>
       <Link
           href="/book-free-visit" 
-          className="bg-secondary font-roboto text-14 md:text-16 text-primary font-semibold py-2 md:py-4 px-5 rounded-lg block w-fit text-center mx-auto mt-5"
+          className="bg-secondary font-roboto text-primary font-medium text-lg sm:text-[14px] px-5 py-2 rounded-lg block w-fit text-center mx-auto mt-5 hover:opacity-65"
         >
           Book a Free Visit
         </Link>

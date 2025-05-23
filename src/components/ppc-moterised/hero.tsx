@@ -21,7 +21,7 @@ import React from "react";
             We Bring the Finest to You, In 2-3 days, Right at Your Door!
             </h2>
             <div>
-            <Link href="/request-appointment/" target="blank" className="bg-primary text-black px-5 py-3 xl:text-17 font-semibold rounded-md hover:bg-opacity-90 transition">
+            <Link href="/request-appointment/" target="blank" className="bg-primary text-black px-5 py-3 xl:text-17 font-semibold hover:opacity-65 rounded-md hover:bg-opacity-90 transition">
             GET A FREE QUOTE
             </Link></div>
               </div>

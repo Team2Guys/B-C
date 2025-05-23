@@ -31,7 +31,7 @@ const Card = ({ card }: { card: IProduct }) => {
         </div>
         <Link
           href={getPath(card)}
-          className="text-primary bg-secondary text-sm md:text-xl font-roboto font-semibold rounded-md p-2 lg:py-3 px-6 block w-fit mx-auto"
+          className="text-primary bg-secondary text-sm md:text-xl font-roboto font-semibold rounded-md p-2 lg:py-3 px-6 block w-fit mx-auto hover:opacity-65"
         >
           Learn More
         </Link>

@@ -17,7 +17,7 @@ const QualitySection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-12 gap-2 lg:gap-4 items-center">
+        <div className="grid grid-cols-12 gap-4 lg:gap-4 items-center">
           <div className="col-span-12 md:col-span-5">
             <Image
               src="/assets/detailpage/quantity.png"
@@ -35,19 +35,19 @@ const QualitySection = () => {
                   <Image
                     src={feature.icon}
                     alt={`icon-${idx}`}
-                    className="w-12 sm:w-16 sm:h-16 h-12"
+                    className="w-14 sm:w-16 sm:h-16 h-14"
                     width={200}
                     height={200}
                   />
                   <p
-                    className=" text-sm md:text-base xl:text-xl text-primary font-medium font-roboto"
+                    className="text-base xl:text-xl text-primary font-medium font-roboto"
                     dangerouslySetInnerHTML={{ __html: feature.text }}
                   />
                 </div>
               ))}
             </div>
             <div className='relative top-5'>
-              <Link href="/" className="bg-secondary text-primary font-semibold px-6 sm:px-20 py-2 sm:py-4 rounded-md mx-auto block w-fit ">
+              <Link href="/" className="bg-secondary text-primary font-semibold px-6 sm:px-20 py-3 sm:py-4 rounded-md mx-auto block w-fit hover:opacity-65 ">
                 Book A Free Visit
               </Link>
             </div>
