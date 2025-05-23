@@ -99,17 +99,15 @@ const Footer: React.FC = () => {
         <Container>
           <div className="grid grid-cols-1 xs:grid-cols-2  md:grid-cols-4 lg:grid-cols-5 gap-2 md:justify-items-center">
             <div className="mb-4 flex flex-col items-start">
-              <Link href='/' aria-label="logo"
-              >
-                <Image
-                  src={'/assets/images/newLogo.png'}
-                  className="w-auto h-12 lg:h-16"
-                  alt="Logo"
-                  width={200}
-                  height={200}
-                />
-              </Link>
-              <p className="text-[12px] text-start max-w-64 xs:max-w-56 text-primary font-roboto mt-2 opacity-60">
+              <Link href='/' className="w-[79px] h-[50px] relative md:w-[120px] md:h-[70px]">
+              <Image
+                fill
+                loading='lazy'
+                src='/assets/images/logomain.webp'
+                alt="Logo"
+              />
+            </Link>
+              <p className="text-[14px] text-start max-w-72 text-primary font-roboto mt-2 opacity-60">
                 Most trusted window treatment company in Dubai with a decade of experience.
               </p>
               <ul className="space-y-2 mt-2 text-sm lg:w-[100%] text-primary ">
@@ -425,7 +423,7 @@ const Footer: React.FC = () => {
 
                 {(isMobile ? isOpen : true) && (
                   <div>
-                    <ul className="text-primary grid grid-cols-1 gap-1 xl:gap-2 mt-2">
+                    <ul className="text-primary grid grid-cols-1 gap-1 xl:gap-2 ">
                       {locations.map((city) => (
                         <li key={city} className="flex gap-2 flex-nowrap sm:px-0 px-3 ">
                           <IoLocationOutline size={20} className="text-secondary me-1" />
@@ -444,7 +442,7 @@ const Footer: React.FC = () => {
       <div className="bg-primary">
         <Container className='pb-4 md:pb-0'>
           <div className="border-t border-primary-300 py-3 text-center flex sm:flex-row flex-col sm:justify-between justify-center items-center sm:gap-y-0 gap-y-2">
-            <p className="text-14 xs:text-16 text-primary-foreground">{footerInfo}</p>
+            <p className="text-14 xs:text-16 text-primary-foreground font-medium font-roboto">{footerInfo}</p>
             <div className='flex gap-2 items-center'>
               <h4 className='text-base sm:font-bold font-semibold text-white font-roboto'>Follow Us</h4>
               <div className="flex items-center space-x-5 ">

@@ -52,10 +52,16 @@ export default async function Home() {
       <MainHero />
       <Review_banner />
       <InfoTabs tabData={tabData} isHome />
-      <ComparisonTable />
-      <Suspense fallback='loading ...'>
-        <SellerSlider products={products} />
-      </Suspense>
+      <div className='grid grid-cols-12'>
+        <div className='col-span-12 order-2 md:order-1'>
+          <ComparisonTable />
+        </div>
+        <div className='col-span-12 order-1 md:order-2'>
+          <Suspense fallback='loading ...'>
+            <SellerSlider products={products} />
+          </Suspense>
+        </div>
+      </div>
       <SimpleSteps />
       <MotorizeBlindCurtain />
       <VideoReelsSlider />

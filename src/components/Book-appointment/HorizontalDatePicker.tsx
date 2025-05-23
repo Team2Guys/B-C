@@ -36,7 +36,7 @@ console.log(days,'days')
               >
                 {format(date, 'dd')}
               </button>
-              <span className="text-base sm:text-xl font-semibold">
+              <span className="text-base sm:text-xl font-semibold hidden sm:block">
                 {format(date, 'MMM')}
               </span>
             </div>

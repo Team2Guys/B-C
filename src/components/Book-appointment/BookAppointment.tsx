@@ -267,7 +267,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             ))}
           </Radio.Group>
        {  selectedCity !== "Dubai" &&  
-       <p className='text-red-500 font-roboto text-xs xsm:text-sm sm:text-xl py-4 sm:px-8'>Services available with a minimum order of 8 windows.</p>}
+       <p className='text-red-500 font-medium font-roboto text-sm sm:text-xl py-4 sm:px-8'>Services available with a minimum order of 8 windows.</p>}
         </div>
         <div className='pt-4 sm:pt-8'>
           <HorizontalDatePicker
@@ -277,7 +277,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
           />
         </div>
         <div className='py-8'>
-          <h3 className='text-xl sm:text-2xl font-robotoSerif font-bold mb-4'>Time Slot For The Visit</h3>
+          <h3 className='text-xl sm:text-2xl font-robotoSerif font-bold mb-4 text-primary'>Time Slot For The Visit</h3>
           <TimeSlotPicker
             value={formData.prefered_time}
             onChange={(val: string) => setFormData({ ...formData, prefered_time: val })}
@@ -404,6 +404,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
               placeholder="Enter No of Windows"
               name="windows"
               id="windows"
+              min={0}
               className={`mt-1 h-14 px-4 border-2 border-gray-300 w-full font-medium rounded-xl text-sm sm:text-base ${errors.windows ? 'border-red-500' : ''}`}
               value={formData.windows}
               onChange={handleChange}
@@ -446,7 +447,7 @@ const BookAppointment: React.FC<AppointmentProps> = ({
             {loading ? <Loader color="#fff" /> : 'Submit Request'}
           </button>
           {successMessage && (
-            <p className=" text-xs mt-2">{successMessage}
+            <p className=" text-lg mt-2">{successMessage}
 
 
             </p>

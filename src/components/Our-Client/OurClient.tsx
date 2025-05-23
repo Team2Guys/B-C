@@ -17,7 +17,7 @@ const OurClient = () => {
   }, []);
   return (
     <>{!isMobile && <NeedHelp />}
-    <div className='sm:bg-secondary-foreground sm:py-14 py-5 mt-10'>
+    <div className='sm:bg-secondary-foreground sm:py-14 py-5 sm:mt-10'>
         <Container >
         <div className=" pb-5 max-w-screen-2xl mx-auto">
           <h2 className="text-center font-bold text-2xl xs:text-xl sm:text-2xl lg:text-4xl xl:text-[44px] text-primary capitalize font-robotoSerif">
