@@ -129,7 +129,7 @@ const Navbar = () => {
                   <button
                     onClick={() => handleLanguageSwitch('en')}
                     disabled={!translatorReady || language === 'en'}
-                    className='flex items-center justify-end gap-1 w-[90px] xl:w-28 py-1 rounded-md font-medium text-12 xl:text-lg transition-colors duration-200 text-primary'
+                    className='flex items-center justify-end gap-1 w-[90px] xl:w-28 py-1 rounded-md font-medium text-12 xl:text-lg transition-colors duration-200 text-primary notranslate'
                   >
                     <Image
                       src="/assets/uaeFlag.webp"
@@ -138,7 +138,7 @@ const Navbar = () => {
                       height={20}
                       className="rounded-full size-6"
                     />
-                    <span className='max-w-10 xl:max-w-14'>English</span>
+                    <span className='max-w-10 xl:max-w-14 notranslate'>English</span>
                   </button>
                   <div className='bg-primary w-[1px] h-6'></div>
                   <button
