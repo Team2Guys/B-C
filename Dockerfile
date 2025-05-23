@@ -3,7 +3,6 @@ FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
-
 COPY package*.json ./
 
 COPY prisma ./prisma
@@ -17,8 +16,10 @@ COPY . .
 # Run the Prisma generate command
 RUN npx prisma generate
 
+RUN npm run build
+
 # Expose port and define command
-EXPOSE 3300
+EXPOSE 5002
 CMD ["npm", "start:prod"]
 
 

@@ -199,40 +199,37 @@ export class AppointmentService {
 
       const htmlContent = `
       <div style="font-family: Arial, sans-serif; padding: 20px;">
-        <h2>Thank you, ${name}</h2>
-        <p>We’ve received your information:</p>
+        <h2>Hi ${name},</h2>
+        <p>Thank you for reaching out to Blinds And Curtains, Dubai’s trusted choice for premium blinds and curtains. We’ve received your enquiry, and one of our experts will be in touch with you shortly to assist with your window solution needs.</p>
         <ul>
           <li><strong>Email:</strong> ${email}</li>
           <li><strong>Phone:</strong> ${phone}</li>
         </ul>
+
+
+    Warm regards,
+Blinds & Curtains
+sales@blindsandcurtains.ae
+
       </div>
     `;
 
-      const adminContent = `
-      <div style="font-family: Arial, sans-serif; padding: 20px;">
-        <h2>New User Submission</h2>
-        <ul>
-          <li><strong>Name:</strong> ${name}</li>
-          <li><strong>Email:</strong> ${email}</li>
-          <li><strong>Phone:</strong> ${phone}</li>
-        </ul>
-      </div>
-    `;
+
 
       // Send email to user
       await this.transporter.sendMail({
-        from: `"Call Back Request" <${process.env.MAILER_MAIL}>`,
+        from: `" Thank you for your inquiry request" <${process.env.MAILER_MAIL}>`,
         to: email,
-        subject: 'Thanks for contacting us',
+        subject: 'Thank you for your inquiry request',
         html: htmlContent,
       });
 
       // Send email to admin
       await this.transporter.sendMail({
-        from: `"Call Back Request" <${process.env.MAILER_MAIL}>`,
+        from: `" Thank you for your inquiry request" <${process.env.MAILER_MAIL}>`,
         to: `${process.env.RECEIVER_MAIL1}, ${process.env.RECEIVER_MAIL3}`,
         subject: 'New Callback Request Received',
-        html: adminContent,
+        html: htmlContent,
       });
 
 
