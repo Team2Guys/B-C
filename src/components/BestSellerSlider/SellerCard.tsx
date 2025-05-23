@@ -62,7 +62,8 @@ const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
     <Container className="overflow-hidden best_seller_slider bg-secondary-foreground">
       
       <div className="text-center sm:pb-5 lg:pt-8">
-        <h3 className="sm:text-[40px] text-2xl font-robotoSerif font-bold text-primary">SEE OUR BEST-SELLING PRODUCTS</h3>
+        <h3 className="sm:text-[40px] text-2xl font-robotoSerif font-bold text-primary hidden md:block">SEE OUR BEST-SELLING PRODUCTS</h3>
+        <h3 className="sm:text-[40px] text-2xl font-robotoSerif font-bold text-primary block md:hidden">See Our Bestseller</h3>
        <p className="font-roboto font-normal lg:font-semibold text-16 md:text-20 text-[#3E3F42] mb-3 lg:my-7">Top-Selling Products to Inspire You!</p>
       </div>
         
@@ -95,7 +96,7 @@ const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
       </Slider>
       <Link
           href="/book-free-visit" 
-          className="bg-secondary font-roboto text-14 md:text-16 text-primary font-semibold py-2 md:py-4 px-5 rounded-lg block w-fit text-center mx-auto sm:mt-5"
+          className="bg-secondary font-roboto text-14 md:text-16 text-primary font-semibold py-2 md:py-4 px-5 rounded-lg block w-fit text-center mx-auto mt-5"
         >
           Book a Free Visit
         </Link>
