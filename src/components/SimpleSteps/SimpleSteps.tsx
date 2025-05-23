@@ -3,9 +3,11 @@
 import Container from "components/Res-usable/Container/Container";
 import { workingProcessData } from "data/SellerSlider";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SimpleSteps() {
   return (
+    <div className="bg-secondary-foreground sm:bg-transparent pb-5 sm:pb-0">
     <Container className="mt-5 md:mt-10">
       <div className="mx-auto px-1 md:px-4">
         <div className="sm:py-7 pt-7 pb-0">
@@ -60,10 +62,12 @@ export default function SimpleSteps() {
                 </div>
               ))}
             </div>
+            <Link href="/" className="bg-secondary text-primary py-3 px-8 sm:px-16 block rounded-md w-fit font-semibold mt-10 mb-2 max-sm:mx-auto">Book A Free Visit</Link>
           </div>
         </div>
       </div>
     </Container>
+    </div>
 
   );
 }

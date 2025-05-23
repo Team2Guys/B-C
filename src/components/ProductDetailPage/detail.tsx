@@ -20,10 +20,10 @@ const Detail = ({ data, setColorImage, selectedColor }: DetailProps) => {
           </div>
         ))}
       </div>
-      <div className="fixed bottom-0 left-0 w-full bg-[#F2F2F2] px-4 z-50 block sm:hidden">
+      <div className="fixed bottom-0 left-0 w-full bg-[#F2F2F2] px-4 py-2 z-50 block sm:hidden">
     <Link 
     href="/request-appointment/"
-    className="bg-secondary text-primary mt-2 mb-2 py-2 px-4 md:py-3 md:px-6 font-semibold block rounded-md w-full font-roboto text-center"
+    className="bg-secondary text-primary mt-2 mb-2 py-4 px-4 md:py-3 md:px-6 font-semibold block rounded-md w-full font-roboto text-center hover:opacity-65"
   >
     Book A Free Visit
     </Link>
@@ -61,13 +61,13 @@ const Detail = ({ data, setColorImage, selectedColor }: DetailProps) => {
             )
           }
       
-        <Link href="/request-appointment/" className='bg-secondary text-primary py-3 px-6 font-semibold hidden md:block rounded-md w-full sm:w-fit font-roboto text-center '>Book A Free Visit</Link>
+        <Link href="/request-appointment/" className='bg-secondary hover:opacity-65 text-primary py-3 px-6 font-semibold hidden md:block rounded-md w-full sm:w-fit font-roboto text-center '>Book A Free Visit</Link>
 
       <div className='flex max-sm:flex-col sm:items-stretch sm:gap-2 sm:pt-5 px-2'>
       {featuresinfo.map((feature, index) => (
-        <div key={index} className='sm:border sm:rounded-sm flex sm:flex-col gap-1 justify-center items-center space-y-2 py-2 sm:px-4 sm:min-h-[140px] w-fit'>
-          <Image src={feature.icon} height={200} width={200} className=' h-8 sm:h-12 w-8 sm:w-12' alt='feature' />
-          <p className='font-roboto sm:max-w-32 sm:text-center text-xs sm:text-sm'>{feature.text}</p>
+        <div key={index} className='sm:border sm:rounded-sm flex sm:flex-col gap-1 justify-center items-center sm:space-y-2 py-2 sm:px-4 sm:min-h-[140px] w-fit'>
+          <Image src={feature.icon} height={200} width={200} className=' h-10 sm:h-12 w-10 sm:w-12' alt='feature' />
+          <p className='font-roboto sm:max-w-32 sm:text-center text-base sm:text-sm'>{feature.text}</p>
         </div>
       ))}
     </div>

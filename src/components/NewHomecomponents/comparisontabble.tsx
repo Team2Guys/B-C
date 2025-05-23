@@ -40,7 +40,7 @@ export default function ComparisonTable() {
      return (
       <div
         key={index}
-        className="h-[60px] lg:h-[70px] w-full p-2 flex justify-center items-center font-roboto font-normal text-12 sm:text-16 xl:text-20"
+        className="h-[60px] lg:h-[70px] w-full p-2 flex justify-center items-center font-roboto font-normal text-15 sm:text-16 xl:text-20"
       >
         {item === "BiSolidCheckCircle" ? (
           <BiSolidCheckCircle className="text-green-600 w-5 h-5 lg:w-7 lg:h-7 mx-auto" />
@@ -57,7 +57,7 @@ export default function ComparisonTable() {
       {othersData.map((item, index) => (
       <div
         key={index}
-        className="h-[60px] lg:h-[70px] w-full font-roboto flex justify-center items-center font-normal text-12 sm:text-16 xl:text-20 p-2"
+        className="h-[60px] lg:h-[70px] w-full font-roboto flex justify-center items-center font-normal text-15 sm:text-16 xl:text-20 p-2"
       >
         {item === "IoIosCloseCircle" ? (
             <IoIosCloseCircle className="text-red-600 w-5 h-5 lg:w-7 lg:h-7 mx-auto" />
@@ -71,11 +71,11 @@ export default function ComparisonTable() {
       </div>     
 
      {/* button */}
-        <Link href="/request-appointment" className="bg-secondary font-semibold py-3 px-4 md:px-12 lg:px-16 xl:px-[116px] rounded-md text-primary font-roboto text-16 mx-auto w-fit relative hidden md:block md:bottom-16 ">
+        <Link href="/request-appointment" className="bg-secondary font-semibold py-3 px-4 md:px-12 lg:px-16 xl:px-[116px] rounded-md text-primary font-roboto text-16 mx-auto w-fit relative hidden md:block md:bottom-16 hover:opacity-65">
           Book A Free Visit                        
         </Link>
       </section> 
-      <Link href="/request-appointment" className="bg-secondary text-center font-semibold md: py-2 md:py-3  w-full xs:w-1/2 rounded-md text-primary font-roboto text-14 mx-auto relative block md:hidden my-4 ">
+      <Link href="/request-appointment" className="bg-secondary text-center font-semibold py-2  w-fit max-sm:px-6 xs:w-1/2 rounded-md text-primary font-roboto text-lg mx-auto relative block md:hidden my-4 hover:opacity-65">
           Book A Free Visit                        
         </Link>
       </Container>

@@ -59,7 +59,7 @@ export default function InfoTabs({ tabData,isHome }: InfoTabsProps) {
           <div className="flex flex-col justify-center items-start space-y-5 lg:space-y-12">
             <h3 className="font-robotoSerif font-semibold text-20 lg:text-[40px] text-primary sm:pr-10">{tabData[activeTab].heading}</h3>
             <p className="text-[16px] font-normal font-roboto lg:text-[20px] text-primary text-justify" dangerouslySetInnerHTML={{__html:tabData[activeTab].description}}/>
-            <Link href={tabData[activeTab].href} className=" border bg-secondary text-primary font-semibold text-16 font-roboto px-6 py-2 md:py-4 rounded-xl hover:bg-primary-dark transition">
+            <Link href={tabData[activeTab].href} className=" border bg-secondary text-primary font-semibold text-16 font-roboto px-6 py-2 md:py-4 rounded-xl hover:bg-primary-dark transition hover:opacity-65">
               {tabData[activeTab].buttonText}
             </Link>
           </div>
@@ -69,7 +69,7 @@ export default function InfoTabs({ tabData,isHome }: InfoTabsProps) {
               alt={tabData[activeTab].heading}
               width={600}
               height={400}
-              className={`w-full  px-4 ${isHome ? "h-[235px] lg:h-[454px] object-cover":"h-[354px] lg:h-[547px] object-contain"}`}
+              className={`w-full  px-4 ${isHome ? "h-[235px] lg:h-[454px] object-cover":"h-[400px] lg:h-[547px] object-contain"}`}
             />
             {
               isHome &&
@@ -90,7 +90,7 @@ export default function InfoTabs({ tabData,isHome }: InfoTabsProps) {
       alt={tabData[activeMobileTab ?? 0].heading}
       width={600}
       height={400}
-      className={`w-full  ${isHome? "h-[235px] object-cover" : "h-[235px] object-contain"}`}
+      className={`w-full  ${isHome? "h-[235px] object-cover" : "h-[300px] object-contain"}`}
     />
     {
       isHome &&
@@ -112,10 +112,10 @@ export default function InfoTabs({ tabData,isHome }: InfoTabsProps) {
       >
         <div className="flex justify-start items-center gap-2">
           <Image src={tab.icon} alt={tab.title} width={30} height={30} className="w-9 h-9" />
-          <span className="text-primary font-roboto font-normal text-[15px]">{tab.title}</span>
+          <span className="text-primary font-roboto font-medium  md:font-normal text-[16px] leading-[130%]">{tab.title}</span>
         </div>
         <div>
-          {activeMobileTab === index ? <BsChevronUp size={18} /> : <BsChevronDown size={18} />}
+          {activeMobileTab === index ? <BsChevronUp className="text-primary font-semibold" size={18} /> : <BsChevronDown className="text-primary font-semibold" size={18} />}
         </div>
       </button>
 
@@ -130,7 +130,7 @@ export default function InfoTabs({ tabData,isHome }: InfoTabsProps) {
       <div className="flex justify-center items-center">
           <Link
             href="/book-free-visit"
-            className="sm:hidden my-3 inline-block bg-secondary text-primary font-medium text-[14px] px-5 py-2 rounded-md shadow hover:bg-primary-dark transition"
+            className="sm:hidden my-3 inline-block bg-secondary text-primary font-medium  text-lg sm:text-[14px] px-5 py-2 rounded-md shadow hover:bg-primary-dark transition"
           >
             Book A Free Visit
           </Link>

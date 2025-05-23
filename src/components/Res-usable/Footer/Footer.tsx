@@ -107,18 +107,18 @@ const Footer: React.FC = () => {
                 alt="Logo"
               />
             </Link>
-              <p className="text-[14px] text-start max-w-72 text-primary font-roboto mt-2 opacity-60">
+              <p className="text-base sm:text-sm text-start max-w-80 text-primary font-roboto mt-2 opacity-60">
                 Most trusted window treatment company in Dubai with a decade of experience.
               </p>
               <ul className="space-y-2 mt-2 text-sm lg:w-[100%] text-primary ">
                 <li className="flex gap-2 flex-nowrap items-center">
                   <span>
-                    <TfiEmail size={15} className="text-secondary me-1 ms-[2px]" />
+                    <TfiEmail size={18} className="text-secondary me-1 ms-[2px]" />
                   </span>
                   <Link
                     href={`mailto:${EmailInfo.email}`}
                     target="_blank"
-                    className="text-12 sm:text-[14px] text-wrap break-all "
+                    className="text-base sm:text-sm text-wrap break-all "
                     aria-label='email'
                   >
                     {EmailInfo.email}
@@ -126,44 +126,44 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="flex gap-2 flex-nowrap items-center">
                   <span>
-                    <LuPhone size={18} className="text-secondary me-1 ms-[2px]" />
+                    <LuPhone size={20} className="text-secondary me-1 ms-[2px]" />
                   </span>
                   <Link
                     href={`tel:${phoneNumberInfo.number.replaceAll(' ', '')}`}
                     aria-label="Call Phone Number"
                     target="_blank"
-                    className="text-12 sm:text-[14px] text-nowrap"
+                    className="text-base sm:text-sm text-nowrap"
                   >
                     {phoneNumberInfo.number}
                   </Link>
                 </li>
                 <li className="flex gap-1 items-center flex-nowrap">
                   <span>
-                    <FaWhatsapp size={18} className="text-secondary me-1 ms-[2px]" />
+                    <FaWhatsapp size={20} className="text-secondary me-1 ms-[2px]" />
                   </span>
                   <Link
                     href={`https://wa.me/${WhatsAppInfo.number.replaceAll(' ', '')}`}
                     target="_blank"
-                    className="text-12 sm:text-[14px]  text-nowrap"
+                    className="text-base sm:text-sm  text-nowrap"
                   >
                     {WhatsAppInfo.number}
                   </Link>
                 </li>
                 <li className="flex gap-2 items-center flex-nowrap">
                   <span>
-                    <SlCalender size={17} className="text-secondary me-1 ms-[2px]" />
+                    <SlCalender size={19} className="text-secondary me-1 ms-[2px]" />
                   </span>
-                  <p className='text-12 sm:text-[14px] '>8.30am - 6.00pm 7 days a week</p>
+                  <p className='text-base sm:text-sm '>8.30am - 6.00pm 7 days a week</p>
 
                 </li>
 
                 <li className="flex gap-2 flex-nowrap">
                   <span>
-                    <IoLocationOutline size={19} className="text-secondary me-1 ms-[2px]" />
+                    <IoLocationOutline size={22} className="text-secondary me-1 ms-[2px]" />
                   </span>
                   <Link
                     target="_blank"
-                    className="text-12 sm:text-[14px] "
+                    className="text-base sm:text-sm "
                     aria-label="Address"
                     href={
                       'https://www.google.com/maps/place/Two+Guys+-+Blinds+%26+Curtains+Dubai/@25.1177196,55.2331055,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f698d0b075de1:0x223e3563a8be56be!8m2!3d25.1177148!4d55.2356858!16s%2Fg%2F11bbt9c0yz?entry=tts&g_ep=EgoyMDI0MDkxOC4xKgBIAVAD'

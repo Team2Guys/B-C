@@ -83,7 +83,7 @@ export default function MotorizeBlindCurtain() {
             <Link
               key={i}
               href={link}
-              className="bg-secondary hover:bg-yellow-500 text-primary font-semibold font-roboto py-2 lg:py-4 px-5 rounded-md shadow-md sm:text-base text-12 transition"
+              className="bg-secondary hover:bg-yellow-500 text-primary font-semibold font-roboto py-2 lg:py-4 px-5 rounded-md shadow-md sm:text-base text-12 transition hover:opacity-65 "
             >
               {label}
             </Link>

@@ -48,7 +48,7 @@ const BookNowBanner: React.FC<BookNowBannerProps> = ({ className, parent }) => {
           aria-label='Book A Free Home Design Visit'
           aria-hidden='true'
             href="/request-appointment/"
-            className="px-4 py-3 bg-secondary hover:bg-primary text-white rounded-md uppercase text-14 xs:text-base"
+            className="px-4 py-3 bg-secondary hover:bg-primary text-white rounded-md uppercase text-14 xs:text-base hover:opacity-65"
           >
             Book A Free Home Design Visit
           </Link>

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Button = () => {
   return (
       <div className='flex flex-col text-sm sm:text-xs w-full sm:flex-row flex-wrap sm:flex-nowrap justify-center items-center gap-2 bg-[#A9B4A4] p-4'>
-        <Link className='w-full sm:w-fit text-white text-center bg-black py-3 px-4 rounded-sm font-medium hover:bg-primary' href="/request-appointment/">
+        <Link className='w-full sm:w-fit text-white text-center bg-black py-3 px-4 rounded-sm font-medium hover:bg-primary hover:opacity-65' href="/request-appointment/">
           BOOK A FREE APPOINTMENT
         </Link>
         <Link className='w-full  sm:w-fit text-center text-black bg-white p-3 rounded-sm font-medium hover:bg-primary hover:text-white' href="tel:+971544945339" target='_blank'>
