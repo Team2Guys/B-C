@@ -20,9 +20,15 @@ const Detail = ({ data, setColorImage, selectedColor }: DetailProps) => {
           </div>
         ))}
       </div>
-      <div className='py-3 bg-[#F2F2F2] px-2 block md:hidden '>
-        <Link href="/request-appointment/" className='bg-secondary text-primary py-3 px-6 font-semibold block rounded-md w-full md:w-fit font-roboto text-center'>Book A Free Visit</Link>
-      </div>
+      <div className="fixed bottom-0 left-0 w-full bg-[#F2F2F2] px-4 z-50 block sm:hidden">
+    <Link 
+    href="/request-appointment/"
+    className="bg-secondary text-primary mt-2 mb-2 py-2 px-4 md:py-3 md:px-6 font-semibold block rounded-md w-full font-roboto text-center"
+  >
+    Book A Free Visit
+    </Link>
+    </div>
+    
       <p className='px-2'>
       <span className='font-roboto'
         dangerouslySetInnerHTML={{ __html:data.description}}/>
