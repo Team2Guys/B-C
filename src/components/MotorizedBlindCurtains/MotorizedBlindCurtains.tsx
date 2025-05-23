@@ -35,10 +35,12 @@ export default function MotorizeBlindCurtain() {
 
   return (
     <div className="motorizedblindcurtains mt-5 md:mt-10">
-      <h2 className="text-center font-robotoSerif text-xl sm:text-4xl font-bold sm:mb-10 mb-5 text-gray-800">
+      <h2 className="text-center font-robotoSerif text-xl sm:text-4xl font-bold sm:mb-10 mb-5 text-primary px-4 md:px-0 hidden md:block">
         {motorizeBlindData.heading}
       </h2>
-
+       <h2 className="text-center font-robotoSerif text-2xl sm:text-4xl font-bold sm:mb-10 mb-5 text-primary px-4 md:px-0 block md:hidden">
+        New! Motorised Blinds And curtains
+      </h2>
       {/* Video Section */}
       <div
         className="relative w-full mx-auto overflow-hidden h-[272px] sm:h-[400px]  lg:h-[744px] group cursor-pointer"
@@ -118,7 +120,7 @@ export default function MotorizeBlindCurtain() {
                   className="object-contain"
                 />
               </div>
-              <p className="text-10 text-gray-700 font-medium text-center mt-2">
+              <p className=" text-lg sm:text-10 text-gray-700 font-medium text-center mt-2">
                 {label}
               </p>
             </div>
