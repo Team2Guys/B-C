@@ -52,7 +52,7 @@ export const banners = {
 
 
 
-export const footerInfo = 'Blinds & Curtains 2025 All Rights Reserved';
+export const footerInfo = ' ©Blinds & Curtains 2025 All rights reserved';
 
 export const phoneNumberInfo: PhoneNumber = {
   number: '04 252 2025',

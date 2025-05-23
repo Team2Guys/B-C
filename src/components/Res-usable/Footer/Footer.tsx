@@ -9,9 +9,7 @@ import {
   phoneNumberInfo,
   WhatsAppInfo,
 } from 'data/data';
-import { IoLocationOutline, IoLogoPinterest } from 'react-icons/io5';
-import { AiOutlineInstagram } from 'react-icons/ai';
-import { CiFacebook } from 'react-icons/ci';
+import { IoLocationOutline } from 'react-icons/io5';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ICategory, IProduct } from 'types/types';
@@ -32,6 +30,7 @@ import { LuPhone } from 'react-icons/lu';
 import { FaWhatsapp } from 'react-icons/fa';
 import { SlCalender } from 'react-icons/sl';
 import { usePathname } from 'next/navigation';
+import SocialLink from '../social-link/social-link';
 
 
 
@@ -448,32 +447,8 @@ const Footer: React.FC = () => {
             <p className="text-14 xs:text-16 text-primary-foreground">{footerInfo}</p>
             <div className='flex gap-2 items-center'>
               <h4 className='text-base sm:font-bold font-semibold text-white font-roboto'>Follow Us</h4>
-              <div className="flex items-center space-x-4 ">
-                <Link
-                  target="_blank"
-                  href={'https://www.facebook.com/blindsandcurtainsdubai'}
-                  aria-label="facebook"
-
-                >
-                  <CiFacebook className="w-7 h-7 text-secondary " />
-                </Link>
-                <Link
-                  target="_blank"
-                  href={'https://www.pinterest.com/blindsandcurtainsdubai/'}
-                  aria-label="pinterest"
-
-                ><span className='w-6 h-6 rounded-full border-2 border-secondary flex justify-center items-center'>
-                    <IoLogoPinterest className="w-6 h-6 rounded-full text-secondary" />
-                  </span>
-                </Link>
-                <Link
-                  target="_blank"
-                  href={'https://www.instagram.com/blindsandcurtainsdubai/'}
-                  aria-label="instagram"
-
-                >
-                  <AiOutlineInstagram className="w-7 h-7 text-secondary" />
-                </Link>
+              <div className="flex items-center space-x-5 ">
+            <SocialLink/>
               </div>
             </div>
           </div>
