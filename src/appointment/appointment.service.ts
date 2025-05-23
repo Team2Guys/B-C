@@ -208,9 +208,9 @@ export class AppointmentService {
         </ul>
 
 
-    Warm regards,
-Blinds & Curtains
-sales@blindsandcurtains.ae
+ Warm regards,
+ Blinds & Curtains
+ sales@blindsandcurtains.ae
 
       </div>
     `;
